@@ -6170,7 +6170,7 @@ export const de_AddAssociationCommand = async (
   context: __SerdeContext
 ): Promise<AddAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6183,35 +6183,6 @@ export const de_AddAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddAssociationCommandError
- */
-const de_AddAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddTagsCommand
  */
 export const de_AddTagsCommand = async (
@@ -6219,7 +6190,7 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6232,26 +6203,6 @@ export const de_AddTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1AssociateTrialComponentCommand
  */
 export const de_AssociateTrialComponentCommand = async (
@@ -6259,7 +6210,7 @@ export const de_AssociateTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTrialComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTrialComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6272,35 +6223,6 @@ export const de_AssociateTrialComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateTrialComponentCommandError
- */
-const de_AssociateTrialComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTrialComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDescribeModelPackageCommand
  */
 export const de_BatchDescribeModelPackageCommand = async (
@@ -6308,7 +6230,7 @@ export const de_BatchDescribeModelPackageCommand = async (
   context: __SerdeContext
 ): Promise<BatchDescribeModelPackageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDescribeModelPackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6321,26 +6243,6 @@ export const de_BatchDescribeModelPackageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDescribeModelPackageCommandError
- */
-const de_BatchDescribeModelPackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDescribeModelPackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1CreateActionCommand
  */
 export const de_CreateActionCommand = async (
@@ -6348,7 +6250,7 @@ export const de_CreateActionCommand = async (
   context: __SerdeContext
 ): Promise<CreateActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6361,32 +6263,6 @@ export const de_CreateActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateActionCommandError
- */
-const de_CreateActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAlgorithmCommand
  */
 export const de_CreateAlgorithmCommand = async (
@@ -6394,7 +6270,7 @@ export const de_CreateAlgorithmCommand = async (
   context: __SerdeContext
 ): Promise<CreateAlgorithmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAlgorithmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6407,26 +6283,6 @@ export const de_CreateAlgorithmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAlgorithmCommandError
- */
-const de_CreateAlgorithmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAlgorithmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1CreateAppCommand
  */
 export const de_CreateAppCommand = async (
@@ -6434,7 +6290,7 @@ export const de_CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6447,35 +6303,6 @@ export const de_CreateAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAppCommandError
- */
-const de_CreateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAppImageConfigCommand
  */
 export const de_CreateAppImageConfigCommand = async (
@@ -6483,7 +6310,7 @@ export const de_CreateAppImageConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppImageConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppImageConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6496,32 +6323,6 @@ export const de_CreateAppImageConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAppImageConfigCommandError
- */
-const de_CreateAppImageConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppImageConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateArtifactCommand
  */
 export const de_CreateArtifactCommand = async (
@@ -6529,7 +6330,7 @@ export const de_CreateArtifactCommand = async (
   context: __SerdeContext
 ): Promise<CreateArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6542,32 +6343,6 @@ export const de_CreateArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateArtifactCommandError
- */
-const de_CreateArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAutoMLJobCommand
  */
 export const de_CreateAutoMLJobCommand = async (
@@ -6575,7 +6350,7 @@ export const de_CreateAutoMLJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateAutoMLJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAutoMLJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6588,35 +6363,6 @@ export const de_CreateAutoMLJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAutoMLJobCommandError
- */
-const de_CreateAutoMLJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAutoMLJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAutoMLJobV2Command
  */
 export const de_CreateAutoMLJobV2Command = async (
@@ -6624,7 +6370,7 @@ export const de_CreateAutoMLJobV2Command = async (
   context: __SerdeContext
 ): Promise<CreateAutoMLJobV2CommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAutoMLJobV2CommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6637,35 +6383,6 @@ export const de_CreateAutoMLJobV2Command = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAutoMLJobV2CommandError
- */
-const de_CreateAutoMLJobV2CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAutoMLJobV2CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateClusterCommand
  */
 export const de_CreateClusterCommand = async (
@@ -6673,7 +6390,7 @@ export const de_CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6686,35 +6403,6 @@ export const de_CreateClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCodeRepositoryCommand
  */
 export const de_CreateCodeRepositoryCommand = async (
@@ -6722,7 +6410,7 @@ export const de_CreateCodeRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateCodeRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCodeRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6735,26 +6423,6 @@ export const de_CreateCodeRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCodeRepositoryCommandError
- */
-const de_CreateCodeRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCodeRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1CreateCompilationJobCommand
  */
 export const de_CreateCompilationJobCommand = async (
@@ -6762,7 +6430,7 @@ export const de_CreateCompilationJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateCompilationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCompilationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6775,35 +6443,6 @@ export const de_CreateCompilationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCompilationJobCommandError
- */
-const de_CreateCompilationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCompilationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContextCommand
  */
 export const de_CreateContextCommand = async (
@@ -6811,7 +6450,7 @@ export const de_CreateContextCommand = async (
   context: __SerdeContext
 ): Promise<CreateContextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6824,32 +6463,6 @@ export const de_CreateContextCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContextCommandError
- */
-const de_CreateContextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDataQualityJobDefinitionCommand
  */
 export const de_CreateDataQualityJobDefinitionCommand = async (
@@ -6857,7 +6470,7 @@ export const de_CreateDataQualityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataQualityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDataQualityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6870,35 +6483,6 @@ export const de_CreateDataQualityJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDataQualityJobDefinitionCommandError
- */
-const de_CreateDataQualityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataQualityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDeviceFleetCommand
  */
 export const de_CreateDeviceFleetCommand = async (
@@ -6906,42 +6490,13 @@ export const de_CreateDeviceFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeviceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDeviceFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateDeviceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDeviceFleetCommandError
- */
-const de_CreateDeviceFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeviceFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6952,7 +6507,7 @@ export const de_CreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6965,35 +6520,6 @@ export const de_CreateDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDomainCommandError
- */
-const de_CreateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEdgeDeploymentPlanCommand
  */
 export const de_CreateEdgeDeploymentPlanCommand = async (
@@ -7001,7 +6527,7 @@ export const de_CreateEdgeDeploymentPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateEdgeDeploymentPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEdgeDeploymentPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7014,32 +6540,6 @@ export const de_CreateEdgeDeploymentPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEdgeDeploymentPlanCommandError
- */
-const de_CreateEdgeDeploymentPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEdgeDeploymentPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEdgeDeploymentStageCommand
  */
 export const de_CreateEdgeDeploymentStageCommand = async (
@@ -7047,39 +6547,13 @@ export const de_CreateEdgeDeploymentStageCommand = async (
   context: __SerdeContext
 ): Promise<CreateEdgeDeploymentStageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEdgeDeploymentStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateEdgeDeploymentStageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateEdgeDeploymentStageCommandError
- */
-const de_CreateEdgeDeploymentStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEdgeDeploymentStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7090,39 +6564,13 @@ export const de_CreateEdgePackagingJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateEdgePackagingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEdgePackagingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateEdgePackagingJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateEdgePackagingJobCommandError
- */
-const de_CreateEdgePackagingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEdgePackagingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7133,7 +6581,7 @@ export const de_CreateEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7146,32 +6594,6 @@ export const de_CreateEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEndpointCommandError
- */
-const de_CreateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEndpointConfigCommand
  */
 export const de_CreateEndpointConfigCommand = async (
@@ -7179,7 +6601,7 @@ export const de_CreateEndpointConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateEndpointConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEndpointConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7192,32 +6614,6 @@ export const de_CreateEndpointConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEndpointConfigCommandError
- */
-const de_CreateEndpointConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateExperimentCommand
  */
 export const de_CreateExperimentCommand = async (
@@ -7225,7 +6621,7 @@ export const de_CreateExperimentCommand = async (
   context: __SerdeContext
 ): Promise<CreateExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7238,32 +6634,6 @@ export const de_CreateExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateExperimentCommandError
- */
-const de_CreateExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFeatureGroupCommand
  */
 export const de_CreateFeatureGroupCommand = async (
@@ -7271,7 +6641,7 @@ export const de_CreateFeatureGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateFeatureGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFeatureGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7284,35 +6654,6 @@ export const de_CreateFeatureGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFeatureGroupCommandError
- */
-const de_CreateFeatureGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFeatureGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFlowDefinitionCommand
  */
 export const de_CreateFlowDefinitionCommand = async (
@@ -7320,7 +6661,7 @@ export const de_CreateFlowDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFlowDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFlowDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7333,35 +6674,6 @@ export const de_CreateFlowDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFlowDefinitionCommandError
- */
-const de_CreateFlowDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFlowDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHubCommand
  */
 export const de_CreateHubCommand = async (
@@ -7369,7 +6681,7 @@ export const de_CreateHubCommand = async (
   context: __SerdeContext
 ): Promise<CreateHubCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7382,35 +6694,6 @@ export const de_CreateHubCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHubCommandError
- */
-const de_CreateHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHumanTaskUiCommand
  */
 export const de_CreateHumanTaskUiCommand = async (
@@ -7418,7 +6701,7 @@ export const de_CreateHumanTaskUiCommand = async (
   context: __SerdeContext
 ): Promise<CreateHumanTaskUiCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHumanTaskUiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7431,35 +6714,6 @@ export const de_CreateHumanTaskUiCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHumanTaskUiCommandError
- */
-const de_CreateHumanTaskUiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHumanTaskUiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHyperParameterTuningJobCommand
  */
 export const de_CreateHyperParameterTuningJobCommand = async (
@@ -7467,7 +6721,7 @@ export const de_CreateHyperParameterTuningJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateHyperParameterTuningJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHyperParameterTuningJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7480,35 +6734,6 @@ export const de_CreateHyperParameterTuningJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHyperParameterTuningJobCommandError
- */
-const de_CreateHyperParameterTuningJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHyperParameterTuningJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateImageCommand
  */
 export const de_CreateImageCommand = async (
@@ -7516,7 +6741,7 @@ export const de_CreateImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7529,35 +6754,6 @@ export const de_CreateImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateImageCommandError
- */
-const de_CreateImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateImageVersionCommand
  */
 export const de_CreateImageVersionCommand = async (
@@ -7565,7 +6761,7 @@ export const de_CreateImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateImageVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7578,38 +6774,6 @@ export const de_CreateImageVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateImageVersionCommandError
- */
-const de_CreateImageVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInferenceComponentCommand
  */
 export const de_CreateInferenceComponentCommand = async (
@@ -7617,7 +6781,7 @@ export const de_CreateInferenceComponentCommand = async (
   context: __SerdeContext
 ): Promise<CreateInferenceComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInferenceComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7630,32 +6794,6 @@ export const de_CreateInferenceComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInferenceComponentCommandError
- */
-const de_CreateInferenceComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInferenceComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInferenceExperimentCommand
  */
 export const de_CreateInferenceExperimentCommand = async (
@@ -7663,7 +6801,7 @@ export const de_CreateInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<CreateInferenceExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInferenceExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7676,35 +6814,6 @@ export const de_CreateInferenceExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInferenceExperimentCommandError
- */
-const de_CreateInferenceExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInferenceExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInferenceRecommendationsJobCommand
  */
 export const de_CreateInferenceRecommendationsJobCommand = async (
@@ -7712,7 +6821,7 @@ export const de_CreateInferenceRecommendationsJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateInferenceRecommendationsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInferenceRecommendationsJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7725,35 +6834,6 @@ export const de_CreateInferenceRecommendationsJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInferenceRecommendationsJobCommandError
- */
-const de_CreateInferenceRecommendationsJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInferenceRecommendationsJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLabelingJobCommand
  */
 export const de_CreateLabelingJobCommand = async (
@@ -7761,7 +6841,7 @@ export const de_CreateLabelingJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateLabelingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLabelingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7774,35 +6854,6 @@ export const de_CreateLabelingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLabelingJobCommandError
- */
-const de_CreateLabelingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLabelingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelCommand
  */
 export const de_CreateModelCommand = async (
@@ -7810,7 +6861,7 @@ export const de_CreateModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7823,32 +6874,6 @@ export const de_CreateModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelCommandError
- */
-const de_CreateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelBiasJobDefinitionCommand
  */
 export const de_CreateModelBiasJobDefinitionCommand = async (
@@ -7856,7 +6881,7 @@ export const de_CreateModelBiasJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelBiasJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelBiasJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7869,35 +6894,6 @@ export const de_CreateModelBiasJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelBiasJobDefinitionCommandError
- */
-const de_CreateModelBiasJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelBiasJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelCardCommand
  */
 export const de_CreateModelCardCommand = async (
@@ -7905,7 +6901,7 @@ export const de_CreateModelCardCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelCardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7918,35 +6914,6 @@ export const de_CreateModelCardCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelCardCommandError
- */
-const de_CreateModelCardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelCardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelCardExportJobCommand
  */
 export const de_CreateModelCardExportJobCommand = async (
@@ -7954,7 +6921,7 @@ export const de_CreateModelCardExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCardExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelCardExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7967,38 +6934,6 @@ export const de_CreateModelCardExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelCardExportJobCommandError
- */
-const de_CreateModelCardExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelCardExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelExplainabilityJobDefinitionCommand
  */
 export const de_CreateModelExplainabilityJobDefinitionCommand = async (
@@ -8006,7 +6941,7 @@ export const de_CreateModelExplainabilityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelExplainabilityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelExplainabilityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8019,35 +6954,6 @@ export const de_CreateModelExplainabilityJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelExplainabilityJobDefinitionCommandError
- */
-const de_CreateModelExplainabilityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelExplainabilityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelPackageCommand
  */
 export const de_CreateModelPackageCommand = async (
@@ -8055,7 +6961,7 @@ export const de_CreateModelPackageCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelPackageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelPackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8068,35 +6974,6 @@ export const de_CreateModelPackageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelPackageCommandError
- */
-const de_CreateModelPackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelPackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelPackageGroupCommand
  */
 export const de_CreateModelPackageGroupCommand = async (
@@ -8104,7 +6981,7 @@ export const de_CreateModelPackageGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelPackageGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelPackageGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8117,32 +6994,6 @@ export const de_CreateModelPackageGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelPackageGroupCommandError
- */
-const de_CreateModelPackageGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelPackageGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelQualityJobDefinitionCommand
  */
 export const de_CreateModelQualityJobDefinitionCommand = async (
@@ -8150,7 +7001,7 @@ export const de_CreateModelQualityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelQualityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelQualityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8163,35 +7014,6 @@ export const de_CreateModelQualityJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelQualityJobDefinitionCommandError
- */
-const de_CreateModelQualityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelQualityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMonitoringScheduleCommand
  */
 export const de_CreateMonitoringScheduleCommand = async (
@@ -8199,7 +7021,7 @@ export const de_CreateMonitoringScheduleCommand = async (
   context: __SerdeContext
 ): Promise<CreateMonitoringScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMonitoringScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8212,35 +7034,6 @@ export const de_CreateMonitoringScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMonitoringScheduleCommandError
- */
-const de_CreateMonitoringScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMonitoringScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNotebookInstanceCommand
  */
 export const de_CreateNotebookInstanceCommand = async (
@@ -8248,7 +7041,7 @@ export const de_CreateNotebookInstanceCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotebookInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNotebookInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8261,32 +7054,6 @@ export const de_CreateNotebookInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNotebookInstanceCommandError
- */
-const de_CreateNotebookInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNotebookInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommand
  */
 export const de_CreateNotebookInstanceLifecycleConfigCommand = async (
@@ -8294,7 +7061,7 @@ export const de_CreateNotebookInstanceLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNotebookInstanceLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8307,32 +7074,6 @@ export const de_CreateNotebookInstanceLifecycleConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNotebookInstanceLifecycleConfigCommandError
- */
-const de_CreateNotebookInstanceLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePipelineCommand
  */
 export const de_CreatePipelineCommand = async (
@@ -8340,7 +7081,7 @@ export const de_CreatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8353,38 +7094,6 @@ export const de_CreatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePipelineCommandError
- */
-const de_CreatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePresignedDomainUrlCommand
  */
 export const de_CreatePresignedDomainUrlCommand = async (
@@ -8392,7 +7101,7 @@ export const de_CreatePresignedDomainUrlCommand = async (
   context: __SerdeContext
 ): Promise<CreatePresignedDomainUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePresignedDomainUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8405,32 +7114,6 @@ export const de_CreatePresignedDomainUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePresignedDomainUrlCommandError
- */
-const de_CreatePresignedDomainUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePresignedDomainUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand
  */
 export const de_CreatePresignedNotebookInstanceUrlCommand = async (
@@ -8438,7 +7121,7 @@ export const de_CreatePresignedNotebookInstanceUrlCommand = async (
   context: __SerdeContext
 ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePresignedNotebookInstanceUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8451,26 +7134,6 @@ export const de_CreatePresignedNotebookInstanceUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommandError
- */
-const de_CreatePresignedNotebookInstanceUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1CreateProcessingJobCommand
  */
 export const de_CreateProcessingJobCommand = async (
@@ -8478,7 +7141,7 @@ export const de_CreateProcessingJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateProcessingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProcessingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8491,38 +7154,6 @@ export const de_CreateProcessingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProcessingJobCommandError
- */
-const de_CreateProcessingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProcessingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProjectCommand
  */
 export const de_CreateProjectCommand = async (
@@ -8530,7 +7161,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8543,32 +7174,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSpaceCommand
  */
 export const de_CreateSpaceCommand = async (
@@ -8576,7 +7181,7 @@ export const de_CreateSpaceCommand = async (
   context: __SerdeContext
 ): Promise<CreateSpaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8589,35 +7194,6 @@ export const de_CreateSpaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSpaceCommandError
- */
-const de_CreateSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStudioLifecycleConfigCommand
  */
 export const de_CreateStudioLifecycleConfigCommand = async (
@@ -8625,7 +7201,7 @@ export const de_CreateStudioLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateStudioLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStudioLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8638,32 +7214,6 @@ export const de_CreateStudioLifecycleConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateStudioLifecycleConfigCommandError
- */
-const de_CreateStudioLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStudioLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTrainingJobCommand
  */
 export const de_CreateTrainingJobCommand = async (
@@ -8671,7 +7221,7 @@ export const de_CreateTrainingJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrainingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrainingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8684,38 +7234,6 @@ export const de_CreateTrainingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTrainingJobCommandError
- */
-const de_CreateTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTransformJobCommand
  */
 export const de_CreateTransformJobCommand = async (
@@ -8723,7 +7241,7 @@ export const de_CreateTransformJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransformJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransformJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8736,38 +7254,6 @@ export const de_CreateTransformJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTransformJobCommandError
- */
-const de_CreateTransformJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransformJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTrialCommand
  */
 export const de_CreateTrialCommand = async (
@@ -8775,7 +7261,7 @@ export const de_CreateTrialCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8788,35 +7274,6 @@ export const de_CreateTrialCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTrialCommandError
- */
-const de_CreateTrialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTrialComponentCommand
  */
 export const de_CreateTrialComponentCommand = async (
@@ -8824,7 +7281,7 @@ export const de_CreateTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrialComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrialComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8837,32 +7294,6 @@ export const de_CreateTrialComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTrialComponentCommandError
- */
-const de_CreateTrialComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrialComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserProfileCommand
  */
 export const de_CreateUserProfileCommand = async (
@@ -8870,7 +7301,7 @@ export const de_CreateUserProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8883,35 +7314,6 @@ export const de_CreateUserProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserProfileCommandError
- */
-const de_CreateUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkforceCommand
  */
 export const de_CreateWorkforceCommand = async (
@@ -8919,7 +7321,7 @@ export const de_CreateWorkforceCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkforceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkforceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8932,26 +7334,6 @@ export const de_CreateWorkforceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkforceCommandError
- */
-const de_CreateWorkforceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkforceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1CreateWorkteamCommand
  */
 export const de_CreateWorkteamCommand = async (
@@ -8959,7 +7341,7 @@ export const de_CreateWorkteamCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkteamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkteamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8972,35 +7354,6 @@ export const de_CreateWorkteamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkteamCommandError
- */
-const de_CreateWorkteamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkteamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteActionCommand
  */
 export const de_DeleteActionCommand = async (
@@ -9008,7 +7361,7 @@ export const de_DeleteActionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9021,32 +7374,6 @@ export const de_DeleteActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteActionCommandError
- */
-const de_DeleteActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAlgorithmCommand
  */
 export const de_DeleteAlgorithmCommand = async (
@@ -9054,39 +7381,13 @@ export const de_DeleteAlgorithmCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAlgorithmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAlgorithmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAlgorithmCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAlgorithmCommandError
- */
-const de_DeleteAlgorithmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAlgorithmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9097,42 +7398,13 @@ export const de_DeleteAppCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAppCommandError
- */
-const de_DeleteAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9143,39 +7415,13 @@ export const de_DeleteAppImageConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppImageConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppImageConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAppImageConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAppImageConfigCommandError
- */
-const de_DeleteAppImageConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppImageConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9186,7 +7432,7 @@ export const de_DeleteArtifactCommand = async (
   context: __SerdeContext
 ): Promise<DeleteArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9199,32 +7445,6 @@ export const de_DeleteArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteArtifactCommandError
- */
-const de_DeleteArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAssociationCommand
  */
 export const de_DeleteAssociationCommand = async (
@@ -9232,7 +7452,7 @@ export const de_DeleteAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9245,32 +7465,6 @@ export const de_DeleteAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAssociationCommandError
- */
-const de_DeleteAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteClusterCommand
  */
 export const de_DeleteClusterCommand = async (
@@ -9278,7 +7472,7 @@ export const de_DeleteClusterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9291,35 +7485,6 @@ export const de_DeleteClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteClusterCommandError
- */
-const de_DeleteClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCodeRepositoryCommand
  */
 export const de_DeleteCodeRepositoryCommand = async (
@@ -9327,33 +7492,13 @@ export const de_DeleteCodeRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCodeRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCodeRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCodeRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCodeRepositoryCommandError
- */
-const de_DeleteCodeRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCodeRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -9364,39 +7509,13 @@ export const de_DeleteCompilationJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCompilationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCompilationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCompilationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCompilationJobCommandError
- */
-const de_DeleteCompilationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCompilationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9407,7 +7526,7 @@ export const de_DeleteContextCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9420,32 +7539,6 @@ export const de_DeleteContextCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContextCommandError
- */
-const de_DeleteContextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDataQualityJobDefinitionCommand
  */
 export const de_DeleteDataQualityJobDefinitionCommand = async (
@@ -9453,39 +7546,13 @@ export const de_DeleteDataQualityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataQualityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDataQualityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDataQualityJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDataQualityJobDefinitionCommandError
- */
-const de_DeleteDataQualityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataQualityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9496,39 +7563,13 @@ export const de_DeleteDeviceFleetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeviceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeviceFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeviceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeviceFleetCommandError
- */
-const de_DeleteDeviceFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeviceFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9539,42 +7580,13 @@ export const de_DeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDomainCommandError
- */
-const de_DeleteDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9585,39 +7597,13 @@ export const de_DeleteEdgeDeploymentPlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEdgeDeploymentPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEdgeDeploymentPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEdgeDeploymentPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEdgeDeploymentPlanCommandError
- */
-const de_DeleteEdgeDeploymentPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEdgeDeploymentPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9628,39 +7614,13 @@ export const de_DeleteEdgeDeploymentStageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEdgeDeploymentStageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEdgeDeploymentStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEdgeDeploymentStageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEdgeDeploymentStageCommandError
- */
-const de_DeleteEdgeDeploymentStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEdgeDeploymentStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9671,33 +7631,13 @@ export const de_DeleteEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointCommandError
- */
-const de_DeleteEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -9708,33 +7648,13 @@ export const de_DeleteEndpointConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEndpointConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEndpointConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEndpointConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointConfigCommandError
- */
-const de_DeleteEndpointConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -9745,7 +7665,7 @@ export const de_DeleteExperimentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9758,32 +7678,6 @@ export const de_DeleteExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteExperimentCommandError
- */
-const de_DeleteExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFeatureGroupCommand
  */
 export const de_DeleteFeatureGroupCommand = async (
@@ -9791,39 +7685,13 @@ export const de_DeleteFeatureGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFeatureGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFeatureGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteFeatureGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFeatureGroupCommandError
- */
-const de_DeleteFeatureGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFeatureGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9834,7 +7702,7 @@ export const de_DeleteFlowDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFlowDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFlowDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9847,35 +7715,6 @@ export const de_DeleteFlowDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFlowDefinitionCommandError
- */
-const de_DeleteFlowDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFlowDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteHubCommand
  */
 export const de_DeleteHubCommand = async (
@@ -9883,42 +7722,13 @@ export const de_DeleteHubCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHubCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteHubCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteHubCommandError
- */
-const de_DeleteHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9929,42 +7739,13 @@ export const de_DeleteHubContentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHubContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHubContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteHubContentCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteHubContentCommandError
- */
-const de_DeleteHubContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHubContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9975,7 +7756,7 @@ export const de_DeleteHumanTaskUiCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHumanTaskUiCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHumanTaskUiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9988,32 +7769,6 @@ export const de_DeleteHumanTaskUiCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteHumanTaskUiCommandError
- */
-const de_DeleteHumanTaskUiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHumanTaskUiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteHyperParameterTuningJobCommand
  */
 export const de_DeleteHyperParameterTuningJobCommand = async (
@@ -10021,33 +7776,13 @@ export const de_DeleteHyperParameterTuningJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHyperParameterTuningJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHyperParameterTuningJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteHyperParameterTuningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteHyperParameterTuningJobCommandError
- */
-const de_DeleteHyperParameterTuningJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHyperParameterTuningJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -10058,7 +7793,7 @@ export const de_DeleteImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10071,35 +7806,6 @@ export const de_DeleteImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteImageCommandError
- */
-const de_DeleteImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteImageVersionCommand
  */
 export const de_DeleteImageVersionCommand = async (
@@ -10107,7 +7813,7 @@ export const de_DeleteImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteImageVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10120,35 +7826,6 @@ export const de_DeleteImageVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteImageVersionCommandError
- */
-const de_DeleteImageVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImageVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteInferenceComponentCommand
  */
 export const de_DeleteInferenceComponentCommand = async (
@@ -10156,33 +7833,13 @@ export const de_DeleteInferenceComponentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInferenceComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInferenceComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteInferenceComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteInferenceComponentCommandError
- */
-const de_DeleteInferenceComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInferenceComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -10193,7 +7850,7 @@ export const de_DeleteInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInferenceExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInferenceExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10206,35 +7863,6 @@ export const de_DeleteInferenceExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteInferenceExperimentCommandError
- */
-const de_DeleteInferenceExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInferenceExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteModelCommand
  */
 export const de_DeleteModelCommand = async (
@@ -10242,33 +7870,13 @@ export const de_DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelCommandError
- */
-const de_DeleteModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -10279,39 +7887,13 @@ export const de_DeleteModelBiasJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelBiasJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelBiasJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelBiasJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelBiasJobDefinitionCommandError
- */
-const de_DeleteModelBiasJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelBiasJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10322,42 +7904,13 @@ export const de_DeleteModelCardCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelCardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelCardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelCardCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelCardCommandError
- */
-const de_DeleteModelCardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelCardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10368,39 +7921,13 @@ export const de_DeleteModelExplainabilityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelExplainabilityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelExplainabilityJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelExplainabilityJobDefinitionCommandError
- */
-const de_DeleteModelExplainabilityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelExplainabilityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10411,39 +7938,13 @@ export const de_DeleteModelPackageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelPackageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelPackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelPackageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelPackageCommandError
- */
-const de_DeleteModelPackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelPackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10454,39 +7955,13 @@ export const de_DeleteModelPackageGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelPackageGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelPackageGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelPackageGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelPackageGroupCommandError
- */
-const de_DeleteModelPackageGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelPackageGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10497,33 +7972,13 @@ export const de_DeleteModelPackageGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelPackageGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelPackageGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelPackageGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelPackageGroupPolicyCommandError
- */
-const de_DeleteModelPackageGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelPackageGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -10534,39 +7989,13 @@ export const de_DeleteModelQualityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelQualityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelQualityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteModelQualityJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteModelQualityJobDefinitionCommandError
- */
-const de_DeleteModelQualityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelQualityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10577,39 +8006,13 @@ export const de_DeleteMonitoringScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMonitoringScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMonitoringScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMonitoringScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMonitoringScheduleCommandError
- */
-const de_DeleteMonitoringScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMonitoringScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10620,33 +8023,13 @@ export const de_DeleteNotebookInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotebookInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNotebookInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNotebookInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteNotebookInstanceCommandError
- */
-const de_DeleteNotebookInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotebookInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -10657,33 +8040,13 @@ export const de_DeleteNotebookInstanceLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNotebookInstanceLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNotebookInstanceLifecycleConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommandError
- */
-const de_DeleteNotebookInstanceLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -10694,7 +8057,7 @@ export const de_DeletePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10707,35 +8070,6 @@ export const de_DeletePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePipelineCommandError
- */
-const de_DeletePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -10743,39 +8077,13 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10786,42 +8094,13 @@ export const de_DeleteSpaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSpaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSpaceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSpaceCommandError
- */
-const de_DeleteSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10832,42 +8111,13 @@ export const de_DeleteStudioLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStudioLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStudioLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStudioLifecycleConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteStudioLifecycleConfigCommandError
- */
-const de_DeleteStudioLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStudioLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10878,7 +8128,7 @@ export const de_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10891,26 +8141,6 @@ export const de_DeleteTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DeleteTrialCommand
  */
 export const de_DeleteTrialCommand = async (
@@ -10918,7 +8148,7 @@ export const de_DeleteTrialCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10931,32 +8161,6 @@ export const de_DeleteTrialCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTrialCommandError
- */
-const de_DeleteTrialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTrialComponentCommand
  */
 export const de_DeleteTrialComponentCommand = async (
@@ -10964,7 +8168,7 @@ export const de_DeleteTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrialComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrialComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10977,32 +8181,6 @@ export const de_DeleteTrialComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTrialComponentCommandError
- */
-const de_DeleteTrialComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrialComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserProfileCommand
  */
 export const de_DeleteUserProfileCommand = async (
@@ -11010,42 +8188,13 @@ export const de_DeleteUserProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserProfileCommandError
- */
-const de_DeleteUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11056,7 +8205,7 @@ export const de_DeleteWorkforceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkforceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkforceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11069,26 +8218,6 @@ export const de_DeleteWorkforceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkforceCommandError
- */
-const de_DeleteWorkforceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkforceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkteamCommand
  */
 export const de_DeleteWorkteamCommand = async (
@@ -11096,7 +8225,7 @@ export const de_DeleteWorkteamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkteamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkteamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11109,32 +8238,6 @@ export const de_DeleteWorkteamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkteamCommandError
- */
-const de_DeleteWorkteamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkteamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterDevicesCommand
  */
 export const de_DeregisterDevicesCommand = async (
@@ -11142,33 +8245,13 @@ export const de_DeregisterDevicesCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeregisterDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterDevicesCommandError
- */
-const de_DeregisterDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -11179,7 +8262,7 @@ export const de_DescribeActionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11192,32 +8275,6 @@ export const de_DescribeActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeActionCommandError
- */
-const de_DescribeActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAlgorithmCommand
  */
 export const de_DescribeAlgorithmCommand = async (
@@ -11225,7 +8282,7 @@ export const de_DescribeAlgorithmCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAlgorithmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAlgorithmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11238,26 +8295,6 @@ export const de_DescribeAlgorithmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAlgorithmCommandError
- */
-const de_DescribeAlgorithmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAlgorithmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeAppCommand
  */
 export const de_DescribeAppCommand = async (
@@ -11265,7 +8302,7 @@ export const de_DescribeAppCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11278,32 +8315,6 @@ export const de_DescribeAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAppCommandError
- */
-const de_DescribeAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAppImageConfigCommand
  */
 export const de_DescribeAppImageConfigCommand = async (
@@ -11311,7 +8322,7 @@ export const de_DescribeAppImageConfigCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAppImageConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAppImageConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11324,32 +8335,6 @@ export const de_DescribeAppImageConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAppImageConfigCommandError
- */
-const de_DescribeAppImageConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAppImageConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeArtifactCommand
  */
 export const de_DescribeArtifactCommand = async (
@@ -11357,7 +8342,7 @@ export const de_DescribeArtifactCommand = async (
   context: __SerdeContext
 ): Promise<DescribeArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11370,32 +8355,6 @@ export const de_DescribeArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeArtifactCommandError
- */
-const de_DescribeArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAutoMLJobCommand
  */
 export const de_DescribeAutoMLJobCommand = async (
@@ -11403,7 +8362,7 @@ export const de_DescribeAutoMLJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAutoMLJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAutoMLJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11416,32 +8375,6 @@ export const de_DescribeAutoMLJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAutoMLJobCommandError
- */
-const de_DescribeAutoMLJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoMLJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAutoMLJobV2Command
  */
 export const de_DescribeAutoMLJobV2Command = async (
@@ -11449,7 +8382,7 @@ export const de_DescribeAutoMLJobV2Command = async (
   context: __SerdeContext
 ): Promise<DescribeAutoMLJobV2CommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAutoMLJobV2CommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11462,32 +8395,6 @@ export const de_DescribeAutoMLJobV2Command = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAutoMLJobV2CommandError
- */
-const de_DescribeAutoMLJobV2CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoMLJobV2CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClusterCommand
  */
 export const de_DescribeClusterCommand = async (
@@ -11495,7 +8402,7 @@ export const de_DescribeClusterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11508,32 +8415,6 @@ export const de_DescribeClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClusterCommandError
- */
-const de_DescribeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClusterNodeCommand
  */
 export const de_DescribeClusterNodeCommand = async (
@@ -11541,7 +8422,7 @@ export const de_DescribeClusterNodeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClusterNodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClusterNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11554,32 +8435,6 @@ export const de_DescribeClusterNodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClusterNodeCommandError
- */
-const de_DescribeClusterNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCodeRepositoryCommand
  */
 export const de_DescribeCodeRepositoryCommand = async (
@@ -11587,7 +8442,7 @@ export const de_DescribeCodeRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCodeRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCodeRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11600,26 +8455,6 @@ export const de_DescribeCodeRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCodeRepositoryCommandError
- */
-const de_DescribeCodeRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCodeRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeCompilationJobCommand
  */
 export const de_DescribeCompilationJobCommand = async (
@@ -11627,7 +8462,7 @@ export const de_DescribeCompilationJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCompilationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCompilationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11640,32 +8475,6 @@ export const de_DescribeCompilationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCompilationJobCommandError
- */
-const de_DescribeCompilationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCompilationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeContextCommand
  */
 export const de_DescribeContextCommand = async (
@@ -11673,7 +8482,7 @@ export const de_DescribeContextCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeContextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11686,32 +8495,6 @@ export const de_DescribeContextCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeContextCommandError
- */
-const de_DescribeContextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDataQualityJobDefinitionCommand
  */
 export const de_DescribeDataQualityJobDefinitionCommand = async (
@@ -11719,7 +8502,7 @@ export const de_DescribeDataQualityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataQualityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDataQualityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11732,32 +8515,6 @@ export const de_DescribeDataQualityJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDataQualityJobDefinitionCommandError
- */
-const de_DescribeDataQualityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataQualityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeviceCommand
  */
 export const de_DescribeDeviceCommand = async (
@@ -11765,7 +8522,7 @@ export const de_DescribeDeviceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11778,32 +8535,6 @@ export const de_DescribeDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeviceCommandError
- */
-const de_DescribeDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeviceFleetCommand
  */
 export const de_DescribeDeviceFleetCommand = async (
@@ -11811,7 +8542,7 @@ export const de_DescribeDeviceFleetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeviceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeviceFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11824,32 +8555,6 @@ export const de_DescribeDeviceFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeviceFleetCommandError
- */
-const de_DescribeDeviceFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeviceFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDomainCommand
  */
 export const de_DescribeDomainCommand = async (
@@ -11857,7 +8562,7 @@ export const de_DescribeDomainCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11870,32 +8575,6 @@ export const de_DescribeDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDomainCommandError
- */
-const de_DescribeDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand
  */
 export const de_DescribeEdgeDeploymentPlanCommand = async (
@@ -11903,7 +8582,7 @@ export const de_DescribeEdgeDeploymentPlanCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEdgeDeploymentPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEdgeDeploymentPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11916,32 +8595,6 @@ export const de_DescribeEdgeDeploymentPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEdgeDeploymentPlanCommandError
- */
-const de_DescribeEdgeDeploymentPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEdgeDeploymentPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEdgePackagingJobCommand
  */
 export const de_DescribeEdgePackagingJobCommand = async (
@@ -11949,7 +8602,7 @@ export const de_DescribeEdgePackagingJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEdgePackagingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEdgePackagingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11962,32 +8615,6 @@ export const de_DescribeEdgePackagingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEdgePackagingJobCommandError
- */
-const de_DescribeEdgePackagingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEdgePackagingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEndpointCommand
  */
 export const de_DescribeEndpointCommand = async (
@@ -11995,7 +8622,7 @@ export const de_DescribeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12008,26 +8635,6 @@ export const de_DescribeEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEndpointCommandError
- */
-const de_DescribeEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEndpointConfigCommand
  */
 export const de_DescribeEndpointConfigCommand = async (
@@ -12035,7 +8642,7 @@ export const de_DescribeEndpointConfigCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12048,26 +8655,6 @@ export const de_DescribeEndpointConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEndpointConfigCommandError
- */
-const de_DescribeEndpointConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeExperimentCommand
  */
 export const de_DescribeExperimentCommand = async (
@@ -12075,7 +8662,7 @@ export const de_DescribeExperimentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12088,32 +8675,6 @@ export const de_DescribeExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExperimentCommandError
- */
-const de_DescribeExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFeatureGroupCommand
  */
 export const de_DescribeFeatureGroupCommand = async (
@@ -12121,7 +8682,7 @@ export const de_DescribeFeatureGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFeatureGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFeatureGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12134,32 +8695,6 @@ export const de_DescribeFeatureGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFeatureGroupCommandError
- */
-const de_DescribeFeatureGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFeatureGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFeatureMetadataCommand
  */
 export const de_DescribeFeatureMetadataCommand = async (
@@ -12167,7 +8702,7 @@ export const de_DescribeFeatureMetadataCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFeatureMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFeatureMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12180,32 +8715,6 @@ export const de_DescribeFeatureMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFeatureMetadataCommandError
- */
-const de_DescribeFeatureMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFeatureMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFlowDefinitionCommand
  */
 export const de_DescribeFlowDefinitionCommand = async (
@@ -12213,7 +8722,7 @@ export const de_DescribeFlowDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFlowDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFlowDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12226,32 +8735,6 @@ export const de_DescribeFlowDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFlowDefinitionCommandError
- */
-const de_DescribeFlowDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlowDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHubCommand
  */
 export const de_DescribeHubCommand = async (
@@ -12259,7 +8742,7 @@ export const de_DescribeHubCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHubCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12272,32 +8755,6 @@ export const de_DescribeHubCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHubCommandError
- */
-const de_DescribeHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHubContentCommand
  */
 export const de_DescribeHubContentCommand = async (
@@ -12305,7 +8762,7 @@ export const de_DescribeHubContentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHubContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHubContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12318,32 +8775,6 @@ export const de_DescribeHubContentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHubContentCommandError
- */
-const de_DescribeHubContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHubContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHumanTaskUiCommand
  */
 export const de_DescribeHumanTaskUiCommand = async (
@@ -12351,7 +8782,7 @@ export const de_DescribeHumanTaskUiCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHumanTaskUiCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHumanTaskUiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12364,32 +8795,6 @@ export const de_DescribeHumanTaskUiCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHumanTaskUiCommandError
- */
-const de_DescribeHumanTaskUiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHumanTaskUiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHyperParameterTuningJobCommand
  */
 export const de_DescribeHyperParameterTuningJobCommand = async (
@@ -12397,7 +8802,7 @@ export const de_DescribeHyperParameterTuningJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHyperParameterTuningJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHyperParameterTuningJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12410,32 +8815,6 @@ export const de_DescribeHyperParameterTuningJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHyperParameterTuningJobCommandError
- */
-const de_DescribeHyperParameterTuningJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHyperParameterTuningJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageCommand
  */
 export const de_DescribeImageCommand = async (
@@ -12443,7 +8822,7 @@ export const de_DescribeImageCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12456,32 +8835,6 @@ export const de_DescribeImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageCommandError
- */
-const de_DescribeImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageVersionCommand
  */
 export const de_DescribeImageVersionCommand = async (
@@ -12489,7 +8842,7 @@ export const de_DescribeImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12502,32 +8855,6 @@ export const de_DescribeImageVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageVersionCommandError
- */
-const de_DescribeImageVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInferenceComponentCommand
  */
 export const de_DescribeInferenceComponentCommand = async (
@@ -12535,7 +8862,7 @@ export const de_DescribeInferenceComponentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInferenceComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInferenceComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12548,26 +8875,6 @@ export const de_DescribeInferenceComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInferenceComponentCommandError
- */
-const de_DescribeInferenceComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInferenceComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeInferenceExperimentCommand
  */
 export const de_DescribeInferenceExperimentCommand = async (
@@ -12575,7 +8882,7 @@ export const de_DescribeInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInferenceExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInferenceExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12588,32 +8895,6 @@ export const de_DescribeInferenceExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInferenceExperimentCommandError
- */
-const de_DescribeInferenceExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInferenceExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInferenceRecommendationsJobCommand
  */
 export const de_DescribeInferenceRecommendationsJobCommand = async (
@@ -12621,7 +8902,7 @@ export const de_DescribeInferenceRecommendationsJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInferenceRecommendationsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInferenceRecommendationsJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12634,32 +8915,6 @@ export const de_DescribeInferenceRecommendationsJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInferenceRecommendationsJobCommandError
- */
-const de_DescribeInferenceRecommendationsJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInferenceRecommendationsJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLabelingJobCommand
  */
 export const de_DescribeLabelingJobCommand = async (
@@ -12667,7 +8922,7 @@ export const de_DescribeLabelingJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLabelingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLabelingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12680,32 +8935,6 @@ export const de_DescribeLabelingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLabelingJobCommandError
- */
-const de_DescribeLabelingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLabelingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLineageGroupCommand
  */
 export const de_DescribeLineageGroupCommand = async (
@@ -12713,7 +8942,7 @@ export const de_DescribeLineageGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLineageGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLineageGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12726,32 +8955,6 @@ export const de_DescribeLineageGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLineageGroupCommandError
- */
-const de_DescribeLineageGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLineageGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeModelCommand
  */
 export const de_DescribeModelCommand = async (
@@ -12759,7 +8962,7 @@ export const de_DescribeModelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12772,26 +8975,6 @@ export const de_DescribeModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelCommandError
- */
-const de_DescribeModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeModelBiasJobDefinitionCommand
  */
 export const de_DescribeModelBiasJobDefinitionCommand = async (
@@ -12799,7 +8982,7 @@ export const de_DescribeModelBiasJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelBiasJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelBiasJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12812,32 +8995,6 @@ export const de_DescribeModelBiasJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelBiasJobDefinitionCommandError
- */
-const de_DescribeModelBiasJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelBiasJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeModelCardCommand
  */
 export const de_DescribeModelCardCommand = async (
@@ -12845,7 +9002,7 @@ export const de_DescribeModelCardCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelCardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelCardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12858,32 +9015,6 @@ export const de_DescribeModelCardCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelCardCommandError
- */
-const de_DescribeModelCardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelCardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeModelCardExportJobCommand
  */
 export const de_DescribeModelCardExportJobCommand = async (
@@ -12891,7 +9022,7 @@ export const de_DescribeModelCardExportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelCardExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelCardExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12904,32 +9035,6 @@ export const de_DescribeModelCardExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelCardExportJobCommandError
- */
-const de_DescribeModelCardExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelCardExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommand
  */
 export const de_DescribeModelExplainabilityJobDefinitionCommand = async (
@@ -12937,7 +9042,7 @@ export const de_DescribeModelExplainabilityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelExplainabilityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12950,32 +9055,6 @@ export const de_DescribeModelExplainabilityJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelExplainabilityJobDefinitionCommandError
- */
-const de_DescribeModelExplainabilityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelExplainabilityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeModelPackageCommand
  */
 export const de_DescribeModelPackageCommand = async (
@@ -12983,7 +9062,7 @@ export const de_DescribeModelPackageCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelPackageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelPackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12996,26 +9075,6 @@ export const de_DescribeModelPackageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelPackageCommandError
- */
-const de_DescribeModelPackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelPackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeModelPackageGroupCommand
  */
 export const de_DescribeModelPackageGroupCommand = async (
@@ -13023,7 +9082,7 @@ export const de_DescribeModelPackageGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelPackageGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelPackageGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13036,26 +9095,6 @@ export const de_DescribeModelPackageGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelPackageGroupCommandError
- */
-const de_DescribeModelPackageGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelPackageGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeModelQualityJobDefinitionCommand
  */
 export const de_DescribeModelQualityJobDefinitionCommand = async (
@@ -13063,7 +9102,7 @@ export const de_DescribeModelQualityJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelQualityJobDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelQualityJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13076,32 +9115,6 @@ export const de_DescribeModelQualityJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelQualityJobDefinitionCommandError
- */
-const de_DescribeModelQualityJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelQualityJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMonitoringScheduleCommand
  */
 export const de_DescribeMonitoringScheduleCommand = async (
@@ -13109,7 +9122,7 @@ export const de_DescribeMonitoringScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMonitoringScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMonitoringScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13122,32 +9135,6 @@ export const de_DescribeMonitoringScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMonitoringScheduleCommandError
- */
-const de_DescribeMonitoringScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMonitoringScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeNotebookInstanceCommand
  */
 export const de_DescribeNotebookInstanceCommand = async (
@@ -13155,7 +9142,7 @@ export const de_DescribeNotebookInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotebookInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNotebookInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13168,26 +9155,6 @@ export const de_DescribeNotebookInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeNotebookInstanceCommandError
- */
-const de_DescribeNotebookInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotebookInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommand
  */
 export const de_DescribeNotebookInstanceLifecycleConfigCommand = async (
@@ -13195,7 +9162,7 @@ export const de_DescribeNotebookInstanceLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNotebookInstanceLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13208,26 +9175,6 @@ export const de_DescribeNotebookInstanceLifecycleConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeNotebookInstanceLifecycleConfigCommandError
- */
-const de_DescribeNotebookInstanceLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribePipelineCommand
  */
 export const de_DescribePipelineCommand = async (
@@ -13235,7 +9182,7 @@ export const de_DescribePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DescribePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13248,32 +9195,6 @@ export const de_DescribePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePipelineCommandError
- */
-const de_DescribePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommand
  */
 export const de_DescribePipelineDefinitionForExecutionCommand = async (
@@ -13281,7 +9202,7 @@ export const de_DescribePipelineDefinitionForExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribePipelineDefinitionForExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePipelineDefinitionForExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13294,32 +9215,6 @@ export const de_DescribePipelineDefinitionForExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommandError
- */
-const de_DescribePipelineDefinitionForExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePipelineDefinitionForExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePipelineExecutionCommand
  */
 export const de_DescribePipelineExecutionCommand = async (
@@ -13327,7 +9222,7 @@ export const de_DescribePipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribePipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13340,32 +9235,6 @@ export const de_DescribePipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePipelineExecutionCommandError
- */
-const de_DescribePipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProcessingJobCommand
  */
 export const de_DescribeProcessingJobCommand = async (
@@ -13373,7 +9242,7 @@ export const de_DescribeProcessingJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProcessingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProcessingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13386,32 +9255,6 @@ export const de_DescribeProcessingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProcessingJobCommandError
- */
-const de_DescribeProcessingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProcessingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProjectCommand
  */
 export const de_DescribeProjectCommand = async (
@@ -13419,7 +9262,7 @@ export const de_DescribeProjectCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13432,26 +9275,6 @@ export const de_DescribeProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProjectCommandError
- */
-const de_DescribeProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeSpaceCommand
  */
 export const de_DescribeSpaceCommand = async (
@@ -13459,7 +9282,7 @@ export const de_DescribeSpaceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13472,32 +9295,6 @@ export const de_DescribeSpaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSpaceCommandError
- */
-const de_DescribeSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStudioLifecycleConfigCommand
  */
 export const de_DescribeStudioLifecycleConfigCommand = async (
@@ -13505,7 +9302,7 @@ export const de_DescribeStudioLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStudioLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStudioLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13518,32 +9315,6 @@ export const de_DescribeStudioLifecycleConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStudioLifecycleConfigCommandError
- */
-const de_DescribeStudioLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStudioLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSubscribedWorkteamCommand
  */
 export const de_DescribeSubscribedWorkteamCommand = async (
@@ -13551,7 +9322,7 @@ export const de_DescribeSubscribedWorkteamCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSubscribedWorkteamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSubscribedWorkteamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13564,26 +9335,6 @@ export const de_DescribeSubscribedWorkteamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSubscribedWorkteamCommandError
- */
-const de_DescribeSubscribedWorkteamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubscribedWorkteamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeTrainingJobCommand
  */
 export const de_DescribeTrainingJobCommand = async (
@@ -13591,7 +9342,7 @@ export const de_DescribeTrainingJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrainingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrainingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13604,32 +9355,6 @@ export const de_DescribeTrainingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTrainingJobCommandError
- */
-const de_DescribeTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTransformJobCommand
  */
 export const de_DescribeTransformJobCommand = async (
@@ -13637,7 +9362,7 @@ export const de_DescribeTransformJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransformJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransformJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13650,32 +9375,6 @@ export const de_DescribeTransformJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTransformJobCommandError
- */
-const de_DescribeTransformJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransformJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTrialCommand
  */
 export const de_DescribeTrialCommand = async (
@@ -13683,7 +9382,7 @@ export const de_DescribeTrialCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13696,32 +9395,6 @@ export const de_DescribeTrialCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTrialCommandError
- */
-const de_DescribeTrialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTrialComponentCommand
  */
 export const de_DescribeTrialComponentCommand = async (
@@ -13729,7 +9402,7 @@ export const de_DescribeTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrialComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrialComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13742,32 +9415,6 @@ export const de_DescribeTrialComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTrialComponentCommandError
- */
-const de_DescribeTrialComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrialComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserProfileCommand
  */
 export const de_DescribeUserProfileCommand = async (
@@ -13775,7 +9422,7 @@ export const de_DescribeUserProfileCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13788,35 +9435,6 @@ export const de_DescribeUserProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserProfileCommandError
- */
-const de_DescribeUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkforceCommand
  */
 export const de_DescribeWorkforceCommand = async (
@@ -13824,7 +9442,7 @@ export const de_DescribeWorkforceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkforceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkforceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13837,26 +9455,6 @@ export const de_DescribeWorkforceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkforceCommandError
- */
-const de_DescribeWorkforceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkforceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkteamCommand
  */
 export const de_DescribeWorkteamCommand = async (
@@ -13864,7 +9462,7 @@ export const de_DescribeWorkteamCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkteamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkteamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13877,26 +9475,6 @@ export const de_DescribeWorkteamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkteamCommandError
- */
-const de_DescribeWorkteamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkteamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommand
  */
 export const de_DisableSagemakerServicecatalogPortfolioCommand = async (
@@ -13904,7 +9482,7 @@ export const de_DisableSagemakerServicecatalogPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableSagemakerServicecatalogPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13917,26 +9495,6 @@ export const de_DisableSagemakerServicecatalogPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableSagemakerServicecatalogPortfolioCommandError
- */
-const de_DisableSagemakerServicecatalogPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DisassociateTrialComponentCommand
  */
 export const de_DisassociateTrialComponentCommand = async (
@@ -13944,7 +9502,7 @@ export const de_DisassociateTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTrialComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateTrialComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13957,32 +9515,6 @@ export const de_DisassociateTrialComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateTrialComponentCommandError
- */
-const de_DisassociateTrialComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTrialComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommand
  */
 export const de_EnableSagemakerServicecatalogPortfolioCommand = async (
@@ -13990,7 +9522,7 @@ export const de_EnableSagemakerServicecatalogPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableSagemakerServicecatalogPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14003,26 +9535,6 @@ export const de_EnableSagemakerServicecatalogPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableSagemakerServicecatalogPortfolioCommandError
- */
-const de_EnableSagemakerServicecatalogPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetDeviceFleetReportCommand
  */
 export const de_GetDeviceFleetReportCommand = async (
@@ -14030,7 +9542,7 @@ export const de_GetDeviceFleetReportCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceFleetReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeviceFleetReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14043,26 +9555,6 @@ export const de_GetDeviceFleetReportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeviceFleetReportCommandError
- */
-const de_GetDeviceFleetReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceFleetReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetLineageGroupPolicyCommand
  */
 export const de_GetLineageGroupPolicyCommand = async (
@@ -14070,7 +9562,7 @@ export const de_GetLineageGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetLineageGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLineageGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14083,32 +9575,6 @@ export const de_GetLineageGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLineageGroupPolicyCommandError
- */
-const de_GetLineageGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLineageGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetModelPackageGroupPolicyCommand
  */
 export const de_GetModelPackageGroupPolicyCommand = async (
@@ -14116,7 +9582,7 @@ export const de_GetModelPackageGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetModelPackageGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetModelPackageGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14129,26 +9595,6 @@ export const de_GetModelPackageGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetModelPackageGroupPolicyCommandError
- */
-const de_GetModelPackageGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelPackageGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommand
  */
 export const de_GetSagemakerServicecatalogPortfolioStatusCommand = async (
@@ -14156,7 +9602,7 @@ export const de_GetSagemakerServicecatalogPortfolioStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSagemakerServicecatalogPortfolioStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14169,26 +9615,6 @@ export const de_GetSagemakerServicecatalogPortfolioStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSagemakerServicecatalogPortfolioStatusCommandError
- */
-const de_GetSagemakerServicecatalogPortfolioStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetScalingConfigurationRecommendationCommand
  */
 export const de_GetScalingConfigurationRecommendationCommand = async (
@@ -14196,7 +9622,7 @@ export const de_GetScalingConfigurationRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetScalingConfigurationRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetScalingConfigurationRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14209,32 +9635,6 @@ export const de_GetScalingConfigurationRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetScalingConfigurationRecommendationCommandError
- */
-const de_GetScalingConfigurationRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetScalingConfigurationRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSearchSuggestionsCommand
  */
 export const de_GetSearchSuggestionsCommand = async (
@@ -14242,7 +9642,7 @@ export const de_GetSearchSuggestionsCommand = async (
   context: __SerdeContext
 ): Promise<GetSearchSuggestionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSearchSuggestionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14255,26 +9655,6 @@ export const de_GetSearchSuggestionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSearchSuggestionsCommandError
- */
-const de_GetSearchSuggestionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSearchSuggestionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ImportHubContentCommand
  */
 export const de_ImportHubContentCommand = async (
@@ -14282,7 +9662,7 @@ export const de_ImportHubContentCommand = async (
   context: __SerdeContext
 ): Promise<ImportHubContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportHubContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14295,38 +9675,6 @@ export const de_ImportHubContentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportHubContentCommandError
- */
-const de_ImportHubContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportHubContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListActionsCommand
  */
 export const de_ListActionsCommand = async (
@@ -14334,7 +9682,7 @@ export const de_ListActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14347,32 +9695,6 @@ export const de_ListActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListActionsCommandError
- */
-const de_ListActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAlgorithmsCommand
  */
 export const de_ListAlgorithmsCommand = async (
@@ -14380,7 +9702,7 @@ export const de_ListAlgorithmsCommand = async (
   context: __SerdeContext
 ): Promise<ListAlgorithmsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAlgorithmsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14393,26 +9715,6 @@ export const de_ListAlgorithmsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAlgorithmsCommandError
- */
-const de_ListAlgorithmsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAlgorithmsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListAliasesCommand
  */
 export const de_ListAliasesCommand = async (
@@ -14420,7 +9722,7 @@ export const de_ListAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14433,32 +9735,6 @@ export const de_ListAliasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAliasesCommandError
- */
-const de_ListAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAppImageConfigsCommand
  */
 export const de_ListAppImageConfigsCommand = async (
@@ -14466,7 +9742,7 @@ export const de_ListAppImageConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppImageConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAppImageConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14479,26 +9755,6 @@ export const de_ListAppImageConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAppImageConfigsCommandError
- */
-const de_ListAppImageConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppImageConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListAppsCommand
  */
 export const de_ListAppsCommand = async (
@@ -14506,7 +9762,7 @@ export const de_ListAppsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAppsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14519,26 +9775,6 @@ export const de_ListAppsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAppsCommandError
- */
-const de_ListAppsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListArtifactsCommand
  */
 export const de_ListArtifactsCommand = async (
@@ -14546,7 +9782,7 @@ export const de_ListArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListArtifactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListArtifactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14559,32 +9795,6 @@ export const de_ListArtifactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListArtifactsCommandError
- */
-const de_ListArtifactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListArtifactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAssociationsCommand
  */
 export const de_ListAssociationsCommand = async (
@@ -14592,7 +9802,7 @@ export const de_ListAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14605,32 +9815,6 @@ export const de_ListAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssociationsCommandError
- */
-const de_ListAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAutoMLJobsCommand
  */
 export const de_ListAutoMLJobsCommand = async (
@@ -14638,7 +9822,7 @@ export const de_ListAutoMLJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListAutoMLJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAutoMLJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14651,26 +9835,6 @@ export const de_ListAutoMLJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAutoMLJobsCommandError
- */
-const de_ListAutoMLJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAutoMLJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListCandidatesForAutoMLJobCommand
  */
 export const de_ListCandidatesForAutoMLJobCommand = async (
@@ -14678,7 +9842,7 @@ export const de_ListCandidatesForAutoMLJobCommand = async (
   context: __SerdeContext
 ): Promise<ListCandidatesForAutoMLJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCandidatesForAutoMLJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14691,32 +9855,6 @@ export const de_ListCandidatesForAutoMLJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCandidatesForAutoMLJobCommandError
- */
-const de_ListCandidatesForAutoMLJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCandidatesForAutoMLJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListClusterNodesCommand
  */
 export const de_ListClusterNodesCommand = async (
@@ -14724,7 +9862,7 @@ export const de_ListClusterNodesCommand = async (
   context: __SerdeContext
 ): Promise<ListClusterNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListClusterNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14737,32 +9875,6 @@ export const de_ListClusterNodesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListClusterNodesCommandError
- */
-const de_ListClusterNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClusterNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListClustersCommand
  */
 export const de_ListClustersCommand = async (
@@ -14770,7 +9882,7 @@ export const de_ListClustersCommand = async (
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListClustersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14783,26 +9895,6 @@ export const de_ListClustersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListClustersCommandError
- */
-const de_ListClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListCodeRepositoriesCommand
  */
 export const de_ListCodeRepositoriesCommand = async (
@@ -14810,7 +9902,7 @@ export const de_ListCodeRepositoriesCommand = async (
   context: __SerdeContext
 ): Promise<ListCodeRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCodeRepositoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14823,26 +9915,6 @@ export const de_ListCodeRepositoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCodeRepositoriesCommandError
- */
-const de_ListCodeRepositoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCodeRepositoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListCompilationJobsCommand
  */
 export const de_ListCompilationJobsCommand = async (
@@ -14850,7 +9922,7 @@ export const de_ListCompilationJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListCompilationJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCompilationJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14863,26 +9935,6 @@ export const de_ListCompilationJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCompilationJobsCommandError
- */
-const de_ListCompilationJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCompilationJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListContextsCommand
  */
 export const de_ListContextsCommand = async (
@@ -14890,7 +9942,7 @@ export const de_ListContextsCommand = async (
   context: __SerdeContext
 ): Promise<ListContextsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListContextsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14903,32 +9955,6 @@ export const de_ListContextsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListContextsCommandError
- */
-const de_ListContextsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContextsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDataQualityJobDefinitionsCommand
  */
 export const de_ListDataQualityJobDefinitionsCommand = async (
@@ -14936,7 +9962,7 @@ export const de_ListDataQualityJobDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataQualityJobDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDataQualityJobDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14949,26 +9975,6 @@ export const de_ListDataQualityJobDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDataQualityJobDefinitionsCommandError
- */
-const de_ListDataQualityJobDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataQualityJobDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListDeviceFleetsCommand
  */
 export const de_ListDeviceFleetsCommand = async (
@@ -14976,7 +9982,7 @@ export const de_ListDeviceFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDeviceFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14989,26 +9995,6 @@ export const de_ListDeviceFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDeviceFleetsCommandError
- */
-const de_ListDeviceFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeviceFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListDevicesCommand
  */
 export const de_ListDevicesCommand = async (
@@ -15016,7 +10002,7 @@ export const de_ListDevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15029,26 +10015,6 @@ export const de_ListDevicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDevicesCommandError
- */
-const de_ListDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListDomainsCommand
  */
 export const de_ListDomainsCommand = async (
@@ -15056,7 +10022,7 @@ export const de_ListDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15069,26 +10035,6 @@ export const de_ListDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDomainsCommandError
- */
-const de_ListDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListEdgeDeploymentPlansCommand
  */
 export const de_ListEdgeDeploymentPlansCommand = async (
@@ -15096,7 +10042,7 @@ export const de_ListEdgeDeploymentPlansCommand = async (
   context: __SerdeContext
 ): Promise<ListEdgeDeploymentPlansCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEdgeDeploymentPlansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15109,26 +10055,6 @@ export const de_ListEdgeDeploymentPlansCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEdgeDeploymentPlansCommandError
- */
-const de_ListEdgeDeploymentPlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEdgeDeploymentPlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListEdgePackagingJobsCommand
  */
 export const de_ListEdgePackagingJobsCommand = async (
@@ -15136,7 +10062,7 @@ export const de_ListEdgePackagingJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListEdgePackagingJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEdgePackagingJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15149,26 +10075,6 @@ export const de_ListEdgePackagingJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEdgePackagingJobsCommandError
- */
-const de_ListEdgePackagingJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEdgePackagingJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListEndpointConfigsCommand
  */
 export const de_ListEndpointConfigsCommand = async (
@@ -15176,7 +10082,7 @@ export const de_ListEndpointConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListEndpointConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEndpointConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15189,26 +10095,6 @@ export const de_ListEndpointConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEndpointConfigsCommandError
- */
-const de_ListEndpointConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListEndpointsCommand
  */
 export const de_ListEndpointsCommand = async (
@@ -15216,7 +10102,7 @@ export const de_ListEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15229,26 +10115,6 @@ export const de_ListEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEndpointsCommandError
- */
-const de_ListEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListExperimentsCommand
  */
 export const de_ListExperimentsCommand = async (
@@ -15256,7 +10122,7 @@ export const de_ListExperimentsCommand = async (
   context: __SerdeContext
 ): Promise<ListExperimentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListExperimentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15269,26 +10135,6 @@ export const de_ListExperimentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListExperimentsCommandError
- */
-const de_ListExperimentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExperimentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListFeatureGroupsCommand
  */
 export const de_ListFeatureGroupsCommand = async (
@@ -15296,7 +10142,7 @@ export const de_ListFeatureGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListFeatureGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFeatureGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15309,26 +10155,6 @@ export const de_ListFeatureGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFeatureGroupsCommandError
- */
-const de_ListFeatureGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFeatureGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListFlowDefinitionsCommand
  */
 export const de_ListFlowDefinitionsCommand = async (
@@ -15336,7 +10162,7 @@ export const de_ListFlowDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListFlowDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFlowDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15349,26 +10175,6 @@ export const de_ListFlowDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFlowDefinitionsCommandError
- */
-const de_ListFlowDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlowDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListHubContentsCommand
  */
 export const de_ListHubContentsCommand = async (
@@ -15376,7 +10182,7 @@ export const de_ListHubContentsCommand = async (
   context: __SerdeContext
 ): Promise<ListHubContentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHubContentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15389,32 +10195,6 @@ export const de_ListHubContentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHubContentsCommandError
- */
-const de_ListHubContentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHubContentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHubContentVersionsCommand
  */
 export const de_ListHubContentVersionsCommand = async (
@@ -15422,7 +10202,7 @@ export const de_ListHubContentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListHubContentVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHubContentVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15435,32 +10215,6 @@ export const de_ListHubContentVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHubContentVersionsCommandError
- */
-const de_ListHubContentVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHubContentVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHubsCommand
  */
 export const de_ListHubsCommand = async (
@@ -15468,7 +10222,7 @@ export const de_ListHubsCommand = async (
   context: __SerdeContext
 ): Promise<ListHubsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHubsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15481,26 +10235,6 @@ export const de_ListHubsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHubsCommandError
- */
-const de_ListHubsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHubsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListHumanTaskUisCommand
  */
 export const de_ListHumanTaskUisCommand = async (
@@ -15508,7 +10242,7 @@ export const de_ListHumanTaskUisCommand = async (
   context: __SerdeContext
 ): Promise<ListHumanTaskUisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHumanTaskUisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15521,26 +10255,6 @@ export const de_ListHumanTaskUisCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHumanTaskUisCommandError
- */
-const de_ListHumanTaskUisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHumanTaskUisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListHyperParameterTuningJobsCommand
  */
 export const de_ListHyperParameterTuningJobsCommand = async (
@@ -15548,7 +10262,7 @@ export const de_ListHyperParameterTuningJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListHyperParameterTuningJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHyperParameterTuningJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15561,26 +10275,6 @@ export const de_ListHyperParameterTuningJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHyperParameterTuningJobsCommandError
- */
-const de_ListHyperParameterTuningJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHyperParameterTuningJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListImagesCommand
  */
 export const de_ListImagesCommand = async (
@@ -15588,7 +10282,7 @@ export const de_ListImagesCommand = async (
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15601,26 +10295,6 @@ export const de_ListImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListImagesCommandError
- */
-const de_ListImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListImageVersionsCommand
  */
 export const de_ListImageVersionsCommand = async (
@@ -15628,7 +10302,7 @@ export const de_ListImageVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListImageVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImageVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15641,32 +10315,6 @@ export const de_ListImageVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListImageVersionsCommandError
- */
-const de_ListImageVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImageVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListInferenceComponentsCommand
  */
 export const de_ListInferenceComponentsCommand = async (
@@ -15674,7 +10322,7 @@ export const de_ListInferenceComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListInferenceComponentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInferenceComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15687,26 +10335,6 @@ export const de_ListInferenceComponentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInferenceComponentsCommandError
- */
-const de_ListInferenceComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInferenceComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListInferenceExperimentsCommand
  */
 export const de_ListInferenceExperimentsCommand = async (
@@ -15714,7 +10342,7 @@ export const de_ListInferenceExperimentsCommand = async (
   context: __SerdeContext
 ): Promise<ListInferenceExperimentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInferenceExperimentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15727,26 +10355,6 @@ export const de_ListInferenceExperimentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInferenceExperimentsCommandError
- */
-const de_ListInferenceExperimentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInferenceExperimentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListInferenceRecommendationsJobsCommand
  */
 export const de_ListInferenceRecommendationsJobsCommand = async (
@@ -15754,7 +10362,7 @@ export const de_ListInferenceRecommendationsJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListInferenceRecommendationsJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInferenceRecommendationsJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15767,26 +10375,6 @@ export const de_ListInferenceRecommendationsJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInferenceRecommendationsJobsCommandError
- */
-const de_ListInferenceRecommendationsJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInferenceRecommendationsJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommand
  */
 export const de_ListInferenceRecommendationsJobStepsCommand = async (
@@ -15794,7 +10382,7 @@ export const de_ListInferenceRecommendationsJobStepsCommand = async (
   context: __SerdeContext
 ): Promise<ListInferenceRecommendationsJobStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInferenceRecommendationsJobStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15807,32 +10395,6 @@ export const de_ListInferenceRecommendationsJobStepsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInferenceRecommendationsJobStepsCommandError
- */
-const de_ListInferenceRecommendationsJobStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInferenceRecommendationsJobStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLabelingJobsCommand
  */
 export const de_ListLabelingJobsCommand = async (
@@ -15840,7 +10402,7 @@ export const de_ListLabelingJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListLabelingJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLabelingJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15853,26 +10415,6 @@ export const de_ListLabelingJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLabelingJobsCommandError
- */
-const de_ListLabelingJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLabelingJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListLabelingJobsForWorkteamCommand
  */
 export const de_ListLabelingJobsForWorkteamCommand = async (
@@ -15880,7 +10422,7 @@ export const de_ListLabelingJobsForWorkteamCommand = async (
   context: __SerdeContext
 ): Promise<ListLabelingJobsForWorkteamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLabelingJobsForWorkteamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15893,32 +10435,6 @@ export const de_ListLabelingJobsForWorkteamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLabelingJobsForWorkteamCommandError
- */
-const de_ListLabelingJobsForWorkteamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLabelingJobsForWorkteamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLineageGroupsCommand
  */
 export const de_ListLineageGroupsCommand = async (
@@ -15926,7 +10442,7 @@ export const de_ListLineageGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListLineageGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLineageGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15939,26 +10455,6 @@ export const de_ListLineageGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLineageGroupsCommandError
- */
-const de_ListLineageGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLineageGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelBiasJobDefinitionsCommand
  */
 export const de_ListModelBiasJobDefinitionsCommand = async (
@@ -15966,7 +10462,7 @@ export const de_ListModelBiasJobDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelBiasJobDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelBiasJobDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15979,26 +10475,6 @@ export const de_ListModelBiasJobDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelBiasJobDefinitionsCommandError
- */
-const de_ListModelBiasJobDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelBiasJobDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelCardExportJobsCommand
  */
 export const de_ListModelCardExportJobsCommand = async (
@@ -16006,7 +10482,7 @@ export const de_ListModelCardExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelCardExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelCardExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16019,26 +10495,6 @@ export const de_ListModelCardExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelCardExportJobsCommandError
- */
-const de_ListModelCardExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelCardExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelCardsCommand
  */
 export const de_ListModelCardsCommand = async (
@@ -16046,7 +10502,7 @@ export const de_ListModelCardsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelCardsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelCardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16059,26 +10515,6 @@ export const de_ListModelCardsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelCardsCommandError
- */
-const de_ListModelCardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelCardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelCardVersionsCommand
  */
 export const de_ListModelCardVersionsCommand = async (
@@ -16086,7 +10522,7 @@ export const de_ListModelCardVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelCardVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelCardVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16099,32 +10535,6 @@ export const de_ListModelCardVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelCardVersionsCommandError
- */
-const de_ListModelCardVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelCardVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommand
  */
 export const de_ListModelExplainabilityJobDefinitionsCommand = async (
@@ -16132,7 +10542,7 @@ export const de_ListModelExplainabilityJobDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelExplainabilityJobDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelExplainabilityJobDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16145,26 +10555,6 @@ export const de_ListModelExplainabilityJobDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelExplainabilityJobDefinitionsCommandError
- */
-const de_ListModelExplainabilityJobDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelExplainabilityJobDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelMetadataCommand
  */
 export const de_ListModelMetadataCommand = async (
@@ -16172,7 +10562,7 @@ export const de_ListModelMetadataCommand = async (
   context: __SerdeContext
 ): Promise<ListModelMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16185,26 +10575,6 @@ export const de_ListModelMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelMetadataCommandError
- */
-const de_ListModelMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelPackageGroupsCommand
  */
 export const de_ListModelPackageGroupsCommand = async (
@@ -16212,7 +10582,7 @@ export const de_ListModelPackageGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelPackageGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelPackageGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16225,26 +10595,6 @@ export const de_ListModelPackageGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelPackageGroupsCommandError
- */
-const de_ListModelPackageGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelPackageGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelPackagesCommand
  */
 export const de_ListModelPackagesCommand = async (
@@ -16252,7 +10602,7 @@ export const de_ListModelPackagesCommand = async (
   context: __SerdeContext
 ): Promise<ListModelPackagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelPackagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16265,26 +10615,6 @@ export const de_ListModelPackagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelPackagesCommandError
- */
-const de_ListModelPackagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelPackagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelQualityJobDefinitionsCommand
  */
 export const de_ListModelQualityJobDefinitionsCommand = async (
@@ -16292,7 +10622,7 @@ export const de_ListModelQualityJobDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelQualityJobDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelQualityJobDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16305,26 +10635,6 @@ export const de_ListModelQualityJobDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelQualityJobDefinitionsCommandError
- */
-const de_ListModelQualityJobDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelQualityJobDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListModelsCommand
  */
 export const de_ListModelsCommand = async (
@@ -16332,7 +10642,7 @@ export const de_ListModelsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16345,26 +10655,6 @@ export const de_ListModelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListModelsCommandError
- */
-const de_ListModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListMonitoringAlertHistoryCommand
  */
 export const de_ListMonitoringAlertHistoryCommand = async (
@@ -16372,7 +10662,7 @@ export const de_ListMonitoringAlertHistoryCommand = async (
   context: __SerdeContext
 ): Promise<ListMonitoringAlertHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMonitoringAlertHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16385,32 +10675,6 @@ export const de_ListMonitoringAlertHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMonitoringAlertHistoryCommandError
- */
-const de_ListMonitoringAlertHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitoringAlertHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMonitoringAlertsCommand
  */
 export const de_ListMonitoringAlertsCommand = async (
@@ -16418,7 +10682,7 @@ export const de_ListMonitoringAlertsCommand = async (
   context: __SerdeContext
 ): Promise<ListMonitoringAlertsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMonitoringAlertsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16431,32 +10695,6 @@ export const de_ListMonitoringAlertsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMonitoringAlertsCommandError
- */
-const de_ListMonitoringAlertsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitoringAlertsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMonitoringExecutionsCommand
  */
 export const de_ListMonitoringExecutionsCommand = async (
@@ -16464,7 +10702,7 @@ export const de_ListMonitoringExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListMonitoringExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMonitoringExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16477,26 +10715,6 @@ export const de_ListMonitoringExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMonitoringExecutionsCommandError
- */
-const de_ListMonitoringExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitoringExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListMonitoringSchedulesCommand
  */
 export const de_ListMonitoringSchedulesCommand = async (
@@ -16504,7 +10722,7 @@ export const de_ListMonitoringSchedulesCommand = async (
   context: __SerdeContext
 ): Promise<ListMonitoringSchedulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMonitoringSchedulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16517,26 +10735,6 @@ export const de_ListMonitoringSchedulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMonitoringSchedulesCommandError
- */
-const de_ListMonitoringSchedulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitoringSchedulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand
  */
 export const de_ListNotebookInstanceLifecycleConfigsCommand = async (
@@ -16544,7 +10742,7 @@ export const de_ListNotebookInstanceLifecycleConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNotebookInstanceLifecycleConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16557,26 +10755,6 @@ export const de_ListNotebookInstanceLifecycleConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommandError
- */
-const de_ListNotebookInstanceLifecycleConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListNotebookInstancesCommand
  */
 export const de_ListNotebookInstancesCommand = async (
@@ -16584,7 +10762,7 @@ export const de_ListNotebookInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListNotebookInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNotebookInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16597,26 +10775,6 @@ export const de_ListNotebookInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNotebookInstancesCommandError
- */
-const de_ListNotebookInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotebookInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListPipelineExecutionsCommand
  */
 export const de_ListPipelineExecutionsCommand = async (
@@ -16624,7 +10782,7 @@ export const de_ListPipelineExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelineExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelineExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16637,32 +10795,6 @@ export const de_ListPipelineExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelineExecutionsCommandError
- */
-const de_ListPipelineExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelineExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPipelineExecutionStepsCommand
  */
 export const de_ListPipelineExecutionStepsCommand = async (
@@ -16670,7 +10802,7 @@ export const de_ListPipelineExecutionStepsCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelineExecutionStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelineExecutionStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16683,32 +10815,6 @@ export const de_ListPipelineExecutionStepsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelineExecutionStepsCommandError
- */
-const de_ListPipelineExecutionStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelineExecutionStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPipelineParametersForExecutionCommand
  */
 export const de_ListPipelineParametersForExecutionCommand = async (
@@ -16716,7 +10822,7 @@ export const de_ListPipelineParametersForExecutionCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelineParametersForExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelineParametersForExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16729,32 +10835,6 @@ export const de_ListPipelineParametersForExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelineParametersForExecutionCommandError
- */
-const de_ListPipelineParametersForExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelineParametersForExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPipelinesCommand
  */
 export const de_ListPipelinesCommand = async (
@@ -16762,7 +10842,7 @@ export const de_ListPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16775,26 +10855,6 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelinesCommandError
- */
-const de_ListPipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListProcessingJobsCommand
  */
 export const de_ListProcessingJobsCommand = async (
@@ -16802,7 +10862,7 @@ export const de_ListProcessingJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListProcessingJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProcessingJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16815,26 +10875,6 @@ export const de_ListProcessingJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProcessingJobsCommandError
- */
-const de_ListProcessingJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProcessingJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -16842,7 +10882,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16855,26 +10895,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListResourceCatalogsCommand
  */
 export const de_ListResourceCatalogsCommand = async (
@@ -16882,7 +10902,7 @@ export const de_ListResourceCatalogsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceCatalogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceCatalogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16895,26 +10915,6 @@ export const de_ListResourceCatalogsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourceCatalogsCommandError
- */
-const de_ListResourceCatalogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceCatalogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListSpacesCommand
  */
 export const de_ListSpacesCommand = async (
@@ -16922,7 +10922,7 @@ export const de_ListSpacesCommand = async (
   context: __SerdeContext
 ): Promise<ListSpacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSpacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16935,26 +10935,6 @@ export const de_ListSpacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSpacesCommandError
- */
-const de_ListSpacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSpacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListStageDevicesCommand
  */
 export const de_ListStageDevicesCommand = async (
@@ -16962,7 +10942,7 @@ export const de_ListStageDevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListStageDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStageDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16975,26 +10955,6 @@ export const de_ListStageDevicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStageDevicesCommandError
- */
-const de_ListStageDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStageDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListStudioLifecycleConfigsCommand
  */
 export const de_ListStudioLifecycleConfigsCommand = async (
@@ -17002,7 +10962,7 @@ export const de_ListStudioLifecycleConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListStudioLifecycleConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStudioLifecycleConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17015,32 +10975,6 @@ export const de_ListStudioLifecycleConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStudioLifecycleConfigsCommandError
- */
-const de_ListStudioLifecycleConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStudioLifecycleConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSubscribedWorkteamsCommand
  */
 export const de_ListSubscribedWorkteamsCommand = async (
@@ -17048,7 +10982,7 @@ export const de_ListSubscribedWorkteamsCommand = async (
   context: __SerdeContext
 ): Promise<ListSubscribedWorkteamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSubscribedWorkteamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17061,26 +10995,6 @@ export const de_ListSubscribedWorkteamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSubscribedWorkteamsCommandError
- */
-const de_ListSubscribedWorkteamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscribedWorkteamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -17088,7 +11002,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17101,26 +11015,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListTrainingJobsCommand
  */
 export const de_ListTrainingJobsCommand = async (
@@ -17128,7 +11022,7 @@ export const de_ListTrainingJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListTrainingJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTrainingJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17141,26 +11035,6 @@ export const de_ListTrainingJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTrainingJobsCommandError
- */
-const de_ListTrainingJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrainingJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand
  */
 export const de_ListTrainingJobsForHyperParameterTuningJobCommand = async (
@@ -17168,7 +11042,7 @@ export const de_ListTrainingJobsForHyperParameterTuningJobCommand = async (
   context: __SerdeContext
 ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTrainingJobsForHyperParameterTuningJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17181,32 +11055,6 @@ export const de_ListTrainingJobsForHyperParameterTuningJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommandError
- */
-const de_ListTrainingJobsForHyperParameterTuningJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTransformJobsCommand
  */
 export const de_ListTransformJobsCommand = async (
@@ -17214,7 +11062,7 @@ export const de_ListTransformJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListTransformJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTransformJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17227,26 +11075,6 @@ export const de_ListTransformJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTransformJobsCommandError
- */
-const de_ListTransformJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTransformJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListTrialComponentsCommand
  */
 export const de_ListTrialComponentsCommand = async (
@@ -17254,7 +11082,7 @@ export const de_ListTrialComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListTrialComponentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTrialComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17267,32 +11095,6 @@ export const de_ListTrialComponentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTrialComponentsCommandError
- */
-const de_ListTrialComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrialComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTrialsCommand
  */
 export const de_ListTrialsCommand = async (
@@ -17300,7 +11102,7 @@ export const de_ListTrialsCommand = async (
   context: __SerdeContext
 ): Promise<ListTrialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTrialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17313,32 +11115,6 @@ export const de_ListTrialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTrialsCommandError
- */
-const de_ListTrialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUserProfilesCommand
  */
 export const de_ListUserProfilesCommand = async (
@@ -17346,7 +11122,7 @@ export const de_ListUserProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListUserProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUserProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17359,26 +11135,6 @@ export const de_ListUserProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUserProfilesCommandError
- */
-const de_ListUserProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListWorkforcesCommand
  */
 export const de_ListWorkforcesCommand = async (
@@ -17386,7 +11142,7 @@ export const de_ListWorkforcesCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkforcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkforcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17399,26 +11155,6 @@ export const de_ListWorkforcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkforcesCommandError
- */
-const de_ListWorkforcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkforcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListWorkteamsCommand
  */
 export const de_ListWorkteamsCommand = async (
@@ -17426,7 +11162,7 @@ export const de_ListWorkteamsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkteamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkteamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17439,26 +11175,6 @@ export const de_ListWorkteamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkteamsCommandError
- */
-const de_ListWorkteamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkteamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1PutModelPackageGroupPolicyCommand
  */
 export const de_PutModelPackageGroupPolicyCommand = async (
@@ -17466,7 +11182,7 @@ export const de_PutModelPackageGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutModelPackageGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutModelPackageGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17479,32 +11195,6 @@ export const de_PutModelPackageGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutModelPackageGroupPolicyCommandError
- */
-const de_PutModelPackageGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutModelPackageGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1QueryLineageCommand
  */
 export const de_QueryLineageCommand = async (
@@ -17512,7 +11202,7 @@ export const de_QueryLineageCommand = async (
   context: __SerdeContext
 ): Promise<QueryLineageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QueryLineageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17525,32 +11215,6 @@ export const de_QueryLineageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1QueryLineageCommandError
- */
-const de_QueryLineageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryLineageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterDevicesCommand
  */
 export const de_RegisterDevicesCommand = async (
@@ -17558,39 +11222,13 @@ export const de_RegisterDevicesCommand = async (
   context: __SerdeContext
 ): Promise<RegisterDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterDevicesCommandError
- */
-const de_RegisterDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -17601,7 +11239,7 @@ export const de_RenderUiTemplateCommand = async (
   context: __SerdeContext
 ): Promise<RenderUiTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RenderUiTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17614,32 +11252,6 @@ export const de_RenderUiTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RenderUiTemplateCommandError
- */
-const de_RenderUiTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RenderUiTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RetryPipelineExecutionCommand
  */
 export const de_RetryPipelineExecutionCommand = async (
@@ -17647,7 +11259,7 @@ export const de_RetryPipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<RetryPipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RetryPipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17660,38 +11272,6 @@ export const de_RetryPipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RetryPipelineExecutionCommandError
- */
-const de_RetryPipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetryPipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchCommand
  */
 export const de_SearchCommand = async (
@@ -17699,7 +11279,7 @@ export const de_SearchCommand = async (
   context: __SerdeContext
 ): Promise<SearchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17712,23 +11292,6 @@ export const de_SearchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchCommandError
- */
-const de_SearchCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SendPipelineExecutionStepFailureCommand
  */
 export const de_SendPipelineExecutionStepFailureCommand = async (
@@ -17736,7 +11299,7 @@ export const de_SendPipelineExecutionStepFailureCommand = async (
   context: __SerdeContext
 ): Promise<SendPipelineExecutionStepFailureCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendPipelineExecutionStepFailureCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17749,38 +11312,6 @@ export const de_SendPipelineExecutionStepFailureCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendPipelineExecutionStepFailureCommandError
- */
-const de_SendPipelineExecutionStepFailureCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendPipelineExecutionStepFailureCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendPipelineExecutionStepSuccessCommand
  */
 export const de_SendPipelineExecutionStepSuccessCommand = async (
@@ -17788,7 +11319,7 @@ export const de_SendPipelineExecutionStepSuccessCommand = async (
   context: __SerdeContext
 ): Promise<SendPipelineExecutionStepSuccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendPipelineExecutionStepSuccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17801,38 +11332,6 @@ export const de_SendPipelineExecutionStepSuccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendPipelineExecutionStepSuccessCommandError
- */
-const de_SendPipelineExecutionStepSuccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendPipelineExecutionStepSuccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartEdgeDeploymentStageCommand
  */
 export const de_StartEdgeDeploymentStageCommand = async (
@@ -17840,33 +11339,13 @@ export const de_StartEdgeDeploymentStageCommand = async (
   context: __SerdeContext
 ): Promise<StartEdgeDeploymentStageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartEdgeDeploymentStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StartEdgeDeploymentStageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StartEdgeDeploymentStageCommandError
- */
-const de_StartEdgeDeploymentStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEdgeDeploymentStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -17877,7 +11356,7 @@ export const de_StartInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<StartInferenceExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartInferenceExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17890,35 +11369,6 @@ export const de_StartInferenceExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartInferenceExperimentCommandError
- */
-const de_StartInferenceExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartInferenceExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMonitoringScheduleCommand
  */
 export const de_StartMonitoringScheduleCommand = async (
@@ -17926,39 +11376,13 @@ export const de_StartMonitoringScheduleCommand = async (
   context: __SerdeContext
 ): Promise<StartMonitoringScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMonitoringScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StartMonitoringScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StartMonitoringScheduleCommandError
- */
-const de_StartMonitoringScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMonitoringScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -17969,39 +11393,13 @@ export const de_StartNotebookInstanceCommand = async (
   context: __SerdeContext
 ): Promise<StartNotebookInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartNotebookInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StartNotebookInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StartNotebookInstanceCommandError
- */
-const de_StartNotebookInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartNotebookInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18012,7 +11410,7 @@ export const de_StartPipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartPipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartPipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18025,38 +11423,6 @@ export const de_StartPipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartPipelineExecutionCommandError
- */
-const de_StartPipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopAutoMLJobCommand
  */
 export const de_StopAutoMLJobCommand = async (
@@ -18064,39 +11430,13 @@ export const de_StopAutoMLJobCommand = async (
   context: __SerdeContext
 ): Promise<StopAutoMLJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopAutoMLJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopAutoMLJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopAutoMLJobCommandError
- */
-const de_StopAutoMLJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAutoMLJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18107,39 +11447,13 @@ export const de_StopCompilationJobCommand = async (
   context: __SerdeContext
 ): Promise<StopCompilationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopCompilationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopCompilationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopCompilationJobCommandError
- */
-const de_StopCompilationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopCompilationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18150,33 +11464,13 @@ export const de_StopEdgeDeploymentStageCommand = async (
   context: __SerdeContext
 ): Promise<StopEdgeDeploymentStageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopEdgeDeploymentStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopEdgeDeploymentStageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopEdgeDeploymentStageCommandError
- */
-const de_StopEdgeDeploymentStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEdgeDeploymentStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -18187,33 +11481,13 @@ export const de_StopEdgePackagingJobCommand = async (
   context: __SerdeContext
 ): Promise<StopEdgePackagingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopEdgePackagingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopEdgePackagingJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopEdgePackagingJobCommandError
- */
-const de_StopEdgePackagingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEdgePackagingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -18224,39 +11498,13 @@ export const de_StopHyperParameterTuningJobCommand = async (
   context: __SerdeContext
 ): Promise<StopHyperParameterTuningJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopHyperParameterTuningJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopHyperParameterTuningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopHyperParameterTuningJobCommandError
- */
-const de_StopHyperParameterTuningJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopHyperParameterTuningJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18267,7 +11515,7 @@ export const de_StopInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<StopInferenceExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopInferenceExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18280,35 +11528,6 @@ export const de_StopInferenceExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopInferenceExperimentCommandError
- */
-const de_StopInferenceExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopInferenceExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopInferenceRecommendationsJobCommand
  */
 export const de_StopInferenceRecommendationsJobCommand = async (
@@ -18316,39 +11535,13 @@ export const de_StopInferenceRecommendationsJobCommand = async (
   context: __SerdeContext
 ): Promise<StopInferenceRecommendationsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopInferenceRecommendationsJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopInferenceRecommendationsJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopInferenceRecommendationsJobCommandError
- */
-const de_StopInferenceRecommendationsJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopInferenceRecommendationsJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18359,39 +11552,13 @@ export const de_StopLabelingJobCommand = async (
   context: __SerdeContext
 ): Promise<StopLabelingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopLabelingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopLabelingJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopLabelingJobCommandError
- */
-const de_StopLabelingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopLabelingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18402,39 +11569,13 @@ export const de_StopMonitoringScheduleCommand = async (
   context: __SerdeContext
 ): Promise<StopMonitoringScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopMonitoringScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopMonitoringScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopMonitoringScheduleCommandError
- */
-const de_StopMonitoringScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopMonitoringScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18445,33 +11586,13 @@ export const de_StopNotebookInstanceCommand = async (
   context: __SerdeContext
 ): Promise<StopNotebookInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopNotebookInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopNotebookInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopNotebookInstanceCommandError
- */
-const de_StopNotebookInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopNotebookInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -18482,7 +11603,7 @@ export const de_StopPipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StopPipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopPipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18495,35 +11616,6 @@ export const de_StopPipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopPipelineExecutionCommandError
- */
-const de_StopPipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopPipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopProcessingJobCommand
  */
 export const de_StopProcessingJobCommand = async (
@@ -18531,39 +11623,13 @@ export const de_StopProcessingJobCommand = async (
   context: __SerdeContext
 ): Promise<StopProcessingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopProcessingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopProcessingJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopProcessingJobCommandError
- */
-const de_StopProcessingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopProcessingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18574,39 +11640,13 @@ export const de_StopTrainingJobCommand = async (
   context: __SerdeContext
 ): Promise<StopTrainingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopTrainingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopTrainingJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopTrainingJobCommandError
- */
-const de_StopTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18617,39 +11657,13 @@ export const de_StopTransformJobCommand = async (
   context: __SerdeContext
 ): Promise<StopTransformJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopTransformJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopTransformJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopTransformJobCommandError
- */
-const de_StopTransformJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTransformJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18660,7 +11674,7 @@ export const de_UpdateActionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18673,35 +11687,6 @@ export const de_UpdateActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateActionCommandError
- */
-const de_UpdateActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAppImageConfigCommand
  */
 export const de_UpdateAppImageConfigCommand = async (
@@ -18709,7 +11694,7 @@ export const de_UpdateAppImageConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAppImageConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAppImageConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18722,32 +11707,6 @@ export const de_UpdateAppImageConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAppImageConfigCommandError
- */
-const de_UpdateAppImageConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppImageConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateArtifactCommand
  */
 export const de_UpdateArtifactCommand = async (
@@ -18755,7 +11714,7 @@ export const de_UpdateArtifactCommand = async (
   context: __SerdeContext
 ): Promise<UpdateArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18768,35 +11727,6 @@ export const de_UpdateArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateArtifactCommandError
- */
-const de_UpdateArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateClusterCommand
  */
 export const de_UpdateClusterCommand = async (
@@ -18804,7 +11734,7 @@ export const de_UpdateClusterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18817,38 +11747,6 @@ export const de_UpdateClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateClusterCommandError
- */
-const de_UpdateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCodeRepositoryCommand
  */
 export const de_UpdateCodeRepositoryCommand = async (
@@ -18856,7 +11754,7 @@ export const de_UpdateCodeRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCodeRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCodeRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18869,32 +11767,6 @@ export const de_UpdateCodeRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCodeRepositoryCommandError
- */
-const de_UpdateCodeRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCodeRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateContextCommand
  */
 export const de_UpdateContextCommand = async (
@@ -18902,7 +11774,7 @@ export const de_UpdateContextCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18915,35 +11787,6 @@ export const de_UpdateContextCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateContextCommandError
- */
-const de_UpdateContextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDeviceFleetCommand
  */
 export const de_UpdateDeviceFleetCommand = async (
@@ -18951,39 +11794,13 @@ export const de_UpdateDeviceFleetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDeviceFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateDeviceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDeviceFleetCommandError
- */
-const de_UpdateDeviceFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeviceFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -18994,33 +11811,13 @@ export const de_UpdateDevicesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDevicesCommandError
- */
-const de_UpdateDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -19031,7 +11828,7 @@ export const de_UpdateDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19044,38 +11841,6 @@ export const de_UpdateDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDomainCommandError
- */
-const de_UpdateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateEndpointCommand
  */
 export const de_UpdateEndpointCommand = async (
@@ -19083,7 +11848,7 @@ export const de_UpdateEndpointCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19096,32 +11861,6 @@ export const de_UpdateEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateEndpointCommandError
- */
-const de_UpdateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand
  */
 export const de_UpdateEndpointWeightsAndCapacitiesCommand = async (
@@ -19129,7 +11868,7 @@ export const de_UpdateEndpointWeightsAndCapacitiesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEndpointWeightsAndCapacitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19142,32 +11881,6 @@ export const de_UpdateEndpointWeightsAndCapacitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommandError
- */
-const de_UpdateEndpointWeightsAndCapacitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateExperimentCommand
  */
 export const de_UpdateExperimentCommand = async (
@@ -19175,7 +11888,7 @@ export const de_UpdateExperimentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19188,35 +11901,6 @@ export const de_UpdateExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateExperimentCommandError
- */
-const de_UpdateExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFeatureGroupCommand
  */
 export const de_UpdateFeatureGroupCommand = async (
@@ -19224,7 +11908,7 @@ export const de_UpdateFeatureGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFeatureGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFeatureGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19237,35 +11921,6 @@ export const de_UpdateFeatureGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFeatureGroupCommandError
- */
-const de_UpdateFeatureGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFeatureGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFeatureMetadataCommand
  */
 export const de_UpdateFeatureMetadataCommand = async (
@@ -19273,39 +11928,13 @@ export const de_UpdateFeatureMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFeatureMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFeatureMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateFeatureMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateFeatureMetadataCommandError
- */
-const de_UpdateFeatureMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFeatureMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -19316,7 +11945,7 @@ export const de_UpdateHubCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHubCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19329,32 +11958,6 @@ export const de_UpdateHubCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateHubCommandError
- */
-const de_UpdateHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateImageCommand
  */
 export const de_UpdateImageCommand = async (
@@ -19362,7 +11965,7 @@ export const de_UpdateImageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19375,35 +11978,6 @@ export const de_UpdateImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateImageCommandError
- */
-const de_UpdateImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateImageVersionCommand
  */
 export const de_UpdateImageVersionCommand = async (
@@ -19411,7 +11985,7 @@ export const de_UpdateImageVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateImageVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateImageVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19424,35 +11998,6 @@ export const de_UpdateImageVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateImageVersionCommandError
- */
-const de_UpdateImageVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImageVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateInferenceComponentCommand
  */
 export const de_UpdateInferenceComponentCommand = async (
@@ -19460,7 +12005,7 @@ export const de_UpdateInferenceComponentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInferenceComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateInferenceComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19473,32 +12018,6 @@ export const de_UpdateInferenceComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateInferenceComponentCommandError
- */
-const de_UpdateInferenceComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInferenceComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateInferenceComponentRuntimeConfigCommand
  */
 export const de_UpdateInferenceComponentRuntimeConfigCommand = async (
@@ -19506,7 +12025,7 @@ export const de_UpdateInferenceComponentRuntimeConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateInferenceComponentRuntimeConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19519,32 +12038,6 @@ export const de_UpdateInferenceComponentRuntimeConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateInferenceComponentRuntimeConfigCommandError
- */
-const de_UpdateInferenceComponentRuntimeConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInferenceComponentRuntimeConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateInferenceExperimentCommand
  */
 export const de_UpdateInferenceExperimentCommand = async (
@@ -19552,7 +12045,7 @@ export const de_UpdateInferenceExperimentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInferenceExperimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateInferenceExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19565,35 +12058,6 @@ export const de_UpdateInferenceExperimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateInferenceExperimentCommandError
- */
-const de_UpdateInferenceExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInferenceExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateModelCardCommand
  */
 export const de_UpdateModelCardCommand = async (
@@ -19601,7 +12065,7 @@ export const de_UpdateModelCardCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelCardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateModelCardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19614,38 +12078,6 @@ export const de_UpdateModelCardCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateModelCardCommandError
- */
-const de_UpdateModelCardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelCardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateModelPackageCommand
  */
 export const de_UpdateModelPackageCommand = async (
@@ -19653,7 +12085,7 @@ export const de_UpdateModelPackageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelPackageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateModelPackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19666,32 +12098,6 @@ export const de_UpdateModelPackageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateModelPackageCommandError
- */
-const de_UpdateModelPackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelPackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMonitoringAlertCommand
  */
 export const de_UpdateMonitoringAlertCommand = async (
@@ -19699,7 +12105,7 @@ export const de_UpdateMonitoringAlertCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMonitoringAlertCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMonitoringAlertCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19712,35 +12118,6 @@ export const de_UpdateMonitoringAlertCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMonitoringAlertCommandError
- */
-const de_UpdateMonitoringAlertCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMonitoringAlertCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMonitoringScheduleCommand
  */
 export const de_UpdateMonitoringScheduleCommand = async (
@@ -19748,7 +12125,7 @@ export const de_UpdateMonitoringScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMonitoringScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMonitoringScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19761,35 +12138,6 @@ export const de_UpdateMonitoringScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMonitoringScheduleCommandError
- */
-const de_UpdateMonitoringScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMonitoringScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNotebookInstanceCommand
  */
 export const de_UpdateNotebookInstanceCommand = async (
@@ -19797,7 +12145,7 @@ export const de_UpdateNotebookInstanceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotebookInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNotebookInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19810,32 +12158,6 @@ export const de_UpdateNotebookInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNotebookInstanceCommandError
- */
-const de_UpdateNotebookInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotebookInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand
  */
 export const de_UpdateNotebookInstanceLifecycleConfigCommand = async (
@@ -19843,7 +12165,7 @@ export const de_UpdateNotebookInstanceLifecycleConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNotebookInstanceLifecycleConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19856,32 +12178,6 @@ export const de_UpdateNotebookInstanceLifecycleConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommandError
- */
-const de_UpdateNotebookInstanceLifecycleConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdatePipelineCommand
  */
 export const de_UpdatePipelineCommand = async (
@@ -19889,7 +12185,7 @@ export const de_UpdatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19902,35 +12198,6 @@ export const de_UpdatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePipelineCommandError
- */
-const de_UpdatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdatePipelineExecutionCommand
  */
 export const de_UpdatePipelineExecutionCommand = async (
@@ -19938,7 +12205,7 @@ export const de_UpdatePipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19951,35 +12218,6 @@ export const de_UpdatePipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePipelineExecutionCommandError
- */
-const de_UpdatePipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -19987,7 +12225,7 @@ export const de_UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20000,32 +12238,6 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateProjectCommandError
- */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSpaceCommand
  */
 export const de_UpdateSpaceCommand = async (
@@ -20033,7 +12245,7 @@ export const de_UpdateSpaceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSpaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20046,38 +12258,6 @@ export const de_UpdateSpaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSpaceCommandError
- */
-const de_UpdateSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTrainingJobCommand
  */
 export const de_UpdateTrainingJobCommand = async (
@@ -20085,7 +12265,7 @@ export const de_UpdateTrainingJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTrainingJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTrainingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20098,35 +12278,6 @@ export const de_UpdateTrainingJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTrainingJobCommandError
- */
-const de_UpdateTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTrialCommand
  */
 export const de_UpdateTrialCommand = async (
@@ -20134,7 +12285,7 @@ export const de_UpdateTrialCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTrialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTrialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20147,35 +12298,6 @@ export const de_UpdateTrialCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTrialCommandError
- */
-const de_UpdateTrialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTrialComponentCommand
  */
 export const de_UpdateTrialComponentCommand = async (
@@ -20183,7 +12305,7 @@ export const de_UpdateTrialComponentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTrialComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTrialComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20196,35 +12318,6 @@ export const de_UpdateTrialComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTrialComponentCommandError
- */
-const de_UpdateTrialComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrialComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserProfileCommand
  */
 export const de_UpdateUserProfileCommand = async (
@@ -20232,7 +12325,7 @@ export const de_UpdateUserProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20245,38 +12338,6 @@ export const de_UpdateUserProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserProfileCommandError
- */
-const de_UpdateUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.sagemaker#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.sagemaker#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemaker#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateWorkforceCommand
  */
 export const de_UpdateWorkforceCommand = async (
@@ -20284,7 +12345,7 @@ export const de_UpdateWorkforceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWorkforceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateWorkforceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20297,32 +12358,6 @@ export const de_UpdateWorkforceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateWorkforceCommandError
- */
-const de_UpdateWorkforceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkforceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemaker#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateWorkteamCommand
  */
 export const de_UpdateWorkteamCommand = async (
@@ -20330,7 +12365,7 @@ export const de_UpdateWorkteamCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWorkteamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateWorkteamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20343,12 +12378,9 @@ export const de_UpdateWorkteamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateWorkteamCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateWorkteamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkteamCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -20358,6 +12390,15 @@ const de_UpdateWorkteamCommandError = async (
     case "ResourceLimitExceeded":
     case "com.amazonaws.sagemaker#ResourceLimitExceeded":
       throw await de_ResourceLimitExceededRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await de_ResourceInUseRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.sagemaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

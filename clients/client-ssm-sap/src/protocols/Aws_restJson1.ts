@@ -512,7 +512,7 @@ export const de_DeleteResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteResourcePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -526,38 +526,6 @@ export const de_DeleteResourcePermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteResourcePermissionCommandError
- */
-const de_DeleteResourcePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeregisterApplicationCommand
  */
 export const de_DeregisterApplicationCommand = async (
@@ -565,45 +533,13 @@ export const de_DeregisterApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeregisterApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeregisterApplicationCommandError
- */
-const de_DeregisterApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.ssmsap#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -614,7 +550,7 @@ export const de_GetApplicationCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -629,35 +565,6 @@ export const de_GetApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationCommandError
- */
-const de_GetApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetComponentCommand
  */
 export const de_GetComponentCommand = async (
@@ -665,7 +572,7 @@ export const de_GetComponentCommand = async (
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -680,38 +587,6 @@ export const de_GetComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetComponentCommandError
- */
-const de_GetComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.ssmsap#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDatabaseCommand
  */
 export const de_GetDatabaseCommand = async (
@@ -719,7 +594,7 @@ export const de_GetDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<GetDatabaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -734,35 +609,6 @@ export const de_GetDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatabaseCommandError
- */
-const de_GetDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetOperationCommand
  */
 export const de_GetOperationCommand = async (
@@ -770,7 +616,7 @@ export const de_GetOperationCommand = async (
   context: __SerdeContext
 ): Promise<GetOperationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -784,35 +630,6 @@ export const de_GetOperationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetOperationCommandError
- */
-const de_GetOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourcePermissionCommand
  */
 export const de_GetResourcePermissionCommand = async (
@@ -820,7 +637,7 @@ export const de_GetResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourcePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -834,38 +651,6 @@ export const de_GetResourcePermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourcePermissionCommandError
- */
-const de_GetResourcePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationsCommand
  */
 export const de_ListApplicationsCommand = async (
@@ -873,7 +658,7 @@ export const de_ListApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -888,38 +673,6 @@ export const de_ListApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListComponentsCommand
  */
 export const de_ListComponentsCommand = async (
@@ -927,7 +680,7 @@ export const de_ListComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -942,41 +695,6 @@ export const de_ListComponentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListComponentsCommandError
- */
-const de_ListComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.ssmsap#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDatabasesCommand
  */
 export const de_ListDatabasesCommand = async (
@@ -984,7 +702,7 @@ export const de_ListDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<ListDatabasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDatabasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -999,38 +717,6 @@ export const de_ListDatabasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDatabasesCommandError
- */
-const de_ListDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOperationsCommand
  */
 export const de_ListOperationsCommand = async (
@@ -1038,7 +724,7 @@ export const de_ListOperationsCommand = async (
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOperationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1053,35 +739,6 @@ export const de_ListOperationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOperationsCommandError
- */
-const de_ListOperationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOperationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1089,7 +746,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1103,38 +760,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.ssmsap#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutResourcePermissionCommand
  */
 export const de_PutResourcePermissionCommand = async (
@@ -1142,7 +767,7 @@ export const de_PutResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutResourcePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1156,38 +781,6 @@ export const de_PutResourcePermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutResourcePermissionCommandError
- */
-const de_PutResourcePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterApplicationCommand
  */
 export const de_RegisterApplicationCommand = async (
@@ -1195,7 +788,7 @@ export const de_RegisterApplicationCommand = async (
   context: __SerdeContext
 ): Promise<RegisterApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1210,41 +803,6 @@ export const de_RegisterApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterApplicationCommandError
- */
-const de_RegisterApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.ssmsap#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartApplicationRefreshCommand
  */
 export const de_StartApplicationRefreshCommand = async (
@@ -1252,7 +810,7 @@ export const de_StartApplicationRefreshCommand = async (
   context: __SerdeContext
 ): Promise<StartApplicationRefreshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartApplicationRefreshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1266,44 +824,6 @@ export const de_StartApplicationRefreshCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartApplicationRefreshCommandError
- */
-const de_StartApplicationRefreshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartApplicationRefreshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.ssmsap#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmsap#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.ssmsap#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1311,45 +831,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.ssmsap#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1360,45 +848,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.ssmsap#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmsap#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmsap#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1409,7 +865,7 @@ export const de_UpdateApplicationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApplicationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1424,33 +880,30 @@ export const de_UpdateApplicationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApplicationSettingsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateApplicationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationSettingsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.ssmsap#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmsap#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ssmsap#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.ssmsap#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ssmsap#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.ssmsap#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmsap#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

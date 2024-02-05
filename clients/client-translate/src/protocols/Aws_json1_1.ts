@@ -370,7 +370,7 @@ export const de_CreateParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<CreateParallelDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateParallelDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -383,53 +383,6 @@ export const de_CreateParallelDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateParallelDataCommandError
- */
-const de_CreateParallelDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateParallelDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.translate#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.translate#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.translate#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.translate#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.translate#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteParallelDataCommand
  */
 export const de_DeleteParallelDataCommand = async (
@@ -437,7 +390,7 @@ export const de_DeleteParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<DeleteParallelDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteParallelDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -450,41 +403,6 @@ export const de_DeleteParallelDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteParallelDataCommandError
- */
-const de_DeleteParallelDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParallelDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.translate#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTerminologyCommand
  */
 export const de_DeleteTerminologyCommand = async (
@@ -492,48 +410,13 @@ export const de_DeleteTerminologyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTerminologyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTerminologyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTerminologyCommandError
- */
-const de_DeleteTerminologyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTerminologyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -544,7 +427,7 @@ export const de_DescribeTextTranslationJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTextTranslationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTextTranslationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -557,38 +440,6 @@ export const de_DescribeTextTranslationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTextTranslationJobCommandError
- */
-const de_DescribeTextTranslationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTextTranslationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetParallelDataCommand
  */
 export const de_GetParallelDataCommand = async (
@@ -596,7 +447,7 @@ export const de_GetParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<GetParallelDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetParallelDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -609,41 +460,6 @@ export const de_GetParallelDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetParallelDataCommandError
- */
-const de_GetParallelDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParallelDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTerminologyCommand
  */
 export const de_GetTerminologyCommand = async (
@@ -651,7 +467,7 @@ export const de_GetTerminologyCommand = async (
   context: __SerdeContext
 ): Promise<GetTerminologyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTerminologyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -664,41 +480,6 @@ export const de_GetTerminologyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTerminologyCommandError
- */
-const de_GetTerminologyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTerminologyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportTerminologyCommand
  */
 export const de_ImportTerminologyCommand = async (
@@ -706,7 +487,7 @@ export const de_ImportTerminologyCommand = async (
   context: __SerdeContext
 ): Promise<ImportTerminologyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportTerminologyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -719,47 +500,6 @@ export const de_ImportTerminologyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportTerminologyCommandError
- */
-const de_ImportTerminologyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportTerminologyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.translate#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.translate#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.translate#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLanguagesCommand
  */
 export const de_ListLanguagesCommand = async (
@@ -767,7 +507,7 @@ export const de_ListLanguagesCommand = async (
   context: __SerdeContext
 ): Promise<ListLanguagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLanguagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -780,41 +520,6 @@ export const de_ListLanguagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLanguagesCommandError
- */
-const de_ListLanguagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLanguagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedDisplayLanguageCodeException":
-    case "com.amazonaws.translate#UnsupportedDisplayLanguageCodeException":
-      throw await de_UnsupportedDisplayLanguageCodeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListParallelDataCommand
  */
 export const de_ListParallelDataCommand = async (
@@ -822,7 +527,7 @@ export const de_ListParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<ListParallelDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListParallelDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -835,38 +540,6 @@ export const de_ListParallelDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListParallelDataCommandError
- */
-const de_ListParallelDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListParallelDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -874,7 +547,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -887,38 +560,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTerminologiesCommand
  */
 export const de_ListTerminologiesCommand = async (
@@ -926,7 +567,7 @@ export const de_ListTerminologiesCommand = async (
   context: __SerdeContext
 ): Promise<ListTerminologiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTerminologiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -939,38 +580,6 @@ export const de_ListTerminologiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTerminologiesCommandError
- */
-const de_ListTerminologiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTerminologiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTextTranslationJobsCommand
  */
 export const de_ListTextTranslationJobsCommand = async (
@@ -978,7 +587,7 @@ export const de_ListTextTranslationJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListTextTranslationJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTextTranslationJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -991,41 +600,6 @@ export const de_ListTextTranslationJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTextTranslationJobsCommandError
- */
-const de_ListTextTranslationJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTextTranslationJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.translate#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.translate#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartTextTranslationJobCommand
  */
 export const de_StartTextTranslationJobCommand = async (
@@ -1033,7 +607,7 @@ export const de_StartTextTranslationJobCommand = async (
   context: __SerdeContext
 ): Promise<StartTextTranslationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartTextTranslationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1046,47 +620,6 @@ export const de_StartTextTranslationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartTextTranslationJobCommandError
- */
-const de_StartTextTranslationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTextTranslationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.translate#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguagePairException":
-    case "com.amazonaws.translate#UnsupportedLanguagePairException":
-      throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopTextTranslationJobCommand
  */
 export const de_StopTextTranslationJobCommand = async (
@@ -1094,7 +627,7 @@ export const de_StopTextTranslationJobCommand = async (
   context: __SerdeContext
 ): Promise<StopTextTranslationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopTextTranslationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1107,38 +640,6 @@ export const de_StopTextTranslationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopTextTranslationJobCommandError
- */
-const de_StopTextTranslationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTextTranslationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1146,7 +647,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1159,44 +660,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.translate#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.translate#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TranslateDocumentCommand
  */
 export const de_TranslateDocumentCommand = async (
@@ -1204,7 +667,7 @@ export const de_TranslateDocumentCommand = async (
   context: __SerdeContext
 ): Promise<TranslateDocumentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TranslateDocumentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1217,50 +680,6 @@ export const de_TranslateDocumentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TranslateDocumentCommandError
- */
-const de_TranslateDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TranslateDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.translate#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.translate#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.translate#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguagePairException":
-    case "com.amazonaws.translate#UnsupportedLanguagePairException":
-      throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TranslateTextCommand
  */
 export const de_TranslateTextCommand = async (
@@ -1268,7 +687,7 @@ export const de_TranslateTextCommand = async (
   context: __SerdeContext
 ): Promise<TranslateTextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TranslateTextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1281,53 +700,6 @@ export const de_TranslateTextCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TranslateTextCommandError
- */
-const de_TranslateTextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TranslateTextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DetectedLanguageLowConfidenceException":
-    case "com.amazonaws.translate#DetectedLanguageLowConfidenceException":
-      throw await de_DetectedLanguageLowConfidenceExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.translate#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.translate#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.translate#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.translate#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguagePairException":
-    case "com.amazonaws.translate#UnsupportedLanguagePairException":
-      throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1335,7 +707,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1348,41 +720,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.translate#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.translate#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.translate#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateParallelDataCommand
  */
 export const de_UpdateParallelDataCommand = async (
@@ -1390,7 +727,7 @@ export const de_UpdateParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateParallelDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateParallelDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1403,12 +740,9 @@ export const de_UpdateParallelDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateParallelDataCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateParallelDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateParallelDataCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1433,12 +767,33 @@ const de_UpdateParallelDataCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.translate#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.translate#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.translate#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.translate#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.translate#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedDisplayLanguageCodeException":
+    case "com.amazonaws.translate#UnsupportedDisplayLanguageCodeException":
+      throw await de_UnsupportedDisplayLanguageCodeExceptionRes(parsedOutput, context);
+    case "InvalidFilterException":
+    case "com.amazonaws.translate#InvalidFilterException":
+      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
+    case "UnsupportedLanguagePairException":
+    case "com.amazonaws.translate#UnsupportedLanguagePairException":
+      throw await de_UnsupportedLanguagePairExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.translate#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "DetectedLanguageLowConfidenceException":
+    case "com.amazonaws.translate#DetectedLanguageLowConfidenceException":
+      throw await de_DetectedLanguageLowConfidenceExceptionRes(parsedOutput, context);
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.translate#TextSizeLimitExceededException":
+      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

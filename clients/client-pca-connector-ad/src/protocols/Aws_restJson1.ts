@@ -651,7 +651,7 @@ export const de_CreateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -665,50 +665,6 @@ export const de_CreateConnectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateConnectorCommandError
- */
-const de_CreateConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pcaconnectorad#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDirectoryRegistrationCommand
  */
 export const de_CreateDirectoryRegistrationCommand = async (
@@ -716,7 +672,7 @@ export const de_CreateDirectoryRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectoryRegistrationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateDirectoryRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -730,47 +686,6 @@ export const de_CreateDirectoryRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDirectoryRegistrationCommandError
- */
-const de_CreateDirectoryRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectoryRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateServicePrincipalNameCommand
  */
 export const de_CreateServicePrincipalNameCommand = async (
@@ -778,54 +693,13 @@ export const de_CreateServicePrincipalNameCommand = async (
   context: __SerdeContext
 ): Promise<CreateServicePrincipalNameCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateServicePrincipalNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateServicePrincipalNameCommandError
- */
-const de_CreateServicePrincipalNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServicePrincipalNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -836,7 +710,7 @@ export const de_CreateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -850,50 +724,6 @@ export const de_CreateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTemplateCommandError
- */
-const de_CreateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pcaconnectorad#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTemplateGroupAccessControlEntryCommand
  */
 export const de_CreateTemplateGroupAccessControlEntryCommand = async (
@@ -901,57 +731,13 @@ export const de_CreateTemplateGroupAccessControlEntryCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateGroupAccessControlEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTemplateGroupAccessControlEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateTemplateGroupAccessControlEntryCommandError
- */
-const de_CreateTemplateGroupAccessControlEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTemplateGroupAccessControlEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pcaconnectorad#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -962,54 +748,13 @@ export const de_DeleteConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConnectorCommandError
- */
-const de_DeleteConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1020,51 +765,13 @@ export const de_DeleteDirectoryRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectoryRegistrationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteDirectoryRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDirectoryRegistrationCommandError
- */
-const de_DeleteDirectoryRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectoryRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1075,51 +782,13 @@ export const de_DeleteServicePrincipalNameCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServicePrincipalNameCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteServicePrincipalNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteServicePrincipalNameCommandError
- */
-const de_DeleteServicePrincipalNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServicePrincipalNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1130,54 +799,13 @@ export const de_DeleteTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTemplateCommandError
- */
-const de_DeleteTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1188,54 +816,13 @@ export const de_DeleteTemplateGroupAccessControlEntryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateGroupAccessControlEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTemplateGroupAccessControlEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTemplateGroupAccessControlEntryCommandError
- */
-const de_DeleteTemplateGroupAccessControlEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTemplateGroupAccessControlEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1246,7 +833,7 @@ export const de_GetConnectorCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1260,44 +847,6 @@ export const de_GetConnectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConnectorCommandError
- */
-const de_GetConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDirectoryRegistrationCommand
  */
 export const de_GetDirectoryRegistrationCommand = async (
@@ -1305,7 +854,7 @@ export const de_GetDirectoryRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<GetDirectoryRegistrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDirectoryRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1319,44 +868,6 @@ export const de_GetDirectoryRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDirectoryRegistrationCommandError
- */
-const de_GetDirectoryRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDirectoryRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetServicePrincipalNameCommand
  */
 export const de_GetServicePrincipalNameCommand = async (
@@ -1364,7 +875,7 @@ export const de_GetServicePrincipalNameCommand = async (
   context: __SerdeContext
 ): Promise<GetServicePrincipalNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetServicePrincipalNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1378,44 +889,6 @@ export const de_GetServicePrincipalNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetServicePrincipalNameCommandError
- */
-const de_GetServicePrincipalNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServicePrincipalNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTemplateCommand
  */
 export const de_GetTemplateCommand = async (
@@ -1423,7 +896,7 @@ export const de_GetTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1437,44 +910,6 @@ export const de_GetTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTemplateCommandError
- */
-const de_GetTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTemplateGroupAccessControlEntryCommand
  */
 export const de_GetTemplateGroupAccessControlEntryCommand = async (
@@ -1482,7 +917,7 @@ export const de_GetTemplateGroupAccessControlEntryCommand = async (
   context: __SerdeContext
 ): Promise<GetTemplateGroupAccessControlEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTemplateGroupAccessControlEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1496,44 +931,6 @@ export const de_GetTemplateGroupAccessControlEntryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTemplateGroupAccessControlEntryCommandError
- */
-const de_GetTemplateGroupAccessControlEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemplateGroupAccessControlEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConnectorsCommand
  */
 export const de_ListConnectorsCommand = async (
@@ -1541,7 +938,7 @@ export const de_ListConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConnectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1556,41 +953,6 @@ export const de_ListConnectorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConnectorsCommandError
- */
-const de_ListConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDirectoryRegistrationsCommand
  */
 export const de_ListDirectoryRegistrationsCommand = async (
@@ -1598,7 +960,7 @@ export const de_ListDirectoryRegistrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDirectoryRegistrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDirectoryRegistrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1613,41 +975,6 @@ export const de_ListDirectoryRegistrationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDirectoryRegistrationsCommandError
- */
-const de_ListDirectoryRegistrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDirectoryRegistrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListServicePrincipalNamesCommand
  */
 export const de_ListServicePrincipalNamesCommand = async (
@@ -1655,7 +982,7 @@ export const de_ListServicePrincipalNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListServicePrincipalNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListServicePrincipalNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1670,44 +997,6 @@ export const de_ListServicePrincipalNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListServicePrincipalNamesCommandError
- */
-const de_ListServicePrincipalNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicePrincipalNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1715,7 +1004,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1729,44 +1018,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTemplateGroupAccessControlEntriesCommand
  */
 export const de_ListTemplateGroupAccessControlEntriesCommand = async (
@@ -1774,7 +1025,7 @@ export const de_ListTemplateGroupAccessControlEntriesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateGroupAccessControlEntriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplateGroupAccessControlEntriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1789,44 +1040,6 @@ export const de_ListTemplateGroupAccessControlEntriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplateGroupAccessControlEntriesCommandError
- */
-const de_ListTemplateGroupAccessControlEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplateGroupAccessControlEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTemplatesCommand
  */
 export const de_ListTemplatesCommand = async (
@@ -1834,7 +1047,7 @@ export const de_ListTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1849,44 +1062,6 @@ export const de_ListTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplatesCommandError
- */
-const de_ListTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1894,51 +1069,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1949,51 +1086,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2004,54 +1103,13 @@ export const de_UpdateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateTemplateCommandError
- */
-const de_UpdateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pcaconnectorad#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pcaconnectorad#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pcaconnectorad#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pcaconnectorad#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pcaconnectorad#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2062,7 +1120,7 @@ export const de_UpdateTemplateGroupAccessControlEntryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateGroupAccessControlEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTemplateGroupAccessControlEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2072,12 +1130,9 @@ export const de_UpdateTemplateGroupAccessControlEntryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTemplateGroupAccessControlEntryCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateTemplateGroupAccessControlEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplateGroupAccessControlEntryCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2096,6 +1151,9 @@ const de_UpdateTemplateGroupAccessControlEntryCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.pcaconnectorad#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pcaconnectorad#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pcaconnectorad#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);

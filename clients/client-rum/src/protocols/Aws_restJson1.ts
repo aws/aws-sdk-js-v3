@@ -486,7 +486,7 @@ export const de_BatchCreateRumMetricDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateRumMetricDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchCreateRumMetricDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -501,50 +501,6 @@ export const de_BatchCreateRumMetricDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchCreateRumMetricDefinitionsCommandError
- */
-const de_BatchCreateRumMetricDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreateRumMetricDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rum#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand
  */
 export const de_BatchDeleteRumMetricDefinitionsCommand = async (
@@ -552,7 +508,7 @@ export const de_BatchDeleteRumMetricDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDeleteRumMetricDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -567,47 +523,6 @@ export const de_BatchDeleteRumMetricDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchDeleteRumMetricDefinitionsCommandError
- */
-const de_BatchDeleteRumMetricDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteRumMetricDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetRumMetricDefinitionsCommand
  */
 export const de_BatchGetRumMetricDefinitionsCommand = async (
@@ -615,7 +530,7 @@ export const de_BatchGetRumMetricDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetRumMetricDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetRumMetricDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -630,41 +545,6 @@ export const de_BatchGetRumMetricDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetRumMetricDefinitionsCommandError
- */
-const de_BatchGetRumMetricDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetRumMetricDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAppMonitorCommand
  */
 export const de_CreateAppMonitorCommand = async (
@@ -672,7 +552,7 @@ export const de_CreateAppMonitorCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppMonitorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAppMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -686,50 +566,6 @@ export const de_CreateAppMonitorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAppMonitorCommandError
- */
-const de_CreateAppMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rum#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAppMonitorCommand
  */
 export const de_DeleteAppMonitorCommand = async (
@@ -737,54 +573,13 @@ export const de_DeleteAppMonitorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppMonitorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAppMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAppMonitorCommandError
- */
-const de_DeleteAppMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -795,54 +590,13 @@ export const de_DeleteRumMetricsDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRumMetricsDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRumMetricsDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRumMetricsDestinationCommandError
- */
-const de_DeleteRumMetricsDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRumMetricsDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -853,7 +607,7 @@ export const de_GetAppMonitorCommand = async (
   context: __SerdeContext
 ): Promise<GetAppMonitorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAppMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -867,44 +621,6 @@ export const de_GetAppMonitorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAppMonitorCommandError
- */
-const de_GetAppMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAppMonitorDataCommand
  */
 export const de_GetAppMonitorDataCommand = async (
@@ -912,7 +628,7 @@ export const de_GetAppMonitorDataCommand = async (
   context: __SerdeContext
 ): Promise<GetAppMonitorDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAppMonitorDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -927,44 +643,6 @@ export const de_GetAppMonitorDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAppMonitorDataCommandError
- */
-const de_GetAppMonitorDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppMonitorDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAppMonitorsCommand
  */
 export const de_ListAppMonitorsCommand = async (
@@ -972,7 +650,7 @@ export const de_ListAppMonitorsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppMonitorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAppMonitorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -987,41 +665,6 @@ export const de_ListAppMonitorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAppMonitorsCommandError
- */
-const de_ListAppMonitorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppMonitorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRumMetricsDestinationsCommand
  */
 export const de_ListRumMetricsDestinationsCommand = async (
@@ -1029,7 +672,7 @@ export const de_ListRumMetricsDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRumMetricsDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRumMetricsDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1044,41 +687,6 @@ export const de_ListRumMetricsDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRumMetricsDestinationsCommandError
- */
-const de_ListRumMetricsDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRumMetricsDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1086,7 +694,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1101,38 +709,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutRumEventsCommand
  */
 export const de_PutRumEventsCommand = async (
@@ -1140,51 +716,13 @@ export const de_PutRumEventsCommand = async (
   context: __SerdeContext
 ): Promise<PutRumEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutRumEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutRumEventsCommandError
- */
-const de_PutRumEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRumEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1195,54 +733,13 @@ export const de_PutRumMetricsDestinationCommand = async (
   context: __SerdeContext
 ): Promise<PutRumMetricsDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutRumMetricsDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutRumMetricsDestinationCommandError
- */
-const de_PutRumMetricsDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRumMetricsDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1253,45 +750,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1302,45 +767,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1351,54 +784,13 @@ export const de_UpdateAppMonitorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAppMonitorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAppMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateAppMonitorCommandError
- */
-const de_UpdateAppMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rum#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rum#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.rum#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rum#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rum#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.rum#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1409,7 +801,7 @@ export const de_UpdateRumMetricDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRumMetricDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRumMetricDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1419,12 +811,9 @@ export const de_UpdateRumMetricDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRumMetricDefinitionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateRumMetricDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRumMetricDefinitionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

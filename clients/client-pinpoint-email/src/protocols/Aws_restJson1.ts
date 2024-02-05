@@ -1106,54 +1106,13 @@ export const de_CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigurationSetCommandError
- */
-const de_CreateConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1164,51 +1123,13 @@ export const de_CreateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
- */
-const de_CreateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1219,51 +1140,13 @@ export const de_CreateDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDedicatedIpPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDedicatedIpPoolCommandError
- */
-const de_CreateDedicatedIpPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDedicatedIpPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1274,7 +1157,7 @@ export const de_CreateDeliverabilityTestReportCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeliverabilityTestReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1289,56 +1172,6 @@ export const de_CreateDeliverabilityTestReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeliverabilityTestReportCommandError
- */
-const de_CreateDeliverabilityTestReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeliverabilityTestReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSuspendedException":
-    case "com.amazonaws.pinpointemail#AccountSuspendedException":
-      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.pinpointemail#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SendingPausedException":
-    case "com.amazonaws.pinpointemail#SendingPausedException":
-      throw await de_SendingPausedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEmailIdentityCommand
  */
 export const de_CreateEmailIdentityCommand = async (
@@ -1346,7 +1179,7 @@ export const de_CreateEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1362,41 +1195,6 @@ export const de_CreateEmailIdentityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEmailIdentityCommandError
- */
-const de_CreateEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEmailIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -1404,48 +1202,13 @@ export const de_DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationSetCommandError
- */
-const de_DeleteConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1456,45 +1219,13 @@ export const de_DeleteConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
- */
-const de_DeleteConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1505,48 +1236,13 @@ export const de_DeleteDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDedicatedIpPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDedicatedIpPoolCommandError
- */
-const de_DeleteDedicatedIpPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDedicatedIpPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1557,48 +1253,13 @@ export const de_DeleteEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEmailIdentityCommandError
- */
-const de_DeleteEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1609,7 +1270,7 @@ export const de_GetAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1627,35 +1288,6 @@ export const de_GetAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccountCommandError
- */
-const de_GetAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBlacklistReportsCommand
  */
 export const de_GetBlacklistReportsCommand = async (
@@ -1663,7 +1295,7 @@ export const de_GetBlacklistReportsCommand = async (
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBlacklistReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1677,38 +1309,6 @@ export const de_GetBlacklistReportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBlacklistReportsCommandError
- */
-const de_GetBlacklistReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlacklistReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigurationSetCommand
  */
 export const de_GetConfigurationSetCommand = async (
@@ -1716,7 +1316,7 @@ export const de_GetConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1735,38 +1335,6 @@ export const de_GetConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationSetCommandError
- */
-const de_GetConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
  */
 export const de_GetConfigurationSetEventDestinationsCommand = async (
@@ -1774,7 +1342,7 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationSetEventDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1788,38 +1356,6 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError
- */
-const de_GetConfigurationSetEventDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDedicatedIpCommand
  */
 export const de_GetDedicatedIpCommand = async (
@@ -1827,7 +1363,7 @@ export const de_GetDedicatedIpCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDedicatedIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1841,38 +1377,6 @@ export const de_GetDedicatedIpCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDedicatedIpCommandError
- */
-const de_GetDedicatedIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDedicatedIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDedicatedIpsCommand
  */
 export const de_GetDedicatedIpsCommand = async (
@@ -1880,7 +1384,7 @@ export const de_GetDedicatedIpsCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDedicatedIpsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1895,38 +1399,6 @@ export const de_GetDedicatedIpsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDedicatedIpsCommandError
- */
-const de_GetDedicatedIpsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDedicatedIpsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand
  */
 export const de_GetDeliverabilityDashboardOptionsCommand = async (
@@ -1934,7 +1406,7 @@ export const de_GetDeliverabilityDashboardOptionsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeliverabilityDashboardOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1952,38 +1424,6 @@ export const de_GetDeliverabilityDashboardOptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError
- */
-const de_GetDeliverabilityDashboardOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeliverabilityTestReportCommand
  */
 export const de_GetDeliverabilityTestReportCommand = async (
@@ -1991,7 +1431,7 @@ export const de_GetDeliverabilityTestReportCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeliverabilityTestReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2009,38 +1449,6 @@ export const de_GetDeliverabilityTestReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeliverabilityTestReportCommandError
- */
-const de_GetDeliverabilityTestReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliverabilityTestReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand
  */
 export const de_GetDomainDeliverabilityCampaignCommand = async (
@@ -2048,7 +1456,7 @@ export const de_GetDomainDeliverabilityCampaignCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainDeliverabilityCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2062,38 +1470,6 @@ export const de_GetDomainDeliverabilityCampaignCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError
- */
-const de_GetDomainDeliverabilityCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainStatisticsReportCommand
  */
 export const de_GetDomainStatisticsReportCommand = async (
@@ -2101,7 +1477,7 @@ export const de_GetDomainStatisticsReportCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainStatisticsReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2116,38 +1492,6 @@ export const de_GetDomainStatisticsReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainStatisticsReportCommandError
- */
-const de_GetDomainStatisticsReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainStatisticsReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEmailIdentityCommand
  */
 export const de_GetEmailIdentityCommand = async (
@@ -2155,7 +1499,7 @@ export const de_GetEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2174,38 +1518,6 @@ export const de_GetEmailIdentityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEmailIdentityCommandError
- */
-const de_GetEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEmailIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConfigurationSetsCommand
  */
 export const de_ListConfigurationSetsCommand = async (
@@ -2213,7 +1525,7 @@ export const de_ListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConfigurationSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2228,35 +1540,6 @@ export const de_ListConfigurationSetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConfigurationSetsCommandError
- */
-const de_ListConfigurationSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDedicatedIpPoolsCommand
  */
 export const de_ListDedicatedIpPoolsCommand = async (
@@ -2264,7 +1547,7 @@ export const de_ListDedicatedIpPoolsCommand = async (
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDedicatedIpPoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2279,35 +1562,6 @@ export const de_ListDedicatedIpPoolsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDedicatedIpPoolsCommandError
- */
-const de_ListDedicatedIpPoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDedicatedIpPoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDeliverabilityTestReportsCommand
  */
 export const de_ListDeliverabilityTestReportsCommand = async (
@@ -2315,7 +1569,7 @@ export const de_ListDeliverabilityTestReportsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeliverabilityTestReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2330,38 +1584,6 @@ export const de_ListDeliverabilityTestReportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDeliverabilityTestReportsCommandError
- */
-const de_ListDeliverabilityTestReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeliverabilityTestReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand
  */
 export const de_ListDomainDeliverabilityCampaignsCommand = async (
@@ -2369,7 +1591,7 @@ export const de_ListDomainDeliverabilityCampaignsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainDeliverabilityCampaignsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2384,38 +1606,6 @@ export const de_ListDomainDeliverabilityCampaignsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError
- */
-const de_ListDomainDeliverabilityCampaignsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEmailIdentitiesCommand
  */
 export const de_ListEmailIdentitiesCommand = async (
@@ -2423,7 +1613,7 @@ export const de_ListEmailIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEmailIdentitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2438,35 +1628,6 @@ export const de_ListEmailIdentitiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEmailIdentitiesCommandError
- */
-const de_ListEmailIdentitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEmailIdentitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2474,7 +1635,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2488,38 +1649,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand
  */
 export const de_PutAccountDedicatedIpWarmupAttributesCommand = async (
@@ -2527,42 +1656,13 @@ export const de_PutAccountDedicatedIpWarmupAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountDedicatedIpWarmupAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError
- */
-const de_PutAccountDedicatedIpWarmupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2573,42 +1673,13 @@ export const de_PutAccountSendingAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountSendingAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountSendingAttributesCommandError
- */
-const de_PutAccountSendingAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSendingAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2619,45 +1690,13 @@ export const de_PutConfigurationSetDeliveryOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetDeliveryOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError
- */
-const de_PutConfigurationSetDeliveryOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2668,45 +1707,13 @@ export const de_PutConfigurationSetReputationOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetReputationOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError
- */
-const de_PutConfigurationSetReputationOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2717,45 +1724,13 @@ export const de_PutConfigurationSetSendingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetSendingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError
- */
-const de_PutConfigurationSetSendingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2766,45 +1741,13 @@ export const de_PutConfigurationSetTrackingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetTrackingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError
- */
-const de_PutConfigurationSetTrackingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2815,45 +1758,13 @@ export const de_PutDedicatedIpInPoolCommand = async (
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDedicatedIpInPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDedicatedIpInPoolCommandError
- */
-const de_PutDedicatedIpInPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDedicatedIpInPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2864,45 +1775,13 @@ export const de_PutDedicatedIpWarmupAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDedicatedIpWarmupAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError
- */
-const de_PutDedicatedIpWarmupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2913,51 +1792,13 @@ export const de_PutDeliverabilityDashboardOptionCommand = async (
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDeliverabilityDashboardOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError
- */
-const de_PutDeliverabilityDashboardOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.pinpointemail#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2968,45 +1809,13 @@ export const de_PutEmailIdentityDkimAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityDkimAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError
- */
-const de_PutEmailIdentityDkimAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3017,45 +1826,13 @@ export const de_PutEmailIdentityFeedbackAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityFeedbackAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError
- */
-const de_PutEmailIdentityFeedbackAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3066,45 +1843,13 @@ export const de_PutEmailIdentityMailFromAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityMailFromAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError
- */
-const de_PutEmailIdentityMailFromAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3115,7 +1860,7 @@ export const de_SendEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3129,53 +1874,6 @@ export const de_SendEmailCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendEmailCommandError
- */
-const de_SendEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSuspendedException":
-    case "com.amazonaws.pinpointemail#AccountSuspendedException":
-      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointemail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.pinpointemail#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SendingPausedException":
-    case "com.amazonaws.pinpointemail#SendingPausedException":
-      throw await de_SendingPausedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3183,48 +1881,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3235,48 +1898,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointemail#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointemail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointemail#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3287,7 +1915,7 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3297,27 +1925,45 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.pinpointemail#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointemail#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.pinpointemail#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.pinpointemail#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.pinpointemail#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointemail#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "AccountSuspendedException":
+    case "com.amazonaws.pinpointemail#AccountSuspendedException":
+      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
+    case "MailFromDomainNotVerifiedException":
+    case "com.amazonaws.pinpointemail#MailFromDomainNotVerifiedException":
+      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
+    case "MessageRejected":
+    case "com.amazonaws.pinpointemail#MessageRejected":
+      throw await de_MessageRejectedRes(parsedOutput, context);
+    case "SendingPausedException":
+    case "com.amazonaws.pinpointemail#SendingPausedException":
+      throw await de_SendingPausedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -374,7 +374,7 @@ export const de_CancelJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -386,47 +386,6 @@ export const de_CancelJobCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelJobCommandError
- */
-const de_CancelJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.braket#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -437,7 +396,7 @@ export const de_CancelQuantumTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelQuantumTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelQuantumTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -452,47 +411,6 @@ export const de_CancelQuantumTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelQuantumTaskCommandError
- */
-const de_CancelQuantumTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelQuantumTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.braket#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateJobCommand
  */
 export const de_CreateJobCommand = async (
@@ -500,7 +418,7 @@ export const de_CreateJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -514,50 +432,6 @@ export const de_CreateJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateJobCommandError
- */
-const de_CreateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.braket#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DeviceRetiredException":
-    case "com.amazonaws.braket#DeviceRetiredException":
-      throw await de_DeviceRetiredExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.braket#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateQuantumTaskCommand
  */
 export const de_CreateQuantumTaskCommand = async (
@@ -565,7 +439,7 @@ export const de_CreateQuantumTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateQuantumTaskCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateQuantumTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -579,50 +453,6 @@ export const de_CreateQuantumTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateQuantumTaskCommandError
- */
-const de_CreateQuantumTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateQuantumTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DeviceOfflineException":
-    case "com.amazonaws.braket#DeviceOfflineException":
-      throw await de_DeviceOfflineExceptionRes(parsedOutput, context);
-    case "DeviceRetiredException":
-    case "com.amazonaws.braket#DeviceRetiredException":
-      throw await de_DeviceRetiredExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.braket#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeviceCommand
  */
 export const de_GetDeviceCommand = async (
@@ -630,7 +460,7 @@ export const de_GetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -650,44 +480,6 @@ export const de_GetDeviceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeviceCommandError
- */
-const de_GetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJobCommand
  */
 export const de_GetJobCommand = async (
@@ -695,7 +487,7 @@ export const de_GetJobCommand = async (
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -729,41 +521,6 @@ export const de_GetJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJobCommandError
- */
-const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetQuantumTaskCommand
  */
 export const de_GetQuantumTaskCommand = async (
@@ -771,7 +528,7 @@ export const de_GetQuantumTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetQuantumTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetQuantumTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -798,44 +555,6 @@ export const de_GetQuantumTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetQuantumTaskCommandError
- */
-const de_GetQuantumTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQuantumTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -843,7 +562,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -857,38 +576,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchDevicesCommand
  */
 export const de_SearchDevicesCommand = async (
@@ -896,7 +583,7 @@ export const de_SearchDevicesCommand = async (
   context: __SerdeContext
 ): Promise<SearchDevicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -911,41 +598,6 @@ export const de_SearchDevicesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchDevicesCommandError
- */
-const de_SearchDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchJobsCommand
  */
 export const de_SearchJobsCommand = async (
@@ -953,7 +605,7 @@ export const de_SearchJobsCommand = async (
   context: __SerdeContext
 ): Promise<SearchJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -968,41 +620,6 @@ export const de_SearchJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchJobsCommandError
- */
-const de_SearchJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchQuantumTasksCommand
  */
 export const de_SearchQuantumTasksCommand = async (
@@ -1010,7 +627,7 @@ export const de_SearchQuantumTasksCommand = async (
   context: __SerdeContext
 ): Promise<SearchQuantumTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchQuantumTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1025,41 +642,6 @@ export const de_SearchQuantumTasksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchQuantumTasksCommandError
- */
-const de_SearchQuantumTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchQuantumTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.braket#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.braket#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1067,45 +649,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.braket#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.braket#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.braket#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1116,7 +666,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1126,27 +676,42 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UntagResourceCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.braket#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.braket#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.braket#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.braket#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.braket#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.braket#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "DeviceRetiredException":
+    case "com.amazonaws.braket#DeviceRetiredException":
+      throw await de_DeviceRetiredExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.braket#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "DeviceOfflineException":
+    case "com.amazonaws.braket#DeviceOfflineException":
+      throw await de_DeviceOfflineExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -1242,7 +1242,7 @@ export const de_BatchCreateVariableCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateVariableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchCreateVariableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1255,41 +1255,6 @@ export const de_BatchCreateVariableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchCreateVariableCommandError
- */
-const de_BatchCreateVariableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreateVariableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetVariableCommand
  */
 export const de_BatchGetVariableCommand = async (
@@ -1297,7 +1262,7 @@ export const de_BatchGetVariableCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetVariableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetVariableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1310,41 +1275,6 @@ export const de_BatchGetVariableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetVariableCommandError
- */
-const de_BatchGetVariableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetVariableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelBatchImportJobCommand
  */
 export const de_CancelBatchImportJobCommand = async (
@@ -1352,7 +1282,7 @@ export const de_CancelBatchImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelBatchImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelBatchImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1365,44 +1295,6 @@ export const de_CancelBatchImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelBatchImportJobCommandError
- */
-const de_CancelBatchImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelBatchImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelBatchPredictionJobCommand
  */
 export const de_CancelBatchPredictionJobCommand = async (
@@ -1410,7 +1302,7 @@ export const de_CancelBatchPredictionJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelBatchPredictionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelBatchPredictionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1423,44 +1315,6 @@ export const de_CancelBatchPredictionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelBatchPredictionJobCommandError
- */
-const de_CancelBatchPredictionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelBatchPredictionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBatchImportJobCommand
  */
 export const de_CreateBatchImportJobCommand = async (
@@ -1468,7 +1322,7 @@ export const de_CreateBatchImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateBatchImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBatchImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1481,44 +1335,6 @@ export const de_CreateBatchImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBatchImportJobCommandError
- */
-const de_CreateBatchImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBatchPredictionJobCommand
  */
 export const de_CreateBatchPredictionJobCommand = async (
@@ -1526,7 +1342,7 @@ export const de_CreateBatchPredictionJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateBatchPredictionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBatchPredictionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1539,44 +1355,6 @@ export const de_CreateBatchPredictionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBatchPredictionJobCommandError
- */
-const de_CreateBatchPredictionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchPredictionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDetectorVersionCommand
  */
 export const de_CreateDetectorVersionCommand = async (
@@ -1584,7 +1362,7 @@ export const de_CreateDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDetectorVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDetectorVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1597,44 +1375,6 @@ export const de_CreateDetectorVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDetectorVersionCommandError
- */
-const de_CreateDetectorVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDetectorVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateListCommand
  */
 export const de_CreateListCommand = async (
@@ -1642,7 +1382,7 @@ export const de_CreateListCommand = async (
   context: __SerdeContext
 ): Promise<CreateListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1655,41 +1395,6 @@ export const de_CreateListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateListCommandError
- */
-const de_CreateListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelCommand
  */
 export const de_CreateModelCommand = async (
@@ -1697,7 +1402,7 @@ export const de_CreateModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1710,41 +1415,6 @@ export const de_CreateModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelCommandError
- */
-const de_CreateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateModelVersionCommand
  */
 export const de_CreateModelVersionCommand = async (
@@ -1752,7 +1422,7 @@ export const de_CreateModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1765,44 +1435,6 @@ export const de_CreateModelVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateModelVersionCommandError
- */
-const de_CreateModelVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRuleCommand
  */
 export const de_CreateRuleCommand = async (
@@ -1810,7 +1442,7 @@ export const de_CreateRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1823,41 +1455,6 @@ export const de_CreateRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRuleCommandError
- */
-const de_CreateRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateVariableCommand
  */
 export const de_CreateVariableCommand = async (
@@ -1865,7 +1462,7 @@ export const de_CreateVariableCommand = async (
   context: __SerdeContext
 ): Promise<CreateVariableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVariableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1878,41 +1475,6 @@ export const de_CreateVariableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateVariableCommandError
- */
-const de_CreateVariableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVariableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBatchImportJobCommand
  */
 export const de_DeleteBatchImportJobCommand = async (
@@ -1920,7 +1482,7 @@ export const de_DeleteBatchImportJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBatchImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBatchImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1933,41 +1495,6 @@ export const de_DeleteBatchImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBatchImportJobCommandError
- */
-const de_DeleteBatchImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBatchImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBatchPredictionJobCommand
  */
 export const de_DeleteBatchPredictionJobCommand = async (
@@ -1975,7 +1502,7 @@ export const de_DeleteBatchPredictionJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBatchPredictionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBatchPredictionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1988,41 +1515,6 @@ export const de_DeleteBatchPredictionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBatchPredictionJobCommandError
- */
-const de_DeleteBatchPredictionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBatchPredictionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDetectorCommand
  */
 export const de_DeleteDetectorCommand = async (
@@ -2030,7 +1522,7 @@ export const de_DeleteDetectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2043,44 +1535,6 @@ export const de_DeleteDetectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDetectorCommandError
- */
-const de_DeleteDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDetectorVersionCommand
  */
 export const de_DeleteDetectorVersionCommand = async (
@@ -2088,7 +1542,7 @@ export const de_DeleteDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDetectorVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDetectorVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2101,47 +1555,6 @@ export const de_DeleteDetectorVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDetectorVersionCommandError
- */
-const de_DeleteDetectorVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDetectorVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEntityTypeCommand
  */
 export const de_DeleteEntityTypeCommand = async (
@@ -2149,7 +1562,7 @@ export const de_DeleteEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEntityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEntityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2162,44 +1575,6 @@ export const de_DeleteEntityTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEntityTypeCommandError
- */
-const de_DeleteEntityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEntityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEventCommand
  */
 export const de_DeleteEventCommand = async (
@@ -2207,7 +1582,7 @@ export const de_DeleteEventCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2220,41 +1595,6 @@ export const de_DeleteEventCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEventCommandError
- */
-const de_DeleteEventCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEventsByEventTypeCommand
  */
 export const de_DeleteEventsByEventTypeCommand = async (
@@ -2262,7 +1602,7 @@ export const de_DeleteEventsByEventTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventsByEventTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventsByEventTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2275,47 +1615,6 @@ export const de_DeleteEventsByEventTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEventsByEventTypeCommandError
- */
-const de_DeleteEventsByEventTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventsByEventTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEventTypeCommand
  */
 export const de_DeleteEventTypeCommand = async (
@@ -2323,7 +1622,7 @@ export const de_DeleteEventTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2336,44 +1635,6 @@ export const de_DeleteEventTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEventTypeCommandError
- */
-const de_DeleteEventTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteExternalModelCommand
  */
 export const de_DeleteExternalModelCommand = async (
@@ -2381,7 +1642,7 @@ export const de_DeleteExternalModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteExternalModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteExternalModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2394,44 +1655,6 @@ export const de_DeleteExternalModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteExternalModelCommandError
- */
-const de_DeleteExternalModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExternalModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLabelCommand
  */
 export const de_DeleteLabelCommand = async (
@@ -2439,7 +1662,7 @@ export const de_DeleteLabelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLabelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2452,41 +1675,6 @@ export const de_DeleteLabelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLabelCommandError
- */
-const de_DeleteLabelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLabelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteListCommand
  */
 export const de_DeleteListCommand = async (
@@ -2494,7 +1682,7 @@ export const de_DeleteListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2507,44 +1695,6 @@ export const de_DeleteListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteListCommandError
- */
-const de_DeleteListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteModelCommand
  */
 export const de_DeleteModelCommand = async (
@@ -2552,7 +1702,7 @@ export const de_DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2565,44 +1715,6 @@ export const de_DeleteModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteModelCommandError
- */
-const de_DeleteModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteModelVersionCommand
  */
 export const de_DeleteModelVersionCommand = async (
@@ -2610,7 +1722,7 @@ export const de_DeleteModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2623,44 +1735,6 @@ export const de_DeleteModelVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteModelVersionCommandError
- */
-const de_DeleteModelVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteOutcomeCommand
  */
 export const de_DeleteOutcomeCommand = async (
@@ -2668,7 +1742,7 @@ export const de_DeleteOutcomeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOutcomeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOutcomeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2681,44 +1755,6 @@ export const de_DeleteOutcomeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteOutcomeCommandError
- */
-const de_DeleteOutcomeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOutcomeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRuleCommand
  */
 export const de_DeleteRuleCommand = async (
@@ -2726,7 +1762,7 @@ export const de_DeleteRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2739,44 +1775,6 @@ export const de_DeleteRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRuleCommandError
- */
-const de_DeleteRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteVariableCommand
  */
 export const de_DeleteVariableCommand = async (
@@ -2784,7 +1782,7 @@ export const de_DeleteVariableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVariableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVariableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2797,44 +1795,6 @@ export const de_DeleteVariableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteVariableCommandError
- */
-const de_DeleteVariableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVariableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDetectorCommand
  */
 export const de_DescribeDetectorCommand = async (
@@ -2842,7 +1802,7 @@ export const de_DescribeDetectorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2855,44 +1815,6 @@ export const de_DescribeDetectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDetectorCommandError
- */
-const de_DescribeDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeModelVersionsCommand
  */
 export const de_DescribeModelVersionsCommand = async (
@@ -2900,7 +1822,7 @@ export const de_DescribeModelVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeModelVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeModelVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2913,44 +1835,6 @@ export const de_DescribeModelVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeModelVersionsCommandError
- */
-const de_DescribeModelVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeModelVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBatchImportJobsCommand
  */
 export const de_GetBatchImportJobsCommand = async (
@@ -2958,7 +1842,7 @@ export const de_GetBatchImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetBatchImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBatchImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2971,44 +1855,6 @@ export const de_GetBatchImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBatchImportJobsCommandError
- */
-const de_GetBatchImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBatchImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBatchPredictionJobsCommand
  */
 export const de_GetBatchPredictionJobsCommand = async (
@@ -3016,7 +1862,7 @@ export const de_GetBatchPredictionJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetBatchPredictionJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBatchPredictionJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3029,44 +1875,6 @@ export const de_GetBatchPredictionJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBatchPredictionJobsCommandError
- */
-const de_GetBatchPredictionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBatchPredictionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand
  */
 export const de_GetDeleteEventsByEventTypeStatusCommand = async (
@@ -3074,7 +1882,7 @@ export const de_GetDeleteEventsByEventTypeStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeleteEventsByEventTypeStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3087,44 +1895,6 @@ export const de_GetDeleteEventsByEventTypeStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommandError
- */
-const de_GetDeleteEventsByEventTypeStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDetectorsCommand
  */
 export const de_GetDetectorsCommand = async (
@@ -3132,7 +1902,7 @@ export const de_GetDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<GetDetectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDetectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3145,44 +1915,6 @@ export const de_GetDetectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDetectorsCommandError
- */
-const de_GetDetectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDetectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDetectorVersionCommand
  */
 export const de_GetDetectorVersionCommand = async (
@@ -3190,7 +1922,7 @@ export const de_GetDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDetectorVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDetectorVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3203,44 +1935,6 @@ export const de_GetDetectorVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDetectorVersionCommandError
- */
-const de_GetDetectorVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDetectorVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEntityTypesCommand
  */
 export const de_GetEntityTypesCommand = async (
@@ -3248,7 +1942,7 @@ export const de_GetEntityTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetEntityTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEntityTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3261,44 +1955,6 @@ export const de_GetEntityTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEntityTypesCommandError
- */
-const de_GetEntityTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEntityTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEventCommand
  */
 export const de_GetEventCommand = async (
@@ -3306,7 +1962,7 @@ export const de_GetEventCommand = async (
   context: __SerdeContext
 ): Promise<GetEventCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEventCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3319,44 +1975,6 @@ export const de_GetEventCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEventCommandError
- */
-const de_GetEventCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEventPredictionCommand
  */
 export const de_GetEventPredictionCommand = async (
@@ -3364,7 +1982,7 @@ export const de_GetEventPredictionCommand = async (
   context: __SerdeContext
 ): Promise<GetEventPredictionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEventPredictionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3377,50 +1995,6 @@ export const de_GetEventPredictionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEventPredictionCommandError
- */
-const de_GetEventPredictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventPredictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.frauddetector#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEventPredictionMetadataCommand
  */
 export const de_GetEventPredictionMetadataCommand = async (
@@ -3428,7 +2002,7 @@ export const de_GetEventPredictionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetEventPredictionMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEventPredictionMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3441,44 +2015,6 @@ export const de_GetEventPredictionMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEventPredictionMetadataCommandError
- */
-const de_GetEventPredictionMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventPredictionMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEventTypesCommand
  */
 export const de_GetEventTypesCommand = async (
@@ -3486,7 +2022,7 @@ export const de_GetEventTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetEventTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEventTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3499,44 +2035,6 @@ export const de_GetEventTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEventTypesCommandError
- */
-const de_GetEventTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetExternalModelsCommand
  */
 export const de_GetExternalModelsCommand = async (
@@ -3544,7 +2042,7 @@ export const de_GetExternalModelsCommand = async (
   context: __SerdeContext
 ): Promise<GetExternalModelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetExternalModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3557,44 +2055,6 @@ export const de_GetExternalModelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetExternalModelsCommandError
- */
-const de_GetExternalModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExternalModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetKMSEncryptionKeyCommand
  */
 export const de_GetKMSEncryptionKeyCommand = async (
@@ -3602,7 +2062,7 @@ export const de_GetKMSEncryptionKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetKMSEncryptionKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetKMSEncryptionKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3615,41 +2075,6 @@ export const de_GetKMSEncryptionKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetKMSEncryptionKeyCommandError
- */
-const de_GetKMSEncryptionKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetKMSEncryptionKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLabelsCommand
  */
 export const de_GetLabelsCommand = async (
@@ -3657,7 +2082,7 @@ export const de_GetLabelsCommand = async (
   context: __SerdeContext
 ): Promise<GetLabelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3670,44 +2095,6 @@ export const de_GetLabelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLabelsCommandError
- */
-const de_GetLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetListElementsCommand
  */
 export const de_GetListElementsCommand = async (
@@ -3715,7 +2102,7 @@ export const de_GetListElementsCommand = async (
   context: __SerdeContext
 ): Promise<GetListElementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetListElementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3728,44 +2115,6 @@ export const de_GetListElementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetListElementsCommandError
- */
-const de_GetListElementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetListElementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetListsMetadataCommand
  */
 export const de_GetListsMetadataCommand = async (
@@ -3773,7 +2122,7 @@ export const de_GetListsMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetListsMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetListsMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3786,44 +2135,6 @@ export const de_GetListsMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetListsMetadataCommandError
- */
-const de_GetListsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetListsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetModelsCommand
  */
 export const de_GetModelsCommand = async (
@@ -3831,7 +2142,7 @@ export const de_GetModelsCommand = async (
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3844,44 +2155,6 @@ export const de_GetModelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetModelsCommandError
- */
-const de_GetModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetModelVersionCommand
  */
 export const de_GetModelVersionCommand = async (
@@ -3889,7 +2162,7 @@ export const de_GetModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetModelVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetModelVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3902,44 +2175,6 @@ export const de_GetModelVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetModelVersionCommandError
- */
-const de_GetModelVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOutcomesCommand
  */
 export const de_GetOutcomesCommand = async (
@@ -3947,7 +2182,7 @@ export const de_GetOutcomesCommand = async (
   context: __SerdeContext
 ): Promise<GetOutcomesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOutcomesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3960,44 +2195,6 @@ export const de_GetOutcomesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOutcomesCommandError
- */
-const de_GetOutcomesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOutcomesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRulesCommand
  */
 export const de_GetRulesCommand = async (
@@ -4005,7 +2202,7 @@ export const de_GetRulesCommand = async (
   context: __SerdeContext
 ): Promise<GetRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4018,44 +2215,6 @@ export const de_GetRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRulesCommandError
- */
-const de_GetRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetVariablesCommand
  */
 export const de_GetVariablesCommand = async (
@@ -4063,7 +2222,7 @@ export const de_GetVariablesCommand = async (
   context: __SerdeContext
 ): Promise<GetVariablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVariablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4076,44 +2235,6 @@ export const de_GetVariablesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetVariablesCommandError
- */
-const de_GetVariablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVariablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEventPredictionsCommand
  */
 export const de_ListEventPredictionsCommand = async (
@@ -4121,7 +2242,7 @@ export const de_ListEventPredictionsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventPredictionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEventPredictionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4134,41 +2255,6 @@ export const de_ListEventPredictionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEventPredictionsCommandError
- */
-const de_ListEventPredictionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventPredictionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4176,7 +2262,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4189,41 +2275,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDetectorCommand
  */
 export const de_PutDetectorCommand = async (
@@ -4231,7 +2282,7 @@ export const de_PutDetectorCommand = async (
   context: __SerdeContext
 ): Promise<PutDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4244,44 +2295,6 @@ export const de_PutDetectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDetectorCommandError
- */
-const de_PutDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutEntityTypeCommand
  */
 export const de_PutEntityTypeCommand = async (
@@ -4289,7 +2302,7 @@ export const de_PutEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<PutEntityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutEntityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4302,44 +2315,6 @@ export const de_PutEntityTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutEntityTypeCommandError
- */
-const de_PutEntityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEntityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutEventTypeCommand
  */
 export const de_PutEventTypeCommand = async (
@@ -4347,7 +2322,7 @@ export const de_PutEventTypeCommand = async (
   context: __SerdeContext
 ): Promise<PutEventTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutEventTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4360,44 +2335,6 @@ export const de_PutEventTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutEventTypeCommandError
- */
-const de_PutEventTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEventTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutExternalModelCommand
  */
 export const de_PutExternalModelCommand = async (
@@ -4405,7 +2342,7 @@ export const de_PutExternalModelCommand = async (
   context: __SerdeContext
 ): Promise<PutExternalModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutExternalModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4418,44 +2355,6 @@ export const de_PutExternalModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutExternalModelCommandError
- */
-const de_PutExternalModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutExternalModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutKMSEncryptionKeyCommand
  */
 export const de_PutKMSEncryptionKeyCommand = async (
@@ -4463,7 +2362,7 @@ export const de_PutKMSEncryptionKeyCommand = async (
   context: __SerdeContext
 ): Promise<PutKMSEncryptionKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutKMSEncryptionKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4476,47 +2375,6 @@ export const de_PutKMSEncryptionKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutKMSEncryptionKeyCommandError
- */
-const de_PutKMSEncryptionKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutKMSEncryptionKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutLabelCommand
  */
 export const de_PutLabelCommand = async (
@@ -4524,7 +2382,7 @@ export const de_PutLabelCommand = async (
   context: __SerdeContext
 ): Promise<PutLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutLabelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4537,44 +2395,6 @@ export const de_PutLabelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutLabelCommandError
- */
-const de_PutLabelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLabelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutOutcomeCommand
  */
 export const de_PutOutcomeCommand = async (
@@ -4582,7 +2402,7 @@ export const de_PutOutcomeCommand = async (
   context: __SerdeContext
 ): Promise<PutOutcomeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutOutcomeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4595,44 +2415,6 @@ export const de_PutOutcomeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutOutcomeCommandError
- */
-const de_PutOutcomeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutOutcomeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendEventCommand
  */
 export const de_SendEventCommand = async (
@@ -4640,7 +2422,7 @@ export const de_SendEventCommand = async (
   context: __SerdeContext
 ): Promise<SendEventCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendEventCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4653,47 +2435,6 @@ export const de_SendEventCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendEventCommandError
- */
-const de_SendEventCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendEventCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4701,7 +2442,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4714,41 +2455,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -4756,7 +2462,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4769,41 +2475,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDetectorVersionCommand
  */
 export const de_UpdateDetectorVersionCommand = async (
@@ -4811,7 +2482,7 @@ export const de_UpdateDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDetectorVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4824,47 +2495,6 @@ export const de_UpdateDetectorVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDetectorVersionCommandError
- */
-const de_UpdateDetectorVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDetectorVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDetectorVersionMetadataCommand
  */
 export const de_UpdateDetectorVersionMetadataCommand = async (
@@ -4872,7 +2502,7 @@ export const de_UpdateDetectorVersionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDetectorVersionMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4885,44 +2515,6 @@ export const de_UpdateDetectorVersionMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError
- */
-const de_UpdateDetectorVersionMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDetectorVersionMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDetectorVersionStatusCommand
  */
 export const de_UpdateDetectorVersionStatusCommand = async (
@@ -4930,7 +2522,7 @@ export const de_UpdateDetectorVersionStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDetectorVersionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4943,47 +2535,6 @@ export const de_UpdateDetectorVersionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDetectorVersionStatusCommandError
- */
-const de_UpdateDetectorVersionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDetectorVersionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateEventLabelCommand
  */
 export const de_UpdateEventLabelCommand = async (
@@ -4991,7 +2542,7 @@ export const de_UpdateEventLabelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEventLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEventLabelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5004,47 +2555,6 @@ export const de_UpdateEventLabelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateEventLabelCommandError
- */
-const de_UpdateEventLabelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventLabelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateListCommand
  */
 export const de_UpdateListCommand = async (
@@ -5052,7 +2562,7 @@ export const de_UpdateListCommand = async (
   context: __SerdeContext
 ): Promise<UpdateListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5065,47 +2575,6 @@ export const de_UpdateListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateListCommandError
- */
-const de_UpdateListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateModelCommand
  */
 export const de_UpdateModelCommand = async (
@@ -5113,7 +2582,7 @@ export const de_UpdateModelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5126,47 +2595,6 @@ export const de_UpdateModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateModelCommandError
- */
-const de_UpdateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateModelVersionCommand
  */
 export const de_UpdateModelVersionCommand = async (
@@ -5174,7 +2602,7 @@ export const de_UpdateModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateModelVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5187,47 +2615,6 @@ export const de_UpdateModelVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateModelVersionCommandError
- */
-const de_UpdateModelVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateModelVersionStatusCommand
  */
 export const de_UpdateModelVersionStatusCommand = async (
@@ -5235,7 +2622,7 @@ export const de_UpdateModelVersionStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelVersionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateModelVersionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5248,47 +2635,6 @@ export const de_UpdateModelVersionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateModelVersionStatusCommandError
- */
-const de_UpdateModelVersionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelVersionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRuleMetadataCommand
  */
 export const de_UpdateRuleMetadataCommand = async (
@@ -5296,7 +2642,7 @@ export const de_UpdateRuleMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRuleMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRuleMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5309,47 +2655,6 @@ export const de_UpdateRuleMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRuleMetadataCommandError
- */
-const de_UpdateRuleMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRuleMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRuleVersionCommand
  */
 export const de_UpdateRuleVersionCommand = async (
@@ -5357,7 +2662,7 @@ export const de_UpdateRuleVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRuleVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRuleVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5370,47 +2675,6 @@ export const de_UpdateRuleVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRuleVersionCommandError
- */
-const de_UpdateRuleVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRuleVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.frauddetector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.frauddetector#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.frauddetector#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.frauddetector#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateVariableCommand
  */
 export const de_UpdateVariableCommand = async (
@@ -5418,7 +2682,7 @@ export const de_UpdateVariableCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVariableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateVariableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5431,12 +2695,9 @@ export const de_UpdateVariableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateVariableCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateVariableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVariableCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5446,21 +2707,24 @@ const de_UpdateVariableCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.frauddetector#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.frauddetector#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.frauddetector#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.frauddetector#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.frauddetector#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

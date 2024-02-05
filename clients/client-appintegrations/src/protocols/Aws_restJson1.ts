@@ -547,7 +547,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -562,50 +562,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DuplicateResourceException":
-    case "com.amazonaws.appintegrations#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceQuotaExceededException":
-    case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
-      throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.appintegrations#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDataIntegrationCommand
  */
 export const de_CreateDataIntegrationCommand = async (
@@ -613,7 +569,7 @@ export const de_CreateDataIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -637,47 +593,6 @@ export const de_CreateDataIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDataIntegrationCommandError
- */
-const de_CreateDataIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DuplicateResourceException":
-    case "com.amazonaws.appintegrations#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceQuotaExceededException":
-    case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
-      throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEventIntegrationCommand
  */
 export const de_CreateEventIntegrationCommand = async (
@@ -685,7 +600,7 @@ export const de_CreateEventIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEventIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -699,47 +614,6 @@ export const de_CreateEventIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEventIntegrationCommandError
- */
-const de_CreateEventIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DuplicateResourceException":
-    case "com.amazonaws.appintegrations#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceQuotaExceededException":
-    case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
-      throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -747,51 +621,13 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -802,51 +638,13 @@ export const de_DeleteDataIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDataIntegrationCommandError
- */
-const de_DeleteDataIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -857,51 +655,13 @@ export const de_DeleteEventIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEventIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEventIntegrationCommandError
- */
-const de_DeleteEventIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -912,7 +672,7 @@ export const de_GetApplicationCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -937,44 +697,6 @@ export const de_GetApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationCommandError
- */
-const de_GetApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataIntegrationCommand
  */
 export const de_GetDataIntegrationCommand = async (
@@ -982,7 +704,7 @@ export const de_GetDataIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<GetDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1005,44 +727,6 @@ export const de_GetDataIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataIntegrationCommandError
- */
-const de_GetDataIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEventIntegrationCommand
  */
 export const de_GetEventIntegrationCommand = async (
@@ -1050,7 +734,7 @@ export const de_GetEventIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<GetEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEventIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1069,44 +753,6 @@ export const de_GetEventIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEventIntegrationCommandError
- */
-const de_GetEventIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationAssociationsCommand
  */
 export const de_ListApplicationAssociationsCommand = async (
@@ -1114,7 +760,7 @@ export const de_ListApplicationAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1129,44 +775,6 @@ export const de_ListApplicationAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationAssociationsCommandError
- */
-const de_ListApplicationAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationsCommand
  */
 export const de_ListApplicationsCommand = async (
@@ -1174,7 +782,7 @@ export const de_ListApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1189,41 +797,6 @@ export const de_ListApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataIntegrationAssociationsCommand
  */
 export const de_ListDataIntegrationAssociationsCommand = async (
@@ -1231,7 +804,7 @@ export const de_ListDataIntegrationAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataIntegrationAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataIntegrationAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1246,44 +819,6 @@ export const de_ListDataIntegrationAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataIntegrationAssociationsCommandError
- */
-const de_ListDataIntegrationAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataIntegrationAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataIntegrationsCommand
  */
 export const de_ListDataIntegrationsCommand = async (
@@ -1291,7 +826,7 @@ export const de_ListDataIntegrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataIntegrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1306,41 +841,6 @@ export const de_ListDataIntegrationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataIntegrationsCommandError
- */
-const de_ListDataIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEventIntegrationAssociationsCommand
  */
 export const de_ListEventIntegrationAssociationsCommand = async (
@@ -1348,7 +848,7 @@ export const de_ListEventIntegrationAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventIntegrationAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEventIntegrationAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1363,44 +863,6 @@ export const de_ListEventIntegrationAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEventIntegrationAssociationsCommandError
- */
-const de_ListEventIntegrationAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventIntegrationAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEventIntegrationsCommand
  */
 export const de_ListEventIntegrationsCommand = async (
@@ -1408,7 +870,7 @@ export const de_ListEventIntegrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEventIntegrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1423,41 +885,6 @@ export const de_ListEventIntegrationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEventIntegrationsCommandError
- */
-const de_ListEventIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1465,7 +892,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1479,41 +906,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1521,48 +913,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1573,48 +930,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1625,54 +947,13 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.appintegrations#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1683,51 +964,13 @@ export const de_UpdateDataIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDataIntegrationCommandError
- */
-const de_UpdateDataIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appintegrations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.appintegrations#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.appintegrations#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appintegrations#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1738,7 +981,7 @@ export const de_UpdateEventIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEventIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEventIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1748,12 +991,9 @@ export const de_UpdateEventIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateEventIntegrationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateEventIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventIntegrationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1763,18 +1003,27 @@ const de_UpdateEventIntegrationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.appintegrations#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "DuplicateResourceException":
+    case "com.amazonaws.appintegrations#DuplicateResourceException":
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.appintegrations#InternalServiceError":
       throw await de_InternalServiceErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.appintegrations#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appintegrations#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceQuotaExceededException":
+    case "com.amazonaws.appintegrations#ResourceQuotaExceededException":
+      throw await de_ResourceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.appintegrations#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.appintegrations#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appintegrations#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

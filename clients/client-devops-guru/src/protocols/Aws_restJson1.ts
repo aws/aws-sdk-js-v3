@@ -893,7 +893,7 @@ export const de_AddNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<AddNotificationChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AddNotificationChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -907,12 +907,652 @@ export const de_AddNotificationChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddNotificationChannelCommandError
+ * deserializeAws_restJson1DeleteInsightCommand
  */
-const de_AddNotificationChannelCommandError = async (
+export const de_DeleteInsightCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddNotificationChannelCommandOutput> => {
+): Promise<DeleteInsightCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAccountHealthCommand
+ */
+export const de_DescribeAccountHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AnalyzedResourceCount: __expectLong,
+    MetricsAnalyzed: __expectInt32,
+    OpenProactiveInsights: __expectInt32,
+    OpenReactiveInsights: __expectInt32,
+    ResourceHours: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAccountOverviewCommand
+ */
+export const de_DescribeAccountOverviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountOverviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MeanTimeToRecoverInMilliseconds: __expectLong,
+    ProactiveInsights: __expectInt32,
+    ReactiveInsights: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeAnomalyCommand
+ */
+export const de_DescribeAnomalyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAnomalyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProactiveAnomaly: (_) => de_ProactiveAnomaly(_, context),
+    ReactiveAnomaly: (_) => de_ReactiveAnomaly(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEventSourcesConfigCommand
+ */
+export const de_DescribeEventSourcesConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSourcesConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EventSources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeFeedbackCommand
+ */
+export const de_DescribeFeedbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFeedbackCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InsightFeedback: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeInsightCommand
+ */
+export const de_DescribeInsightCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInsightCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProactiveInsight: (_) => de_ProactiveInsight(_, context),
+    ReactiveInsight: (_) => de_ReactiveInsight(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeOrganizationHealthCommand
+ */
+export const de_DescribeOrganizationHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MetricsAnalyzed: __expectInt32,
+    OpenProactiveInsights: __expectInt32,
+    OpenReactiveInsights: __expectInt32,
+    ResourceHours: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeOrganizationOverviewCommand
+ */
+export const de_DescribeOrganizationOverviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationOverviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProactiveInsights: __expectInt32,
+    ReactiveInsights: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand
+ */
+export const de_DescribeOrganizationResourceCollectionHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Account: _json,
+    CloudFormation: _json,
+    NextToken: __expectString,
+    Service: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeResourceCollectionHealthCommand
+ */
+export const de_DescribeResourceCollectionHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourceCollectionHealthCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CloudFormation: _json,
+    NextToken: __expectString,
+    Service: _json,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeServiceIntegrationCommand
+ */
+export const de_DescribeServiceIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ServiceIntegration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCostEstimationCommand
+ */
+export const de_GetCostEstimationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCostEstimationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Costs: (_) => de_ServiceResourceCosts(_, context),
+    NextToken: __expectString,
+    ResourceCollection: _json,
+    Status: __expectString,
+    TimeRange: (_) => de_CostEstimationTimeRange(_, context),
+    TotalCost: __limitedParseDouble,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetResourceCollectionCommand
+ */
+export const de_GetResourceCollectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceCollectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ResourceCollection: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnomaliesForInsightCommand
+ */
+export const de_ListAnomaliesForInsightCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomaliesForInsightCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveAnomalies: (_) => de_ProactiveAnomalies(_, context),
+    ReactiveAnomalies: (_) => de_ReactiveAnomalies(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnomalousLogGroupsCommand
+ */
+export const de_ListAnomalousLogGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnomalousLogGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AnomalousLogGroups: (_) => de_AnomalousLogGroups(_, context),
+    InsightId: __expectString,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEventsCommand
+ */
+export const de_ListEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Events: (_) => de_Events(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInsightsCommand
+ */
+export const de_ListInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMonitoredResourcesCommand
+ */
+export const de_ListMonitoredResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitoredResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MonitoredResourceIdentifiers: (_) => de_MonitoredResourceIdentifiers(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListNotificationChannelsCommand
+ */
+export const de_ListNotificationChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNotificationChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Channels: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListOrganizationInsightsCommand
+ */
+export const de_ListOrganizationInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveOrganizationInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveOrganizationInsights(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRecommendationsCommand
+ */
+export const de_ListRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Recommendations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutFeedbackCommand
+ */
+export const de_PutFeedbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutFeedbackCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RemoveNotificationChannelCommand
+ */
+export const de_RemoveNotificationChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveNotificationChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchInsightsCommand
+ */
+export const de_SearchInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchOrganizationInsightsCommand
+ */
+export const de_SearchOrganizationInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchOrganizationInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
+    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartCostEstimationCommand
+ */
+export const de_StartCostEstimationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCostEstimationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEventSourcesConfigCommand
+ */
+export const de_UpdateEventSourcesConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventSourcesConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateResourceCollectionCommand
+ */
+export const de_UpdateResourceCollectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceCollectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateServiceIntegrationCommand
+ */
+export const de_UpdateServiceIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -934,1759 +1574,6 @@ const de_AddNotificationChannelCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.devopsguru#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteInsightCommand
- */
-export const de_DeleteInsightCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInsightCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInsightCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteInsightCommandError
- */
-const de_DeleteInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.devopsguru#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeAccountHealthCommand
- */
-export const de_DescribeAccountHealthCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountHealthCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccountHealthCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    AnalyzedResourceCount: __expectLong,
-    MetricsAnalyzed: __expectInt32,
-    OpenProactiveInsights: __expectInt32,
-    OpenReactiveInsights: __expectInt32,
-    ResourceHours: __expectLong,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeAccountHealthCommandError
- */
-const de_DescribeAccountHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeAccountOverviewCommand
- */
-export const de_DescribeAccountOverviewCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountOverviewCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccountOverviewCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    MeanTimeToRecoverInMilliseconds: __expectLong,
-    ProactiveInsights: __expectInt32,
-    ReactiveInsights: __expectInt32,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeAccountOverviewCommandError
- */
-const de_DescribeAccountOverviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountOverviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeAnomalyCommand
- */
-export const de_DescribeAnomalyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnomalyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAnomalyCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ProactiveAnomaly: (_) => de_ProactiveAnomaly(_, context),
-    ReactiveAnomaly: (_) => de_ReactiveAnomaly(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeAnomalyCommandError
- */
-const de_DescribeAnomalyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnomalyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeEventSourcesConfigCommand
- */
-export const de_DescribeEventSourcesConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSourcesConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeEventSourcesConfigCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    EventSources: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeEventSourcesConfigCommandError
- */
-const de_DescribeEventSourcesConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSourcesConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeFeedbackCommand
- */
-export const de_DescribeFeedbackCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFeedbackCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFeedbackCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    InsightFeedback: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeFeedbackCommandError
- */
-const de_DescribeFeedbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFeedbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeInsightCommand
- */
-export const de_DescribeInsightCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInsightCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInsightCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ProactiveInsight: (_) => de_ProactiveInsight(_, context),
-    ReactiveInsight: (_) => de_ReactiveInsight(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeInsightCommandError
- */
-const de_DescribeInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeOrganizationHealthCommand
- */
-export const de_DescribeOrganizationHealthCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationHealthCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOrganizationHealthCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    MetricsAnalyzed: __expectInt32,
-    OpenProactiveInsights: __expectInt32,
-    OpenReactiveInsights: __expectInt32,
-    ResourceHours: __expectLong,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeOrganizationHealthCommandError
- */
-const de_DescribeOrganizationHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeOrganizationOverviewCommand
- */
-export const de_DescribeOrganizationOverviewCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationOverviewCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOrganizationOverviewCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ProactiveInsights: __expectInt32,
-    ReactiveInsights: __expectInt32,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeOrganizationOverviewCommandError
- */
-const de_DescribeOrganizationOverviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationOverviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommand
- */
-export const de_DescribeOrganizationResourceCollectionHealthCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOrganizationResourceCollectionHealthCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Account: _json,
-    CloudFormation: _json,
-    NextToken: __expectString,
-    Service: _json,
-    Tags: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeOrganizationResourceCollectionHealthCommandError
- */
-const de_DescribeOrganizationResourceCollectionHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationResourceCollectionHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeResourceCollectionHealthCommand
- */
-export const de_DescribeResourceCollectionHealthCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceCollectionHealthCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeResourceCollectionHealthCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    CloudFormation: _json,
-    NextToken: __expectString,
-    Service: _json,
-    Tags: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeResourceCollectionHealthCommandError
- */
-const de_DescribeResourceCollectionHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceCollectionHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeServiceIntegrationCommand
- */
-export const de_DescribeServiceIntegrationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceIntegrationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeServiceIntegrationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ServiceIntegration: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeServiceIntegrationCommandError
- */
-const de_DescribeServiceIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetCostEstimationCommand
- */
-export const de_GetCostEstimationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostEstimationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCostEstimationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Costs: (_) => de_ServiceResourceCosts(_, context),
-    NextToken: __expectString,
-    ResourceCollection: _json,
-    Status: __expectString,
-    TimeRange: (_) => de_CostEstimationTimeRange(_, context),
-    TotalCost: __limitedParseDouble,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetCostEstimationCommandError
- */
-const de_GetCostEstimationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostEstimationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetResourceCollectionCommand
- */
-export const de_GetResourceCollectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceCollectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceCollectionCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    ResourceCollection: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetResourceCollectionCommandError
- */
-const de_GetResourceCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListAnomaliesForInsightCommand
- */
-export const de_ListAnomaliesForInsightCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnomaliesForInsightCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAnomaliesForInsightCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    ProactiveAnomalies: (_) => de_ProactiveAnomalies(_, context),
-    ReactiveAnomalies: (_) => de_ReactiveAnomalies(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListAnomaliesForInsightCommandError
- */
-const de_ListAnomaliesForInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnomaliesForInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListAnomalousLogGroupsCommand
- */
-export const de_ListAnomalousLogGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnomalousLogGroupsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAnomalousLogGroupsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    AnomalousLogGroups: (_) => de_AnomalousLogGroups(_, context),
-    InsightId: __expectString,
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListAnomalousLogGroupsCommandError
- */
-const de_ListAnomalousLogGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnomalousLogGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListEventsCommand
- */
-export const de_ListEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEventsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Events: (_) => de_Events(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListEventsCommandError
- */
-const de_ListEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListInsightsCommand
- */
-export const de_ListInsightsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInsightsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInsightsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
-    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListInsightsCommandError
- */
-const de_ListInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListMonitoredResourcesCommand
- */
-export const de_ListMonitoredResourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitoredResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMonitoredResourcesCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    MonitoredResourceIdentifiers: (_) => de_MonitoredResourceIdentifiers(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListMonitoredResourcesCommandError
- */
-const de_ListMonitoredResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitoredResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListNotificationChannelsCommand
- */
-export const de_ListNotificationChannelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotificationChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListNotificationChannelsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Channels: _json,
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListNotificationChannelsCommandError
- */
-const de_ListNotificationChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotificationChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListOrganizationInsightsCommand
- */
-export const de_ListOrganizationInsightsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationInsightsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOrganizationInsightsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    ProactiveInsights: (_) => de_ProactiveOrganizationInsights(_, context),
-    ReactiveInsights: (_) => de_ReactiveOrganizationInsights(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListOrganizationInsightsCommandError
- */
-const de_ListOrganizationInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListRecommendationsCommand
- */
-export const de_ListRecommendationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecommendationsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    Recommendations: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListRecommendationsCommandError
- */
-const de_ListRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1PutFeedbackCommand
- */
-export const de_PutFeedbackCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFeedbackCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutFeedbackCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1PutFeedbackCommandError
- */
-const de_PutFeedbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFeedbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.devopsguru#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1RemoveNotificationChannelCommand
- */
-export const de_RemoveNotificationChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveNotificationChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveNotificationChannelCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveNotificationChannelCommandError
- */
-const de_RemoveNotificationChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveNotificationChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.devopsguru#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SearchInsightsCommand
- */
-export const de_SearchInsightsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchInsightsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchInsightsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
-    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SearchInsightsCommandError
- */
-const de_SearchInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SearchOrganizationInsightsCommand
- */
-export const de_SearchOrganizationInsightsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchOrganizationInsightsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchOrganizationInsightsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    ProactiveInsights: (_) => de_ProactiveInsights(_, context),
-    ReactiveInsights: (_) => de_ReactiveInsights(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SearchOrganizationInsightsCommandError
- */
-const de_SearchOrganizationInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchOrganizationInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartCostEstimationCommand
- */
-export const de_StartCostEstimationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCostEstimationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartCostEstimationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartCostEstimationCommandError
- */
-const de_StartCostEstimationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCostEstimationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.devopsguru#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.devopsguru#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateEventSourcesConfigCommand
- */
-export const de_UpdateEventSourcesConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventSourcesConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEventSourcesConfigCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateEventSourcesConfigCommandError
- */
-const de_UpdateEventSourcesConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventSourcesConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateResourceCollectionCommand
- */
-export const de_UpdateResourceCollectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceCollectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResourceCollectionCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateResourceCollectionCommandError
- */
-const de_UpdateResourceCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.devopsguru#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.devopsguru#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.devopsguru#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateServiceIntegrationCommand
- */
-export const de_UpdateServiceIntegrationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceIntegrationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateServiceIntegrationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateServiceIntegrationCommandError
- */
-const de_UpdateServiceIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.devopsguru#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.devopsguru#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.devopsguru#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.devopsguru#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);

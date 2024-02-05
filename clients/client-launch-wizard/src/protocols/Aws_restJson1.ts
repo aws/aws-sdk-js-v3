@@ -241,7 +241,7 @@ export const de_CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -255,12 +255,161 @@ export const de_CreateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeploymentCommandError
+ * deserializeAws_restJson1DeleteDeploymentCommand
  */
-const de_CreateDeploymentCommandError = async (
+export const de_DeleteDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
+): Promise<DeleteDeploymentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: __expectString,
+    statusReason: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    deployment: (_) => de_DeploymentData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetWorkloadCommand
+ */
+export const de_GetWorkloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workload: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDeploymentEventsCommand
+ */
+export const de_ListDeploymentEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    deploymentEvents: (_) => de_DeploymentEventDataSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    deployments: (_) => de_DeploymentDataSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkloadDeploymentPatternsCommand
+ */
+export const de_ListWorkloadDeploymentPatternsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkloadDeploymentPatternsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workloadDeploymentPatterns: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkloadsCommand
+ */
+export const de_ListWorkloadsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkloadsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workloads: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -276,376 +425,6 @@ const de_CreateDeploymentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.launchwizard#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteDeploymentCommand
- */
-export const de_DeleteDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDeploymentCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    status: __expectString,
-    statusReason: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDeploymentCommandError
- */
-const de_DeleteDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.launchwizard#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetDeploymentCommand
- */
-export const de_GetDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    deployment: (_) => de_DeploymentData(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDeploymentCommandError
- */
-const de_GetDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.launchwizard#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetWorkloadCommand
- */
-export const de_GetWorkloadCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkloadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkloadCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    workload: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetWorkloadCommandError
- */
-const de_GetWorkloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.launchwizard#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListDeploymentEventsCommand
- */
-export const de_ListDeploymentEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentEventsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeploymentEventsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    deploymentEvents: (_) => de_DeploymentEventDataSummaryList(_, context),
-    nextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListDeploymentEventsCommandError
- */
-const de_ListDeploymentEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.launchwizard#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListDeploymentsCommand
- */
-export const de_ListDeploymentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeploymentsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    deployments: (_) => de_DeploymentDataSummaryList(_, context),
-    nextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListDeploymentsCommandError
- */
-const de_ListDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListWorkloadDeploymentPatternsCommand
- */
-export const de_ListWorkloadDeploymentPatternsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkloadDeploymentPatternsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkloadDeploymentPatternsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    nextToken: __expectString,
-    workloadDeploymentPatterns: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListWorkloadDeploymentPatternsCommandError
- */
-const de_ListWorkloadDeploymentPatternsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkloadDeploymentPatternsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.launchwizard#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.launchwizard#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListWorkloadsCommand
- */
-export const de_ListWorkloadsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkloadsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkloadsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    nextToken: __expectString,
-    workloads: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListWorkloadsCommandError
- */
-const de_ListWorkloadsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkloadsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.launchwizard#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.launchwizard#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);

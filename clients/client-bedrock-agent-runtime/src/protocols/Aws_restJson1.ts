@@ -147,7 +147,7 @@ export const de_InvokeAgentCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<InvokeAgentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -160,56 +160,6 @@ export const de_InvokeAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeAgentCommandError
- */
-const de_InvokeAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagentruntime#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadGatewayException":
-    case "com.amazonaws.bedrockagentruntime#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagentruntime#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.bedrockagentruntime#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagentruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagentruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagentruntime#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagentruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagentruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RetrieveCommand
  */
 export const de_RetrieveCommand = async (
@@ -217,7 +167,7 @@ export const de_RetrieveCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RetrieveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -232,56 +182,6 @@ export const de_RetrieveCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RetrieveCommandError
- */
-const de_RetrieveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagentruntime#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadGatewayException":
-    case "com.amazonaws.bedrockagentruntime#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagentruntime#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.bedrockagentruntime#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagentruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagentruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagentruntime#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagentruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagentruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RetrieveAndGenerateCommand
  */
 export const de_RetrieveAndGenerateCommand = async (
@@ -289,7 +189,7 @@ export const de_RetrieveAndGenerateCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveAndGenerateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RetrieveAndGenerateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -305,12 +205,9 @@ export const de_RetrieveAndGenerateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RetrieveAndGenerateCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_RetrieveAndGenerateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveAndGenerateCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

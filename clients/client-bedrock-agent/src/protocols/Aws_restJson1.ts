@@ -1069,7 +1069,7 @@ export const de_AssociateAgentKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<AssociateAgentKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateAgentKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1083,50 +1083,6 @@ export const de_AssociateAgentKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateAgentKnowledgeBaseCommandError
- */
-const de_AssociateAgentKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateAgentKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAgentCommand
  */
 export const de_CreateAgentCommand = async (
@@ -1134,7 +1090,7 @@ export const de_CreateAgentCommand = async (
   context: __SerdeContext
 ): Promise<CreateAgentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1148,47 +1104,6 @@ export const de_CreateAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAgentCommandError
- */
-const de_CreateAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAgentActionGroupCommand
  */
 export const de_CreateAgentActionGroupCommand = async (
@@ -1196,7 +1111,7 @@ export const de_CreateAgentActionGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateAgentActionGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAgentActionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1210,50 +1125,6 @@ export const de_CreateAgentActionGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAgentActionGroupCommandError
- */
-const de_CreateAgentActionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAgentActionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAgentAliasCommand
  */
 export const de_CreateAgentAliasCommand = async (
@@ -1261,7 +1132,7 @@ export const de_CreateAgentAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateAgentAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateAgentAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1275,50 +1146,6 @@ export const de_CreateAgentAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAgentAliasCommandError
- */
-const de_CreateAgentAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAgentAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDataSourceCommand
  */
 export const de_CreateDataSourceCommand = async (
@@ -1326,7 +1153,7 @@ export const de_CreateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1340,50 +1167,6 @@ export const de_CreateDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDataSourceCommandError
- */
-const de_CreateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateKnowledgeBaseCommand
  */
 export const de_CreateKnowledgeBaseCommand = async (
@@ -1391,7 +1174,7 @@ export const de_CreateKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<CreateKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1405,47 +1188,6 @@ export const de_CreateKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateKnowledgeBaseCommandError
- */
-const de_CreateKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAgentCommand
  */
 export const de_DeleteAgentCommand = async (
@@ -1453,7 +1195,7 @@ export const de_DeleteAgentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAgentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1468,47 +1210,6 @@ export const de_DeleteAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAgentCommandError
- */
-const de_DeleteAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAgentActionGroupCommand
  */
 export const de_DeleteAgentActionGroupCommand = async (
@@ -1516,54 +1217,13 @@ export const de_DeleteAgentActionGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAgentActionGroupCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAgentActionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAgentActionGroupCommandError
- */
-const de_DeleteAgentActionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAgentActionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1574,7 +1234,7 @@ export const de_DeleteAgentAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAgentAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAgentAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1590,44 +1250,6 @@ export const de_DeleteAgentAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAgentAliasCommandError
- */
-const de_DeleteAgentAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAgentAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAgentVersionCommand
  */
 export const de_DeleteAgentVersionCommand = async (
@@ -1635,7 +1257,7 @@ export const de_DeleteAgentVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAgentVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAgentVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1651,47 +1273,6 @@ export const de_DeleteAgentVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAgentVersionCommandError
- */
-const de_DeleteAgentVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAgentVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDataSourceCommand
  */
 export const de_DeleteDataSourceCommand = async (
@@ -1699,7 +1280,7 @@ export const de_DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1715,47 +1296,6 @@ export const de_DeleteDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDataSourceCommandError
- */
-const de_DeleteDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteKnowledgeBaseCommand
  */
 export const de_DeleteKnowledgeBaseCommand = async (
@@ -1763,7 +1303,7 @@ export const de_DeleteKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1778,47 +1318,6 @@ export const de_DeleteKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteKnowledgeBaseCommandError
- */
-const de_DeleteKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateAgentKnowledgeBaseCommand
  */
 export const de_DisassociateAgentKnowledgeBaseCommand = async (
@@ -1826,54 +1325,13 @@ export const de_DisassociateAgentKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateAgentKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DisassociateAgentKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateAgentKnowledgeBaseCommandError
- */
-const de_DisassociateAgentKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateAgentKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1884,7 +1342,7 @@ export const de_GetAgentCommand = async (
   context: __SerdeContext
 ): Promise<GetAgentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1898,44 +1356,6 @@ export const de_GetAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAgentCommandError
- */
-const de_GetAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAgentActionGroupCommand
  */
 export const de_GetAgentActionGroupCommand = async (
@@ -1943,7 +1363,7 @@ export const de_GetAgentActionGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetAgentActionGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAgentActionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1957,44 +1377,6 @@ export const de_GetAgentActionGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAgentActionGroupCommandError
- */
-const de_GetAgentActionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAgentActionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAgentAliasCommand
  */
 export const de_GetAgentAliasCommand = async (
@@ -2002,7 +1384,7 @@ export const de_GetAgentAliasCommand = async (
   context: __SerdeContext
 ): Promise<GetAgentAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAgentAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2016,44 +1398,6 @@ export const de_GetAgentAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAgentAliasCommandError
- */
-const de_GetAgentAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAgentAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAgentKnowledgeBaseCommand
  */
 export const de_GetAgentKnowledgeBaseCommand = async (
@@ -2061,7 +1405,7 @@ export const de_GetAgentKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<GetAgentKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAgentKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2075,44 +1419,6 @@ export const de_GetAgentKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAgentKnowledgeBaseCommandError
- */
-const de_GetAgentKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAgentKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAgentVersionCommand
  */
 export const de_GetAgentVersionCommand = async (
@@ -2120,7 +1426,7 @@ export const de_GetAgentVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetAgentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAgentVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2134,44 +1440,6 @@ export const de_GetAgentVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAgentVersionCommandError
- */
-const de_GetAgentVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAgentVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataSourceCommand
  */
 export const de_GetDataSourceCommand = async (
@@ -2179,7 +1447,7 @@ export const de_GetDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<GetDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2193,44 +1461,6 @@ export const de_GetDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataSourceCommandError
- */
-const de_GetDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIngestionJobCommand
  */
 export const de_GetIngestionJobCommand = async (
@@ -2238,7 +1468,7 @@ export const de_GetIngestionJobCommand = async (
   context: __SerdeContext
 ): Promise<GetIngestionJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIngestionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2252,44 +1482,6 @@ export const de_GetIngestionJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIngestionJobCommandError
- */
-const de_GetIngestionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIngestionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetKnowledgeBaseCommand
  */
 export const de_GetKnowledgeBaseCommand = async (
@@ -2297,7 +1489,7 @@ export const de_GetKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<GetKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2311,44 +1503,6 @@ export const de_GetKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetKnowledgeBaseCommandError
- */
-const de_GetKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAgentActionGroupsCommand
  */
 export const de_ListAgentActionGroupsCommand = async (
@@ -2356,7 +1510,7 @@ export const de_ListAgentActionGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListAgentActionGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAgentActionGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2371,44 +1525,6 @@ export const de_ListAgentActionGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAgentActionGroupsCommandError
- */
-const de_ListAgentActionGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgentActionGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAgentAliasesCommand
  */
 export const de_ListAgentAliasesCommand = async (
@@ -2416,7 +1532,7 @@ export const de_ListAgentAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAgentAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAgentAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2431,44 +1547,6 @@ export const de_ListAgentAliasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAgentAliasesCommandError
- */
-const de_ListAgentAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgentAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAgentKnowledgeBasesCommand
  */
 export const de_ListAgentKnowledgeBasesCommand = async (
@@ -2476,7 +1554,7 @@ export const de_ListAgentKnowledgeBasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAgentKnowledgeBasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAgentKnowledgeBasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2491,44 +1569,6 @@ export const de_ListAgentKnowledgeBasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAgentKnowledgeBasesCommandError
- */
-const de_ListAgentKnowledgeBasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgentKnowledgeBasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAgentsCommand
  */
 export const de_ListAgentsCommand = async (
@@ -2536,7 +1576,7 @@ export const de_ListAgentsCommand = async (
   context: __SerdeContext
 ): Promise<ListAgentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAgentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2551,41 +1591,6 @@ export const de_ListAgentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAgentsCommandError
- */
-const de_ListAgentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAgentVersionsCommand
  */
 export const de_ListAgentVersionsCommand = async (
@@ -2593,7 +1598,7 @@ export const de_ListAgentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListAgentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAgentVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2608,44 +1613,6 @@ export const de_ListAgentVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAgentVersionsCommandError
- */
-const de_ListAgentVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgentVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataSourcesCommand
  */
 export const de_ListDataSourcesCommand = async (
@@ -2653,7 +1620,7 @@ export const de_ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2668,44 +1635,6 @@ export const de_ListDataSourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataSourcesCommandError
- */
-const de_ListDataSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIngestionJobsCommand
  */
 export const de_ListIngestionJobsCommand = async (
@@ -2713,7 +1642,7 @@ export const de_ListIngestionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListIngestionJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIngestionJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2728,44 +1657,6 @@ export const de_ListIngestionJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIngestionJobsCommandError
- */
-const de_ListIngestionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIngestionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListKnowledgeBasesCommand
  */
 export const de_ListKnowledgeBasesCommand = async (
@@ -2773,7 +1664,7 @@ export const de_ListKnowledgeBasesCommand = async (
   context: __SerdeContext
 ): Promise<ListKnowledgeBasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListKnowledgeBasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2788,41 +1679,6 @@ export const de_ListKnowledgeBasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListKnowledgeBasesCommandError
- */
-const de_ListKnowledgeBasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListKnowledgeBasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2830,7 +1686,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2844,44 +1700,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PrepareAgentCommand
  */
 export const de_PrepareAgentCommand = async (
@@ -2889,7 +1707,7 @@ export const de_PrepareAgentCommand = async (
   context: __SerdeContext
 ): Promise<PrepareAgentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_PrepareAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2906,50 +1724,6 @@ export const de_PrepareAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PrepareAgentCommandError
- */
-const de_PrepareAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PrepareAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartIngestionJobCommand
  */
 export const de_StartIngestionJobCommand = async (
@@ -2957,7 +1731,7 @@ export const de_StartIngestionJobCommand = async (
   context: __SerdeContext
 ): Promise<StartIngestionJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartIngestionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2971,50 +1745,6 @@ export const de_StartIngestionJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartIngestionJobCommandError
- */
-const de_StartIngestionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartIngestionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3022,54 +1752,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3080,51 +1769,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3135,7 +1786,7 @@ export const de_UpdateAgentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAgentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3149,50 +1800,6 @@ export const de_UpdateAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAgentCommandError
- */
-const de_UpdateAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAgentActionGroupCommand
  */
 export const de_UpdateAgentActionGroupCommand = async (
@@ -3200,7 +1807,7 @@ export const de_UpdateAgentActionGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAgentActionGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAgentActionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3214,50 +1821,6 @@ export const de_UpdateAgentActionGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAgentActionGroupCommandError
- */
-const de_UpdateAgentActionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgentActionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAgentAliasCommand
  */
 export const de_UpdateAgentAliasCommand = async (
@@ -3265,7 +1828,7 @@ export const de_UpdateAgentAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAgentAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateAgentAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3279,12 +1842,72 @@ export const de_UpdateAgentAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAgentAliasCommandError
+ * deserializeAws_restJson1UpdateAgentKnowledgeBaseCommand
  */
-const de_UpdateAgentAliasCommandError = async (
+export const de_UpdateAgentKnowledgeBaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAgentAliasCommandOutput> => {
+): Promise<UpdateAgentKnowledgeBaseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    agentKnowledgeBase: (_) => de_AgentKnowledgeBase(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataSourceCommand
+ */
+export const de_UpdateDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    dataSource: (_) => de_DataSource(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateKnowledgeBaseCommand
+ */
+export const de_UpdateKnowledgeBaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKnowledgeBaseCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    knowledgeBase: (_) => de_KnowledgeBase(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3306,192 +1929,6 @@ const de_UpdateAgentAliasCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.bedrockagent#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateAgentKnowledgeBaseCommand
- */
-export const de_UpdateAgentKnowledgeBaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgentKnowledgeBaseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAgentKnowledgeBaseCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    agentKnowledgeBase: (_) => de_AgentKnowledgeBase(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateAgentKnowledgeBaseCommandError
- */
-const de_UpdateAgentKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgentKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateDataSourceCommand
- */
-export const de_UpdateDataSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    dataSource: (_) => de_DataSource(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDataSourceCommandError
- */
-const de_UpdateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockagent#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockagent#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateKnowledgeBaseCommand
- */
-export const de_UpdateKnowledgeBaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateKnowledgeBaseCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateKnowledgeBaseCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    knowledgeBase: (_) => de_KnowledgeBase(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateKnowledgeBaseCommandError
- */
-const de_UpdateKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockagent#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.bedrockagent#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockagent#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockagent#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.bedrockagent#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);

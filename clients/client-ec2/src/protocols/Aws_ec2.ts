@@ -14508,7 +14508,7 @@ export const de_AcceptAddressTransferCommand = async (
   context: __SerdeContext
 ): Promise<AcceptAddressTransferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptAddressTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14521,26 +14521,6 @@ export const de_AcceptAddressTransferCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptAddressTransferCommandError
- */
-const de_AcceptAddressTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptAddressTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand
  */
 export const de_AcceptReservedInstancesExchangeQuoteCommand = async (
@@ -14548,7 +14528,7 @@ export const de_AcceptReservedInstancesExchangeQuoteCommand = async (
   context: __SerdeContext
 ): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptReservedInstancesExchangeQuoteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14561,26 +14541,6 @@ export const de_AcceptReservedInstancesExchangeQuoteCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandError
- */
-const de_AcceptReservedInstancesExchangeQuoteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptReservedInstancesExchangeQuoteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommand
  */
 export const de_AcceptTransitGatewayMulticastDomainAssociationsCommand = async (
@@ -14588,7 +14548,7 @@ export const de_AcceptTransitGatewayMulticastDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptTransitGatewayMulticastDomainAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14601,26 +14561,6 @@ export const de_AcceptTransitGatewayMulticastDomainAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommandError
- */
-const de_AcceptTransitGatewayMulticastDomainAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand
  */
 export const de_AcceptTransitGatewayPeeringAttachmentCommand = async (
@@ -14628,7 +14568,7 @@ export const de_AcceptTransitGatewayPeeringAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptTransitGatewayPeeringAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14641,26 +14581,6 @@ export const de_AcceptTransitGatewayPeeringAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandError
- */
-const de_AcceptTransitGatewayPeeringAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptTransitGatewayPeeringAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand
  */
 export const de_AcceptTransitGatewayVpcAttachmentCommand = async (
@@ -14668,7 +14588,7 @@ export const de_AcceptTransitGatewayVpcAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptTransitGatewayVpcAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14681,26 +14601,6 @@ export const de_AcceptTransitGatewayVpcAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError
- */
-const de_AcceptTransitGatewayVpcAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptTransitGatewayVpcAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AcceptVpcEndpointConnectionsCommand
  */
 export const de_AcceptVpcEndpointConnectionsCommand = async (
@@ -14708,7 +14608,7 @@ export const de_AcceptVpcEndpointConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<AcceptVpcEndpointConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptVpcEndpointConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14721,26 +14621,6 @@ export const de_AcceptVpcEndpointConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError
- */
-const de_AcceptVpcEndpointConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptVpcEndpointConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AcceptVpcPeeringConnectionCommand
  */
 export const de_AcceptVpcPeeringConnectionCommand = async (
@@ -14748,7 +14628,7 @@ export const de_AcceptVpcPeeringConnectionCommand = async (
   context: __SerdeContext
 ): Promise<AcceptVpcPeeringConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptVpcPeeringConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14761,26 +14641,6 @@ export const de_AcceptVpcPeeringConnectionCommand = async (
 };
 
 /**
- * deserializeAws_ec2AcceptVpcPeeringConnectionCommandError
- */
-const de_AcceptVpcPeeringConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptVpcPeeringConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AdvertiseByoipCidrCommand
  */
 export const de_AdvertiseByoipCidrCommand = async (
@@ -14788,7 +14648,7 @@ export const de_AdvertiseByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<AdvertiseByoipCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdvertiseByoipCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14801,26 +14661,6 @@ export const de_AdvertiseByoipCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2AdvertiseByoipCidrCommandError
- */
-const de_AdvertiseByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdvertiseByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AllocateAddressCommand
  */
 export const de_AllocateAddressCommand = async (
@@ -14828,7 +14668,7 @@ export const de_AllocateAddressCommand = async (
   context: __SerdeContext
 ): Promise<AllocateAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14841,26 +14681,6 @@ export const de_AllocateAddressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AllocateAddressCommandError
- */
-const de_AllocateAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AllocateHostsCommand
  */
 export const de_AllocateHostsCommand = async (
@@ -14868,7 +14688,7 @@ export const de_AllocateHostsCommand = async (
   context: __SerdeContext
 ): Promise<AllocateHostsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateHostsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14881,26 +14701,6 @@ export const de_AllocateHostsCommand = async (
 };
 
 /**
- * deserializeAws_ec2AllocateHostsCommandError
- */
-const de_AllocateHostsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateHostsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AllocateIpamPoolCidrCommand
  */
 export const de_AllocateIpamPoolCidrCommand = async (
@@ -14908,7 +14708,7 @@ export const de_AllocateIpamPoolCidrCommand = async (
   context: __SerdeContext
 ): Promise<AllocateIpamPoolCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateIpamPoolCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14921,26 +14721,6 @@ export const de_AllocateIpamPoolCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2AllocateIpamPoolCidrCommandError
- */
-const de_AllocateIpamPoolCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateIpamPoolCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand
  */
 export const de_ApplySecurityGroupsToClientVpnTargetNetworkCommand = async (
@@ -14948,7 +14728,7 @@ export const de_ApplySecurityGroupsToClientVpnTargetNetworkCommand = async (
   context: __SerdeContext
 ): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ApplySecurityGroupsToClientVpnTargetNetworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14961,26 +14741,6 @@ export const de_ApplySecurityGroupsToClientVpnTargetNetworkCommand = async (
 };
 
 /**
- * deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommandError
- */
-const de_ApplySecurityGroupsToClientVpnTargetNetworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssignIpv6AddressesCommand
  */
 export const de_AssignIpv6AddressesCommand = async (
@@ -14988,7 +14748,7 @@ export const de_AssignIpv6AddressesCommand = async (
   context: __SerdeContext
 ): Promise<AssignIpv6AddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssignIpv6AddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15001,26 +14761,6 @@ export const de_AssignIpv6AddressesCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssignIpv6AddressesCommandError
- */
-const de_AssignIpv6AddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssignIpv6AddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssignPrivateIpAddressesCommand
  */
 export const de_AssignPrivateIpAddressesCommand = async (
@@ -15028,7 +14768,7 @@ export const de_AssignPrivateIpAddressesCommand = async (
   context: __SerdeContext
 ): Promise<AssignPrivateIpAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssignPrivateIpAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15041,26 +14781,6 @@ export const de_AssignPrivateIpAddressesCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssignPrivateIpAddressesCommandError
- */
-const de_AssignPrivateIpAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssignPrivateIpAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssignPrivateNatGatewayAddressCommand
  */
 export const de_AssignPrivateNatGatewayAddressCommand = async (
@@ -15068,7 +14788,7 @@ export const de_AssignPrivateNatGatewayAddressCommand = async (
   context: __SerdeContext
 ): Promise<AssignPrivateNatGatewayAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssignPrivateNatGatewayAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15081,26 +14801,6 @@ export const de_AssignPrivateNatGatewayAddressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssignPrivateNatGatewayAddressCommandError
- */
-const de_AssignPrivateNatGatewayAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssignPrivateNatGatewayAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateAddressCommand
  */
 export const de_AssociateAddressCommand = async (
@@ -15108,7 +14808,7 @@ export const de_AssociateAddressCommand = async (
   context: __SerdeContext
 ): Promise<AssociateAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15121,26 +14821,6 @@ export const de_AssociateAddressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateAddressCommandError
- */
-const de_AssociateAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateClientVpnTargetNetworkCommand
  */
 export const de_AssociateClientVpnTargetNetworkCommand = async (
@@ -15148,7 +14828,7 @@ export const de_AssociateClientVpnTargetNetworkCommand = async (
   context: __SerdeContext
 ): Promise<AssociateClientVpnTargetNetworkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateClientVpnTargetNetworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15161,26 +14841,6 @@ export const de_AssociateClientVpnTargetNetworkCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError
- */
-const de_AssociateClientVpnTargetNetworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateClientVpnTargetNetworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateDhcpOptionsCommand
  */
 export const de_AssociateDhcpOptionsCommand = async (
@@ -15188,33 +14848,13 @@ export const de_AssociateDhcpOptionsCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDhcpOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDhcpOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AssociateDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2AssociateDhcpOptionsCommandError
- */
-const de_AssociateDhcpOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDhcpOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -15225,7 +14865,7 @@ export const de_AssociateEnclaveCertificateIamRoleCommand = async (
   context: __SerdeContext
 ): Promise<AssociateEnclaveCertificateIamRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateEnclaveCertificateIamRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15238,26 +14878,6 @@ export const de_AssociateEnclaveCertificateIamRoleCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateEnclaveCertificateIamRoleCommandError
- */
-const de_AssociateEnclaveCertificateIamRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateEnclaveCertificateIamRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateIamInstanceProfileCommand
  */
 export const de_AssociateIamInstanceProfileCommand = async (
@@ -15265,7 +14885,7 @@ export const de_AssociateIamInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<AssociateIamInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateIamInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15278,26 +14898,6 @@ export const de_AssociateIamInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateIamInstanceProfileCommandError
- */
-const de_AssociateIamInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateIamInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateInstanceEventWindowCommand
  */
 export const de_AssociateInstanceEventWindowCommand = async (
@@ -15305,7 +14905,7 @@ export const de_AssociateInstanceEventWindowCommand = async (
   context: __SerdeContext
 ): Promise<AssociateInstanceEventWindowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateInstanceEventWindowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15318,26 +14918,6 @@ export const de_AssociateInstanceEventWindowCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateInstanceEventWindowCommandError
- */
-const de_AssociateInstanceEventWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateInstanceEventWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateIpamByoasnCommand
  */
 export const de_AssociateIpamByoasnCommand = async (
@@ -15345,7 +14925,7 @@ export const de_AssociateIpamByoasnCommand = async (
   context: __SerdeContext
 ): Promise<AssociateIpamByoasnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateIpamByoasnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15358,26 +14938,6 @@ export const de_AssociateIpamByoasnCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateIpamByoasnCommandError
- */
-const de_AssociateIpamByoasnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateIpamByoasnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateIpamResourceDiscoveryCommand
  */
 export const de_AssociateIpamResourceDiscoveryCommand = async (
@@ -15385,7 +14945,7 @@ export const de_AssociateIpamResourceDiscoveryCommand = async (
   context: __SerdeContext
 ): Promise<AssociateIpamResourceDiscoveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateIpamResourceDiscoveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15398,26 +14958,6 @@ export const de_AssociateIpamResourceDiscoveryCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateIpamResourceDiscoveryCommandError
- */
-const de_AssociateIpamResourceDiscoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateIpamResourceDiscoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateNatGatewayAddressCommand
  */
 export const de_AssociateNatGatewayAddressCommand = async (
@@ -15425,7 +14965,7 @@ export const de_AssociateNatGatewayAddressCommand = async (
   context: __SerdeContext
 ): Promise<AssociateNatGatewayAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateNatGatewayAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15438,26 +14978,6 @@ export const de_AssociateNatGatewayAddressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateNatGatewayAddressCommandError
- */
-const de_AssociateNatGatewayAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateNatGatewayAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateRouteTableCommand
  */
 export const de_AssociateRouteTableCommand = async (
@@ -15465,7 +14985,7 @@ export const de_AssociateRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<AssociateRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15478,26 +14998,6 @@ export const de_AssociateRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateRouteTableCommandError
- */
-const de_AssociateRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateSubnetCidrBlockCommand
  */
 export const de_AssociateSubnetCidrBlockCommand = async (
@@ -15505,7 +15005,7 @@ export const de_AssociateSubnetCidrBlockCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSubnetCidrBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateSubnetCidrBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15518,26 +15018,6 @@ export const de_AssociateSubnetCidrBlockCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateSubnetCidrBlockCommandError
- */
-const de_AssociateSubnetCidrBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSubnetCidrBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommand
  */
 export const de_AssociateTransitGatewayMulticastDomainCommand = async (
@@ -15545,7 +15025,7 @@ export const de_AssociateTransitGatewayMulticastDomainCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTransitGatewayMulticastDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15558,26 +15038,6 @@ export const de_AssociateTransitGatewayMulticastDomainCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandError
- */
-const de_AssociateTransitGatewayMulticastDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTransitGatewayMulticastDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateTransitGatewayPolicyTableCommand
  */
 export const de_AssociateTransitGatewayPolicyTableCommand = async (
@@ -15585,7 +15045,7 @@ export const de_AssociateTransitGatewayPolicyTableCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTransitGatewayPolicyTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTransitGatewayPolicyTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15598,26 +15058,6 @@ export const de_AssociateTransitGatewayPolicyTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateTransitGatewayPolicyTableCommandError
- */
-const de_AssociateTransitGatewayPolicyTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTransitGatewayPolicyTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateTransitGatewayRouteTableCommand
  */
 export const de_AssociateTransitGatewayRouteTableCommand = async (
@@ -15625,7 +15065,7 @@ export const de_AssociateTransitGatewayRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTransitGatewayRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTransitGatewayRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15638,26 +15078,6 @@ export const de_AssociateTransitGatewayRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError
- */
-const de_AssociateTransitGatewayRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTransitGatewayRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateTrunkInterfaceCommand
  */
 export const de_AssociateTrunkInterfaceCommand = async (
@@ -15665,7 +15085,7 @@ export const de_AssociateTrunkInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTrunkInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTrunkInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15678,26 +15098,6 @@ export const de_AssociateTrunkInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateTrunkInterfaceCommandError
- */
-const de_AssociateTrunkInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTrunkInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AssociateVpcCidrBlockCommand
  */
 export const de_AssociateVpcCidrBlockCommand = async (
@@ -15705,7 +15105,7 @@ export const de_AssociateVpcCidrBlockCommand = async (
   context: __SerdeContext
 ): Promise<AssociateVpcCidrBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateVpcCidrBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15718,26 +15118,6 @@ export const de_AssociateVpcCidrBlockCommand = async (
 };
 
 /**
- * deserializeAws_ec2AssociateVpcCidrBlockCommandError
- */
-const de_AssociateVpcCidrBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateVpcCidrBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AttachClassicLinkVpcCommand
  */
 export const de_AttachClassicLinkVpcCommand = async (
@@ -15745,7 +15125,7 @@ export const de_AttachClassicLinkVpcCommand = async (
   context: __SerdeContext
 ): Promise<AttachClassicLinkVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachClassicLinkVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15758,26 +15138,6 @@ export const de_AttachClassicLinkVpcCommand = async (
 };
 
 /**
- * deserializeAws_ec2AttachClassicLinkVpcCommandError
- */
-const de_AttachClassicLinkVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachClassicLinkVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AttachInternetGatewayCommand
  */
 export const de_AttachInternetGatewayCommand = async (
@@ -15785,33 +15145,13 @@ export const de_AttachInternetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<AttachInternetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachInternetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2AttachInternetGatewayCommandError
- */
-const de_AttachInternetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachInternetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -15822,7 +15162,7 @@ export const de_AttachNetworkInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<AttachNetworkInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachNetworkInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15835,26 +15175,6 @@ export const de_AttachNetworkInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_ec2AttachNetworkInterfaceCommandError
- */
-const de_AttachNetworkInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachNetworkInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AttachVerifiedAccessTrustProviderCommand
  */
 export const de_AttachVerifiedAccessTrustProviderCommand = async (
@@ -15862,7 +15182,7 @@ export const de_AttachVerifiedAccessTrustProviderCommand = async (
   context: __SerdeContext
 ): Promise<AttachVerifiedAccessTrustProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachVerifiedAccessTrustProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15875,26 +15195,6 @@ export const de_AttachVerifiedAccessTrustProviderCommand = async (
 };
 
 /**
- * deserializeAws_ec2AttachVerifiedAccessTrustProviderCommandError
- */
-const de_AttachVerifiedAccessTrustProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachVerifiedAccessTrustProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AttachVolumeCommand
  */
 export const de_AttachVolumeCommand = async (
@@ -15902,7 +15202,7 @@ export const de_AttachVolumeCommand = async (
   context: __SerdeContext
 ): Promise<AttachVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15915,26 +15215,6 @@ export const de_AttachVolumeCommand = async (
 };
 
 /**
- * deserializeAws_ec2AttachVolumeCommandError
- */
-const de_AttachVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AttachVpnGatewayCommand
  */
 export const de_AttachVpnGatewayCommand = async (
@@ -15942,7 +15222,7 @@ export const de_AttachVpnGatewayCommand = async (
   context: __SerdeContext
 ): Promise<AttachVpnGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachVpnGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15955,26 +15235,6 @@ export const de_AttachVpnGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2AttachVpnGatewayCommandError
- */
-const de_AttachVpnGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachVpnGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AuthorizeClientVpnIngressCommand
  */
 export const de_AuthorizeClientVpnIngressCommand = async (
@@ -15982,7 +15242,7 @@ export const de_AuthorizeClientVpnIngressCommand = async (
   context: __SerdeContext
 ): Promise<AuthorizeClientVpnIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AuthorizeClientVpnIngressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15995,26 +15255,6 @@ export const de_AuthorizeClientVpnIngressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AuthorizeClientVpnIngressCommandError
- */
-const de_AuthorizeClientVpnIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeClientVpnIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AuthorizeSecurityGroupEgressCommand
  */
 export const de_AuthorizeSecurityGroupEgressCommand = async (
@@ -16022,7 +15262,7 @@ export const de_AuthorizeSecurityGroupEgressCommand = async (
   context: __SerdeContext
 ): Promise<AuthorizeSecurityGroupEgressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AuthorizeSecurityGroupEgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16035,26 +15275,6 @@ export const de_AuthorizeSecurityGroupEgressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError
- */
-const de_AuthorizeSecurityGroupEgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeSecurityGroupEgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2AuthorizeSecurityGroupIngressCommand
  */
 export const de_AuthorizeSecurityGroupIngressCommand = async (
@@ -16062,7 +15282,7 @@ export const de_AuthorizeSecurityGroupIngressCommand = async (
   context: __SerdeContext
 ): Promise<AuthorizeSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AuthorizeSecurityGroupIngressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16075,26 +15295,6 @@ export const de_AuthorizeSecurityGroupIngressCommand = async (
 };
 
 /**
- * deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError
- */
-const de_AuthorizeSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2BundleInstanceCommand
  */
 export const de_BundleInstanceCommand = async (
@@ -16102,7 +15302,7 @@ export const de_BundleInstanceCommand = async (
   context: __SerdeContext
 ): Promise<BundleInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BundleInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16115,26 +15315,6 @@ export const de_BundleInstanceCommand = async (
 };
 
 /**
- * deserializeAws_ec2BundleInstanceCommandError
- */
-const de_BundleInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BundleInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelBundleTaskCommand
  */
 export const de_CancelBundleTaskCommand = async (
@@ -16142,7 +15322,7 @@ export const de_CancelBundleTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelBundleTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelBundleTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16155,26 +15335,6 @@ export const de_CancelBundleTaskCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelBundleTaskCommandError
- */
-const de_CancelBundleTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelBundleTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelCapacityReservationCommand
  */
 export const de_CancelCapacityReservationCommand = async (
@@ -16182,7 +15342,7 @@ export const de_CancelCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<CancelCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16195,26 +15355,6 @@ export const de_CancelCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelCapacityReservationCommandError
- */
-const de_CancelCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelCapacityReservationFleetsCommand
  */
 export const de_CancelCapacityReservationFleetsCommand = async (
@@ -16222,7 +15362,7 @@ export const de_CancelCapacityReservationFleetsCommand = async (
   context: __SerdeContext
 ): Promise<CancelCapacityReservationFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelCapacityReservationFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16235,26 +15375,6 @@ export const de_CancelCapacityReservationFleetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelCapacityReservationFleetsCommandError
- */
-const de_CancelCapacityReservationFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelCapacityReservationFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelConversionTaskCommand
  */
 export const de_CancelConversionTaskCommand = async (
@@ -16262,33 +15382,13 @@ export const de_CancelConversionTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelConversionTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelConversionTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CancelConversionTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2CancelConversionTaskCommandError
- */
-const de_CancelConversionTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelConversionTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -16299,33 +15399,13 @@ export const de_CancelExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelExportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelExportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CancelExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2CancelExportTaskCommandError
- */
-const de_CancelExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -16336,7 +15416,7 @@ export const de_CancelImageLaunchPermissionCommand = async (
   context: __SerdeContext
 ): Promise<CancelImageLaunchPermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelImageLaunchPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16349,26 +15429,6 @@ export const de_CancelImageLaunchPermissionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelImageLaunchPermissionCommandError
- */
-const de_CancelImageLaunchPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelImageLaunchPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelImportTaskCommand
  */
 export const de_CancelImportTaskCommand = async (
@@ -16376,7 +15436,7 @@ export const de_CancelImportTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelImportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelImportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16389,26 +15449,6 @@ export const de_CancelImportTaskCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelImportTaskCommandError
- */
-const de_CancelImportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelImportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelReservedInstancesListingCommand
  */
 export const de_CancelReservedInstancesListingCommand = async (
@@ -16416,7 +15456,7 @@ export const de_CancelReservedInstancesListingCommand = async (
   context: __SerdeContext
 ): Promise<CancelReservedInstancesListingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelReservedInstancesListingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16429,26 +15469,6 @@ export const de_CancelReservedInstancesListingCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelReservedInstancesListingCommandError
- */
-const de_CancelReservedInstancesListingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelReservedInstancesListingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelSpotFleetRequestsCommand
  */
 export const de_CancelSpotFleetRequestsCommand = async (
@@ -16456,7 +15476,7 @@ export const de_CancelSpotFleetRequestsCommand = async (
   context: __SerdeContext
 ): Promise<CancelSpotFleetRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelSpotFleetRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16469,26 +15489,6 @@ export const de_CancelSpotFleetRequestsCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelSpotFleetRequestsCommandError
- */
-const de_CancelSpotFleetRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelSpotFleetRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CancelSpotInstanceRequestsCommand
  */
 export const de_CancelSpotInstanceRequestsCommand = async (
@@ -16496,7 +15496,7 @@ export const de_CancelSpotInstanceRequestsCommand = async (
   context: __SerdeContext
 ): Promise<CancelSpotInstanceRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelSpotInstanceRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16509,26 +15509,6 @@ export const de_CancelSpotInstanceRequestsCommand = async (
 };
 
 /**
- * deserializeAws_ec2CancelSpotInstanceRequestsCommandError
- */
-const de_CancelSpotInstanceRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelSpotInstanceRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ConfirmProductInstanceCommand
  */
 export const de_ConfirmProductInstanceCommand = async (
@@ -16536,7 +15516,7 @@ export const de_ConfirmProductInstanceCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmProductInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmProductInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16549,26 +15529,6 @@ export const de_ConfirmProductInstanceCommand = async (
 };
 
 /**
- * deserializeAws_ec2ConfirmProductInstanceCommandError
- */
-const de_ConfirmProductInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmProductInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CopyFpgaImageCommand
  */
 export const de_CopyFpgaImageCommand = async (
@@ -16576,7 +15536,7 @@ export const de_CopyFpgaImageCommand = async (
   context: __SerdeContext
 ): Promise<CopyFpgaImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyFpgaImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16589,26 +15549,6 @@ export const de_CopyFpgaImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2CopyFpgaImageCommandError
- */
-const de_CopyFpgaImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyFpgaImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CopyImageCommand
  */
 export const de_CopyImageCommand = async (
@@ -16616,7 +15556,7 @@ export const de_CopyImageCommand = async (
   context: __SerdeContext
 ): Promise<CopyImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16629,26 +15569,6 @@ export const de_CopyImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2CopyImageCommandError
- */
-const de_CopyImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CopySnapshotCommand
  */
 export const de_CopySnapshotCommand = async (
@@ -16656,7 +15576,7 @@ export const de_CopySnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopySnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16669,26 +15589,6 @@ export const de_CopySnapshotCommand = async (
 };
 
 /**
- * deserializeAws_ec2CopySnapshotCommandError
- */
-const de_CopySnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopySnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateCapacityReservationCommand
  */
 export const de_CreateCapacityReservationCommand = async (
@@ -16696,7 +15596,7 @@ export const de_CreateCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<CreateCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16709,26 +15609,6 @@ export const de_CreateCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateCapacityReservationCommandError
- */
-const de_CreateCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateCapacityReservationFleetCommand
  */
 export const de_CreateCapacityReservationFleetCommand = async (
@@ -16736,7 +15616,7 @@ export const de_CreateCapacityReservationFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateCapacityReservationFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCapacityReservationFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16749,26 +15629,6 @@ export const de_CreateCapacityReservationFleetCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateCapacityReservationFleetCommandError
- */
-const de_CreateCapacityReservationFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCapacityReservationFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateCarrierGatewayCommand
  */
 export const de_CreateCarrierGatewayCommand = async (
@@ -16776,7 +15636,7 @@ export const de_CreateCarrierGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateCarrierGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCarrierGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16789,26 +15649,6 @@ export const de_CreateCarrierGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateCarrierGatewayCommandError
- */
-const de_CreateCarrierGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCarrierGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateClientVpnEndpointCommand
  */
 export const de_CreateClientVpnEndpointCommand = async (
@@ -16816,7 +15656,7 @@ export const de_CreateClientVpnEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateClientVpnEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateClientVpnEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16829,26 +15669,6 @@ export const de_CreateClientVpnEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateClientVpnEndpointCommandError
- */
-const de_CreateClientVpnEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClientVpnEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateClientVpnRouteCommand
  */
 export const de_CreateClientVpnRouteCommand = async (
@@ -16856,7 +15676,7 @@ export const de_CreateClientVpnRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateClientVpnRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateClientVpnRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16869,26 +15689,6 @@ export const de_CreateClientVpnRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateClientVpnRouteCommandError
- */
-const de_CreateClientVpnRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClientVpnRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateCoipCidrCommand
  */
 export const de_CreateCoipCidrCommand = async (
@@ -16896,7 +15696,7 @@ export const de_CreateCoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<CreateCoipCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCoipCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16909,26 +15709,6 @@ export const de_CreateCoipCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateCoipCidrCommandError
- */
-const de_CreateCoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateCoipPoolCommand
  */
 export const de_CreateCoipPoolCommand = async (
@@ -16936,7 +15716,7 @@ export const de_CreateCoipPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateCoipPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCoipPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16949,26 +15729,6 @@ export const de_CreateCoipPoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateCoipPoolCommandError
- */
-const de_CreateCoipPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCoipPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateCustomerGatewayCommand
  */
 export const de_CreateCustomerGatewayCommand = async (
@@ -16976,7 +15736,7 @@ export const de_CreateCustomerGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomerGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCustomerGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -16989,26 +15749,6 @@ export const de_CreateCustomerGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateCustomerGatewayCommandError
- */
-const de_CreateCustomerGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomerGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateDefaultSubnetCommand
  */
 export const de_CreateDefaultSubnetCommand = async (
@@ -17016,7 +15756,7 @@ export const de_CreateDefaultSubnetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDefaultSubnetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDefaultSubnetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17029,26 +15769,6 @@ export const de_CreateDefaultSubnetCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateDefaultSubnetCommandError
- */
-const de_CreateDefaultSubnetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDefaultSubnetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateDefaultVpcCommand
  */
 export const de_CreateDefaultVpcCommand = async (
@@ -17056,7 +15776,7 @@ export const de_CreateDefaultVpcCommand = async (
   context: __SerdeContext
 ): Promise<CreateDefaultVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDefaultVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17069,26 +15789,6 @@ export const de_CreateDefaultVpcCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateDefaultVpcCommandError
- */
-const de_CreateDefaultVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDefaultVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateDhcpOptionsCommand
  */
 export const de_CreateDhcpOptionsCommand = async (
@@ -17096,7 +15796,7 @@ export const de_CreateDhcpOptionsCommand = async (
   context: __SerdeContext
 ): Promise<CreateDhcpOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDhcpOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17109,26 +15809,6 @@ export const de_CreateDhcpOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateDhcpOptionsCommandError
- */
-const de_CreateDhcpOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDhcpOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand
  */
 export const de_CreateEgressOnlyInternetGatewayCommand = async (
@@ -17136,7 +15816,7 @@ export const de_CreateEgressOnlyInternetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateEgressOnlyInternetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEgressOnlyInternetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17149,26 +15829,6 @@ export const de_CreateEgressOnlyInternetGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError
- */
-const de_CreateEgressOnlyInternetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEgressOnlyInternetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateFleetCommand
  */
 export const de_CreateFleetCommand = async (
@@ -17176,7 +15836,7 @@ export const de_CreateFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17189,26 +15849,6 @@ export const de_CreateFleetCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateFleetCommandError
- */
-const de_CreateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateFlowLogsCommand
  */
 export const de_CreateFlowLogsCommand = async (
@@ -17216,7 +15856,7 @@ export const de_CreateFlowLogsCommand = async (
   context: __SerdeContext
 ): Promise<CreateFlowLogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFlowLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17229,26 +15869,6 @@ export const de_CreateFlowLogsCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateFlowLogsCommandError
- */
-const de_CreateFlowLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFlowLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateFpgaImageCommand
  */
 export const de_CreateFpgaImageCommand = async (
@@ -17256,7 +15876,7 @@ export const de_CreateFpgaImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateFpgaImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFpgaImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17269,26 +15889,6 @@ export const de_CreateFpgaImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateFpgaImageCommandError
- */
-const de_CreateFpgaImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFpgaImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateImageCommand
  */
 export const de_CreateImageCommand = async (
@@ -17296,7 +15896,7 @@ export const de_CreateImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17309,26 +15909,6 @@ export const de_CreateImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateImageCommandError
- */
-const de_CreateImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateInstanceConnectEndpointCommand
  */
 export const de_CreateInstanceConnectEndpointCommand = async (
@@ -17336,7 +15916,7 @@ export const de_CreateInstanceConnectEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceConnectEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceConnectEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17349,26 +15929,6 @@ export const de_CreateInstanceConnectEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateInstanceConnectEndpointCommandError
- */
-const de_CreateInstanceConnectEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceConnectEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateInstanceEventWindowCommand
  */
 export const de_CreateInstanceEventWindowCommand = async (
@@ -17376,7 +15936,7 @@ export const de_CreateInstanceEventWindowCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceEventWindowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceEventWindowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17389,26 +15949,6 @@ export const de_CreateInstanceEventWindowCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateInstanceEventWindowCommandError
- */
-const de_CreateInstanceEventWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceEventWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateInstanceExportTaskCommand
  */
 export const de_CreateInstanceExportTaskCommand = async (
@@ -17416,7 +15956,7 @@ export const de_CreateInstanceExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceExportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceExportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17429,26 +15969,6 @@ export const de_CreateInstanceExportTaskCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateInstanceExportTaskCommandError
- */
-const de_CreateInstanceExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateInternetGatewayCommand
  */
 export const de_CreateInternetGatewayCommand = async (
@@ -17456,7 +15976,7 @@ export const de_CreateInternetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateInternetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInternetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17469,26 +15989,6 @@ export const de_CreateInternetGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateInternetGatewayCommandError
- */
-const de_CreateInternetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInternetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateIpamCommand
  */
 export const de_CreateIpamCommand = async (
@@ -17496,7 +15996,7 @@ export const de_CreateIpamCommand = async (
   context: __SerdeContext
 ): Promise<CreateIpamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIpamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17509,26 +16009,6 @@ export const de_CreateIpamCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateIpamCommandError
- */
-const de_CreateIpamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIpamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateIpamPoolCommand
  */
 export const de_CreateIpamPoolCommand = async (
@@ -17536,7 +16016,7 @@ export const de_CreateIpamPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateIpamPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIpamPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17549,26 +16029,6 @@ export const de_CreateIpamPoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateIpamPoolCommandError
- */
-const de_CreateIpamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIpamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateIpamResourceDiscoveryCommand
  */
 export const de_CreateIpamResourceDiscoveryCommand = async (
@@ -17576,7 +16036,7 @@ export const de_CreateIpamResourceDiscoveryCommand = async (
   context: __SerdeContext
 ): Promise<CreateIpamResourceDiscoveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIpamResourceDiscoveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17589,26 +16049,6 @@ export const de_CreateIpamResourceDiscoveryCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateIpamResourceDiscoveryCommandError
- */
-const de_CreateIpamResourceDiscoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIpamResourceDiscoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateIpamScopeCommand
  */
 export const de_CreateIpamScopeCommand = async (
@@ -17616,7 +16056,7 @@ export const de_CreateIpamScopeCommand = async (
   context: __SerdeContext
 ): Promise<CreateIpamScopeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIpamScopeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17629,26 +16069,6 @@ export const de_CreateIpamScopeCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateIpamScopeCommandError
- */
-const de_CreateIpamScopeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIpamScopeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateKeyPairCommand
  */
 export const de_CreateKeyPairCommand = async (
@@ -17656,7 +16076,7 @@ export const de_CreateKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<CreateKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17669,26 +16089,6 @@ export const de_CreateKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateKeyPairCommandError
- */
-const de_CreateKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateLaunchTemplateCommand
  */
 export const de_CreateLaunchTemplateCommand = async (
@@ -17696,7 +16096,7 @@ export const de_CreateLaunchTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateLaunchTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLaunchTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17709,26 +16109,6 @@ export const de_CreateLaunchTemplateCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateLaunchTemplateCommandError
- */
-const de_CreateLaunchTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLaunchTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateLaunchTemplateVersionCommand
  */
 export const de_CreateLaunchTemplateVersionCommand = async (
@@ -17736,7 +16116,7 @@ export const de_CreateLaunchTemplateVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateLaunchTemplateVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLaunchTemplateVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17749,26 +16129,6 @@ export const de_CreateLaunchTemplateVersionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateLaunchTemplateVersionCommandError
- */
-const de_CreateLaunchTemplateVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLaunchTemplateVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateLocalGatewayRouteCommand
  */
 export const de_CreateLocalGatewayRouteCommand = async (
@@ -17776,7 +16136,7 @@ export const de_CreateLocalGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocalGatewayRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocalGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17789,26 +16149,6 @@ export const de_CreateLocalGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateLocalGatewayRouteCommandError
- */
-const de_CreateLocalGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocalGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateLocalGatewayRouteTableCommand
  */
 export const de_CreateLocalGatewayRouteTableCommand = async (
@@ -17816,7 +16156,7 @@ export const de_CreateLocalGatewayRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocalGatewayRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocalGatewayRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17829,26 +16169,6 @@ export const de_CreateLocalGatewayRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateLocalGatewayRouteTableCommandError
- */
-const de_CreateLocalGatewayRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocalGatewayRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
  */
 export const de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand = async (
@@ -17856,7 +16176,7 @@ export const de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationComm
   context: __SerdeContext
 ): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17869,26 +16189,6 @@ export const de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationComm
 };
 
 /**
- * deserializeAws_ec2CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError
- */
-const de_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand
  */
 export const de_CreateLocalGatewayRouteTableVpcAssociationCommand = async (
@@ -17896,7 +16196,7 @@ export const de_CreateLocalGatewayRouteTableVpcAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocalGatewayRouteTableVpcAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17909,26 +16209,6 @@ export const de_CreateLocalGatewayRouteTableVpcAssociationCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommandError
- */
-const de_CreateLocalGatewayRouteTableVpcAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocalGatewayRouteTableVpcAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateManagedPrefixListCommand
  */
 export const de_CreateManagedPrefixListCommand = async (
@@ -17936,7 +16216,7 @@ export const de_CreateManagedPrefixListCommand = async (
   context: __SerdeContext
 ): Promise<CreateManagedPrefixListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateManagedPrefixListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17949,26 +16229,6 @@ export const de_CreateManagedPrefixListCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateManagedPrefixListCommandError
- */
-const de_CreateManagedPrefixListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateManagedPrefixListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateNatGatewayCommand
  */
 export const de_CreateNatGatewayCommand = async (
@@ -17976,7 +16236,7 @@ export const de_CreateNatGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateNatGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNatGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -17989,26 +16249,6 @@ export const de_CreateNatGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateNatGatewayCommandError
- */
-const de_CreateNatGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNatGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateNetworkAclCommand
  */
 export const de_CreateNetworkAclCommand = async (
@@ -18016,7 +16256,7 @@ export const de_CreateNetworkAclCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkAclCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkAclCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18029,26 +16269,6 @@ export const de_CreateNetworkAclCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateNetworkAclCommandError
- */
-const de_CreateNetworkAclCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkAclCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateNetworkAclEntryCommand
  */
 export const de_CreateNetworkAclEntryCommand = async (
@@ -18056,33 +16276,13 @@ export const de_CreateNetworkAclEntryCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkAclEntryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkAclEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2CreateNetworkAclEntryCommandError
- */
-const de_CreateNetworkAclEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkAclEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -18093,7 +16293,7 @@ export const de_CreateNetworkInsightsAccessScopeCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkInsightsAccessScopeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkInsightsAccessScopeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18106,26 +16306,6 @@ export const de_CreateNetworkInsightsAccessScopeCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateNetworkInsightsAccessScopeCommandError
- */
-const de_CreateNetworkInsightsAccessScopeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkInsightsAccessScopeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateNetworkInsightsPathCommand
  */
 export const de_CreateNetworkInsightsPathCommand = async (
@@ -18133,7 +16313,7 @@ export const de_CreateNetworkInsightsPathCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkInsightsPathCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkInsightsPathCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18146,26 +16326,6 @@ export const de_CreateNetworkInsightsPathCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateNetworkInsightsPathCommandError
- */
-const de_CreateNetworkInsightsPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkInsightsPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateNetworkInterfaceCommand
  */
 export const de_CreateNetworkInterfaceCommand = async (
@@ -18173,7 +16333,7 @@ export const de_CreateNetworkInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18186,26 +16346,6 @@ export const de_CreateNetworkInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateNetworkInterfaceCommandError
- */
-const de_CreateNetworkInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateNetworkInterfacePermissionCommand
  */
 export const de_CreateNetworkInterfacePermissionCommand = async (
@@ -18213,7 +16353,7 @@ export const de_CreateNetworkInterfacePermissionCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkInterfacePermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkInterfacePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18226,26 +16366,6 @@ export const de_CreateNetworkInterfacePermissionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateNetworkInterfacePermissionCommandError
- */
-const de_CreateNetworkInterfacePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkInterfacePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreatePlacementGroupCommand
  */
 export const de_CreatePlacementGroupCommand = async (
@@ -18253,7 +16373,7 @@ export const de_CreatePlacementGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlacementGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePlacementGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18266,26 +16386,6 @@ export const de_CreatePlacementGroupCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreatePlacementGroupCommandError
- */
-const de_CreatePlacementGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlacementGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreatePublicIpv4PoolCommand
  */
 export const de_CreatePublicIpv4PoolCommand = async (
@@ -18293,7 +16393,7 @@ export const de_CreatePublicIpv4PoolCommand = async (
   context: __SerdeContext
 ): Promise<CreatePublicIpv4PoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePublicIpv4PoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18306,26 +16406,6 @@ export const de_CreatePublicIpv4PoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreatePublicIpv4PoolCommandError
- */
-const de_CreatePublicIpv4PoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePublicIpv4PoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateReplaceRootVolumeTaskCommand
  */
 export const de_CreateReplaceRootVolumeTaskCommand = async (
@@ -18333,7 +16413,7 @@ export const de_CreateReplaceRootVolumeTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplaceRootVolumeTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplaceRootVolumeTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18346,26 +16426,6 @@ export const de_CreateReplaceRootVolumeTaskCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateReplaceRootVolumeTaskCommandError
- */
-const de_CreateReplaceRootVolumeTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplaceRootVolumeTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateReservedInstancesListingCommand
  */
 export const de_CreateReservedInstancesListingCommand = async (
@@ -18373,7 +16433,7 @@ export const de_CreateReservedInstancesListingCommand = async (
   context: __SerdeContext
 ): Promise<CreateReservedInstancesListingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReservedInstancesListingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18386,26 +16446,6 @@ export const de_CreateReservedInstancesListingCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateReservedInstancesListingCommandError
- */
-const de_CreateReservedInstancesListingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReservedInstancesListingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateRestoreImageTaskCommand
  */
 export const de_CreateRestoreImageTaskCommand = async (
@@ -18413,7 +16453,7 @@ export const de_CreateRestoreImageTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateRestoreImageTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRestoreImageTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18426,26 +16466,6 @@ export const de_CreateRestoreImageTaskCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateRestoreImageTaskCommandError
- */
-const de_CreateRestoreImageTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRestoreImageTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateRouteCommand
  */
 export const de_CreateRouteCommand = async (
@@ -18453,7 +16473,7 @@ export const de_CreateRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18466,26 +16486,6 @@ export const de_CreateRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateRouteCommandError
- */
-const de_CreateRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateRouteTableCommand
  */
 export const de_CreateRouteTableCommand = async (
@@ -18493,7 +16493,7 @@ export const de_CreateRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18506,26 +16506,6 @@ export const de_CreateRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateRouteTableCommandError
- */
-const de_CreateRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateSecurityGroupCommand
  */
 export const de_CreateSecurityGroupCommand = async (
@@ -18533,7 +16513,7 @@ export const de_CreateSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18546,26 +16526,6 @@ export const de_CreateSecurityGroupCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateSecurityGroupCommandError
- */
-const de_CreateSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateSnapshotCommand
  */
 export const de_CreateSnapshotCommand = async (
@@ -18573,7 +16533,7 @@ export const de_CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18586,26 +16546,6 @@ export const de_CreateSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateSnapshotsCommand
  */
 export const de_CreateSnapshotsCommand = async (
@@ -18613,7 +16553,7 @@ export const de_CreateSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18626,26 +16566,6 @@ export const de_CreateSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateSnapshotsCommandError
- */
-const de_CreateSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand
  */
 export const de_CreateSpotDatafeedSubscriptionCommand = async (
@@ -18653,7 +16573,7 @@ export const de_CreateSpotDatafeedSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSpotDatafeedSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSpotDatafeedSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18666,26 +16586,6 @@ export const de_CreateSpotDatafeedSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError
- */
-const de_CreateSpotDatafeedSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSpotDatafeedSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateStoreImageTaskCommand
  */
 export const de_CreateStoreImageTaskCommand = async (
@@ -18693,7 +16593,7 @@ export const de_CreateStoreImageTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateStoreImageTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStoreImageTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18706,26 +16606,6 @@ export const de_CreateStoreImageTaskCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateStoreImageTaskCommandError
- */
-const de_CreateStoreImageTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStoreImageTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateSubnetCommand
  */
 export const de_CreateSubnetCommand = async (
@@ -18733,7 +16613,7 @@ export const de_CreateSubnetCommand = async (
   context: __SerdeContext
 ): Promise<CreateSubnetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSubnetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18746,26 +16626,6 @@ export const de_CreateSubnetCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateSubnetCommandError
- */
-const de_CreateSubnetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubnetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateSubnetCidrReservationCommand
  */
 export const de_CreateSubnetCidrReservationCommand = async (
@@ -18773,7 +16633,7 @@ export const de_CreateSubnetCidrReservationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSubnetCidrReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSubnetCidrReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18786,26 +16646,6 @@ export const de_CreateSubnetCidrReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateSubnetCidrReservationCommandError
- */
-const de_CreateSubnetCidrReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubnetCidrReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTagsCommand
  */
 export const de_CreateTagsCommand = async (
@@ -18813,33 +16653,13 @@ export const de_CreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2CreateTagsCommandError
- */
-const de_CreateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -18850,7 +16670,7 @@ export const de_CreateTrafficMirrorFilterCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficMirrorFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrafficMirrorFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18863,26 +16683,6 @@ export const de_CreateTrafficMirrorFilterCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTrafficMirrorFilterCommandError
- */
-const de_CreateTrafficMirrorFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficMirrorFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand
  */
 export const de_CreateTrafficMirrorFilterRuleCommand = async (
@@ -18890,7 +16690,7 @@ export const de_CreateTrafficMirrorFilterRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficMirrorFilterRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrafficMirrorFilterRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18903,26 +16703,6 @@ export const de_CreateTrafficMirrorFilterRuleCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError
- */
-const de_CreateTrafficMirrorFilterRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficMirrorFilterRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTrafficMirrorSessionCommand
  */
 export const de_CreateTrafficMirrorSessionCommand = async (
@@ -18930,7 +16710,7 @@ export const de_CreateTrafficMirrorSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficMirrorSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrafficMirrorSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18943,26 +16723,6 @@ export const de_CreateTrafficMirrorSessionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTrafficMirrorSessionCommandError
- */
-const de_CreateTrafficMirrorSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficMirrorSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTrafficMirrorTargetCommand
  */
 export const de_CreateTrafficMirrorTargetCommand = async (
@@ -18970,7 +16730,7 @@ export const de_CreateTrafficMirrorTargetCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficMirrorTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrafficMirrorTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -18983,26 +16743,6 @@ export const de_CreateTrafficMirrorTargetCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTrafficMirrorTargetCommandError
- */
-const de_CreateTrafficMirrorTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficMirrorTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayCommand
  */
 export const de_CreateTransitGatewayCommand = async (
@@ -19010,7 +16750,7 @@ export const de_CreateTransitGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19023,26 +16763,6 @@ export const de_CreateTransitGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayCommandError
- */
-const de_CreateTransitGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayConnectCommand
  */
 export const de_CreateTransitGatewayConnectCommand = async (
@@ -19050,7 +16770,7 @@ export const de_CreateTransitGatewayConnectCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayConnectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayConnectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19063,26 +16783,6 @@ export const de_CreateTransitGatewayConnectCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayConnectCommandError
- */
-const de_CreateTransitGatewayConnectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayConnectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayConnectPeerCommand
  */
 export const de_CreateTransitGatewayConnectPeerCommand = async (
@@ -19090,7 +16790,7 @@ export const de_CreateTransitGatewayConnectPeerCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayConnectPeerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayConnectPeerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19103,26 +16803,6 @@ export const de_CreateTransitGatewayConnectPeerCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayConnectPeerCommandError
- */
-const de_CreateTransitGatewayConnectPeerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayConnectPeerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand
  */
 export const de_CreateTransitGatewayMulticastDomainCommand = async (
@@ -19130,7 +16810,7 @@ export const de_CreateTransitGatewayMulticastDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayMulticastDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayMulticastDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19143,26 +16823,6 @@ export const de_CreateTransitGatewayMulticastDomainCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError
- */
-const de_CreateTransitGatewayMulticastDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayMulticastDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand
  */
 export const de_CreateTransitGatewayPeeringAttachmentCommand = async (
@@ -19170,7 +16830,7 @@ export const de_CreateTransitGatewayPeeringAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayPeeringAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19183,26 +16843,6 @@ export const de_CreateTransitGatewayPeeringAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandError
- */
-const de_CreateTransitGatewayPeeringAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayPeeringAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayPolicyTableCommand
  */
 export const de_CreateTransitGatewayPolicyTableCommand = async (
@@ -19210,7 +16850,7 @@ export const de_CreateTransitGatewayPolicyTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayPolicyTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayPolicyTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19223,26 +16863,6 @@ export const de_CreateTransitGatewayPolicyTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayPolicyTableCommandError
- */
-const de_CreateTransitGatewayPolicyTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayPolicyTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommand
  */
 export const de_CreateTransitGatewayPrefixListReferenceCommand = async (
@@ -19250,7 +16870,7 @@ export const de_CreateTransitGatewayPrefixListReferenceCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayPrefixListReferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19263,26 +16883,6 @@ export const de_CreateTransitGatewayPrefixListReferenceCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommandError
- */
-const de_CreateTransitGatewayPrefixListReferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayPrefixListReferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayRouteCommand
  */
 export const de_CreateTransitGatewayRouteCommand = async (
@@ -19290,7 +16890,7 @@ export const de_CreateTransitGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19303,26 +16903,6 @@ export const de_CreateTransitGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayRouteCommandError
- */
-const de_CreateTransitGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayRouteTableCommand
  */
 export const de_CreateTransitGatewayRouteTableCommand = async (
@@ -19330,7 +16910,7 @@ export const de_CreateTransitGatewayRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19343,26 +16923,6 @@ export const de_CreateTransitGatewayRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayRouteTableCommandError
- */
-const de_CreateTransitGatewayRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommand
  */
 export const de_CreateTransitGatewayRouteTableAnnouncementCommand = async (
@@ -19370,7 +16930,7 @@ export const de_CreateTransitGatewayRouteTableAnnouncementCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayRouteTableAnnouncementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19383,26 +16943,6 @@ export const de_CreateTransitGatewayRouteTableAnnouncementCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayRouteTableAnnouncementCommandError
- */
-const de_CreateTransitGatewayRouteTableAnnouncementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayRouteTableAnnouncementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommand
  */
 export const de_CreateTransitGatewayVpcAttachmentCommand = async (
@@ -19410,7 +16950,7 @@ export const de_CreateTransitGatewayVpcAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitGatewayVpcAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitGatewayVpcAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19423,26 +16963,6 @@ export const de_CreateTransitGatewayVpcAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError
- */
-const de_CreateTransitGatewayVpcAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitGatewayVpcAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVerifiedAccessEndpointCommand
  */
 export const de_CreateVerifiedAccessEndpointCommand = async (
@@ -19450,7 +16970,7 @@ export const de_CreateVerifiedAccessEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateVerifiedAccessEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVerifiedAccessEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19463,26 +16983,6 @@ export const de_CreateVerifiedAccessEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVerifiedAccessEndpointCommandError
- */
-const de_CreateVerifiedAccessEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVerifiedAccessEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVerifiedAccessGroupCommand
  */
 export const de_CreateVerifiedAccessGroupCommand = async (
@@ -19490,7 +16990,7 @@ export const de_CreateVerifiedAccessGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateVerifiedAccessGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVerifiedAccessGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19503,26 +17003,6 @@ export const de_CreateVerifiedAccessGroupCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVerifiedAccessGroupCommandError
- */
-const de_CreateVerifiedAccessGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVerifiedAccessGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVerifiedAccessInstanceCommand
  */
 export const de_CreateVerifiedAccessInstanceCommand = async (
@@ -19530,7 +17010,7 @@ export const de_CreateVerifiedAccessInstanceCommand = async (
   context: __SerdeContext
 ): Promise<CreateVerifiedAccessInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVerifiedAccessInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19543,26 +17023,6 @@ export const de_CreateVerifiedAccessInstanceCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVerifiedAccessInstanceCommandError
- */
-const de_CreateVerifiedAccessInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVerifiedAccessInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand
  */
 export const de_CreateVerifiedAccessTrustProviderCommand = async (
@@ -19570,7 +17030,7 @@ export const de_CreateVerifiedAccessTrustProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateVerifiedAccessTrustProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVerifiedAccessTrustProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19583,26 +17043,6 @@ export const de_CreateVerifiedAccessTrustProviderCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVerifiedAccessTrustProviderCommandError
- */
-const de_CreateVerifiedAccessTrustProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVerifiedAccessTrustProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVolumeCommand
  */
 export const de_CreateVolumeCommand = async (
@@ -19610,7 +17050,7 @@ export const de_CreateVolumeCommand = async (
   context: __SerdeContext
 ): Promise<CreateVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19623,26 +17063,6 @@ export const de_CreateVolumeCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVolumeCommandError
- */
-const de_CreateVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpcCommand
  */
 export const de_CreateVpcCommand = async (
@@ -19650,7 +17070,7 @@ export const de_CreateVpcCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19663,26 +17083,6 @@ export const de_CreateVpcCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpcCommandError
- */
-const de_CreateVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpcEndpointCommand
  */
 export const de_CreateVpcEndpointCommand = async (
@@ -19690,7 +17090,7 @@ export const de_CreateVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19703,26 +17103,6 @@ export const de_CreateVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpcEndpointCommandError
- */
-const de_CreateVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand
  */
 export const de_CreateVpcEndpointConnectionNotificationCommand = async (
@@ -19730,7 +17110,7 @@ export const de_CreateVpcEndpointConnectionNotificationCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcEndpointConnectionNotificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcEndpointConnectionNotificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19743,26 +17123,6 @@ export const de_CreateVpcEndpointConnectionNotificationCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandError
- */
-const de_CreateVpcEndpointConnectionNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcEndpointConnectionNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand
  */
 export const de_CreateVpcEndpointServiceConfigurationCommand = async (
@@ -19770,7 +17130,7 @@ export const de_CreateVpcEndpointServiceConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcEndpointServiceConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19783,26 +17143,6 @@ export const de_CreateVpcEndpointServiceConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandError
- */
-const de_CreateVpcEndpointServiceConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcEndpointServiceConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpcPeeringConnectionCommand
  */
 export const de_CreateVpcPeeringConnectionCommand = async (
@@ -19810,7 +17150,7 @@ export const de_CreateVpcPeeringConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcPeeringConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcPeeringConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19823,26 +17163,6 @@ export const de_CreateVpcPeeringConnectionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpcPeeringConnectionCommandError
- */
-const de_CreateVpcPeeringConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcPeeringConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpnConnectionCommand
  */
 export const de_CreateVpnConnectionCommand = async (
@@ -19850,7 +17170,7 @@ export const de_CreateVpnConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpnConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpnConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19863,26 +17183,6 @@ export const de_CreateVpnConnectionCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpnConnectionCommandError
- */
-const de_CreateVpnConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpnConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2CreateVpnConnectionRouteCommand
  */
 export const de_CreateVpnConnectionRouteCommand = async (
@@ -19890,33 +17190,13 @@ export const de_CreateVpnConnectionRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpnConnectionRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpnConnectionRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateVpnConnectionRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2CreateVpnConnectionRouteCommandError
- */
-const de_CreateVpnConnectionRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpnConnectionRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -19927,7 +17207,7 @@ export const de_CreateVpnGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpnGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpnGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19940,26 +17220,6 @@ export const de_CreateVpnGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2CreateVpnGatewayCommandError
- */
-const de_CreateVpnGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpnGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteCarrierGatewayCommand
  */
 export const de_DeleteCarrierGatewayCommand = async (
@@ -19967,7 +17227,7 @@ export const de_DeleteCarrierGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCarrierGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCarrierGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -19980,26 +17240,6 @@ export const de_DeleteCarrierGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteCarrierGatewayCommandError
- */
-const de_DeleteCarrierGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCarrierGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteClientVpnEndpointCommand
  */
 export const de_DeleteClientVpnEndpointCommand = async (
@@ -20007,7 +17247,7 @@ export const de_DeleteClientVpnEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClientVpnEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteClientVpnEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20020,26 +17260,6 @@ export const de_DeleteClientVpnEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteClientVpnEndpointCommandError
- */
-const de_DeleteClientVpnEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClientVpnEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteClientVpnRouteCommand
  */
 export const de_DeleteClientVpnRouteCommand = async (
@@ -20047,7 +17267,7 @@ export const de_DeleteClientVpnRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClientVpnRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteClientVpnRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20060,26 +17280,6 @@ export const de_DeleteClientVpnRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteClientVpnRouteCommandError
- */
-const de_DeleteClientVpnRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClientVpnRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteCoipCidrCommand
  */
 export const de_DeleteCoipCidrCommand = async (
@@ -20087,7 +17287,7 @@ export const de_DeleteCoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCoipCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCoipCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20100,26 +17300,6 @@ export const de_DeleteCoipCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteCoipCidrCommandError
- */
-const de_DeleteCoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteCoipPoolCommand
  */
 export const de_DeleteCoipPoolCommand = async (
@@ -20127,7 +17307,7 @@ export const de_DeleteCoipPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCoipPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCoipPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20140,26 +17320,6 @@ export const de_DeleteCoipPoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteCoipPoolCommandError
- */
-const de_DeleteCoipPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCoipPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteCustomerGatewayCommand
  */
 export const de_DeleteCustomerGatewayCommand = async (
@@ -20167,33 +17327,13 @@ export const de_DeleteCustomerGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomerGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCustomerGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCustomerGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteCustomerGatewayCommandError
- */
-const de_DeleteCustomerGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomerGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -20204,33 +17344,13 @@ export const de_DeleteDhcpOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDhcpOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDhcpOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteDhcpOptionsCommandError
- */
-const de_DeleteDhcpOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDhcpOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -20241,7 +17361,7 @@ export const de_DeleteEgressOnlyInternetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEgressOnlyInternetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20254,26 +17374,6 @@ export const de_DeleteEgressOnlyInternetGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError
- */
-const de_DeleteEgressOnlyInternetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEgressOnlyInternetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteFleetsCommand
  */
 export const de_DeleteFleetsCommand = async (
@@ -20281,7 +17381,7 @@ export const de_DeleteFleetsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20294,26 +17394,6 @@ export const de_DeleteFleetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteFleetsCommandError
- */
-const de_DeleteFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteFlowLogsCommand
  */
 export const de_DeleteFlowLogsCommand = async (
@@ -20321,7 +17401,7 @@ export const de_DeleteFlowLogsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFlowLogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFlowLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20334,26 +17414,6 @@ export const de_DeleteFlowLogsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteFlowLogsCommandError
- */
-const de_DeleteFlowLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFlowLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteFpgaImageCommand
  */
 export const de_DeleteFpgaImageCommand = async (
@@ -20361,7 +17421,7 @@ export const de_DeleteFpgaImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFpgaImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFpgaImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20374,26 +17434,6 @@ export const de_DeleteFpgaImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteFpgaImageCommandError
- */
-const de_DeleteFpgaImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFpgaImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteInstanceConnectEndpointCommand
  */
 export const de_DeleteInstanceConnectEndpointCommand = async (
@@ -20401,7 +17441,7 @@ export const de_DeleteInstanceConnectEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceConnectEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceConnectEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20414,26 +17454,6 @@ export const de_DeleteInstanceConnectEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteInstanceConnectEndpointCommandError
- */
-const de_DeleteInstanceConnectEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceConnectEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteInstanceEventWindowCommand
  */
 export const de_DeleteInstanceEventWindowCommand = async (
@@ -20441,7 +17461,7 @@ export const de_DeleteInstanceEventWindowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceEventWindowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceEventWindowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20454,26 +17474,6 @@ export const de_DeleteInstanceEventWindowCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteInstanceEventWindowCommandError
- */
-const de_DeleteInstanceEventWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceEventWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteInternetGatewayCommand
  */
 export const de_DeleteInternetGatewayCommand = async (
@@ -20481,33 +17481,13 @@ export const de_DeleteInternetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInternetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInternetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteInternetGatewayCommandError
- */
-const de_DeleteInternetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInternetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -20518,7 +17498,7 @@ export const de_DeleteIpamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIpamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIpamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20531,26 +17511,6 @@ export const de_DeleteIpamCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteIpamCommandError
- */
-const de_DeleteIpamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIpamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteIpamPoolCommand
  */
 export const de_DeleteIpamPoolCommand = async (
@@ -20558,7 +17518,7 @@ export const de_DeleteIpamPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIpamPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIpamPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20571,26 +17531,6 @@ export const de_DeleteIpamPoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteIpamPoolCommandError
- */
-const de_DeleteIpamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIpamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteIpamResourceDiscoveryCommand
  */
 export const de_DeleteIpamResourceDiscoveryCommand = async (
@@ -20598,7 +17538,7 @@ export const de_DeleteIpamResourceDiscoveryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIpamResourceDiscoveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIpamResourceDiscoveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20611,26 +17551,6 @@ export const de_DeleteIpamResourceDiscoveryCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteIpamResourceDiscoveryCommandError
- */
-const de_DeleteIpamResourceDiscoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIpamResourceDiscoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteIpamScopeCommand
  */
 export const de_DeleteIpamScopeCommand = async (
@@ -20638,7 +17558,7 @@ export const de_DeleteIpamScopeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIpamScopeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIpamScopeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20651,26 +17571,6 @@ export const de_DeleteIpamScopeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteIpamScopeCommandError
- */
-const de_DeleteIpamScopeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIpamScopeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteKeyPairCommand
  */
 export const de_DeleteKeyPairCommand = async (
@@ -20678,7 +17578,7 @@ export const de_DeleteKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20691,26 +17591,6 @@ export const de_DeleteKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteKeyPairCommandError
- */
-const de_DeleteKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteLaunchTemplateCommand
  */
 export const de_DeleteLaunchTemplateCommand = async (
@@ -20718,7 +17598,7 @@ export const de_DeleteLaunchTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLaunchTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLaunchTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20731,26 +17611,6 @@ export const de_DeleteLaunchTemplateCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteLaunchTemplateCommandError
- */
-const de_DeleteLaunchTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLaunchTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteLaunchTemplateVersionsCommand
  */
 export const de_DeleteLaunchTemplateVersionsCommand = async (
@@ -20758,7 +17618,7 @@ export const de_DeleteLaunchTemplateVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLaunchTemplateVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLaunchTemplateVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20771,26 +17631,6 @@ export const de_DeleteLaunchTemplateVersionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError
- */
-const de_DeleteLaunchTemplateVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLaunchTemplateVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteLocalGatewayRouteCommand
  */
 export const de_DeleteLocalGatewayRouteCommand = async (
@@ -20798,7 +17638,7 @@ export const de_DeleteLocalGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLocalGatewayRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLocalGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20811,26 +17651,6 @@ export const de_DeleteLocalGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteLocalGatewayRouteCommandError
- */
-const de_DeleteLocalGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLocalGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteLocalGatewayRouteTableCommand
  */
 export const de_DeleteLocalGatewayRouteTableCommand = async (
@@ -20838,7 +17658,7 @@ export const de_DeleteLocalGatewayRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLocalGatewayRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLocalGatewayRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20851,26 +17671,6 @@ export const de_DeleteLocalGatewayRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteLocalGatewayRouteTableCommandError
- */
-const de_DeleteLocalGatewayRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLocalGatewayRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand
  */
 export const de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand = async (
@@ -20878,7 +17678,7 @@ export const de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationComm
   context: __SerdeContext
 ): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20891,26 +17691,6 @@ export const de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationComm
 };
 
 /**
- * deserializeAws_ec2DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError
- */
-const de_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand
  */
 export const de_DeleteLocalGatewayRouteTableVpcAssociationCommand = async (
@@ -20918,7 +17698,7 @@ export const de_DeleteLocalGatewayRouteTableVpcAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLocalGatewayRouteTableVpcAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20931,26 +17711,6 @@ export const de_DeleteLocalGatewayRouteTableVpcAssociationCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommandError
- */
-const de_DeleteLocalGatewayRouteTableVpcAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLocalGatewayRouteTableVpcAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteManagedPrefixListCommand
  */
 export const de_DeleteManagedPrefixListCommand = async (
@@ -20958,7 +17718,7 @@ export const de_DeleteManagedPrefixListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteManagedPrefixListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteManagedPrefixListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -20971,26 +17731,6 @@ export const de_DeleteManagedPrefixListCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteManagedPrefixListCommandError
- */
-const de_DeleteManagedPrefixListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteManagedPrefixListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteNatGatewayCommand
  */
 export const de_DeleteNatGatewayCommand = async (
@@ -20998,7 +17738,7 @@ export const de_DeleteNatGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNatGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNatGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21011,26 +17751,6 @@ export const de_DeleteNatGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteNatGatewayCommandError
- */
-const de_DeleteNatGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNatGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteNetworkAclCommand
  */
 export const de_DeleteNetworkAclCommand = async (
@@ -21038,33 +17758,13 @@ export const de_DeleteNetworkAclCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkAclCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkAclCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNetworkAclCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteNetworkAclCommandError
- */
-const de_DeleteNetworkAclCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkAclCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21075,33 +17775,13 @@ export const de_DeleteNetworkAclEntryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkAclEntryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkAclEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteNetworkAclEntryCommandError
- */
-const de_DeleteNetworkAclEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkAclEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21112,7 +17792,7 @@ export const de_DeleteNetworkInsightsAccessScopeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkInsightsAccessScopeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21125,26 +17805,6 @@ export const de_DeleteNetworkInsightsAccessScopeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteNetworkInsightsAccessScopeCommandError
- */
-const de_DeleteNetworkInsightsAccessScopeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkInsightsAccessScopeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand
  */
 export const de_DeleteNetworkInsightsAccessScopeAnalysisCommand = async (
@@ -21152,7 +17812,7 @@ export const de_DeleteNetworkInsightsAccessScopeAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkInsightsAccessScopeAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21165,26 +17825,6 @@ export const de_DeleteNetworkInsightsAccessScopeAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommandError
- */
-const de_DeleteNetworkInsightsAccessScopeAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkInsightsAccessScopeAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteNetworkInsightsAnalysisCommand
  */
 export const de_DeleteNetworkInsightsAnalysisCommand = async (
@@ -21192,7 +17832,7 @@ export const de_DeleteNetworkInsightsAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkInsightsAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkInsightsAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21205,26 +17845,6 @@ export const de_DeleteNetworkInsightsAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteNetworkInsightsAnalysisCommandError
- */
-const de_DeleteNetworkInsightsAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkInsightsAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteNetworkInsightsPathCommand
  */
 export const de_DeleteNetworkInsightsPathCommand = async (
@@ -21232,7 +17852,7 @@ export const de_DeleteNetworkInsightsPathCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkInsightsPathCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkInsightsPathCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21245,26 +17865,6 @@ export const de_DeleteNetworkInsightsPathCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteNetworkInsightsPathCommandError
- */
-const de_DeleteNetworkInsightsPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkInsightsPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteNetworkInterfaceCommand
  */
 export const de_DeleteNetworkInterfaceCommand = async (
@@ -21272,33 +17872,13 @@ export const de_DeleteNetworkInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteNetworkInterfaceCommandError
- */
-const de_DeleteNetworkInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21309,7 +17889,7 @@ export const de_DeleteNetworkInterfacePermissionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkInterfacePermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkInterfacePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21322,26 +17902,6 @@ export const de_DeleteNetworkInterfacePermissionCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError
- */
-const de_DeleteNetworkInterfacePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkInterfacePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeletePlacementGroupCommand
  */
 export const de_DeletePlacementGroupCommand = async (
@@ -21349,33 +17909,13 @@ export const de_DeletePlacementGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeletePlacementGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePlacementGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePlacementGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeletePlacementGroupCommandError
- */
-const de_DeletePlacementGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlacementGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21386,7 +17926,7 @@ export const de_DeletePublicIpv4PoolCommand = async (
   context: __SerdeContext
 ): Promise<DeletePublicIpv4PoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePublicIpv4PoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21399,26 +17939,6 @@ export const de_DeletePublicIpv4PoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeletePublicIpv4PoolCommandError
- */
-const de_DeletePublicIpv4PoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePublicIpv4PoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteQueuedReservedInstancesCommand
  */
 export const de_DeleteQueuedReservedInstancesCommand = async (
@@ -21426,7 +17946,7 @@ export const de_DeleteQueuedReservedInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteQueuedReservedInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteQueuedReservedInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21439,26 +17959,6 @@ export const de_DeleteQueuedReservedInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteQueuedReservedInstancesCommandError
- */
-const de_DeleteQueuedReservedInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteQueuedReservedInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteRouteCommand
  */
 export const de_DeleteRouteCommand = async (
@@ -21466,33 +17966,13 @@ export const de_DeleteRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteRouteCommandError
- */
-const de_DeleteRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21503,33 +17983,13 @@ export const de_DeleteRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteRouteTableCommandError
- */
-const de_DeleteRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21540,33 +18000,13 @@ export const de_DeleteSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteSecurityGroupCommandError
- */
-const de_DeleteSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21577,33 +18017,13 @@ export const de_DeleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteSnapshotCommandError
- */
-const de_DeleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21614,33 +18034,13 @@ export const de_DeleteSpotDatafeedSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSpotDatafeedSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSpotDatafeedSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError
- */
-const de_DeleteSpotDatafeedSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSpotDatafeedSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21651,33 +18051,13 @@ export const de_DeleteSubnetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSubnetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSubnetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSubnetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteSubnetCommandError
- */
-const de_DeleteSubnetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubnetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21688,7 +18068,7 @@ export const de_DeleteSubnetCidrReservationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSubnetCidrReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSubnetCidrReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21701,26 +18081,6 @@ export const de_DeleteSubnetCidrReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteSubnetCidrReservationCommandError
- */
-const de_DeleteSubnetCidrReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubnetCidrReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTagsCommand
  */
 export const de_DeleteTagsCommand = async (
@@ -21728,33 +18088,13 @@ export const de_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -21765,7 +18105,7 @@ export const de_DeleteTrafficMirrorFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrafficMirrorFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrafficMirrorFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21778,26 +18118,6 @@ export const de_DeleteTrafficMirrorFilterCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTrafficMirrorFilterCommandError
- */
-const de_DeleteTrafficMirrorFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrafficMirrorFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand
  */
 export const de_DeleteTrafficMirrorFilterRuleCommand = async (
@@ -21805,7 +18125,7 @@ export const de_DeleteTrafficMirrorFilterRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrafficMirrorFilterRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21818,26 +18138,6 @@ export const de_DeleteTrafficMirrorFilterRuleCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError
- */
-const de_DeleteTrafficMirrorFilterRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrafficMirrorFilterRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTrafficMirrorSessionCommand
  */
 export const de_DeleteTrafficMirrorSessionCommand = async (
@@ -21845,7 +18145,7 @@ export const de_DeleteTrafficMirrorSessionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrafficMirrorSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrafficMirrorSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21858,26 +18158,6 @@ export const de_DeleteTrafficMirrorSessionCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTrafficMirrorSessionCommandError
- */
-const de_DeleteTrafficMirrorSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrafficMirrorSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTrafficMirrorTargetCommand
  */
 export const de_DeleteTrafficMirrorTargetCommand = async (
@@ -21885,7 +18165,7 @@ export const de_DeleteTrafficMirrorTargetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrafficMirrorTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrafficMirrorTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21898,26 +18178,6 @@ export const de_DeleteTrafficMirrorTargetCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTrafficMirrorTargetCommandError
- */
-const de_DeleteTrafficMirrorTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrafficMirrorTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayCommand
  */
 export const de_DeleteTransitGatewayCommand = async (
@@ -21925,7 +18185,7 @@ export const de_DeleteTransitGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21938,26 +18198,6 @@ export const de_DeleteTransitGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayCommandError
- */
-const de_DeleteTransitGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayConnectCommand
  */
 export const de_DeleteTransitGatewayConnectCommand = async (
@@ -21965,7 +18205,7 @@ export const de_DeleteTransitGatewayConnectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayConnectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayConnectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -21978,26 +18218,6 @@ export const de_DeleteTransitGatewayConnectCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayConnectCommandError
- */
-const de_DeleteTransitGatewayConnectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayConnectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayConnectPeerCommand
  */
 export const de_DeleteTransitGatewayConnectPeerCommand = async (
@@ -22005,7 +18225,7 @@ export const de_DeleteTransitGatewayConnectPeerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayConnectPeerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayConnectPeerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22018,26 +18238,6 @@ export const de_DeleteTransitGatewayConnectPeerCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayConnectPeerCommandError
- */
-const de_DeleteTransitGatewayConnectPeerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayConnectPeerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand
  */
 export const de_DeleteTransitGatewayMulticastDomainCommand = async (
@@ -22045,7 +18245,7 @@ export const de_DeleteTransitGatewayMulticastDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayMulticastDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22058,26 +18258,6 @@ export const de_DeleteTransitGatewayMulticastDomainCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError
- */
-const de_DeleteTransitGatewayMulticastDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayMulticastDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand
  */
 export const de_DeleteTransitGatewayPeeringAttachmentCommand = async (
@@ -22085,7 +18265,7 @@ export const de_DeleteTransitGatewayPeeringAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayPeeringAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22098,26 +18278,6 @@ export const de_DeleteTransitGatewayPeeringAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandError
- */
-const de_DeleteTransitGatewayPeeringAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayPeeringAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayPolicyTableCommand
  */
 export const de_DeleteTransitGatewayPolicyTableCommand = async (
@@ -22125,7 +18285,7 @@ export const de_DeleteTransitGatewayPolicyTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayPolicyTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayPolicyTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22138,26 +18298,6 @@ export const de_DeleteTransitGatewayPolicyTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayPolicyTableCommandError
- */
-const de_DeleteTransitGatewayPolicyTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayPolicyTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand
  */
 export const de_DeleteTransitGatewayPrefixListReferenceCommand = async (
@@ -22165,7 +18305,7 @@ export const de_DeleteTransitGatewayPrefixListReferenceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayPrefixListReferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22178,26 +18318,6 @@ export const de_DeleteTransitGatewayPrefixListReferenceCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommandError
- */
-const de_DeleteTransitGatewayPrefixListReferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayPrefixListReferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayRouteCommand
  */
 export const de_DeleteTransitGatewayRouteCommand = async (
@@ -22205,7 +18325,7 @@ export const de_DeleteTransitGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22218,26 +18338,6 @@ export const de_DeleteTransitGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayRouteCommandError
- */
-const de_DeleteTransitGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayRouteTableCommand
  */
 export const de_DeleteTransitGatewayRouteTableCommand = async (
@@ -22245,7 +18345,7 @@ export const de_DeleteTransitGatewayRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22258,26 +18358,6 @@ export const de_DeleteTransitGatewayRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError
- */
-const de_DeleteTransitGatewayRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand
  */
 export const de_DeleteTransitGatewayRouteTableAnnouncementCommand = async (
@@ -22285,7 +18365,7 @@ export const de_DeleteTransitGatewayRouteTableAnnouncementCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayRouteTableAnnouncementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22298,26 +18378,6 @@ export const de_DeleteTransitGatewayRouteTableAnnouncementCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommandError
- */
-const de_DeleteTransitGatewayRouteTableAnnouncementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayRouteTableAnnouncementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand
  */
 export const de_DeleteTransitGatewayVpcAttachmentCommand = async (
@@ -22325,7 +18385,7 @@ export const de_DeleteTransitGatewayVpcAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTransitGatewayVpcAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22338,26 +18398,6 @@ export const de_DeleteTransitGatewayVpcAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError
- */
-const de_DeleteTransitGatewayVpcAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVerifiedAccessEndpointCommand
  */
 export const de_DeleteVerifiedAccessEndpointCommand = async (
@@ -22365,7 +18405,7 @@ export const de_DeleteVerifiedAccessEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVerifiedAccessEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVerifiedAccessEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22378,26 +18418,6 @@ export const de_DeleteVerifiedAccessEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVerifiedAccessEndpointCommandError
- */
-const de_DeleteVerifiedAccessEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVerifiedAccessEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVerifiedAccessGroupCommand
  */
 export const de_DeleteVerifiedAccessGroupCommand = async (
@@ -22405,7 +18425,7 @@ export const de_DeleteVerifiedAccessGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVerifiedAccessGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVerifiedAccessGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22418,26 +18438,6 @@ export const de_DeleteVerifiedAccessGroupCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVerifiedAccessGroupCommandError
- */
-const de_DeleteVerifiedAccessGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVerifiedAccessGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVerifiedAccessInstanceCommand
  */
 export const de_DeleteVerifiedAccessInstanceCommand = async (
@@ -22445,7 +18445,7 @@ export const de_DeleteVerifiedAccessInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVerifiedAccessInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVerifiedAccessInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22458,26 +18458,6 @@ export const de_DeleteVerifiedAccessInstanceCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVerifiedAccessInstanceCommandError
- */
-const de_DeleteVerifiedAccessInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVerifiedAccessInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand
  */
 export const de_DeleteVerifiedAccessTrustProviderCommand = async (
@@ -22485,7 +18465,7 @@ export const de_DeleteVerifiedAccessTrustProviderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVerifiedAccessTrustProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22498,26 +18478,6 @@ export const de_DeleteVerifiedAccessTrustProviderCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommandError
- */
-const de_DeleteVerifiedAccessTrustProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVolumeCommand
  */
 export const de_DeleteVolumeCommand = async (
@@ -22525,33 +18485,13 @@ export const de_DeleteVolumeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteVolumeCommandError
- */
-const de_DeleteVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -22562,33 +18502,13 @@ export const de_DeleteVpcCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteVpcCommandError
- */
-const de_DeleteVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -22599,7 +18519,7 @@ export const de_DeleteVpcEndpointConnectionNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcEndpointConnectionNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22612,26 +18532,6 @@ export const de_DeleteVpcEndpointConnectionNotificationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommandError
- */
-const de_DeleteVpcEndpointConnectionNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcEndpointConnectionNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVpcEndpointsCommand
  */
 export const de_DeleteVpcEndpointsCommand = async (
@@ -22639,7 +18539,7 @@ export const de_DeleteVpcEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22652,26 +18552,6 @@ export const de_DeleteVpcEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVpcEndpointsCommandError
- */
-const de_DeleteVpcEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand
  */
 export const de_DeleteVpcEndpointServiceConfigurationsCommand = async (
@@ -22679,7 +18559,7 @@ export const de_DeleteVpcEndpointServiceConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcEndpointServiceConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22692,26 +18572,6 @@ export const de_DeleteVpcEndpointServiceConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandError
- */
-const de_DeleteVpcEndpointServiceConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcEndpointServiceConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVpcPeeringConnectionCommand
  */
 export const de_DeleteVpcPeeringConnectionCommand = async (
@@ -22719,7 +18579,7 @@ export const de_DeleteVpcPeeringConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcPeeringConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22732,26 +18592,6 @@ export const de_DeleteVpcPeeringConnectionCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeleteVpcPeeringConnectionCommandError
- */
-const de_DeleteVpcPeeringConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeleteVpnConnectionCommand
  */
 export const de_DeleteVpnConnectionCommand = async (
@@ -22759,33 +18599,13 @@ export const de_DeleteVpnConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpnConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpnConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVpnConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteVpnConnectionCommandError
- */
-const de_DeleteVpnConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpnConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -22796,33 +18616,13 @@ export const de_DeleteVpnConnectionRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpnConnectionRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpnConnectionRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVpnConnectionRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteVpnConnectionRouteCommandError
- */
-const de_DeleteVpnConnectionRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpnConnectionRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -22833,33 +18633,13 @@ export const de_DeleteVpnGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpnGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpnGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeleteVpnGatewayCommandError
- */
-const de_DeleteVpnGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpnGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -22870,7 +18650,7 @@ export const de_DeprovisionByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<DeprovisionByoipCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprovisionByoipCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22883,26 +18663,6 @@ export const de_DeprovisionByoipCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeprovisionByoipCidrCommandError
- */
-const de_DeprovisionByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprovisionByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeprovisionIpamByoasnCommand
  */
 export const de_DeprovisionIpamByoasnCommand = async (
@@ -22910,7 +18670,7 @@ export const de_DeprovisionIpamByoasnCommand = async (
   context: __SerdeContext
 ): Promise<DeprovisionIpamByoasnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprovisionIpamByoasnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22923,26 +18683,6 @@ export const de_DeprovisionIpamByoasnCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeprovisionIpamByoasnCommandError
- */
-const de_DeprovisionIpamByoasnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprovisionIpamByoasnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeprovisionIpamPoolCidrCommand
  */
 export const de_DeprovisionIpamPoolCidrCommand = async (
@@ -22950,7 +18690,7 @@ export const de_DeprovisionIpamPoolCidrCommand = async (
   context: __SerdeContext
 ): Promise<DeprovisionIpamPoolCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprovisionIpamPoolCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -22963,26 +18703,6 @@ export const de_DeprovisionIpamPoolCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeprovisionIpamPoolCidrCommandError
- */
-const de_DeprovisionIpamPoolCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprovisionIpamPoolCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand
  */
 export const de_DeprovisionPublicIpv4PoolCidrCommand = async (
@@ -22990,7 +18710,7 @@ export const de_DeprovisionPublicIpv4PoolCidrCommand = async (
   context: __SerdeContext
 ): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprovisionPublicIpv4PoolCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23003,26 +18723,6 @@ export const de_DeprovisionPublicIpv4PoolCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommandError
- */
-const de_DeprovisionPublicIpv4PoolCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprovisionPublicIpv4PoolCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeregisterImageCommand
  */
 export const de_DeregisterImageCommand = async (
@@ -23030,33 +18730,13 @@ export const de_DeregisterImageCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeregisterImageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DeregisterImageCommandError
- */
-const de_DeregisterImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -23067,7 +18747,7 @@ export const de_DeregisterInstanceEventNotificationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterInstanceEventNotificationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterInstanceEventNotificationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23080,26 +18760,6 @@ export const de_DeregisterInstanceEventNotificationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommandError
- */
-const de_DeregisterInstanceEventNotificationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterInstanceEventNotificationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommand
  */
 export const de_DeregisterTransitGatewayMulticastGroupMembersCommand = async (
@@ -23107,7 +18767,7 @@ export const de_DeregisterTransitGatewayMulticastGroupMembersCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterTransitGatewayMulticastGroupMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23120,26 +18780,6 @@ export const de_DeregisterTransitGatewayMulticastGroupMembersCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommandError
- */
-const de_DeregisterTransitGatewayMulticastGroupMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommand
  */
 export const de_DeregisterTransitGatewayMulticastGroupSourcesCommand = async (
@@ -23147,7 +18787,7 @@ export const de_DeregisterTransitGatewayMulticastGroupSourcesCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterTransitGatewayMulticastGroupSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23160,26 +18800,6 @@ export const de_DeregisterTransitGatewayMulticastGroupSourcesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommandError
- */
-const de_DeregisterTransitGatewayMulticastGroupSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAccountAttributesCommand
  */
 export const de_DescribeAccountAttributesCommand = async (
@@ -23187,7 +18807,7 @@ export const de_DescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23200,26 +18820,6 @@ export const de_DescribeAccountAttributesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAddressesCommand
  */
 export const de_DescribeAddressesCommand = async (
@@ -23227,7 +18827,7 @@ export const de_DescribeAddressesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23240,26 +18840,6 @@ export const de_DescribeAddressesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeAddressesCommandError
- */
-const de_DescribeAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAddressesAttributeCommand
  */
 export const de_DescribeAddressesAttributeCommand = async (
@@ -23267,7 +18847,7 @@ export const de_DescribeAddressesAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddressesAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAddressesAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23280,26 +18860,6 @@ export const de_DescribeAddressesAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeAddressesAttributeCommandError
- */
-const de_DescribeAddressesAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddressesAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAddressTransfersCommand
  */
 export const de_DescribeAddressTransfersCommand = async (
@@ -23307,7 +18867,7 @@ export const de_DescribeAddressTransfersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddressTransfersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAddressTransfersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23320,26 +18880,6 @@ export const de_DescribeAddressTransfersCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeAddressTransfersCommandError
- */
-const de_DescribeAddressTransfersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddressTransfersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAggregateIdFormatCommand
  */
 export const de_DescribeAggregateIdFormatCommand = async (
@@ -23347,7 +18887,7 @@ export const de_DescribeAggregateIdFormatCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAggregateIdFormatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAggregateIdFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23360,26 +18900,6 @@ export const de_DescribeAggregateIdFormatCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeAggregateIdFormatCommandError
- */
-const de_DescribeAggregateIdFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAggregateIdFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAvailabilityZonesCommand
  */
 export const de_DescribeAvailabilityZonesCommand = async (
@@ -23387,7 +18907,7 @@ export const de_DescribeAvailabilityZonesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAvailabilityZonesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAvailabilityZonesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23400,26 +18920,6 @@ export const de_DescribeAvailabilityZonesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeAvailabilityZonesCommandError
- */
-const de_DescribeAvailabilityZonesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAvailabilityZonesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand
  */
 export const de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand = async (
@@ -23427,7 +18927,7 @@ export const de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand = async 
   context: __SerdeContext
 ): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23440,26 +18940,6 @@ export const de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommand = async 
 };
 
 /**
- * deserializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommandError
- */
-const de_DescribeAwsNetworkPerformanceMetricSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeBundleTasksCommand
  */
 export const de_DescribeBundleTasksCommand = async (
@@ -23467,7 +18947,7 @@ export const de_DescribeBundleTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBundleTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBundleTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23480,26 +18960,6 @@ export const de_DescribeBundleTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeBundleTasksCommandError
- */
-const de_DescribeBundleTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBundleTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeByoipCidrsCommand
  */
 export const de_DescribeByoipCidrsCommand = async (
@@ -23507,7 +18967,7 @@ export const de_DescribeByoipCidrsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeByoipCidrsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeByoipCidrsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23520,26 +18980,6 @@ export const de_DescribeByoipCidrsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeByoipCidrsCommandError
- */
-const de_DescribeByoipCidrsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeByoipCidrsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeCapacityBlockOfferingsCommand
  */
 export const de_DescribeCapacityBlockOfferingsCommand = async (
@@ -23547,7 +18987,7 @@ export const de_DescribeCapacityBlockOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCapacityBlockOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCapacityBlockOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23560,26 +19000,6 @@ export const de_DescribeCapacityBlockOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeCapacityBlockOfferingsCommandError
- */
-const de_DescribeCapacityBlockOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCapacityBlockOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeCapacityReservationFleetsCommand
  */
 export const de_DescribeCapacityReservationFleetsCommand = async (
@@ -23587,7 +19007,7 @@ export const de_DescribeCapacityReservationFleetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCapacityReservationFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCapacityReservationFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23600,26 +19020,6 @@ export const de_DescribeCapacityReservationFleetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeCapacityReservationFleetsCommandError
- */
-const de_DescribeCapacityReservationFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCapacityReservationFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeCapacityReservationsCommand
  */
 export const de_DescribeCapacityReservationsCommand = async (
@@ -23627,7 +19027,7 @@ export const de_DescribeCapacityReservationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCapacityReservationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCapacityReservationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23640,26 +19040,6 @@ export const de_DescribeCapacityReservationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeCapacityReservationsCommandError
- */
-const de_DescribeCapacityReservationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCapacityReservationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeCarrierGatewaysCommand
  */
 export const de_DescribeCarrierGatewaysCommand = async (
@@ -23667,7 +19047,7 @@ export const de_DescribeCarrierGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCarrierGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCarrierGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23680,26 +19060,6 @@ export const de_DescribeCarrierGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeCarrierGatewaysCommandError
- */
-const de_DescribeCarrierGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCarrierGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeClassicLinkInstancesCommand
  */
 export const de_DescribeClassicLinkInstancesCommand = async (
@@ -23707,7 +19067,7 @@ export const de_DescribeClassicLinkInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClassicLinkInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClassicLinkInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23720,26 +19080,6 @@ export const de_DescribeClassicLinkInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeClassicLinkInstancesCommandError
- */
-const de_DescribeClassicLinkInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClassicLinkInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand
  */
 export const de_DescribeClientVpnAuthorizationRulesCommand = async (
@@ -23747,7 +19087,7 @@ export const de_DescribeClientVpnAuthorizationRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientVpnAuthorizationRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23760,26 +19100,6 @@ export const de_DescribeClientVpnAuthorizationRulesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError
- */
-const de_DescribeClientVpnAuthorizationRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientVpnAuthorizationRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeClientVpnConnectionsCommand
  */
 export const de_DescribeClientVpnConnectionsCommand = async (
@@ -23787,7 +19107,7 @@ export const de_DescribeClientVpnConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientVpnConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientVpnConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23800,26 +19120,6 @@ export const de_DescribeClientVpnConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeClientVpnConnectionsCommandError
- */
-const de_DescribeClientVpnConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientVpnConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeClientVpnEndpointsCommand
  */
 export const de_DescribeClientVpnEndpointsCommand = async (
@@ -23827,7 +19127,7 @@ export const de_DescribeClientVpnEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientVpnEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientVpnEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23840,26 +19140,6 @@ export const de_DescribeClientVpnEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeClientVpnEndpointsCommandError
- */
-const de_DescribeClientVpnEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientVpnEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeClientVpnRoutesCommand
  */
 export const de_DescribeClientVpnRoutesCommand = async (
@@ -23867,7 +19147,7 @@ export const de_DescribeClientVpnRoutesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientVpnRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientVpnRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23880,26 +19160,6 @@ export const de_DescribeClientVpnRoutesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeClientVpnRoutesCommandError
- */
-const de_DescribeClientVpnRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientVpnRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeClientVpnTargetNetworksCommand
  */
 export const de_DescribeClientVpnTargetNetworksCommand = async (
@@ -23907,7 +19167,7 @@ export const de_DescribeClientVpnTargetNetworksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientVpnTargetNetworksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientVpnTargetNetworksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23920,26 +19180,6 @@ export const de_DescribeClientVpnTargetNetworksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError
- */
-const de_DescribeClientVpnTargetNetworksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientVpnTargetNetworksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeCoipPoolsCommand
  */
 export const de_DescribeCoipPoolsCommand = async (
@@ -23947,7 +19187,7 @@ export const de_DescribeCoipPoolsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCoipPoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCoipPoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -23960,26 +19200,6 @@ export const de_DescribeCoipPoolsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeCoipPoolsCommandError
- */
-const de_DescribeCoipPoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCoipPoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeConversionTasksCommand
  */
 export const de_DescribeConversionTasksCommand = async (
@@ -23987,7 +19207,7 @@ export const de_DescribeConversionTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConversionTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConversionTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24000,26 +19220,6 @@ export const de_DescribeConversionTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeConversionTasksCommandError
- */
-const de_DescribeConversionTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConversionTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeCustomerGatewaysCommand
  */
 export const de_DescribeCustomerGatewaysCommand = async (
@@ -24027,7 +19227,7 @@ export const de_DescribeCustomerGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCustomerGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCustomerGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24040,26 +19240,6 @@ export const de_DescribeCustomerGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeCustomerGatewaysCommandError
- */
-const de_DescribeCustomerGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomerGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeDhcpOptionsCommand
  */
 export const de_DescribeDhcpOptionsCommand = async (
@@ -24067,7 +19247,7 @@ export const de_DescribeDhcpOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDhcpOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDhcpOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24080,26 +19260,6 @@ export const de_DescribeDhcpOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeDhcpOptionsCommandError
- */
-const de_DescribeDhcpOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDhcpOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand
  */
 export const de_DescribeEgressOnlyInternetGatewaysCommand = async (
@@ -24107,7 +19267,7 @@ export const de_DescribeEgressOnlyInternetGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEgressOnlyInternetGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24120,26 +19280,6 @@ export const de_DescribeEgressOnlyInternetGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError
- */
-const de_DescribeEgressOnlyInternetGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeElasticGpusCommand
  */
 export const de_DescribeElasticGpusCommand = async (
@@ -24147,7 +19287,7 @@ export const de_DescribeElasticGpusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeElasticGpusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeElasticGpusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24160,26 +19300,6 @@ export const de_DescribeElasticGpusCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeElasticGpusCommandError
- */
-const de_DescribeElasticGpusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeElasticGpusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeExportImageTasksCommand
  */
 export const de_DescribeExportImageTasksCommand = async (
@@ -24187,7 +19307,7 @@ export const de_DescribeExportImageTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportImageTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExportImageTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24200,26 +19320,6 @@ export const de_DescribeExportImageTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeExportImageTasksCommandError
- */
-const de_DescribeExportImageTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportImageTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeExportTasksCommand
  */
 export const de_DescribeExportTasksCommand = async (
@@ -24227,7 +19327,7 @@ export const de_DescribeExportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExportTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24240,26 +19340,6 @@ export const de_DescribeExportTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeExportTasksCommandError
- */
-const de_DescribeExportTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFastLaunchImagesCommand
  */
 export const de_DescribeFastLaunchImagesCommand = async (
@@ -24267,7 +19347,7 @@ export const de_DescribeFastLaunchImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFastLaunchImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFastLaunchImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24280,26 +19360,6 @@ export const de_DescribeFastLaunchImagesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFastLaunchImagesCommandError
- */
-const de_DescribeFastLaunchImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFastLaunchImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFastSnapshotRestoresCommand
  */
 export const de_DescribeFastSnapshotRestoresCommand = async (
@@ -24307,7 +19367,7 @@ export const de_DescribeFastSnapshotRestoresCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFastSnapshotRestoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFastSnapshotRestoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24320,26 +19380,6 @@ export const de_DescribeFastSnapshotRestoresCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFastSnapshotRestoresCommandError
- */
-const de_DescribeFastSnapshotRestoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFastSnapshotRestoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFleetHistoryCommand
  */
 export const de_DescribeFleetHistoryCommand = async (
@@ -24347,7 +19387,7 @@ export const de_DescribeFleetHistoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24360,26 +19400,6 @@ export const de_DescribeFleetHistoryCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFleetHistoryCommandError
- */
-const de_DescribeFleetHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFleetInstancesCommand
  */
 export const de_DescribeFleetInstancesCommand = async (
@@ -24387,7 +19407,7 @@ export const de_DescribeFleetInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24400,26 +19420,6 @@ export const de_DescribeFleetInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFleetInstancesCommandError
- */
-const de_DescribeFleetInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFleetsCommand
  */
 export const de_DescribeFleetsCommand = async (
@@ -24427,7 +19427,7 @@ export const de_DescribeFleetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24440,26 +19440,6 @@ export const de_DescribeFleetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFleetsCommandError
- */
-const de_DescribeFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFlowLogsCommand
  */
 export const de_DescribeFlowLogsCommand = async (
@@ -24467,7 +19447,7 @@ export const de_DescribeFlowLogsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFlowLogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFlowLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24480,26 +19460,6 @@ export const de_DescribeFlowLogsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFlowLogsCommandError
- */
-const de_DescribeFlowLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlowLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFpgaImageAttributeCommand
  */
 export const de_DescribeFpgaImageAttributeCommand = async (
@@ -24507,7 +19467,7 @@ export const de_DescribeFpgaImageAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFpgaImageAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFpgaImageAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24520,26 +19480,6 @@ export const de_DescribeFpgaImageAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFpgaImageAttributeCommandError
- */
-const de_DescribeFpgaImageAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFpgaImageAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeFpgaImagesCommand
  */
 export const de_DescribeFpgaImagesCommand = async (
@@ -24547,7 +19487,7 @@ export const de_DescribeFpgaImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFpgaImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFpgaImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24560,26 +19500,6 @@ export const de_DescribeFpgaImagesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeFpgaImagesCommandError
- */
-const de_DescribeFpgaImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFpgaImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeHostReservationOfferingsCommand
  */
 export const de_DescribeHostReservationOfferingsCommand = async (
@@ -24587,7 +19507,7 @@ export const de_DescribeHostReservationOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHostReservationOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHostReservationOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24600,26 +19520,6 @@ export const de_DescribeHostReservationOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeHostReservationOfferingsCommandError
- */
-const de_DescribeHostReservationOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHostReservationOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeHostReservationsCommand
  */
 export const de_DescribeHostReservationsCommand = async (
@@ -24627,7 +19527,7 @@ export const de_DescribeHostReservationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHostReservationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHostReservationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24640,26 +19540,6 @@ export const de_DescribeHostReservationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeHostReservationsCommandError
- */
-const de_DescribeHostReservationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHostReservationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeHostsCommand
  */
 export const de_DescribeHostsCommand = async (
@@ -24667,7 +19547,7 @@ export const de_DescribeHostsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHostsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHostsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24680,26 +19560,6 @@ export const de_DescribeHostsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeHostsCommandError
- */
-const de_DescribeHostsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHostsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand
  */
 export const de_DescribeIamInstanceProfileAssociationsCommand = async (
@@ -24707,7 +19567,7 @@ export const de_DescribeIamInstanceProfileAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIamInstanceProfileAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24720,26 +19580,6 @@ export const de_DescribeIamInstanceProfileAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandError
- */
-const de_DescribeIamInstanceProfileAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIamInstanceProfileAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIdentityIdFormatCommand
  */
 export const de_DescribeIdentityIdFormatCommand = async (
@@ -24747,7 +19587,7 @@ export const de_DescribeIdentityIdFormatCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIdentityIdFormatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIdentityIdFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24760,26 +19600,6 @@ export const de_DescribeIdentityIdFormatCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIdentityIdFormatCommandError
- */
-const de_DescribeIdentityIdFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityIdFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIdFormatCommand
  */
 export const de_DescribeIdFormatCommand = async (
@@ -24787,7 +19607,7 @@ export const de_DescribeIdFormatCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIdFormatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIdFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24800,26 +19620,6 @@ export const de_DescribeIdFormatCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIdFormatCommandError
- */
-const de_DescribeIdFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeImageAttributeCommand
  */
 export const de_DescribeImageAttributeCommand = async (
@@ -24827,7 +19627,7 @@ export const de_DescribeImageAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24840,26 +19640,6 @@ export const de_DescribeImageAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeImageAttributeCommandError
- */
-const de_DescribeImageAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeImagesCommand
  */
 export const de_DescribeImagesCommand = async (
@@ -24867,7 +19647,7 @@ export const de_DescribeImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24880,26 +19660,6 @@ export const de_DescribeImagesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeImagesCommandError
- */
-const de_DescribeImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeImportImageTasksCommand
  */
 export const de_DescribeImportImageTasksCommand = async (
@@ -24907,7 +19667,7 @@ export const de_DescribeImportImageTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImportImageTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImportImageTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24920,26 +19680,6 @@ export const de_DescribeImportImageTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeImportImageTasksCommandError
- */
-const de_DescribeImportImageTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImportImageTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeImportSnapshotTasksCommand
  */
 export const de_DescribeImportSnapshotTasksCommand = async (
@@ -24947,7 +19687,7 @@ export const de_DescribeImportSnapshotTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImportSnapshotTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImportSnapshotTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -24960,26 +19700,6 @@ export const de_DescribeImportSnapshotTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeImportSnapshotTasksCommandError
- */
-const de_DescribeImportSnapshotTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImportSnapshotTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceAttributeCommand
  */
 export const de_DescribeInstanceAttributeCommand = async (
@@ -24987,7 +19707,7 @@ export const de_DescribeInstanceAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25000,26 +19720,6 @@ export const de_DescribeInstanceAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceAttributeCommandError
- */
-const de_DescribeInstanceAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceConnectEndpointsCommand
  */
 export const de_DescribeInstanceConnectEndpointsCommand = async (
@@ -25027,7 +19727,7 @@ export const de_DescribeInstanceConnectEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceConnectEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceConnectEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25040,26 +19740,6 @@ export const de_DescribeInstanceConnectEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceConnectEndpointsCommandError
- */
-const de_DescribeInstanceConnectEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceConnectEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand
  */
 export const de_DescribeInstanceCreditSpecificationsCommand = async (
@@ -25067,7 +19747,7 @@ export const de_DescribeInstanceCreditSpecificationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceCreditSpecificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceCreditSpecificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25080,26 +19760,6 @@ export const de_DescribeInstanceCreditSpecificationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandError
- */
-const de_DescribeInstanceCreditSpecificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceCreditSpecificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceEventNotificationAttributesCommand
  */
 export const de_DescribeInstanceEventNotificationAttributesCommand = async (
@@ -25107,7 +19767,7 @@ export const de_DescribeInstanceEventNotificationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceEventNotificationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceEventNotificationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25120,26 +19780,6 @@ export const de_DescribeInstanceEventNotificationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceEventNotificationAttributesCommandError
- */
-const de_DescribeInstanceEventNotificationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceEventNotificationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceEventWindowsCommand
  */
 export const de_DescribeInstanceEventWindowsCommand = async (
@@ -25147,7 +19787,7 @@ export const de_DescribeInstanceEventWindowsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceEventWindowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceEventWindowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25160,26 +19800,6 @@ export const de_DescribeInstanceEventWindowsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceEventWindowsCommandError
- */
-const de_DescribeInstanceEventWindowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceEventWindowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstancesCommand
  */
 export const de_DescribeInstancesCommand = async (
@@ -25187,7 +19807,7 @@ export const de_DescribeInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25200,26 +19820,6 @@ export const de_DescribeInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstancesCommandError
- */
-const de_DescribeInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceStatusCommand
  */
 export const de_DescribeInstanceStatusCommand = async (
@@ -25227,7 +19827,7 @@ export const de_DescribeInstanceStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25240,26 +19840,6 @@ export const de_DescribeInstanceStatusCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceStatusCommandError
- */
-const de_DescribeInstanceStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceTopologyCommand
  */
 export const de_DescribeInstanceTopologyCommand = async (
@@ -25267,7 +19847,7 @@ export const de_DescribeInstanceTopologyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceTopologyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceTopologyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25280,26 +19860,6 @@ export const de_DescribeInstanceTopologyCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceTopologyCommandError
- */
-const de_DescribeInstanceTopologyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceTopologyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceTypeOfferingsCommand
  */
 export const de_DescribeInstanceTypeOfferingsCommand = async (
@@ -25307,7 +19867,7 @@ export const de_DescribeInstanceTypeOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceTypeOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceTypeOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25320,26 +19880,6 @@ export const de_DescribeInstanceTypeOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError
- */
-const de_DescribeInstanceTypeOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceTypeOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInstanceTypesCommand
  */
 export const de_DescribeInstanceTypesCommand = async (
@@ -25347,7 +19887,7 @@ export const de_DescribeInstanceTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25360,26 +19900,6 @@ export const de_DescribeInstanceTypesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInstanceTypesCommandError
- */
-const de_DescribeInstanceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeInternetGatewaysCommand
  */
 export const de_DescribeInternetGatewaysCommand = async (
@@ -25387,7 +19907,7 @@ export const de_DescribeInternetGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInternetGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInternetGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25400,26 +19920,6 @@ export const de_DescribeInternetGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeInternetGatewaysCommandError
- */
-const de_DescribeInternetGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInternetGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpamByoasnCommand
  */
 export const de_DescribeIpamByoasnCommand = async (
@@ -25427,7 +19927,7 @@ export const de_DescribeIpamByoasnCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpamByoasnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpamByoasnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25440,26 +19940,6 @@ export const de_DescribeIpamByoasnCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpamByoasnCommandError
- */
-const de_DescribeIpamByoasnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpamByoasnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpamPoolsCommand
  */
 export const de_DescribeIpamPoolsCommand = async (
@@ -25467,7 +19947,7 @@ export const de_DescribeIpamPoolsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpamPoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpamPoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25480,26 +19960,6 @@ export const de_DescribeIpamPoolsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpamPoolsCommandError
- */
-const de_DescribeIpamPoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpamPoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpamResourceDiscoveriesCommand
  */
 export const de_DescribeIpamResourceDiscoveriesCommand = async (
@@ -25507,7 +19967,7 @@ export const de_DescribeIpamResourceDiscoveriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpamResourceDiscoveriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpamResourceDiscoveriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25520,26 +19980,6 @@ export const de_DescribeIpamResourceDiscoveriesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpamResourceDiscoveriesCommandError
- */
-const de_DescribeIpamResourceDiscoveriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpamResourceDiscoveriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommand
  */
 export const de_DescribeIpamResourceDiscoveryAssociationsCommand = async (
@@ -25547,7 +19987,7 @@ export const de_DescribeIpamResourceDiscoveryAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpamResourceDiscoveryAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25560,26 +20000,6 @@ export const de_DescribeIpamResourceDiscoveryAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpamResourceDiscoveryAssociationsCommandError
- */
-const de_DescribeIpamResourceDiscoveryAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpamsCommand
  */
 export const de_DescribeIpamsCommand = async (
@@ -25587,7 +20007,7 @@ export const de_DescribeIpamsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25600,26 +20020,6 @@ export const de_DescribeIpamsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpamsCommandError
- */
-const de_DescribeIpamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpamScopesCommand
  */
 export const de_DescribeIpamScopesCommand = async (
@@ -25627,7 +20027,7 @@ export const de_DescribeIpamScopesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpamScopesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpamScopesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25640,26 +20040,6 @@ export const de_DescribeIpamScopesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpamScopesCommandError
- */
-const de_DescribeIpamScopesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpamScopesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeIpv6PoolsCommand
  */
 export const de_DescribeIpv6PoolsCommand = async (
@@ -25667,7 +20047,7 @@ export const de_DescribeIpv6PoolsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpv6PoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpv6PoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25680,26 +20060,6 @@ export const de_DescribeIpv6PoolsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeIpv6PoolsCommandError
- */
-const de_DescribeIpv6PoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpv6PoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeKeyPairsCommand
  */
 export const de_DescribeKeyPairsCommand = async (
@@ -25707,7 +20067,7 @@ export const de_DescribeKeyPairsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeKeyPairsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeKeyPairsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25720,26 +20080,6 @@ export const de_DescribeKeyPairsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeKeyPairsCommandError
- */
-const de_DescribeKeyPairsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeKeyPairsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLaunchTemplatesCommand
  */
 export const de_DescribeLaunchTemplatesCommand = async (
@@ -25747,7 +20087,7 @@ export const de_DescribeLaunchTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLaunchTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLaunchTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25760,26 +20100,6 @@ export const de_DescribeLaunchTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLaunchTemplatesCommandError
- */
-const de_DescribeLaunchTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLaunchTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLaunchTemplateVersionsCommand
  */
 export const de_DescribeLaunchTemplateVersionsCommand = async (
@@ -25787,7 +20107,7 @@ export const de_DescribeLaunchTemplateVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLaunchTemplateVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLaunchTemplateVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25800,26 +20120,6 @@ export const de_DescribeLaunchTemplateVersionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError
- */
-const de_DescribeLaunchTemplateVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLaunchTemplateVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand
  */
 export const de_DescribeLocalGatewayRouteTablesCommand = async (
@@ -25827,7 +20127,7 @@ export const de_DescribeLocalGatewayRouteTablesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocalGatewayRouteTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocalGatewayRouteTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25840,26 +20140,6 @@ export const de_DescribeLocalGatewayRouteTablesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError
- */
-const de_DescribeLocalGatewayRouteTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocalGatewayRouteTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand
  */
 export const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand = async (
@@ -25867,7 +20147,7 @@ export const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsC
   context: __SerdeContext
 ): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25880,26 +20160,6 @@ export const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsC
 };
 
 /**
- * deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError
- */
-const de_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand
  */
 export const de_DescribeLocalGatewayRouteTableVpcAssociationsCommand = async (
@@ -25907,7 +20167,7 @@ export const de_DescribeLocalGatewayRouteTableVpcAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocalGatewayRouteTableVpcAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25920,26 +20180,6 @@ export const de_DescribeLocalGatewayRouteTableVpcAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommandError
- */
-const de_DescribeLocalGatewayRouteTableVpcAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLocalGatewaysCommand
  */
 export const de_DescribeLocalGatewaysCommand = async (
@@ -25947,7 +20187,7 @@ export const de_DescribeLocalGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocalGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocalGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -25960,26 +20200,6 @@ export const de_DescribeLocalGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLocalGatewaysCommandError
- */
-const de_DescribeLocalGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocalGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand
  */
 export const de_DescribeLocalGatewayVirtualInterfaceGroupsCommand = async (
@@ -25987,7 +20207,7 @@ export const de_DescribeLocalGatewayVirtualInterfaceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocalGatewayVirtualInterfaceGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26000,26 +20220,6 @@ export const de_DescribeLocalGatewayVirtualInterfaceGroupsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommandError
- */
-const de_DescribeLocalGatewayVirtualInterfaceGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand
  */
 export const de_DescribeLocalGatewayVirtualInterfacesCommand = async (
@@ -26027,7 +20227,7 @@ export const de_DescribeLocalGatewayVirtualInterfacesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocalGatewayVirtualInterfacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26040,26 +20240,6 @@ export const de_DescribeLocalGatewayVirtualInterfacesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandError
- */
-const de_DescribeLocalGatewayVirtualInterfacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeLockedSnapshotsCommand
  */
 export const de_DescribeLockedSnapshotsCommand = async (
@@ -26067,7 +20247,7 @@ export const de_DescribeLockedSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLockedSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLockedSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26080,26 +20260,6 @@ export const de_DescribeLockedSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeLockedSnapshotsCommandError
- */
-const de_DescribeLockedSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLockedSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeManagedPrefixListsCommand
  */
 export const de_DescribeManagedPrefixListsCommand = async (
@@ -26107,7 +20267,7 @@ export const de_DescribeManagedPrefixListsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeManagedPrefixListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeManagedPrefixListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26120,26 +20280,6 @@ export const de_DescribeManagedPrefixListsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeManagedPrefixListsCommandError
- */
-const de_DescribeManagedPrefixListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeManagedPrefixListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeMovingAddressesCommand
  */
 export const de_DescribeMovingAddressesCommand = async (
@@ -26147,7 +20287,7 @@ export const de_DescribeMovingAddressesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMovingAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMovingAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26160,26 +20300,6 @@ export const de_DescribeMovingAddressesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeMovingAddressesCommandError
- */
-const de_DescribeMovingAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMovingAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNatGatewaysCommand
  */
 export const de_DescribeNatGatewaysCommand = async (
@@ -26187,7 +20307,7 @@ export const de_DescribeNatGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNatGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNatGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26200,26 +20320,6 @@ export const de_DescribeNatGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNatGatewaysCommandError
- */
-const de_DescribeNatGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNatGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkAclsCommand
  */
 export const de_DescribeNetworkAclsCommand = async (
@@ -26227,7 +20327,7 @@ export const de_DescribeNetworkAclsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkAclsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkAclsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26240,26 +20340,6 @@ export const de_DescribeNetworkAclsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkAclsCommandError
- */
-const de_DescribeNetworkAclsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkAclsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommand
  */
 export const de_DescribeNetworkInsightsAccessScopeAnalysesCommand = async (
@@ -26267,7 +20347,7 @@ export const de_DescribeNetworkInsightsAccessScopeAnalysesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInsightsAccessScopeAnalysesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26280,26 +20360,6 @@ export const de_DescribeNetworkInsightsAccessScopeAnalysesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInsightsAccessScopeAnalysesCommandError
- */
-const de_DescribeNetworkInsightsAccessScopeAnalysesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommand
  */
 export const de_DescribeNetworkInsightsAccessScopesCommand = async (
@@ -26307,7 +20367,7 @@ export const de_DescribeNetworkInsightsAccessScopesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInsightsAccessScopesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26320,26 +20380,6 @@ export const de_DescribeNetworkInsightsAccessScopesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInsightsAccessScopesCommandError
- */
-const de_DescribeNetworkInsightsAccessScopesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInsightsAccessScopesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInsightsAnalysesCommand
  */
 export const de_DescribeNetworkInsightsAnalysesCommand = async (
@@ -26347,7 +20387,7 @@ export const de_DescribeNetworkInsightsAnalysesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInsightsAnalysesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInsightsAnalysesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26360,26 +20400,6 @@ export const de_DescribeNetworkInsightsAnalysesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInsightsAnalysesCommandError
- */
-const de_DescribeNetworkInsightsAnalysesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInsightsAnalysesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInsightsPathsCommand
  */
 export const de_DescribeNetworkInsightsPathsCommand = async (
@@ -26387,7 +20407,7 @@ export const de_DescribeNetworkInsightsPathsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInsightsPathsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInsightsPathsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26400,26 +20420,6 @@ export const de_DescribeNetworkInsightsPathsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInsightsPathsCommandError
- */
-const de_DescribeNetworkInsightsPathsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInsightsPathsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand
  */
 export const de_DescribeNetworkInterfaceAttributeCommand = async (
@@ -26427,7 +20427,7 @@ export const de_DescribeNetworkInterfaceAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInterfaceAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInterfaceAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26440,26 +20440,6 @@ export const de_DescribeNetworkInterfaceAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError
- */
-const de_DescribeNetworkInterfaceAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInterfaceAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand
  */
 export const de_DescribeNetworkInterfacePermissionsCommand = async (
@@ -26467,7 +20447,7 @@ export const de_DescribeNetworkInterfacePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInterfacePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInterfacePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26480,26 +20460,6 @@ export const de_DescribeNetworkInterfacePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError
- */
-const de_DescribeNetworkInterfacePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInterfacePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeNetworkInterfacesCommand
  */
 export const de_DescribeNetworkInterfacesCommand = async (
@@ -26507,7 +20467,7 @@ export const de_DescribeNetworkInterfacesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNetworkInterfacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNetworkInterfacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26520,26 +20480,6 @@ export const de_DescribeNetworkInterfacesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeNetworkInterfacesCommandError
- */
-const de_DescribeNetworkInterfacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNetworkInterfacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribePlacementGroupsCommand
  */
 export const de_DescribePlacementGroupsCommand = async (
@@ -26547,7 +20487,7 @@ export const de_DescribePlacementGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePlacementGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePlacementGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26560,26 +20500,6 @@ export const de_DescribePlacementGroupsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribePlacementGroupsCommandError
- */
-const de_DescribePlacementGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePlacementGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribePrefixListsCommand
  */
 export const de_DescribePrefixListsCommand = async (
@@ -26587,7 +20507,7 @@ export const de_DescribePrefixListsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePrefixListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePrefixListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26600,26 +20520,6 @@ export const de_DescribePrefixListsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribePrefixListsCommandError
- */
-const de_DescribePrefixListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePrefixListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribePrincipalIdFormatCommand
  */
 export const de_DescribePrincipalIdFormatCommand = async (
@@ -26627,7 +20527,7 @@ export const de_DescribePrincipalIdFormatCommand = async (
   context: __SerdeContext
 ): Promise<DescribePrincipalIdFormatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePrincipalIdFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26640,26 +20540,6 @@ export const de_DescribePrincipalIdFormatCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribePrincipalIdFormatCommandError
- */
-const de_DescribePrincipalIdFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePrincipalIdFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribePublicIpv4PoolsCommand
  */
 export const de_DescribePublicIpv4PoolsCommand = async (
@@ -26667,7 +20547,7 @@ export const de_DescribePublicIpv4PoolsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePublicIpv4PoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePublicIpv4PoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26680,26 +20560,6 @@ export const de_DescribePublicIpv4PoolsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribePublicIpv4PoolsCommandError
- */
-const de_DescribePublicIpv4PoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePublicIpv4PoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeRegionsCommand
  */
 export const de_DescribeRegionsCommand = async (
@@ -26707,7 +20567,7 @@ export const de_DescribeRegionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26720,26 +20580,6 @@ export const de_DescribeRegionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeRegionsCommandError
- */
-const de_DescribeRegionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeReplaceRootVolumeTasksCommand
  */
 export const de_DescribeReplaceRootVolumeTasksCommand = async (
@@ -26747,7 +20587,7 @@ export const de_DescribeReplaceRootVolumeTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplaceRootVolumeTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplaceRootVolumeTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26760,26 +20600,6 @@ export const de_DescribeReplaceRootVolumeTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeReplaceRootVolumeTasksCommandError
- */
-const de_DescribeReplaceRootVolumeTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplaceRootVolumeTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeReservedInstancesCommand
  */
 export const de_DescribeReservedInstancesCommand = async (
@@ -26787,7 +20607,7 @@ export const de_DescribeReservedInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReservedInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26800,26 +20620,6 @@ export const de_DescribeReservedInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeReservedInstancesCommandError
- */
-const de_DescribeReservedInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeReservedInstancesListingsCommand
  */
 export const de_DescribeReservedInstancesListingsCommand = async (
@@ -26827,7 +20627,7 @@ export const de_DescribeReservedInstancesListingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesListingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReservedInstancesListingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26840,26 +20640,6 @@ export const de_DescribeReservedInstancesListingsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeReservedInstancesListingsCommandError
- */
-const de_DescribeReservedInstancesListingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedInstancesListingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeReservedInstancesModificationsCommand
  */
 export const de_DescribeReservedInstancesModificationsCommand = async (
@@ -26867,7 +20647,7 @@ export const de_DescribeReservedInstancesModificationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesModificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReservedInstancesModificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26880,26 +20660,6 @@ export const de_DescribeReservedInstancesModificationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeReservedInstancesModificationsCommandError
- */
-const de_DescribeReservedInstancesModificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedInstancesModificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeReservedInstancesOfferingsCommand
  */
 export const de_DescribeReservedInstancesOfferingsCommand = async (
@@ -26907,7 +20667,7 @@ export const de_DescribeReservedInstancesOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReservedInstancesOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26920,26 +20680,6 @@ export const de_DescribeReservedInstancesOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError
- */
-const de_DescribeReservedInstancesOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedInstancesOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeRouteTablesCommand
  */
 export const de_DescribeRouteTablesCommand = async (
@@ -26947,7 +20687,7 @@ export const de_DescribeRouteTablesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRouteTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRouteTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -26960,26 +20700,6 @@ export const de_DescribeRouteTablesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeRouteTablesCommandError
- */
-const de_DescribeRouteTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRouteTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand
  */
 export const de_DescribeScheduledInstanceAvailabilityCommand = async (
@@ -26987,7 +20707,7 @@ export const de_DescribeScheduledInstanceAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScheduledInstanceAvailabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27000,26 +20720,6 @@ export const de_DescribeScheduledInstanceAvailabilityCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandError
- */
-const de_DescribeScheduledInstanceAvailabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduledInstanceAvailabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeScheduledInstancesCommand
  */
 export const de_DescribeScheduledInstancesCommand = async (
@@ -27027,7 +20727,7 @@ export const de_DescribeScheduledInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduledInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScheduledInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27040,26 +20740,6 @@ export const de_DescribeScheduledInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeScheduledInstancesCommandError
- */
-const de_DescribeScheduledInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduledInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSecurityGroupReferencesCommand
  */
 export const de_DescribeSecurityGroupReferencesCommand = async (
@@ -27067,7 +20747,7 @@ export const de_DescribeSecurityGroupReferencesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecurityGroupReferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSecurityGroupReferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27080,26 +20760,6 @@ export const de_DescribeSecurityGroupReferencesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSecurityGroupReferencesCommandError
- */
-const de_DescribeSecurityGroupReferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSecurityGroupReferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSecurityGroupRulesCommand
  */
 export const de_DescribeSecurityGroupRulesCommand = async (
@@ -27107,7 +20767,7 @@ export const de_DescribeSecurityGroupRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecurityGroupRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSecurityGroupRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27120,26 +20780,6 @@ export const de_DescribeSecurityGroupRulesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSecurityGroupRulesCommandError
- */
-const de_DescribeSecurityGroupRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSecurityGroupRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSecurityGroupsCommand
  */
 export const de_DescribeSecurityGroupsCommand = async (
@@ -27147,7 +20787,7 @@ export const de_DescribeSecurityGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecurityGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSecurityGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27160,26 +20800,6 @@ export const de_DescribeSecurityGroupsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSecurityGroupsCommandError
- */
-const de_DescribeSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSnapshotAttributeCommand
  */
 export const de_DescribeSnapshotAttributeCommand = async (
@@ -27187,7 +20807,7 @@ export const de_DescribeSnapshotAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSnapshotAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSnapshotAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27200,26 +20820,6 @@ export const de_DescribeSnapshotAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSnapshotAttributeCommandError
- */
-const de_DescribeSnapshotAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSnapshotsCommand
  */
 export const de_DescribeSnapshotsCommand = async (
@@ -27227,7 +20827,7 @@ export const de_DescribeSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27240,26 +20840,6 @@ export const de_DescribeSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSnapshotsCommandError
- */
-const de_DescribeSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSnapshotTierStatusCommand
  */
 export const de_DescribeSnapshotTierStatusCommand = async (
@@ -27267,7 +20847,7 @@ export const de_DescribeSnapshotTierStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSnapshotTierStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSnapshotTierStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27280,26 +20860,6 @@ export const de_DescribeSnapshotTierStatusCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSnapshotTierStatusCommandError
- */
-const de_DescribeSnapshotTierStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotTierStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand
  */
 export const de_DescribeSpotDatafeedSubscriptionCommand = async (
@@ -27307,7 +20867,7 @@ export const de_DescribeSpotDatafeedSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpotDatafeedSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27320,26 +20880,6 @@ export const de_DescribeSpotDatafeedSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError
- */
-const de_DescribeSpotDatafeedSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpotDatafeedSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSpotFleetInstancesCommand
  */
 export const de_DescribeSpotFleetInstancesCommand = async (
@@ -27347,7 +20887,7 @@ export const de_DescribeSpotFleetInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpotFleetInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpotFleetInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27360,26 +20900,6 @@ export const de_DescribeSpotFleetInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSpotFleetInstancesCommandError
- */
-const de_DescribeSpotFleetInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpotFleetInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand
  */
 export const de_DescribeSpotFleetRequestHistoryCommand = async (
@@ -27387,7 +20907,7 @@ export const de_DescribeSpotFleetRequestHistoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpotFleetRequestHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpotFleetRequestHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27400,26 +20920,6 @@ export const de_DescribeSpotFleetRequestHistoryCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError
- */
-const de_DescribeSpotFleetRequestHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpotFleetRequestHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSpotFleetRequestsCommand
  */
 export const de_DescribeSpotFleetRequestsCommand = async (
@@ -27427,7 +20927,7 @@ export const de_DescribeSpotFleetRequestsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpotFleetRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpotFleetRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27440,26 +20940,6 @@ export const de_DescribeSpotFleetRequestsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSpotFleetRequestsCommandError
- */
-const de_DescribeSpotFleetRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpotFleetRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSpotInstanceRequestsCommand
  */
 export const de_DescribeSpotInstanceRequestsCommand = async (
@@ -27467,7 +20947,7 @@ export const de_DescribeSpotInstanceRequestsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpotInstanceRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpotInstanceRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27480,26 +20960,6 @@ export const de_DescribeSpotInstanceRequestsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSpotInstanceRequestsCommandError
- */
-const de_DescribeSpotInstanceRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpotInstanceRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSpotPriceHistoryCommand
  */
 export const de_DescribeSpotPriceHistoryCommand = async (
@@ -27507,7 +20967,7 @@ export const de_DescribeSpotPriceHistoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpotPriceHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpotPriceHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27520,26 +20980,6 @@ export const de_DescribeSpotPriceHistoryCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSpotPriceHistoryCommandError
- */
-const de_DescribeSpotPriceHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpotPriceHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeStaleSecurityGroupsCommand
  */
 export const de_DescribeStaleSecurityGroupsCommand = async (
@@ -27547,7 +20987,7 @@ export const de_DescribeStaleSecurityGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStaleSecurityGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStaleSecurityGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27560,26 +21000,6 @@ export const de_DescribeStaleSecurityGroupsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeStaleSecurityGroupsCommandError
- */
-const de_DescribeStaleSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStaleSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeStoreImageTasksCommand
  */
 export const de_DescribeStoreImageTasksCommand = async (
@@ -27587,7 +21007,7 @@ export const de_DescribeStoreImageTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStoreImageTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStoreImageTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27600,26 +21020,6 @@ export const de_DescribeStoreImageTasksCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeStoreImageTasksCommandError
- */
-const de_DescribeStoreImageTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStoreImageTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeSubnetsCommand
  */
 export const de_DescribeSubnetsCommand = async (
@@ -27627,7 +21027,7 @@ export const de_DescribeSubnetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSubnetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27640,26 +21040,6 @@ export const de_DescribeSubnetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeSubnetsCommandError
- */
-const de_DescribeSubnetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubnetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTagsCommand
  */
 export const de_DescribeTagsCommand = async (
@@ -27667,7 +21047,7 @@ export const de_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27680,26 +21060,6 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTrafficMirrorFiltersCommand
  */
 export const de_DescribeTrafficMirrorFiltersCommand = async (
@@ -27707,7 +21067,7 @@ export const de_DescribeTrafficMirrorFiltersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrafficMirrorFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrafficMirrorFiltersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27720,26 +21080,6 @@ export const de_DescribeTrafficMirrorFiltersCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError
- */
-const de_DescribeTrafficMirrorFiltersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrafficMirrorFiltersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTrafficMirrorSessionsCommand
  */
 export const de_DescribeTrafficMirrorSessionsCommand = async (
@@ -27747,7 +21087,7 @@ export const de_DescribeTrafficMirrorSessionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrafficMirrorSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrafficMirrorSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27760,26 +21100,6 @@ export const de_DescribeTrafficMirrorSessionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError
- */
-const de_DescribeTrafficMirrorSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrafficMirrorSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTrafficMirrorTargetsCommand
  */
 export const de_DescribeTrafficMirrorTargetsCommand = async (
@@ -27787,7 +21107,7 @@ export const de_DescribeTrafficMirrorTargetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrafficMirrorTargetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrafficMirrorTargetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27800,26 +21120,6 @@ export const de_DescribeTrafficMirrorTargetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError
- */
-const de_DescribeTrafficMirrorTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrafficMirrorTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayAttachmentsCommand
  */
 export const de_DescribeTransitGatewayAttachmentsCommand = async (
@@ -27827,7 +21127,7 @@ export const de_DescribeTransitGatewayAttachmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayAttachmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayAttachmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27840,26 +21140,6 @@ export const de_DescribeTransitGatewayAttachmentsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError
- */
-const de_DescribeTransitGatewayAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayConnectPeersCommand
  */
 export const de_DescribeTransitGatewayConnectPeersCommand = async (
@@ -27867,7 +21147,7 @@ export const de_DescribeTransitGatewayConnectPeersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayConnectPeersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayConnectPeersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27880,26 +21160,6 @@ export const de_DescribeTransitGatewayConnectPeersCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayConnectPeersCommandError
- */
-const de_DescribeTransitGatewayConnectPeersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayConnectPeersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayConnectsCommand
  */
 export const de_DescribeTransitGatewayConnectsCommand = async (
@@ -27907,7 +21167,7 @@ export const de_DescribeTransitGatewayConnectsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayConnectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayConnectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27920,26 +21180,6 @@ export const de_DescribeTransitGatewayConnectsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayConnectsCommandError
- */
-const de_DescribeTransitGatewayConnectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayConnectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand
  */
 export const de_DescribeTransitGatewayMulticastDomainsCommand = async (
@@ -27947,7 +21187,7 @@ export const de_DescribeTransitGatewayMulticastDomainsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayMulticastDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -27960,26 +21200,6 @@ export const de_DescribeTransitGatewayMulticastDomainsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandError
- */
-const de_DescribeTransitGatewayMulticastDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand
  */
 export const de_DescribeTransitGatewayPeeringAttachmentsCommand = async (
@@ -27987,7 +21207,7 @@ export const de_DescribeTransitGatewayPeeringAttachmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayPeeringAttachmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28000,26 +21220,6 @@ export const de_DescribeTransitGatewayPeeringAttachmentsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommandError
- */
-const de_DescribeTransitGatewayPeeringAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayPolicyTablesCommand
  */
 export const de_DescribeTransitGatewayPolicyTablesCommand = async (
@@ -28027,7 +21227,7 @@ export const de_DescribeTransitGatewayPolicyTablesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayPolicyTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayPolicyTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28040,26 +21240,6 @@ export const de_DescribeTransitGatewayPolicyTablesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayPolicyTablesCommandError
- */
-const de_DescribeTransitGatewayPolicyTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayPolicyTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommand
  */
 export const de_DescribeTransitGatewayRouteTableAnnouncementsCommand = async (
@@ -28067,7 +21247,7 @@ export const de_DescribeTransitGatewayRouteTableAnnouncementsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayRouteTableAnnouncementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28080,26 +21260,6 @@ export const de_DescribeTransitGatewayRouteTableAnnouncementsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayRouteTableAnnouncementsCommandError
- */
-const de_DescribeTransitGatewayRouteTableAnnouncementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand
  */
 export const de_DescribeTransitGatewayRouteTablesCommand = async (
@@ -28107,7 +21267,7 @@ export const de_DescribeTransitGatewayRouteTablesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayRouteTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayRouteTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28120,26 +21280,6 @@ export const de_DescribeTransitGatewayRouteTablesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError
- */
-const de_DescribeTransitGatewayRouteTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayRouteTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewaysCommand
  */
 export const de_DescribeTransitGatewaysCommand = async (
@@ -28147,7 +21287,7 @@ export const de_DescribeTransitGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28160,26 +21300,6 @@ export const de_DescribeTransitGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewaysCommandError
- */
-const de_DescribeTransitGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand
  */
 export const de_DescribeTransitGatewayVpcAttachmentsCommand = async (
@@ -28187,7 +21307,7 @@ export const de_DescribeTransitGatewayVpcAttachmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTransitGatewayVpcAttachmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28200,26 +21320,6 @@ export const de_DescribeTransitGatewayVpcAttachmentsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandError
- */
-const de_DescribeTransitGatewayVpcAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand
  */
 export const de_DescribeTrunkInterfaceAssociationsCommand = async (
@@ -28227,7 +21327,7 @@ export const de_DescribeTrunkInterfaceAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrunkInterfaceAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28240,26 +21340,6 @@ export const de_DescribeTrunkInterfaceAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommandError
- */
-const de_DescribeTrunkInterfaceAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrunkInterfaceAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVerifiedAccessEndpointsCommand
  */
 export const de_DescribeVerifiedAccessEndpointsCommand = async (
@@ -28267,7 +21347,7 @@ export const de_DescribeVerifiedAccessEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVerifiedAccessEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVerifiedAccessEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28280,26 +21360,6 @@ export const de_DescribeVerifiedAccessEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVerifiedAccessEndpointsCommandError
- */
-const de_DescribeVerifiedAccessEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVerifiedAccessEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVerifiedAccessGroupsCommand
  */
 export const de_DescribeVerifiedAccessGroupsCommand = async (
@@ -28307,7 +21367,7 @@ export const de_DescribeVerifiedAccessGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVerifiedAccessGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVerifiedAccessGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28320,26 +21380,6 @@ export const de_DescribeVerifiedAccessGroupsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVerifiedAccessGroupsCommandError
- */
-const de_DescribeVerifiedAccessGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVerifiedAccessGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand
  */
 export const de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand = async (
@@ -28347,7 +21387,7 @@ export const de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand = asy
   context: __SerdeContext
 ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28360,26 +21400,6 @@ export const de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommand = asy
 };
 
 /**
- * deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommandError
- */
-const de_DescribeVerifiedAccessInstanceLoggingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVerifiedAccessInstancesCommand
  */
 export const de_DescribeVerifiedAccessInstancesCommand = async (
@@ -28387,7 +21407,7 @@ export const de_DescribeVerifiedAccessInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVerifiedAccessInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVerifiedAccessInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28400,26 +21420,6 @@ export const de_DescribeVerifiedAccessInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVerifiedAccessInstancesCommandError
- */
-const de_DescribeVerifiedAccessInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVerifiedAccessInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand
  */
 export const de_DescribeVerifiedAccessTrustProvidersCommand = async (
@@ -28427,7 +21427,7 @@ export const de_DescribeVerifiedAccessTrustProvidersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVerifiedAccessTrustProvidersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28440,26 +21440,6 @@ export const de_DescribeVerifiedAccessTrustProvidersCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommandError
- */
-const de_DescribeVerifiedAccessTrustProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVolumeAttributeCommand
  */
 export const de_DescribeVolumeAttributeCommand = async (
@@ -28467,7 +21447,7 @@ export const de_DescribeVolumeAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVolumeAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVolumeAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28480,26 +21460,6 @@ export const de_DescribeVolumeAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVolumeAttributeCommandError
- */
-const de_DescribeVolumeAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVolumeAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVolumesCommand
  */
 export const de_DescribeVolumesCommand = async (
@@ -28507,7 +21467,7 @@ export const de_DescribeVolumesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVolumesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVolumesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28520,26 +21480,6 @@ export const de_DescribeVolumesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVolumesCommandError
- */
-const de_DescribeVolumesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVolumesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVolumesModificationsCommand
  */
 export const de_DescribeVolumesModificationsCommand = async (
@@ -28547,7 +21487,7 @@ export const de_DescribeVolumesModificationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVolumesModificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVolumesModificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28560,26 +21500,6 @@ export const de_DescribeVolumesModificationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVolumesModificationsCommandError
- */
-const de_DescribeVolumesModificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVolumesModificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVolumeStatusCommand
  */
 export const de_DescribeVolumeStatusCommand = async (
@@ -28587,7 +21507,7 @@ export const de_DescribeVolumeStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVolumeStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVolumeStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28600,26 +21520,6 @@ export const de_DescribeVolumeStatusCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVolumeStatusCommandError
- */
-const de_DescribeVolumeStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVolumeStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcAttributeCommand
  */
 export const de_DescribeVpcAttributeCommand = async (
@@ -28627,7 +21527,7 @@ export const de_DescribeVpcAttributeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28640,26 +21540,6 @@ export const de_DescribeVpcAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcAttributeCommandError
- */
-const de_DescribeVpcAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcClassicLinkCommand
  */
 export const de_DescribeVpcClassicLinkCommand = async (
@@ -28667,7 +21547,7 @@ export const de_DescribeVpcClassicLinkCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcClassicLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcClassicLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28680,26 +21560,6 @@ export const de_DescribeVpcClassicLinkCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcClassicLinkCommandError
- */
-const de_DescribeVpcClassicLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcClassicLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand
  */
 export const de_DescribeVpcClassicLinkDnsSupportCommand = async (
@@ -28707,7 +21567,7 @@ export const de_DescribeVpcClassicLinkDnsSupportCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcClassicLinkDnsSupportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28720,26 +21580,6 @@ export const de_DescribeVpcClassicLinkDnsSupportCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError
- */
-const de_DescribeVpcClassicLinkDnsSupportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand
  */
 export const de_DescribeVpcEndpointConnectionNotificationsCommand = async (
@@ -28747,7 +21587,7 @@ export const de_DescribeVpcEndpointConnectionNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcEndpointConnectionNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28760,26 +21600,6 @@ export const de_DescribeVpcEndpointConnectionNotificationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommandError
- */
-const de_DescribeVpcEndpointConnectionNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcEndpointConnectionsCommand
  */
 export const de_DescribeVpcEndpointConnectionsCommand = async (
@@ -28787,7 +21607,7 @@ export const de_DescribeVpcEndpointConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcEndpointConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28800,26 +21620,6 @@ export const de_DescribeVpcEndpointConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError
- */
-const de_DescribeVpcEndpointConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcEndpointsCommand
  */
 export const de_DescribeVpcEndpointsCommand = async (
@@ -28827,7 +21627,7 @@ export const de_DescribeVpcEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28840,26 +21640,6 @@ export const de_DescribeVpcEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcEndpointsCommandError
- */
-const de_DescribeVpcEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand
  */
 export const de_DescribeVpcEndpointServiceConfigurationsCommand = async (
@@ -28867,7 +21647,7 @@ export const de_DescribeVpcEndpointServiceConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcEndpointServiceConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28880,26 +21660,6 @@ export const de_DescribeVpcEndpointServiceConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommandError
- */
-const de_DescribeVpcEndpointServiceConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommand
  */
 export const de_DescribeVpcEndpointServicePermissionsCommand = async (
@@ -28907,7 +21667,7 @@ export const de_DescribeVpcEndpointServicePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointServicePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcEndpointServicePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28920,26 +21680,6 @@ export const de_DescribeVpcEndpointServicePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandError
- */
-const de_DescribeVpcEndpointServicePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointServicePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcEndpointServicesCommand
  */
 export const de_DescribeVpcEndpointServicesCommand = async (
@@ -28947,7 +21687,7 @@ export const de_DescribeVpcEndpointServicesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcEndpointServicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -28960,26 +21700,6 @@ export const de_DescribeVpcEndpointServicesCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcEndpointServicesCommandError
- */
-const de_DescribeVpcEndpointServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcPeeringConnectionsCommand
  */
 export const de_DescribeVpcPeeringConnectionsCommand = async (
@@ -28987,7 +21707,7 @@ export const de_DescribeVpcPeeringConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcPeeringConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29000,26 +21720,6 @@ export const de_DescribeVpcPeeringConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError
- */
-const de_DescribeVpcPeeringConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcPeeringConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpcsCommand
  */
 export const de_DescribeVpcsCommand = async (
@@ -29027,7 +21727,7 @@ export const de_DescribeVpcsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29040,26 +21740,6 @@ export const de_DescribeVpcsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpcsCommandError
- */
-const de_DescribeVpcsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpnConnectionsCommand
  */
 export const de_DescribeVpnConnectionsCommand = async (
@@ -29067,7 +21747,7 @@ export const de_DescribeVpnConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpnConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpnConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29080,26 +21760,6 @@ export const de_DescribeVpnConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpnConnectionsCommandError
- */
-const de_DescribeVpnConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpnConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DescribeVpnGatewaysCommand
  */
 export const de_DescribeVpnGatewaysCommand = async (
@@ -29107,7 +21767,7 @@ export const de_DescribeVpnGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpnGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpnGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29120,26 +21780,6 @@ export const de_DescribeVpnGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_ec2DescribeVpnGatewaysCommandError
- */
-const de_DescribeVpnGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpnGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DetachClassicLinkVpcCommand
  */
 export const de_DetachClassicLinkVpcCommand = async (
@@ -29147,7 +21787,7 @@ export const de_DetachClassicLinkVpcCommand = async (
   context: __SerdeContext
 ): Promise<DetachClassicLinkVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachClassicLinkVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29160,26 +21800,6 @@ export const de_DetachClassicLinkVpcCommand = async (
 };
 
 /**
- * deserializeAws_ec2DetachClassicLinkVpcCommandError
- */
-const de_DetachClassicLinkVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachClassicLinkVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DetachInternetGatewayCommand
  */
 export const de_DetachInternetGatewayCommand = async (
@@ -29187,33 +21807,13 @@ export const de_DetachInternetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DetachInternetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachInternetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DetachInternetGatewayCommandError
- */
-const de_DetachInternetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachInternetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -29224,33 +21824,13 @@ export const de_DetachNetworkInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<DetachNetworkInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachNetworkInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DetachNetworkInterfaceCommandError
- */
-const de_DetachNetworkInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachNetworkInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -29261,7 +21841,7 @@ export const de_DetachVerifiedAccessTrustProviderCommand = async (
   context: __SerdeContext
 ): Promise<DetachVerifiedAccessTrustProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachVerifiedAccessTrustProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29274,26 +21854,6 @@ export const de_DetachVerifiedAccessTrustProviderCommand = async (
 };
 
 /**
- * deserializeAws_ec2DetachVerifiedAccessTrustProviderCommandError
- */
-const de_DetachVerifiedAccessTrustProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachVerifiedAccessTrustProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DetachVolumeCommand
  */
 export const de_DetachVolumeCommand = async (
@@ -29301,7 +21861,7 @@ export const de_DetachVolumeCommand = async (
   context: __SerdeContext
 ): Promise<DetachVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29314,26 +21874,6 @@ export const de_DetachVolumeCommand = async (
 };
 
 /**
- * deserializeAws_ec2DetachVolumeCommandError
- */
-const de_DetachVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DetachVpnGatewayCommand
  */
 export const de_DetachVpnGatewayCommand = async (
@@ -29341,33 +21881,13 @@ export const de_DetachVpnGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DetachVpnGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachVpnGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DetachVpnGatewayCommandError
- */
-const de_DetachVpnGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachVpnGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -29378,7 +21898,7 @@ export const de_DisableAddressTransferCommand = async (
   context: __SerdeContext
 ): Promise<DisableAddressTransferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableAddressTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29391,26 +21911,6 @@ export const de_DisableAddressTransferCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableAddressTransferCommandError
- */
-const de_DisableAddressTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAddressTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableAwsNetworkPerformanceMetricSubscriptionCommand
  */
 export const de_DisableAwsNetworkPerformanceMetricSubscriptionCommand = async (
@@ -29418,7 +21918,7 @@ export const de_DisableAwsNetworkPerformanceMetricSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableAwsNetworkPerformanceMetricSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29431,26 +21931,6 @@ export const de_DisableAwsNetworkPerformanceMetricSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableAwsNetworkPerformanceMetricSubscriptionCommandError
- */
-const de_DisableAwsNetworkPerformanceMetricSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableEbsEncryptionByDefaultCommand
  */
 export const de_DisableEbsEncryptionByDefaultCommand = async (
@@ -29458,7 +21938,7 @@ export const de_DisableEbsEncryptionByDefaultCommand = async (
   context: __SerdeContext
 ): Promise<DisableEbsEncryptionByDefaultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableEbsEncryptionByDefaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29471,26 +21951,6 @@ export const de_DisableEbsEncryptionByDefaultCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError
- */
-const de_DisableEbsEncryptionByDefaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableEbsEncryptionByDefaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableFastLaunchCommand
  */
 export const de_DisableFastLaunchCommand = async (
@@ -29498,7 +21958,7 @@ export const de_DisableFastLaunchCommand = async (
   context: __SerdeContext
 ): Promise<DisableFastLaunchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableFastLaunchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29511,26 +21971,6 @@ export const de_DisableFastLaunchCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableFastLaunchCommandError
- */
-const de_DisableFastLaunchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableFastLaunchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableFastSnapshotRestoresCommand
  */
 export const de_DisableFastSnapshotRestoresCommand = async (
@@ -29538,7 +21978,7 @@ export const de_DisableFastSnapshotRestoresCommand = async (
   context: __SerdeContext
 ): Promise<DisableFastSnapshotRestoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableFastSnapshotRestoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29551,26 +21991,6 @@ export const de_DisableFastSnapshotRestoresCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableFastSnapshotRestoresCommandError
- */
-const de_DisableFastSnapshotRestoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableFastSnapshotRestoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableImageCommand
  */
 export const de_DisableImageCommand = async (
@@ -29578,7 +21998,7 @@ export const de_DisableImageCommand = async (
   context: __SerdeContext
 ): Promise<DisableImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29591,26 +22011,6 @@ export const de_DisableImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableImageCommandError
- */
-const de_DisableImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableImageBlockPublicAccessCommand
  */
 export const de_DisableImageBlockPublicAccessCommand = async (
@@ -29618,7 +22018,7 @@ export const de_DisableImageBlockPublicAccessCommand = async (
   context: __SerdeContext
 ): Promise<DisableImageBlockPublicAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableImageBlockPublicAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29631,26 +22031,6 @@ export const de_DisableImageBlockPublicAccessCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableImageBlockPublicAccessCommandError
- */
-const de_DisableImageBlockPublicAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableImageBlockPublicAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableImageDeprecationCommand
  */
 export const de_DisableImageDeprecationCommand = async (
@@ -29658,7 +22038,7 @@ export const de_DisableImageDeprecationCommand = async (
   context: __SerdeContext
 ): Promise<DisableImageDeprecationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableImageDeprecationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29671,26 +22051,6 @@ export const de_DisableImageDeprecationCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableImageDeprecationCommandError
- */
-const de_DisableImageDeprecationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableImageDeprecationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand
  */
 export const de_DisableIpamOrganizationAdminAccountCommand = async (
@@ -29698,7 +22058,7 @@ export const de_DisableIpamOrganizationAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<DisableIpamOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableIpamOrganizationAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29711,26 +22071,6 @@ export const de_DisableIpamOrganizationAdminAccountCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableIpamOrganizationAdminAccountCommandError
- */
-const de_DisableIpamOrganizationAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableIpamOrganizationAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableSerialConsoleAccessCommand
  */
 export const de_DisableSerialConsoleAccessCommand = async (
@@ -29738,7 +22078,7 @@ export const de_DisableSerialConsoleAccessCommand = async (
   context: __SerdeContext
 ): Promise<DisableSerialConsoleAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableSerialConsoleAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29751,26 +22091,6 @@ export const de_DisableSerialConsoleAccessCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableSerialConsoleAccessCommandError
- */
-const de_DisableSerialConsoleAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSerialConsoleAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableSnapshotBlockPublicAccessCommand
  */
 export const de_DisableSnapshotBlockPublicAccessCommand = async (
@@ -29778,7 +22098,7 @@ export const de_DisableSnapshotBlockPublicAccessCommand = async (
   context: __SerdeContext
 ): Promise<DisableSnapshotBlockPublicAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableSnapshotBlockPublicAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29791,26 +22111,6 @@ export const de_DisableSnapshotBlockPublicAccessCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableSnapshotBlockPublicAccessCommandError
- */
-const de_DisableSnapshotBlockPublicAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSnapshotBlockPublicAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand
  */
 export const de_DisableTransitGatewayRouteTablePropagationCommand = async (
@@ -29818,7 +22118,7 @@ export const de_DisableTransitGatewayRouteTablePropagationCommand = async (
   context: __SerdeContext
 ): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableTransitGatewayRouteTablePropagationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29831,26 +22131,6 @@ export const de_DisableTransitGatewayRouteTablePropagationCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommandError
- */
-const de_DisableTransitGatewayRouteTablePropagationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableTransitGatewayRouteTablePropagationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableVgwRoutePropagationCommand
  */
 export const de_DisableVgwRoutePropagationCommand = async (
@@ -29858,33 +22138,13 @@ export const de_DisableVgwRoutePropagationCommand = async (
   context: __SerdeContext
 ): Promise<DisableVgwRoutePropagationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableVgwRoutePropagationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableVgwRoutePropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DisableVgwRoutePropagationCommandError
- */
-const de_DisableVgwRoutePropagationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableVgwRoutePropagationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -29895,7 +22155,7 @@ export const de_DisableVpcClassicLinkCommand = async (
   context: __SerdeContext
 ): Promise<DisableVpcClassicLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableVpcClassicLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29908,26 +22168,6 @@ export const de_DisableVpcClassicLinkCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableVpcClassicLinkCommandError
- */
-const de_DisableVpcClassicLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableVpcClassicLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand
  */
 export const de_DisableVpcClassicLinkDnsSupportCommand = async (
@@ -29935,7 +22175,7 @@ export const de_DisableVpcClassicLinkDnsSupportCommand = async (
   context: __SerdeContext
 ): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableVpcClassicLinkDnsSupportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -29948,26 +22188,6 @@ export const de_DisableVpcClassicLinkDnsSupportCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError
- */
-const de_DisableVpcClassicLinkDnsSupportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableVpcClassicLinkDnsSupportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateAddressCommand
  */
 export const de_DisassociateAddressCommand = async (
@@ -29975,33 +22195,13 @@ export const de_DisassociateAddressCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DisassociateAddressCommandError
- */
-const de_DisassociateAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -30012,7 +22212,7 @@ export const de_DisassociateClientVpnTargetNetworkCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateClientVpnTargetNetworkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateClientVpnTargetNetworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30025,26 +22225,6 @@ export const de_DisassociateClientVpnTargetNetworkCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError
- */
-const de_DisassociateClientVpnTargetNetworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateClientVpnTargetNetworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommand
  */
 export const de_DisassociateEnclaveCertificateIamRoleCommand = async (
@@ -30052,7 +22232,7 @@ export const de_DisassociateEnclaveCertificateIamRoleCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateEnclaveCertificateIamRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateEnclaveCertificateIamRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30065,26 +22245,6 @@ export const de_DisassociateEnclaveCertificateIamRoleCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommandError
- */
-const de_DisassociateEnclaveCertificateIamRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateEnclaveCertificateIamRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateIamInstanceProfileCommand
  */
 export const de_DisassociateIamInstanceProfileCommand = async (
@@ -30092,7 +22252,7 @@ export const de_DisassociateIamInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateIamInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateIamInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30105,26 +22265,6 @@ export const de_DisassociateIamInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateIamInstanceProfileCommandError
- */
-const de_DisassociateIamInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateIamInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateInstanceEventWindowCommand
  */
 export const de_DisassociateInstanceEventWindowCommand = async (
@@ -30132,7 +22272,7 @@ export const de_DisassociateInstanceEventWindowCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateInstanceEventWindowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateInstanceEventWindowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30145,26 +22285,6 @@ export const de_DisassociateInstanceEventWindowCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateInstanceEventWindowCommandError
- */
-const de_DisassociateInstanceEventWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateInstanceEventWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateIpamByoasnCommand
  */
 export const de_DisassociateIpamByoasnCommand = async (
@@ -30172,7 +22292,7 @@ export const de_DisassociateIpamByoasnCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateIpamByoasnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateIpamByoasnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30185,26 +22305,6 @@ export const de_DisassociateIpamByoasnCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateIpamByoasnCommandError
- */
-const de_DisassociateIpamByoasnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateIpamByoasnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateIpamResourceDiscoveryCommand
  */
 export const de_DisassociateIpamResourceDiscoveryCommand = async (
@@ -30212,7 +22312,7 @@ export const de_DisassociateIpamResourceDiscoveryCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateIpamResourceDiscoveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateIpamResourceDiscoveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30225,26 +22325,6 @@ export const de_DisassociateIpamResourceDiscoveryCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateIpamResourceDiscoveryCommandError
- */
-const de_DisassociateIpamResourceDiscoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateIpamResourceDiscoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateNatGatewayAddressCommand
  */
 export const de_DisassociateNatGatewayAddressCommand = async (
@@ -30252,7 +22332,7 @@ export const de_DisassociateNatGatewayAddressCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateNatGatewayAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateNatGatewayAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30265,26 +22345,6 @@ export const de_DisassociateNatGatewayAddressCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateNatGatewayAddressCommandError
- */
-const de_DisassociateNatGatewayAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateNatGatewayAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateRouteTableCommand
  */
 export const de_DisassociateRouteTableCommand = async (
@@ -30292,33 +22352,13 @@ export const de_DisassociateRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2DisassociateRouteTableCommandError
- */
-const de_DisassociateRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -30329,7 +22369,7 @@ export const de_DisassociateSubnetCidrBlockCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateSubnetCidrBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateSubnetCidrBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30342,26 +22382,6 @@ export const de_DisassociateSubnetCidrBlockCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateSubnetCidrBlockCommandError
- */
-const de_DisassociateSubnetCidrBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateSubnetCidrBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand
  */
 export const de_DisassociateTransitGatewayMulticastDomainCommand = async (
@@ -30369,7 +22389,7 @@ export const de_DisassociateTransitGatewayMulticastDomainCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateTransitGatewayMulticastDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30382,26 +22402,6 @@ export const de_DisassociateTransitGatewayMulticastDomainCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommandError
- */
-const de_DisassociateTransitGatewayMulticastDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTransitGatewayMulticastDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommand
  */
 export const de_DisassociateTransitGatewayPolicyTableCommand = async (
@@ -30409,7 +22409,7 @@ export const de_DisassociateTransitGatewayPolicyTableCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateTransitGatewayPolicyTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30422,26 +22422,6 @@ export const de_DisassociateTransitGatewayPolicyTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateTransitGatewayPolicyTableCommandError
- */
-const de_DisassociateTransitGatewayPolicyTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTransitGatewayPolicyTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand
  */
 export const de_DisassociateTransitGatewayRouteTableCommand = async (
@@ -30449,7 +22429,7 @@ export const de_DisassociateTransitGatewayRouteTableCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTransitGatewayRouteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateTransitGatewayRouteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30462,26 +22442,6 @@ export const de_DisassociateTransitGatewayRouteTableCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandError
- */
-const de_DisassociateTransitGatewayRouteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTransitGatewayRouteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateTrunkInterfaceCommand
  */
 export const de_DisassociateTrunkInterfaceCommand = async (
@@ -30489,7 +22449,7 @@ export const de_DisassociateTrunkInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTrunkInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateTrunkInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30502,26 +22462,6 @@ export const de_DisassociateTrunkInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateTrunkInterfaceCommandError
- */
-const de_DisassociateTrunkInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTrunkInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2DisassociateVpcCidrBlockCommand
  */
 export const de_DisassociateVpcCidrBlockCommand = async (
@@ -30529,7 +22469,7 @@ export const de_DisassociateVpcCidrBlockCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateVpcCidrBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateVpcCidrBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30542,26 +22482,6 @@ export const de_DisassociateVpcCidrBlockCommand = async (
 };
 
 /**
- * deserializeAws_ec2DisassociateVpcCidrBlockCommandError
- */
-const de_DisassociateVpcCidrBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateVpcCidrBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableAddressTransferCommand
  */
 export const de_EnableAddressTransferCommand = async (
@@ -30569,7 +22489,7 @@ export const de_EnableAddressTransferCommand = async (
   context: __SerdeContext
 ): Promise<EnableAddressTransferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableAddressTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30582,26 +22502,6 @@ export const de_EnableAddressTransferCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableAddressTransferCommandError
- */
-const de_EnableAddressTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAddressTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommand
  */
 export const de_EnableAwsNetworkPerformanceMetricSubscriptionCommand = async (
@@ -30609,7 +22509,7 @@ export const de_EnableAwsNetworkPerformanceMetricSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableAwsNetworkPerformanceMetricSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30622,26 +22522,6 @@ export const de_EnableAwsNetworkPerformanceMetricSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableAwsNetworkPerformanceMetricSubscriptionCommandError
- */
-const de_EnableAwsNetworkPerformanceMetricSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableEbsEncryptionByDefaultCommand
  */
 export const de_EnableEbsEncryptionByDefaultCommand = async (
@@ -30649,7 +22529,7 @@ export const de_EnableEbsEncryptionByDefaultCommand = async (
   context: __SerdeContext
 ): Promise<EnableEbsEncryptionByDefaultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableEbsEncryptionByDefaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30662,26 +22542,6 @@ export const de_EnableEbsEncryptionByDefaultCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError
- */
-const de_EnableEbsEncryptionByDefaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableEbsEncryptionByDefaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableFastLaunchCommand
  */
 export const de_EnableFastLaunchCommand = async (
@@ -30689,7 +22549,7 @@ export const de_EnableFastLaunchCommand = async (
   context: __SerdeContext
 ): Promise<EnableFastLaunchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableFastLaunchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30702,26 +22562,6 @@ export const de_EnableFastLaunchCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableFastLaunchCommandError
- */
-const de_EnableFastLaunchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableFastLaunchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableFastSnapshotRestoresCommand
  */
 export const de_EnableFastSnapshotRestoresCommand = async (
@@ -30729,7 +22569,7 @@ export const de_EnableFastSnapshotRestoresCommand = async (
   context: __SerdeContext
 ): Promise<EnableFastSnapshotRestoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableFastSnapshotRestoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30742,26 +22582,6 @@ export const de_EnableFastSnapshotRestoresCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableFastSnapshotRestoresCommandError
- */
-const de_EnableFastSnapshotRestoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableFastSnapshotRestoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableImageCommand
  */
 export const de_EnableImageCommand = async (
@@ -30769,7 +22589,7 @@ export const de_EnableImageCommand = async (
   context: __SerdeContext
 ): Promise<EnableImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30782,26 +22602,6 @@ export const de_EnableImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableImageCommandError
- */
-const de_EnableImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableImageBlockPublicAccessCommand
  */
 export const de_EnableImageBlockPublicAccessCommand = async (
@@ -30809,7 +22609,7 @@ export const de_EnableImageBlockPublicAccessCommand = async (
   context: __SerdeContext
 ): Promise<EnableImageBlockPublicAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableImageBlockPublicAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30822,26 +22622,6 @@ export const de_EnableImageBlockPublicAccessCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableImageBlockPublicAccessCommandError
- */
-const de_EnableImageBlockPublicAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableImageBlockPublicAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableImageDeprecationCommand
  */
 export const de_EnableImageDeprecationCommand = async (
@@ -30849,7 +22629,7 @@ export const de_EnableImageDeprecationCommand = async (
   context: __SerdeContext
 ): Promise<EnableImageDeprecationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableImageDeprecationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30862,26 +22642,6 @@ export const de_EnableImageDeprecationCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableImageDeprecationCommandError
- */
-const de_EnableImageDeprecationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableImageDeprecationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableIpamOrganizationAdminAccountCommand
  */
 export const de_EnableIpamOrganizationAdminAccountCommand = async (
@@ -30889,7 +22649,7 @@ export const de_EnableIpamOrganizationAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableIpamOrganizationAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30902,26 +22662,6 @@ export const de_EnableIpamOrganizationAdminAccountCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableIpamOrganizationAdminAccountCommandError
- */
-const de_EnableIpamOrganizationAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableIpamOrganizationAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand
  */
 export const de_EnableReachabilityAnalyzerOrganizationSharingCommand = async (
@@ -30929,7 +22669,7 @@ export const de_EnableReachabilityAnalyzerOrganizationSharingCommand = async (
   context: __SerdeContext
 ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableReachabilityAnalyzerOrganizationSharingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30942,26 +22682,6 @@ export const de_EnableReachabilityAnalyzerOrganizationSharingCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommandError
- */
-const de_EnableReachabilityAnalyzerOrganizationSharingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableSerialConsoleAccessCommand
  */
 export const de_EnableSerialConsoleAccessCommand = async (
@@ -30969,7 +22689,7 @@ export const de_EnableSerialConsoleAccessCommand = async (
   context: __SerdeContext
 ): Promise<EnableSerialConsoleAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableSerialConsoleAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -30982,26 +22702,6 @@ export const de_EnableSerialConsoleAccessCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableSerialConsoleAccessCommandError
- */
-const de_EnableSerialConsoleAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSerialConsoleAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableSnapshotBlockPublicAccessCommand
  */
 export const de_EnableSnapshotBlockPublicAccessCommand = async (
@@ -31009,7 +22709,7 @@ export const de_EnableSnapshotBlockPublicAccessCommand = async (
   context: __SerdeContext
 ): Promise<EnableSnapshotBlockPublicAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableSnapshotBlockPublicAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31022,26 +22722,6 @@ export const de_EnableSnapshotBlockPublicAccessCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableSnapshotBlockPublicAccessCommandError
- */
-const de_EnableSnapshotBlockPublicAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSnapshotBlockPublicAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand
  */
 export const de_EnableTransitGatewayRouteTablePropagationCommand = async (
@@ -31049,7 +22729,7 @@ export const de_EnableTransitGatewayRouteTablePropagationCommand = async (
   context: __SerdeContext
 ): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableTransitGatewayRouteTablePropagationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31062,26 +22742,6 @@ export const de_EnableTransitGatewayRouteTablePropagationCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommandError
- */
-const de_EnableTransitGatewayRouteTablePropagationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableTransitGatewayRouteTablePropagationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableVgwRoutePropagationCommand
  */
 export const de_EnableVgwRoutePropagationCommand = async (
@@ -31089,33 +22749,13 @@ export const de_EnableVgwRoutePropagationCommand = async (
   context: __SerdeContext
 ): Promise<EnableVgwRoutePropagationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableVgwRoutePropagationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableVgwRoutePropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2EnableVgwRoutePropagationCommandError
- */
-const de_EnableVgwRoutePropagationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableVgwRoutePropagationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -31126,33 +22766,13 @@ export const de_EnableVolumeIOCommand = async (
   context: __SerdeContext
 ): Promise<EnableVolumeIOCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableVolumeIOCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableVolumeIOCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2EnableVolumeIOCommandError
- */
-const de_EnableVolumeIOCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableVolumeIOCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -31163,7 +22783,7 @@ export const de_EnableVpcClassicLinkCommand = async (
   context: __SerdeContext
 ): Promise<EnableVpcClassicLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableVpcClassicLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31176,26 +22796,6 @@ export const de_EnableVpcClassicLinkCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableVpcClassicLinkCommandError
- */
-const de_EnableVpcClassicLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableVpcClassicLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand
  */
 export const de_EnableVpcClassicLinkDnsSupportCommand = async (
@@ -31203,7 +22803,7 @@ export const de_EnableVpcClassicLinkDnsSupportCommand = async (
   context: __SerdeContext
 ): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableVpcClassicLinkDnsSupportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31216,26 +22816,6 @@ export const de_EnableVpcClassicLinkDnsSupportCommand = async (
 };
 
 /**
- * deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError
- */
-const de_EnableVpcClassicLinkDnsSupportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableVpcClassicLinkDnsSupportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommand
  */
 export const de_ExportClientVpnClientCertificateRevocationListCommand = async (
@@ -31243,7 +22823,7 @@ export const de_ExportClientVpnClientCertificateRevocationListCommand = async (
   context: __SerdeContext
 ): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportClientVpnClientCertificateRevocationListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31256,26 +22836,6 @@ export const de_ExportClientVpnClientCertificateRevocationListCommand = async (
 };
 
 /**
- * deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommandError
- */
-const de_ExportClientVpnClientCertificateRevocationListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportClientVpnClientCertificateRevocationListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ExportClientVpnClientConfigurationCommand
  */
 export const de_ExportClientVpnClientConfigurationCommand = async (
@@ -31283,7 +22843,7 @@ export const de_ExportClientVpnClientConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<ExportClientVpnClientConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportClientVpnClientConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31296,26 +22856,6 @@ export const de_ExportClientVpnClientConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ExportClientVpnClientConfigurationCommandError
- */
-const de_ExportClientVpnClientConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportClientVpnClientConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ExportImageCommand
  */
 export const de_ExportImageCommand = async (
@@ -31323,7 +22863,7 @@ export const de_ExportImageCommand = async (
   context: __SerdeContext
 ): Promise<ExportImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31336,26 +22876,6 @@ export const de_ExportImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2ExportImageCommandError
- */
-const de_ExportImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ExportTransitGatewayRoutesCommand
  */
 export const de_ExportTransitGatewayRoutesCommand = async (
@@ -31363,7 +22883,7 @@ export const de_ExportTransitGatewayRoutesCommand = async (
   context: __SerdeContext
 ): Promise<ExportTransitGatewayRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportTransitGatewayRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31376,26 +22896,6 @@ export const de_ExportTransitGatewayRoutesCommand = async (
 };
 
 /**
- * deserializeAws_ec2ExportTransitGatewayRoutesCommandError
- */
-const de_ExportTransitGatewayRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportTransitGatewayRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommand
  */
 export const de_GetAssociatedEnclaveCertificateIamRolesCommand = async (
@@ -31403,7 +22903,7 @@ export const de_GetAssociatedEnclaveCertificateIamRolesCommand = async (
   context: __SerdeContext
 ): Promise<GetAssociatedEnclaveCertificateIamRolesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAssociatedEnclaveCertificateIamRolesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31416,26 +22916,6 @@ export const de_GetAssociatedEnclaveCertificateIamRolesCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommandError
- */
-const de_GetAssociatedEnclaveCertificateIamRolesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssociatedEnclaveCertificateIamRolesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand
  */
 export const de_GetAssociatedIpv6PoolCidrsCommand = async (
@@ -31443,7 +22923,7 @@ export const de_GetAssociatedIpv6PoolCidrsCommand = async (
   context: __SerdeContext
 ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAssociatedIpv6PoolCidrsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31456,26 +22936,6 @@ export const de_GetAssociatedIpv6PoolCidrsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError
- */
-const de_GetAssociatedIpv6PoolCidrsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetAwsNetworkPerformanceDataCommand
  */
 export const de_GetAwsNetworkPerformanceDataCommand = async (
@@ -31483,7 +22943,7 @@ export const de_GetAwsNetworkPerformanceDataCommand = async (
   context: __SerdeContext
 ): Promise<GetAwsNetworkPerformanceDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAwsNetworkPerformanceDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31496,26 +22956,6 @@ export const de_GetAwsNetworkPerformanceDataCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetAwsNetworkPerformanceDataCommandError
- */
-const de_GetAwsNetworkPerformanceDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAwsNetworkPerformanceDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetCapacityReservationUsageCommand
  */
 export const de_GetCapacityReservationUsageCommand = async (
@@ -31523,7 +22963,7 @@ export const de_GetCapacityReservationUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetCapacityReservationUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCapacityReservationUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31536,26 +22976,6 @@ export const de_GetCapacityReservationUsageCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetCapacityReservationUsageCommandError
- */
-const de_GetCapacityReservationUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCapacityReservationUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetCoipPoolUsageCommand
  */
 export const de_GetCoipPoolUsageCommand = async (
@@ -31563,7 +22983,7 @@ export const de_GetCoipPoolUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetCoipPoolUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCoipPoolUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31576,26 +22996,6 @@ export const de_GetCoipPoolUsageCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetCoipPoolUsageCommandError
- */
-const de_GetCoipPoolUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCoipPoolUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetConsoleOutputCommand
  */
 export const de_GetConsoleOutputCommand = async (
@@ -31603,7 +23003,7 @@ export const de_GetConsoleOutputCommand = async (
   context: __SerdeContext
 ): Promise<GetConsoleOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConsoleOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31616,26 +23016,6 @@ export const de_GetConsoleOutputCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetConsoleOutputCommandError
- */
-const de_GetConsoleOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConsoleOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetConsoleScreenshotCommand
  */
 export const de_GetConsoleScreenshotCommand = async (
@@ -31643,7 +23023,7 @@ export const de_GetConsoleScreenshotCommand = async (
   context: __SerdeContext
 ): Promise<GetConsoleScreenshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConsoleScreenshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31656,26 +23036,6 @@ export const de_GetConsoleScreenshotCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetConsoleScreenshotCommandError
- */
-const de_GetConsoleScreenshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConsoleScreenshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetDefaultCreditSpecificationCommand
  */
 export const de_GetDefaultCreditSpecificationCommand = async (
@@ -31683,7 +23043,7 @@ export const de_GetDefaultCreditSpecificationCommand = async (
   context: __SerdeContext
 ): Promise<GetDefaultCreditSpecificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDefaultCreditSpecificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31696,26 +23056,6 @@ export const de_GetDefaultCreditSpecificationCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetDefaultCreditSpecificationCommandError
- */
-const de_GetDefaultCreditSpecificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultCreditSpecificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand
  */
 export const de_GetEbsDefaultKmsKeyIdCommand = async (
@@ -31723,7 +23063,7 @@ export const de_GetEbsDefaultKmsKeyIdCommand = async (
   context: __SerdeContext
 ): Promise<GetEbsDefaultKmsKeyIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEbsDefaultKmsKeyIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31736,26 +23076,6 @@ export const de_GetEbsDefaultKmsKeyIdCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError
- */
-const de_GetEbsDefaultKmsKeyIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEbsDefaultKmsKeyIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetEbsEncryptionByDefaultCommand
  */
 export const de_GetEbsEncryptionByDefaultCommand = async (
@@ -31763,7 +23083,7 @@ export const de_GetEbsEncryptionByDefaultCommand = async (
   context: __SerdeContext
 ): Promise<GetEbsEncryptionByDefaultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEbsEncryptionByDefaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31776,26 +23096,6 @@ export const de_GetEbsEncryptionByDefaultCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetEbsEncryptionByDefaultCommandError
- */
-const de_GetEbsEncryptionByDefaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEbsEncryptionByDefaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand
  */
 export const de_GetFlowLogsIntegrationTemplateCommand = async (
@@ -31803,7 +23103,7 @@ export const de_GetFlowLogsIntegrationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetFlowLogsIntegrationTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFlowLogsIntegrationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31816,26 +23116,6 @@ export const de_GetFlowLogsIntegrationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetFlowLogsIntegrationTemplateCommandError
- */
-const de_GetFlowLogsIntegrationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFlowLogsIntegrationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetGroupsForCapacityReservationCommand
  */
 export const de_GetGroupsForCapacityReservationCommand = async (
@@ -31843,7 +23123,7 @@ export const de_GetGroupsForCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupsForCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGroupsForCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31856,26 +23136,6 @@ export const de_GetGroupsForCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetGroupsForCapacityReservationCommandError
- */
-const de_GetGroupsForCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupsForCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetHostReservationPurchasePreviewCommand
  */
 export const de_GetHostReservationPurchasePreviewCommand = async (
@@ -31883,7 +23143,7 @@ export const de_GetHostReservationPurchasePreviewCommand = async (
   context: __SerdeContext
 ): Promise<GetHostReservationPurchasePreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetHostReservationPurchasePreviewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31896,26 +23156,6 @@ export const de_GetHostReservationPurchasePreviewCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetHostReservationPurchasePreviewCommandError
- */
-const de_GetHostReservationPurchasePreviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHostReservationPurchasePreviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetImageBlockPublicAccessStateCommand
  */
 export const de_GetImageBlockPublicAccessStateCommand = async (
@@ -31923,7 +23163,7 @@ export const de_GetImageBlockPublicAccessStateCommand = async (
   context: __SerdeContext
 ): Promise<GetImageBlockPublicAccessStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetImageBlockPublicAccessStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31936,26 +23176,6 @@ export const de_GetImageBlockPublicAccessStateCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetImageBlockPublicAccessStateCommandError
- */
-const de_GetImageBlockPublicAccessStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImageBlockPublicAccessStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand
  */
 export const de_GetInstanceTypesFromInstanceRequirementsCommand = async (
@@ -31963,7 +23183,7 @@ export const de_GetInstanceTypesFromInstanceRequirementsCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceTypesFromInstanceRequirementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -31976,26 +23196,6 @@ export const de_GetInstanceTypesFromInstanceRequirementsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommandError
- */
-const de_GetInstanceTypesFromInstanceRequirementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetInstanceUefiDataCommand
  */
 export const de_GetInstanceUefiDataCommand = async (
@@ -32003,7 +23203,7 @@ export const de_GetInstanceUefiDataCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceUefiDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceUefiDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32016,26 +23216,6 @@ export const de_GetInstanceUefiDataCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetInstanceUefiDataCommandError
- */
-const de_GetInstanceUefiDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceUefiDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamAddressHistoryCommand
  */
 export const de_GetIpamAddressHistoryCommand = async (
@@ -32043,7 +23223,7 @@ export const de_GetIpamAddressHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamAddressHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamAddressHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32056,26 +23236,6 @@ export const de_GetIpamAddressHistoryCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamAddressHistoryCommandError
- */
-const de_GetIpamAddressHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamAddressHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamDiscoveredAccountsCommand
  */
 export const de_GetIpamDiscoveredAccountsCommand = async (
@@ -32083,7 +23243,7 @@ export const de_GetIpamDiscoveredAccountsCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamDiscoveredAccountsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamDiscoveredAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32096,26 +23256,6 @@ export const de_GetIpamDiscoveredAccountsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamDiscoveredAccountsCommandError
- */
-const de_GetIpamDiscoveredAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamDiscoveredAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamDiscoveredPublicAddressesCommand
  */
 export const de_GetIpamDiscoveredPublicAddressesCommand = async (
@@ -32123,7 +23263,7 @@ export const de_GetIpamDiscoveredPublicAddressesCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamDiscoveredPublicAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamDiscoveredPublicAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32136,26 +23276,6 @@ export const de_GetIpamDiscoveredPublicAddressesCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamDiscoveredPublicAddressesCommandError
- */
-const de_GetIpamDiscoveredPublicAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamDiscoveredPublicAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommand
  */
 export const de_GetIpamDiscoveredResourceCidrsCommand = async (
@@ -32163,7 +23283,7 @@ export const de_GetIpamDiscoveredResourceCidrsCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamDiscoveredResourceCidrsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32176,26 +23296,6 @@ export const de_GetIpamDiscoveredResourceCidrsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamDiscoveredResourceCidrsCommandError
- */
-const de_GetIpamDiscoveredResourceCidrsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamDiscoveredResourceCidrsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamPoolAllocationsCommand
  */
 export const de_GetIpamPoolAllocationsCommand = async (
@@ -32203,7 +23303,7 @@ export const de_GetIpamPoolAllocationsCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamPoolAllocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamPoolAllocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32216,26 +23316,6 @@ export const de_GetIpamPoolAllocationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamPoolAllocationsCommandError
- */
-const de_GetIpamPoolAllocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamPoolAllocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamPoolCidrsCommand
  */
 export const de_GetIpamPoolCidrsCommand = async (
@@ -32243,7 +23323,7 @@ export const de_GetIpamPoolCidrsCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamPoolCidrsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamPoolCidrsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32256,26 +23336,6 @@ export const de_GetIpamPoolCidrsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamPoolCidrsCommandError
- */
-const de_GetIpamPoolCidrsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamPoolCidrsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetIpamResourceCidrsCommand
  */
 export const de_GetIpamResourceCidrsCommand = async (
@@ -32283,7 +23343,7 @@ export const de_GetIpamResourceCidrsCommand = async (
   context: __SerdeContext
 ): Promise<GetIpamResourceCidrsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIpamResourceCidrsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32296,26 +23356,6 @@ export const de_GetIpamResourceCidrsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetIpamResourceCidrsCommandError
- */
-const de_GetIpamResourceCidrsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIpamResourceCidrsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetLaunchTemplateDataCommand
  */
 export const de_GetLaunchTemplateDataCommand = async (
@@ -32323,7 +23363,7 @@ export const de_GetLaunchTemplateDataCommand = async (
   context: __SerdeContext
 ): Promise<GetLaunchTemplateDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLaunchTemplateDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32336,26 +23376,6 @@ export const de_GetLaunchTemplateDataCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetLaunchTemplateDataCommandError
- */
-const de_GetLaunchTemplateDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLaunchTemplateDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetManagedPrefixListAssociationsCommand
  */
 export const de_GetManagedPrefixListAssociationsCommand = async (
@@ -32363,7 +23383,7 @@ export const de_GetManagedPrefixListAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<GetManagedPrefixListAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetManagedPrefixListAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32376,26 +23396,6 @@ export const de_GetManagedPrefixListAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetManagedPrefixListAssociationsCommandError
- */
-const de_GetManagedPrefixListAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetManagedPrefixListAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetManagedPrefixListEntriesCommand
  */
 export const de_GetManagedPrefixListEntriesCommand = async (
@@ -32403,7 +23403,7 @@ export const de_GetManagedPrefixListEntriesCommand = async (
   context: __SerdeContext
 ): Promise<GetManagedPrefixListEntriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetManagedPrefixListEntriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32416,26 +23416,6 @@ export const de_GetManagedPrefixListEntriesCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetManagedPrefixListEntriesCommandError
- */
-const de_GetManagedPrefixListEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetManagedPrefixListEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommand
  */
 export const de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand = async (
@@ -32443,7 +23423,7 @@ export const de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand = async (
   context: __SerdeContext
 ): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNetworkInsightsAccessScopeAnalysisFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32456,26 +23436,6 @@ export const de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetNetworkInsightsAccessScopeAnalysisFindingsCommandError
- */
-const de_GetNetworkInsightsAccessScopeAnalysisFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommand
  */
 export const de_GetNetworkInsightsAccessScopeContentCommand = async (
@@ -32483,7 +23443,7 @@ export const de_GetNetworkInsightsAccessScopeContentCommand = async (
   context: __SerdeContext
 ): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNetworkInsightsAccessScopeContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32496,26 +23456,6 @@ export const de_GetNetworkInsightsAccessScopeContentCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetNetworkInsightsAccessScopeContentCommandError
- */
-const de_GetNetworkInsightsAccessScopeContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNetworkInsightsAccessScopeContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetPasswordDataCommand
  */
 export const de_GetPasswordDataCommand = async (
@@ -32523,7 +23463,7 @@ export const de_GetPasswordDataCommand = async (
   context: __SerdeContext
 ): Promise<GetPasswordDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPasswordDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32536,26 +23476,6 @@ export const de_GetPasswordDataCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetPasswordDataCommandError
- */
-const de_GetPasswordDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPasswordDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand
  */
 export const de_GetReservedInstancesExchangeQuoteCommand = async (
@@ -32563,7 +23483,7 @@ export const de_GetReservedInstancesExchangeQuoteCommand = async (
   context: __SerdeContext
 ): Promise<GetReservedInstancesExchangeQuoteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReservedInstancesExchangeQuoteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32576,26 +23496,6 @@ export const de_GetReservedInstancesExchangeQuoteCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError
- */
-const de_GetReservedInstancesExchangeQuoteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservedInstancesExchangeQuoteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetSecurityGroupsForVpcCommand
  */
 export const de_GetSecurityGroupsForVpcCommand = async (
@@ -32603,7 +23503,7 @@ export const de_GetSecurityGroupsForVpcCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityGroupsForVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSecurityGroupsForVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32616,26 +23516,6 @@ export const de_GetSecurityGroupsForVpcCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetSecurityGroupsForVpcCommandError
- */
-const de_GetSecurityGroupsForVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecurityGroupsForVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetSerialConsoleAccessStatusCommand
  */
 export const de_GetSerialConsoleAccessStatusCommand = async (
@@ -32643,7 +23523,7 @@ export const de_GetSerialConsoleAccessStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetSerialConsoleAccessStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSerialConsoleAccessStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32656,26 +23536,6 @@ export const de_GetSerialConsoleAccessStatusCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetSerialConsoleAccessStatusCommandError
- */
-const de_GetSerialConsoleAccessStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSerialConsoleAccessStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetSnapshotBlockPublicAccessStateCommand
  */
 export const de_GetSnapshotBlockPublicAccessStateCommand = async (
@@ -32683,7 +23543,7 @@ export const de_GetSnapshotBlockPublicAccessStateCommand = async (
   context: __SerdeContext
 ): Promise<GetSnapshotBlockPublicAccessStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSnapshotBlockPublicAccessStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32696,26 +23556,6 @@ export const de_GetSnapshotBlockPublicAccessStateCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetSnapshotBlockPublicAccessStateCommandError
- */
-const de_GetSnapshotBlockPublicAccessStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSnapshotBlockPublicAccessStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetSpotPlacementScoresCommand
  */
 export const de_GetSpotPlacementScoresCommand = async (
@@ -32723,7 +23563,7 @@ export const de_GetSpotPlacementScoresCommand = async (
   context: __SerdeContext
 ): Promise<GetSpotPlacementScoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSpotPlacementScoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32736,26 +23576,6 @@ export const de_GetSpotPlacementScoresCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetSpotPlacementScoresCommandError
- */
-const de_GetSpotPlacementScoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSpotPlacementScoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetSubnetCidrReservationsCommand
  */
 export const de_GetSubnetCidrReservationsCommand = async (
@@ -32763,7 +23583,7 @@ export const de_GetSubnetCidrReservationsCommand = async (
   context: __SerdeContext
 ): Promise<GetSubnetCidrReservationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSubnetCidrReservationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32776,26 +23596,6 @@ export const de_GetSubnetCidrReservationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetSubnetCidrReservationsCommandError
- */
-const de_GetSubnetCidrReservationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubnetCidrReservationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand
  */
 export const de_GetTransitGatewayAttachmentPropagationsCommand = async (
@@ -32803,7 +23603,7 @@ export const de_GetTransitGatewayAttachmentPropagationsCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayAttachmentPropagationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32816,26 +23616,6 @@ export const de_GetTransitGatewayAttachmentPropagationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandError
- */
-const de_GetTransitGatewayAttachmentPropagationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayAttachmentPropagationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand
  */
 export const de_GetTransitGatewayMulticastDomainAssociationsCommand = async (
@@ -32843,7 +23623,7 @@ export const de_GetTransitGatewayMulticastDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayMulticastDomainAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32856,26 +23636,6 @@ export const de_GetTransitGatewayMulticastDomainAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommandError
- */
-const de_GetTransitGatewayMulticastDomainAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayMulticastDomainAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommand
  */
 export const de_GetTransitGatewayPolicyTableAssociationsCommand = async (
@@ -32883,7 +23643,7 @@ export const de_GetTransitGatewayPolicyTableAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayPolicyTableAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32896,26 +23656,6 @@ export const de_GetTransitGatewayPolicyTableAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayPolicyTableAssociationsCommandError
- */
-const de_GetTransitGatewayPolicyTableAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayPolicyTableAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayPolicyTableEntriesCommand
  */
 export const de_GetTransitGatewayPolicyTableEntriesCommand = async (
@@ -32923,7 +23663,7 @@ export const de_GetTransitGatewayPolicyTableEntriesCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayPolicyTableEntriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32936,26 +23676,6 @@ export const de_GetTransitGatewayPolicyTableEntriesCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayPolicyTableEntriesCommandError
- */
-const de_GetTransitGatewayPolicyTableEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayPolicyTableEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayPrefixListReferencesCommand
  */
 export const de_GetTransitGatewayPrefixListReferencesCommand = async (
@@ -32963,7 +23683,7 @@ export const de_GetTransitGatewayPrefixListReferencesCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayPrefixListReferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayPrefixListReferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -32976,26 +23696,6 @@ export const de_GetTransitGatewayPrefixListReferencesCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayPrefixListReferencesCommandError
- */
-const de_GetTransitGatewayPrefixListReferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayPrefixListReferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand
  */
 export const de_GetTransitGatewayRouteTableAssociationsCommand = async (
@@ -33003,7 +23703,7 @@ export const de_GetTransitGatewayRouteTableAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayRouteTableAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33016,26 +23716,6 @@ export const de_GetTransitGatewayRouteTableAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandError
- */
-const de_GetTransitGatewayRouteTableAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayRouteTableAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand
  */
 export const de_GetTransitGatewayRouteTablePropagationsCommand = async (
@@ -33043,7 +23723,7 @@ export const de_GetTransitGatewayRouteTablePropagationsCommand = async (
   context: __SerdeContext
 ): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTransitGatewayRouteTablePropagationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33056,26 +23736,6 @@ export const de_GetTransitGatewayRouteTablePropagationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandError
- */
-const de_GetTransitGatewayRouteTablePropagationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransitGatewayRouteTablePropagationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommand
  */
 export const de_GetVerifiedAccessEndpointPolicyCommand = async (
@@ -33083,7 +23743,7 @@ export const de_GetVerifiedAccessEndpointPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVerifiedAccessEndpointPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33096,26 +23756,6 @@ export const de_GetVerifiedAccessEndpointPolicyCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommandError
- */
-const de_GetVerifiedAccessEndpointPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetVerifiedAccessGroupPolicyCommand
  */
 export const de_GetVerifiedAccessGroupPolicyCommand = async (
@@ -33123,7 +23763,7 @@ export const de_GetVerifiedAccessGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetVerifiedAccessGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVerifiedAccessGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33136,26 +23776,6 @@ export const de_GetVerifiedAccessGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetVerifiedAccessGroupPolicyCommandError
- */
-const de_GetVerifiedAccessGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVerifiedAccessGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand
  */
 export const de_GetVpnConnectionDeviceSampleConfigurationCommand = async (
@@ -33163,7 +23783,7 @@ export const de_GetVpnConnectionDeviceSampleConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVpnConnectionDeviceSampleConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33176,26 +23796,6 @@ export const de_GetVpnConnectionDeviceSampleConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommandError
- */
-const de_GetVpnConnectionDeviceSampleConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpnConnectionDeviceSampleConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetVpnConnectionDeviceTypesCommand
  */
 export const de_GetVpnConnectionDeviceTypesCommand = async (
@@ -33203,7 +23803,7 @@ export const de_GetVpnConnectionDeviceTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetVpnConnectionDeviceTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVpnConnectionDeviceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33216,26 +23816,6 @@ export const de_GetVpnConnectionDeviceTypesCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetVpnConnectionDeviceTypesCommandError
- */
-const de_GetVpnConnectionDeviceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpnConnectionDeviceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GetVpnTunnelReplacementStatusCommand
  */
 export const de_GetVpnTunnelReplacementStatusCommand = async (
@@ -33243,7 +23823,7 @@ export const de_GetVpnTunnelReplacementStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetVpnTunnelReplacementStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVpnTunnelReplacementStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33256,26 +23836,6 @@ export const de_GetVpnTunnelReplacementStatusCommand = async (
 };
 
 /**
- * deserializeAws_ec2GetVpnTunnelReplacementStatusCommandError
- */
-const de_GetVpnTunnelReplacementStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpnTunnelReplacementStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommand
  */
 export const de_ImportClientVpnClientCertificateRevocationListCommand = async (
@@ -33283,7 +23843,7 @@ export const de_ImportClientVpnClientCertificateRevocationListCommand = async (
   context: __SerdeContext
 ): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportClientVpnClientCertificateRevocationListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33296,26 +23856,6 @@ export const de_ImportClientVpnClientCertificateRevocationListCommand = async (
 };
 
 /**
- * deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommandError
- */
-const de_ImportClientVpnClientCertificateRevocationListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportClientVpnClientCertificateRevocationListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ImportImageCommand
  */
 export const de_ImportImageCommand = async (
@@ -33323,7 +23863,7 @@ export const de_ImportImageCommand = async (
   context: __SerdeContext
 ): Promise<ImportImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33336,26 +23876,6 @@ export const de_ImportImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2ImportImageCommandError
- */
-const de_ImportImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ImportInstanceCommand
  */
 export const de_ImportInstanceCommand = async (
@@ -33363,7 +23883,7 @@ export const de_ImportInstanceCommand = async (
   context: __SerdeContext
 ): Promise<ImportInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33376,26 +23896,6 @@ export const de_ImportInstanceCommand = async (
 };
 
 /**
- * deserializeAws_ec2ImportInstanceCommandError
- */
-const de_ImportInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ImportKeyPairCommand
  */
 export const de_ImportKeyPairCommand = async (
@@ -33403,7 +23903,7 @@ export const de_ImportKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<ImportKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33416,26 +23916,6 @@ export const de_ImportKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_ec2ImportKeyPairCommandError
- */
-const de_ImportKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ImportSnapshotCommand
  */
 export const de_ImportSnapshotCommand = async (
@@ -33443,7 +23923,7 @@ export const de_ImportSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<ImportSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33456,26 +23936,6 @@ export const de_ImportSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_ec2ImportSnapshotCommandError
- */
-const de_ImportSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ImportVolumeCommand
  */
 export const de_ImportVolumeCommand = async (
@@ -33483,7 +23943,7 @@ export const de_ImportVolumeCommand = async (
   context: __SerdeContext
 ): Promise<ImportVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33496,26 +23956,6 @@ export const de_ImportVolumeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ImportVolumeCommandError
- */
-const de_ImportVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ListImagesInRecycleBinCommand
  */
 export const de_ListImagesInRecycleBinCommand = async (
@@ -33523,7 +23963,7 @@ export const de_ListImagesInRecycleBinCommand = async (
   context: __SerdeContext
 ): Promise<ListImagesInRecycleBinCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImagesInRecycleBinCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33536,26 +23976,6 @@ export const de_ListImagesInRecycleBinCommand = async (
 };
 
 /**
- * deserializeAws_ec2ListImagesInRecycleBinCommandError
- */
-const de_ListImagesInRecycleBinCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagesInRecycleBinCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ListSnapshotsInRecycleBinCommand
  */
 export const de_ListSnapshotsInRecycleBinCommand = async (
@@ -33563,7 +23983,7 @@ export const de_ListSnapshotsInRecycleBinCommand = async (
   context: __SerdeContext
 ): Promise<ListSnapshotsInRecycleBinCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSnapshotsInRecycleBinCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33576,26 +23996,6 @@ export const de_ListSnapshotsInRecycleBinCommand = async (
 };
 
 /**
- * deserializeAws_ec2ListSnapshotsInRecycleBinCommandError
- */
-const de_ListSnapshotsInRecycleBinCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSnapshotsInRecycleBinCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2LockSnapshotCommand
  */
 export const de_LockSnapshotCommand = async (
@@ -33603,7 +24003,7 @@ export const de_LockSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<LockSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_LockSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33616,26 +24016,6 @@ export const de_LockSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_ec2LockSnapshotCommandError
- */
-const de_LockSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LockSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyAddressAttributeCommand
  */
 export const de_ModifyAddressAttributeCommand = async (
@@ -33643,7 +24023,7 @@ export const de_ModifyAddressAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyAddressAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyAddressAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33656,26 +24036,6 @@ export const de_ModifyAddressAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyAddressAttributeCommandError
- */
-const de_ModifyAddressAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAddressAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyAvailabilityZoneGroupCommand
  */
 export const de_ModifyAvailabilityZoneGroupCommand = async (
@@ -33683,7 +24043,7 @@ export const de_ModifyAvailabilityZoneGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyAvailabilityZoneGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyAvailabilityZoneGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33696,26 +24056,6 @@ export const de_ModifyAvailabilityZoneGroupCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyAvailabilityZoneGroupCommandError
- */
-const de_ModifyAvailabilityZoneGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAvailabilityZoneGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyCapacityReservationCommand
  */
 export const de_ModifyCapacityReservationCommand = async (
@@ -33723,7 +24063,7 @@ export const de_ModifyCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33736,26 +24076,6 @@ export const de_ModifyCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyCapacityReservationCommandError
- */
-const de_ModifyCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyCapacityReservationFleetCommand
  */
 export const de_ModifyCapacityReservationFleetCommand = async (
@@ -33763,7 +24083,7 @@ export const de_ModifyCapacityReservationFleetCommand = async (
   context: __SerdeContext
 ): Promise<ModifyCapacityReservationFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyCapacityReservationFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33776,26 +24096,6 @@ export const de_ModifyCapacityReservationFleetCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyCapacityReservationFleetCommandError
- */
-const de_ModifyCapacityReservationFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCapacityReservationFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyClientVpnEndpointCommand
  */
 export const de_ModifyClientVpnEndpointCommand = async (
@@ -33803,7 +24103,7 @@ export const de_ModifyClientVpnEndpointCommand = async (
   context: __SerdeContext
 ): Promise<ModifyClientVpnEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyClientVpnEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33816,26 +24116,6 @@ export const de_ModifyClientVpnEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyClientVpnEndpointCommandError
- */
-const de_ModifyClientVpnEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClientVpnEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyDefaultCreditSpecificationCommand
  */
 export const de_ModifyDefaultCreditSpecificationCommand = async (
@@ -33843,7 +24123,7 @@ export const de_ModifyDefaultCreditSpecificationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyDefaultCreditSpecificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyDefaultCreditSpecificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33856,26 +24136,6 @@ export const de_ModifyDefaultCreditSpecificationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError
- */
-const de_ModifyDefaultCreditSpecificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDefaultCreditSpecificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand
  */
 export const de_ModifyEbsDefaultKmsKeyIdCommand = async (
@@ -33883,7 +24143,7 @@ export const de_ModifyEbsDefaultKmsKeyIdCommand = async (
   context: __SerdeContext
 ): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyEbsDefaultKmsKeyIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33896,26 +24156,6 @@ export const de_ModifyEbsDefaultKmsKeyIdCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError
- */
-const de_ModifyEbsDefaultKmsKeyIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEbsDefaultKmsKeyIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyFleetCommand
  */
 export const de_ModifyFleetCommand = async (
@@ -33923,7 +24163,7 @@ export const de_ModifyFleetCommand = async (
   context: __SerdeContext
 ): Promise<ModifyFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33936,26 +24176,6 @@ export const de_ModifyFleetCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyFleetCommandError
- */
-const de_ModifyFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyFpgaImageAttributeCommand
  */
 export const de_ModifyFpgaImageAttributeCommand = async (
@@ -33963,7 +24183,7 @@ export const de_ModifyFpgaImageAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyFpgaImageAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyFpgaImageAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -33976,26 +24196,6 @@ export const de_ModifyFpgaImageAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyFpgaImageAttributeCommandError
- */
-const de_ModifyFpgaImageAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyFpgaImageAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyHostsCommand
  */
 export const de_ModifyHostsCommand = async (
@@ -34003,7 +24203,7 @@ export const de_ModifyHostsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyHostsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyHostsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34016,26 +24216,6 @@ export const de_ModifyHostsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyHostsCommandError
- */
-const de_ModifyHostsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyHostsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyIdentityIdFormatCommand
  */
 export const de_ModifyIdentityIdFormatCommand = async (
@@ -34043,33 +24223,13 @@ export const de_ModifyIdentityIdFormatCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIdentityIdFormatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIdentityIdFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyIdentityIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyIdentityIdFormatCommandError
- */
-const de_ModifyIdentityIdFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIdentityIdFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -34080,33 +24240,13 @@ export const de_ModifyIdFormatCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIdFormatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIdFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyIdFormatCommandError
- */
-const de_ModifyIdFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIdFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -34117,33 +24257,13 @@ export const de_ModifyImageAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyImageAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyImageAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyImageAttributeCommandError
- */
-const de_ModifyImageAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyImageAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -34154,33 +24274,13 @@ export const de_ModifyInstanceAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyInstanceAttributeCommandError
- */
-const de_ModifyInstanceAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -34191,7 +24291,7 @@ export const de_ModifyInstanceCapacityReservationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceCapacityReservationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34204,26 +24304,6 @@ export const de_ModifyInstanceCapacityReservationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommandError
- */
-const de_ModifyInstanceCapacityReservationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceCapacityReservationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyInstanceCreditSpecificationCommand
  */
 export const de_ModifyInstanceCreditSpecificationCommand = async (
@@ -34231,7 +24311,7 @@ export const de_ModifyInstanceCreditSpecificationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceCreditSpecificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceCreditSpecificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34244,26 +24324,6 @@ export const de_ModifyInstanceCreditSpecificationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError
- */
-const de_ModifyInstanceCreditSpecificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceCreditSpecificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyInstanceEventStartTimeCommand
  */
 export const de_ModifyInstanceEventStartTimeCommand = async (
@@ -34271,7 +24331,7 @@ export const de_ModifyInstanceEventStartTimeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceEventStartTimeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceEventStartTimeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34284,26 +24344,6 @@ export const de_ModifyInstanceEventStartTimeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstanceEventStartTimeCommandError
- */
-const de_ModifyInstanceEventStartTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceEventStartTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyInstanceEventWindowCommand
  */
 export const de_ModifyInstanceEventWindowCommand = async (
@@ -34311,7 +24351,7 @@ export const de_ModifyInstanceEventWindowCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceEventWindowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceEventWindowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34324,26 +24364,6 @@ export const de_ModifyInstanceEventWindowCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstanceEventWindowCommandError
- */
-const de_ModifyInstanceEventWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceEventWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand
  */
 export const de_ModifyInstanceMaintenanceOptionsCommand = async (
@@ -34351,7 +24371,7 @@ export const de_ModifyInstanceMaintenanceOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceMaintenanceOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34364,26 +24384,6 @@ export const de_ModifyInstanceMaintenanceOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommandError
- */
-const de_ModifyInstanceMaintenanceOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceMaintenanceOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyInstanceMetadataOptionsCommand
  */
 export const de_ModifyInstanceMetadataOptionsCommand = async (
@@ -34391,7 +24391,7 @@ export const de_ModifyInstanceMetadataOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceMetadataOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceMetadataOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34404,26 +24404,6 @@ export const de_ModifyInstanceMetadataOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError
- */
-const de_ModifyInstanceMetadataOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceMetadataOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyInstancePlacementCommand
  */
 export const de_ModifyInstancePlacementCommand = async (
@@ -34431,7 +24411,7 @@ export const de_ModifyInstancePlacementCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstancePlacementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstancePlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34444,26 +24424,6 @@ export const de_ModifyInstancePlacementCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyInstancePlacementCommandError
- */
-const de_ModifyInstancePlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstancePlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyIpamCommand
  */
 export const de_ModifyIpamCommand = async (
@@ -34471,7 +24431,7 @@ export const de_ModifyIpamCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIpamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIpamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34484,26 +24444,6 @@ export const de_ModifyIpamCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyIpamCommandError
- */
-const de_ModifyIpamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIpamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyIpamPoolCommand
  */
 export const de_ModifyIpamPoolCommand = async (
@@ -34511,7 +24451,7 @@ export const de_ModifyIpamPoolCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIpamPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIpamPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34524,26 +24464,6 @@ export const de_ModifyIpamPoolCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyIpamPoolCommandError
- */
-const de_ModifyIpamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIpamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyIpamResourceCidrCommand
  */
 export const de_ModifyIpamResourceCidrCommand = async (
@@ -34551,7 +24471,7 @@ export const de_ModifyIpamResourceCidrCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIpamResourceCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIpamResourceCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34564,26 +24484,6 @@ export const de_ModifyIpamResourceCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyIpamResourceCidrCommandError
- */
-const de_ModifyIpamResourceCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIpamResourceCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyIpamResourceDiscoveryCommand
  */
 export const de_ModifyIpamResourceDiscoveryCommand = async (
@@ -34591,7 +24491,7 @@ export const de_ModifyIpamResourceDiscoveryCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIpamResourceDiscoveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIpamResourceDiscoveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34604,26 +24504,6 @@ export const de_ModifyIpamResourceDiscoveryCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyIpamResourceDiscoveryCommandError
- */
-const de_ModifyIpamResourceDiscoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIpamResourceDiscoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyIpamScopeCommand
  */
 export const de_ModifyIpamScopeCommand = async (
@@ -34631,7 +24511,7 @@ export const de_ModifyIpamScopeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyIpamScopeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyIpamScopeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34644,26 +24524,6 @@ export const de_ModifyIpamScopeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyIpamScopeCommandError
- */
-const de_ModifyIpamScopeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyIpamScopeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyLaunchTemplateCommand
  */
 export const de_ModifyLaunchTemplateCommand = async (
@@ -34671,7 +24531,7 @@ export const de_ModifyLaunchTemplateCommand = async (
   context: __SerdeContext
 ): Promise<ModifyLaunchTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyLaunchTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34684,26 +24544,6 @@ export const de_ModifyLaunchTemplateCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyLaunchTemplateCommandError
- */
-const de_ModifyLaunchTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyLaunchTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyLocalGatewayRouteCommand
  */
 export const de_ModifyLocalGatewayRouteCommand = async (
@@ -34711,7 +24551,7 @@ export const de_ModifyLocalGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<ModifyLocalGatewayRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyLocalGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34724,26 +24564,6 @@ export const de_ModifyLocalGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyLocalGatewayRouteCommandError
- */
-const de_ModifyLocalGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyLocalGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyManagedPrefixListCommand
  */
 export const de_ModifyManagedPrefixListCommand = async (
@@ -34751,7 +24571,7 @@ export const de_ModifyManagedPrefixListCommand = async (
   context: __SerdeContext
 ): Promise<ModifyManagedPrefixListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyManagedPrefixListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34764,26 +24584,6 @@ export const de_ModifyManagedPrefixListCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyManagedPrefixListCommandError
- */
-const de_ModifyManagedPrefixListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyManagedPrefixListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand
  */
 export const de_ModifyNetworkInterfaceAttributeCommand = async (
@@ -34791,33 +24591,13 @@ export const de_ModifyNetworkInterfaceAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyNetworkInterfaceAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyNetworkInterfaceAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError
- */
-const de_ModifyNetworkInterfaceAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyNetworkInterfaceAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -34828,7 +24608,7 @@ export const de_ModifyPrivateDnsNameOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyPrivateDnsNameOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyPrivateDnsNameOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34841,26 +24621,6 @@ export const de_ModifyPrivateDnsNameOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyPrivateDnsNameOptionsCommandError
- */
-const de_ModifyPrivateDnsNameOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyPrivateDnsNameOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyReservedInstancesCommand
  */
 export const de_ModifyReservedInstancesCommand = async (
@@ -34868,7 +24628,7 @@ export const de_ModifyReservedInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyReservedInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyReservedInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34881,26 +24641,6 @@ export const de_ModifyReservedInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyReservedInstancesCommandError
- */
-const de_ModifyReservedInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReservedInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifySecurityGroupRulesCommand
  */
 export const de_ModifySecurityGroupRulesCommand = async (
@@ -34908,7 +24648,7 @@ export const de_ModifySecurityGroupRulesCommand = async (
   context: __SerdeContext
 ): Promise<ModifySecurityGroupRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySecurityGroupRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34921,26 +24661,6 @@ export const de_ModifySecurityGroupRulesCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifySecurityGroupRulesCommandError
- */
-const de_ModifySecurityGroupRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySecurityGroupRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifySnapshotAttributeCommand
  */
 export const de_ModifySnapshotAttributeCommand = async (
@@ -34948,33 +24668,13 @@ export const de_ModifySnapshotAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifySnapshotAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySnapshotAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifySnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifySnapshotAttributeCommandError
- */
-const de_ModifySnapshotAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySnapshotAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -34985,7 +24685,7 @@ export const de_ModifySnapshotTierCommand = async (
   context: __SerdeContext
 ): Promise<ModifySnapshotTierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySnapshotTierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -34998,26 +24698,6 @@ export const de_ModifySnapshotTierCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifySnapshotTierCommandError
- */
-const de_ModifySnapshotTierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySnapshotTierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifySpotFleetRequestCommand
  */
 export const de_ModifySpotFleetRequestCommand = async (
@@ -35025,7 +24705,7 @@ export const de_ModifySpotFleetRequestCommand = async (
   context: __SerdeContext
 ): Promise<ModifySpotFleetRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySpotFleetRequestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35038,26 +24718,6 @@ export const de_ModifySpotFleetRequestCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifySpotFleetRequestCommandError
- */
-const de_ModifySpotFleetRequestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySpotFleetRequestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifySubnetAttributeCommand
  */
 export const de_ModifySubnetAttributeCommand = async (
@@ -35065,33 +24725,13 @@ export const de_ModifySubnetAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifySubnetAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySubnetAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifySubnetAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifySubnetAttributeCommandError
- */
-const de_ModifySubnetAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySubnetAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -35102,7 +24742,7 @@ export const de_ModifyTrafficMirrorFilterNetworkServicesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyTrafficMirrorFilterNetworkServicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35115,26 +24755,6 @@ export const de_ModifyTrafficMirrorFilterNetworkServicesCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommandError
- */
-const de_ModifyTrafficMirrorFilterNetworkServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTrafficMirrorFilterNetworkServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand
  */
 export const de_ModifyTrafficMirrorFilterRuleCommand = async (
@@ -35142,7 +24762,7 @@ export const de_ModifyTrafficMirrorFilterRuleCommand = async (
   context: __SerdeContext
 ): Promise<ModifyTrafficMirrorFilterRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyTrafficMirrorFilterRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35155,26 +24775,6 @@ export const de_ModifyTrafficMirrorFilterRuleCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError
- */
-const de_ModifyTrafficMirrorFilterRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTrafficMirrorFilterRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyTrafficMirrorSessionCommand
  */
 export const de_ModifyTrafficMirrorSessionCommand = async (
@@ -35182,7 +24782,7 @@ export const de_ModifyTrafficMirrorSessionCommand = async (
   context: __SerdeContext
 ): Promise<ModifyTrafficMirrorSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyTrafficMirrorSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35195,26 +24795,6 @@ export const de_ModifyTrafficMirrorSessionCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyTrafficMirrorSessionCommandError
- */
-const de_ModifyTrafficMirrorSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTrafficMirrorSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyTransitGatewayCommand
  */
 export const de_ModifyTransitGatewayCommand = async (
@@ -35222,7 +24802,7 @@ export const de_ModifyTransitGatewayCommand = async (
   context: __SerdeContext
 ): Promise<ModifyTransitGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyTransitGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35235,26 +24815,6 @@ export const de_ModifyTransitGatewayCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyTransitGatewayCommandError
- */
-const de_ModifyTransitGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTransitGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommand
  */
 export const de_ModifyTransitGatewayPrefixListReferenceCommand = async (
@@ -35262,7 +24822,7 @@ export const de_ModifyTransitGatewayPrefixListReferenceCommand = async (
   context: __SerdeContext
 ): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyTransitGatewayPrefixListReferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35275,26 +24835,6 @@ export const de_ModifyTransitGatewayPrefixListReferenceCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommandError
- */
-const de_ModifyTransitGatewayPrefixListReferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTransitGatewayPrefixListReferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand
  */
 export const de_ModifyTransitGatewayVpcAttachmentCommand = async (
@@ -35302,7 +24842,7 @@ export const de_ModifyTransitGatewayVpcAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyTransitGatewayVpcAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35315,26 +24855,6 @@ export const de_ModifyTransitGatewayVpcAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError
- */
-const de_ModifyTransitGatewayVpcAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessEndpointCommand
  */
 export const de_ModifyVerifiedAccessEndpointCommand = async (
@@ -35342,7 +24862,7 @@ export const de_ModifyVerifiedAccessEndpointCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35355,26 +24875,6 @@ export const de_ModifyVerifiedAccessEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessEndpointCommandError
- */
-const de_ModifyVerifiedAccessEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand
  */
 export const de_ModifyVerifiedAccessEndpointPolicyCommand = async (
@@ -35382,7 +24882,7 @@ export const de_ModifyVerifiedAccessEndpointPolicyCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessEndpointPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35395,26 +24895,6 @@ export const de_ModifyVerifiedAccessEndpointPolicyCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommandError
- */
-const de_ModifyVerifiedAccessEndpointPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessGroupCommand
  */
 export const de_ModifyVerifiedAccessGroupCommand = async (
@@ -35422,7 +24902,7 @@ export const de_ModifyVerifiedAccessGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35435,26 +24915,6 @@ export const de_ModifyVerifiedAccessGroupCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessGroupCommandError
- */
-const de_ModifyVerifiedAccessGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand
  */
 export const de_ModifyVerifiedAccessGroupPolicyCommand = async (
@@ -35462,7 +24922,7 @@ export const de_ModifyVerifiedAccessGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35475,26 +24935,6 @@ export const de_ModifyVerifiedAccessGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommandError
- */
-const de_ModifyVerifiedAccessGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessInstanceCommand
  */
 export const de_ModifyVerifiedAccessInstanceCommand = async (
@@ -35502,7 +24942,7 @@ export const de_ModifyVerifiedAccessInstanceCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35515,26 +24955,6 @@ export const de_ModifyVerifiedAccessInstanceCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessInstanceCommandError
- */
-const de_ModifyVerifiedAccessInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommand
  */
 export const de_ModifyVerifiedAccessInstanceLoggingConfigurationCommand = async (
@@ -35542,7 +24962,7 @@ export const de_ModifyVerifiedAccessInstanceLoggingConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessInstanceLoggingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35555,26 +24975,6 @@ export const de_ModifyVerifiedAccessInstanceLoggingConfigurationCommand = async 
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommandError
- */
-const de_ModifyVerifiedAccessInstanceLoggingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommand
  */
 export const de_ModifyVerifiedAccessTrustProviderCommand = async (
@@ -35582,7 +24982,7 @@ export const de_ModifyVerifiedAccessTrustProviderCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVerifiedAccessTrustProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35595,26 +24995,6 @@ export const de_ModifyVerifiedAccessTrustProviderCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommandError
- */
-const de_ModifyVerifiedAccessTrustProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVolumeCommand
  */
 export const de_ModifyVolumeCommand = async (
@@ -35622,7 +25002,7 @@ export const de_ModifyVolumeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35635,26 +25015,6 @@ export const de_ModifyVolumeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVolumeCommandError
- */
-const de_ModifyVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVolumeAttributeCommand
  */
 export const de_ModifyVolumeAttributeCommand = async (
@@ -35662,33 +25022,13 @@ export const de_ModifyVolumeAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVolumeAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVolumeAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyVolumeAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyVolumeAttributeCommandError
- */
-const de_ModifyVolumeAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVolumeAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -35699,33 +25039,13 @@ export const de_ModifyVpcAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyVpcAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ModifyVpcAttributeCommandError
- */
-const de_ModifyVpcAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -35736,7 +25056,7 @@ export const de_ModifyVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35749,26 +25069,6 @@ export const de_ModifyVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcEndpointCommandError
- */
-const de_ModifyVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand
  */
 export const de_ModifyVpcEndpointConnectionNotificationCommand = async (
@@ -35776,7 +25076,7 @@ export const de_ModifyVpcEndpointConnectionNotificationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcEndpointConnectionNotificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35789,26 +25089,6 @@ export const de_ModifyVpcEndpointConnectionNotificationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandError
- */
-const de_ModifyVpcEndpointConnectionNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcEndpointConnectionNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand
  */
 export const de_ModifyVpcEndpointServiceConfigurationCommand = async (
@@ -35816,7 +25096,7 @@ export const de_ModifyVpcEndpointServiceConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcEndpointServiceConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35829,26 +25109,6 @@ export const de_ModifyVpcEndpointServiceConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandError
- */
-const de_ModifyVpcEndpointServiceConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand
  */
 export const de_ModifyVpcEndpointServicePayerResponsibilityCommand = async (
@@ -35856,7 +25116,7 @@ export const de_ModifyVpcEndpointServicePayerResponsibilityCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcEndpointServicePayerResponsibilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35869,26 +25129,6 @@ export const de_ModifyVpcEndpointServicePayerResponsibilityCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommandError
- */
-const de_ModifyVpcEndpointServicePayerResponsibilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand
  */
 export const de_ModifyVpcEndpointServicePermissionsCommand = async (
@@ -35896,7 +25136,7 @@ export const de_ModifyVpcEndpointServicePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcEndpointServicePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35909,26 +25149,6 @@ export const de_ModifyVpcEndpointServicePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError
- */
-const de_ModifyVpcEndpointServicePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcEndpointServicePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand
  */
 export const de_ModifyVpcPeeringConnectionOptionsCommand = async (
@@ -35936,7 +25156,7 @@ export const de_ModifyVpcPeeringConnectionOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcPeeringConnectionOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35949,26 +25169,6 @@ export const de_ModifyVpcPeeringConnectionOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError
- */
-const de_ModifyVpcPeeringConnectionOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcPeeringConnectionOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpcTenancyCommand
  */
 export const de_ModifyVpcTenancyCommand = async (
@@ -35976,7 +25176,7 @@ export const de_ModifyVpcTenancyCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpcTenancyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpcTenancyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -35989,26 +25189,6 @@ export const de_ModifyVpcTenancyCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpcTenancyCommandError
- */
-const de_ModifyVpcTenancyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpcTenancyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpnConnectionCommand
  */
 export const de_ModifyVpnConnectionCommand = async (
@@ -36016,7 +25196,7 @@ export const de_ModifyVpnConnectionCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpnConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpnConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36029,26 +25209,6 @@ export const de_ModifyVpnConnectionCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpnConnectionCommandError
- */
-const de_ModifyVpnConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpnConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpnConnectionOptionsCommand
  */
 export const de_ModifyVpnConnectionOptionsCommand = async (
@@ -36056,7 +25216,7 @@ export const de_ModifyVpnConnectionOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpnConnectionOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpnConnectionOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36069,26 +25229,6 @@ export const de_ModifyVpnConnectionOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpnConnectionOptionsCommandError
- */
-const de_ModifyVpnConnectionOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpnConnectionOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpnTunnelCertificateCommand
  */
 export const de_ModifyVpnTunnelCertificateCommand = async (
@@ -36096,7 +25236,7 @@ export const de_ModifyVpnTunnelCertificateCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpnTunnelCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpnTunnelCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36109,26 +25249,6 @@ export const de_ModifyVpnTunnelCertificateCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpnTunnelCertificateCommandError
- */
-const de_ModifyVpnTunnelCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpnTunnelCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ModifyVpnTunnelOptionsCommand
  */
 export const de_ModifyVpnTunnelOptionsCommand = async (
@@ -36136,7 +25256,7 @@ export const de_ModifyVpnTunnelOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyVpnTunnelOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyVpnTunnelOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36149,26 +25269,6 @@ export const de_ModifyVpnTunnelOptionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ModifyVpnTunnelOptionsCommandError
- */
-const de_ModifyVpnTunnelOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyVpnTunnelOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2MonitorInstancesCommand
  */
 export const de_MonitorInstancesCommand = async (
@@ -36176,7 +25276,7 @@ export const de_MonitorInstancesCommand = async (
   context: __SerdeContext
 ): Promise<MonitorInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_MonitorInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36189,26 +25289,6 @@ export const de_MonitorInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2MonitorInstancesCommandError
- */
-const de_MonitorInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MonitorInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2MoveAddressToVpcCommand
  */
 export const de_MoveAddressToVpcCommand = async (
@@ -36216,7 +25296,7 @@ export const de_MoveAddressToVpcCommand = async (
   context: __SerdeContext
 ): Promise<MoveAddressToVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_MoveAddressToVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36229,26 +25309,6 @@ export const de_MoveAddressToVpcCommand = async (
 };
 
 /**
- * deserializeAws_ec2MoveAddressToVpcCommandError
- */
-const de_MoveAddressToVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MoveAddressToVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2MoveByoipCidrToIpamCommand
  */
 export const de_MoveByoipCidrToIpamCommand = async (
@@ -36256,7 +25316,7 @@ export const de_MoveByoipCidrToIpamCommand = async (
   context: __SerdeContext
 ): Promise<MoveByoipCidrToIpamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_MoveByoipCidrToIpamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36269,26 +25329,6 @@ export const de_MoveByoipCidrToIpamCommand = async (
 };
 
 /**
- * deserializeAws_ec2MoveByoipCidrToIpamCommandError
- */
-const de_MoveByoipCidrToIpamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MoveByoipCidrToIpamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ProvisionByoipCidrCommand
  */
 export const de_ProvisionByoipCidrCommand = async (
@@ -36296,7 +25336,7 @@ export const de_ProvisionByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<ProvisionByoipCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ProvisionByoipCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36309,26 +25349,6 @@ export const de_ProvisionByoipCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2ProvisionByoipCidrCommandError
- */
-const de_ProvisionByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ProvisionIpamByoasnCommand
  */
 export const de_ProvisionIpamByoasnCommand = async (
@@ -36336,7 +25356,7 @@ export const de_ProvisionIpamByoasnCommand = async (
   context: __SerdeContext
 ): Promise<ProvisionIpamByoasnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ProvisionIpamByoasnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36349,26 +25369,6 @@ export const de_ProvisionIpamByoasnCommand = async (
 };
 
 /**
- * deserializeAws_ec2ProvisionIpamByoasnCommandError
- */
-const de_ProvisionIpamByoasnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionIpamByoasnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ProvisionIpamPoolCidrCommand
  */
 export const de_ProvisionIpamPoolCidrCommand = async (
@@ -36376,7 +25376,7 @@ export const de_ProvisionIpamPoolCidrCommand = async (
   context: __SerdeContext
 ): Promise<ProvisionIpamPoolCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ProvisionIpamPoolCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36389,26 +25389,6 @@ export const de_ProvisionIpamPoolCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2ProvisionIpamPoolCidrCommandError
- */
-const de_ProvisionIpamPoolCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionIpamPoolCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommand
  */
 export const de_ProvisionPublicIpv4PoolCidrCommand = async (
@@ -36416,7 +25396,7 @@ export const de_ProvisionPublicIpv4PoolCidrCommand = async (
   context: __SerdeContext
 ): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ProvisionPublicIpv4PoolCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36429,26 +25409,6 @@ export const de_ProvisionPublicIpv4PoolCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommandError
- */
-const de_ProvisionPublicIpv4PoolCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionPublicIpv4PoolCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2PurchaseCapacityBlockCommand
  */
 export const de_PurchaseCapacityBlockCommand = async (
@@ -36456,7 +25416,7 @@ export const de_PurchaseCapacityBlockCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseCapacityBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurchaseCapacityBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36469,26 +25429,6 @@ export const de_PurchaseCapacityBlockCommand = async (
 };
 
 /**
- * deserializeAws_ec2PurchaseCapacityBlockCommandError
- */
-const de_PurchaseCapacityBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseCapacityBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2PurchaseHostReservationCommand
  */
 export const de_PurchaseHostReservationCommand = async (
@@ -36496,7 +25436,7 @@ export const de_PurchaseHostReservationCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseHostReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurchaseHostReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36509,26 +25449,6 @@ export const de_PurchaseHostReservationCommand = async (
 };
 
 /**
- * deserializeAws_ec2PurchaseHostReservationCommandError
- */
-const de_PurchaseHostReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseHostReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2PurchaseReservedInstancesOfferingCommand
  */
 export const de_PurchaseReservedInstancesOfferingCommand = async (
@@ -36536,7 +25456,7 @@ export const de_PurchaseReservedInstancesOfferingCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseReservedInstancesOfferingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurchaseReservedInstancesOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36549,26 +25469,6 @@ export const de_PurchaseReservedInstancesOfferingCommand = async (
 };
 
 /**
- * deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError
- */
-const de_PurchaseReservedInstancesOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedInstancesOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2PurchaseScheduledInstancesCommand
  */
 export const de_PurchaseScheduledInstancesCommand = async (
@@ -36576,7 +25476,7 @@ export const de_PurchaseScheduledInstancesCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseScheduledInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurchaseScheduledInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36589,26 +25489,6 @@ export const de_PurchaseScheduledInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2PurchaseScheduledInstancesCommandError
- */
-const de_PurchaseScheduledInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseScheduledInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RebootInstancesCommand
  */
 export const de_RebootInstancesCommand = async (
@@ -36616,33 +25496,13 @@ export const de_RebootInstancesCommand = async (
   context: __SerdeContext
 ): Promise<RebootInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebootInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RebootInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2RebootInstancesCommandError
- */
-const de_RebootInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -36653,7 +25513,7 @@ export const de_RegisterImageCommand = async (
   context: __SerdeContext
 ): Promise<RegisterImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36666,26 +25526,6 @@ export const de_RegisterImageCommand = async (
 };
 
 /**
- * deserializeAws_ec2RegisterImageCommandError
- */
-const de_RegisterImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommand
  */
 export const de_RegisterInstanceEventNotificationAttributesCommand = async (
@@ -36693,7 +25533,7 @@ export const de_RegisterInstanceEventNotificationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<RegisterInstanceEventNotificationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterInstanceEventNotificationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36706,26 +25546,6 @@ export const de_RegisterInstanceEventNotificationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommandError
- */
-const de_RegisterInstanceEventNotificationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterInstanceEventNotificationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand
  */
 export const de_RegisterTransitGatewayMulticastGroupMembersCommand = async (
@@ -36733,7 +25553,7 @@ export const de_RegisterTransitGatewayMulticastGroupMembersCommand = async (
   context: __SerdeContext
 ): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterTransitGatewayMulticastGroupMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36746,26 +25566,6 @@ export const de_RegisterTransitGatewayMulticastGroupMembersCommand = async (
 };
 
 /**
- * deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommandError
- */
-const de_RegisterTransitGatewayMulticastGroupMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTransitGatewayMulticastGroupMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand
  */
 export const de_RegisterTransitGatewayMulticastGroupSourcesCommand = async (
@@ -36773,7 +25573,7 @@ export const de_RegisterTransitGatewayMulticastGroupSourcesCommand = async (
   context: __SerdeContext
 ): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterTransitGatewayMulticastGroupSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36786,26 +25586,6 @@ export const de_RegisterTransitGatewayMulticastGroupSourcesCommand = async (
 };
 
 /**
- * deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommandError
- */
-const de_RegisterTransitGatewayMulticastGroupSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTransitGatewayMulticastGroupSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommand
  */
 export const de_RejectTransitGatewayMulticastDomainAssociationsCommand = async (
@@ -36813,7 +25593,7 @@ export const de_RejectTransitGatewayMulticastDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<RejectTransitGatewayMulticastDomainAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectTransitGatewayMulticastDomainAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36826,26 +25606,6 @@ export const de_RejectTransitGatewayMulticastDomainAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommandError
- */
-const de_RejectTransitGatewayMulticastDomainAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectTransitGatewayMulticastDomainAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand
  */
 export const de_RejectTransitGatewayPeeringAttachmentCommand = async (
@@ -36853,7 +25613,7 @@ export const de_RejectTransitGatewayPeeringAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectTransitGatewayPeeringAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36866,26 +25626,6 @@ export const de_RejectTransitGatewayPeeringAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandError
- */
-const de_RejectTransitGatewayPeeringAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectTransitGatewayPeeringAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand
  */
 export const de_RejectTransitGatewayVpcAttachmentCommand = async (
@@ -36893,7 +25633,7 @@ export const de_RejectTransitGatewayVpcAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectTransitGatewayVpcAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36906,26 +25646,6 @@ export const de_RejectTransitGatewayVpcAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError
- */
-const de_RejectTransitGatewayVpcAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectTransitGatewayVpcAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RejectVpcEndpointConnectionsCommand
  */
 export const de_RejectVpcEndpointConnectionsCommand = async (
@@ -36933,7 +25653,7 @@ export const de_RejectVpcEndpointConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<RejectVpcEndpointConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectVpcEndpointConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36946,26 +25666,6 @@ export const de_RejectVpcEndpointConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2RejectVpcEndpointConnectionsCommandError
- */
-const de_RejectVpcEndpointConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectVpcEndpointConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RejectVpcPeeringConnectionCommand
  */
 export const de_RejectVpcPeeringConnectionCommand = async (
@@ -36973,7 +25673,7 @@ export const de_RejectVpcPeeringConnectionCommand = async (
   context: __SerdeContext
 ): Promise<RejectVpcPeeringConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectVpcPeeringConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -36986,26 +25686,6 @@ export const de_RejectVpcPeeringConnectionCommand = async (
 };
 
 /**
- * deserializeAws_ec2RejectVpcPeeringConnectionCommandError
- */
-const de_RejectVpcPeeringConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectVpcPeeringConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReleaseAddressCommand
  */
 export const de_ReleaseAddressCommand = async (
@@ -37013,33 +25693,13 @@ export const de_ReleaseAddressCommand = async (
   context: __SerdeContext
 ): Promise<ReleaseAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReleaseAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ReleaseAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ReleaseAddressCommandError
- */
-const de_ReleaseAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37050,7 +25710,7 @@ export const de_ReleaseHostsCommand = async (
   context: __SerdeContext
 ): Promise<ReleaseHostsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReleaseHostsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37063,26 +25723,6 @@ export const de_ReleaseHostsCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReleaseHostsCommandError
- */
-const de_ReleaseHostsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseHostsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReleaseIpamPoolAllocationCommand
  */
 export const de_ReleaseIpamPoolAllocationCommand = async (
@@ -37090,7 +25730,7 @@ export const de_ReleaseIpamPoolAllocationCommand = async (
   context: __SerdeContext
 ): Promise<ReleaseIpamPoolAllocationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReleaseIpamPoolAllocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37103,26 +25743,6 @@ export const de_ReleaseIpamPoolAllocationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReleaseIpamPoolAllocationCommandError
- */
-const de_ReleaseIpamPoolAllocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseIpamPoolAllocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand
  */
 export const de_ReplaceIamInstanceProfileAssociationCommand = async (
@@ -37130,7 +25750,7 @@ export const de_ReplaceIamInstanceProfileAssociationCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceIamInstanceProfileAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37143,26 +25763,6 @@ export const de_ReplaceIamInstanceProfileAssociationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandError
- */
-const de_ReplaceIamInstanceProfileAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceIamInstanceProfileAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReplaceNetworkAclAssociationCommand
  */
 export const de_ReplaceNetworkAclAssociationCommand = async (
@@ -37170,7 +25770,7 @@ export const de_ReplaceNetworkAclAssociationCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceNetworkAclAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceNetworkAclAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37183,26 +25783,6 @@ export const de_ReplaceNetworkAclAssociationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReplaceNetworkAclAssociationCommandError
- */
-const de_ReplaceNetworkAclAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceNetworkAclAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReplaceNetworkAclEntryCommand
  */
 export const de_ReplaceNetworkAclEntryCommand = async (
@@ -37210,33 +25790,13 @@ export const de_ReplaceNetworkAclEntryCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceNetworkAclEntryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceNetworkAclEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ReplaceNetworkAclEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ReplaceNetworkAclEntryCommandError
- */
-const de_ReplaceNetworkAclEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceNetworkAclEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37247,33 +25807,13 @@ export const de_ReplaceRouteCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ReplaceRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ReplaceRouteCommandError
- */
-const de_ReplaceRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37284,7 +25824,7 @@ export const de_ReplaceRouteTableAssociationCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceRouteTableAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceRouteTableAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37297,26 +25837,6 @@ export const de_ReplaceRouteTableAssociationCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReplaceRouteTableAssociationCommandError
- */
-const de_ReplaceRouteTableAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceRouteTableAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReplaceTransitGatewayRouteCommand
  */
 export const de_ReplaceTransitGatewayRouteCommand = async (
@@ -37324,7 +25844,7 @@ export const de_ReplaceTransitGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceTransitGatewayRouteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceTransitGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37337,26 +25857,6 @@ export const de_ReplaceTransitGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReplaceTransitGatewayRouteCommandError
- */
-const de_ReplaceTransitGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceTransitGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReplaceVpnTunnelCommand
  */
 export const de_ReplaceVpnTunnelCommand = async (
@@ -37364,7 +25864,7 @@ export const de_ReplaceVpnTunnelCommand = async (
   context: __SerdeContext
 ): Promise<ReplaceVpnTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplaceVpnTunnelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37377,26 +25877,6 @@ export const de_ReplaceVpnTunnelCommand = async (
 };
 
 /**
- * deserializeAws_ec2ReplaceVpnTunnelCommandError
- */
-const de_ReplaceVpnTunnelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplaceVpnTunnelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ReportInstanceStatusCommand
  */
 export const de_ReportInstanceStatusCommand = async (
@@ -37404,33 +25884,13 @@ export const de_ReportInstanceStatusCommand = async (
   context: __SerdeContext
 ): Promise<ReportInstanceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReportInstanceStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ReportInstanceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ReportInstanceStatusCommandError
- */
-const de_ReportInstanceStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReportInstanceStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37441,7 +25901,7 @@ export const de_RequestSpotFleetCommand = async (
   context: __SerdeContext
 ): Promise<RequestSpotFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestSpotFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37454,26 +25914,6 @@ export const de_RequestSpotFleetCommand = async (
 };
 
 /**
- * deserializeAws_ec2RequestSpotFleetCommandError
- */
-const de_RequestSpotFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestSpotFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RequestSpotInstancesCommand
  */
 export const de_RequestSpotInstancesCommand = async (
@@ -37481,7 +25921,7 @@ export const de_RequestSpotInstancesCommand = async (
   context: __SerdeContext
 ): Promise<RequestSpotInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestSpotInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37494,26 +25934,6 @@ export const de_RequestSpotInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2RequestSpotInstancesCommandError
- */
-const de_RequestSpotInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestSpotInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ResetAddressAttributeCommand
  */
 export const de_ResetAddressAttributeCommand = async (
@@ -37521,7 +25941,7 @@ export const de_ResetAddressAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ResetAddressAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetAddressAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37534,26 +25954,6 @@ export const de_ResetAddressAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ResetAddressAttributeCommandError
- */
-const de_ResetAddressAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetAddressAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand
  */
 export const de_ResetEbsDefaultKmsKeyIdCommand = async (
@@ -37561,7 +25961,7 @@ export const de_ResetEbsDefaultKmsKeyIdCommand = async (
   context: __SerdeContext
 ): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetEbsDefaultKmsKeyIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37574,26 +25974,6 @@ export const de_ResetEbsDefaultKmsKeyIdCommand = async (
 };
 
 /**
- * deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError
- */
-const de_ResetEbsDefaultKmsKeyIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetEbsDefaultKmsKeyIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ResetFpgaImageAttributeCommand
  */
 export const de_ResetFpgaImageAttributeCommand = async (
@@ -37601,7 +25981,7 @@ export const de_ResetFpgaImageAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ResetFpgaImageAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetFpgaImageAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37614,26 +25994,6 @@ export const de_ResetFpgaImageAttributeCommand = async (
 };
 
 /**
- * deserializeAws_ec2ResetFpgaImageAttributeCommandError
- */
-const de_ResetFpgaImageAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetFpgaImageAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2ResetImageAttributeCommand
  */
 export const de_ResetImageAttributeCommand = async (
@@ -37641,33 +26001,13 @@ export const de_ResetImageAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ResetImageAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetImageAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResetImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ResetImageAttributeCommandError
- */
-const de_ResetImageAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetImageAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37678,33 +26018,13 @@ export const de_ResetInstanceAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ResetInstanceAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetInstanceAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResetInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ResetInstanceAttributeCommandError
- */
-const de_ResetInstanceAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetInstanceAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37715,33 +26035,13 @@ export const de_ResetNetworkInterfaceAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ResetNetworkInterfaceAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetNetworkInterfaceAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResetNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError
- */
-const de_ResetNetworkInterfaceAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetNetworkInterfaceAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37752,33 +26052,13 @@ export const de_ResetSnapshotAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ResetSnapshotAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetSnapshotAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResetSnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2ResetSnapshotAttributeCommandError
- */
-const de_ResetSnapshotAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetSnapshotAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -37789,7 +26069,7 @@ export const de_RestoreAddressToClassicCommand = async (
   context: __SerdeContext
 ): Promise<RestoreAddressToClassicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreAddressToClassicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37802,26 +26082,6 @@ export const de_RestoreAddressToClassicCommand = async (
 };
 
 /**
- * deserializeAws_ec2RestoreAddressToClassicCommandError
- */
-const de_RestoreAddressToClassicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreAddressToClassicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RestoreImageFromRecycleBinCommand
  */
 export const de_RestoreImageFromRecycleBinCommand = async (
@@ -37829,7 +26089,7 @@ export const de_RestoreImageFromRecycleBinCommand = async (
   context: __SerdeContext
 ): Promise<RestoreImageFromRecycleBinCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreImageFromRecycleBinCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37842,26 +26102,6 @@ export const de_RestoreImageFromRecycleBinCommand = async (
 };
 
 /**
- * deserializeAws_ec2RestoreImageFromRecycleBinCommandError
- */
-const de_RestoreImageFromRecycleBinCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreImageFromRecycleBinCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RestoreManagedPrefixListVersionCommand
  */
 export const de_RestoreManagedPrefixListVersionCommand = async (
@@ -37869,7 +26109,7 @@ export const de_RestoreManagedPrefixListVersionCommand = async (
   context: __SerdeContext
 ): Promise<RestoreManagedPrefixListVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreManagedPrefixListVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37882,26 +26122,6 @@ export const de_RestoreManagedPrefixListVersionCommand = async (
 };
 
 /**
- * deserializeAws_ec2RestoreManagedPrefixListVersionCommandError
- */
-const de_RestoreManagedPrefixListVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreManagedPrefixListVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RestoreSnapshotFromRecycleBinCommand
  */
 export const de_RestoreSnapshotFromRecycleBinCommand = async (
@@ -37909,7 +26129,7 @@ export const de_RestoreSnapshotFromRecycleBinCommand = async (
   context: __SerdeContext
 ): Promise<RestoreSnapshotFromRecycleBinCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreSnapshotFromRecycleBinCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37922,26 +26142,6 @@ export const de_RestoreSnapshotFromRecycleBinCommand = async (
 };
 
 /**
- * deserializeAws_ec2RestoreSnapshotFromRecycleBinCommandError
- */
-const de_RestoreSnapshotFromRecycleBinCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreSnapshotFromRecycleBinCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RestoreSnapshotTierCommand
  */
 export const de_RestoreSnapshotTierCommand = async (
@@ -37949,7 +26149,7 @@ export const de_RestoreSnapshotTierCommand = async (
   context: __SerdeContext
 ): Promise<RestoreSnapshotTierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreSnapshotTierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -37962,26 +26162,6 @@ export const de_RestoreSnapshotTierCommand = async (
 };
 
 /**
- * deserializeAws_ec2RestoreSnapshotTierCommandError
- */
-const de_RestoreSnapshotTierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreSnapshotTierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RevokeClientVpnIngressCommand
  */
 export const de_RevokeClientVpnIngressCommand = async (
@@ -37989,7 +26169,7 @@ export const de_RevokeClientVpnIngressCommand = async (
   context: __SerdeContext
 ): Promise<RevokeClientVpnIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RevokeClientVpnIngressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38002,26 +26182,6 @@ export const de_RevokeClientVpnIngressCommand = async (
 };
 
 /**
- * deserializeAws_ec2RevokeClientVpnIngressCommandError
- */
-const de_RevokeClientVpnIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeClientVpnIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RevokeSecurityGroupEgressCommand
  */
 export const de_RevokeSecurityGroupEgressCommand = async (
@@ -38029,7 +26189,7 @@ export const de_RevokeSecurityGroupEgressCommand = async (
   context: __SerdeContext
 ): Promise<RevokeSecurityGroupEgressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RevokeSecurityGroupEgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38042,26 +26202,6 @@ export const de_RevokeSecurityGroupEgressCommand = async (
 };
 
 /**
- * deserializeAws_ec2RevokeSecurityGroupEgressCommandError
- */
-const de_RevokeSecurityGroupEgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeSecurityGroupEgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RevokeSecurityGroupIngressCommand
  */
 export const de_RevokeSecurityGroupIngressCommand = async (
@@ -38069,7 +26209,7 @@ export const de_RevokeSecurityGroupIngressCommand = async (
   context: __SerdeContext
 ): Promise<RevokeSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RevokeSecurityGroupIngressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38082,26 +26222,6 @@ export const de_RevokeSecurityGroupIngressCommand = async (
 };
 
 /**
- * deserializeAws_ec2RevokeSecurityGroupIngressCommandError
- */
-const de_RevokeSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RunInstancesCommand
  */
 export const de_RunInstancesCommand = async (
@@ -38109,7 +26229,7 @@ export const de_RunInstancesCommand = async (
   context: __SerdeContext
 ): Promise<RunInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RunInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38122,26 +26242,6 @@ export const de_RunInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2RunInstancesCommandError
- */
-const de_RunInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2RunScheduledInstancesCommand
  */
 export const de_RunScheduledInstancesCommand = async (
@@ -38149,7 +26249,7 @@ export const de_RunScheduledInstancesCommand = async (
   context: __SerdeContext
 ): Promise<RunScheduledInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RunScheduledInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38162,26 +26262,6 @@ export const de_RunScheduledInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2RunScheduledInstancesCommandError
- */
-const de_RunScheduledInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunScheduledInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2SearchLocalGatewayRoutesCommand
  */
 export const de_SearchLocalGatewayRoutesCommand = async (
@@ -38189,7 +26269,7 @@ export const de_SearchLocalGatewayRoutesCommand = async (
   context: __SerdeContext
 ): Promise<SearchLocalGatewayRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchLocalGatewayRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38202,26 +26282,6 @@ export const de_SearchLocalGatewayRoutesCommand = async (
 };
 
 /**
- * deserializeAws_ec2SearchLocalGatewayRoutesCommandError
- */
-const de_SearchLocalGatewayRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchLocalGatewayRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand
  */
 export const de_SearchTransitGatewayMulticastGroupsCommand = async (
@@ -38229,7 +26289,7 @@ export const de_SearchTransitGatewayMulticastGroupsCommand = async (
   context: __SerdeContext
 ): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchTransitGatewayMulticastGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38242,26 +26302,6 @@ export const de_SearchTransitGatewayMulticastGroupsCommand = async (
 };
 
 /**
- * deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError
- */
-const de_SearchTransitGatewayMulticastGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchTransitGatewayMulticastGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2SearchTransitGatewayRoutesCommand
  */
 export const de_SearchTransitGatewayRoutesCommand = async (
@@ -38269,7 +26309,7 @@ export const de_SearchTransitGatewayRoutesCommand = async (
   context: __SerdeContext
 ): Promise<SearchTransitGatewayRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchTransitGatewayRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38282,26 +26322,6 @@ export const de_SearchTransitGatewayRoutesCommand = async (
 };
 
 /**
- * deserializeAws_ec2SearchTransitGatewayRoutesCommandError
- */
-const de_SearchTransitGatewayRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchTransitGatewayRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2SendDiagnosticInterruptCommand
  */
 export const de_SendDiagnosticInterruptCommand = async (
@@ -38309,33 +26329,13 @@ export const de_SendDiagnosticInterruptCommand = async (
   context: __SerdeContext
 ): Promise<SendDiagnosticInterruptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendDiagnosticInterruptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SendDiagnosticInterruptCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2SendDiagnosticInterruptCommandError
- */
-const de_SendDiagnosticInterruptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendDiagnosticInterruptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -38346,7 +26346,7 @@ export const de_StartInstancesCommand = async (
   context: __SerdeContext
 ): Promise<StartInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38359,26 +26359,6 @@ export const de_StartInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2StartInstancesCommandError
- */
-const de_StartInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommand
  */
 export const de_StartNetworkInsightsAccessScopeAnalysisCommand = async (
@@ -38386,7 +26366,7 @@ export const de_StartNetworkInsightsAccessScopeAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartNetworkInsightsAccessScopeAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38399,26 +26379,6 @@ export const de_StartNetworkInsightsAccessScopeAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_ec2StartNetworkInsightsAccessScopeAnalysisCommandError
- */
-const de_StartNetworkInsightsAccessScopeAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartNetworkInsightsAccessScopeAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2StartNetworkInsightsAnalysisCommand
  */
 export const de_StartNetworkInsightsAnalysisCommand = async (
@@ -38426,7 +26386,7 @@ export const de_StartNetworkInsightsAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<StartNetworkInsightsAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartNetworkInsightsAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38439,26 +26399,6 @@ export const de_StartNetworkInsightsAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_ec2StartNetworkInsightsAnalysisCommandError
- */
-const de_StartNetworkInsightsAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartNetworkInsightsAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand
  */
 export const de_StartVpcEndpointServicePrivateDnsVerificationCommand = async (
@@ -38466,7 +26406,7 @@ export const de_StartVpcEndpointServicePrivateDnsVerificationCommand = async (
   context: __SerdeContext
 ): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartVpcEndpointServicePrivateDnsVerificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38479,26 +26419,6 @@ export const de_StartVpcEndpointServicePrivateDnsVerificationCommand = async (
 };
 
 /**
- * deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommandError
- */
-const de_StartVpcEndpointServicePrivateDnsVerificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartVpcEndpointServicePrivateDnsVerificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2StopInstancesCommand
  */
 export const de_StopInstancesCommand = async (
@@ -38506,7 +26426,7 @@ export const de_StopInstancesCommand = async (
   context: __SerdeContext
 ): Promise<StopInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38519,26 +26439,6 @@ export const de_StopInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2StopInstancesCommandError
- */
-const de_StopInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2TerminateClientVpnConnectionsCommand
  */
 export const de_TerminateClientVpnConnectionsCommand = async (
@@ -38546,7 +26446,7 @@ export const de_TerminateClientVpnConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<TerminateClientVpnConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateClientVpnConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38559,26 +26459,6 @@ export const de_TerminateClientVpnConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_ec2TerminateClientVpnConnectionsCommandError
- */
-const de_TerminateClientVpnConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateClientVpnConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2TerminateInstancesCommand
  */
 export const de_TerminateInstancesCommand = async (
@@ -38586,7 +26466,7 @@ export const de_TerminateInstancesCommand = async (
   context: __SerdeContext
 ): Promise<TerminateInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38599,26 +26479,6 @@ export const de_TerminateInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2TerminateInstancesCommandError
- */
-const de_TerminateInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2UnassignIpv6AddressesCommand
  */
 export const de_UnassignIpv6AddressesCommand = async (
@@ -38626,7 +26486,7 @@ export const de_UnassignIpv6AddressesCommand = async (
   context: __SerdeContext
 ): Promise<UnassignIpv6AddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnassignIpv6AddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38639,26 +26499,6 @@ export const de_UnassignIpv6AddressesCommand = async (
 };
 
 /**
- * deserializeAws_ec2UnassignIpv6AddressesCommandError
- */
-const de_UnassignIpv6AddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnassignIpv6AddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2UnassignPrivateIpAddressesCommand
  */
 export const de_UnassignPrivateIpAddressesCommand = async (
@@ -38666,33 +26506,13 @@ export const de_UnassignPrivateIpAddressesCommand = async (
   context: __SerdeContext
 ): Promise<UnassignPrivateIpAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnassignPrivateIpAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UnassignPrivateIpAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2UnassignPrivateIpAddressesCommandError
- */
-const de_UnassignPrivateIpAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnassignPrivateIpAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -38703,7 +26523,7 @@ export const de_UnassignPrivateNatGatewayAddressCommand = async (
   context: __SerdeContext
 ): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnassignPrivateNatGatewayAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38716,26 +26536,6 @@ export const de_UnassignPrivateNatGatewayAddressCommand = async (
 };
 
 /**
- * deserializeAws_ec2UnassignPrivateNatGatewayAddressCommandError
- */
-const de_UnassignPrivateNatGatewayAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnassignPrivateNatGatewayAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2UnlockSnapshotCommand
  */
 export const de_UnlockSnapshotCommand = async (
@@ -38743,7 +26543,7 @@ export const de_UnlockSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<UnlockSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnlockSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38756,26 +26556,6 @@ export const de_UnlockSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_ec2UnlockSnapshotCommandError
- */
-const de_UnlockSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnlockSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2UnmonitorInstancesCommand
  */
 export const de_UnmonitorInstancesCommand = async (
@@ -38783,7 +26563,7 @@ export const de_UnmonitorInstancesCommand = async (
   context: __SerdeContext
 ): Promise<UnmonitorInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnmonitorInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38796,26 +26576,6 @@ export const de_UnmonitorInstancesCommand = async (
 };
 
 /**
- * deserializeAws_ec2UnmonitorInstancesCommandError
- */
-const de_UnmonitorInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnmonitorInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand
  */
 export const de_UpdateSecurityGroupRuleDescriptionsEgressCommand = async (
@@ -38823,7 +26583,7 @@ export const de_UpdateSecurityGroupRuleDescriptionsEgressCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSecurityGroupRuleDescriptionsEgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38836,26 +26596,6 @@ export const de_UpdateSecurityGroupRuleDescriptionsEgressCommand = async (
 };
 
 /**
- * deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommandError
- */
-const de_UpdateSecurityGroupRuleDescriptionsEgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand
  */
 export const de_UpdateSecurityGroupRuleDescriptionsIngressCommand = async (
@@ -38863,7 +26603,7 @@ export const de_UpdateSecurityGroupRuleDescriptionsIngressCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSecurityGroupRuleDescriptionsIngressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38876,26 +26616,6 @@ export const de_UpdateSecurityGroupRuleDescriptionsIngressCommand = async (
 };
 
 /**
- * deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommandError
- */
-const de_UpdateSecurityGroupRuleDescriptionsIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2WithdrawByoipCidrCommand
  */
 export const de_WithdrawByoipCidrCommand = async (
@@ -38903,7 +26623,7 @@ export const de_WithdrawByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<WithdrawByoipCidrCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_WithdrawByoipCidrCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -38916,12 +26636,9 @@ export const de_WithdrawByoipCidrCommand = async (
 };
 
 /**
- * deserializeAws_ec2WithdrawByoipCidrCommandError
+ * deserialize_Aws_ec2CommandError
  */
-const de_WithdrawByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<WithdrawByoipCidrCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

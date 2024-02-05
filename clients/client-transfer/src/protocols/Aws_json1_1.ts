@@ -976,7 +976,7 @@ export const de_CreateAccessCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -989,44 +989,6 @@ export const de_CreateAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAccessCommandError
- */
-const de_CreateAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAgreementCommand
  */
 export const de_CreateAgreementCommand = async (
@@ -1034,7 +996,7 @@ export const de_CreateAgreementCommand = async (
   context: __SerdeContext
 ): Promise<CreateAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAgreementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1047,47 +1009,6 @@ export const de_CreateAgreementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAgreementCommandError
- */
-const de_CreateAgreementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAgreementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConnectorCommand
  */
 export const de_CreateConnectorCommand = async (
@@ -1095,7 +1016,7 @@ export const de_CreateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1108,47 +1029,6 @@ export const de_CreateConnectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConnectorCommandError
- */
-const de_CreateConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProfileCommand
  */
 export const de_CreateProfileCommand = async (
@@ -1156,7 +1036,7 @@ export const de_CreateProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1169,44 +1049,6 @@ export const de_CreateProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProfileCommandError
- */
-const de_CreateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateServerCommand
  */
 export const de_CreateServerCommand = async (
@@ -1214,7 +1056,7 @@ export const de_CreateServerCommand = async (
   context: __SerdeContext
 ): Promise<CreateServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1227,50 +1069,6 @@ export const de_CreateServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateServerCommandError
- */
-const de_CreateServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.transfer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -1278,7 +1076,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1291,44 +1089,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkflowCommand
  */
 export const de_CreateWorkflowCommand = async (
@@ -1336,7 +1096,7 @@ export const de_CreateWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1349,47 +1109,6 @@ export const de_CreateWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkflowCommandError
- */
-const de_CreateWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.transfer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAccessCommand
  */
 export const de_DeleteAccessCommand = async (
@@ -1397,48 +1116,13 @@ export const de_DeleteAccessCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAccessCommandError
- */
-const de_DeleteAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1449,48 +1133,13 @@ export const de_DeleteAgreementCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAgreementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAgreementCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAgreementCommandError
- */
-const de_DeleteAgreementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAgreementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1501,48 +1150,13 @@ export const de_DeleteCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCertificateCommandError
- */
-const de_DeleteCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1553,48 +1167,13 @@ export const de_DeleteConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteConnectorCommandError
- */
-const de_DeleteConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1605,51 +1184,13 @@ export const de_DeleteHostKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHostKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteHostKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteHostKeyCommandError
- */
-const de_DeleteHostKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHostKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1660,48 +1201,13 @@ export const de_DeleteProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteProfileCommandError
- */
-const de_DeleteProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1712,51 +1218,13 @@ export const de_DeleteServerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteServerCommandError
- */
-const de_DeleteServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.transfer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1767,51 +1235,13 @@ export const de_DeleteSshPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSshPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSshPublicKeyCommandError
- */
-const de_DeleteSshPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSshPublicKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1822,48 +1252,13 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1874,51 +1269,13 @@ export const de_DeleteWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteWorkflowCommandError
- */
-const de_DeleteWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.transfer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1929,7 +1286,7 @@ export const de_DescribeAccessCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1942,41 +1299,6 @@ export const de_DescribeAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAccessCommandError
- */
-const de_DescribeAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAgreementCommand
  */
 export const de_DescribeAgreementCommand = async (
@@ -1984,7 +1306,7 @@ export const de_DescribeAgreementCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAgreementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1997,41 +1319,6 @@ export const de_DescribeAgreementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAgreementCommandError
- */
-const de_DescribeAgreementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAgreementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCertificateCommand
  */
 export const de_DescribeCertificateCommand = async (
@@ -2039,7 +1326,7 @@ export const de_DescribeCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2052,41 +1339,6 @@ export const de_DescribeCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCertificateCommandError
- */
-const de_DescribeCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectorCommand
  */
 export const de_DescribeConnectorCommand = async (
@@ -2094,7 +1346,7 @@ export const de_DescribeConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2107,41 +1359,6 @@ export const de_DescribeConnectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectorCommandError
- */
-const de_DescribeConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeExecutionCommand
  */
 export const de_DescribeExecutionCommand = async (
@@ -2149,7 +1366,7 @@ export const de_DescribeExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2162,41 +1379,6 @@ export const de_DescribeExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExecutionCommandError
- */
-const de_DescribeExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHostKeyCommand
  */
 export const de_DescribeHostKeyCommand = async (
@@ -2204,7 +1386,7 @@ export const de_DescribeHostKeyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHostKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2217,41 +1399,6 @@ export const de_DescribeHostKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHostKeyCommandError
- */
-const de_DescribeHostKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHostKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProfileCommand
  */
 export const de_DescribeProfileCommand = async (
@@ -2259,7 +1406,7 @@ export const de_DescribeProfileCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2272,41 +1419,6 @@ export const de_DescribeProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProfileCommandError
- */
-const de_DescribeProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSecurityPolicyCommand
  */
 export const de_DescribeSecurityPolicyCommand = async (
@@ -2314,7 +1426,7 @@ export const de_DescribeSecurityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSecurityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2327,41 +1439,6 @@ export const de_DescribeSecurityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSecurityPolicyCommandError
- */
-const de_DescribeSecurityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSecurityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeServerCommand
  */
 export const de_DescribeServerCommand = async (
@@ -2369,7 +1446,7 @@ export const de_DescribeServerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2382,41 +1459,6 @@ export const de_DescribeServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeServerCommandError
- */
-const de_DescribeServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserCommand
  */
 export const de_DescribeUserCommand = async (
@@ -2424,7 +1466,7 @@ export const de_DescribeUserCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2437,41 +1479,6 @@ export const de_DescribeUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserCommandError
- */
-const de_DescribeUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkflowCommand
  */
 export const de_DescribeWorkflowCommand = async (
@@ -2479,7 +1486,7 @@ export const de_DescribeWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2492,41 +1499,6 @@ export const de_DescribeWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkflowCommandError
- */
-const de_DescribeWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportCertificateCommand
  */
 export const de_ImportCertificateCommand = async (
@@ -2534,7 +1506,7 @@ export const de_ImportCertificateCommand = async (
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2547,41 +1519,6 @@ export const de_ImportCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportCertificateCommandError
- */
-const de_ImportCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportHostKeyCommand
  */
 export const de_ImportHostKeyCommand = async (
@@ -2589,7 +1526,7 @@ export const de_ImportHostKeyCommand = async (
   context: __SerdeContext
 ): Promise<ImportHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportHostKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2602,47 +1539,6 @@ export const de_ImportHostKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportHostKeyCommandError
- */
-const de_ImportHostKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportHostKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportSshPublicKeyCommand
  */
 export const de_ImportSshPublicKeyCommand = async (
@@ -2650,7 +1546,7 @@ export const de_ImportSshPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportSshPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2663,47 +1559,6 @@ export const de_ImportSshPublicKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportSshPublicKeyCommandError
- */
-const de_ImportSshPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportSshPublicKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAccessesCommand
  */
 export const de_ListAccessesCommand = async (
@@ -2711,7 +1566,7 @@ export const de_ListAccessesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAccessesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2724,44 +1579,6 @@ export const de_ListAccessesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAccessesCommandError
- */
-const de_ListAccessesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAgreementsCommand
  */
 export const de_ListAgreementsCommand = async (
@@ -2769,7 +1586,7 @@ export const de_ListAgreementsCommand = async (
   context: __SerdeContext
 ): Promise<ListAgreementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAgreementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2782,44 +1599,6 @@ export const de_ListAgreementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAgreementsCommandError
- */
-const de_ListAgreementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgreementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCertificatesCommand
  */
 export const de_ListCertificatesCommand = async (
@@ -2827,7 +1606,7 @@ export const de_ListCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2840,44 +1619,6 @@ export const de_ListCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCertificatesCommandError
- */
-const de_ListCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListConnectorsCommand
  */
 export const de_ListConnectorsCommand = async (
@@ -2885,7 +1626,7 @@ export const de_ListConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConnectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2898,44 +1639,6 @@ export const de_ListConnectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListConnectorsCommandError
- */
-const de_ListConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListExecutionsCommand
  */
 export const de_ListExecutionsCommand = async (
@@ -2943,7 +1646,7 @@ export const de_ListExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2956,44 +1659,6 @@ export const de_ListExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListExecutionsCommandError
- */
-const de_ListExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHostKeysCommand
  */
 export const de_ListHostKeysCommand = async (
@@ -3001,7 +1666,7 @@ export const de_ListHostKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListHostKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHostKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3014,44 +1679,6 @@ export const de_ListHostKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHostKeysCommandError
- */
-const de_ListHostKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHostKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProfilesCommand
  */
 export const de_ListProfilesCommand = async (
@@ -3059,7 +1686,7 @@ export const de_ListProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3072,44 +1699,6 @@ export const de_ListProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProfilesCommandError
- */
-const de_ListProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSecurityPoliciesCommand
  */
 export const de_ListSecurityPoliciesCommand = async (
@@ -3117,7 +1706,7 @@ export const de_ListSecurityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSecurityPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3130,41 +1719,6 @@ export const de_ListSecurityPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSecurityPoliciesCommandError
- */
-const de_ListSecurityPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecurityPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListServersCommand
  */
 export const de_ListServersCommand = async (
@@ -3172,7 +1726,7 @@ export const de_ListServersCommand = async (
   context: __SerdeContext
 ): Promise<ListServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3185,41 +1739,6 @@ export const de_ListServersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListServersCommandError
- */
-const de_ListServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3227,7 +1746,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3240,41 +1759,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUsersCommand
  */
 export const de_ListUsersCommand = async (
@@ -3282,7 +1766,7 @@ export const de_ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3295,44 +1779,6 @@ export const de_ListUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUsersCommandError
- */
-const de_ListUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkflowsCommand
  */
 export const de_ListWorkflowsCommand = async (
@@ -3340,7 +1786,7 @@ export const de_ListWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkflowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3353,41 +1799,6 @@ export const de_ListWorkflowsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkflowsCommandError
- */
-const de_ListWorkflowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.transfer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendWorkflowStepStateCommand
  */
 export const de_SendWorkflowStepStateCommand = async (
@@ -3395,7 +1806,7 @@ export const de_SendWorkflowStepStateCommand = async (
   context: __SerdeContext
 ): Promise<SendWorkflowStepStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendWorkflowStepStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3408,47 +1819,6 @@ export const de_SendWorkflowStepStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendWorkflowStepStateCommandError
- */
-const de_SendWorkflowStepStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendWorkflowStepStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.transfer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartFileTransferCommand
  */
 export const de_StartFileTransferCommand = async (
@@ -3456,7 +1826,7 @@ export const de_StartFileTransferCommand = async (
   context: __SerdeContext
 ): Promise<StartFileTransferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartFileTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3469,44 +1839,6 @@ export const de_StartFileTransferCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartFileTransferCommandError
- */
-const de_StartFileTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFileTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartServerCommand
  */
 export const de_StartServerCommand = async (
@@ -3514,51 +1846,13 @@ export const de_StartServerCommand = async (
   context: __SerdeContext
 ): Promise<StartServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StartServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StartServerCommandError
- */
-const de_StartServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3569,51 +1863,13 @@ export const de_StopServerCommand = async (
   context: __SerdeContext
 ): Promise<StopServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopServerCommandError
- */
-const de_StopServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3624,48 +1880,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3676,7 +1897,7 @@ export const de_TestConnectionCommand = async (
   context: __SerdeContext
 ): Promise<TestConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3689,41 +1910,6 @@ export const de_TestConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TestConnectionCommandError
- */
-const de_TestConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TestIdentityProviderCommand
  */
 export const de_TestIdentityProviderCommand = async (
@@ -3731,7 +1917,7 @@ export const de_TestIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestIdentityProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3744,41 +1930,6 @@ export const de_TestIdentityProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TestIdentityProviderCommandError
- */
-const de_TestIdentityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestIdentityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -3786,48 +1937,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3838,7 +1954,7 @@ export const de_UpdateAccessCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3851,47 +1967,6 @@ export const de_UpdateAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAccessCommandError
- */
-const de_UpdateAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAgreementCommand
  */
 export const de_UpdateAgreementCommand = async (
@@ -3899,7 +1974,7 @@ export const de_UpdateAgreementCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAgreementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3912,47 +1987,6 @@ export const de_UpdateAgreementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAgreementCommandError
- */
-const de_UpdateAgreementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgreementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCertificateCommand
  */
 export const de_UpdateCertificateCommand = async (
@@ -3960,7 +1994,7 @@ export const de_UpdateCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3973,44 +2007,6 @@ export const de_UpdateCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCertificateCommandError
- */
-const de_UpdateCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateConnectorCommand
  */
 export const de_UpdateConnectorCommand = async (
@@ -4018,7 +2014,7 @@ export const de_UpdateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4031,47 +2027,6 @@ export const de_UpdateConnectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConnectorCommandError
- */
-const de_UpdateConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.transfer#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateHostKeyCommand
  */
 export const de_UpdateHostKeyCommand = async (
@@ -4079,7 +2034,7 @@ export const de_UpdateHostKeyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHostKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateHostKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4092,44 +2047,6 @@ export const de_UpdateHostKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateHostKeyCommandError
- */
-const de_UpdateHostKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHostKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateProfileCommand
  */
 export const de_UpdateProfileCommand = async (
@@ -4137,7 +2054,7 @@ export const de_UpdateProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4150,44 +2067,6 @@ export const de_UpdateProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateProfileCommandError
- */
-const de_UpdateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateServerCommand
  */
 export const de_UpdateServerCommand = async (
@@ -4195,7 +2074,7 @@ export const de_UpdateServerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4208,24 +2087,35 @@ export const de_UpdateServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateServerCommandError
+ * deserializeAws_json1_1UpdateUserCommand
  */
-const de_UpdateServerCommandError = async (
+export const de_UpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateServerCommandOutput> => {
+): Promise<UpdateUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.transfer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transfer#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.transfer#InternalServiceError":
       throw await de_InternalServiceErrorRes(parsedOutput, context);
@@ -4244,64 +2134,15 @@ const de_UpdateServerCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.transfer#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateUserCommand
- */
-export const de_UpdateUserCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateUserCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateUserCommandError
- */
-const de_UpdateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.transfer#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.transfer#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.transfer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transfer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.transfer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.transfer#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

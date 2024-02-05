@@ -1279,48 +1279,13 @@ export const de_AssociateKmsKeyCommand = async (
   context: __SerdeContext
 ): Promise<AssociateKmsKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateKmsKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AssociateKmsKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AssociateKmsKeyCommandError
- */
-const de_AssociateKmsKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateKmsKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1331,48 +1296,13 @@ export const de_CancelExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelExportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelExportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CancelExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CancelExportTaskCommandError
- */
-const de_CancelExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1383,7 +1313,7 @@ export const de_CreateDeliveryCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeliveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDeliveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1396,50 +1326,6 @@ export const de_CreateDeliveryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDeliveryCommandError
- */
-const de_CreateDeliveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeliveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudwatchlogs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateExportTaskCommand
  */
 export const de_CreateExportTaskCommand = async (
@@ -1447,7 +1333,7 @@ export const de_CreateExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateExportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateExportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1460,47 +1346,6 @@ export const de_CreateExportTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateExportTaskCommandError
- */
-const de_CreateExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLogAnomalyDetectorCommand
  */
 export const de_CreateLogAnomalyDetectorCommand = async (
@@ -1508,7 +1353,7 @@ export const de_CreateLogAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<CreateLogAnomalyDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLogAnomalyDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1521,44 +1366,6 @@ export const de_CreateLogAnomalyDetectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLogAnomalyDetectorCommandError
- */
-const de_CreateLogAnomalyDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLogAnomalyDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLogGroupCommand
  */
 export const de_CreateLogGroupCommand = async (
@@ -1566,51 +1373,13 @@ export const de_CreateLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateLogGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLogGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateLogGroupCommandError
- */
-const de_CreateLogGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLogGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1621,48 +1390,13 @@ export const de_CreateLogStreamCommand = async (
   context: __SerdeContext
 ): Promise<CreateLogStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLogStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateLogStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateLogStreamCommandError
- */
-const de_CreateLogStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLogStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1673,48 +1407,13 @@ export const de_DeleteAccountPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccountPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccountPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccountPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAccountPolicyCommandError
- */
-const de_DeleteAccountPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1725,48 +1424,13 @@ export const de_DeleteDataProtectionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataProtectionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDataProtectionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDataProtectionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDataProtectionPolicyCommandError
- */
-const de_DeleteDataProtectionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataProtectionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1777,54 +1441,13 @@ export const de_DeleteDeliveryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeliveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeliveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeliveryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeliveryCommandError
- */
-const de_DeleteDeliveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeliveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1835,54 +1458,13 @@ export const de_DeleteDeliveryDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeliveryDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeliveryDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeliveryDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeliveryDestinationCommandError
- */
-const de_DeleteDeliveryDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeliveryDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1893,48 +1475,13 @@ export const de_DeleteDeliveryDestinationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeliveryDestinationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeliveryDestinationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeliveryDestinationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeliveryDestinationPolicyCommandError
- */
-const de_DeleteDeliveryDestinationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeliveryDestinationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1945,54 +1492,13 @@ export const de_DeleteDeliverySourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeliverySourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeliverySourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeliverySourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeliverySourceCommandError
- */
-const de_DeleteDeliverySourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeliverySourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2003,48 +1509,13 @@ export const de_DeleteDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDestinationCommandError
- */
-const de_DeleteDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2055,48 +1526,13 @@ export const de_DeleteLogAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLogAnomalyDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLogAnomalyDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLogAnomalyDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteLogAnomalyDetectorCommandError
- */
-const de_DeleteLogAnomalyDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLogAnomalyDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2107,48 +1543,13 @@ export const de_DeleteLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLogGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLogGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteLogGroupCommandError
- */
-const de_DeleteLogGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLogGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2159,48 +1560,13 @@ export const de_DeleteLogStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLogStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLogStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLogStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteLogStreamCommandError
- */
-const de_DeleteLogStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLogStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2211,48 +1577,13 @@ export const de_DeleteMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMetricFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMetricFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMetricFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMetricFilterCommandError
- */
-const de_DeleteMetricFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMetricFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2263,7 +1594,7 @@ export const de_DeleteQueryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteQueryDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteQueryDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2276,38 +1607,6 @@ export const de_DeleteQueryDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteQueryDefinitionCommandError
- */
-const de_DeleteQueryDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteQueryDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -2315,45 +1614,13 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2364,48 +1631,13 @@ export const de_DeleteRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRetentionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteRetentionPolicyCommandError
- */
-const de_DeleteRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2416,48 +1648,13 @@ export const de_DeleteSubscriptionFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSubscriptionFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSubscriptionFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSubscriptionFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSubscriptionFilterCommandError
- */
-const de_DeleteSubscriptionFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubscriptionFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2468,7 +1665,7 @@ export const de_DescribeAccountPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2481,41 +1678,6 @@ export const de_DescribeAccountPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAccountPoliciesCommandError
- */
-const de_DescribeAccountPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeliveriesCommand
  */
 export const de_DescribeDeliveriesCommand = async (
@@ -2523,7 +1685,7 @@ export const de_DescribeDeliveriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeliveriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeliveriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2536,41 +1698,6 @@ export const de_DescribeDeliveriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeliveriesCommandError
- */
-const de_DescribeDeliveriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeliveryDestinationsCommand
  */
 export const de_DescribeDeliveryDestinationsCommand = async (
@@ -2578,7 +1705,7 @@ export const de_DescribeDeliveryDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeliveryDestinationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeliveryDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2591,41 +1718,6 @@ export const de_DescribeDeliveryDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeliveryDestinationsCommandError
- */
-const de_DescribeDeliveryDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveryDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeliverySourcesCommand
  */
 export const de_DescribeDeliverySourcesCommand = async (
@@ -2633,7 +1725,7 @@ export const de_DescribeDeliverySourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeliverySourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeliverySourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2646,41 +1738,6 @@ export const de_DescribeDeliverySourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeliverySourcesCommandError
- */
-const de_DescribeDeliverySourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliverySourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDestinationsCommand
  */
 export const de_DescribeDestinationsCommand = async (
@@ -2688,7 +1745,7 @@ export const de_DescribeDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDestinationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2701,35 +1758,6 @@ export const de_DescribeDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDestinationsCommandError
- */
-const de_DescribeDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeExportTasksCommand
  */
 export const de_DescribeExportTasksCommand = async (
@@ -2737,7 +1765,7 @@ export const de_DescribeExportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExportTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2750,35 +1778,6 @@ export const de_DescribeExportTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExportTasksCommandError
- */
-const de_DescribeExportTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLogGroupsCommand
  */
 export const de_DescribeLogGroupsCommand = async (
@@ -2786,7 +1785,7 @@ export const de_DescribeLogGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLogGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLogGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2799,35 +1798,6 @@ export const de_DescribeLogGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLogGroupsCommandError
- */
-const de_DescribeLogGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLogGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLogStreamsCommand
  */
 export const de_DescribeLogStreamsCommand = async (
@@ -2835,7 +1805,7 @@ export const de_DescribeLogStreamsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLogStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLogStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2848,38 +1818,6 @@ export const de_DescribeLogStreamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLogStreamsCommandError
- */
-const de_DescribeLogStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLogStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetricFiltersCommand
  */
 export const de_DescribeMetricFiltersCommand = async (
@@ -2887,7 +1825,7 @@ export const de_DescribeMetricFiltersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetricFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetricFiltersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2900,38 +1838,6 @@ export const de_DescribeMetricFiltersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetricFiltersCommandError
- */
-const de_DescribeMetricFiltersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetricFiltersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeQueriesCommand
  */
 export const de_DescribeQueriesCommand = async (
@@ -2939,7 +1845,7 @@ export const de_DescribeQueriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeQueriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2952,38 +1858,6 @@ export const de_DescribeQueriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeQueriesCommandError
- */
-const de_DescribeQueriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeQueriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeQueryDefinitionsCommand
  */
 export const de_DescribeQueryDefinitionsCommand = async (
@@ -2991,7 +1865,7 @@ export const de_DescribeQueryDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeQueryDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeQueryDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3004,35 +1878,6 @@ export const de_DescribeQueryDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeQueryDefinitionsCommandError
- */
-const de_DescribeQueryDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeQueryDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeResourcePoliciesCommand
  */
 export const de_DescribeResourcePoliciesCommand = async (
@@ -3040,7 +1885,7 @@ export const de_DescribeResourcePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourcePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeResourcePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3053,35 +1898,6 @@ export const de_DescribeResourcePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeResourcePoliciesCommandError
- */
-const de_DescribeResourcePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSubscriptionFiltersCommand
  */
 export const de_DescribeSubscriptionFiltersCommand = async (
@@ -3089,7 +1905,7 @@ export const de_DescribeSubscriptionFiltersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSubscriptionFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSubscriptionFiltersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3102,38 +1918,6 @@ export const de_DescribeSubscriptionFiltersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSubscriptionFiltersCommandError
- */
-const de_DescribeSubscriptionFiltersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubscriptionFiltersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateKmsKeyCommand
  */
 export const de_DisassociateKmsKeyCommand = async (
@@ -3141,48 +1925,13 @@ export const de_DisassociateKmsKeyCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateKmsKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateKmsKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateKmsKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateKmsKeyCommandError
- */
-const de_DisassociateKmsKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateKmsKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3193,7 +1942,7 @@ export const de_FilterLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<FilterLogEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FilterLogEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3206,38 +1955,6 @@ export const de_FilterLogEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1FilterLogEventsCommandError
- */
-const de_FilterLogEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FilterLogEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataProtectionPolicyCommand
  */
 export const de_GetDataProtectionPolicyCommand = async (
@@ -3245,7 +1962,7 @@ export const de_GetDataProtectionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetDataProtectionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataProtectionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3258,41 +1975,6 @@ export const de_GetDataProtectionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataProtectionPolicyCommandError
- */
-const de_GetDataProtectionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataProtectionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeliveryCommand
  */
 export const de_GetDeliveryCommand = async (
@@ -3300,7 +1982,7 @@ export const de_GetDeliveryCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeliveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3313,44 +1995,6 @@ export const de_GetDeliveryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeliveryCommandError
- */
-const de_GetDeliveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeliveryDestinationCommand
  */
 export const de_GetDeliveryDestinationCommand = async (
@@ -3358,7 +2002,7 @@ export const de_GetDeliveryDestinationCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliveryDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeliveryDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3371,44 +2015,6 @@ export const de_GetDeliveryDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeliveryDestinationCommandError
- */
-const de_GetDeliveryDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliveryDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeliveryDestinationPolicyCommand
  */
 export const de_GetDeliveryDestinationPolicyCommand = async (
@@ -3416,7 +2022,7 @@ export const de_GetDeliveryDestinationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliveryDestinationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeliveryDestinationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3429,38 +2035,6 @@ export const de_GetDeliveryDestinationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeliveryDestinationPolicyCommandError
- */
-const de_GetDeliveryDestinationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliveryDestinationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeliverySourceCommand
  */
 export const de_GetDeliverySourceCommand = async (
@@ -3468,7 +2042,7 @@ export const de_GetDeliverySourceCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliverySourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeliverySourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3481,44 +2055,6 @@ export const de_GetDeliverySourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeliverySourceCommandError
- */
-const de_GetDeliverySourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliverySourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLogAnomalyDetectorCommand
  */
 export const de_GetLogAnomalyDetectorCommand = async (
@@ -3526,7 +2062,7 @@ export const de_GetLogAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<GetLogAnomalyDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLogAnomalyDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3539,41 +2075,6 @@ export const de_GetLogAnomalyDetectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLogAnomalyDetectorCommandError
- */
-const de_GetLogAnomalyDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLogAnomalyDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLogEventsCommand
  */
 export const de_GetLogEventsCommand = async (
@@ -3581,7 +2082,7 @@ export const de_GetLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<GetLogEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLogEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3594,38 +2095,6 @@ export const de_GetLogEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLogEventsCommandError
- */
-const de_GetLogEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLogEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLogGroupFieldsCommand
  */
 export const de_GetLogGroupFieldsCommand = async (
@@ -3633,7 +2102,7 @@ export const de_GetLogGroupFieldsCommand = async (
   context: __SerdeContext
 ): Promise<GetLogGroupFieldsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLogGroupFieldsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3646,41 +2115,6 @@ export const de_GetLogGroupFieldsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLogGroupFieldsCommandError
- */
-const de_GetLogGroupFieldsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLogGroupFieldsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLogRecordCommand
  */
 export const de_GetLogRecordCommand = async (
@@ -3688,7 +2122,7 @@ export const de_GetLogRecordCommand = async (
   context: __SerdeContext
 ): Promise<GetLogRecordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLogRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3701,41 +2135,6 @@ export const de_GetLogRecordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLogRecordCommandError
- */
-const de_GetLogRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLogRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQueryResultsCommand
  */
 export const de_GetQueryResultsCommand = async (
@@ -3743,7 +2142,7 @@ export const de_GetQueryResultsCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueryResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3756,38 +2155,6 @@ export const de_GetQueryResultsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQueryResultsCommandError
- */
-const de_GetQueryResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAnomaliesCommand
  */
 export const de_ListAnomaliesCommand = async (
@@ -3795,7 +2162,7 @@ export const de_ListAnomaliesCommand = async (
   context: __SerdeContext
 ): Promise<ListAnomaliesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAnomaliesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3808,41 +2175,6 @@ export const de_ListAnomaliesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAnomaliesCommandError
- */
-const de_ListAnomaliesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnomaliesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLogAnomalyDetectorsCommand
  */
 export const de_ListLogAnomalyDetectorsCommand = async (
@@ -3850,7 +2182,7 @@ export const de_ListLogAnomalyDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListLogAnomalyDetectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLogAnomalyDetectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3863,41 +2195,6 @@ export const de_ListLogAnomalyDetectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLogAnomalyDetectorsCommandError
- */
-const de_ListLogAnomalyDetectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLogAnomalyDetectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3905,7 +2202,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3918,38 +2215,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsLogGroupCommand
  */
 export const de_ListTagsLogGroupCommand = async (
@@ -3957,7 +2222,7 @@ export const de_ListTagsLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsLogGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsLogGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3970,35 +2235,6 @@ export const de_ListTagsLogGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsLogGroupCommandError
- */
-const de_ListTagsLogGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsLogGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAccountPolicyCommand
  */
 export const de_PutAccountPolicyCommand = async (
@@ -4006,7 +2242,7 @@ export const de_PutAccountPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAccountPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4019,41 +2255,6 @@ export const de_PutAccountPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAccountPolicyCommandError
- */
-const de_PutAccountPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDataProtectionPolicyCommand
  */
 export const de_PutDataProtectionPolicyCommand = async (
@@ -4061,7 +2262,7 @@ export const de_PutDataProtectionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutDataProtectionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDataProtectionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4074,44 +2275,6 @@ export const de_PutDataProtectionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDataProtectionPolicyCommandError
- */
-const de_PutDataProtectionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDataProtectionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDeliveryDestinationCommand
  */
 export const de_PutDeliveryDestinationCommand = async (
@@ -4119,7 +2282,7 @@ export const de_PutDeliveryDestinationCommand = async (
   context: __SerdeContext
 ): Promise<PutDeliveryDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDeliveryDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4132,47 +2295,6 @@ export const de_PutDeliveryDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDeliveryDestinationCommandError
- */
-const de_PutDeliveryDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDeliveryDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDeliveryDestinationPolicyCommand
  */
 export const de_PutDeliveryDestinationPolicyCommand = async (
@@ -4180,7 +2302,7 @@ export const de_PutDeliveryDestinationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutDeliveryDestinationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDeliveryDestinationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4193,41 +2315,6 @@ export const de_PutDeliveryDestinationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDeliveryDestinationPolicyCommandError
- */
-const de_PutDeliveryDestinationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDeliveryDestinationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDeliverySourceCommand
  */
 export const de_PutDeliverySourceCommand = async (
@@ -4235,7 +2322,7 @@ export const de_PutDeliverySourceCommand = async (
   context: __SerdeContext
 ): Promise<PutDeliverySourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDeliverySourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4248,47 +2335,6 @@ export const de_PutDeliverySourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDeliverySourceCommandError
- */
-const de_PutDeliverySourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDeliverySourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudwatchlogs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudwatchlogs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDestinationCommand
  */
 export const de_PutDestinationCommand = async (
@@ -4296,7 +2342,7 @@ export const de_PutDestinationCommand = async (
   context: __SerdeContext
 ): Promise<PutDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4309,38 +2355,6 @@ export const de_PutDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDestinationCommandError
- */
-const de_PutDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDestinationPolicyCommand
  */
 export const de_PutDestinationPolicyCommand = async (
@@ -4348,45 +2362,13 @@ export const de_PutDestinationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutDestinationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDestinationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutDestinationPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutDestinationPolicyCommandError
- */
-const de_PutDestinationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDestinationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4397,7 +2379,7 @@ export const de_PutLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<PutLogEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutLogEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4410,47 +2392,6 @@ export const de_PutLogEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutLogEventsCommandError
- */
-const de_PutLogEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLogEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataAlreadyAcceptedException":
-    case "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException":
-      throw await de_DataAlreadyAcceptedExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSequenceTokenException":
-    case "com.amazonaws.cloudwatchlogs#InvalidSequenceTokenException":
-      throw await de_InvalidSequenceTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnrecognizedClientException":
-    case "com.amazonaws.cloudwatchlogs#UnrecognizedClientException":
-      throw await de_UnrecognizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutMetricFilterCommand
  */
 export const de_PutMetricFilterCommand = async (
@@ -4458,51 +2399,13 @@ export const de_PutMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<PutMetricFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMetricFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutMetricFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutMetricFilterCommandError
- */
-const de_PutMetricFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetricFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4513,7 +2416,7 @@ export const de_PutQueryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<PutQueryDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutQueryDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4526,41 +2429,6 @@ export const de_PutQueryDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutQueryDefinitionCommandError
- */
-const de_PutQueryDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutQueryDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -4568,7 +2436,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4581,38 +2449,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRetentionPolicyCommand
  */
 export const de_PutRetentionPolicyCommand = async (
@@ -4620,48 +2456,13 @@ export const de_PutRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRetentionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutRetentionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutRetentionPolicyCommandError
- */
-const de_PutRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4672,51 +2473,13 @@ export const de_PutSubscriptionFilterCommand = async (
   context: __SerdeContext
 ): Promise<PutSubscriptionFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutSubscriptionFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutSubscriptionFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutSubscriptionFilterCommandError
- */
-const de_PutSubscriptionFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSubscriptionFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4727,7 +2490,7 @@ export const de_StartLiveTailCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartLiveTailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartLiveTailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents = { responseStream: de_StartLiveTailResponseStream(output.body, context) };
   const response: StartLiveTailCommandOutput = {
@@ -4738,44 +2501,6 @@ export const de_StartLiveTailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartLiveTailCommandError
- */
-const de_StartLiveTailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLiveTailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudwatchlogs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartQueryCommand
  */
 export const de_StartQueryCommand = async (
@@ -4783,7 +2508,7 @@ export const de_StartQueryCommand = async (
   context: __SerdeContext
 ): Promise<StartQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4796,44 +2521,6 @@ export const de_StartQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartQueryCommandError
- */
-const de_StartQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedQueryException":
-    case "com.amazonaws.cloudwatchlogs#MalformedQueryException":
-      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopQueryCommand
  */
 export const de_StopQueryCommand = async (
@@ -4841,7 +2528,7 @@ export const de_StopQueryCommand = async (
   context: __SerdeContext
 ): Promise<StopQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4854,38 +2541,6 @@ export const de_StopQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopQueryCommandError
- */
-const de_StopQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagLogGroupCommand
  */
 export const de_TagLogGroupCommand = async (
@@ -4893,42 +2548,13 @@ export const de_TagLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<TagLogGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagLogGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1TagLogGroupCommandError
- */
-const de_TagLogGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagLogGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4939,48 +2565,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.cloudwatchlogs#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4991,7 +2582,7 @@ export const de_TestMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<TestMetricFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestMetricFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5004,35 +2595,6 @@ export const de_TestMetricFilterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TestMetricFilterCommandError
- */
-const de_TestMetricFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestMetricFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagLogGroupCommand
  */
 export const de_UntagLogGroupCommand = async (
@@ -5040,39 +2602,13 @@ export const de_UntagLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<UntagLogGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagLogGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UntagLogGroupCommandError
- */
-const de_UntagLogGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagLogGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5083,45 +2619,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5132,48 +2636,13 @@ export const de_UpdateAnomalyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAnomalyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAnomalyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAnomalyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAnomalyCommandError
- */
-const de_UpdateAnomalyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAnomalyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationAbortedException":
-    case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      throw await de_OperationAbortedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5184,7 +2653,7 @@ export const de_UpdateLogAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLogAnomalyDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLogAnomalyDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateLogAnomalyDetectorCommandOutput = {
@@ -5194,12 +2663,9 @@ export const de_UpdateLogAnomalyDetectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLogAnomalyDetectorCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateLogAnomalyDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLogAnomalyDetectorCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5218,6 +2684,45 @@ const de_UpdateLogAnomalyDetectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.cloudwatchlogs#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudwatchlogs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudwatchlogs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cloudwatchlogs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cloudwatchlogs#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatchlogs#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "DataAlreadyAcceptedException":
+    case "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException":
+      throw await de_DataAlreadyAcceptedExceptionRes(parsedOutput, context);
+    case "InvalidSequenceTokenException":
+    case "com.amazonaws.cloudwatchlogs#InvalidSequenceTokenException":
+      throw await de_InvalidSequenceTokenExceptionRes(parsedOutput, context);
+    case "UnrecognizedClientException":
+    case "com.amazonaws.cloudwatchlogs#UnrecognizedClientException":
+      throw await de_UnrecognizedClientExceptionRes(parsedOutput, context);
+    case "MalformedQueryException":
+    case "com.amazonaws.cloudwatchlogs#MalformedQueryException":
+      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.cloudwatchlogs#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

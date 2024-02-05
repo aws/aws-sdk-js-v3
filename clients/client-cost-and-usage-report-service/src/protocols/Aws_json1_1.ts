@@ -155,7 +155,7 @@ export const de_DeleteReportDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReportDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReportDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -168,35 +168,6 @@ export const de_DeleteReportDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReportDefinitionCommandError
- */
-const de_DeleteReportDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReportDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReportDefinitionsCommand
  */
 export const de_DescribeReportDefinitionsCommand = async (
@@ -204,7 +175,7 @@ export const de_DescribeReportDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReportDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReportDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -217,32 +188,6 @@ export const de_DescribeReportDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReportDefinitionsCommandError
- */
-const de_DescribeReportDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReportDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -250,7 +195,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -263,38 +208,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costandusagereportservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyReportDefinitionCommand
  */
 export const de_ModifyReportDefinitionCommand = async (
@@ -302,7 +215,7 @@ export const de_ModifyReportDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<ModifyReportDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyReportDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -315,35 +228,6 @@ export const de_ModifyReportDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyReportDefinitionCommandError
- */
-const de_ModifyReportDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReportDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutReportDefinitionCommand
  */
 export const de_PutReportDefinitionCommand = async (
@@ -351,7 +235,7 @@ export const de_PutReportDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<PutReportDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutReportDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -364,44 +248,6 @@ export const de_PutReportDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutReportDefinitionCommandError
- */
-const de_PutReportDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutReportDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateReportNameException":
-    case "com.amazonaws.costandusagereportservice#DuplicateReportNameException":
-      throw await de_DuplicateReportNameExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ReportLimitReachedException":
-    case "com.amazonaws.costandusagereportservice#ReportLimitReachedException":
-      throw await de_ReportLimitReachedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costandusagereportservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -409,7 +255,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -422,38 +268,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costandusagereportservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costandusagereportservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -461,7 +275,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -474,12 +288,9 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -489,12 +300,18 @@ const de_UntagResourceCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
       throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costandusagereportservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.costandusagereportservice#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateReportNameException":
+    case "com.amazonaws.costandusagereportservice#DuplicateReportNameException":
+      throw await de_DuplicateReportNameExceptionRes(parsedOutput, context);
+    case "ReportLimitReachedException":
+    case "com.amazonaws.costandusagereportservice#ReportLimitReachedException":
+      throw await de_ReportLimitReachedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

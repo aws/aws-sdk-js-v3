@@ -1570,7 +1570,7 @@ export const de_AddLFTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddLFTagsToResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AddLFTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1584,47 +1584,6 @@ export const de_AddLFTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddLFTagsToResourceCommandError
- */
-const de_AddLFTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddLFTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommand
  */
 export const de_AssumeDecoratedRoleWithSAMLCommand = async (
@@ -1632,7 +1591,7 @@ export const de_AssumeDecoratedRoleWithSAMLCommand = async (
   context: __SerdeContext
 ): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssumeDecoratedRoleWithSAMLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1649,44 +1608,6 @@ export const de_AssumeDecoratedRoleWithSAMLCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssumeDecoratedRoleWithSAMLCommandError
- */
-const de_AssumeDecoratedRoleWithSAMLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssumeDecoratedRoleWithSAMLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGrantPermissionsCommand
  */
 export const de_BatchGrantPermissionsCommand = async (
@@ -1694,7 +1615,7 @@ export const de_BatchGrantPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGrantPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGrantPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1705,35 +1626,6 @@ export const de_BatchGrantPermissionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchGrantPermissionsCommandError
- */
-const de_BatchGrantPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGrantPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1744,7 +1636,7 @@ export const de_BatchRevokePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<BatchRevokePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchRevokePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1758,35 +1650,6 @@ export const de_BatchRevokePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchRevokePermissionsCommandError
- */
-const de_BatchRevokePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchRevokePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelTransactionCommand
  */
 export const de_CancelTransactionCommand = async (
@@ -1794,57 +1657,13 @@ export const de_CancelTransactionCommand = async (
   context: __SerdeContext
 ): Promise<CancelTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelTransactionCommandError
- */
-const de_CancelTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionCommitInProgressException":
-    case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
-      throw await de_TransactionCommitInProgressExceptionRes(parsedOutput, context);
-    case "TransactionCommittedException":
-    case "com.amazonaws.lakeformation#TransactionCommittedException":
-      throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1855,7 +1674,7 @@ export const de_CommitTransactionCommand = async (
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CommitTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1869,47 +1688,6 @@ export const de_CommitTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CommitTransactionCommandError
- */
-const de_CommitTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CommitTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.lakeformation#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDataCellsFilterCommand
  */
 export const de_CreateDataCellsFilterCommand = async (
@@ -1917,57 +1695,13 @@ export const de_CreateDataCellsFilterCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataCellsFilterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataCellsFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDataCellsFilterCommandError
- */
-const de_CreateDataCellsFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataCellsFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.lakeformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1978,7 +1712,7 @@ export const de_CreateLakeFormationIdentityCenterConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLakeFormationIdentityCenterConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1992,47 +1726,6 @@ export const de_CreateLakeFormationIdentityCenterConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateLakeFormationIdentityCenterConfigurationCommandError
- */
-const de_CreateLakeFormationIdentityCenterConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.lakeformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateLakeFormationOptInCommand
  */
 export const de_CreateLakeFormationOptInCommand = async (
@@ -2040,54 +1733,13 @@ export const de_CreateLakeFormationOptInCommand = async (
   context: __SerdeContext
 ): Promise<CreateLakeFormationOptInCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLakeFormationOptInCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateLakeFormationOptInCommandError
- */
-const de_CreateLakeFormationOptInCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLakeFormationOptInCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2098,54 +1750,13 @@ export const de_CreateLFTagCommand = async (
   context: __SerdeContext
 ): Promise<CreateLFTagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLFTagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateLFTagCommandError
- */
-const de_CreateLFTagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLFTagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2156,51 +1767,13 @@ export const de_DeleteDataCellsFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataCellsFilterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataCellsFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDataCellsFilterCommandError
- */
-const de_DeleteDataCellsFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataCellsFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2211,54 +1784,13 @@ export const de_DeleteLakeFormationIdentityCenterConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLakeFormationIdentityCenterConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLakeFormationIdentityCenterConfigurationCommandError
- */
-const de_DeleteLakeFormationIdentityCenterConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2269,54 +1801,13 @@ export const de_DeleteLakeFormationOptInCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLakeFormationOptInCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLakeFormationOptInCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLakeFormationOptInCommandError
- */
-const de_DeleteLakeFormationOptInCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLakeFormationOptInCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2327,51 +1818,13 @@ export const de_DeleteLFTagCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLFTagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLFTagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLFTagCommandError
- */
-const de_DeleteLFTagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLFTagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2382,60 +1835,13 @@ export const de_DeleteObjectsOnCancelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteObjectsOnCancelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteObjectsOnCancelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteObjectsOnCancelCommandError
- */
-const de_DeleteObjectsOnCancelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteObjectsOnCancelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.lakeformation#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.lakeformation#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    case "TransactionCommittedException":
-    case "com.amazonaws.lakeformation#TransactionCommittedException":
-      throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2446,48 +1852,13 @@ export const de_DeregisterResourceCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeregisterResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeregisterResourceCommandError
- */
-const de_DeregisterResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2498,7 +1869,7 @@ export const de_DescribeLakeFormationIdentityCenterConfigurationCommand = async 
   context: __SerdeContext
 ): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeLakeFormationIdentityCenterConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2515,44 +1886,6 @@ export const de_DescribeLakeFormationIdentityCenterConfigurationCommand = async 
 };
 
 /**
- * deserializeAws_restJson1DescribeLakeFormationIdentityCenterConfigurationCommandError
- */
-const de_DescribeLakeFormationIdentityCenterConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeResourceCommand
  */
 export const de_DescribeResourceCommand = async (
@@ -2560,7 +1893,7 @@ export const de_DescribeResourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2574,41 +1907,6 @@ export const de_DescribeResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeResourceCommandError
- */
-const de_DescribeResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTransactionCommand
  */
 export const de_DescribeTransactionCommand = async (
@@ -2616,7 +1914,7 @@ export const de_DescribeTransactionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2630,41 +1928,6 @@ export const de_DescribeTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTransactionCommandError
- */
-const de_DescribeTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExtendTransactionCommand
  */
 export const de_ExtendTransactionCommand = async (
@@ -2672,57 +1935,13 @@ export const de_ExtendTransactionCommand = async (
   context: __SerdeContext
 ): Promise<ExtendTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExtendTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ExtendTransactionCommandError
- */
-const de_ExtendTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExtendTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.lakeformation#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    case "TransactionCommitInProgressException":
-    case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
-      throw await de_TransactionCommitInProgressExceptionRes(parsedOutput, context);
-    case "TransactionCommittedException":
-    case "com.amazonaws.lakeformation#TransactionCommittedException":
-      throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2733,7 +1952,7 @@ export const de_GetDataCellsFilterCommand = async (
   context: __SerdeContext
 ): Promise<GetDataCellsFilterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataCellsFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2747,44 +1966,6 @@ export const de_GetDataCellsFilterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataCellsFilterCommandError
- */
-const de_GetDataCellsFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataCellsFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataLakeSettingsCommand
  */
 export const de_GetDataLakeSettingsCommand = async (
@@ -2792,7 +1973,7 @@ export const de_GetDataLakeSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetDataLakeSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataLakeSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2806,38 +1987,6 @@ export const de_GetDataLakeSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataLakeSettingsCommandError
- */
-const de_GetDataLakeSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataLakeSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEffectivePermissionsForPathCommand
  */
 export const de_GetEffectivePermissionsForPathCommand = async (
@@ -2845,7 +1994,7 @@ export const de_GetEffectivePermissionsForPathCommand = async (
   context: __SerdeContext
 ): Promise<GetEffectivePermissionsForPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEffectivePermissionsForPathCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2860,41 +2009,6 @@ export const de_GetEffectivePermissionsForPathCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEffectivePermissionsForPathCommandError
- */
-const de_GetEffectivePermissionsForPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEffectivePermissionsForPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLFTagCommand
  */
 export const de_GetLFTagCommand = async (
@@ -2902,7 +2016,7 @@ export const de_GetLFTagCommand = async (
   context: __SerdeContext
 ): Promise<GetLFTagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLFTagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2918,44 +2032,6 @@ export const de_GetLFTagCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLFTagCommandError
- */
-const de_GetLFTagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLFTagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetQueryStateCommand
  */
 export const de_GetQueryStateCommand = async (
@@ -2963,7 +2039,7 @@ export const de_GetQueryStateCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetQueryStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2978,38 +2054,6 @@ export const de_GetQueryStateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetQueryStateCommandError
- */
-const de_GetQueryStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetQueryStatisticsCommand
  */
 export const de_GetQueryStatisticsCommand = async (
@@ -3017,7 +2061,7 @@ export const de_GetQueryStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetQueryStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3033,47 +2077,6 @@ export const de_GetQueryStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetQueryStatisticsCommandError
- */
-const de_GetQueryStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredException":
-    case "com.amazonaws.lakeformation#ExpiredException":
-      throw await de_ExpiredExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "StatisticsNotReadyYetException":
-    case "com.amazonaws.lakeformation#StatisticsNotReadyYetException":
-      throw await de_StatisticsNotReadyYetExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.lakeformation#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceLFTagsCommand
  */
 export const de_GetResourceLFTagsCommand = async (
@@ -3081,7 +2084,7 @@ export const de_GetResourceLFTagsCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceLFTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceLFTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3097,47 +2100,6 @@ export const de_GetResourceLFTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceLFTagsCommandError
- */
-const de_GetResourceLFTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceLFTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.lakeformation#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTableObjectsCommand
  */
 export const de_GetTableObjectsCommand = async (
@@ -3145,7 +2107,7 @@ export const de_GetTableObjectsCommand = async (
   context: __SerdeContext
 ): Promise<GetTableObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTableObjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3160,50 +2122,6 @@ export const de_GetTableObjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTableObjectsCommandError
- */
-const de_GetTableObjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableObjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.lakeformation#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.lakeformation#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    case "TransactionCommittedException":
-    case "com.amazonaws.lakeformation#TransactionCommittedException":
-      throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand
  */
 export const de_GetTemporaryGluePartitionCredentialsCommand = async (
@@ -3211,7 +2129,7 @@ export const de_GetTemporaryGluePartitionCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTemporaryGluePartitionCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3228,47 +2146,6 @@ export const de_GetTemporaryGluePartitionCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommandError
- */
-const de_GetTemporaryGluePartitionCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "PermissionTypeMismatchException":
-    case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
-      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand
  */
 export const de_GetTemporaryGlueTableCredentialsCommand = async (
@@ -3276,7 +2153,7 @@ export const de_GetTemporaryGlueTableCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<GetTemporaryGlueTableCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTemporaryGlueTableCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3294,47 +2171,6 @@ export const de_GetTemporaryGlueTableCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommandError
- */
-const de_GetTemporaryGlueTableCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemporaryGlueTableCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "PermissionTypeMismatchException":
-    case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
-      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkUnitResultsCommand
  */
 export const de_GetWorkUnitResultsCommand = async (
@@ -3342,7 +2178,7 @@ export const de_GetWorkUnitResultsCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetWorkUnitResultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkUnitResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3354,44 +2190,6 @@ export const de_GetWorkUnitResultsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkUnitResultsCommandError
- */
-const de_GetWorkUnitResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkUnitResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredException":
-    case "com.amazonaws.lakeformation#ExpiredException":
-      throw await de_ExpiredExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.lakeformation#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkUnitsCommand
  */
 export const de_GetWorkUnitsCommand = async (
@@ -3399,7 +2197,7 @@ export const de_GetWorkUnitsCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkUnitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkUnitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3415,44 +2213,6 @@ export const de_GetWorkUnitsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkUnitsCommandError
- */
-const de_GetWorkUnitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkUnitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredException":
-    case "com.amazonaws.lakeformation#ExpiredException":
-      throw await de_ExpiredExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "WorkUnitsNotReadyYetException":
-    case "com.amazonaws.lakeformation#WorkUnitsNotReadyYetException":
-      throw await de_WorkUnitsNotReadyYetExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GrantPermissionsCommand
  */
 export const de_GrantPermissionsCommand = async (
@@ -3460,45 +2220,13 @@ export const de_GrantPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<GrantPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GrantPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GrantPermissionsCommandError
- */
-const de_GrantPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GrantPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3509,7 +2237,7 @@ export const de_ListDataCellsFilterCommand = async (
   context: __SerdeContext
 ): Promise<ListDataCellsFilterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataCellsFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3524,41 +2252,6 @@ export const de_ListDataCellsFilterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataCellsFilterCommandError
- */
-const de_ListDataCellsFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataCellsFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLakeFormationOptInsCommand
  */
 export const de_ListLakeFormationOptInsCommand = async (
@@ -3566,7 +2259,7 @@ export const de_ListLakeFormationOptInsCommand = async (
   context: __SerdeContext
 ): Promise<ListLakeFormationOptInsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLakeFormationOptInsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3581,41 +2274,6 @@ export const de_ListLakeFormationOptInsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLakeFormationOptInsCommandError
- */
-const de_ListLakeFormationOptInsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLakeFormationOptInsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLFTagsCommand
  */
 export const de_ListLFTagsCommand = async (
@@ -3623,7 +2281,7 @@ export const de_ListLFTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListLFTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLFTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3638,44 +2296,6 @@ export const de_ListLFTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLFTagsCommandError
- */
-const de_ListLFTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLFTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPermissionsCommand
  */
 export const de_ListPermissionsCommand = async (
@@ -3683,7 +2303,7 @@ export const de_ListPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3698,38 +2318,6 @@ export const de_ListPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPermissionsCommandError
- */
-const de_ListPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListResourcesCommand
  */
 export const de_ListResourcesCommand = async (
@@ -3737,7 +2325,7 @@ export const de_ListResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3752,38 +2340,6 @@ export const de_ListResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResourcesCommandError
- */
-const de_ListResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTableStorageOptimizersCommand
  */
 export const de_ListTableStorageOptimizersCommand = async (
@@ -3791,7 +2347,7 @@ export const de_ListTableStorageOptimizersCommand = async (
   context: __SerdeContext
 ): Promise<ListTableStorageOptimizersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTableStorageOptimizersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3806,41 +2362,6 @@ export const de_ListTableStorageOptimizersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTableStorageOptimizersCommandError
- */
-const de_ListTableStorageOptimizersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTableStorageOptimizersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTransactionsCommand
  */
 export const de_ListTransactionsCommand = async (
@@ -3848,7 +2369,7 @@ export const de_ListTransactionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTransactionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTransactionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3863,38 +2384,6 @@ export const de_ListTransactionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTransactionsCommandError
- */
-const de_ListTransactionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTransactionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutDataLakeSettingsCommand
  */
 export const de_PutDataLakeSettingsCommand = async (
@@ -3902,42 +2391,13 @@ export const de_PutDataLakeSettingsCommand = async (
   context: __SerdeContext
 ): Promise<PutDataLakeSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDataLakeSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDataLakeSettingsCommandError
- */
-const de_PutDataLakeSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDataLakeSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3948,57 +2408,13 @@ export const de_RegisterResourceCommand = async (
   context: __SerdeContext
 ): Promise<RegisterResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RegisterResourceCommandError
- */
-const de_RegisterResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.lakeformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4009,7 +2425,7 @@ export const de_RemoveLFTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<RemoveLFTagsFromResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveLFTagsFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4023,50 +2439,6 @@ export const de_RemoveLFTagsFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RemoveLFTagsFromResourceCommandError
- */
-const de_RemoveLFTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveLFTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.lakeformation#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RevokePermissionsCommand
  */
 export const de_RevokePermissionsCommand = async (
@@ -4074,45 +2446,13 @@ export const de_RevokePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<RevokePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RevokePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RevokePermissionsCommandError
- */
-const de_RevokePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4123,7 +2463,7 @@ export const de_SearchDatabasesByLFTagsCommand = async (
   context: __SerdeContext
 ): Promise<SearchDatabasesByLFTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchDatabasesByLFTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4138,47 +2478,6 @@ export const de_SearchDatabasesByLFTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchDatabasesByLFTagsCommandError
- */
-const de_SearchDatabasesByLFTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchDatabasesByLFTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.lakeformation#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchTablesByLFTagsCommand
  */
 export const de_SearchTablesByLFTagsCommand = async (
@@ -4186,7 +2485,7 @@ export const de_SearchTablesByLFTagsCommand = async (
   context: __SerdeContext
 ): Promise<SearchTablesByLFTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchTablesByLFTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4201,47 +2500,6 @@ export const de_SearchTablesByLFTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchTablesByLFTagsCommandError
- */
-const de_SearchTablesByLFTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchTablesByLFTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.lakeformation#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartQueryPlanningCommand
  */
 export const de_StartQueryPlanningCommand = async (
@@ -4249,7 +2507,7 @@ export const de_StartQueryPlanningCommand = async (
   context: __SerdeContext
 ): Promise<StartQueryPlanningCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartQueryPlanningCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4263,41 +2521,6 @@ export const de_StartQueryPlanningCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartQueryPlanningCommandError
- */
-const de_StartQueryPlanningCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartQueryPlanningCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.lakeformation#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartTransactionCommand
  */
 export const de_StartTransactionCommand = async (
@@ -4305,7 +2528,7 @@ export const de_StartTransactionCommand = async (
   context: __SerdeContext
 ): Promise<StartTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4319,35 +2542,6 @@ export const de_StartTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartTransactionCommandError
- */
-const de_StartTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataCellsFilterCommand
  */
 export const de_UpdateDataCellsFilterCommand = async (
@@ -4355,54 +2549,13 @@ export const de_UpdateDataCellsFilterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataCellsFilterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataCellsFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDataCellsFilterCommandError
- */
-const de_UpdateDataCellsFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataCellsFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4413,54 +2566,13 @@ export const de_UpdateLakeFormationIdentityCenterConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLakeFormationIdentityCenterConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateLakeFormationIdentityCenterConfigurationCommandError
- */
-const de_UpdateLakeFormationIdentityCenterConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4471,54 +2583,13 @@ export const de_UpdateLFTagCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLFTagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLFTagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateLFTagCommandError
- */
-const de_UpdateLFTagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLFTagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lakeformation#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4529,48 +2600,13 @@ export const de_UpdateResourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateResourceCommandError
- */
-const de_UpdateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4581,63 +2617,13 @@ export const de_UpdateTableObjectsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTableObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTableObjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateTableObjectsCommandError
- */
-const de_UpdateTableObjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableObjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.lakeformation#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.lakeformation#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lakeformation#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.lakeformation#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.lakeformation#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.lakeformation#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    case "TransactionCommitInProgressException":
-    case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
-      throw await de_TransactionCommitInProgressExceptionRes(parsedOutput, context);
-    case "TransactionCommittedException":
-    case "com.amazonaws.lakeformation#TransactionCommittedException":
-      throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4648,7 +2634,7 @@ export const de_UpdateTableStorageOptimizerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTableStorageOptimizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTableStorageOptimizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4662,12 +2648,9 @@ export const de_UpdateTableStorageOptimizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTableStorageOptimizerCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateTableStorageOptimizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableStorageOptimizerCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4677,6 +2660,9 @@ const de_UpdateTableStorageOptimizerCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.lakeformation#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
@@ -4686,6 +2672,45 @@ const de_UpdateTableStorageOptimizerCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    case "TransactionCommitInProgressException":
+    case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
+      throw await de_TransactionCommitInProgressExceptionRes(parsedOutput, context);
+    case "TransactionCommittedException":
+    case "com.amazonaws.lakeformation#TransactionCommittedException":
+      throw await de_TransactionCommittedExceptionRes(parsedOutput, context);
+    case "TransactionCanceledException":
+    case "com.amazonaws.lakeformation#TransactionCanceledException":
+      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.lakeformation#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
+      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.lakeformation#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "ExpiredException":
+    case "com.amazonaws.lakeformation#ExpiredException":
+      throw await de_ExpiredExceptionRes(parsedOutput, context);
+    case "StatisticsNotReadyYetException":
+    case "com.amazonaws.lakeformation#StatisticsNotReadyYetException":
+      throw await de_StatisticsNotReadyYetExceptionRes(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.lakeformation#ThrottledException":
+      throw await de_ThrottledExceptionRes(parsedOutput, context);
+    case "GlueEncryptionException":
+    case "com.amazonaws.lakeformation#GlueEncryptionException":
+      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
+      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
+    case "WorkUnitsNotReadyYetException":
+    case "com.amazonaws.lakeformation#WorkUnitsNotReadyYetException":
+      throw await de_WorkUnitsNotReadyYetExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

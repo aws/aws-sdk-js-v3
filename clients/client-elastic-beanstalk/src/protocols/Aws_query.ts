@@ -1139,39 +1139,13 @@ export const de_AbortEnvironmentUpdateCommand = async (
   context: __SerdeContext
 ): Promise<AbortEnvironmentUpdateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AbortEnvironmentUpdateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AbortEnvironmentUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAbortEnvironmentUpdateCommandError
- */
-const de_AbortEnvironmentUpdateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AbortEnvironmentUpdateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1182,7 +1156,7 @@ export const de_ApplyEnvironmentManagedActionCommand = async (
   context: __SerdeContext
 ): Promise<ApplyEnvironmentManagedActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ApplyEnvironmentManagedActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1195,35 +1169,6 @@ export const de_ApplyEnvironmentManagedActionCommand = async (
 };
 
 /**
- * deserializeAws_queryApplyEnvironmentManagedActionCommandError
- */
-const de_ApplyEnvironmentManagedActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplyEnvironmentManagedActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "ManagedActionInvalidStateException":
-    case "com.amazonaws.elasticbeanstalk#ManagedActionInvalidStateException":
-      throw await de_ManagedActionInvalidStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAssociateEnvironmentOperationsRoleCommand
  */
 export const de_AssociateEnvironmentOperationsRoleCommand = async (
@@ -1231,39 +1176,13 @@ export const de_AssociateEnvironmentOperationsRoleCommand = async (
   context: __SerdeContext
 ): Promise<AssociateEnvironmentOperationsRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateEnvironmentOperationsRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AssociateEnvironmentOperationsRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAssociateEnvironmentOperationsRoleCommandError
- */
-const de_AssociateEnvironmentOperationsRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateEnvironmentOperationsRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1274,7 +1193,7 @@ export const de_CheckDNSAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<CheckDNSAvailabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CheckDNSAvailabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1287,26 +1206,6 @@ export const de_CheckDNSAvailabilityCommand = async (
 };
 
 /**
- * deserializeAws_queryCheckDNSAvailabilityCommandError
- */
-const de_CheckDNSAvailabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CheckDNSAvailabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryComposeEnvironmentsCommand
  */
 export const de_ComposeEnvironmentsCommand = async (
@@ -1314,7 +1213,7 @@ export const de_ComposeEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<ComposeEnvironmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ComposeEnvironmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1327,35 +1226,6 @@ export const de_ComposeEnvironmentsCommand = async (
 };
 
 /**
- * deserializeAws_queryComposeEnvironmentsCommandError
- */
-const de_ComposeEnvironmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ComposeEnvironmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "TooManyEnvironmentsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException":
-      throw await de_TooManyEnvironmentsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateApplicationCommand
  */
 export const de_CreateApplicationCommand = async (
@@ -1363,7 +1233,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1376,32 +1246,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TooManyApplicationsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      throw await de_TooManyApplicationsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateApplicationVersionCommand
  */
 export const de_CreateApplicationVersionCommand = async (
@@ -1409,7 +1253,7 @@ export const de_CreateApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1422,44 +1266,6 @@ export const de_CreateApplicationVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateApplicationVersionCommandError
- */
-const de_CreateApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeBuildNotInServiceRegionException":
-    case "com.amazonaws.elasticbeanstalk#CodeBuildNotInServiceRegionException":
-      throw await de_CodeBuildNotInServiceRegionExceptionRes(parsedOutput, context);
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "S3LocationNotInServiceRegionException":
-    case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
-      throw await de_S3LocationNotInServiceRegionExceptionRes(parsedOutput, context);
-    case "TooManyApplicationVersionsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
-      throw await de_TooManyApplicationVersionsExceptionRes(parsedOutput, context);
-    case "TooManyApplicationsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
-      throw await de_TooManyApplicationsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateConfigurationTemplateCommand
  */
 export const de_CreateConfigurationTemplateCommand = async (
@@ -1467,7 +1273,7 @@ export const de_CreateConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1480,38 +1286,6 @@ export const de_CreateConfigurationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateConfigurationTemplateCommandError
- */
-const de_CreateConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "TooManyBucketsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
-    case "TooManyConfigurationTemplatesException":
-    case "com.amazonaws.elasticbeanstalk#TooManyConfigurationTemplatesException":
-      throw await de_TooManyConfigurationTemplatesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateEnvironmentCommand
  */
 export const de_CreateEnvironmentCommand = async (
@@ -1519,7 +1293,7 @@ export const de_CreateEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1532,35 +1306,6 @@ export const de_CreateEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateEnvironmentCommandError
- */
-const de_CreateEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "TooManyEnvironmentsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException":
-      throw await de_TooManyEnvironmentsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreatePlatformVersionCommand
  */
 export const de_CreatePlatformVersionCommand = async (
@@ -1568,7 +1313,7 @@ export const de_CreatePlatformVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlatformVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePlatformVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1581,38 +1326,6 @@ export const de_CreatePlatformVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryCreatePlatformVersionCommandError
- */
-const de_CreatePlatformVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlatformVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "TooManyPlatformsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyPlatformsException":
-      throw await de_TooManyPlatformsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateStorageLocationCommand
  */
 export const de_CreateStorageLocationCommand = async (
@@ -1620,7 +1333,7 @@ export const de_CreateStorageLocationCommand = async (
   context: __SerdeContext
 ): Promise<CreateStorageLocationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStorageLocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1633,38 +1346,6 @@ export const de_CreateStorageLocationCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateStorageLocationCommandError
- */
-const de_CreateStorageLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStorageLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "S3SubscriptionRequiredException":
-    case "com.amazonaws.elasticbeanstalk#S3SubscriptionRequiredException":
-      throw await de_S3SubscriptionRequiredExceptionRes(parsedOutput, context);
-    case "TooManyBucketsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -1672,39 +1353,13 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationInProgressFailure":
-    case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1715,48 +1370,13 @@ export const de_DeleteApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteApplicationVersionCommandError
- */
-const de_DeleteApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "OperationInProgressFailure":
-    case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "S3LocationNotInServiceRegionException":
-    case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
-      throw await de_S3LocationNotInServiceRegionExceptionRes(parsedOutput, context);
-    case "SourceBundleDeletionFailure":
-    case "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException":
-      throw await de_SourceBundleDeletionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1767,39 +1387,13 @@ export const de_DeleteConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConfigurationTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteConfigurationTemplateCommandError
- */
-const de_DeleteConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationInProgressFailure":
-    case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1810,33 +1404,13 @@ export const de_DeleteEnvironmentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEnvironmentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEnvironmentConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEnvironmentConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteEnvironmentConfigurationCommandError
- */
-const de_DeleteEnvironmentConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEnvironmentConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1847,7 +1421,7 @@ export const de_DeletePlatformVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeletePlatformVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePlatformVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1860,41 +1434,6 @@ export const de_DeletePlatformVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryDeletePlatformVersionCommandError
- */
-const de_DeletePlatformVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlatformVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "OperationInProgressFailure":
-    case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "PlatformVersionStillReferencedException":
-    case "com.amazonaws.elasticbeanstalk#PlatformVersionStillReferencedException":
-      throw await de_PlatformVersionStillReferencedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAccountAttributesCommand
  */
 export const de_DescribeAccountAttributesCommand = async (
@@ -1902,7 +1441,7 @@ export const de_DescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1915,32 +1454,6 @@ export const de_DescribeAccountAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeApplicationsCommand
  */
 export const de_DescribeApplicationsCommand = async (
@@ -1948,7 +1461,7 @@ export const de_DescribeApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1961,26 +1474,6 @@ export const de_DescribeApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeApplicationsCommandError
- */
-const de_DescribeApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeApplicationVersionsCommand
  */
 export const de_DescribeApplicationVersionsCommand = async (
@@ -1988,7 +1481,7 @@ export const de_DescribeApplicationVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2001,26 +1494,6 @@ export const de_DescribeApplicationVersionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeApplicationVersionsCommandError
- */
-const de_DescribeApplicationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeConfigurationOptionsCommand
  */
 export const de_DescribeConfigurationOptionsCommand = async (
@@ -2028,7 +1501,7 @@ export const de_DescribeConfigurationOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2041,32 +1514,6 @@ export const de_DescribeConfigurationOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeConfigurationOptionsCommandError
- */
-const de_DescribeConfigurationOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TooManyBucketsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeConfigurationSettingsCommand
  */
 export const de_DescribeConfigurationSettingsCommand = async (
@@ -2074,7 +1521,7 @@ export const de_DescribeConfigurationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2087,32 +1534,6 @@ export const de_DescribeConfigurationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeConfigurationSettingsCommandError
- */
-const de_DescribeConfigurationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TooManyBucketsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEnvironmentHealthCommand
  */
 export const de_DescribeEnvironmentHealthCommand = async (
@@ -2120,7 +1541,7 @@ export const de_DescribeEnvironmentHealthCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentHealthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEnvironmentHealthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2133,35 +1554,6 @@ export const de_DescribeEnvironmentHealthCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEnvironmentHealthCommandError
- */
-const de_DescribeEnvironmentHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.elasticbeanstalk#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand
  */
 export const de_DescribeEnvironmentManagedActionHistoryCommand = async (
@@ -2169,7 +1561,7 @@ export const de_DescribeEnvironmentManagedActionHistoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEnvironmentManagedActionHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2185,32 +1577,6 @@ export const de_DescribeEnvironmentManagedActionHistoryCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommandError
- */
-const de_DescribeEnvironmentManagedActionHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEnvironmentManagedActionsCommand
  */
 export const de_DescribeEnvironmentManagedActionsCommand = async (
@@ -2218,7 +1584,7 @@ export const de_DescribeEnvironmentManagedActionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentManagedActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEnvironmentManagedActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2231,32 +1597,6 @@ export const de_DescribeEnvironmentManagedActionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEnvironmentManagedActionsCommandError
- */
-const de_DescribeEnvironmentManagedActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentManagedActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEnvironmentResourcesCommand
  */
 export const de_DescribeEnvironmentResourcesCommand = async (
@@ -2264,7 +1604,7 @@ export const de_DescribeEnvironmentResourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEnvironmentResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2277,32 +1617,6 @@ export const de_DescribeEnvironmentResourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEnvironmentResourcesCommandError
- */
-const de_DescribeEnvironmentResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEnvironmentsCommand
  */
 export const de_DescribeEnvironmentsCommand = async (
@@ -2310,7 +1624,7 @@ export const de_DescribeEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEnvironmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2323,26 +1637,6 @@ export const de_DescribeEnvironmentsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEnvironmentsCommandError
- */
-const de_DescribeEnvironmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEnvironmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeEventsCommand
  */
 export const de_DescribeEventsCommand = async (
@@ -2350,7 +1644,7 @@ export const de_DescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2363,26 +1657,6 @@ export const de_DescribeEventsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeInstancesHealthCommand
  */
 export const de_DescribeInstancesHealthCommand = async (
@@ -2390,7 +1664,7 @@ export const de_DescribeInstancesHealthCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstancesHealthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstancesHealthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2403,35 +1677,6 @@ export const de_DescribeInstancesHealthCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeInstancesHealthCommandError
- */
-const de_DescribeInstancesHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancesHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.elasticbeanstalk#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribePlatformVersionCommand
  */
 export const de_DescribePlatformVersionCommand = async (
@@ -2439,7 +1684,7 @@ export const de_DescribePlatformVersionCommand = async (
   context: __SerdeContext
 ): Promise<DescribePlatformVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePlatformVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2452,35 +1697,6 @@ export const de_DescribePlatformVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribePlatformVersionCommandError
- */
-const de_DescribePlatformVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePlatformVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDisassociateEnvironmentOperationsRoleCommand
  */
 export const de_DisassociateEnvironmentOperationsRoleCommand = async (
@@ -2488,39 +1704,13 @@ export const de_DisassociateEnvironmentOperationsRoleCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateEnvironmentOperationsRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateEnvironmentOperationsRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDisassociateEnvironmentOperationsRoleCommandError
- */
-const de_DisassociateEnvironmentOperationsRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateEnvironmentOperationsRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2531,7 +1721,7 @@ export const de_ListAvailableSolutionStacksCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableSolutionStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableSolutionStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2544,26 +1734,6 @@ export const de_ListAvailableSolutionStacksCommand = async (
 };
 
 /**
- * deserializeAws_queryListAvailableSolutionStacksCommandError
- */
-const de_ListAvailableSolutionStacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableSolutionStacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListPlatformBranchesCommand
  */
 export const de_ListPlatformBranchesCommand = async (
@@ -2571,7 +1741,7 @@ export const de_ListPlatformBranchesCommand = async (
   context: __SerdeContext
 ): Promise<ListPlatformBranchesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPlatformBranchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2584,26 +1754,6 @@ export const de_ListPlatformBranchesCommand = async (
 };
 
 /**
- * deserializeAws_queryListPlatformBranchesCommandError
- */
-const de_ListPlatformBranchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlatformBranchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListPlatformVersionsCommand
  */
 export const de_ListPlatformVersionsCommand = async (
@@ -2611,7 +1761,7 @@ export const de_ListPlatformVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPlatformVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPlatformVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2624,35 +1774,6 @@ export const de_ListPlatformVersionsCommand = async (
 };
 
 /**
- * deserializeAws_queryListPlatformVersionsCommandError
- */
-const de_ListPlatformVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlatformVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ElasticBeanstalkServiceException":
-    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
-      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2660,7 +1781,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2673,38 +1794,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elasticbeanstalk#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.elasticbeanstalk#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRebuildEnvironmentCommand
  */
 export const de_RebuildEnvironmentCommand = async (
@@ -2712,39 +1801,13 @@ export const de_RebuildEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<RebuildEnvironmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebuildEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RebuildEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryRebuildEnvironmentCommandError
- */
-const de_RebuildEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebuildEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2755,33 +1818,13 @@ export const de_RequestEnvironmentInfoCommand = async (
   context: __SerdeContext
 ): Promise<RequestEnvironmentInfoCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestEnvironmentInfoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RequestEnvironmentInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryRequestEnvironmentInfoCommandError
- */
-const de_RequestEnvironmentInfoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestEnvironmentInfoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2792,33 +1835,13 @@ export const de_RestartAppServerCommand = async (
   context: __SerdeContext
 ): Promise<RestartAppServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestartAppServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RestartAppServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryRestartAppServerCommandError
- */
-const de_RestartAppServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestartAppServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2829,7 +1852,7 @@ export const de_RetrieveEnvironmentInfoCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveEnvironmentInfoCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RetrieveEnvironmentInfoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2842,26 +1865,6 @@ export const de_RetrieveEnvironmentInfoCommand = async (
 };
 
 /**
- * deserializeAws_queryRetrieveEnvironmentInfoCommandError
- */
-const de_RetrieveEnvironmentInfoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveEnvironmentInfoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_querySwapEnvironmentCNAMEsCommand
  */
 export const de_SwapEnvironmentCNAMEsCommand = async (
@@ -2869,33 +1872,13 @@ export const de_SwapEnvironmentCNAMEsCommand = async (
   context: __SerdeContext
 ): Promise<SwapEnvironmentCNAMEsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SwapEnvironmentCNAMEsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SwapEnvironmentCNAMEsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySwapEnvironmentCNAMEsCommandError
- */
-const de_SwapEnvironmentCNAMEsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwapEnvironmentCNAMEsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2906,7 +1889,7 @@ export const de_TerminateEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<TerminateEnvironmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2919,32 +1902,6 @@ export const de_TerminateEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_queryTerminateEnvironmentCommandError
- */
-const de_TerminateEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateApplicationCommand
  */
 export const de_UpdateApplicationCommand = async (
@@ -2952,7 +1909,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2965,26 +1922,6 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryUpdateApplicationResourceLifecycleCommand
  */
 export const de_UpdateApplicationResourceLifecycleCommand = async (
@@ -2992,7 +1929,7 @@ export const de_UpdateApplicationResourceLifecycleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationResourceLifecycleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationResourceLifecycleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3005,32 +1942,6 @@ export const de_UpdateApplicationResourceLifecycleCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateApplicationResourceLifecycleCommandError
- */
-const de_UpdateApplicationResourceLifecycleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationResourceLifecycleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateApplicationVersionCommand
  */
 export const de_UpdateApplicationVersionCommand = async (
@@ -3038,7 +1949,7 @@ export const de_UpdateApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3051,26 +1962,6 @@ export const de_UpdateApplicationVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateApplicationVersionCommandError
- */
-const de_UpdateApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryUpdateConfigurationTemplateCommand
  */
 export const de_UpdateConfigurationTemplateCommand = async (
@@ -3078,7 +1969,7 @@ export const de_UpdateConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3091,35 +1982,6 @@ export const de_UpdateConfigurationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateConfigurationTemplateCommandError
- */
-const de_UpdateConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "TooManyBucketsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateEnvironmentCommand
  */
 export const de_UpdateEnvironmentCommand = async (
@@ -3127,7 +1989,7 @@ export const de_UpdateEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3140,35 +2002,6 @@ export const de_UpdateEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateEnvironmentCommandError
- */
-const de_UpdateEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "TooManyBucketsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
-      throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateTagsForResourceCommand
  */
 export const de_UpdateTagsForResourceCommand = async (
@@ -3176,51 +2009,13 @@ export const de_UpdateTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateTagsForResourceCommandError
- */
-const de_UpdateTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPrivilegesException":
-    case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
-      throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
-    case "OperationInProgressFailure":
-    case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elasticbeanstalk#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.elasticbeanstalk#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.elasticbeanstalk#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3231,7 +2026,7 @@ export const de_ValidateConfigurationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<ValidateConfigurationSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ValidateConfigurationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3244,12 +2039,9 @@ export const de_ValidateConfigurationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_queryValidateConfigurationSettingsCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_ValidateConfigurationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidateConfigurationSettingsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3259,9 +2051,60 @@ const de_ValidateConfigurationSettingsCommandError = async (
     case "InsufficientPrivilegesException":
     case "com.amazonaws.elasticbeanstalk#InsufficientPrivilegesException":
       throw await de_InsufficientPrivilegesExceptionRes(parsedOutput, context);
+    case "ElasticBeanstalkServiceException":
+    case "com.amazonaws.elasticbeanstalk#ElasticBeanstalkServiceException":
+      throw await de_ElasticBeanstalkServiceExceptionRes(parsedOutput, context);
+    case "ManagedActionInvalidStateException":
+    case "com.amazonaws.elasticbeanstalk#ManagedActionInvalidStateException":
+      throw await de_ManagedActionInvalidStateExceptionRes(parsedOutput, context);
+    case "TooManyEnvironmentsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException":
+      throw await de_TooManyEnvironmentsExceptionRes(parsedOutput, context);
+    case "TooManyApplicationsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationsException":
+      throw await de_TooManyApplicationsExceptionRes(parsedOutput, context);
+    case "CodeBuildNotInServiceRegionException":
+    case "com.amazonaws.elasticbeanstalk#CodeBuildNotInServiceRegionException":
+      throw await de_CodeBuildNotInServiceRegionExceptionRes(parsedOutput, context);
+    case "S3LocationNotInServiceRegionException":
+    case "com.amazonaws.elasticbeanstalk#S3LocationNotInServiceRegionException":
+      throw await de_S3LocationNotInServiceRegionExceptionRes(parsedOutput, context);
+    case "TooManyApplicationVersionsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyApplicationVersionsException":
+      throw await de_TooManyApplicationVersionsExceptionRes(parsedOutput, context);
     case "TooManyBucketsException":
     case "com.amazonaws.elasticbeanstalk#TooManyBucketsException":
       throw await de_TooManyBucketsExceptionRes(parsedOutput, context);
+    case "TooManyConfigurationTemplatesException":
+    case "com.amazonaws.elasticbeanstalk#TooManyConfigurationTemplatesException":
+      throw await de_TooManyConfigurationTemplatesExceptionRes(parsedOutput, context);
+    case "TooManyPlatformsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyPlatformsException":
+      throw await de_TooManyPlatformsExceptionRes(parsedOutput, context);
+    case "S3SubscriptionRequiredException":
+    case "com.amazonaws.elasticbeanstalk#S3SubscriptionRequiredException":
+      throw await de_S3SubscriptionRequiredExceptionRes(parsedOutput, context);
+    case "OperationInProgressFailure":
+    case "com.amazonaws.elasticbeanstalk#OperationInProgressException":
+      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
+    case "SourceBundleDeletionFailure":
+    case "com.amazonaws.elasticbeanstalk#SourceBundleDeletionException":
+      throw await de_SourceBundleDeletionExceptionRes(parsedOutput, context);
+    case "PlatformVersionStillReferencedException":
+    case "com.amazonaws.elasticbeanstalk#PlatformVersionStillReferencedException":
+      throw await de_PlatformVersionStillReferencedExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.elasticbeanstalk#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticbeanstalk#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceTypeNotSupportedException":
+    case "com.amazonaws.elasticbeanstalk#ResourceTypeNotSupportedException":
+      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.elasticbeanstalk#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

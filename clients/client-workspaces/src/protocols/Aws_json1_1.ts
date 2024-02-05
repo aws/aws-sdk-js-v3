@@ -1368,7 +1368,7 @@ export const de_AssociateConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<AssociateConnectionAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateConnectionAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1381,47 +1381,6 @@ export const de_AssociateConnectionAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateConnectionAliasCommandError
- */
-const de_AssociateConnectionAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateConnectionAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAssociatedException":
-    case "com.amazonaws.workspaces#ResourceAssociatedException":
-      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateIpGroupsCommand
  */
 export const de_AssociateIpGroupsCommand = async (
@@ -1429,7 +1388,7 @@ export const de_AssociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<AssociateIpGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateIpGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1442,47 +1401,6 @@ export const de_AssociateIpGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateIpGroupsCommandError
- */
-const de_AssociateIpGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateIpGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateWorkspaceApplicationCommand
  */
 export const de_AssociateWorkspaceApplicationCommand = async (
@@ -1490,7 +1408,7 @@ export const de_AssociateWorkspaceApplicationCommand = async (
   context: __SerdeContext
 ): Promise<AssociateWorkspaceApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateWorkspaceApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1503,59 +1421,6 @@ export const de_AssociateWorkspaceApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateWorkspaceApplicationCommandError
- */
-const de_AssociateWorkspaceApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateWorkspaceApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ApplicationNotSupportedException":
-    case "com.amazonaws.workspaces#ApplicationNotSupportedException":
-      throw await de_ApplicationNotSupportedExceptionRes(parsedOutput, context);
-    case "ComputeNotCompatibleException":
-    case "com.amazonaws.workspaces#ComputeNotCompatibleException":
-      throw await de_ComputeNotCompatibleExceptionRes(parsedOutput, context);
-    case "IncompatibleApplicationsException":
-    case "com.amazonaws.workspaces#IncompatibleApplicationsException":
-      throw await de_IncompatibleApplicationsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperatingSystemNotCompatibleException":
-    case "com.amazonaws.workspaces#OperatingSystemNotCompatibleException":
-      throw await de_OperatingSystemNotCompatibleExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.workspaces#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AuthorizeIpRulesCommand
  */
 export const de_AuthorizeIpRulesCommand = async (
@@ -1563,7 +1428,7 @@ export const de_AuthorizeIpRulesCommand = async (
   context: __SerdeContext
 ): Promise<AuthorizeIpRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AuthorizeIpRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1576,44 +1441,6 @@ export const de_AuthorizeIpRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AuthorizeIpRulesCommandError
- */
-const de_AuthorizeIpRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeIpRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CopyWorkspaceImageCommand
  */
 export const de_CopyWorkspaceImageCommand = async (
@@ -1621,7 +1448,7 @@ export const de_CopyWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<CopyWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyWorkspaceImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1634,50 +1461,6 @@ export const de_CopyWorkspaceImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopyWorkspaceImageCommandError
- */
-const de_CopyWorkspaceImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyWorkspaceImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConnectClientAddInCommand
  */
 export const de_CreateConnectClientAddInCommand = async (
@@ -1685,7 +1468,7 @@ export const de_CreateConnectClientAddInCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectClientAddInCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectClientAddInCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1698,44 +1481,6 @@ export const de_CreateConnectClientAddInCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConnectClientAddInCommandError
- */
-const de_CreateConnectClientAddInCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectClientAddInCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceCreationFailedException":
-    case "com.amazonaws.workspaces#ResourceCreationFailedException":
-      throw await de_ResourceCreationFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConnectionAliasCommand
  */
 export const de_CreateConnectionAliasCommand = async (
@@ -1743,7 +1488,7 @@ export const de_CreateConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectionAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectionAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1756,47 +1501,6 @@ export const de_CreateConnectionAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConnectionAliasCommandError
- */
-const de_CreateConnectionAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectionAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateIpGroupCommand
  */
 export const de_CreateIpGroupCommand = async (
@@ -1804,7 +1508,7 @@ export const de_CreateIpGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateIpGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIpGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1817,44 +1521,6 @@ export const de_CreateIpGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateIpGroupCommandError
- */
-const de_CreateIpGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIpGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceCreationFailedException":
-    case "com.amazonaws.workspaces#ResourceCreationFailedException":
-      throw await de_ResourceCreationFailedExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStandbyWorkspacesCommand
  */
 export const de_CreateStandbyWorkspacesCommand = async (
@@ -1862,7 +1528,7 @@ export const de_CreateStandbyWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<CreateStandbyWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStandbyWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1875,44 +1541,6 @@ export const de_CreateStandbyWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateStandbyWorkspacesCommandError
- */
-const de_CreateStandbyWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStandbyWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTagsCommand
  */
 export const de_CreateTagsCommand = async (
@@ -1920,7 +1548,7 @@ export const de_CreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1933,38 +1561,6 @@ export const de_CreateTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTagsCommandError
- */
-const de_CreateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUpdatedWorkspaceImageCommand
  */
 export const de_CreateUpdatedWorkspaceImageCommand = async (
@@ -1972,7 +1568,7 @@ export const de_CreateUpdatedWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateUpdatedWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUpdatedWorkspaceImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1985,50 +1581,6 @@ export const de_CreateUpdatedWorkspaceImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUpdatedWorkspaceImageCommandError
- */
-const de_CreateUpdatedWorkspaceImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUpdatedWorkspaceImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkspaceBundleCommand
  */
 export const de_CreateWorkspaceBundleCommand = async (
@@ -2036,7 +1588,7 @@ export const de_CreateWorkspaceBundleCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkspaceBundleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkspaceBundleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2049,47 +1601,6 @@ export const de_CreateWorkspaceBundleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkspaceBundleCommandError
- */
-const de_CreateWorkspaceBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkspaceBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkspaceImageCommand
  */
 export const de_CreateWorkspaceImageCommand = async (
@@ -2097,7 +1608,7 @@ export const de_CreateWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkspaceImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2110,50 +1621,6 @@ export const de_CreateWorkspaceImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkspaceImageCommandError
- */
-const de_CreateWorkspaceImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkspaceImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkspacesCommand
  */
 export const de_CreateWorkspacesCommand = async (
@@ -2161,7 +1628,7 @@ export const de_CreateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2174,35 +1641,6 @@ export const de_CreateWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkspacesCommandError
- */
-const de_CreateWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteClientBrandingCommand
  */
 export const de_DeleteClientBrandingCommand = async (
@@ -2210,7 +1648,7 @@ export const de_DeleteClientBrandingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClientBrandingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteClientBrandingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2223,38 +1661,6 @@ export const de_DeleteClientBrandingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteClientBrandingCommandError
- */
-const de_DeleteClientBrandingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClientBrandingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConnectClientAddInCommand
  */
 export const de_DeleteConnectClientAddInCommand = async (
@@ -2262,7 +1668,7 @@ export const de_DeleteConnectClientAddInCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectClientAddInCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectClientAddInCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2275,38 +1681,6 @@ export const de_DeleteConnectClientAddInCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConnectClientAddInCommandError
- */
-const de_DeleteConnectClientAddInCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectClientAddInCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConnectionAliasCommand
  */
 export const de_DeleteConnectionAliasCommand = async (
@@ -2314,7 +1688,7 @@ export const de_DeleteConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectionAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2327,47 +1701,6 @@ export const de_DeleteConnectionAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConnectionAliasCommandError
- */
-const de_DeleteConnectionAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAssociatedException":
-    case "com.amazonaws.workspaces#ResourceAssociatedException":
-      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteIpGroupCommand
  */
 export const de_DeleteIpGroupCommand = async (
@@ -2375,7 +1708,7 @@ export const de_DeleteIpGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIpGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIpGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2388,41 +1721,6 @@ export const de_DeleteIpGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteIpGroupCommandError
- */
-const de_DeleteIpGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIpGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceAssociatedException":
-    case "com.amazonaws.workspaces#ResourceAssociatedException":
-      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTagsCommand
  */
 export const de_DeleteTagsCommand = async (
@@ -2430,7 +1728,7 @@ export const de_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2443,35 +1741,6 @@ export const de_DeleteTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkspaceBundleCommand
  */
 export const de_DeleteWorkspaceBundleCommand = async (
@@ -2479,7 +1748,7 @@ export const de_DeleteWorkspaceBundleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkspaceBundleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkspaceBundleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2492,41 +1761,6 @@ export const de_DeleteWorkspaceBundleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkspaceBundleCommandError
- */
-const de_DeleteWorkspaceBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkspaceBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceAssociatedException":
-    case "com.amazonaws.workspaces#ResourceAssociatedException":
-      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkspaceImageCommand
  */
 export const de_DeleteWorkspaceImageCommand = async (
@@ -2534,7 +1768,7 @@ export const de_DeleteWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkspaceImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2547,38 +1781,6 @@ export const de_DeleteWorkspaceImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkspaceImageCommandError
- */
-const de_DeleteWorkspaceImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkspaceImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceAssociatedException":
-    case "com.amazonaws.workspaces#ResourceAssociatedException":
-      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeployWorkspaceApplicationsCommand
  */
 export const de_DeployWorkspaceApplicationsCommand = async (
@@ -2586,7 +1788,7 @@ export const de_DeployWorkspaceApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DeployWorkspaceApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeployWorkspaceApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2599,47 +1801,6 @@ export const de_DeployWorkspaceApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeployWorkspaceApplicationsCommandError
- */
-const de_DeployWorkspaceApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeployWorkspaceApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleApplicationsException":
-    case "com.amazonaws.workspaces#IncompatibleApplicationsException":
-      throw await de_IncompatibleApplicationsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.workspaces#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand
  */
 export const de_DeregisterWorkspaceDirectoryCommand = async (
@@ -2647,7 +1808,7 @@ export const de_DeregisterWorkspaceDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterWorkspaceDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterWorkspaceDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2660,44 +1821,6 @@ export const de_DeregisterWorkspaceDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError
- */
-const de_DeregisterWorkspaceDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterWorkspaceDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAccountCommand
  */
 export const de_DescribeAccountCommand = async (
@@ -2705,7 +1828,7 @@ export const de_DescribeAccountCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2718,32 +1841,6 @@ export const de_DescribeAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAccountCommandError
- */
-const de_DescribeAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAccountModificationsCommand
  */
 export const de_DescribeAccountModificationsCommand = async (
@@ -2751,7 +1848,7 @@ export const de_DescribeAccountModificationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountModificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountModificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2764,32 +1861,6 @@ export const de_DescribeAccountModificationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAccountModificationsCommandError
- */
-const de_DescribeAccountModificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountModificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationAssociationsCommand
  */
 export const de_DescribeApplicationAssociationsCommand = async (
@@ -2797,7 +1868,7 @@ export const de_DescribeApplicationAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2810,41 +1881,6 @@ export const de_DescribeApplicationAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationAssociationsCommandError
- */
-const de_DescribeApplicationAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationsCommand
  */
 export const de_DescribeApplicationsCommand = async (
@@ -2852,7 +1888,7 @@ export const de_DescribeApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2865,41 +1901,6 @@ export const de_DescribeApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationsCommandError
- */
-const de_DescribeApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeBundleAssociationsCommand
  */
 export const de_DescribeBundleAssociationsCommand = async (
@@ -2907,7 +1908,7 @@ export const de_DescribeBundleAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBundleAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBundleAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2920,41 +1921,6 @@ export const de_DescribeBundleAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBundleAssociationsCommandError
- */
-const de_DescribeBundleAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBundleAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClientBrandingCommand
  */
 export const de_DescribeClientBrandingCommand = async (
@@ -2962,7 +1928,7 @@ export const de_DescribeClientBrandingCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientBrandingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientBrandingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2975,38 +1941,6 @@ export const de_DescribeClientBrandingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClientBrandingCommandError
- */
-const de_DescribeClientBrandingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientBrandingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClientPropertiesCommand
  */
 export const de_DescribeClientPropertiesCommand = async (
@@ -3014,7 +1948,7 @@ export const de_DescribeClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3027,38 +1961,6 @@ export const de_DescribeClientPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClientPropertiesCommandError
- */
-const de_DescribeClientPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectClientAddInsCommand
  */
 export const de_DescribeConnectClientAddInsCommand = async (
@@ -3066,7 +1968,7 @@ export const de_DescribeConnectClientAddInsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectClientAddInsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectClientAddInsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3079,38 +1981,6 @@ export const de_DescribeConnectClientAddInsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectClientAddInsCommandError
- */
-const de_DescribeConnectClientAddInsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectClientAddInsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectionAliasesCommand
  */
 export const de_DescribeConnectionAliasesCommand = async (
@@ -3118,7 +1988,7 @@ export const de_DescribeConnectionAliasesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectionAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectionAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3131,38 +2001,6 @@ export const de_DescribeConnectionAliasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectionAliasesCommandError
- */
-const de_DescribeConnectionAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectionAliasPermissionsCommand
  */
 export const de_DescribeConnectionAliasPermissionsCommand = async (
@@ -3170,7 +2008,7 @@ export const de_DescribeConnectionAliasPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectionAliasPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectionAliasPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3183,41 +2021,6 @@ export const de_DescribeConnectionAliasPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectionAliasPermissionsCommandError
- */
-const de_DescribeConnectionAliasPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionAliasPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageAssociationsCommand
  */
 export const de_DescribeImageAssociationsCommand = async (
@@ -3225,7 +2028,7 @@ export const de_DescribeImageAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3238,41 +2041,6 @@ export const de_DescribeImageAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageAssociationsCommandError
- */
-const de_DescribeImageAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeIpGroupsCommand
  */
 export const de_DescribeIpGroupsCommand = async (
@@ -3280,7 +2048,7 @@ export const de_DescribeIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIpGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3293,35 +2061,6 @@ export const de_DescribeIpGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeIpGroupsCommandError
- */
-const de_DescribeIpGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTagsCommand
  */
 export const de_DescribeTagsCommand = async (
@@ -3329,7 +2068,7 @@ export const de_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3342,32 +2081,6 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspaceAssociationsCommand
  */
 export const de_DescribeWorkspaceAssociationsCommand = async (
@@ -3375,7 +2088,7 @@ export const de_DescribeWorkspaceAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspaceAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3388,41 +2101,6 @@ export const de_DescribeWorkspaceAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspaceAssociationsCommandError
- */
-const de_DescribeWorkspaceAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspaceBundlesCommand
  */
 export const de_DescribeWorkspaceBundlesCommand = async (
@@ -3430,7 +2108,7 @@ export const de_DescribeWorkspaceBundlesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceBundlesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspaceBundlesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3443,32 +2121,6 @@ export const de_DescribeWorkspaceBundlesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspaceBundlesCommandError
- */
-const de_DescribeWorkspaceBundlesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceBundlesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand
  */
 export const de_DescribeWorkspaceDirectoriesCommand = async (
@@ -3476,7 +2128,7 @@ export const de_DescribeWorkspaceDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspaceDirectoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3489,32 +2141,6 @@ export const de_DescribeWorkspaceDirectoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError
- */
-const de_DescribeWorkspaceDirectoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommand
  */
 export const de_DescribeWorkspaceImagePermissionsCommand = async (
@@ -3522,7 +2148,7 @@ export const de_DescribeWorkspaceImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspaceImagePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3535,38 +2161,6 @@ export const de_DescribeWorkspaceImagePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommandError
- */
-const de_DescribeWorkspaceImagePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceImagePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspaceImagesCommand
  */
 export const de_DescribeWorkspaceImagesCommand = async (
@@ -3574,7 +2168,7 @@ export const de_DescribeWorkspaceImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspaceImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3587,32 +2181,6 @@ export const de_DescribeWorkspaceImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspaceImagesCommandError
- */
-const de_DescribeWorkspaceImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspacesCommand
  */
 export const de_DescribeWorkspacesCommand = async (
@@ -3620,7 +2188,7 @@ export const de_DescribeWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3633,35 +2201,6 @@ export const de_DescribeWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspacesCommandError
- */
-const de_DescribeWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand
  */
 export const de_DescribeWorkspacesConnectionStatusCommand = async (
@@ -3669,7 +2208,7 @@ export const de_DescribeWorkspacesConnectionStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspacesConnectionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3682,32 +2221,6 @@ export const de_DescribeWorkspacesConnectionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError
- */
-const de_DescribeWorkspacesConnectionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspacesConnectionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkspaceSnapshotsCommand
  */
 export const de_DescribeWorkspaceSnapshotsCommand = async (
@@ -3715,7 +2228,7 @@ export const de_DescribeWorkspaceSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkspaceSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3728,38 +2241,6 @@ export const de_DescribeWorkspaceSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError
- */
-const de_DescribeWorkspaceSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkspaceSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateConnectionAliasCommand
  */
 export const de_DisassociateConnectionAliasCommand = async (
@@ -3767,7 +2248,7 @@ export const de_DisassociateConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateConnectionAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateConnectionAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3780,44 +2261,6 @@ export const de_DisassociateConnectionAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateConnectionAliasCommandError
- */
-const de_DisassociateConnectionAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateConnectionAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateIpGroupsCommand
  */
 export const de_DisassociateIpGroupsCommand = async (
@@ -3825,7 +2268,7 @@ export const de_DisassociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateIpGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateIpGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3838,41 +2281,6 @@ export const de_DisassociateIpGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateIpGroupsCommandError
- */
-const de_DisassociateIpGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateIpGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateWorkspaceApplicationCommand
  */
 export const de_DisassociateWorkspaceApplicationCommand = async (
@@ -3880,7 +2288,7 @@ export const de_DisassociateWorkspaceApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateWorkspaceApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateWorkspaceApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3893,44 +2301,6 @@ export const de_DisassociateWorkspaceApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateWorkspaceApplicationCommandError
- */
-const de_DisassociateWorkspaceApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateWorkspaceApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.workspaces#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportClientBrandingCommand
  */
 export const de_ImportClientBrandingCommand = async (
@@ -3938,7 +2308,7 @@ export const de_ImportClientBrandingCommand = async (
   context: __SerdeContext
 ): Promise<ImportClientBrandingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportClientBrandingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3951,41 +2321,6 @@ export const de_ImportClientBrandingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportClientBrandingCommandError
- */
-const de_ImportClientBrandingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportClientBrandingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportWorkspaceImageCommand
  */
 export const de_ImportWorkspaceImageCommand = async (
@@ -3993,7 +2328,7 @@ export const de_ImportWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<ImportWorkspaceImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportWorkspaceImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4006,47 +2341,6 @@ export const de_ImportWorkspaceImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportWorkspaceImageCommandError
- */
-const de_ImportWorkspaceImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportWorkspaceImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailableManagementCidrRangesCommand
  */
 export const de_ListAvailableManagementCidrRangesCommand = async (
@@ -4054,7 +2348,7 @@ export const de_ListAvailableManagementCidrRangesCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableManagementCidrRangesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableManagementCidrRangesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4067,35 +2361,6 @@ export const de_ListAvailableManagementCidrRangesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError
- */
-const de_ListAvailableManagementCidrRangesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableManagementCidrRangesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1MigrateWorkspaceCommand
  */
 export const de_MigrateWorkspaceCommand = async (
@@ -4103,7 +2368,7 @@ export const de_MigrateWorkspaceCommand = async (
   context: __SerdeContext
 ): Promise<MigrateWorkspaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_MigrateWorkspaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4116,47 +2381,6 @@ export const de_MigrateWorkspaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1MigrateWorkspaceCommandError
- */
-const de_MigrateWorkspaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MigrateWorkspaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.workspaces#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyAccountCommand
  */
 export const de_ModifyAccountCommand = async (
@@ -4164,7 +2388,7 @@ export const de_ModifyAccountCommand = async (
   context: __SerdeContext
 ): Promise<ModifyAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4177,44 +2401,6 @@ export const de_ModifyAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyAccountCommandError
- */
-const de_ModifyAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand
  */
 export const de_ModifyCertificateBasedAuthPropertiesCommand = async (
@@ -4222,7 +2408,7 @@ export const de_ModifyCertificateBasedAuthPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyCertificateBasedAuthPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4235,41 +2421,6 @@ export const de_ModifyCertificateBasedAuthPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommandError
- */
-const de_ModifyCertificateBasedAuthPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyClientPropertiesCommand
  */
 export const de_ModifyClientPropertiesCommand = async (
@@ -4277,7 +2428,7 @@ export const de_ModifyClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyClientPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyClientPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4290,38 +2441,6 @@ export const de_ModifyClientPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyClientPropertiesCommandError
- */
-const de_ModifyClientPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClientPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifySamlPropertiesCommand
  */
 export const de_ModifySamlPropertiesCommand = async (
@@ -4329,7 +2448,7 @@ export const de_ModifySamlPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifySamlPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySamlPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4342,41 +2461,6 @@ export const de_ModifySamlPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifySamlPropertiesCommandError
- */
-const de_ModifySamlPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySamlPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifySelfservicePermissionsCommand
  */
 export const de_ModifySelfservicePermissionsCommand = async (
@@ -4384,7 +2468,7 @@ export const de_ModifySelfservicePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ModifySelfservicePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifySelfservicePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4397,38 +2481,6 @@ export const de_ModifySelfservicePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifySelfservicePermissionsCommandError
- */
-const de_ModifySelfservicePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySelfservicePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand
  */
 export const de_ModifyWorkspaceAccessPropertiesCommand = async (
@@ -4436,7 +2488,7 @@ export const de_ModifyWorkspaceAccessPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyWorkspaceAccessPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4449,35 +2501,6 @@ export const de_ModifyWorkspaceAccessPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError
- */
-const de_ModifyWorkspaceAccessPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyWorkspaceAccessPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand
  */
 export const de_ModifyWorkspaceCreationPropertiesCommand = async (
@@ -4485,7 +2508,7 @@ export const de_ModifyWorkspaceCreationPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyWorkspaceCreationPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4498,41 +2521,6 @@ export const de_ModifyWorkspaceCreationPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError
- */
-const de_ModifyWorkspaceCreationPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyWorkspaceCreationPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyWorkspacePropertiesCommand
  */
 export const de_ModifyWorkspacePropertiesCommand = async (
@@ -4540,7 +2528,7 @@ export const de_ModifyWorkspacePropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyWorkspacePropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyWorkspacePropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4553,50 +2541,6 @@ export const de_ModifyWorkspacePropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyWorkspacePropertiesCommandError
- */
-const de_ModifyWorkspacePropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyWorkspacePropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.workspaces#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "UnsupportedWorkspaceConfigurationException":
-    case "com.amazonaws.workspaces#UnsupportedWorkspaceConfigurationException":
-      throw await de_UnsupportedWorkspaceConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyWorkspaceStateCommand
  */
 export const de_ModifyWorkspaceStateCommand = async (
@@ -4604,7 +2548,7 @@ export const de_ModifyWorkspaceStateCommand = async (
   context: __SerdeContext
 ): Promise<ModifyWorkspaceStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyWorkspaceStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4617,41 +2561,6 @@ export const de_ModifyWorkspaceStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyWorkspaceStateCommandError
- */
-const de_ModifyWorkspaceStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyWorkspaceStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RebootWorkspacesCommand
  */
 export const de_RebootWorkspacesCommand = async (
@@ -4659,7 +2568,7 @@ export const de_RebootWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<RebootWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebootWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4672,32 +2581,6 @@ export const de_RebootWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RebootWorkspacesCommandError
- */
-const de_RebootWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RebuildWorkspacesCommand
  */
 export const de_RebuildWorkspacesCommand = async (
@@ -4705,7 +2588,7 @@ export const de_RebuildWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<RebuildWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebuildWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4718,32 +2601,6 @@ export const de_RebuildWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RebuildWorkspacesCommandError
- */
-const de_RebuildWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebuildWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterWorkspaceDirectoryCommand
  */
 export const de_RegisterWorkspaceDirectoryCommand = async (
@@ -4751,7 +2608,7 @@ export const de_RegisterWorkspaceDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<RegisterWorkspaceDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterWorkspaceDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4764,53 +2621,6 @@ export const de_RegisterWorkspaceDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError
- */
-const de_RegisterWorkspaceDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterWorkspaceDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedNetworkConfigurationException":
-    case "com.amazonaws.workspaces#UnsupportedNetworkConfigurationException":
-      throw await de_UnsupportedNetworkConfigurationExceptionRes(parsedOutput, context);
-    case "WorkspacesDefaultRoleNotFoundException":
-    case "com.amazonaws.workspaces#WorkspacesDefaultRoleNotFoundException":
-      throw await de_WorkspacesDefaultRoleNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreWorkspaceCommand
  */
 export const de_RestoreWorkspaceCommand = async (
@@ -4818,7 +2628,7 @@ export const de_RestoreWorkspaceCommand = async (
   context: __SerdeContext
 ): Promise<RestoreWorkspaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreWorkspaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4831,41 +2641,6 @@ export const de_RestoreWorkspaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreWorkspaceCommandError
- */
-const de_RestoreWorkspaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreWorkspaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RevokeIpRulesCommand
  */
 export const de_RevokeIpRulesCommand = async (
@@ -4873,7 +2648,7 @@ export const de_RevokeIpRulesCommand = async (
   context: __SerdeContext
 ): Promise<RevokeIpRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RevokeIpRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4886,41 +2661,6 @@ export const de_RevokeIpRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RevokeIpRulesCommandError
- */
-const de_RevokeIpRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeIpRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartWorkspacesCommand
  */
 export const de_StartWorkspacesCommand = async (
@@ -4928,7 +2668,7 @@ export const de_StartWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<StartWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4941,26 +2681,6 @@ export const de_StartWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartWorkspacesCommandError
- */
-const de_StartWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1StopWorkspacesCommand
  */
 export const de_StopWorkspacesCommand = async (
@@ -4968,7 +2688,7 @@ export const de_StopWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<StopWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4981,26 +2701,6 @@ export const de_StopWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopWorkspacesCommandError
- */
-const de_StopWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1TerminateWorkspacesCommand
  */
 export const de_TerminateWorkspacesCommand = async (
@@ -5008,7 +2708,7 @@ export const de_TerminateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<TerminateWorkspacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateWorkspacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5021,26 +2721,6 @@ export const de_TerminateWorkspacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TerminateWorkspacesCommandError
- */
-const de_TerminateWorkspacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateWorkspacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1UpdateConnectClientAddInCommand
  */
 export const de_UpdateConnectClientAddInCommand = async (
@@ -5048,7 +2728,7 @@ export const de_UpdateConnectClientAddInCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectClientAddInCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConnectClientAddInCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5061,38 +2741,6 @@ export const de_UpdateConnectClientAddInCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConnectClientAddInCommandError
- */
-const de_UpdateConnectClientAddInCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectClientAddInCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateConnectionAliasPermissionCommand
  */
 export const de_UpdateConnectionAliasPermissionCommand = async (
@@ -5100,7 +2748,7 @@ export const de_UpdateConnectionAliasPermissionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectionAliasPermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConnectionAliasPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5113,12 +2761,69 @@ export const de_UpdateConnectionAliasPermissionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConnectionAliasPermissionCommandError
+ * deserializeAws_json1_1UpdateRulesOfIpGroupCommand
  */
-const de_UpdateConnectionAliasPermissionCommandError = async (
+export const de_UpdateRulesOfIpGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateConnectionAliasPermissionCommandOutput> => {
+): Promise<UpdateRulesOfIpGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateRulesOfIpGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkspaceBundleCommand
+ */
+export const de_UpdateWorkspaceBundleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceBundleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWorkspaceBundleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand
+ */
+export const de_UpdateWorkspaceImagePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceImagePermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWorkspaceImagePermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5140,186 +2845,48 @@ const de_UpdateConnectionAliasPermissionCommandError = async (
     case "ResourceAssociatedException":
     case "com.amazonaws.workspaces#ResourceAssociatedException":
       throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.workspaces#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateRulesOfIpGroupCommand
- */
-export const de_UpdateRulesOfIpGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRulesOfIpGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateRulesOfIpGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateRulesOfIpGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateRulesOfIpGroupCommandError
- */
-const de_UpdateRulesOfIpGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRulesOfIpGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.workspaces#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.workspaces#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkspaceBundleCommand
- */
-export const de_UpdateWorkspaceBundleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkspaceBundleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateWorkspaceBundleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateWorkspaceBundleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkspaceBundleCommandError
- */
-const de_UpdateWorkspaceBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkspaceBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ApplicationNotSupportedException":
+    case "com.amazonaws.workspaces#ApplicationNotSupportedException":
+      throw await de_ApplicationNotSupportedExceptionRes(parsedOutput, context);
+    case "ComputeNotCompatibleException":
+    case "com.amazonaws.workspaces#ComputeNotCompatibleException":
+      throw await de_ComputeNotCompatibleExceptionRes(parsedOutput, context);
+    case "IncompatibleApplicationsException":
+    case "com.amazonaws.workspaces#IncompatibleApplicationsException":
+      throw await de_IncompatibleApplicationsExceptionRes(parsedOutput, context);
+    case "OperatingSystemNotCompatibleException":
+    case "com.amazonaws.workspaces#OperatingSystemNotCompatibleException":
+      throw await de_OperatingSystemNotCompatibleExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.workspaces#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.workspaces#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkspaceImagePermissionCommand
- */
-export const de_UpdateWorkspaceImagePermissionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkspaceImagePermissionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateWorkspaceImagePermissionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateWorkspaceImagePermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkspaceImagePermissionCommandError
- */
-const de_UpdateWorkspaceImagePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkspaceImagePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.workspaces#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValuesException":
-    case "com.amazonaws.workspaces#InvalidParameterValuesException":
-      throw await de_InvalidParameterValuesExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.workspaces#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workspaces#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.workspaces#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "ResourceCreationFailedException":
+    case "com.amazonaws.workspaces#ResourceCreationFailedException":
+      throw await de_ResourceCreationFailedExceptionRes(parsedOutput, context);
+    case "OperationInProgressException":
+    case "com.amazonaws.workspaces#OperationInProgressException":
+      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
+    case "UnsupportedWorkspaceConfigurationException":
+    case "com.amazonaws.workspaces#UnsupportedWorkspaceConfigurationException":
+      throw await de_UnsupportedWorkspaceConfigurationExceptionRes(parsedOutput, context);
+    case "UnsupportedNetworkConfigurationException":
+    case "com.amazonaws.workspaces#UnsupportedNetworkConfigurationException":
+      throw await de_UnsupportedNetworkConfigurationExceptionRes(parsedOutput, context);
+    case "WorkspacesDefaultRoleNotFoundException":
+    case "com.amazonaws.workspaces#WorkspacesDefaultRoleNotFoundException":
+      throw await de_WorkspacesDefaultRoleNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -88,7 +88,7 @@ export const de_CreateBillOfMaterialsImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateBillOfMaterialsImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBillOfMaterialsImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -102,50 +102,6 @@ export const de_CreateBillOfMaterialsImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBillOfMaterialsImportJobCommandError
- */
-const de_CreateBillOfMaterialsImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBillOfMaterialsImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.supplychain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.supplychain#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.supplychain#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.supplychain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.supplychain#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.supplychain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.supplychain#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBillOfMaterialsImportJobCommand
  */
 export const de_GetBillOfMaterialsImportJobCommand = async (
@@ -153,7 +109,7 @@ export const de_GetBillOfMaterialsImportJobCommand = async (
   context: __SerdeContext
 ): Promise<GetBillOfMaterialsImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBillOfMaterialsImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -167,12 +123,9 @@ export const de_GetBillOfMaterialsImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBillOfMaterialsImportJobCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_GetBillOfMaterialsImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBillOfMaterialsImportJobCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

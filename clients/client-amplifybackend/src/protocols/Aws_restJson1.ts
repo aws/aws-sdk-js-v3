@@ -852,7 +852,7 @@ export const de_CloneBackendCommand = async (
   context: __SerdeContext
 ): Promise<CloneBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CloneBackendCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -868,41 +868,6 @@ export const de_CloneBackendCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CloneBackendCommandError
- */
-const de_CloneBackendCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CloneBackendCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -913,7 +878,7 @@ export const de_CreateBackendCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackendCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -929,41 +894,6 @@ export const de_CreateBackendCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateBackendCommandError
- */
-const de_CreateBackendCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackendCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -974,7 +904,7 @@ export const de_CreateBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackendAPICommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -990,41 +920,6 @@ export const de_CreateBackendAPICommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateBackendAPICommandError
- */
-const de_CreateBackendAPICommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackendAPICommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1035,7 +930,7 @@ export const de_CreateBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackendAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1054,41 +949,6 @@ export const de_CreateBackendAuthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBackendAuthCommandError
- */
-const de_CreateBackendAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackendAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBackendConfigCommand
  */
 export const de_CreateBackendConfigCommand = async (
@@ -1096,7 +956,7 @@ export const de_CreateBackendConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackendConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1110,41 +970,6 @@ export const de_CreateBackendConfigCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateBackendConfigCommandError
- */
-const de_CreateBackendConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackendConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1155,7 +980,7 @@ export const de_CreateBackendStorageCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackendStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1172,41 +997,6 @@ export const de_CreateBackendStorageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBackendStorageCommandError
- */
-const de_CreateBackendStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackendStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTokenCommand
  */
 export const de_CreateTokenCommand = async (
@@ -1214,7 +1004,7 @@ export const de_CreateTokenCommand = async (
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1231,41 +1021,6 @@ export const de_CreateTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTokenCommandError
- */
-const de_CreateTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBackendCommand
  */
 export const de_DeleteBackendCommand = async (
@@ -1273,7 +1028,7 @@ export const de_DeleteBackendCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackendCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1289,41 +1044,6 @@ export const de_DeleteBackendCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackendCommandError
- */
-const de_DeleteBackendCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackendCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1334,7 +1054,7 @@ export const de_DeleteBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackendAPICommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1350,41 +1070,6 @@ export const de_DeleteBackendAPICommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackendAPICommandError
- */
-const de_DeleteBackendAPICommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackendAPICommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1395,7 +1080,7 @@ export const de_DeleteBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackendAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1414,41 +1099,6 @@ export const de_DeleteBackendAuthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBackendAuthCommandError
- */
-const de_DeleteBackendAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackendAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBackendStorageCommand
  */
 export const de_DeleteBackendStorageCommand = async (
@@ -1456,7 +1106,7 @@ export const de_DeleteBackendStorageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackendStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1473,41 +1123,6 @@ export const de_DeleteBackendStorageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBackendStorageCommandError
- */
-const de_DeleteBackendStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackendStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteTokenCommand
  */
 export const de_DeleteTokenCommand = async (
@@ -1515,7 +1130,7 @@ export const de_DeleteTokenCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1529,41 +1144,6 @@ export const de_DeleteTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteTokenCommandError
- */
-const de_DeleteTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateBackendAPIModelsCommand
  */
 export const de_GenerateBackendAPIModelsCommand = async (
@@ -1571,7 +1151,7 @@ export const de_GenerateBackendAPIModelsCommand = async (
   context: __SerdeContext
 ): Promise<GenerateBackendAPIModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GenerateBackendAPIModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1590,41 +1170,6 @@ export const de_GenerateBackendAPIModelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateBackendAPIModelsCommandError
- */
-const de_GenerateBackendAPIModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateBackendAPIModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendCommand
  */
 export const de_GetBackendCommand = async (
@@ -1632,7 +1177,7 @@ export const de_GetBackendCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1652,41 +1197,6 @@ export const de_GetBackendCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendCommandError
- */
-const de_GetBackendCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendAPICommand
  */
 export const de_GetBackendAPICommand = async (
@@ -1694,7 +1204,7 @@ export const de_GetBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<GetBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendAPICommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1712,41 +1222,6 @@ export const de_GetBackendAPICommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendAPICommandError
- */
-const de_GetBackendAPICommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendAPICommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendAPIModelsCommand
  */
 export const de_GetBackendAPIModelsCommand = async (
@@ -1754,7 +1229,7 @@ export const de_GetBackendAPIModelsCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendAPIModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendAPIModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1770,41 +1245,6 @@ export const de_GetBackendAPIModelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendAPIModelsCommandError
- */
-const de_GetBackendAPIModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendAPIModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendAuthCommand
  */
 export const de_GetBackendAuthCommand = async (
@@ -1812,7 +1252,7 @@ export const de_GetBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1830,41 +1270,6 @@ export const de_GetBackendAuthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendAuthCommandError
- */
-const de_GetBackendAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendJobCommand
  */
 export const de_GetBackendJobCommand = async (
@@ -1872,7 +1277,7 @@ export const de_GetBackendJobCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1893,41 +1298,6 @@ export const de_GetBackendJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendJobCommandError
- */
-const de_GetBackendJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendStorageCommand
  */
 export const de_GetBackendStorageCommand = async (
@@ -1935,7 +1305,7 @@ export const de_GetBackendStorageCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1952,41 +1322,6 @@ export const de_GetBackendStorageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendStorageCommandError
- */
-const de_GetBackendStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTokenCommand
  */
 export const de_GetTokenCommand = async (
@@ -1994,7 +1329,7 @@ export const de_GetTokenCommand = async (
   context: __SerdeContext
 ): Promise<GetTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2011,41 +1346,6 @@ export const de_GetTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTokenCommandError
- */
-const de_GetTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportBackendAuthCommand
  */
 export const de_ImportBackendAuthCommand = async (
@@ -2053,7 +1353,7 @@ export const de_ImportBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<ImportBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ImportBackendAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2072,41 +1372,6 @@ export const de_ImportBackendAuthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportBackendAuthCommandError
- */
-const de_ImportBackendAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportBackendAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportBackendStorageCommand
  */
 export const de_ImportBackendStorageCommand = async (
@@ -2114,7 +1379,7 @@ export const de_ImportBackendStorageCommand = async (
   context: __SerdeContext
 ): Promise<ImportBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ImportBackendStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2131,41 +1396,6 @@ export const de_ImportBackendStorageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportBackendStorageCommandError
- */
-const de_ImportBackendStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportBackendStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackendJobsCommand
  */
 export const de_ListBackendJobsCommand = async (
@@ -2173,7 +1403,7 @@ export const de_ListBackendJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackendJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackendJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2188,41 +1418,6 @@ export const de_ListBackendJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackendJobsCommandError
- */
-const de_ListBackendJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackendJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListS3BucketsCommand
  */
 export const de_ListS3BucketsCommand = async (
@@ -2230,7 +1425,7 @@ export const de_ListS3BucketsCommand = async (
   context: __SerdeContext
 ): Promise<ListS3BucketsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListS3BucketsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2245,41 +1440,6 @@ export const de_ListS3BucketsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListS3BucketsCommandError
- */
-const de_ListS3BucketsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListS3BucketsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveAllBackendsCommand
  */
 export const de_RemoveAllBackendsCommand = async (
@@ -2287,7 +1447,7 @@ export const de_RemoveAllBackendsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAllBackendsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveAllBackendsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2302,41 +1462,6 @@ export const de_RemoveAllBackendsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveAllBackendsCommandError
- */
-const de_RemoveAllBackendsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAllBackendsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2347,7 +1472,7 @@ export const de_RemoveBackendConfigCommand = async (
   context: __SerdeContext
 ): Promise<RemoveBackendConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveBackendConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2358,41 +1483,6 @@ export const de_RemoveBackendConfigCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveBackendConfigCommandError
- */
-const de_RemoveBackendConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveBackendConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2403,7 +1493,7 @@ export const de_UpdateBackendAPICommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackendAPICommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBackendAPICommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2419,41 +1509,6 @@ export const de_UpdateBackendAPICommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateBackendAPICommandError
- */
-const de_UpdateBackendAPICommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBackendAPICommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2464,7 +1519,7 @@ export const de_UpdateBackendAuthCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackendAuthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBackendAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2483,41 +1538,6 @@ export const de_UpdateBackendAuthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBackendAuthCommandError
- */
-const de_UpdateBackendAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBackendAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBackendConfigCommand
  */
 export const de_UpdateBackendConfigCommand = async (
@@ -2525,7 +1545,7 @@ export const de_UpdateBackendConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackendConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBackendConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2542,41 +1562,6 @@ export const de_UpdateBackendConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBackendConfigCommandError
- */
-const de_UpdateBackendConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBackendConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBackendJobCommand
  */
 export const de_UpdateBackendJobCommand = async (
@@ -2584,7 +1569,7 @@ export const de_UpdateBackendJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackendJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBackendJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2605,41 +1590,6 @@ export const de_UpdateBackendJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBackendJobCommandError
- */
-const de_UpdateBackendJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBackendJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplifybackend#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.amplifybackend#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplifybackend#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.amplifybackend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBackendStorageCommand
  */
 export const de_UpdateBackendStorageCommand = async (
@@ -2647,7 +1597,7 @@ export const de_UpdateBackendStorageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackendStorageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBackendStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2664,12 +1614,9 @@ export const de_UpdateBackendStorageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBackendStorageCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateBackendStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBackendStorageCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

@@ -900,7 +900,7 @@ export const de_BatchDeleteBuildsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteBuildsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -913,32 +913,6 @@ export const de_BatchDeleteBuildsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteBuildsCommandError
- */
-const de_BatchDeleteBuildsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteBuildsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetBuildBatchesCommand
  */
 export const de_BatchGetBuildBatchesCommand = async (
@@ -946,7 +920,7 @@ export const de_BatchGetBuildBatchesCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetBuildBatchesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetBuildBatchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -959,32 +933,6 @@ export const de_BatchGetBuildBatchesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetBuildBatchesCommandError
- */
-const de_BatchGetBuildBatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetBuildBatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetBuildsCommand
  */
 export const de_BatchGetBuildsCommand = async (
@@ -992,7 +940,7 @@ export const de_BatchGetBuildsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetBuildsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1005,32 +953,6 @@ export const de_BatchGetBuildsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetBuildsCommandError
- */
-const de_BatchGetBuildsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetBuildsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetFleetsCommand
  */
 export const de_BatchGetFleetsCommand = async (
@@ -1038,7 +960,7 @@ export const de_BatchGetFleetsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1051,32 +973,6 @@ export const de_BatchGetFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetFleetsCommandError
- */
-const de_BatchGetFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetProjectsCommand
  */
 export const de_BatchGetProjectsCommand = async (
@@ -1084,7 +980,7 @@ export const de_BatchGetProjectsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1097,32 +993,6 @@ export const de_BatchGetProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetProjectsCommandError
- */
-const de_BatchGetProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetReportGroupsCommand
  */
 export const de_BatchGetReportGroupsCommand = async (
@@ -1130,7 +1000,7 @@ export const de_BatchGetReportGroupsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetReportGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetReportGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1143,32 +1013,6 @@ export const de_BatchGetReportGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetReportGroupsCommandError
- */
-const de_BatchGetReportGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetReportGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetReportsCommand
  */
 export const de_BatchGetReportsCommand = async (
@@ -1176,7 +1020,7 @@ export const de_BatchGetReportsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetReportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1189,32 +1033,6 @@ export const de_BatchGetReportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetReportsCommandError
- */
-const de_BatchGetReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFleetCommand
  */
 export const de_CreateFleetCommand = async (
@@ -1222,7 +1040,7 @@ export const de_CreateFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1235,38 +1053,6 @@ export const de_CreateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFleetCommandError
- */
-const de_CreateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProjectCommand
  */
 export const de_CreateProjectCommand = async (
@@ -1274,7 +1060,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1287,38 +1073,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReportGroupCommand
  */
 export const de_CreateReportGroupCommand = async (
@@ -1326,7 +1080,7 @@ export const de_CreateReportGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReportGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1339,38 +1093,6 @@ export const de_CreateReportGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReportGroupCommandError
- */
-const de_CreateReportGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReportGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWebhookCommand
  */
 export const de_CreateWebhookCommand = async (
@@ -1378,7 +1100,7 @@ export const de_CreateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1391,41 +1113,6 @@ export const de_CreateWebhookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWebhookCommandError
- */
-const de_CreateWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OAuthProviderException":
-    case "com.amazonaws.codebuild#OAuthProviderException":
-      throw await de_OAuthProviderExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBuildBatchCommand
  */
 export const de_DeleteBuildBatchCommand = async (
@@ -1433,7 +1120,7 @@ export const de_DeleteBuildBatchCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBuildBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1446,32 +1133,6 @@ export const de_DeleteBuildBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBuildBatchCommandError
- */
-const de_DeleteBuildBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBuildBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFleetCommand
  */
 export const de_DeleteFleetCommand = async (
@@ -1479,7 +1140,7 @@ export const de_DeleteFleetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1492,32 +1153,6 @@ export const de_DeleteFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFleetCommandError
- */
-const de_DeleteFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -1525,7 +1160,7 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1538,32 +1173,6 @@ export const de_DeleteProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReportCommand
  */
 export const de_DeleteReportCommand = async (
@@ -1571,7 +1180,7 @@ export const de_DeleteReportCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1584,32 +1193,6 @@ export const de_DeleteReportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReportCommandError
- */
-const de_DeleteReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReportGroupCommand
  */
 export const de_DeleteReportGroupCommand = async (
@@ -1617,7 +1200,7 @@ export const de_DeleteReportGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReportGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1630,32 +1213,6 @@ export const de_DeleteReportGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReportGroupCommandError
- */
-const de_DeleteReportGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReportGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -1663,7 +1220,7 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1676,32 +1233,6 @@ export const de_DeleteResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSourceCredentialsCommand
  */
 export const de_DeleteSourceCredentialsCommand = async (
@@ -1709,7 +1240,7 @@ export const de_DeleteSourceCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSourceCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSourceCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1722,35 +1253,6 @@ export const de_DeleteSourceCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSourceCredentialsCommandError
- */
-const de_DeleteSourceCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSourceCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWebhookCommand
  */
 export const de_DeleteWebhookCommand = async (
@@ -1758,7 +1260,7 @@ export const de_DeleteWebhookCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1771,38 +1273,6 @@ export const de_DeleteWebhookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWebhookCommandError
- */
-const de_DeleteWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OAuthProviderException":
-    case "com.amazonaws.codebuild#OAuthProviderException":
-      throw await de_OAuthProviderExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCodeCoveragesCommand
  */
 export const de_DescribeCodeCoveragesCommand = async (
@@ -1810,7 +1280,7 @@ export const de_DescribeCodeCoveragesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCodeCoveragesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCodeCoveragesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1823,32 +1293,6 @@ export const de_DescribeCodeCoveragesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCodeCoveragesCommandError
- */
-const de_DescribeCodeCoveragesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCodeCoveragesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTestCasesCommand
  */
 export const de_DescribeTestCasesCommand = async (
@@ -1856,7 +1300,7 @@ export const de_DescribeTestCasesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTestCasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTestCasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1869,35 +1313,6 @@ export const de_DescribeTestCasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTestCasesCommandError
- */
-const de_DescribeTestCasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTestCasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetReportGroupTrendCommand
  */
 export const de_GetReportGroupTrendCommand = async (
@@ -1905,7 +1320,7 @@ export const de_GetReportGroupTrendCommand = async (
   context: __SerdeContext
 ): Promise<GetReportGroupTrendCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReportGroupTrendCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1918,35 +1333,6 @@ export const de_GetReportGroupTrendCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetReportGroupTrendCommandError
- */
-const de_GetReportGroupTrendCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReportGroupTrendCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -1954,7 +1340,7 @@ export const de_GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1967,35 +1353,6 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportSourceCredentialsCommand
  */
 export const de_ImportSourceCredentialsCommand = async (
@@ -2003,7 +1360,7 @@ export const de_ImportSourceCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<ImportSourceCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportSourceCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2016,38 +1373,6 @@ export const de_ImportSourceCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportSourceCredentialsCommandError
- */
-const de_ImportSourceCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportSourceCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InvalidateProjectCacheCommand
  */
 export const de_InvalidateProjectCacheCommand = async (
@@ -2055,7 +1380,7 @@ export const de_InvalidateProjectCacheCommand = async (
   context: __SerdeContext
 ): Promise<InvalidateProjectCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InvalidateProjectCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2068,35 +1393,6 @@ export const de_InvalidateProjectCacheCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InvalidateProjectCacheCommandError
- */
-const de_InvalidateProjectCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvalidateProjectCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBuildBatchesCommand
  */
 export const de_ListBuildBatchesCommand = async (
@@ -2104,7 +1400,7 @@ export const de_ListBuildBatchesCommand = async (
   context: __SerdeContext
 ): Promise<ListBuildBatchesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBuildBatchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2117,32 +1413,6 @@ export const de_ListBuildBatchesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBuildBatchesCommandError
- */
-const de_ListBuildBatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuildBatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBuildBatchesForProjectCommand
  */
 export const de_ListBuildBatchesForProjectCommand = async (
@@ -2150,7 +1420,7 @@ export const de_ListBuildBatchesForProjectCommand = async (
   context: __SerdeContext
 ): Promise<ListBuildBatchesForProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBuildBatchesForProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2163,35 +1433,6 @@ export const de_ListBuildBatchesForProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBuildBatchesForProjectCommandError
- */
-const de_ListBuildBatchesForProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuildBatchesForProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBuildsCommand
  */
 export const de_ListBuildsCommand = async (
@@ -2199,7 +1440,7 @@ export const de_ListBuildsCommand = async (
   context: __SerdeContext
 ): Promise<ListBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBuildsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2212,32 +1453,6 @@ export const de_ListBuildsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBuildsCommandError
- */
-const de_ListBuildsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuildsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBuildsForProjectCommand
  */
 export const de_ListBuildsForProjectCommand = async (
@@ -2245,7 +1460,7 @@ export const de_ListBuildsForProjectCommand = async (
   context: __SerdeContext
 ): Promise<ListBuildsForProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBuildsForProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2258,35 +1473,6 @@ export const de_ListBuildsForProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBuildsForProjectCommandError
- */
-const de_ListBuildsForProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuildsForProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCuratedEnvironmentImagesCommand
  */
 export const de_ListCuratedEnvironmentImagesCommand = async (
@@ -2294,7 +1480,7 @@ export const de_ListCuratedEnvironmentImagesCommand = async (
   context: __SerdeContext
 ): Promise<ListCuratedEnvironmentImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCuratedEnvironmentImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2307,26 +1493,6 @@ export const de_ListCuratedEnvironmentImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCuratedEnvironmentImagesCommandError
- */
-const de_ListCuratedEnvironmentImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCuratedEnvironmentImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListFleetsCommand
  */
 export const de_ListFleetsCommand = async (
@@ -2334,7 +1500,7 @@ export const de_ListFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2347,32 +1513,6 @@ export const de_ListFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFleetsCommandError
- */
-const de_ListFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -2380,7 +1520,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2393,32 +1533,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListReportGroupsCommand
  */
 export const de_ListReportGroupsCommand = async (
@@ -2426,7 +1540,7 @@ export const de_ListReportGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListReportGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReportGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2439,32 +1553,6 @@ export const de_ListReportGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListReportGroupsCommandError
- */
-const de_ListReportGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReportGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListReportsCommand
  */
 export const de_ListReportsCommand = async (
@@ -2472,7 +1560,7 @@ export const de_ListReportsCommand = async (
   context: __SerdeContext
 ): Promise<ListReportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2485,32 +1573,6 @@ export const de_ListReportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListReportsCommandError
- */
-const de_ListReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListReportsForReportGroupCommand
  */
 export const de_ListReportsForReportGroupCommand = async (
@@ -2518,7 +1580,7 @@ export const de_ListReportsForReportGroupCommand = async (
   context: __SerdeContext
 ): Promise<ListReportsForReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReportsForReportGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2531,35 +1593,6 @@ export const de_ListReportsForReportGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListReportsForReportGroupCommandError
- */
-const de_ListReportsForReportGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReportsForReportGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSharedProjectsCommand
  */
 export const de_ListSharedProjectsCommand = async (
@@ -2567,7 +1600,7 @@ export const de_ListSharedProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListSharedProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSharedProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2580,32 +1613,6 @@ export const de_ListSharedProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSharedProjectsCommandError
- */
-const de_ListSharedProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSharedProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSharedReportGroupsCommand
  */
 export const de_ListSharedReportGroupsCommand = async (
@@ -2613,7 +1620,7 @@ export const de_ListSharedReportGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListSharedReportGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSharedReportGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2626,32 +1633,6 @@ export const de_ListSharedReportGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSharedReportGroupsCommandError
- */
-const de_ListSharedReportGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSharedReportGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSourceCredentialsCommand
  */
 export const de_ListSourceCredentialsCommand = async (
@@ -2659,7 +1640,7 @@ export const de_ListSourceCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<ListSourceCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSourceCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2672,32 +1653,6 @@ export const de_ListSourceCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSourceCredentialsCommandError
- */
-const de_ListSourceCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -2705,7 +1660,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2718,35 +1673,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RetryBuildCommand
  */
 export const de_RetryBuildCommand = async (
@@ -2754,7 +1680,7 @@ export const de_RetryBuildCommand = async (
   context: __SerdeContext
 ): Promise<RetryBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RetryBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2767,38 +1693,6 @@ export const de_RetryBuildCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RetryBuildCommandError
- */
-const de_RetryBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetryBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RetryBuildBatchCommand
  */
 export const de_RetryBuildBatchCommand = async (
@@ -2806,7 +1700,7 @@ export const de_RetryBuildBatchCommand = async (
   context: __SerdeContext
 ): Promise<RetryBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RetryBuildBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2819,35 +1713,6 @@ export const de_RetryBuildBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RetryBuildBatchCommandError
- */
-const de_RetryBuildBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetryBuildBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartBuildCommand
  */
 export const de_StartBuildCommand = async (
@@ -2855,7 +1720,7 @@ export const de_StartBuildCommand = async (
   context: __SerdeContext
 ): Promise<StartBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2868,38 +1733,6 @@ export const de_StartBuildCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartBuildCommandError
- */
-const de_StartBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartBuildBatchCommand
  */
 export const de_StartBuildBatchCommand = async (
@@ -2907,7 +1740,7 @@ export const de_StartBuildBatchCommand = async (
   context: __SerdeContext
 ): Promise<StartBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartBuildBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2920,35 +1753,6 @@ export const de_StartBuildBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartBuildBatchCommandError
- */
-const de_StartBuildBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBuildBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopBuildCommand
  */
 export const de_StopBuildCommand = async (
@@ -2956,7 +1760,7 @@ export const de_StopBuildCommand = async (
   context: __SerdeContext
 ): Promise<StopBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2969,35 +1773,6 @@ export const de_StopBuildCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopBuildCommandError
- */
-const de_StopBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopBuildBatchCommand
  */
 export const de_StopBuildBatchCommand = async (
@@ -3005,7 +1780,7 @@ export const de_StopBuildBatchCommand = async (
   context: __SerdeContext
 ): Promise<StopBuildBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopBuildBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3018,35 +1793,6 @@ export const de_StopBuildBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopBuildBatchCommandError
- */
-const de_StopBuildBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBuildBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFleetCommand
  */
 export const de_UpdateFleetCommand = async (
@@ -3054,7 +1800,7 @@ export const de_UpdateFleetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3067,38 +1813,6 @@ export const de_UpdateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFleetCommandError
- */
-const de_UpdateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountLimitExceededException":
-    case "com.amazonaws.codebuild#AccountLimitExceededException":
-      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -3106,7 +1820,7 @@ export const de_UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3119,35 +1833,6 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateProjectCommandError
- */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateProjectVisibilityCommand
  */
 export const de_UpdateProjectVisibilityCommand = async (
@@ -3155,7 +1840,7 @@ export const de_UpdateProjectVisibilityCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectVisibilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateProjectVisibilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3168,35 +1853,6 @@ export const de_UpdateProjectVisibilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateProjectVisibilityCommandError
- */
-const de_UpdateProjectVisibilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectVisibilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateReportGroupCommand
  */
 export const de_UpdateReportGroupCommand = async (
@@ -3204,7 +1860,7 @@ export const de_UpdateReportGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReportGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateReportGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3217,35 +1873,6 @@ export const de_UpdateReportGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateReportGroupCommandError
- */
-const de_UpdateReportGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReportGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.codebuild#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codebuild#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateWebhookCommand
  */
 export const de_UpdateWebhookCommand = async (
@@ -3253,7 +1880,7 @@ export const de_UpdateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3266,12 +1893,9 @@ export const de_UpdateWebhookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateWebhookCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWebhookCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3281,6 +1905,12 @@ const de_UpdateWebhookCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.codebuild#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "AccountLimitExceededException":
+    case "com.amazonaws.codebuild#AccountLimitExceededException":
+      throw await de_AccountLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.codebuild#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "OAuthProviderException":
     case "com.amazonaws.codebuild#OAuthProviderException":
       throw await de_OAuthProviderExceptionRes(parsedOutput, context);

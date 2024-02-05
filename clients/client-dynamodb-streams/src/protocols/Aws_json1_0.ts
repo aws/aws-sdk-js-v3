@@ -104,7 +104,7 @@ export const de_DescribeStreamCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -117,35 +117,6 @@ export const de_DescribeStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeStreamCommandError
- */
-const de_DescribeStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRecordsCommand
  */
 export const de_GetRecordsCommand = async (
@@ -153,7 +124,7 @@ export const de_GetRecordsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -166,44 +137,6 @@ export const de_GetRecordsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRecordsCommandError
- */
-const de_GetRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredIteratorException":
-    case "com.amazonaws.dynamodbstreams#ExpiredIteratorException":
-      throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodbstreams#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TrimmedDataAccessException":
-    case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
-      throw await de_TrimmedDataAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetShardIteratorCommand
  */
 export const de_GetShardIteratorCommand = async (
@@ -211,7 +144,7 @@ export const de_GetShardIteratorCommand = async (
   context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetShardIteratorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -224,38 +157,6 @@ export const de_GetShardIteratorCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetShardIteratorCommandError
- */
-const de_GetShardIteratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetShardIteratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodbstreams#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TrimmedDataAccessException":
-    case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
-      throw await de_TrimmedDataAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListStreamsCommand
  */
 export const de_ListStreamsCommand = async (
@@ -263,7 +164,7 @@ export const de_ListStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -276,12 +177,9 @@ export const de_ListStreamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListStreamsCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_ListStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -294,6 +192,15 @@ const de_ListStreamsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodbstreams#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ExpiredIteratorException":
+    case "com.amazonaws.dynamodbstreams#ExpiredIteratorException":
+      throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodbstreams#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TrimmedDataAccessException":
+    case "com.amazonaws.dynamodbstreams#TrimmedDataAccessException":
+      throw await de_TrimmedDataAccessExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

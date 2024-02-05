@@ -1509,7 +1509,7 @@ export const de_AssociateDelegateToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDelegateToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDelegateToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1522,47 +1522,6 @@ export const de_AssociateDelegateToResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDelegateToResourceCommandError
- */
-const de_AssociateDelegateToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDelegateToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateMemberToGroupCommand
  */
 export const de_AssociateMemberToGroupCommand = async (
@@ -1570,7 +1529,7 @@ export const de_AssociateMemberToGroupCommand = async (
   context: __SerdeContext
 ): Promise<AssociateMemberToGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateMemberToGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1583,53 +1542,6 @@ export const de_AssociateMemberToGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateMemberToGroupCommandError
- */
-const de_AssociateMemberToGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateMemberToGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssumeImpersonationRoleCommand
  */
 export const de_AssumeImpersonationRoleCommand = async (
@@ -1637,7 +1549,7 @@ export const de_AssumeImpersonationRoleCommand = async (
   context: __SerdeContext
 ): Promise<AssumeImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssumeImpersonationRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1650,41 +1562,6 @@ export const de_AssumeImpersonationRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssumeImpersonationRoleCommandError
- */
-const de_AssumeImpersonationRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssumeImpersonationRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelMailboxExportJobCommand
  */
 export const de_CancelMailboxExportJobCommand = async (
@@ -1692,7 +1569,7 @@ export const de_CancelMailboxExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelMailboxExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelMailboxExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1705,41 +1582,6 @@ export const de_CancelMailboxExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelMailboxExportJobCommandError
- */
-const de_CancelMailboxExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMailboxExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAliasCommand
  */
 export const de_CreateAliasCommand = async (
@@ -1747,7 +1589,7 @@ export const de_CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1760,56 +1602,6 @@ export const de_CreateAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAliasCommandError
- */
-const de_CreateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EmailAddressInUseException":
-    case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
-    case "MailDomainStateException":
-    case "com.amazonaws.workmail#MailDomainStateException":
-      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAvailabilityConfigurationCommand
  */
 export const de_CreateAvailabilityConfigurationCommand = async (
@@ -1817,7 +1609,7 @@ export const de_CreateAvailabilityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAvailabilityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1830,44 +1622,6 @@ export const de_CreateAvailabilityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAvailabilityConfigurationCommandError
- */
-const de_CreateAvailabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAvailabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGroupCommand
  */
 export const de_CreateGroupCommand = async (
@@ -1875,7 +1629,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1888,53 +1642,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ReservedNameException":
-    case "com.amazonaws.workmail#ReservedNameException":
-      throw await de_ReservedNameExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateImpersonationRoleCommand
  */
 export const de_CreateImpersonationRoleCommand = async (
@@ -1942,7 +1649,7 @@ export const de_CreateImpersonationRoleCommand = async (
   context: __SerdeContext
 ): Promise<CreateImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateImpersonationRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1955,47 +1662,6 @@ export const de_CreateImpersonationRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateImpersonationRoleCommandError
- */
-const de_CreateImpersonationRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImpersonationRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMobileDeviceAccessRuleCommand
  */
 export const de_CreateMobileDeviceAccessRuleCommand = async (
@@ -2003,7 +1669,7 @@ export const de_CreateMobileDeviceAccessRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateMobileDeviceAccessRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMobileDeviceAccessRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2016,41 +1682,6 @@ export const de_CreateMobileDeviceAccessRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMobileDeviceAccessRuleCommandError
- */
-const de_CreateMobileDeviceAccessRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMobileDeviceAccessRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateOrganizationCommand
  */
 export const de_CreateOrganizationCommand = async (
@@ -2058,7 +1689,7 @@ export const de_CreateOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2071,44 +1702,6 @@ export const de_CreateOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateOrganizationCommandError
- */
-const de_CreateOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryInUseException":
-    case "com.amazonaws.workmail#DirectoryInUseException":
-      throw await de_DirectoryInUseExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateResourceCommand
  */
 export const de_CreateResourceCommand = async (
@@ -2116,7 +1709,7 @@ export const de_CreateResourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2129,53 +1722,6 @@ export const de_CreateResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateResourceCommandError
- */
-const de_CreateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ReservedNameException":
-    case "com.amazonaws.workmail#ReservedNameException":
-      throw await de_ReservedNameExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -2183,7 +1729,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2196,56 +1742,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.workmail#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ReservedNameException":
-    case "com.amazonaws.workmail#ReservedNameException":
-      throw await de_ReservedNameExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAccessControlRuleCommand
  */
 export const de_DeleteAccessControlRuleCommand = async (
@@ -2253,7 +1749,7 @@ export const de_DeleteAccessControlRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessControlRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccessControlRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2266,35 +1762,6 @@ export const de_DeleteAccessControlRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAccessControlRuleCommandError
- */
-const de_DeleteAccessControlRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessControlRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAliasCommand
  */
 export const de_DeleteAliasCommand = async (
@@ -2302,7 +1769,7 @@ export const de_DeleteAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2315,44 +1782,6 @@ export const de_DeleteAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAliasCommandError
- */
-const de_DeleteAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAvailabilityConfigurationCommand
  */
 export const de_DeleteAvailabilityConfigurationCommand = async (
@@ -2360,7 +1789,7 @@ export const de_DeleteAvailabilityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAvailabilityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2373,35 +1802,6 @@ export const de_DeleteAvailabilityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAvailabilityConfigurationCommandError
- */
-const de_DeleteAvailabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAvailabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommand
  */
 export const de_DeleteEmailMonitoringConfigurationCommand = async (
@@ -2409,7 +1809,7 @@ export const de_DeleteEmailMonitoringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailMonitoringConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEmailMonitoringConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2422,38 +1822,6 @@ export const de_DeleteEmailMonitoringConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEmailMonitoringConfigurationCommandError
- */
-const de_DeleteEmailMonitoringConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailMonitoringConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteGroupCommand
  */
 export const de_DeleteGroupCommand = async (
@@ -2461,7 +1829,7 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2474,50 +1842,6 @@ export const de_DeleteGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteImpersonationRoleCommand
  */
 export const de_DeleteImpersonationRoleCommand = async (
@@ -2525,7 +1849,7 @@ export const de_DeleteImpersonationRoleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteImpersonationRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2538,38 +1862,6 @@ export const de_DeleteImpersonationRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteImpersonationRoleCommandError
- */
-const de_DeleteImpersonationRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImpersonationRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMailboxPermissionsCommand
  */
 export const de_DeleteMailboxPermissionsCommand = async (
@@ -2577,7 +1869,7 @@ export const de_DeleteMailboxPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMailboxPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMailboxPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2590,44 +1882,6 @@ export const de_DeleteMailboxPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMailboxPermissionsCommandError
- */
-const de_DeleteMailboxPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMailboxPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand
  */
 export const de_DeleteMobileDeviceAccessOverrideCommand = async (
@@ -2635,7 +1889,7 @@ export const de_DeleteMobileDeviceAccessOverrideCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMobileDeviceAccessOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2648,41 +1902,6 @@ export const de_DeleteMobileDeviceAccessOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError
- */
-const de_DeleteMobileDeviceAccessOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommand
  */
 export const de_DeleteMobileDeviceAccessRuleCommand = async (
@@ -2690,7 +1909,7 @@ export const de_DeleteMobileDeviceAccessRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMobileDeviceAccessRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMobileDeviceAccessRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2703,38 +1922,6 @@ export const de_DeleteMobileDeviceAccessRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMobileDeviceAccessRuleCommandError
- */
-const de_DeleteMobileDeviceAccessRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMobileDeviceAccessRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteOrganizationCommand
  */
 export const de_DeleteOrganizationCommand = async (
@@ -2742,7 +1929,7 @@ export const de_DeleteOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2755,38 +1942,6 @@ export const de_DeleteOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteOrganizationCommandError
- */
-const de_DeleteOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourceCommand
  */
 export const de_DeleteResourceCommand = async (
@@ -2794,7 +1949,7 @@ export const de_DeleteResourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2807,44 +1962,6 @@ export const de_DeleteResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourceCommandError
- */
-const de_DeleteResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRetentionPolicyCommand
  */
 export const de_DeleteRetentionPolicyCommand = async (
@@ -2852,7 +1969,7 @@ export const de_DeleteRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRetentionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2865,38 +1982,6 @@ export const de_DeleteRetentionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRetentionPolicyCommandError
- */
-const de_DeleteRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -2904,7 +1989,7 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2917,50 +2002,6 @@ export const de_DeleteUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterFromWorkMailCommand
  */
 export const de_DeregisterFromWorkMailCommand = async (
@@ -2968,7 +2009,7 @@ export const de_DeregisterFromWorkMailCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterFromWorkMailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterFromWorkMailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2981,44 +2022,6 @@ export const de_DeregisterFromWorkMailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterFromWorkMailCommandError
- */
-const de_DeregisterFromWorkMailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterFromWorkMailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterMailDomainCommand
  */
 export const de_DeregisterMailDomainCommand = async (
@@ -3026,7 +2029,7 @@ export const de_DeregisterMailDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterMailDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3039,44 +2042,6 @@ export const de_DeregisterMailDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterMailDomainCommandError
- */
-const de_DeregisterMailDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterMailDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidCustomSesConfigurationException":
-    case "com.amazonaws.workmail#InvalidCustomSesConfigurationException":
-      throw await de_InvalidCustomSesConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MailDomainInUseException":
-    case "com.amazonaws.workmail#MailDomainInUseException":
-      throw await de_MailDomainInUseExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand
  */
 export const de_DescribeEmailMonitoringConfigurationCommand = async (
@@ -3084,7 +2049,7 @@ export const de_DescribeEmailMonitoringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEmailMonitoringConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEmailMonitoringConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3097,41 +2062,6 @@ export const de_DescribeEmailMonitoringConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommandError
- */
-const de_DescribeEmailMonitoringConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEmailMonitoringConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEntityCommand
  */
 export const de_DescribeEntityCommand = async (
@@ -3139,7 +2069,7 @@ export const de_DescribeEntityCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEntityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEntityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3152,41 +2082,6 @@ export const de_DescribeEntityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEntityCommandError
- */
-const de_DescribeEntityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGroupCommand
  */
 export const de_DescribeGroupCommand = async (
@@ -3194,7 +2089,7 @@ export const de_DescribeGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3207,41 +2102,6 @@ export const de_DescribeGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGroupCommandError
- */
-const de_DescribeGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInboundDmarcSettingsCommand
  */
 export const de_DescribeInboundDmarcSettingsCommand = async (
@@ -3249,7 +2109,7 @@ export const de_DescribeInboundDmarcSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInboundDmarcSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInboundDmarcSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3262,35 +2122,6 @@ export const de_DescribeInboundDmarcSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError
- */
-const de_DescribeInboundDmarcSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInboundDmarcSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMailboxExportJobCommand
  */
 export const de_DescribeMailboxExportJobCommand = async (
@@ -3298,7 +2129,7 @@ export const de_DescribeMailboxExportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMailboxExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMailboxExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3311,41 +2142,6 @@ export const de_DescribeMailboxExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMailboxExportJobCommandError
- */
-const de_DescribeMailboxExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMailboxExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeOrganizationCommand
  */
 export const de_DescribeOrganizationCommand = async (
@@ -3353,7 +2149,7 @@ export const de_DescribeOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3366,35 +2162,6 @@ export const de_DescribeOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeOrganizationCommandError
- */
-const de_DescribeOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeResourceCommand
  */
 export const de_DescribeResourceCommand = async (
@@ -3402,7 +2169,7 @@ export const de_DescribeResourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3415,44 +2182,6 @@ export const de_DescribeResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeResourceCommandError
- */
-const de_DescribeResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserCommand
  */
 export const de_DescribeUserCommand = async (
@@ -3460,7 +2189,7 @@ export const de_DescribeUserCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3473,41 +2202,6 @@ export const de_DescribeUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserCommandError
- */
-const de_DescribeUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateDelegateFromResourceCommand
  */
 export const de_DisassociateDelegateFromResourceCommand = async (
@@ -3515,7 +2209,7 @@ export const de_DisassociateDelegateFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDelegateFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateDelegateFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3528,47 +2222,6 @@ export const de_DisassociateDelegateFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateDelegateFromResourceCommandError
- */
-const de_DisassociateDelegateFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDelegateFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateMemberFromGroupCommand
  */
 export const de_DisassociateMemberFromGroupCommand = async (
@@ -3576,7 +2229,7 @@ export const de_DisassociateMemberFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateMemberFromGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateMemberFromGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3589,53 +2242,6 @@ export const de_DisassociateMemberFromGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateMemberFromGroupCommandError
- */
-const de_DisassociateMemberFromGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateMemberFromGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAccessControlEffectCommand
  */
 export const de_GetAccessControlEffectCommand = async (
@@ -3643,7 +2249,7 @@ export const de_GetAccessControlEffectCommand = async (
   context: __SerdeContext
 ): Promise<GetAccessControlEffectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccessControlEffectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3656,44 +2262,6 @@ export const de_GetAccessControlEffectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAccessControlEffectCommandError
- */
-const de_GetAccessControlEffectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessControlEffectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDefaultRetentionPolicyCommand
  */
 export const de_GetDefaultRetentionPolicyCommand = async (
@@ -3701,7 +2269,7 @@ export const de_GetDefaultRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetDefaultRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDefaultRetentionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3714,41 +2282,6 @@ export const de_GetDefaultRetentionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDefaultRetentionPolicyCommandError
- */
-const de_GetDefaultRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetImpersonationRoleCommand
  */
 export const de_GetImpersonationRoleCommand = async (
@@ -3756,7 +2289,7 @@ export const de_GetImpersonationRoleCommand = async (
   context: __SerdeContext
 ): Promise<GetImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetImpersonationRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3769,41 +2302,6 @@ export const de_GetImpersonationRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetImpersonationRoleCommandError
- */
-const de_GetImpersonationRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImpersonationRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetImpersonationRoleEffectCommand
  */
 export const de_GetImpersonationRoleEffectCommand = async (
@@ -3811,7 +2309,7 @@ export const de_GetImpersonationRoleEffectCommand = async (
   context: __SerdeContext
 ): Promise<GetImpersonationRoleEffectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetImpersonationRoleEffectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3824,47 +2322,6 @@ export const de_GetImpersonationRoleEffectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetImpersonationRoleEffectCommandError
- */
-const de_GetImpersonationRoleEffectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImpersonationRoleEffectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMailboxDetailsCommand
  */
 export const de_GetMailboxDetailsCommand = async (
@@ -3872,7 +2329,7 @@ export const de_GetMailboxDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetMailboxDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMailboxDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3885,41 +2342,6 @@ export const de_GetMailboxDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMailboxDetailsCommandError
- */
-const de_GetMailboxDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMailboxDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMailDomainCommand
  */
 export const de_GetMailDomainCommand = async (
@@ -3927,7 +2349,7 @@ export const de_GetMailDomainCommand = async (
   context: __SerdeContext
 ): Promise<GetMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMailDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3940,41 +2362,6 @@ export const de_GetMailDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMailDomainCommandError
- */
-const de_GetMailDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMailDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMobileDeviceAccessEffectCommand
  */
 export const de_GetMobileDeviceAccessEffectCommand = async (
@@ -3982,7 +2369,7 @@ export const de_GetMobileDeviceAccessEffectCommand = async (
   context: __SerdeContext
 ): Promise<GetMobileDeviceAccessEffectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMobileDeviceAccessEffectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3995,38 +2382,6 @@ export const de_GetMobileDeviceAccessEffectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError
- */
-const de_GetMobileDeviceAccessEffectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMobileDeviceAccessEffectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand
  */
 export const de_GetMobileDeviceAccessOverrideCommand = async (
@@ -4034,7 +2389,7 @@ export const de_GetMobileDeviceAccessOverrideCommand = async (
   context: __SerdeContext
 ): Promise<GetMobileDeviceAccessOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMobileDeviceAccessOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4047,44 +2402,6 @@ export const de_GetMobileDeviceAccessOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError
- */
-const de_GetMobileDeviceAccessOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMobileDeviceAccessOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAccessControlRulesCommand
  */
 export const de_ListAccessControlRulesCommand = async (
@@ -4092,7 +2409,7 @@ export const de_ListAccessControlRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessControlRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAccessControlRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4105,35 +2422,6 @@ export const de_ListAccessControlRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAccessControlRulesCommandError
- */
-const de_ListAccessControlRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessControlRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAliasesCommand
  */
 export const de_ListAliasesCommand = async (
@@ -4141,7 +2429,7 @@ export const de_ListAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4154,44 +2442,6 @@ export const de_ListAliasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAliasesCommandError
- */
-const de_ListAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailabilityConfigurationsCommand
  */
 export const de_ListAvailabilityConfigurationsCommand = async (
@@ -4199,7 +2449,7 @@ export const de_ListAvailabilityConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailabilityConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailabilityConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4212,35 +2462,6 @@ export const de_ListAvailabilityConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailabilityConfigurationsCommandError
- */
-const de_ListAvailabilityConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailabilityConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGroupMembersCommand
  */
 export const de_ListGroupMembersCommand = async (
@@ -4248,7 +2469,7 @@ export const de_ListGroupMembersCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupMembersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4261,44 +2482,6 @@ export const de_ListGroupMembersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGroupMembersCommandError
- */
-const de_ListGroupMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGroupsCommand
  */
 export const de_ListGroupsCommand = async (
@@ -4306,7 +2489,7 @@ export const de_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4319,41 +2502,6 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGroupsCommandError
- */
-const de_ListGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGroupsForEntityCommand
  */
 export const de_ListGroupsForEntityCommand = async (
@@ -4361,7 +2509,7 @@ export const de_ListGroupsForEntityCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsForEntityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupsForEntityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4374,44 +2522,6 @@ export const de_ListGroupsForEntityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGroupsForEntityCommandError
- */
-const de_ListGroupsForEntityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsForEntityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListImpersonationRolesCommand
  */
 export const de_ListImpersonationRolesCommand = async (
@@ -4419,7 +2529,7 @@ export const de_ListImpersonationRolesCommand = async (
   context: __SerdeContext
 ): Promise<ListImpersonationRolesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImpersonationRolesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4432,38 +2542,6 @@ export const de_ListImpersonationRolesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListImpersonationRolesCommandError
- */
-const de_ListImpersonationRolesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImpersonationRolesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMailboxExportJobsCommand
  */
 export const de_ListMailboxExportJobsCommand = async (
@@ -4471,7 +2549,7 @@ export const de_ListMailboxExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListMailboxExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMailboxExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4484,38 +2562,6 @@ export const de_ListMailboxExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMailboxExportJobsCommandError
- */
-const de_ListMailboxExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMailboxExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMailboxPermissionsCommand
  */
 export const de_ListMailboxPermissionsCommand = async (
@@ -4523,7 +2569,7 @@ export const de_ListMailboxPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ListMailboxPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMailboxPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4536,41 +2582,6 @@ export const de_ListMailboxPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMailboxPermissionsCommandError
- */
-const de_ListMailboxPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMailboxPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMailDomainsCommand
  */
 export const de_ListMailDomainsCommand = async (
@@ -4578,7 +2589,7 @@ export const de_ListMailDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ListMailDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMailDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4591,38 +2602,6 @@ export const de_ListMailDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMailDomainsCommandError
- */
-const de_ListMailDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMailDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand
  */
 export const de_ListMobileDeviceAccessOverridesCommand = async (
@@ -4630,7 +2609,7 @@ export const de_ListMobileDeviceAccessOverridesCommand = async (
   context: __SerdeContext
 ): Promise<ListMobileDeviceAccessOverridesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMobileDeviceAccessOverridesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4643,41 +2622,6 @@ export const de_ListMobileDeviceAccessOverridesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError
- */
-const de_ListMobileDeviceAccessOverridesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMobileDeviceAccessOverridesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMobileDeviceAccessRulesCommand
  */
 export const de_ListMobileDeviceAccessRulesCommand = async (
@@ -4685,7 +2629,7 @@ export const de_ListMobileDeviceAccessRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListMobileDeviceAccessRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMobileDeviceAccessRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4698,38 +2642,6 @@ export const de_ListMobileDeviceAccessRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMobileDeviceAccessRulesCommandError
- */
-const de_ListMobileDeviceAccessRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMobileDeviceAccessRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOrganizationsCommand
  */
 export const de_ListOrganizationsCommand = async (
@@ -4737,7 +2649,7 @@ export const de_ListOrganizationsCommand = async (
   context: __SerdeContext
 ): Promise<ListOrganizationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOrganizationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4750,32 +2662,6 @@ export const de_ListOrganizationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOrganizationsCommandError
- */
-const de_ListOrganizationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourceDelegatesCommand
  */
 export const de_ListResourceDelegatesCommand = async (
@@ -4783,7 +2669,7 @@ export const de_ListResourceDelegatesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceDelegatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceDelegatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4796,47 +2682,6 @@ export const de_ListResourceDelegatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourceDelegatesCommandError
- */
-const de_ListResourceDelegatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceDelegatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourcesCommand
  */
 export const de_ListResourcesCommand = async (
@@ -4844,7 +2689,7 @@ export const de_ListResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4857,41 +2702,6 @@ export const de_ListResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourcesCommandError
- */
-const de_ListResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4899,7 +2709,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4912,32 +2722,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUsersCommand
  */
 export const de_ListUsersCommand = async (
@@ -4945,7 +2729,7 @@ export const de_ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4958,38 +2742,6 @@ export const de_ListUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUsersCommandError
- */
-const de_ListUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAccessControlRuleCommand
  */
 export const de_PutAccessControlRuleCommand = async (
@@ -4997,7 +2749,7 @@ export const de_PutAccessControlRuleCommand = async (
   context: __SerdeContext
 ): Promise<PutAccessControlRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAccessControlRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5010,47 +2762,6 @@ export const de_PutAccessControlRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAccessControlRuleCommandError
- */
-const de_PutAccessControlRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccessControlRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutEmailMonitoringConfigurationCommand
  */
 export const de_PutEmailMonitoringConfigurationCommand = async (
@@ -5058,7 +2769,7 @@ export const de_PutEmailMonitoringConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailMonitoringConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutEmailMonitoringConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5071,41 +2782,6 @@ export const de_PutEmailMonitoringConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutEmailMonitoringConfigurationCommandError
- */
-const de_PutEmailMonitoringConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailMonitoringConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutInboundDmarcSettingsCommand
  */
 export const de_PutInboundDmarcSettingsCommand = async (
@@ -5113,7 +2789,7 @@ export const de_PutInboundDmarcSettingsCommand = async (
   context: __SerdeContext
 ): Promise<PutInboundDmarcSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutInboundDmarcSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5126,35 +2802,6 @@ export const de_PutInboundDmarcSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutInboundDmarcSettingsCommandError
- */
-const de_PutInboundDmarcSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInboundDmarcSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutMailboxPermissionsCommand
  */
 export const de_PutMailboxPermissionsCommand = async (
@@ -5162,7 +2809,7 @@ export const de_PutMailboxPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<PutMailboxPermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMailboxPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5175,44 +2822,6 @@ export const de_PutMailboxPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutMailboxPermissionsCommandError
- */
-const de_PutMailboxPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMailboxPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutMobileDeviceAccessOverrideCommand
  */
 export const de_PutMobileDeviceAccessOverrideCommand = async (
@@ -5220,7 +2829,7 @@ export const de_PutMobileDeviceAccessOverrideCommand = async (
   context: __SerdeContext
 ): Promise<PutMobileDeviceAccessOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMobileDeviceAccessOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5233,44 +2842,6 @@ export const de_PutMobileDeviceAccessOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError
- */
-const de_PutMobileDeviceAccessOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMobileDeviceAccessOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRetentionPolicyCommand
  */
 export const de_PutRetentionPolicyCommand = async (
@@ -5278,7 +2849,7 @@ export const de_PutRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutRetentionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRetentionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5291,41 +2862,6 @@ export const de_PutRetentionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRetentionPolicyCommandError
- */
-const de_PutRetentionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRetentionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterMailDomainCommand
  */
 export const de_RegisterMailDomainCommand = async (
@@ -5333,7 +2869,7 @@ export const de_RegisterMailDomainCommand = async (
   context: __SerdeContext
 ): Promise<RegisterMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterMailDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5346,44 +2882,6 @@ export const de_RegisterMailDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterMailDomainCommandError
- */
-const de_RegisterMailDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterMailDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailDomainInUseException":
-    case "com.amazonaws.workmail#MailDomainInUseException":
-      throw await de_MailDomainInUseExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterToWorkMailCommand
  */
 export const de_RegisterToWorkMailCommand = async (
@@ -5391,7 +2889,7 @@ export const de_RegisterToWorkMailCommand = async (
   context: __SerdeContext
 ): Promise<RegisterToWorkMailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterToWorkMailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5404,62 +2902,6 @@ export const de_RegisterToWorkMailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterToWorkMailCommandError
- */
-const de_RegisterToWorkMailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterToWorkMailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EmailAddressInUseException":
-    case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
-    case "EntityAlreadyRegisteredException":
-    case "com.amazonaws.workmail#EntityAlreadyRegisteredException":
-      throw await de_EntityAlreadyRegisteredExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
-    case "MailDomainStateException":
-    case "com.amazonaws.workmail#MailDomainStateException":
-      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResetPasswordCommand
  */
 export const de_ResetPasswordCommand = async (
@@ -5467,7 +2909,7 @@ export const de_ResetPasswordCommand = async (
   context: __SerdeContext
 ): Promise<ResetPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5480,56 +2922,6 @@ export const de_ResetPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResetPasswordCommandError
- */
-const de_ResetPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.workmail#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMailboxExportJobCommand
  */
 export const de_StartMailboxExportJobCommand = async (
@@ -5537,7 +2929,7 @@ export const de_StartMailboxExportJobCommand = async (
   context: __SerdeContext
 ): Promise<StartMailboxExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMailboxExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5550,44 +2942,6 @@ export const de_StartMailboxExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMailboxExportJobCommandError
- */
-const de_StartMailboxExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMailboxExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -5595,7 +2949,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5608,41 +2962,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.workmail#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TestAvailabilityConfigurationCommand
  */
 export const de_TestAvailabilityConfigurationCommand = async (
@@ -5650,7 +2969,7 @@ export const de_TestAvailabilityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<TestAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestAvailabilityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5663,41 +2982,6 @@ export const de_TestAvailabilityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TestAvailabilityConfigurationCommandError
- */
-const de_TestAvailabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestAvailabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -5705,7 +2989,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5718,32 +3002,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAvailabilityConfigurationCommand
  */
 export const de_UpdateAvailabilityConfigurationCommand = async (
@@ -5751,7 +3009,7 @@ export const de_UpdateAvailabilityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAvailabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAvailabilityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5764,41 +3022,6 @@ export const de_UpdateAvailabilityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAvailabilityConfigurationCommandError
- */
-const de_UpdateAvailabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAvailabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDefaultMailDomainCommand
  */
 export const de_UpdateDefaultMailDomainCommand = async (
@@ -5806,7 +3029,7 @@ export const de_UpdateDefaultMailDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDefaultMailDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDefaultMailDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5819,44 +3042,6 @@ export const de_UpdateDefaultMailDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDefaultMailDomainCommandError
- */
-const de_UpdateDefaultMailDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDefaultMailDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
-    case "MailDomainStateException":
-    case "com.amazonaws.workmail#MailDomainStateException":
-      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGroupCommand
  */
 export const de_UpdateGroupCommand = async (
@@ -5864,7 +3049,7 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5877,47 +3062,6 @@ export const de_UpdateGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateImpersonationRoleCommand
  */
 export const de_UpdateImpersonationRoleCommand = async (
@@ -5925,7 +3069,7 @@ export const de_UpdateImpersonationRoleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateImpersonationRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateImpersonationRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5938,50 +3082,6 @@ export const de_UpdateImpersonationRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateImpersonationRoleCommandError
- */
-const de_UpdateImpersonationRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImpersonationRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workmail#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMailboxQuotaCommand
  */
 export const de_UpdateMailboxQuotaCommand = async (
@@ -5989,7 +3089,7 @@ export const de_UpdateMailboxQuotaCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMailboxQuotaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMailboxQuotaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6002,44 +3102,6 @@ export const de_UpdateMailboxQuotaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMailboxQuotaCommandError
- */
-const de_UpdateMailboxQuotaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMailboxQuotaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommand
  */
 export const de_UpdateMobileDeviceAccessRuleCommand = async (
@@ -6047,7 +3109,7 @@ export const de_UpdateMobileDeviceAccessRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMobileDeviceAccessRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMobileDeviceAccessRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6060,41 +3122,6 @@ export const de_UpdateMobileDeviceAccessRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMobileDeviceAccessRuleCommandError
- */
-const de_UpdateMobileDeviceAccessRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMobileDeviceAccessRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdatePrimaryEmailAddressCommand
  */
 export const de_UpdatePrimaryEmailAddressCommand = async (
@@ -6102,7 +3129,7 @@ export const de_UpdatePrimaryEmailAddressCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePrimaryEmailAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePrimaryEmailAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6115,62 +3142,6 @@ export const de_UpdatePrimaryEmailAddressCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePrimaryEmailAddressCommandError
- */
-const de_UpdatePrimaryEmailAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePrimaryEmailAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EmailAddressInUseException":
-    case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
-    case "MailDomainStateException":
-    case "com.amazonaws.workmail#MailDomainStateException":
-      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateResourceCommand
  */
 export const de_UpdateResourceCommand = async (
@@ -6178,7 +3149,7 @@ export const de_UpdateResourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6191,65 +3162,6 @@ export const de_UpdateResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateResourceCommandError
- */
-const de_UpdateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EmailAddressInUseException":
-    case "com.amazonaws.workmail#EmailAddressInUseException":
-      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.workmail#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "EntityStateException":
-    case "com.amazonaws.workmail#EntityStateException":
-      throw await de_EntityStateExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationException":
-    case "com.amazonaws.workmail#InvalidConfigurationException":
-      throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.workmail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MailDomainNotFoundException":
-    case "com.amazonaws.workmail#MailDomainNotFoundException":
-      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
-    case "MailDomainStateException":
-    case "com.amazonaws.workmail#MailDomainStateException":
-      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
-    case "NameAvailabilityException":
-    case "com.amazonaws.workmail#NameAvailabilityException":
-      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
-    case "OrganizationNotFoundException":
-    case "com.amazonaws.workmail#OrganizationNotFoundException":
-      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
-    case "OrganizationStateException":
-    case "com.amazonaws.workmail#OrganizationStateException":
-      throw await de_OrganizationStateExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.workmail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserCommand
  */
 export const de_UpdateUserCommand = async (
@@ -6257,7 +3169,7 @@ export const de_UpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6270,24 +3182,15 @@ export const de_UpdateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DirectoryServiceAuthenticationFailedException":
-    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
-      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.workmail#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.workmail#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
@@ -6306,6 +3209,54 @@ const de_UpdateUserCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.workmail#UnsupportedOperationException":
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "DirectoryServiceAuthenticationFailedException":
+    case "com.amazonaws.workmail#DirectoryServiceAuthenticationFailedException":
+      throw await de_DirectoryServiceAuthenticationFailedExceptionRes(parsedOutput, context);
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.workmail#DirectoryUnavailableException":
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "EmailAddressInUseException":
+    case "com.amazonaws.workmail#EmailAddressInUseException":
+      throw await de_EmailAddressInUseExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workmail#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MailDomainNotFoundException":
+    case "com.amazonaws.workmail#MailDomainNotFoundException":
+      throw await de_MailDomainNotFoundExceptionRes(parsedOutput, context);
+    case "MailDomainStateException":
+    case "com.amazonaws.workmail#MailDomainStateException":
+      throw await de_MailDomainStateExceptionRes(parsedOutput, context);
+    case "NameAvailabilityException":
+    case "com.amazonaws.workmail#NameAvailabilityException":
+      throw await de_NameAvailabilityExceptionRes(parsedOutput, context);
+    case "ReservedNameException":
+    case "com.amazonaws.workmail#ReservedNameException":
+      throw await de_ReservedNameExceptionRes(parsedOutput, context);
+    case "DirectoryInUseException":
+    case "com.amazonaws.workmail#DirectoryInUseException":
+      throw await de_DirectoryInUseExceptionRes(parsedOutput, context);
+    case "InvalidPasswordException":
+    case "com.amazonaws.workmail#InvalidPasswordException":
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
+    case "InvalidCustomSesConfigurationException":
+    case "com.amazonaws.workmail#InvalidCustomSesConfigurationException":
+      throw await de_InvalidCustomSesConfigurationExceptionRes(parsedOutput, context);
+    case "MailDomainInUseException":
+    case "com.amazonaws.workmail#MailDomainInUseException":
+      throw await de_MailDomainInUseExceptionRes(parsedOutput, context);
+    case "EntityAlreadyRegisteredException":
+    case "com.amazonaws.workmail#EntityAlreadyRegisteredException":
+      throw await de_EntityAlreadyRegisteredExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.workmail#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationException":
+    case "com.amazonaws.workmail#InvalidConfigurationException":
+      throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

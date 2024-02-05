@@ -117,7 +117,7 @@ export const de_GetRoleCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<GetRoleCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRoleCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -131,41 +131,6 @@ export const de_GetRoleCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRoleCredentialsCommandError
- */
-const de_GetRoleCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRoleCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.sso#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sso#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sso#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.sso#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccountRolesCommand
  */
 export const de_ListAccountRolesCommand = async (
@@ -173,7 +138,7 @@ export const de_ListAccountRolesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccountRolesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccountRolesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -188,41 +153,6 @@ export const de_ListAccountRolesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccountRolesCommandError
- */
-const de_ListAccountRolesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountRolesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.sso#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sso#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sso#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.sso#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccountsCommand
  */
 export const de_ListAccountsCommand = async (
@@ -230,7 +160,7 @@ export const de_ListAccountsCommand = async (
   context: __SerdeContext
 ): Promise<ListAccountsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -245,12 +175,26 @@ export const de_ListAccountsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccountsCommandError
+ * deserializeAws_restJson1LogoutCommand
  */
-const de_ListAccountsCommandError = async (
+export const de_LogoutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListAccountsCommandOutput> => {
+): Promise<LogoutCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -263,52 +207,6 @@ const de_ListAccountsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.sso#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sso#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.sso#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1LogoutCommand
- */
-export const de_LogoutCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LogoutCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_LogoutCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1LogoutCommandError
- */
-const de_LogoutCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<LogoutCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.sso#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sso#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);

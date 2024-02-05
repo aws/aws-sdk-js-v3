@@ -62,7 +62,7 @@ export const se_LengthCommand = async (input: LengthCommandInput, context: __Ser
  */
 export const de_EchoCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EchoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -76,29 +76,6 @@ export const de_EchoCommand = async (output: __HttpResponse, context: __SerdeCon
 };
 
 /**
- * deserializeAws_restJson1EchoCommandError
- */
-const de_EchoCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<EchoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PalindromeException":
-    case "aws.test.generic#PalindromeException":
-      throw await de_PalindromeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1LengthCommand
  */
 export const de_LengthCommand = async (
@@ -106,7 +83,7 @@ export const de_LengthCommand = async (
   context: __SerdeContext
 ): Promise<LengthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_LengthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -120,9 +97,9 @@ export const de_LengthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1LengthCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_LengthCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<LengthCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

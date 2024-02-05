@@ -669,7 +669,7 @@ export const de_AddApplicationCloudWatchLoggingOptionCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddApplicationCloudWatchLoggingOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -682,47 +682,6 @@ export const de_AddApplicationCloudWatchLoggingOptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError
- */
-const de_AddApplicationCloudWatchLoggingOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddApplicationInputCommand
  */
 export const de_AddApplicationInputCommand = async (
@@ -730,7 +689,7 @@ export const de_AddApplicationInputCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationInputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddApplicationInputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -743,47 +702,6 @@ export const de_AddApplicationInputCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddApplicationInputCommandError
- */
-const de_AddApplicationInputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddApplicationInputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeValidationException":
-    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
-      throw await de_CodeValidationExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand
  */
 export const de_AddApplicationInputProcessingConfigurationCommand = async (
@@ -791,7 +709,7 @@ export const de_AddApplicationInputProcessingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddApplicationInputProcessingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -804,44 +722,6 @@ export const de_AddApplicationInputProcessingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandError
- */
-const de_AddApplicationInputProcessingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddApplicationInputProcessingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddApplicationOutputCommand
  */
 export const de_AddApplicationOutputCommand = async (
@@ -849,7 +729,7 @@ export const de_AddApplicationOutputCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddApplicationOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -862,44 +742,6 @@ export const de_AddApplicationOutputCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddApplicationOutputCommandError
- */
-const de_AddApplicationOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddApplicationOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddApplicationReferenceDataSourceCommand
  */
 export const de_AddApplicationReferenceDataSourceCommand = async (
@@ -907,7 +749,7 @@ export const de_AddApplicationReferenceDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationReferenceDataSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddApplicationReferenceDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -920,44 +762,6 @@ export const de_AddApplicationReferenceDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError
- */
-const de_AddApplicationReferenceDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddApplicationReferenceDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddApplicationVpcConfigurationCommand
  */
 export const de_AddApplicationVpcConfigurationCommand = async (
@@ -965,7 +769,7 @@ export const de_AddApplicationVpcConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<AddApplicationVpcConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddApplicationVpcConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -978,44 +782,6 @@ export const de_AddApplicationVpcConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddApplicationVpcConfigurationCommandError
- */
-const de_AddApplicationVpcConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddApplicationVpcConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApplicationCommand
  */
 export const de_CreateApplicationCommand = async (
@@ -1023,7 +789,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1036,53 +802,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeValidationException":
-    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
-      throw await de_CodeValidationExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApplicationPresignedUrlCommand
  */
 export const de_CreateApplicationPresignedUrlCommand = async (
@@ -1090,7 +809,7 @@ export const de_CreateApplicationPresignedUrlCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationPresignedUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationPresignedUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1103,38 +822,6 @@ export const de_CreateApplicationPresignedUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApplicationPresignedUrlCommandError
- */
-const de_CreateApplicationPresignedUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationPresignedUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApplicationSnapshotCommand
  */
 export const de_CreateApplicationSnapshotCommand = async (
@@ -1142,7 +829,7 @@ export const de_CreateApplicationSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1155,50 +842,6 @@ export const de_CreateApplicationSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApplicationSnapshotCommandError
- */
-const de_CreateApplicationSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -1206,7 +849,7 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1219,47 +862,6 @@ export const de_DeleteApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommand
  */
 export const de_DeleteApplicationCloudWatchLoggingOptionCommand = async (
@@ -1267,7 +869,7 @@ export const de_DeleteApplicationCloudWatchLoggingOptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationCloudWatchLoggingOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1280,47 +882,6 @@ export const de_DeleteApplicationCloudWatchLoggingOptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError
- */
-const de_DeleteApplicationCloudWatchLoggingOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand
  */
 export const de_DeleteApplicationInputProcessingConfigurationCommand = async (
@@ -1328,7 +889,7 @@ export const de_DeleteApplicationInputProcessingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationInputProcessingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1341,44 +902,6 @@ export const de_DeleteApplicationInputProcessingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommandError
- */
-const de_DeleteApplicationInputProcessingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationOutputCommand
  */
 export const de_DeleteApplicationOutputCommand = async (
@@ -1386,7 +909,7 @@ export const de_DeleteApplicationOutputCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1399,44 +922,6 @@ export const de_DeleteApplicationOutputCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationOutputCommandError
- */
-const de_DeleteApplicationOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand
  */
 export const de_DeleteApplicationReferenceDataSourceCommand = async (
@@ -1444,7 +929,7 @@ export const de_DeleteApplicationReferenceDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationReferenceDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1457,44 +942,6 @@ export const de_DeleteApplicationReferenceDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError
- */
-const de_DeleteApplicationReferenceDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationReferenceDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationSnapshotCommand
  */
 export const de_DeleteApplicationSnapshotCommand = async (
@@ -1502,7 +949,7 @@ export const de_DeleteApplicationSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1515,47 +962,6 @@ export const de_DeleteApplicationSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationSnapshotCommandError
- */
-const de_DeleteApplicationSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand
  */
 export const de_DeleteApplicationVpcConfigurationCommand = async (
@@ -1563,7 +969,7 @@ export const de_DeleteApplicationVpcConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationVpcConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationVpcConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1576,44 +982,6 @@ export const de_DeleteApplicationVpcConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError
- */
-const de_DeleteApplicationVpcConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationVpcConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationCommand
  */
 export const de_DescribeApplicationCommand = async (
@@ -1621,7 +989,7 @@ export const de_DescribeApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1634,38 +1002,6 @@ export const de_DescribeApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationCommandError
- */
-const de_DescribeApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationSnapshotCommand
  */
 export const de_DescribeApplicationSnapshotCommand = async (
@@ -1673,7 +1009,7 @@ export const de_DescribeApplicationSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1686,38 +1022,6 @@ export const de_DescribeApplicationSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationSnapshotCommandError
- */
-const de_DescribeApplicationSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationVersionCommand
  */
 export const de_DescribeApplicationVersionCommand = async (
@@ -1725,7 +1029,7 @@ export const de_DescribeApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1738,38 +1042,6 @@ export const de_DescribeApplicationVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationVersionCommandError
- */
-const de_DescribeApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DiscoverInputSchemaCommand
  */
 export const de_DiscoverInputSchemaCommand = async (
@@ -1777,7 +1049,7 @@ export const de_DiscoverInputSchemaCommand = async (
   context: __SerdeContext
 ): Promise<DiscoverInputSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DiscoverInputSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1790,47 +1062,6 @@ export const de_DiscoverInputSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DiscoverInputSchemaCommandError
- */
-const de_DiscoverInputSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverInputSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceProvisionedThroughputExceededException":
-      throw await de_ResourceProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.kinesisanalyticsv2#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnableToDetectSchemaException":
-    case "com.amazonaws.kinesisanalyticsv2#UnableToDetectSchemaException":
-      throw await de_UnableToDetectSchemaExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListApplicationsCommand
  */
 export const de_ListApplicationsCommand = async (
@@ -1838,7 +1069,7 @@ export const de_ListApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1851,32 +1082,6 @@ export const de_ListApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListApplicationSnapshotsCommand
  */
 export const de_ListApplicationSnapshotsCommand = async (
@@ -1884,7 +1089,7 @@ export const de_ListApplicationSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListApplicationSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1897,35 +1102,6 @@ export const de_ListApplicationSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListApplicationSnapshotsCommandError
- */
-const de_ListApplicationSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListApplicationVersionsCommand
  */
 export const de_ListApplicationVersionsCommand = async (
@@ -1933,7 +1109,7 @@ export const de_ListApplicationVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListApplicationVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1946,38 +1122,6 @@ export const de_ListApplicationVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListApplicationVersionsCommandError
- */
-const de_ListApplicationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1985,7 +1129,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1998,38 +1142,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RollbackApplicationCommand
  */
 export const de_RollbackApplicationCommand = async (
@@ -2037,7 +1149,7 @@ export const de_RollbackApplicationCommand = async (
   context: __SerdeContext
 ): Promise<RollbackApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RollbackApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2050,47 +1162,6 @@ export const de_RollbackApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RollbackApplicationCommandError
- */
-const de_RollbackApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RollbackApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartApplicationCommand
  */
 export const de_StartApplicationCommand = async (
@@ -2098,7 +1169,7 @@ export const de_StartApplicationCommand = async (
   context: __SerdeContext
 ): Promise<StartApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2111,44 +1182,6 @@ export const de_StartApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartApplicationCommandError
- */
-const de_StartApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopApplicationCommand
  */
 export const de_StopApplicationCommand = async (
@@ -2156,7 +1189,7 @@ export const de_StopApplicationCommand = async (
   context: __SerdeContext
 ): Promise<StopApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2169,47 +1202,6 @@ export const de_StopApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopApplicationCommandError
- */
-const de_StopApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2217,7 +1209,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2230,44 +1222,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2275,7 +1229,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2288,44 +1242,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateApplicationCommand
  */
 export const de_UpdateApplicationCommand = async (
@@ -2333,7 +1249,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2346,53 +1262,6 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeValidationException":
-    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
-      throw await de_CodeValidationExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidApplicationConfigurationException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
-      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand
  */
 export const de_UpdateApplicationMaintenanceConfigurationCommand = async (
@@ -2400,7 +1269,7 @@ export const de_UpdateApplicationMaintenanceConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationMaintenanceConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2413,12 +1282,9 @@ export const de_UpdateApplicationMaintenanceConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateApplicationMaintenanceConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2428,18 +1294,42 @@ const de_UpdateApplicationMaintenanceConfigurationCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      throw await de_InvalidApplicationConfigurationExceptionRes(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "CodeValidationException":
+    case "com.amazonaws.kinesisanalyticsv2#CodeValidationException":
+      throw await de_CodeValidationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.kinesisanalyticsv2#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "ResourceProvisionedThroughputExceededException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceProvisionedThroughputExceededException":
+      throw await de_ResourceProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kinesisanalyticsv2#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnableToDetectSchemaException":
+    case "com.amazonaws.kinesisanalyticsv2#UnableToDetectSchemaException":
+      throw await de_UnableToDetectSchemaExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

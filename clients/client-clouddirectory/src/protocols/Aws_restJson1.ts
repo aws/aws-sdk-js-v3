@@ -1852,63 +1852,13 @@ export const de_AddFacetToObjectCommand = async (
   context: __SerdeContext
 ): Promise<AddFacetToObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AddFacetToObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AddFacetToObjectCommandError
- */
-const de_AddFacetToObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddFacetToObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1919,7 +1869,7 @@ export const de_ApplySchemaCommand = async (
   context: __SerdeContext
 ): Promise<ApplySchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ApplySchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1934,56 +1884,6 @@ export const de_ApplySchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ApplySchemaCommandError
- */
-const de_ApplySchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplySchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidAttachmentException":
-    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "SchemaAlreadyExistsException":
-    case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
-      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AttachObjectCommand
  */
 export const de_AttachObjectCommand = async (
@@ -1991,7 +1891,7 @@ export const de_AttachObjectCommand = async (
   context: __SerdeContext
 ): Promise<AttachObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AttachObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2002,62 +1902,6 @@ export const de_AttachObjectCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AttachObjectCommandError
- */
-const de_AttachObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidAttachmentException":
-    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LinkNameAlreadyInUseException":
-    case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2068,63 +1912,13 @@ export const de_AttachPolicyCommand = async (
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AttachPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AttachPolicyCommandError
- */
-const de_AttachPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotPolicyException":
-    case "com.amazonaws.clouddirectory#NotPolicyException":
-      throw await de_NotPolicyExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2135,7 +1929,7 @@ export const de_AttachToIndexCommand = async (
   context: __SerdeContext
 ): Promise<AttachToIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AttachToIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2149,65 +1943,6 @@ export const de_AttachToIndexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AttachToIndexCommandError
- */
-const de_AttachToIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachToIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "IndexedAttributeMissingException":
-    case "com.amazonaws.clouddirectory#IndexedAttributeMissingException":
-      throw await de_IndexedAttributeMissingExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidAttachmentException":
-    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LinkNameAlreadyInUseException":
-    case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
-    case "NotIndexException":
-    case "com.amazonaws.clouddirectory#NotIndexException":
-      throw await de_NotIndexExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AttachTypedLinkCommand
  */
 export const de_AttachTypedLinkCommand = async (
@@ -2215,7 +1950,7 @@ export const de_AttachTypedLinkCommand = async (
   context: __SerdeContext
 ): Promise<AttachTypedLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AttachTypedLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2229,59 +1964,6 @@ export const de_AttachTypedLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AttachTypedLinkCommandError
- */
-const de_AttachTypedLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachTypedLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidAttachmentException":
-    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchReadCommand
  */
 export const de_BatchReadCommand = async (
@@ -2289,7 +1971,7 @@ export const de_BatchReadCommand = async (
   context: __SerdeContext
 ): Promise<BatchReadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchReadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2303,50 +1985,6 @@ export const de_BatchReadCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchReadCommandError
- */
-const de_BatchReadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchReadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchWriteCommand
  */
 export const de_BatchWriteCommand = async (
@@ -2354,7 +1992,7 @@ export const de_BatchWriteCommand = async (
   context: __SerdeContext
 ): Promise<BatchWriteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchWriteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2368,53 +2006,6 @@ export const de_BatchWriteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchWriteCommandError
- */
-const de_BatchWriteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchWriteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BatchWriteException":
-    case "com.amazonaws.clouddirectory#BatchWriteException":
-      throw await de_BatchWriteExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDirectoryCommand
  */
 export const de_CreateDirectoryCommand = async (
@@ -2422,7 +2013,7 @@ export const de_CreateDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2439,53 +2030,6 @@ export const de_CreateDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDirectoryCommandError
- */
-const de_CreateDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryAlreadyExistsException":
-    case "com.amazonaws.clouddirectory#DirectoryAlreadyExistsException":
-      throw await de_DirectoryAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFacetCommand
  */
 export const de_CreateFacetCommand = async (
@@ -2493,66 +2037,13 @@ export const de_CreateFacetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateFacetCommandError
- */
-const de_CreateFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetAlreadyExistsException":
-    case "com.amazonaws.clouddirectory#FacetAlreadyExistsException":
-      throw await de_FacetAlreadyExistsExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidRuleException":
-    case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2563,7 +2054,7 @@ export const de_CreateIndexCommand = async (
   context: __SerdeContext
 ): Promise<CreateIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2574,62 +2065,6 @@ export const de_CreateIndexCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateIndexCommandError
- */
-const de_CreateIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LinkNameAlreadyInUseException":
-    case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "UnsupportedIndexTypeException":
-    case "com.amazonaws.clouddirectory#UnsupportedIndexTypeException":
-      throw await de_UnsupportedIndexTypeExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2640,7 +2075,7 @@ export const de_CreateObjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2654,62 +2089,6 @@ export const de_CreateObjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateObjectCommandError
- */
-const de_CreateObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LinkNameAlreadyInUseException":
-    case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "UnsupportedIndexTypeException":
-    case "com.amazonaws.clouddirectory#UnsupportedIndexTypeException":
-      throw await de_UnsupportedIndexTypeExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSchemaCommand
  */
 export const de_CreateSchemaCommand = async (
@@ -2717,7 +2096,7 @@ export const de_CreateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2728,50 +2107,6 @@ export const de_CreateSchemaCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateSchemaCommandError
- */
-const de_CreateSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "SchemaAlreadyExistsException":
-    case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
-      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2782,66 +2117,13 @@ export const de_CreateTypedLinkFacetCommand = async (
   context: __SerdeContext
 ): Promise<CreateTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTypedLinkFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateTypedLinkFacetCommandError
- */
-const de_CreateTypedLinkFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTypedLinkFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetAlreadyExistsException":
-    case "com.amazonaws.clouddirectory#FacetAlreadyExistsException":
-      throw await de_FacetAlreadyExistsExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidRuleException":
-    case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2852,7 +2134,7 @@ export const de_DeleteDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2866,56 +2148,6 @@ export const de_DeleteDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDirectoryCommandError
- */
-const de_DeleteDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryDeletedException":
-    case "com.amazonaws.clouddirectory#DirectoryDeletedException":
-      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
-    case "DirectoryNotDisabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotDisabledException":
-      throw await de_DirectoryNotDisabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteFacetCommand
  */
 export const de_DeleteFacetCommand = async (
@@ -2923,63 +2155,13 @@ export const de_DeleteFacetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFacetCommandError
- */
-const de_DeleteFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetInUseException":
-    case "com.amazonaws.clouddirectory#FacetInUseException":
-      throw await de_FacetInUseExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2990,63 +2172,13 @@ export const de_DeleteObjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteObjectCommandError
- */
-const de_DeleteObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ObjectNotDetachedException":
-    case "com.amazonaws.clouddirectory#ObjectNotDetachedException":
-      throw await de_ObjectNotDetachedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3057,7 +2189,7 @@ export const de_DeleteSchemaCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3071,53 +2203,6 @@ export const de_DeleteSchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSchemaCommandError
- */
-const de_DeleteSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "StillContainsLinksException":
-    case "com.amazonaws.clouddirectory#StillContainsLinksException":
-      throw await de_StillContainsLinksExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteTypedLinkFacetCommand
  */
 export const de_DeleteTypedLinkFacetCommand = async (
@@ -3125,60 +2210,13 @@ export const de_DeleteTypedLinkFacetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTypedLinkFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTypedLinkFacetCommandError
- */
-const de_DeleteTypedLinkFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTypedLinkFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3189,7 +2227,7 @@ export const de_DetachFromIndexCommand = async (
   context: __SerdeContext
 ): Promise<DetachFromIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DetachFromIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3200,59 +2238,6 @@ export const de_DetachFromIndexCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DetachFromIndexCommandError
- */
-const de_DetachFromIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachFromIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotIndexException":
-    case "com.amazonaws.clouddirectory#NotIndexException":
-      throw await de_NotIndexExceptionRes(parsedOutput, context);
-    case "ObjectAlreadyDetachedException":
-    case "com.amazonaws.clouddirectory#ObjectAlreadyDetachedException":
-      throw await de_ObjectAlreadyDetachedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3263,7 +2248,7 @@ export const de_DetachObjectCommand = async (
   context: __SerdeContext
 ): Promise<DetachObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DetachObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3277,56 +2262,6 @@ export const de_DetachObjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DetachObjectCommandError
- */
-const de_DetachObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotNodeException":
-    case "com.amazonaws.clouddirectory#NotNodeException":
-      throw await de_NotNodeExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DetachPolicyCommand
  */
 export const de_DetachPolicyCommand = async (
@@ -3334,63 +2269,13 @@ export const de_DetachPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DetachPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DetachPolicyCommandError
- */
-const de_DetachPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotPolicyException":
-    case "com.amazonaws.clouddirectory#NotPolicyException":
-      throw await de_NotPolicyExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3401,63 +2286,13 @@ export const de_DetachTypedLinkCommand = async (
   context: __SerdeContext
 ): Promise<DetachTypedLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DetachTypedLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DetachTypedLinkCommandError
- */
-const de_DetachTypedLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachTypedLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3468,7 +2303,7 @@ export const de_DisableDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<DisableDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisableDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3479,53 +2314,6 @@ export const de_DisableDirectoryCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisableDirectoryCommandError
- */
-const de_DisableDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryDeletedException":
-    case "com.amazonaws.clouddirectory#DirectoryDeletedException":
-      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3536,7 +2324,7 @@ export const de_EnableDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<EnableDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3550,53 +2338,6 @@ export const de_EnableDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1EnableDirectoryCommandError
- */
-const de_EnableDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryDeletedException":
-    case "com.amazonaws.clouddirectory#DirectoryDeletedException":
-      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAppliedSchemaVersionCommand
  */
 export const de_GetAppliedSchemaVersionCommand = async (
@@ -3604,7 +2345,7 @@ export const de_GetAppliedSchemaVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetAppliedSchemaVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAppliedSchemaVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3618,50 +2359,6 @@ export const de_GetAppliedSchemaVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAppliedSchemaVersionCommandError
- */
-const de_GetAppliedSchemaVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppliedSchemaVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDirectoryCommand
  */
 export const de_GetDirectoryCommand = async (
@@ -3669,7 +2366,7 @@ export const de_GetDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<GetDirectoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3683,47 +2380,6 @@ export const de_GetDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDirectoryCommandError
- */
-const de_GetDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFacetCommand
  */
 export const de_GetFacetCommand = async (
@@ -3731,7 +2387,7 @@ export const de_GetFacetCommand = async (
   context: __SerdeContext
 ): Promise<GetFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3745,53 +2401,6 @@ export const de_GetFacetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFacetCommandError
- */
-const de_GetFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLinkAttributesCommand
  */
 export const de_GetLinkAttributesCommand = async (
@@ -3799,7 +2408,7 @@ export const de_GetLinkAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetLinkAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLinkAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3810,56 +2419,6 @@ export const de_GetLinkAttributesCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetLinkAttributesCommandError
- */
-const de_GetLinkAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLinkAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3870,7 +2429,7 @@ export const de_GetObjectAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetObjectAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3884,56 +2443,6 @@ export const de_GetObjectAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetObjectAttributesCommandError
- */
-const de_GetObjectAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetObjectAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetObjectInformationCommand
  */
 export const de_GetObjectInformationCommand = async (
@@ -3941,7 +2450,7 @@ export const de_GetObjectInformationCommand = async (
   context: __SerdeContext
 ): Promise<GetObjectInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetObjectInformationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3956,53 +2465,6 @@ export const de_GetObjectInformationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetObjectInformationCommandError
- */
-const de_GetObjectInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetObjectInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSchemaAsJsonCommand
  */
 export const de_GetSchemaAsJsonCommand = async (
@@ -4010,7 +2472,7 @@ export const de_GetSchemaAsJsonCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaAsJsonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSchemaAsJsonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4025,50 +2487,6 @@ export const de_GetSchemaAsJsonCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSchemaAsJsonCommandError
- */
-const de_GetSchemaAsJsonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSchemaAsJsonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTypedLinkFacetInformationCommand
  */
 export const de_GetTypedLinkFacetInformationCommand = async (
@@ -4076,7 +2494,7 @@ export const de_GetTypedLinkFacetInformationCommand = async (
   context: __SerdeContext
 ): Promise<GetTypedLinkFacetInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTypedLinkFacetInformationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4090,56 +2508,6 @@ export const de_GetTypedLinkFacetInformationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTypedLinkFacetInformationCommandError
- */
-const de_GetTypedLinkFacetInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTypedLinkFacetInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAppliedSchemaArnsCommand
  */
 export const de_ListAppliedSchemaArnsCommand = async (
@@ -4147,7 +2515,7 @@ export const de_ListAppliedSchemaArnsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppliedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAppliedSchemaArnsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4162,53 +2530,6 @@ export const de_ListAppliedSchemaArnsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAppliedSchemaArnsCommandError
- */
-const de_ListAppliedSchemaArnsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppliedSchemaArnsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAttachedIndicesCommand
  */
 export const de_ListAttachedIndicesCommand = async (
@@ -4216,7 +2537,7 @@ export const de_ListAttachedIndicesCommand = async (
   context: __SerdeContext
 ): Promise<ListAttachedIndicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAttachedIndicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4231,53 +2552,6 @@ export const de_ListAttachedIndicesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAttachedIndicesCommandError
- */
-const de_ListAttachedIndicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttachedIndicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDevelopmentSchemaArnsCommand
  */
 export const de_ListDevelopmentSchemaArnsCommand = async (
@@ -4285,7 +2559,7 @@ export const de_ListDevelopmentSchemaArnsCommand = async (
   context: __SerdeContext
 ): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDevelopmentSchemaArnsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4300,53 +2574,6 @@ export const de_ListDevelopmentSchemaArnsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDevelopmentSchemaArnsCommandError
- */
-const de_ListDevelopmentSchemaArnsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDirectoriesCommand
  */
 export const de_ListDirectoriesCommand = async (
@@ -4354,7 +2581,7 @@ export const de_ListDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<ListDirectoriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDirectoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4369,50 +2596,6 @@ export const de_ListDirectoriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDirectoriesCommandError
- */
-const de_ListDirectoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDirectoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFacetAttributesCommand
  */
 export const de_ListFacetAttributesCommand = async (
@@ -4420,7 +2603,7 @@ export const de_ListFacetAttributesCommand = async (
   context: __SerdeContext
 ): Promise<ListFacetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFacetAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4435,56 +2618,6 @@ export const de_ListFacetAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFacetAttributesCommandError
- */
-const de_ListFacetAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFacetAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFacetNamesCommand
  */
 export const de_ListFacetNamesCommand = async (
@@ -4492,7 +2625,7 @@ export const de_ListFacetNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListFacetNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFacetNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4507,53 +2640,6 @@ export const de_ListFacetNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFacetNamesCommandError
- */
-const de_ListFacetNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFacetNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIncomingTypedLinksCommand
  */
 export const de_ListIncomingTypedLinksCommand = async (
@@ -4561,7 +2647,7 @@ export const de_ListIncomingTypedLinksCommand = async (
   context: __SerdeContext
 ): Promise<ListIncomingTypedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIncomingTypedLinksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4576,59 +2662,6 @@ export const de_ListIncomingTypedLinksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIncomingTypedLinksCommandError
- */
-const de_ListIncomingTypedLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIncomingTypedLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIndexCommand
  */
 export const de_ListIndexCommand = async (
@@ -4636,7 +2669,7 @@ export const de_ListIndexCommand = async (
   context: __SerdeContext
 ): Promise<ListIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4651,62 +2684,6 @@ export const de_ListIndexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIndexCommandError
- */
-const de_ListIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotIndexException":
-    case "com.amazonaws.clouddirectory#NotIndexException":
-      throw await de_NotIndexExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListManagedSchemaArnsCommand
  */
 export const de_ListManagedSchemaArnsCommand = async (
@@ -4714,7 +2691,7 @@ export const de_ListManagedSchemaArnsCommand = async (
   context: __SerdeContext
 ): Promise<ListManagedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListManagedSchemaArnsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4729,47 +2706,6 @@ export const de_ListManagedSchemaArnsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListManagedSchemaArnsCommandError
- */
-const de_ListManagedSchemaArnsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListManagedSchemaArnsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListObjectAttributesCommand
  */
 export const de_ListObjectAttributesCommand = async (
@@ -4777,7 +2713,7 @@ export const de_ListObjectAttributesCommand = async (
   context: __SerdeContext
 ): Promise<ListObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListObjectAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4792,59 +2728,6 @@ export const de_ListObjectAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListObjectAttributesCommandError
- */
-const de_ListObjectAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObjectAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListObjectChildrenCommand
  */
 export const de_ListObjectChildrenCommand = async (
@@ -4852,7 +2735,7 @@ export const de_ListObjectChildrenCommand = async (
   context: __SerdeContext
 ): Promise<ListObjectChildrenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListObjectChildrenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4867,59 +2750,6 @@ export const de_ListObjectChildrenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListObjectChildrenCommandError
- */
-const de_ListObjectChildrenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObjectChildrenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotNodeException":
-    case "com.amazonaws.clouddirectory#NotNodeException":
-      throw await de_NotNodeExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListObjectParentPathsCommand
  */
 export const de_ListObjectParentPathsCommand = async (
@@ -4927,7 +2757,7 @@ export const de_ListObjectParentPathsCommand = async (
   context: __SerdeContext
 ): Promise<ListObjectParentPathsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListObjectParentPathsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4942,56 +2772,6 @@ export const de_ListObjectParentPathsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListObjectParentPathsCommandError
- */
-const de_ListObjectParentPathsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObjectParentPathsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListObjectParentsCommand
  */
 export const de_ListObjectParentsCommand = async (
@@ -4999,7 +2779,7 @@ export const de_ListObjectParentsCommand = async (
   context: __SerdeContext
 ): Promise<ListObjectParentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListObjectParentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5015,59 +2795,6 @@ export const de_ListObjectParentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListObjectParentsCommandError
- */
-const de_ListObjectParentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObjectParentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "CannotListParentOfRootException":
-    case "com.amazonaws.clouddirectory#CannotListParentOfRootException":
-      throw await de_CannotListParentOfRootExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListObjectPoliciesCommand
  */
 export const de_ListObjectPoliciesCommand = async (
@@ -5075,7 +2802,7 @@ export const de_ListObjectPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListObjectPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListObjectPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5090,56 +2817,6 @@ export const de_ListObjectPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListObjectPoliciesCommandError
- */
-const de_ListObjectPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObjectPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOutgoingTypedLinksCommand
  */
 export const de_ListOutgoingTypedLinksCommand = async (
@@ -5147,7 +2824,7 @@ export const de_ListOutgoingTypedLinksCommand = async (
   context: __SerdeContext
 ): Promise<ListOutgoingTypedLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOutgoingTypedLinksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5162,59 +2839,6 @@ export const de_ListOutgoingTypedLinksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOutgoingTypedLinksCommandError
- */
-const de_ListOutgoingTypedLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOutgoingTypedLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPolicyAttachmentsCommand
  */
 export const de_ListPolicyAttachmentsCommand = async (
@@ -5222,7 +2846,7 @@ export const de_ListPolicyAttachmentsCommand = async (
   context: __SerdeContext
 ): Promise<ListPolicyAttachmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPolicyAttachmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5237,59 +2861,6 @@ export const de_ListPolicyAttachmentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPolicyAttachmentsCommandError
- */
-const de_ListPolicyAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPolicyAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotPolicyException":
-    case "com.amazonaws.clouddirectory#NotPolicyException":
-      throw await de_NotPolicyExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPublishedSchemaArnsCommand
  */
 export const de_ListPublishedSchemaArnsCommand = async (
@@ -5297,7 +2868,7 @@ export const de_ListPublishedSchemaArnsCommand = async (
   context: __SerdeContext
 ): Promise<ListPublishedSchemaArnsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPublishedSchemaArnsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5312,53 +2883,6 @@ export const de_ListPublishedSchemaArnsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPublishedSchemaArnsCommandError
- */
-const de_ListPublishedSchemaArnsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPublishedSchemaArnsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5366,7 +2890,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5381,53 +2905,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTaggingRequestException":
-    case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
-      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTypedLinkFacetAttributesCommand
  */
 export const de_ListTypedLinkFacetAttributesCommand = async (
@@ -5435,7 +2912,7 @@ export const de_ListTypedLinkFacetAttributesCommand = async (
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTypedLinkFacetAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5450,56 +2927,6 @@ export const de_ListTypedLinkFacetAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTypedLinkFacetAttributesCommandError
- */
-const de_ListTypedLinkFacetAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTypedLinkFacetNamesCommand
  */
 export const de_ListTypedLinkFacetNamesCommand = async (
@@ -5507,7 +2934,7 @@ export const de_ListTypedLinkFacetNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTypedLinkFacetNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5522,53 +2949,6 @@ export const de_ListTypedLinkFacetNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTypedLinkFacetNamesCommandError
- */
-const de_ListTypedLinkFacetNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypedLinkFacetNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1LookupPolicyCommand
  */
 export const de_LookupPolicyCommand = async (
@@ -5576,7 +2956,7 @@ export const de_LookupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<LookupPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_LookupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5591,56 +2971,6 @@ export const de_LookupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1LookupPolicyCommandError
- */
-const de_LookupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LookupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PublishSchemaCommand
  */
 export const de_PublishSchemaCommand = async (
@@ -5648,7 +2978,7 @@ export const de_PublishSchemaCommand = async (
   context: __SerdeContext
 ): Promise<PublishSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PublishSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5662,53 +2992,6 @@ export const de_PublishSchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PublishSchemaCommandError
- */
-const de_PublishSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "SchemaAlreadyPublishedException":
-    case "com.amazonaws.clouddirectory#SchemaAlreadyPublishedException":
-      throw await de_SchemaAlreadyPublishedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutSchemaFromJsonCommand
  */
 export const de_PutSchemaFromJsonCommand = async (
@@ -5716,7 +2999,7 @@ export const de_PutSchemaFromJsonCommand = async (
   context: __SerdeContext
 ): Promise<PutSchemaFromJsonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutSchemaFromJsonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5730,53 +3013,6 @@ export const de_PutSchemaFromJsonCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutSchemaFromJsonCommandError
- */
-const de_PutSchemaFromJsonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSchemaFromJsonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidRuleException":
-    case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
-    case "InvalidSchemaDocException":
-    case "com.amazonaws.clouddirectory#InvalidSchemaDocException":
-      throw await de_InvalidSchemaDocExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveFacetFromObjectCommand
  */
 export const de_RemoveFacetFromObjectCommand = async (
@@ -5784,63 +3020,13 @@ export const de_RemoveFacetFromObjectCommand = async (
   context: __SerdeContext
 ): Promise<RemoveFacetFromObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveFacetFromObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveFacetFromObjectCommandError
- */
-const de_RemoveFacetFromObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveFacetFromObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5851,60 +3037,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTaggingRequestException":
-    case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
-      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5915,60 +3054,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTaggingRequestException":
-    case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
-      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5979,69 +3071,13 @@ export const de_UpdateFacetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateFacetCommandError
- */
-const de_UpdateFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidFacetUpdateException":
-    case "com.amazonaws.clouddirectory#InvalidFacetUpdateException":
-      throw await de_InvalidFacetUpdateExceptionRes(parsedOutput, context);
-    case "InvalidRuleException":
-    case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6052,63 +3088,13 @@ export const de_UpdateLinkAttributesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLinkAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLinkAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateLinkAttributesCommandError
- */
-const de_UpdateLinkAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLinkAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6119,7 +3105,7 @@ export const de_UpdateObjectAttributesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateObjectAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateObjectAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6133,59 +3119,6 @@ export const de_UpdateObjectAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateObjectAttributesCommandError
- */
-const de_UpdateObjectAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateObjectAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DirectoryNotEnabledException":
-    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
-      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LinkNameAlreadyInUseException":
-    case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
-      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSchemaCommand
  */
 export const de_UpdateSchemaCommand = async (
@@ -6193,7 +3126,7 @@ export const de_UpdateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6207,50 +3140,6 @@ export const de_UpdateSchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSchemaCommandError
- */
-const de_UpdateSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTypedLinkFacetCommand
  */
 export const de_UpdateTypedLinkFacetCommand = async (
@@ -6258,69 +3147,13 @@ export const de_UpdateTypedLinkFacetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTypedLinkFacetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTypedLinkFacetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateTypedLinkFacetCommandError
- */
-const de_UpdateTypedLinkFacetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTypedLinkFacetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "FacetNotFoundException":
-    case "com.amazonaws.clouddirectory#FacetNotFoundException":
-      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
-    case "FacetValidationException":
-    case "com.amazonaws.clouddirectory#FacetValidationException":
-      throw await de_FacetValidationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidFacetUpdateException":
-    case "com.amazonaws.clouddirectory#InvalidFacetUpdateException":
-      throw await de_InvalidFacetUpdateExceptionRes(parsedOutput, context);
-    case "InvalidRuleException":
-    case "com.amazonaws.clouddirectory#InvalidRuleException":
-      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.clouddirectory#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6331,7 +3164,7 @@ export const de_UpgradeAppliedSchemaCommand = async (
   context: __SerdeContext
 ): Promise<UpgradeAppliedSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpgradeAppliedSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6346,56 +3179,6 @@ export const de_UpgradeAppliedSchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpgradeAppliedSchemaCommandError
- */
-const de_UpgradeAppliedSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpgradeAppliedSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.clouddirectory#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleSchemaException":
-    case "com.amazonaws.clouddirectory#IncompatibleSchemaException":
-      throw await de_IncompatibleSchemaExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.clouddirectory#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.clouddirectory#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidAttachmentException":
-    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.clouddirectory#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableConflictException":
-    case "com.amazonaws.clouddirectory#RetryableConflictException":
-      throw await de_RetryableConflictExceptionRes(parsedOutput, context);
-    case "SchemaAlreadyExistsException":
-    case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
-      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.clouddirectory#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpgradePublishedSchemaCommand
  */
 export const de_UpgradePublishedSchemaCommand = async (
@@ -6403,7 +3186,7 @@ export const de_UpgradePublishedSchemaCommand = async (
   context: __SerdeContext
 ): Promise<UpgradePublishedSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpgradePublishedSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6417,12 +3200,9 @@ export const de_UpgradePublishedSchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpgradePublishedSchemaCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpgradePublishedSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpgradePublishedSchemaCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6432,18 +3212,18 @@ const de_UpgradePublishedSchemaCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleSchemaException":
-    case "com.amazonaws.clouddirectory#IncompatibleSchemaException":
-      throw await de_IncompatibleSchemaExceptionRes(parsedOutput, context);
+    case "DirectoryNotEnabledException":
+    case "com.amazonaws.clouddirectory#DirectoryNotEnabledException":
+      throw await de_DirectoryNotEnabledExceptionRes(parsedOutput, context);
+    case "FacetValidationException":
+    case "com.amazonaws.clouddirectory#FacetValidationException":
+      throw await de_FacetValidationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.clouddirectory#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidArnException":
     case "com.amazonaws.clouddirectory#InvalidArnException":
       throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidAttachmentException":
-    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
-      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.clouddirectory#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
@@ -6456,6 +3236,84 @@ const de_UpgradePublishedSchemaCommandError = async (
     case "ValidationException":
     case "com.amazonaws.clouddirectory#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidAttachmentException":
+    case "com.amazonaws.clouddirectory#InvalidAttachmentException":
+      throw await de_InvalidAttachmentExceptionRes(parsedOutput, context);
+    case "SchemaAlreadyExistsException":
+    case "com.amazonaws.clouddirectory#SchemaAlreadyExistsException":
+      throw await de_SchemaAlreadyExistsExceptionRes(parsedOutput, context);
+    case "LinkNameAlreadyInUseException":
+    case "com.amazonaws.clouddirectory#LinkNameAlreadyInUseException":
+      throw await de_LinkNameAlreadyInUseExceptionRes(parsedOutput, context);
+    case "NotPolicyException":
+    case "com.amazonaws.clouddirectory#NotPolicyException":
+      throw await de_NotPolicyExceptionRes(parsedOutput, context);
+    case "IndexedAttributeMissingException":
+    case "com.amazonaws.clouddirectory#IndexedAttributeMissingException":
+      throw await de_IndexedAttributeMissingExceptionRes(parsedOutput, context);
+    case "NotIndexException":
+    case "com.amazonaws.clouddirectory#NotIndexException":
+      throw await de_NotIndexExceptionRes(parsedOutput, context);
+    case "BatchWriteException":
+    case "com.amazonaws.clouddirectory#BatchWriteException":
+      throw await de_BatchWriteExceptionRes(parsedOutput, context);
+    case "DirectoryAlreadyExistsException":
+    case "com.amazonaws.clouddirectory#DirectoryAlreadyExistsException":
+      throw await de_DirectoryAlreadyExistsExceptionRes(parsedOutput, context);
+    case "FacetAlreadyExistsException":
+    case "com.amazonaws.clouddirectory#FacetAlreadyExistsException":
+      throw await de_FacetAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidRuleException":
+    case "com.amazonaws.clouddirectory#InvalidRuleException":
+      throw await de_InvalidRuleExceptionRes(parsedOutput, context);
+    case "UnsupportedIndexTypeException":
+    case "com.amazonaws.clouddirectory#UnsupportedIndexTypeException":
+      throw await de_UnsupportedIndexTypeExceptionRes(parsedOutput, context);
+    case "DirectoryDeletedException":
+    case "com.amazonaws.clouddirectory#DirectoryDeletedException":
+      throw await de_DirectoryDeletedExceptionRes(parsedOutput, context);
+    case "DirectoryNotDisabledException":
+    case "com.amazonaws.clouddirectory#DirectoryNotDisabledException":
+      throw await de_DirectoryNotDisabledExceptionRes(parsedOutput, context);
+    case "FacetInUseException":
+    case "com.amazonaws.clouddirectory#FacetInUseException":
+      throw await de_FacetInUseExceptionRes(parsedOutput, context);
+    case "FacetNotFoundException":
+    case "com.amazonaws.clouddirectory#FacetNotFoundException":
+      throw await de_FacetNotFoundExceptionRes(parsedOutput, context);
+    case "ObjectNotDetachedException":
+    case "com.amazonaws.clouddirectory#ObjectNotDetachedException":
+      throw await de_ObjectNotDetachedExceptionRes(parsedOutput, context);
+    case "StillContainsLinksException":
+    case "com.amazonaws.clouddirectory#StillContainsLinksException":
+      throw await de_StillContainsLinksExceptionRes(parsedOutput, context);
+    case "ObjectAlreadyDetachedException":
+    case "com.amazonaws.clouddirectory#ObjectAlreadyDetachedException":
+      throw await de_ObjectAlreadyDetachedExceptionRes(parsedOutput, context);
+    case "NotNodeException":
+    case "com.amazonaws.clouddirectory#NotNodeException":
+      throw await de_NotNodeExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.clouddirectory#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "CannotListParentOfRootException":
+    case "com.amazonaws.clouddirectory#CannotListParentOfRootException":
+      throw await de_CannotListParentOfRootExceptionRes(parsedOutput, context);
+    case "InvalidTaggingRequestException":
+    case "com.amazonaws.clouddirectory#InvalidTaggingRequestException":
+      throw await de_InvalidTaggingRequestExceptionRes(parsedOutput, context);
+    case "SchemaAlreadyPublishedException":
+    case "com.amazonaws.clouddirectory#SchemaAlreadyPublishedException":
+      throw await de_SchemaAlreadyPublishedExceptionRes(parsedOutput, context);
+    case "InvalidSchemaDocException":
+    case "com.amazonaws.clouddirectory#InvalidSchemaDocException":
+      throw await de_InvalidSchemaDocExceptionRes(parsedOutput, context);
+    case "InvalidFacetUpdateException":
+    case "com.amazonaws.clouddirectory#InvalidFacetUpdateException":
+      throw await de_InvalidFacetUpdateExceptionRes(parsedOutput, context);
+    case "IncompatibleSchemaException":
+    case "com.amazonaws.clouddirectory#IncompatibleSchemaException":
+      throw await de_IncompatibleSchemaExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -1047,7 +1047,7 @@ export const de_AddCustomRoutingEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<AddCustomRoutingEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddCustomRoutingEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1060,12 +1060,1076 @@ export const de_AddCustomRoutingEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddCustomRoutingEndpointsCommandError
+ * deserializeAws_json1_1AddEndpointsCommand
  */
-const de_AddCustomRoutingEndpointsCommandError = async (
+export const de_AddEndpointsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddCustomRoutingEndpointsCommandOutput> => {
+): Promise<AddEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AddEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AdvertiseByoipCidrCommand
+ */
+export const de_AdvertiseByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AdvertiseByoipCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AdvertiseByoipCidrResponse(data, context);
+  const response: AdvertiseByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AllowCustomRoutingTrafficCommand
+ */
+export const de_AllowCustomRoutingTrafficCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AllowCustomRoutingTrafficCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: AllowCustomRoutingTrafficCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAcceleratorCommand
+ */
+export const de_CreateAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAcceleratorResponse(data, context);
+  const response: CreateAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCrossAccountAttachmentCommand
+ */
+export const de_CreateCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCrossAccountAttachmentResponse(data, context);
+  const response: CreateCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand
+ */
+export const de_CreateCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCustomRoutingAcceleratorResponse(data, context);
+  const response: CreateCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommand
+ */
+export const de_CreateCustomRoutingEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateCustomRoutingEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCustomRoutingListenerCommand
+ */
+export const de_CreateCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateEndpointGroupCommand
+ */
+export const de_CreateEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateEndpointGroupResponse(data, context);
+  const response: CreateEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateListenerCommand
+ */
+export const de_CreateListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAcceleratorCommand
+ */
+export const de_DeleteAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCrossAccountAttachmentCommand
+ */
+export const de_DeleteCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand
+ */
+export const de_DeleteCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand
+ */
+export const de_DeleteCustomRoutingEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomRoutingEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCustomRoutingListenerCommand
+ */
+export const de_DeleteCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteEndpointGroupCommand
+ */
+export const de_DeleteEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteListenerCommand
+ */
+export const de_DeleteListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DenyCustomRoutingTrafficCommand
+ */
+export const de_DenyCustomRoutingTrafficCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DenyCustomRoutingTrafficCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DenyCustomRoutingTrafficCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeprovisionByoipCidrCommand
+ */
+export const de_DeprovisionByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeprovisionByoipCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeprovisionByoipCidrResponse(data, context);
+  const response: DeprovisionByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAcceleratorCommand
+ */
+export const de_DescribeAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAcceleratorResponse(data, context);
+  const response: DescribeAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAcceleratorAttributesCommand
+ */
+export const de_DescribeAcceleratorAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAcceleratorAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeAcceleratorAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCrossAccountAttachmentCommand
+ */
+export const de_DescribeCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCrossAccountAttachmentResponse(data, context);
+  const response: DescribeCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommand
+ */
+export const de_DescribeCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCustomRoutingAcceleratorResponse(data, context);
+  const response: DescribeCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand
+ */
+export const de_DescribeCustomRoutingAcceleratorAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCustomRoutingAcceleratorAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand
+ */
+export const de_DescribeCustomRoutingEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCustomRoutingEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCustomRoutingListenerCommand
+ */
+export const de_DescribeCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEndpointGroupCommand
+ */
+export const de_DescribeEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEndpointGroupResponse(data, context);
+  const response: DescribeEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeListenerCommand
+ */
+export const de_DescribeListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAcceleratorsCommand
+ */
+export const de_ListAcceleratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAcceleratorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAcceleratorsResponse(data, context);
+  const response: ListAcceleratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListByoipCidrsCommand
+ */
+export const de_ListByoipCidrsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListByoipCidrsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListByoipCidrsResponse(data, context);
+  const response: ListByoipCidrsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountAttachmentsCommand
+ */
+export const de_ListCrossAccountAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountAttachmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCrossAccountAttachmentsResponse(data, context);
+  const response: ListCrossAccountAttachmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountResourceAccountsCommand
+ */
+export const de_ListCrossAccountResourceAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountResourceAccountsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCrossAccountResourceAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountResourcesCommand
+ */
+export const de_ListCrossAccountResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCrossAccountResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCustomRoutingAcceleratorsCommand
+ */
+export const de_ListCustomRoutingAcceleratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCustomRoutingAcceleratorsResponse(data, context);
+  const response: ListCustomRoutingAcceleratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand
+ */
+export const de_ListCustomRoutingEndpointGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCustomRoutingEndpointGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCustomRoutingListenersCommand
+ */
+export const de_ListCustomRoutingListenersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingListenersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCustomRoutingListenersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCustomRoutingPortMappingsCommand
+ */
+export const de_ListCustomRoutingPortMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCustomRoutingPortMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand
+ */
+export const de_ListCustomRoutingPortMappingsByDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCustomRoutingPortMappingsByDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEndpointGroupsCommand
+ */
+export const de_ListEndpointGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEndpointGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEndpointGroupsResponse(data, context);
+  const response: ListEndpointGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListListenersCommand
+ */
+export const de_ListListenersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListListenersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListListenersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ProvisionByoipCidrCommand
+ */
+export const de_ProvisionByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ProvisionByoipCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ProvisionByoipCidrResponse(data, context);
+  const response: ProvisionByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveCustomRoutingEndpointsCommand
+ */
+export const de_RemoveCustomRoutingEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveCustomRoutingEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveEndpointsCommand
+ */
+export const de_RemoveEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAcceleratorCommand
+ */
+export const de_UpdateAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAcceleratorResponse(data, context);
+  const response: UpdateAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAcceleratorAttributesCommand
+ */
+export const de_UpdateAcceleratorAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAcceleratorAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateAcceleratorAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCrossAccountAttachmentCommand
+ */
+export const de_UpdateCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateCrossAccountAttachmentResponse(data, context);
+  const response: UpdateCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommand
+ */
+export const de_UpdateCustomRoutingAcceleratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateCustomRoutingAcceleratorResponse(data, context);
+  const response: UpdateCustomRoutingAcceleratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand
+ */
+export const de_UpdateCustomRoutingAcceleratorAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateCustomRoutingAcceleratorAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCustomRoutingListenerCommand
+ */
+export const de_UpdateCustomRoutingListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomRoutingListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateCustomRoutingListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEndpointGroupCommand
+ */
+export const de_UpdateEndpointGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEndpointGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateEndpointGroupResponse(data, context);
+  const response: UpdateEndpointGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateListenerCommand
+ */
+export const de_UpdateListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1WithdrawByoipCidrCommand
+ */
+export const de_WithdrawByoipCidrCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<WithdrawByoipCidrCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_WithdrawByoipCidrResponse(data, context);
+  const response: WithdrawByoipCidrCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1093,3022 +2157,45 @@ const de_AddCustomRoutingEndpointsCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.globalaccelerator#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AddEndpointsCommand
- */
-export const de_AddEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: AddEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AddEndpointsCommandError
- */
-const de_AddEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TransactionInProgressException":
     case "com.amazonaws.globalaccelerator#TransactionInProgressException":
       throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AdvertiseByoipCidrCommand
- */
-export const de_AdvertiseByoipCidrCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdvertiseByoipCidrCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AdvertiseByoipCidrCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AdvertiseByoipCidrResponse(data, context);
-  const response: AdvertiseByoipCidrCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AdvertiseByoipCidrCommandError
- */
-const de_AdvertiseByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdvertiseByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ByoipCidrNotFoundException":
     case "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException":
       throw await de_ByoipCidrNotFoundExceptionRes(parsedOutput, context);
     case "IncorrectCidrStateException":
     case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
       throw await de_IncorrectCidrStateExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AllowCustomRoutingTrafficCommand
- */
-export const de_AllowCustomRoutingTrafficCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllowCustomRoutingTrafficCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AllowCustomRoutingTrafficCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: AllowCustomRoutingTrafficCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AllowCustomRoutingTrafficCommandError
- */
-const de_AllowCustomRoutingTrafficCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllowCustomRoutingTrafficCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateAcceleratorCommand
- */
-export const de_CreateAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateAcceleratorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateAcceleratorResponse(data, context);
-  const response: CreateAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateAcceleratorCommandError
- */
-const de_CreateAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateCrossAccountAttachmentCommand
- */
-export const de_CreateCrossAccountAttachmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCrossAccountAttachmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCrossAccountAttachmentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateCrossAccountAttachmentResponse(data, context);
-  const response: CreateCrossAccountAttachmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateCrossAccountAttachmentCommandError
- */
-const de_CreateCrossAccountAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCrossAccountAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TransactionInProgressException":
-    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
-      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand
- */
-export const de_CreateCustomRoutingAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCustomRoutingAcceleratorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateCustomRoutingAcceleratorResponse(data, context);
-  const response: CreateCustomRoutingAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateCustomRoutingAcceleratorCommandError
- */
-const de_CreateCustomRoutingAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomRoutingAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommand
- */
-export const de_CreateCustomRoutingEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCustomRoutingEndpointGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateCustomRoutingEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommandError
- */
-const de_CreateCustomRoutingEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomRoutingEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "EndpointGroupAlreadyExistsException":
     case "com.amazonaws.globalaccelerator#EndpointGroupAlreadyExistsException":
       throw await de_EndpointGroupAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidPortRangeException":
     case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
       throw await de_InvalidPortRangeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ListenerNotFoundException":
     case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
       throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateCustomRoutingListenerCommand
- */
-export const de_CreateCustomRoutingListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomRoutingListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCustomRoutingListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateCustomRoutingListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateCustomRoutingListenerCommandError
- */
-const de_CreateCustomRoutingListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomRoutingListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPortRangeException":
-    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
-      throw await de_InvalidPortRangeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateEndpointGroupCommand
- */
-export const de_CreateEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEndpointGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateEndpointGroupResponse(data, context);
-  const response: CreateEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateEndpointGroupCommandError
- */
-const de_CreateEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EndpointGroupAlreadyExistsException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupAlreadyExistsException":
-      throw await de_EndpointGroupAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateListenerCommand
- */
-export const de_CreateListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateListenerCommandError
- */
-const de_CreateListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPortRangeException":
-    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
-      throw await de_InvalidPortRangeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAcceleratorCommand
- */
-export const de_DeleteAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAcceleratorCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAcceleratorCommandError
- */
-const de_DeleteAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AcceleratorNotDisabledException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException":
       throw await de_AcceleratorNotDisabledExceptionRes(parsedOutput, context);
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
     case "AssociatedListenerFoundException":
     case "com.amazonaws.globalaccelerator#AssociatedListenerFoundException":
       throw await de_AssociatedListenerFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteCrossAccountAttachmentCommand
- */
-export const de_DeleteCrossAccountAttachmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCrossAccountAttachmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCrossAccountAttachmentCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteCrossAccountAttachmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCrossAccountAttachmentCommandError
- */
-const de_DeleteCrossAccountAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCrossAccountAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AttachmentNotFoundException":
     case "com.amazonaws.globalaccelerator#AttachmentNotFoundException":
       throw await de_AttachmentNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "TransactionInProgressException":
-    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
-      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommand
- */
-export const de_DeleteCustomRoutingAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCustomRoutingAcceleratorCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteCustomRoutingAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommandError
- */
-const de_DeleteCustomRoutingAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomRoutingAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotDisabledException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException":
-      throw await de_AcceleratorNotDisabledExceptionRes(parsedOutput, context);
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AssociatedListenerFoundException":
-    case "com.amazonaws.globalaccelerator#AssociatedListenerFoundException":
-      throw await de_AssociatedListenerFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand
- */
-export const de_DeleteCustomRoutingEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCustomRoutingEndpointGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteCustomRoutingEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommandError
- */
-const de_DeleteCustomRoutingEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomRoutingEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomRoutingListenerCommand
- */
-export const de_DeleteCustomRoutingListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomRoutingListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCustomRoutingListenerCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteCustomRoutingListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomRoutingListenerCommandError
- */
-const de_DeleteCustomRoutingListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomRoutingListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AssociatedEndpointGroupFoundException":
     case "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException":
       throw await de_AssociatedEndpointGroupFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointGroupCommand
- */
-export const de_DeleteEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEndpointGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointGroupCommandError
- */
-const de_DeleteEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteListenerCommand
- */
-export const de_DeleteListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteListenerCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteListenerCommandError
- */
-const de_DeleteListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociatedEndpointGroupFoundException":
-    case "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException":
-      throw await de_AssociatedEndpointGroupFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DenyCustomRoutingTrafficCommand
- */
-export const de_DenyCustomRoutingTrafficCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DenyCustomRoutingTrafficCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DenyCustomRoutingTrafficCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DenyCustomRoutingTrafficCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DenyCustomRoutingTrafficCommandError
- */
-const de_DenyCustomRoutingTrafficCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DenyCustomRoutingTrafficCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeprovisionByoipCidrCommand
- */
-export const de_DeprovisionByoipCidrCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprovisionByoipCidrCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeprovisionByoipCidrCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeprovisionByoipCidrResponse(data, context);
-  const response: DeprovisionByoipCidrCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeprovisionByoipCidrCommandError
- */
-const de_DeprovisionByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprovisionByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ByoipCidrNotFoundException":
-    case "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException":
-      throw await de_ByoipCidrNotFoundExceptionRes(parsedOutput, context);
-    case "IncorrectCidrStateException":
-    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
-      throw await de_IncorrectCidrStateExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAcceleratorCommand
- */
-export const de_DescribeAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAcceleratorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAcceleratorResponse(data, context);
-  const response: DescribeAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAcceleratorCommandError
- */
-const de_DescribeAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAcceleratorAttributesCommand
- */
-export const de_DescribeAcceleratorAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAcceleratorAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAcceleratorAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeAcceleratorAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAcceleratorAttributesCommandError
- */
-const de_DescribeAcceleratorAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAcceleratorAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCrossAccountAttachmentCommand
- */
-export const de_DescribeCrossAccountAttachmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCrossAccountAttachmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCrossAccountAttachmentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeCrossAccountAttachmentResponse(data, context);
-  const response: DescribeCrossAccountAttachmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCrossAccountAttachmentCommandError
- */
-const de_DescribeCrossAccountAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCrossAccountAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AttachmentNotFoundException":
-    case "com.amazonaws.globalaccelerator#AttachmentNotFoundException":
-      throw await de_AttachmentNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommand
- */
-export const de_DescribeCustomRoutingAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCustomRoutingAcceleratorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeCustomRoutingAcceleratorResponse(data, context);
-  const response: DescribeCustomRoutingAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommandError
- */
-const de_DescribeCustomRoutingAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand
- */
-export const de_DescribeCustomRoutingAcceleratorAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCustomRoutingAcceleratorAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCustomRoutingAcceleratorAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommandError
- */
-const de_DescribeCustomRoutingAcceleratorAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingAcceleratorAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand
- */
-export const de_DescribeCustomRoutingEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCustomRoutingEndpointGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCustomRoutingEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommandError
- */
-const de_DescribeCustomRoutingEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingListenerCommand
- */
-export const de_DescribeCustomRoutingListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCustomRoutingListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCustomRoutingListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCustomRoutingListenerCommandError
- */
-const de_DescribeCustomRoutingListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomRoutingListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEndpointGroupCommand
- */
-export const de_DescribeEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEndpointGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEndpointGroupResponse(data, context);
-  const response: DescribeEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEndpointGroupCommandError
- */
-const de_DescribeEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeListenerCommand
- */
-export const de_DescribeListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeListenerCommandError
- */
-const de_DescribeListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAcceleratorsCommand
- */
-export const de_ListAcceleratorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAcceleratorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAcceleratorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAcceleratorsResponse(data, context);
-  const response: ListAcceleratorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAcceleratorsCommandError
- */
-const de_ListAcceleratorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAcceleratorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListByoipCidrsCommand
- */
-export const de_ListByoipCidrsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListByoipCidrsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListByoipCidrsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListByoipCidrsResponse(data, context);
-  const response: ListByoipCidrsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListByoipCidrsCommandError
- */
-const de_ListByoipCidrsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListByoipCidrsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCrossAccountAttachmentsCommand
- */
-export const de_ListCrossAccountAttachmentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrossAccountAttachmentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCrossAccountAttachmentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListCrossAccountAttachmentsResponse(data, context);
-  const response: ListCrossAccountAttachmentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCrossAccountAttachmentsCommandError
- */
-const de_ListCrossAccountAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrossAccountAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCrossAccountResourceAccountsCommand
- */
-export const de_ListCrossAccountResourceAccountsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrossAccountResourceAccountsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCrossAccountResourceAccountsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCrossAccountResourceAccountsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCrossAccountResourceAccountsCommandError
- */
-const de_ListCrossAccountResourceAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrossAccountResourceAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCrossAccountResourcesCommand
- */
-export const de_ListCrossAccountResourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrossAccountResourcesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCrossAccountResourcesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCrossAccountResourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCrossAccountResourcesCommandError
- */
-const de_ListCrossAccountResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrossAccountResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingAcceleratorsCommand
- */
-export const de_ListCustomRoutingAcceleratorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCustomRoutingAcceleratorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListCustomRoutingAcceleratorsResponse(data, context);
-  const response: ListCustomRoutingAcceleratorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingAcceleratorsCommandError
- */
-const de_ListCustomRoutingAcceleratorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingAcceleratorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommand
- */
-export const de_ListCustomRoutingEndpointGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCustomRoutingEndpointGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCustomRoutingEndpointGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommandError
- */
-const de_ListCustomRoutingEndpointGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingEndpointGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingListenersCommand
- */
-export const de_ListCustomRoutingListenersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingListenersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCustomRoutingListenersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCustomRoutingListenersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingListenersCommandError
- */
-const de_ListCustomRoutingListenersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingListenersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingPortMappingsCommand
- */
-export const de_ListCustomRoutingPortMappingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCustomRoutingPortMappingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCustomRoutingPortMappingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingPortMappingsCommandError
- */
-const de_ListCustomRoutingPortMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingPortMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand
- */
-export const de_ListCustomRoutingPortMappingsByDestinationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCustomRoutingPortMappingsByDestinationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCustomRoutingPortMappingsByDestinationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommandError
- */
-const de_ListCustomRoutingPortMappingsByDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomRoutingPortMappingsByDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "EndpointNotFoundException":
     case "com.amazonaws.globalaccelerator#EndpointNotFoundException":
       throw await de_EndpointNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEndpointGroupsCommand
- */
-export const de_ListEndpointGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEndpointGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEndpointGroupsResponse(data, context);
-  const response: ListEndpointGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEndpointGroupsCommandError
- */
-const de_ListEndpointGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListListenersCommand
- */
-export const de_ListListenersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListListenersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListListenersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListListenersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListListenersCommandError
- */
-const de_ListListenersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListListenersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ProvisionByoipCidrCommand
- */
-export const de_ProvisionByoipCidrCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionByoipCidrCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ProvisionByoipCidrCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ProvisionByoipCidrResponse(data, context);
-  const response: ProvisionByoipCidrCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ProvisionByoipCidrCommandError
- */
-const de_ProvisionByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncorrectCidrStateException":
-    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
-      throw await de_IncorrectCidrStateExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveCustomRoutingEndpointsCommand
- */
-export const de_RemoveCustomRoutingEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveCustomRoutingEndpointsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveCustomRoutingEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError
- */
-const de_RemoveCustomRoutingEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveCustomRoutingEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.globalaccelerator#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "EndpointNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointNotFoundException":
-      throw await de_EndpointNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveEndpointsCommand
- */
-export const de_RemoveEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveEndpointsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveEndpointsCommandError
- */
-const de_RemoveEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "TransactionInProgressException":
-    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
-      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateAcceleratorCommand
- */
-export const de_UpdateAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateAcceleratorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateAcceleratorResponse(data, context);
-  const response: UpdateAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAcceleratorCommandError
- */
-const de_UpdateAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateAcceleratorAttributesCommand
- */
-export const de_UpdateAcceleratorAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAcceleratorAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateAcceleratorAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateAcceleratorAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAcceleratorAttributesCommandError
- */
-const de_UpdateAcceleratorAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAcceleratorAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateCrossAccountAttachmentCommand
- */
-export const de_UpdateCrossAccountAttachmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCrossAccountAttachmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateCrossAccountAttachmentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateCrossAccountAttachmentResponse(data, context);
-  const response: UpdateCrossAccountAttachmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateCrossAccountAttachmentCommandError
- */
-const de_UpdateCrossAccountAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCrossAccountAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AttachmentNotFoundException":
-    case "com.amazonaws.globalaccelerator#AttachmentNotFoundException":
-      throw await de_AttachmentNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TransactionInProgressException":
-    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
-      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommand
- */
-export const de_UpdateCustomRoutingAcceleratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateCustomRoutingAcceleratorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateCustomRoutingAcceleratorResponse(data, context);
-  const response: UpdateCustomRoutingAcceleratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommandError
- */
-const de_UpdateCustomRoutingAcceleratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomRoutingAcceleratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand
- */
-export const de_UpdateCustomRoutingAcceleratorAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateCustomRoutingAcceleratorAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateCustomRoutingAcceleratorAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommandError
- */
-const de_UpdateCustomRoutingAcceleratorAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomRoutingAcceleratorAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AcceleratorNotFoundException":
-    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
-      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomRoutingListenerCommand
- */
-export const de_UpdateCustomRoutingListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomRoutingListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateCustomRoutingListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateCustomRoutingListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomRoutingListenerCommandError
- */
-const de_UpdateCustomRoutingListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomRoutingListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPortRangeException":
-    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
-      throw await de_InvalidPortRangeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointGroupCommand
- */
-export const de_UpdateEndpointGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEndpointGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateEndpointGroupResponse(data, context);
-  const response: UpdateEndpointGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointGroupCommandError
- */
-const de_UpdateEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EndpointGroupNotFoundException":
-    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
-      throw await de_EndpointGroupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateListenerCommand
- */
-export const de_UpdateListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateListenerCommandError
- */
-const de_UpdateListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPortRangeException":
-    case "com.amazonaws.globalaccelerator#InvalidPortRangeException":
-      throw await de_InvalidPortRangeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.globalaccelerator#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ListenerNotFoundException":
-    case "com.amazonaws.globalaccelerator#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1WithdrawByoipCidrCommand
- */
-export const de_WithdrawByoipCidrCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<WithdrawByoipCidrCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_WithdrawByoipCidrCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_WithdrawByoipCidrResponse(data, context);
-  const response: WithdrawByoipCidrCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1WithdrawByoipCidrCommandError
- */
-const de_WithdrawByoipCidrCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<WithdrawByoipCidrCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.globalaccelerator#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ByoipCidrNotFoundException":
-    case "com.amazonaws.globalaccelerator#ByoipCidrNotFoundException":
-      throw await de_ByoipCidrNotFoundExceptionRes(parsedOutput, context);
-    case "IncorrectCidrStateException":
-    case "com.amazonaws.globalaccelerator#IncorrectCidrStateException":
-      throw await de_IncorrectCidrStateExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

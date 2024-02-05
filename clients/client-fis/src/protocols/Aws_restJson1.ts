@@ -605,7 +605,7 @@ export const de_CreateExperimentTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateExperimentTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateExperimentTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -616,41 +616,6 @@ export const de_CreateExperimentTemplateCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateExperimentTemplateCommandError
- */
-const de_CreateExperimentTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExperimentTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.fis#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.fis#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -661,7 +626,7 @@ export const de_CreateTargetAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateTargetAccountConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTargetAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -675,41 +640,6 @@ export const de_CreateTargetAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTargetAccountConfigurationCommandError
- */
-const de_CreateTargetAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTargetAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.fis#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.fis#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteExperimentTemplateCommand
  */
 export const de_DeleteExperimentTemplateCommand = async (
@@ -717,7 +647,7 @@ export const de_DeleteExperimentTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteExperimentTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteExperimentTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -731,35 +661,6 @@ export const de_DeleteExperimentTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteExperimentTemplateCommandError
- */
-const de_DeleteExperimentTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExperimentTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteTargetAccountConfigurationCommand
  */
 export const de_DeleteTargetAccountConfigurationCommand = async (
@@ -767,7 +668,7 @@ export const de_DeleteTargetAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTargetAccountConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTargetAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -781,35 +682,6 @@ export const de_DeleteTargetAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteTargetAccountConfigurationCommandError
- */
-const de_DeleteTargetAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTargetAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetActionCommand
  */
 export const de_GetActionCommand = async (
@@ -817,7 +689,7 @@ export const de_GetActionCommand = async (
   context: __SerdeContext
 ): Promise<GetActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -831,35 +703,6 @@ export const de_GetActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetActionCommandError
- */
-const de_GetActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetExperimentCommand
  */
 export const de_GetExperimentCommand = async (
@@ -867,7 +710,7 @@ export const de_GetExperimentCommand = async (
   context: __SerdeContext
 ): Promise<GetExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -881,35 +724,6 @@ export const de_GetExperimentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetExperimentCommandError
- */
-const de_GetExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetExperimentTargetAccountConfigurationCommand
  */
 export const de_GetExperimentTargetAccountConfigurationCommand = async (
@@ -917,7 +731,7 @@ export const de_GetExperimentTargetAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetExperimentTargetAccountConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExperimentTargetAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -931,35 +745,6 @@ export const de_GetExperimentTargetAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetExperimentTargetAccountConfigurationCommandError
- */
-const de_GetExperimentTargetAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExperimentTargetAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetExperimentTemplateCommand
  */
 export const de_GetExperimentTemplateCommand = async (
@@ -967,7 +752,7 @@ export const de_GetExperimentTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetExperimentTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExperimentTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -981,35 +766,6 @@ export const de_GetExperimentTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetExperimentTemplateCommandError
- */
-const de_GetExperimentTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExperimentTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTargetAccountConfigurationCommand
  */
 export const de_GetTargetAccountConfigurationCommand = async (
@@ -1017,7 +773,7 @@ export const de_GetTargetAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetTargetAccountConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTargetAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1031,35 +787,6 @@ export const de_GetTargetAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTargetAccountConfigurationCommandError
- */
-const de_GetTargetAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTargetAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTargetResourceTypeCommand
  */
 export const de_GetTargetResourceTypeCommand = async (
@@ -1067,7 +794,7 @@ export const de_GetTargetResourceTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetTargetResourceTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTargetResourceTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1081,35 +808,6 @@ export const de_GetTargetResourceTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTargetResourceTypeCommandError
- */
-const de_GetTargetResourceTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTargetResourceTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListActionsCommand
  */
 export const de_ListActionsCommand = async (
@@ -1117,7 +815,7 @@ export const de_ListActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListActionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1132,32 +830,6 @@ export const de_ListActionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListActionsCommandError
- */
-const de_ListActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExperimentResolvedTargetsCommand
  */
 export const de_ListExperimentResolvedTargetsCommand = async (
@@ -1165,7 +837,7 @@ export const de_ListExperimentResolvedTargetsCommand = async (
   context: __SerdeContext
 ): Promise<ListExperimentResolvedTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExperimentResolvedTargetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1180,35 +852,6 @@ export const de_ListExperimentResolvedTargetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExperimentResolvedTargetsCommandError
- */
-const de_ListExperimentResolvedTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExperimentResolvedTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExperimentsCommand
  */
 export const de_ListExperimentsCommand = async (
@@ -1216,7 +859,7 @@ export const de_ListExperimentsCommand = async (
   context: __SerdeContext
 ): Promise<ListExperimentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExperimentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1231,32 +874,6 @@ export const de_ListExperimentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExperimentsCommandError
- */
-const de_ListExperimentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExperimentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExperimentTargetAccountConfigurationsCommand
  */
 export const de_ListExperimentTargetAccountConfigurationsCommand = async (
@@ -1264,7 +881,7 @@ export const de_ListExperimentTargetAccountConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListExperimentTargetAccountConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExperimentTargetAccountConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1279,35 +896,6 @@ export const de_ListExperimentTargetAccountConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExperimentTargetAccountConfigurationsCommandError
- */
-const de_ListExperimentTargetAccountConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExperimentTargetAccountConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExperimentTemplatesCommand
  */
 export const de_ListExperimentTemplatesCommand = async (
@@ -1315,7 +903,7 @@ export const de_ListExperimentTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListExperimentTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExperimentTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1330,32 +918,6 @@ export const de_ListExperimentTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExperimentTemplatesCommandError
- */
-const de_ListExperimentTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExperimentTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1363,7 +925,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1377,26 +939,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1ListTargetAccountConfigurationsCommand
  */
 export const de_ListTargetAccountConfigurationsCommand = async (
@@ -1404,7 +946,7 @@ export const de_ListTargetAccountConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListTargetAccountConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTargetAccountConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1419,35 +961,6 @@ export const de_ListTargetAccountConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTargetAccountConfigurationsCommandError
- */
-const de_ListTargetAccountConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetAccountConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTargetResourceTypesCommand
  */
 export const de_ListTargetResourceTypesCommand = async (
@@ -1455,7 +968,7 @@ export const de_ListTargetResourceTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListTargetResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTargetResourceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1470,32 +983,6 @@ export const de_ListTargetResourceTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTargetResourceTypesCommandError
- */
-const de_ListTargetResourceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetResourceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartExperimentCommand
  */
 export const de_StartExperimentCommand = async (
@@ -1503,7 +990,7 @@ export const de_StartExperimentCommand = async (
   context: __SerdeContext
 ): Promise<StartExperimentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartExperimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1517,12 +1004,106 @@ export const de_StartExperimentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartExperimentCommandError
+ * deserializeAws_restJson1StopExperimentCommand
  */
-const de_StartExperimentCommandError = async (
+export const de_StopExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartExperimentCommandOutput> => {
+): Promise<StopExperimentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    experiment: (_) => de_Experiment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateExperimentTemplateCommand
+ */
+export const de_UpdateExperimentTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateExperimentTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    experimentTemplate: (_) => de_ExperimentTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTargetAccountConfigurationCommand
+ */
+export const de_UpdateTargetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTargetAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targetAccountConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1538,233 +1119,6 @@ const de_StartExperimentCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.fis#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StopExperimentCommand
- */
-export const de_StopExperimentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopExperimentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopExperimentCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    experiment: (_) => de_Experiment(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StopExperimentCommandError
- */
-const de_StopExperimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopExperimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_restJson1UpdateExperimentTemplateCommand
- */
-export const de_UpdateExperimentTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateExperimentTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateExperimentTemplateCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    experimentTemplate: (_) => de_ExperimentTemplate(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateExperimentTemplateCommandError
- */
-const de_UpdateExperimentTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateExperimentTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.fis#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.fis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateTargetAccountConfigurationCommand
- */
-export const de_UpdateTargetAccountConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTargetAccountConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTargetAccountConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    targetAccountConfiguration: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateTargetAccountConfigurationCommandError
- */
-const de_UpdateTargetAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTargetAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.fis#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);

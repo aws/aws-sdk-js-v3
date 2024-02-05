@@ -980,7 +980,7 @@ export const de_CreateAccessTokenCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessTokenCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateAccessTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -997,47 +997,6 @@ export const de_CreateAccessTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAccessTokenCommandError
- */
-const de_CreateAccessTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDevEnvironmentCommand
  */
 export const de_CreateDevEnvironmentCommand = async (
@@ -1045,7 +1004,7 @@ export const de_CreateDevEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDevEnvironmentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDevEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1062,47 +1021,6 @@ export const de_CreateDevEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDevEnvironmentCommandError
- */
-const de_CreateDevEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDevEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateProjectCommand
  */
 export const de_CreateProjectCommand = async (
@@ -1110,7 +1028,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1127,47 +1045,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSourceRepositoryCommand
  */
 export const de_CreateSourceRepositoryCommand = async (
@@ -1175,7 +1052,7 @@ export const de_CreateSourceRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateSourceRepositoryCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateSourceRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1192,47 +1069,6 @@ export const de_CreateSourceRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSourceRepositoryCommandError
- */
-const de_CreateSourceRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSourceRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSourceRepositoryBranchCommand
  */
 export const de_CreateSourceRepositoryBranchCommand = async (
@@ -1240,7 +1076,7 @@ export const de_CreateSourceRepositoryBranchCommand = async (
   context: __SerdeContext
 ): Promise<CreateSourceRepositoryBranchCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateSourceRepositoryBranchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1257,47 +1093,6 @@ export const de_CreateSourceRepositoryBranchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSourceRepositoryBranchCommandError
- */
-const de_CreateSourceRepositoryBranchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSourceRepositoryBranchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAccessTokenCommand
  */
 export const de_DeleteAccessTokenCommand = async (
@@ -1305,54 +1100,13 @@ export const de_DeleteAccessTokenCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAccessTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAccessTokenCommandError
- */
-const de_DeleteAccessTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1363,7 +1117,7 @@ export const de_DeleteDevEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDevEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDevEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1379,47 +1133,6 @@ export const de_DeleteDevEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDevEnvironmentCommandError
- */
-const de_DeleteDevEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDevEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -1427,7 +1140,7 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1443,47 +1156,6 @@ export const de_DeleteProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteSourceRepositoryCommand
  */
 export const de_DeleteSourceRepositoryCommand = async (
@@ -1491,7 +1163,7 @@ export const de_DeleteSourceRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSourceRepositoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSourceRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1507,47 +1179,6 @@ export const de_DeleteSourceRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSourceRepositoryCommandError
- */
-const de_DeleteSourceRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSourceRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteSpaceCommand
  */
 export const de_DeleteSpaceCommand = async (
@@ -1555,7 +1186,7 @@ export const de_DeleteSpaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSpaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1570,47 +1201,6 @@ export const de_DeleteSpaceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSpaceCommandError
- */
-const de_DeleteSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDevEnvironmentCommand
  */
 export const de_GetDevEnvironmentCommand = async (
@@ -1618,7 +1208,7 @@ export const de_GetDevEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<GetDevEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDevEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1645,47 +1235,6 @@ export const de_GetDevEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDevEnvironmentCommandError
- */
-const de_GetDevEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDevEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetProjectCommand
  */
 export const de_GetProjectCommand = async (
@@ -1693,7 +1242,7 @@ export const de_GetProjectCommand = async (
   context: __SerdeContext
 ): Promise<GetProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1710,47 +1259,6 @@ export const de_GetProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetProjectCommandError
- */
-const de_GetProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSourceRepositoryCommand
  */
 export const de_GetSourceRepositoryCommand = async (
@@ -1758,7 +1266,7 @@ export const de_GetSourceRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<GetSourceRepositoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSourceRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1777,47 +1285,6 @@ export const de_GetSourceRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSourceRepositoryCommandError
- */
-const de_GetSourceRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSourceRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommand
  */
 export const de_GetSourceRepositoryCloneUrlsCommand = async (
@@ -1825,7 +1292,7 @@ export const de_GetSourceRepositoryCloneUrlsCommand = async (
   context: __SerdeContext
 ): Promise<GetSourceRepositoryCloneUrlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSourceRepositoryCloneUrlsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1839,47 +1306,6 @@ export const de_GetSourceRepositoryCloneUrlsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommandError
- */
-const de_GetSourceRepositoryCloneUrlsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSourceRepositoryCloneUrlsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSpaceCommand
  */
 export const de_GetSpaceCommand = async (
@@ -1887,7 +1313,7 @@ export const de_GetSpaceCommand = async (
   context: __SerdeContext
 ): Promise<GetSpaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1904,47 +1330,6 @@ export const de_GetSpaceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSpaceCommandError
- */
-const de_GetSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSubscriptionCommand
  */
 export const de_GetSubscriptionCommand = async (
@@ -1952,7 +1337,7 @@ export const de_GetSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<GetSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1967,47 +1352,6 @@ export const de_GetSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSubscriptionCommandError
- */
-const de_GetSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUserDetailsCommand
  */
 export const de_GetUserDetailsCommand = async (
@@ -2015,7 +1359,7 @@ export const de_GetUserDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetUserDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUserDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2033,47 +1377,6 @@ export const de_GetUserDetailsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUserDetailsCommandError
- */
-const de_GetUserDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowCommand
  */
 export const de_GetWorkflowCommand = async (
@@ -2081,7 +1384,7 @@ export const de_GetWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2105,47 +1408,6 @@ export const de_GetWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowCommandError
- */
-const de_GetWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowRunCommand
  */
 export const de_GetWorkflowRunCommand = async (
@@ -2153,7 +1415,7 @@ export const de_GetWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2175,47 +1437,6 @@ export const de_GetWorkflowRunCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowRunCommandError
- */
-const de_GetWorkflowRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccessTokensCommand
  */
 export const de_ListAccessTokensCommand = async (
@@ -2223,7 +1444,7 @@ export const de_ListAccessTokensCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessTokensCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccessTokensCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2238,47 +1459,6 @@ export const de_ListAccessTokensCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccessTokensCommandError
- */
-const de_ListAccessTokensCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessTokensCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDevEnvironmentsCommand
  */
 export const de_ListDevEnvironmentsCommand = async (
@@ -2286,7 +1466,7 @@ export const de_ListDevEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<ListDevEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDevEnvironmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2301,47 +1481,6 @@ export const de_ListDevEnvironmentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDevEnvironmentsCommandError
- */
-const de_ListDevEnvironmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevEnvironmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDevEnvironmentSessionsCommand
  */
 export const de_ListDevEnvironmentSessionsCommand = async (
@@ -2349,7 +1488,7 @@ export const de_ListDevEnvironmentSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDevEnvironmentSessionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDevEnvironmentSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2364,47 +1503,6 @@ export const de_ListDevEnvironmentSessionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDevEnvironmentSessionsCommandError
- */
-const de_ListDevEnvironmentSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevEnvironmentSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEventLogsCommand
  */
 export const de_ListEventLogsCommand = async (
@@ -2412,7 +1510,7 @@ export const de_ListEventLogsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventLogsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEventLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2427,47 +1525,6 @@ export const de_ListEventLogsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEventLogsCommandError
- */
-const de_ListEventLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -2475,7 +1532,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2490,47 +1547,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSourceRepositoriesCommand
  */
 export const de_ListSourceRepositoriesCommand = async (
@@ -2538,7 +1554,7 @@ export const de_ListSourceRepositoriesCommand = async (
   context: __SerdeContext
 ): Promise<ListSourceRepositoriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSourceRepositoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2553,47 +1569,6 @@ export const de_ListSourceRepositoriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSourceRepositoriesCommandError
- */
-const de_ListSourceRepositoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceRepositoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSourceRepositoryBranchesCommand
  */
 export const de_ListSourceRepositoryBranchesCommand = async (
@@ -2601,7 +1576,7 @@ export const de_ListSourceRepositoryBranchesCommand = async (
   context: __SerdeContext
 ): Promise<ListSourceRepositoryBranchesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSourceRepositoryBranchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2616,47 +1591,6 @@ export const de_ListSourceRepositoryBranchesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSourceRepositoryBranchesCommandError
- */
-const de_ListSourceRepositoryBranchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceRepositoryBranchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSpacesCommand
  */
 export const de_ListSpacesCommand = async (
@@ -2664,7 +1598,7 @@ export const de_ListSpacesCommand = async (
   context: __SerdeContext
 ): Promise<ListSpacesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSpacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2679,47 +1613,6 @@ export const de_ListSpacesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSpacesCommandError
- */
-const de_ListSpacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSpacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowRunsCommand
  */
 export const de_ListWorkflowRunsCommand = async (
@@ -2727,7 +1620,7 @@ export const de_ListWorkflowRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowRunsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2742,47 +1635,6 @@ export const de_ListWorkflowRunsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowRunsCommandError
- */
-const de_ListWorkflowRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowsCommand
  */
 export const de_ListWorkflowsCommand = async (
@@ -2790,7 +1642,7 @@ export const de_ListWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2805,47 +1657,6 @@ export const de_ListWorkflowsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowsCommandError
- */
-const de_ListWorkflowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartDevEnvironmentCommand
  */
 export const de_StartDevEnvironmentCommand = async (
@@ -2853,7 +1664,7 @@ export const de_StartDevEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<StartDevEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDevEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2870,47 +1681,6 @@ export const de_StartDevEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartDevEnvironmentCommandError
- */
-const de_StartDevEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDevEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartDevEnvironmentSessionCommand
  */
 export const de_StartDevEnvironmentSessionCommand = async (
@@ -2918,7 +1688,7 @@ export const de_StartDevEnvironmentSessionCommand = async (
   context: __SerdeContext
 ): Promise<StartDevEnvironmentSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDevEnvironmentSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2936,47 +1706,6 @@ export const de_StartDevEnvironmentSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartDevEnvironmentSessionCommandError
- */
-const de_StartDevEnvironmentSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDevEnvironmentSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartWorkflowRunCommand
  */
 export const de_StartWorkflowRunCommand = async (
@@ -2984,7 +1713,7 @@ export const de_StartWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<StartWorkflowRunCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartWorkflowRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3001,47 +1730,6 @@ export const de_StartWorkflowRunCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartWorkflowRunCommandError
- */
-const de_StartWorkflowRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartWorkflowRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopDevEnvironmentCommand
  */
 export const de_StopDevEnvironmentCommand = async (
@@ -3049,7 +1737,7 @@ export const de_StopDevEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<StopDevEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopDevEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3066,47 +1754,6 @@ export const de_StopDevEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopDevEnvironmentCommandError
- */
-const de_StopDevEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDevEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopDevEnvironmentSessionCommand
  */
 export const de_StopDevEnvironmentSessionCommand = async (
@@ -3114,7 +1761,7 @@ export const de_StopDevEnvironmentSessionCommand = async (
   context: __SerdeContext
 ): Promise<StopDevEnvironmentSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopDevEnvironmentSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3131,47 +1778,6 @@ export const de_StopDevEnvironmentSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopDevEnvironmentSessionCommandError
- */
-const de_StopDevEnvironmentSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDevEnvironmentSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDevEnvironmentCommand
  */
 export const de_UpdateDevEnvironmentCommand = async (
@@ -3179,7 +1785,7 @@ export const de_UpdateDevEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDevEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDevEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3200,47 +1806,6 @@ export const de_UpdateDevEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDevEnvironmentCommandError
- */
-const de_UpdateDevEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDevEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -3248,7 +1813,7 @@ export const de_UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3265,47 +1830,6 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateProjectCommandError
- */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSpaceCommand
  */
 export const de_UpdateSpaceCommand = async (
@@ -3313,7 +1837,7 @@ export const de_UpdateSpaceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSpaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSpaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3329,47 +1853,6 @@ export const de_UpdateSpaceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSpaceCommandError
- */
-const de_UpdateSpaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSpaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codecatalyst#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.codecatalyst#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codecatalyst#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.codecatalyst#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codecatalyst#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codecatalyst#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1VerifySessionCommand
  */
 export const de_VerifySessionCommand = async (
@@ -3377,7 +1860,7 @@ export const de_VerifySessionCommand = async (
   context: __SerdeContext
 ): Promise<VerifySessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VerifySessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3391,12 +1874,9 @@ export const de_VerifySessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1VerifySessionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_VerifySessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifySessionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

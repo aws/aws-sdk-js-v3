@@ -844,7 +844,7 @@ export const de_BatchGetTracesCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetTracesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetTracesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -860,35 +860,6 @@ export const de_BatchGetTracesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetTracesCommandError
- */
-const de_BatchGetTracesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetTracesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGroupCommand
  */
 export const de_CreateGroupCommand = async (
@@ -896,7 +867,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -910,35 +881,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSamplingRuleCommand
  */
 export const de_CreateSamplingRuleCommand = async (
@@ -946,7 +888,7 @@ export const de_CreateSamplingRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateSamplingRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSamplingRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -957,38 +899,6 @@ export const de_CreateSamplingRuleCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateSamplingRuleCommandError
- */
-const de_CreateSamplingRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSamplingRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "RuleLimitExceededException":
-    case "com.amazonaws.xray#RuleLimitExceededException":
-      throw await de_RuleLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -999,42 +909,13 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1045,45 +926,13 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPolicyRevisionIdException":
-    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
-      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1094,7 +943,7 @@ export const de_DeleteSamplingRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSamplingRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSamplingRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1108,35 +957,6 @@ export const de_DeleteSamplingRuleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSamplingRuleCommandError
- */
-const de_DeleteSamplingRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSamplingRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEncryptionConfigCommand
  */
 export const de_GetEncryptionConfigCommand = async (
@@ -1144,7 +964,7 @@ export const de_GetEncryptionConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEncryptionConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1158,35 +978,6 @@ export const de_GetEncryptionConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEncryptionConfigCommandError
- */
-const de_GetEncryptionConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEncryptionConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupCommand
  */
 export const de_GetGroupCommand = async (
@@ -1194,7 +985,7 @@ export const de_GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1208,35 +999,6 @@ export const de_GetGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupCommandError
- */
-const de_GetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupsCommand
  */
 export const de_GetGroupsCommand = async (
@@ -1244,7 +1006,7 @@ export const de_GetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1259,35 +1021,6 @@ export const de_GetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupsCommandError
- */
-const de_GetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInsightCommand
  */
 export const de_GetInsightCommand = async (
@@ -1295,7 +1028,7 @@ export const de_GetInsightCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInsightCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1309,35 +1042,6 @@ export const de_GetInsightCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInsightCommandError
- */
-const de_GetInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInsightEventsCommand
  */
 export const de_GetInsightEventsCommand = async (
@@ -1345,7 +1049,7 @@ export const de_GetInsightEventsCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInsightEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1360,35 +1064,6 @@ export const de_GetInsightEventsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInsightEventsCommandError
- */
-const de_GetInsightEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInsightImpactGraphCommand
  */
 export const de_GetInsightImpactGraphCommand = async (
@@ -1396,7 +1071,7 @@ export const de_GetInsightImpactGraphCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightImpactGraphCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInsightImpactGraphCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1416,35 +1091,6 @@ export const de_GetInsightImpactGraphCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInsightImpactGraphCommandError
- */
-const de_GetInsightImpactGraphCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightImpactGraphCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInsightSummariesCommand
  */
 export const de_GetInsightSummariesCommand = async (
@@ -1452,7 +1098,7 @@ export const de_GetInsightSummariesCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInsightSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1467,35 +1113,6 @@ export const de_GetInsightSummariesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInsightSummariesCommandError
- */
-const de_GetInsightSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSamplingRulesCommand
  */
 export const de_GetSamplingRulesCommand = async (
@@ -1503,7 +1120,7 @@ export const de_GetSamplingRulesCommand = async (
   context: __SerdeContext
 ): Promise<GetSamplingRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSamplingRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1518,35 +1135,6 @@ export const de_GetSamplingRulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSamplingRulesCommandError
- */
-const de_GetSamplingRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSamplingRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSamplingStatisticSummariesCommand
  */
 export const de_GetSamplingStatisticSummariesCommand = async (
@@ -1554,7 +1142,7 @@ export const de_GetSamplingStatisticSummariesCommand = async (
   context: __SerdeContext
 ): Promise<GetSamplingStatisticSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSamplingStatisticSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1569,35 +1157,6 @@ export const de_GetSamplingStatisticSummariesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSamplingStatisticSummariesCommandError
- */
-const de_GetSamplingStatisticSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSamplingStatisticSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSamplingTargetsCommand
  */
 export const de_GetSamplingTargetsCommand = async (
@@ -1605,7 +1164,7 @@ export const de_GetSamplingTargetsCommand = async (
   context: __SerdeContext
 ): Promise<GetSamplingTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSamplingTargetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1621,35 +1180,6 @@ export const de_GetSamplingTargetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSamplingTargetsCommandError
- */
-const de_GetSamplingTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSamplingTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetServiceGraphCommand
  */
 export const de_GetServiceGraphCommand = async (
@@ -1657,7 +1187,7 @@ export const de_GetServiceGraphCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceGraphCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetServiceGraphCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1675,35 +1205,6 @@ export const de_GetServiceGraphCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetServiceGraphCommandError
- */
-const de_GetServiceGraphCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceGraphCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand
  */
 export const de_GetTimeSeriesServiceStatisticsCommand = async (
@@ -1711,7 +1212,7 @@ export const de_GetTimeSeriesServiceStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTimeSeriesServiceStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1727,35 +1228,6 @@ export const de_GetTimeSeriesServiceStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommandError
- */
-const de_GetTimeSeriesServiceStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTimeSeriesServiceStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTraceGraphCommand
  */
 export const de_GetTraceGraphCommand = async (
@@ -1763,7 +1235,7 @@ export const de_GetTraceGraphCommand = async (
   context: __SerdeContext
 ): Promise<GetTraceGraphCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTraceGraphCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1778,35 +1250,6 @@ export const de_GetTraceGraphCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTraceGraphCommandError
- */
-const de_GetTraceGraphCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTraceGraphCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTraceSummariesCommand
  */
 export const de_GetTraceSummariesCommand = async (
@@ -1814,7 +1257,7 @@ export const de_GetTraceSummariesCommand = async (
   context: __SerdeContext
 ): Promise<GetTraceSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTraceSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1831,35 +1274,6 @@ export const de_GetTraceSummariesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTraceSummariesCommandError
- */
-const de_GetTraceSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTraceSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListResourcePoliciesCommand
  */
 export const de_ListResourcePoliciesCommand = async (
@@ -1867,7 +1281,7 @@ export const de_ListResourcePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourcePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1882,35 +1296,6 @@ export const de_ListResourcePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResourcePoliciesCommandError
- */
-const de_ListResourcePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1918,7 +1303,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1933,38 +1318,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.xray#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutEncryptionConfigCommand
  */
 export const de_PutEncryptionConfigCommand = async (
@@ -1972,7 +1325,7 @@ export const de_PutEncryptionConfigCommand = async (
   context: __SerdeContext
 ): Promise<PutEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEncryptionConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1986,35 +1339,6 @@ export const de_PutEncryptionConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutEncryptionConfigCommandError
- */
-const de_PutEncryptionConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEncryptionConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -2022,7 +1346,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2036,47 +1360,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPolicyRevisionIdException":
-    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
-      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
-    case "LockoutPreventionException":
-    case "com.amazonaws.xray#LockoutPreventionException":
-      throw await de_LockoutPreventionExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.xray#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PolicyCountLimitExceededException":
-    case "com.amazonaws.xray#PolicyCountLimitExceededException":
-      throw await de_PolicyCountLimitExceededExceptionRes(parsedOutput, context);
-    case "PolicySizeLimitExceededException":
-    case "com.amazonaws.xray#PolicySizeLimitExceededException":
-      throw await de_PolicySizeLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutTelemetryRecordsCommand
  */
 export const de_PutTelemetryRecordsCommand = async (
@@ -2084,42 +1367,13 @@ export const de_PutTelemetryRecordsCommand = async (
   context: __SerdeContext
 ): Promise<PutTelemetryRecordsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutTelemetryRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutTelemetryRecordsCommandError
- */
-const de_PutTelemetryRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutTelemetryRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2130,7 +1384,7 @@ export const de_PutTraceSegmentsCommand = async (
   context: __SerdeContext
 ): Promise<PutTraceSegmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutTraceSegmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2144,35 +1398,6 @@ export const de_PutTraceSegmentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutTraceSegmentsCommandError
- */
-const de_PutTraceSegmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutTraceSegmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2180,48 +1405,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.xray#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.xray#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2232,45 +1422,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.xray#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2281,7 +1439,7 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2295,35 +1453,6 @@ export const de_UpdateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.xray#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.xray#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSamplingRuleCommand
  */
 export const de_UpdateSamplingRuleCommand = async (
@@ -2331,7 +1460,7 @@ export const de_UpdateSamplingRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSamplingRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSamplingRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2345,12 +1474,9 @@ export const de_UpdateSamplingRuleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSamplingRuleCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateSamplingRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSamplingRuleCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2363,6 +1489,30 @@ const de_UpdateSamplingRuleCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.xray#ThrottledException":
       throw await de_ThrottledExceptionRes(parsedOutput, context);
+    case "RuleLimitExceededException":
+    case "com.amazonaws.xray#RuleLimitExceededException":
+      throw await de_RuleLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
+      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.xray#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "LockoutPreventionException":
+    case "com.amazonaws.xray#LockoutPreventionException":
+      throw await de_LockoutPreventionExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.xray#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "PolicyCountLimitExceededException":
+    case "com.amazonaws.xray#PolicyCountLimitExceededException":
+      throw await de_PolicyCountLimitExceededExceptionRes(parsedOutput, context);
+    case "PolicySizeLimitExceededException":
+    case "com.amazonaws.xray#PolicySizeLimitExceededException":
+      throw await de_PolicySizeLimitExceededExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.xray#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -313,7 +313,7 @@ export const de_DatetimeOffsetsCommand = async (
   context: __SerdeContext
 ): Promise<DatetimeOffsetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DatetimeOffsetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -326,26 +326,6 @@ export const de_DatetimeOffsetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DatetimeOffsetsCommandError
- */
-const de_DatetimeOffsetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DatetimeOffsetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1EmptyOperationCommand
  */
 export const de_EmptyOperationCommand = async (
@@ -353,33 +333,13 @@ export const de_EmptyOperationCommand = async (
   context: __SerdeContext
 ): Promise<EmptyOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EmptyOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EmptyOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1EmptyOperationCommandError
- */
-const de_EmptyOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EmptyOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -390,33 +350,13 @@ export const de_EndpointOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EndpointOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1EndpointOperationCommandError
- */
-const de_EndpointOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -427,33 +367,13 @@ export const de_EndpointWithHostLabelOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EndpointWithHostLabelOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1EndpointWithHostLabelOperationCommandError
- */
-const de_EndpointWithHostLabelOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointWithHostLabelOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -464,7 +384,7 @@ export const de_FractionalSecondsCommand = async (
   context: __SerdeContext
 ): Promise<FractionalSecondsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FractionalSecondsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -477,26 +397,6 @@ export const de_FractionalSecondsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1FractionalSecondsCommandError
- */
-const de_FractionalSecondsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FractionalSecondsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GreetingWithErrorsCommand
  */
 export const de_GreetingWithErrorsCommand = async (
@@ -504,7 +404,7 @@ export const de_GreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GreetingWithErrorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -517,12 +417,183 @@ export const de_GreetingWithErrorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GreetingWithErrorsCommandError
+ * deserializeAws_json1_1HostWithPathOperationCommand
  */
-const de_GreetingWithErrorsCommandError = async (
+export const de_HostWithPathOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GreetingWithErrorsCommandOutput> => {
+): Promise<HostWithPathOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: HostWithPathOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1JsonEnumsCommand
+ */
+export const de_JsonEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JsonEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: JsonEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1JsonUnionsCommand
+ */
+export const de_JsonUnionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JsonUnionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UnionInputOutput(data, context);
+  const response: JsonUnionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1KitchenSinkOperationCommand
+ */
+export const de_KitchenSinkOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<KitchenSinkOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_KitchenSink(data, context);
+  const response: KitchenSinkOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1NullOperationCommand
+ */
+export const de_NullOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NullOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_NullOperationInputOutput(data, context);
+  const response: NullOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1OperationWithOptionalInputOutputCommand
+ */
+export const de_OperationWithOptionalInputOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithOptionalInputOutputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: OperationWithOptionalInputOutputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutAndGetInlineDocumentsCommand
+ */
+export const de_PutAndGetInlineDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAndGetInlineDocumentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutAndGetInlineDocumentsInputOutput(data, context);
+  const response: PutAndGetInlineDocumentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutWithContentEncodingCommand
+ */
+export const de_PutWithContentEncodingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutWithContentEncodingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SimpleScalarPropertiesCommand
+ */
+export const de_SimpleScalarPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleScalarPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SimpleScalarPropertiesInputOutput(data, context);
+  const response: SimpleScalarPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -538,166 +609,6 @@ const de_GreetingWithErrorsCommandError = async (
     case "InvalidGreeting":
     case "aws.protocoltests.json#InvalidGreeting":
       throw await de_InvalidGreetingRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1HostWithPathOperationCommand
- */
-export const de_HostWithPathOperationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HostWithPathOperationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_HostWithPathOperationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: HostWithPathOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1HostWithPathOperationCommandError
- */
-const de_HostWithPathOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HostWithPathOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1JsonEnumsCommand
- */
-export const de_JsonEnumsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JsonEnumsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_JsonEnumsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: JsonEnumsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1JsonEnumsCommandError
- */
-const de_JsonEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JsonEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1JsonUnionsCommand
- */
-export const de_JsonUnionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JsonUnionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_JsonUnionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UnionInputOutput(data, context);
-  const response: JsonUnionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1JsonUnionsCommandError
- */
-const de_JsonUnionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JsonUnionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1KitchenSinkOperationCommand
- */
-export const de_KitchenSinkOperationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<KitchenSinkOperationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_KitchenSinkOperationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_KitchenSink(data, context);
-  const response: KitchenSinkOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1KitchenSinkOperationCommandError
- */
-const de_KitchenSinkOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<KitchenSinkOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ErrorWithMembers":
     case "aws.protocoltests.json#ErrorWithMembers":
       throw await de_ErrorWithMembersRes(parsedOutput, context);
@@ -712,203 +623,6 @@ const de_KitchenSinkOperationCommandError = async (
         errorCode,
       });
   }
-};
-
-/**
- * deserializeAws_json1_1NullOperationCommand
- */
-export const de_NullOperationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NullOperationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NullOperationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_NullOperationInputOutput(data, context);
-  const response: NullOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1NullOperationCommandError
- */
-const de_NullOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NullOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1OperationWithOptionalInputOutputCommand
- */
-export const de_OperationWithOptionalInputOutputCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OperationWithOptionalInputOutputCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_OperationWithOptionalInputOutputCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: OperationWithOptionalInputOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1OperationWithOptionalInputOutputCommandError
- */
-const de_OperationWithOptionalInputOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OperationWithOptionalInputOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1PutAndGetInlineDocumentsCommand
- */
-export const de_PutAndGetInlineDocumentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAndGetInlineDocumentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutAndGetInlineDocumentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PutAndGetInlineDocumentsInputOutput(data, context);
-  const response: PutAndGetInlineDocumentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutAndGetInlineDocumentsCommandError
- */
-const de_PutAndGetInlineDocumentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAndGetInlineDocumentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1PutWithContentEncodingCommand
- */
-export const de_PutWithContentEncodingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutWithContentEncodingCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutWithContentEncodingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutWithContentEncodingCommandError
- */
-const de_PutWithContentEncodingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1SimpleScalarPropertiesCommand
- */
-export const de_SimpleScalarPropertiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarPropertiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SimpleScalarPropertiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SimpleScalarPropertiesInputOutput(data, context);
-  const response: SimpleScalarPropertiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SimpleScalarPropertiesCommandError
- */
-const de_SimpleScalarPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**

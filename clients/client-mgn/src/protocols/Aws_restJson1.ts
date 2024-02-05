@@ -1972,7 +1972,7 @@ export const de_ArchiveApplicationCommand = async (
   context: __SerdeContext
 ): Promise<ArchiveApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ArchiveApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1995,41 +1995,6 @@ export const de_ArchiveApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ArchiveApplicationCommandError
- */
-const de_ArchiveApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ArchiveApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ArchiveWaveCommand
  */
 export const de_ArchiveWaveCommand = async (
@@ -2037,7 +2002,7 @@ export const de_ArchiveWaveCommand = async (
   context: __SerdeContext
 ): Promise<ArchiveWaveCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ArchiveWaveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2059,41 +2024,6 @@ export const de_ArchiveWaveCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ArchiveWaveCommandError
- */
-const de_ArchiveWaveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ArchiveWaveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssociateApplicationsCommand
  */
 export const de_AssociateApplicationsCommand = async (
@@ -2101,48 +2031,13 @@ export const de_AssociateApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<AssociateApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateApplicationsCommandError
- */
-const de_AssociateApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2153,48 +2048,13 @@ export const de_AssociateSourceServersCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSourceServersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateSourceServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateSourceServersCommandError
- */
-const de_AssociateSourceServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSourceServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2205,7 +2065,7 @@ export const de_ChangeServerLifeCycleStateCommand = async (
   context: __SerdeContext
 ): Promise<ChangeServerLifeCycleStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ChangeServerLifeCycleStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2232,41 +2092,6 @@ export const de_ChangeServerLifeCycleStateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ChangeServerLifeCycleStateCommandError
- */
-const de_ChangeServerLifeCycleStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangeServerLifeCycleStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateApplicationCommand
  */
 export const de_CreateApplicationCommand = async (
@@ -2274,7 +2099,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2297,38 +2122,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateConnectorCommand
  */
 export const de_CreateConnectorCommand = async (
@@ -2336,7 +2129,7 @@ export const de_CreateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2355,35 +2148,6 @@ export const de_CreateConnectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateConnectorCommandError
- */
-const de_CreateConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand
  */
 export const de_CreateLaunchConfigurationTemplateCommand = async (
@@ -2391,7 +2155,7 @@ export const de_CreateLaunchConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateLaunchConfigurationTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateLaunchConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2421,38 +2185,6 @@ export const de_CreateLaunchConfigurationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateLaunchConfigurationTemplateCommandError
- */
-const de_CreateLaunchConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLaunchConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateReplicationConfigurationTemplateCommand
  */
 export const de_CreateReplicationConfigurationTemplateCommand = async (
@@ -2460,7 +2192,7 @@ export const de_CreateReplicationConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationConfigurationTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateReplicationConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2489,38 +2221,6 @@ export const de_CreateReplicationConfigurationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateReplicationConfigurationTemplateCommandError
- */
-const de_CreateReplicationConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateWaveCommand
  */
 export const de_CreateWaveCommand = async (
@@ -2528,7 +2228,7 @@ export const de_CreateWaveCommand = async (
   context: __SerdeContext
 ): Promise<CreateWaveCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateWaveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2550,38 +2250,6 @@ export const de_CreateWaveCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateWaveCommandError
- */
-const de_CreateWaveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWaveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -2589,45 +2257,13 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2638,45 +2274,13 @@ export const de_DeleteConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectorCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConnectorCommandError
- */
-const de_DeleteConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2687,45 +2291,13 @@ export const de_DeleteJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteJobCommandError
- */
-const de_DeleteJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2736,45 +2308,13 @@ export const de_DeleteLaunchConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteLaunchConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommandError
- */
-const de_DeleteLaunchConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLaunchConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2785,45 +2325,13 @@ export const de_DeleteReplicationConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationConfigurationTemplateCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteReplicationConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteReplicationConfigurationTemplateCommandError
- */
-const de_DeleteReplicationConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2834,45 +2342,13 @@ export const de_DeleteSourceServerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSourceServerCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteSourceServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSourceServerCommandError
- */
-const de_DeleteSourceServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSourceServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2883,45 +2359,13 @@ export const de_DeleteVcenterClientCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVcenterClientCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteVcenterClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVcenterClientCommandError
- */
-const de_DeleteVcenterClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVcenterClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2932,45 +2376,13 @@ export const de_DeleteWaveCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWaveCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteWaveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteWaveCommandError
- */
-const de_DeleteWaveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWaveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2981,7 +2393,7 @@ export const de_DescribeJobLogItemsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobLogItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeJobLogItemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2996,35 +2408,6 @@ export const de_DescribeJobLogItemsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeJobLogItemsCommandError
- */
-const de_DescribeJobLogItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobLogItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeJobsCommand
  */
 export const de_DescribeJobsCommand = async (
@@ -3032,7 +2415,7 @@ export const de_DescribeJobsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3047,35 +2430,6 @@ export const de_DescribeJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeJobsCommandError
- */
-const de_DescribeJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand
  */
 export const de_DescribeLaunchConfigurationTemplatesCommand = async (
@@ -3083,7 +2437,7 @@ export const de_DescribeLaunchConfigurationTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeLaunchConfigurationTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3095,38 +2449,6 @@ export const de_DescribeLaunchConfigurationTemplatesCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommandError
- */
-const de_DescribeLaunchConfigurationTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLaunchConfigurationTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3137,7 +2459,7 @@ export const de_DescribeReplicationConfigurationTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeReplicationConfigurationTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3149,38 +2471,6 @@ export const de_DescribeReplicationConfigurationTemplatesCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeReplicationConfigurationTemplatesCommandError
- */
-const de_DescribeReplicationConfigurationTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationConfigurationTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3191,7 +2481,7 @@ export const de_DescribeSourceServersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSourceServersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSourceServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3203,35 +2493,6 @@ export const de_DescribeSourceServersCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeSourceServersCommandError
- */
-const de_DescribeSourceServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSourceServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3242,7 +2503,7 @@ export const de_DescribeVcenterClientsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVcenterClientsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVcenterClientsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3257,38 +2518,6 @@ export const de_DescribeVcenterClientsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVcenterClientsCommandError
- */
-const de_DescribeVcenterClientsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVcenterClientsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateApplicationsCommand
  */
 export const de_DisassociateApplicationsCommand = async (
@@ -3296,45 +2525,13 @@ export const de_DisassociateApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateApplicationsCommandError
- */
-const de_DisassociateApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3345,45 +2542,13 @@ export const de_DisassociateSourceServersCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateSourceServersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateSourceServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateSourceServersCommandError
- */
-const de_DisassociateSourceServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateSourceServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3394,7 +2559,7 @@ export const de_DisconnectFromServiceCommand = async (
   context: __SerdeContext
 ): Promise<DisconnectFromServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisconnectFromServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3418,38 +2583,6 @@ export const de_DisconnectFromServiceCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisconnectFromServiceCommandError
- */
-const de_DisconnectFromServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisconnectFromServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3460,7 +2593,7 @@ export const de_FinalizeCutoverCommand = async (
   context: __SerdeContext
 ): Promise<FinalizeCutoverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_FinalizeCutoverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3487,41 +2620,6 @@ export const de_FinalizeCutoverCommand = async (
 };
 
 /**
- * deserializeAws_restJson1FinalizeCutoverCommandError
- */
-const de_FinalizeCutoverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FinalizeCutoverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLaunchConfigurationCommand
  */
 export const de_GetLaunchConfigurationCommand = async (
@@ -3529,7 +2627,7 @@ export const de_GetLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetLaunchConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3554,35 +2652,6 @@ export const de_GetLaunchConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLaunchConfigurationCommandError
- */
-const de_GetLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetReplicationConfigurationCommand
  */
 export const de_GetReplicationConfigurationCommand = async (
@@ -3590,7 +2659,7 @@ export const de_GetReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetReplicationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetReplicationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3619,35 +2688,6 @@ export const de_GetReplicationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetReplicationConfigurationCommandError
- */
-const de_GetReplicationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReplicationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InitializeServiceCommand
  */
 export const de_InitializeServiceCommand = async (
@@ -3655,42 +2695,13 @@ export const de_InitializeServiceCommand = async (
   context: __SerdeContext
 ): Promise<InitializeServiceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_InitializeServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1InitializeServiceCommandError
- */
-const de_InitializeServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitializeServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3701,7 +2712,7 @@ export const de_ListApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3713,32 +2724,6 @@ export const de_ListApplicationsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3749,7 +2734,7 @@ export const de_ListConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConnectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3761,35 +2746,6 @@ export const de_ListConnectorsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListConnectorsCommandError
- */
-const de_ListConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3800,7 +2756,7 @@ export const de_ListExportErrorsCommand = async (
   context: __SerdeContext
 ): Promise<ListExportErrorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExportErrorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3815,35 +2771,6 @@ export const de_ListExportErrorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExportErrorsCommandError
- */
-const de_ListExportErrorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExportErrorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExportsCommand
  */
 export const de_ListExportsCommand = async (
@@ -3851,7 +2778,7 @@ export const de_ListExportsCommand = async (
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3866,32 +2793,6 @@ export const de_ListExportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExportsCommandError
- */
-const de_ListExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImportErrorsCommand
  */
 export const de_ListImportErrorsCommand = async (
@@ -3899,7 +2800,7 @@ export const de_ListImportErrorsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportErrorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImportErrorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3914,35 +2815,6 @@ export const de_ListImportErrorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImportErrorsCommandError
- */
-const de_ListImportErrorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportErrorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -3950,7 +2822,7 @@ export const de_ListImportsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3965,35 +2837,6 @@ export const de_ListImportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImportsCommandError
- */
-const de_ListImportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListManagedAccountsCommand
  */
 export const de_ListManagedAccountsCommand = async (
@@ -4001,7 +2844,7 @@ export const de_ListManagedAccountsCommand = async (
   context: __SerdeContext
 ): Promise<ListManagedAccountsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListManagedAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4013,35 +2856,6 @@ export const de_ListManagedAccountsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListManagedAccountsCommandError
- */
-const de_ListManagedAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListManagedAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4052,7 +2866,7 @@ export const de_ListSourceServerActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSourceServerActionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSourceServerActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4064,35 +2878,6 @@ export const de_ListSourceServerActionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListSourceServerActionsCommandError
- */
-const de_ListSourceServerActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceServerActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4103,7 +2888,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4114,44 +2899,6 @@ export const de_ListTagsForResourceCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.mgn#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.mgn#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4162,7 +2909,7 @@ export const de_ListTemplateActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateActionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplateActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4174,35 +2921,6 @@ export const de_ListTemplateActionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTemplateActionsCommandError
- */
-const de_ListTemplateActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplateActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4213,7 +2931,7 @@ export const de_ListWavesCommand = async (
   context: __SerdeContext
 ): Promise<ListWavesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWavesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4228,32 +2946,6 @@ export const de_ListWavesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWavesCommandError
- */
-const de_ListWavesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWavesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1MarkAsArchivedCommand
  */
 export const de_MarkAsArchivedCommand = async (
@@ -4261,7 +2953,7 @@ export const de_MarkAsArchivedCommand = async (
   context: __SerdeContext
 ): Promise<MarkAsArchivedCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_MarkAsArchivedCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4285,38 +2977,6 @@ export const de_MarkAsArchivedCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1MarkAsArchivedCommandError
- */
-const de_MarkAsArchivedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MarkAsArchivedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4327,7 +2987,7 @@ export const de_PauseReplicationCommand = async (
   context: __SerdeContext
 ): Promise<PauseReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PauseReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4354,44 +3014,6 @@ export const de_PauseReplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PauseReplicationCommandError
- */
-const de_PauseReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PauseReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutSourceServerActionCommand
  */
 export const de_PutSourceServerActionCommand = async (
@@ -4399,7 +3021,7 @@ export const de_PutSourceServerActionCommand = async (
   context: __SerdeContext
 ): Promise<PutSourceServerActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutSourceServerActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4424,41 +3046,6 @@ export const de_PutSourceServerActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutSourceServerActionCommandError
- */
-const de_PutSourceServerActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSourceServerActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutTemplateActionCommand
  */
 export const de_PutTemplateActionCommand = async (
@@ -4466,7 +3053,7 @@ export const de_PutTemplateActionCommand = async (
   context: __SerdeContext
 ): Promise<PutTemplateActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutTemplateActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4492,41 +3079,6 @@ export const de_PutTemplateActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutTemplateActionCommandError
- */
-const de_PutTemplateActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutTemplateActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveSourceServerActionCommand
  */
 export const de_RemoveSourceServerActionCommand = async (
@@ -4534,45 +3086,13 @@ export const de_RemoveSourceServerActionCommand = async (
   context: __SerdeContext
 ): Promise<RemoveSourceServerActionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveSourceServerActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveSourceServerActionCommandError
- */
-const de_RemoveSourceServerActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveSourceServerActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4583,45 +3103,13 @@ export const de_RemoveTemplateActionCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTemplateActionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveTemplateActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveTemplateActionCommandError
- */
-const de_RemoveTemplateActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTemplateActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4632,7 +3120,7 @@ export const de_ResumeReplicationCommand = async (
   context: __SerdeContext
 ): Promise<ResumeReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ResumeReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4656,44 +3144,6 @@ export const de_ResumeReplicationCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ResumeReplicationCommandError
- */
-const de_ResumeReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4704,7 +3154,7 @@ export const de_RetryDataReplicationCommand = async (
   context: __SerdeContext
 ): Promise<RetryDataReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RetryDataReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4731,38 +3181,6 @@ export const de_RetryDataReplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RetryDataReplicationCommandError
- */
-const de_RetryDataReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetryDataReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartCutoverCommand
  */
 export const de_StartCutoverCommand = async (
@@ -4770,7 +3188,7 @@ export const de_StartCutoverCommand = async (
   context: __SerdeContext
 ): Promise<StartCutoverCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartCutoverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4784,38 +3202,6 @@ export const de_StartCutoverCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartCutoverCommandError
- */
-const de_StartCutoverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCutoverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartExportCommand
  */
 export const de_StartExportCommand = async (
@@ -4823,7 +3209,7 @@ export const de_StartExportCommand = async (
   context: __SerdeContext
 ): Promise<StartExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4837,38 +3223,6 @@ export const de_StartExportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartExportCommandError
- */
-const de_StartExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartImportCommand
  */
 export const de_StartImportCommand = async (
@@ -4876,7 +3230,7 @@ export const de_StartImportCommand = async (
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4890,44 +3244,6 @@ export const de_StartImportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartImportCommandError
- */
-const de_StartImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartReplicationCommand
  */
 export const de_StartReplicationCommand = async (
@@ -4935,7 +3251,7 @@ export const de_StartReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StartReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4959,44 +3275,6 @@ export const de_StartReplicationCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartReplicationCommandError
- */
-const de_StartReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5007,7 +3285,7 @@ export const de_StartTestCommand = async (
   context: __SerdeContext
 ): Promise<StartTestCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartTestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5021,38 +3299,6 @@ export const de_StartTestCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartTestCommandError
- */
-const de_StartTestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopReplicationCommand
  */
 export const de_StopReplicationCommand = async (
@@ -5060,7 +3306,7 @@ export const de_StopReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StopReplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5087,44 +3333,6 @@ export const de_StopReplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopReplicationCommandError
- */
-const de_StopReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -5132,51 +3340,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.mgn#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.mgn#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5187,7 +3357,7 @@ export const de_TerminateTargetInstancesCommand = async (
   context: __SerdeContext
 ): Promise<TerminateTargetInstancesCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_TerminateTargetInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5201,38 +3371,6 @@ export const de_TerminateTargetInstancesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TerminateTargetInstancesCommandError
- */
-const de_TerminateTargetInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateTargetInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UnarchiveApplicationCommand
  */
 export const de_UnarchiveApplicationCommand = async (
@@ -5240,7 +3378,7 @@ export const de_UnarchiveApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UnarchiveApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UnarchiveApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5263,38 +3401,6 @@ export const de_UnarchiveApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UnarchiveApplicationCommandError
- */
-const de_UnarchiveApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnarchiveApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UnarchiveWaveCommand
  */
 export const de_UnarchiveWaveCommand = async (
@@ -5302,7 +3408,7 @@ export const de_UnarchiveWaveCommand = async (
   context: __SerdeContext
 ): Promise<UnarchiveWaveCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UnarchiveWaveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5324,38 +3430,6 @@ export const de_UnarchiveWaveCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UnarchiveWaveCommandError
- */
-const de_UnarchiveWaveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnarchiveWaveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.mgn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -5363,51 +3437,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.mgn#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.mgn#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5418,7 +3454,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5441,38 +3477,6 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateConnectorCommand
  */
 export const de_UpdateConnectorCommand = async (
@@ -5480,7 +3484,7 @@ export const de_UpdateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5499,38 +3503,6 @@ export const de_UpdateConnectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConnectorCommandError
- */
-const de_UpdateConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateLaunchConfigurationCommand
  */
 export const de_UpdateLaunchConfigurationCommand = async (
@@ -5538,7 +3510,7 @@ export const de_UpdateLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLaunchConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5563,41 +3535,6 @@ export const de_UpdateLaunchConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateLaunchConfigurationCommandError
- */
-const de_UpdateLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand
  */
 export const de_UpdateLaunchConfigurationTemplateCommand = async (
@@ -5605,7 +3542,7 @@ export const de_UpdateLaunchConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLaunchConfigurationTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLaunchConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5635,41 +3572,6 @@ export const de_UpdateLaunchConfigurationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommandError
- */
-const de_UpdateLaunchConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLaunchConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateReplicationConfigurationCommand
  */
 export const de_UpdateReplicationConfigurationCommand = async (
@@ -5677,7 +3579,7 @@ export const de_UpdateReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReplicationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateReplicationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5706,44 +3608,6 @@ export const de_UpdateReplicationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateReplicationConfigurationCommandError
- */
-const de_UpdateReplicationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReplicationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommand
  */
 export const de_UpdateReplicationConfigurationTemplateCommand = async (
@@ -5751,7 +3615,7 @@ export const de_UpdateReplicationConfigurationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReplicationConfigurationTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateReplicationConfigurationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5780,41 +3644,6 @@ export const de_UpdateReplicationConfigurationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateReplicationConfigurationTemplateCommandError
- */
-const de_UpdateReplicationConfigurationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReplicationConfigurationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.mgn#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSourceServerCommand
  */
 export const de_UpdateSourceServerCommand = async (
@@ -5822,7 +3651,7 @@ export const de_UpdateSourceServerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSourceServerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSourceServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5846,38 +3675,6 @@ export const de_UpdateSourceServerCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateSourceServerCommandError
- */
-const de_UpdateSourceServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSourceServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5888,7 +3685,7 @@ export const de_UpdateSourceServerReplicationTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSourceServerReplicationTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSourceServerReplicationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5915,41 +3712,6 @@ export const de_UpdateSourceServerReplicationTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSourceServerReplicationTypeCommandError
- */
-const de_UpdateSourceServerReplicationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSourceServerReplicationTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.mgn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.mgn#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UninitializedAccountException":
-    case "com.amazonaws.mgn#UninitializedAccountException":
-      throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.mgn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateWaveCommand
  */
 export const de_UpdateWaveCommand = async (
@@ -5957,7 +3719,7 @@ export const de_UpdateWaveCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWaveCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateWaveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5979,12 +3741,9 @@ export const de_UpdateWaveCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateWaveCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateWaveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWaveCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5997,9 +3756,24 @@ const de_UpdateWaveCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.mgn#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "UninitializedAccountException":
     case "com.amazonaws.mgn#UninitializedAccountException":
       throw await de_UninitializedAccountExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.mgn#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.mgn#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.mgn#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

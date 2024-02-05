@@ -1068,7 +1068,7 @@ export const de_AddInstanceFleetCommand = async (
   context: __SerdeContext
 ): Promise<AddInstanceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddInstanceFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1081,35 +1081,6 @@ export const de_AddInstanceFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddInstanceFleetCommandError
- */
-const de_AddInstanceFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddInstanceFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddInstanceGroupsCommand
  */
 export const de_AddInstanceGroupsCommand = async (
@@ -1117,7 +1088,7 @@ export const de_AddInstanceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<AddInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddInstanceGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1130,32 +1101,6 @@ export const de_AddInstanceGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddInstanceGroupsCommandError
- */
-const de_AddInstanceGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddInstanceGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddJobFlowStepsCommand
  */
 export const de_AddJobFlowStepsCommand = async (
@@ -1163,7 +1108,7 @@ export const de_AddJobFlowStepsCommand = async (
   context: __SerdeContext
 ): Promise<AddJobFlowStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddJobFlowStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1176,32 +1121,6 @@ export const de_AddJobFlowStepsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddJobFlowStepsCommandError
- */
-const de_AddJobFlowStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddJobFlowStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddTagsCommand
  */
 export const de_AddTagsCommand = async (
@@ -1209,7 +1128,7 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1222,35 +1141,6 @@ export const de_AddTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelStepsCommand
  */
 export const de_CancelStepsCommand = async (
@@ -1258,7 +1148,7 @@ export const de_CancelStepsCommand = async (
   context: __SerdeContext
 ): Promise<CancelStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1271,35 +1161,6 @@ export const de_CancelStepsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelStepsCommandError
- */
-const de_CancelStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSecurityConfigurationCommand
  */
 export const de_CreateSecurityConfigurationCommand = async (
@@ -1307,7 +1168,7 @@ export const de_CreateSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSecurityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1320,35 +1181,6 @@ export const de_CreateSecurityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSecurityConfigurationCommandError
- */
-const de_CreateSecurityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSecurityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStudioCommand
  */
 export const de_CreateStudioCommand = async (
@@ -1356,7 +1188,7 @@ export const de_CreateStudioCommand = async (
   context: __SerdeContext
 ): Promise<CreateStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStudioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1369,35 +1201,6 @@ export const de_CreateStudioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateStudioCommandError
- */
-const de_CreateStudioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStudioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStudioSessionMappingCommand
  */
 export const de_CreateStudioSessionMappingCommand = async (
@@ -1405,42 +1208,13 @@ export const de_CreateStudioSessionMappingCommand = async (
   context: __SerdeContext
 ): Promise<CreateStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStudioSessionMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateStudioSessionMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateStudioSessionMappingCommandError
- */
-const de_CreateStudioSessionMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStudioSessionMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1451,7 +1225,7 @@ export const de_DeleteSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSecurityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1464,35 +1238,6 @@ export const de_DeleteSecurityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSecurityConfigurationCommandError
- */
-const de_DeleteSecurityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSecurityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteStudioCommand
  */
 export const de_DeleteStudioCommand = async (
@@ -1500,42 +1245,13 @@ export const de_DeleteStudioCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStudioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStudioCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteStudioCommandError
- */
-const de_DeleteStudioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStudioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1546,42 +1262,13 @@ export const de_DeleteStudioSessionMappingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStudioSessionMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStudioSessionMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteStudioSessionMappingCommandError
- */
-const de_DeleteStudioSessionMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStudioSessionMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1592,7 +1279,7 @@ export const de_DescribeClusterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1605,35 +1292,6 @@ export const de_DescribeClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClusterCommandError
- */
-const de_DescribeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeJobFlowsCommand
  */
 export const de_DescribeJobFlowsCommand = async (
@@ -1641,7 +1299,7 @@ export const de_DescribeJobFlowsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobFlowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeJobFlowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1654,32 +1312,6 @@ export const de_DescribeJobFlowsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeJobFlowsCommandError
- */
-const de_DescribeJobFlowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobFlowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeNotebookExecutionCommand
  */
 export const de_DescribeNotebookExecutionCommand = async (
@@ -1687,7 +1319,7 @@ export const de_DescribeNotebookExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotebookExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNotebookExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1700,35 +1332,6 @@ export const de_DescribeNotebookExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeNotebookExecutionCommandError
- */
-const de_DescribeNotebookExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotebookExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReleaseLabelCommand
  */
 export const de_DescribeReleaseLabelCommand = async (
@@ -1736,7 +1339,7 @@ export const de_DescribeReleaseLabelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReleaseLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReleaseLabelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1749,35 +1352,6 @@ export const de_DescribeReleaseLabelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReleaseLabelCommandError
- */
-const de_DescribeReleaseLabelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReleaseLabelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSecurityConfigurationCommand
  */
 export const de_DescribeSecurityConfigurationCommand = async (
@@ -1785,7 +1359,7 @@ export const de_DescribeSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSecurityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1798,35 +1372,6 @@ export const de_DescribeSecurityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSecurityConfigurationCommandError
- */
-const de_DescribeSecurityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSecurityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStepCommand
  */
 export const de_DescribeStepCommand = async (
@@ -1834,7 +1379,7 @@ export const de_DescribeStepCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStepCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStepCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1847,35 +1392,6 @@ export const de_DescribeStepCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStepCommandError
- */
-const de_DescribeStepCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStepCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStudioCommand
  */
 export const de_DescribeStudioCommand = async (
@@ -1883,7 +1399,7 @@ export const de_DescribeStudioCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStudioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1896,35 +1412,6 @@ export const de_DescribeStudioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStudioCommandError
- */
-const de_DescribeStudioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStudioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAutoTerminationPolicyCommand
  */
 export const de_GetAutoTerminationPolicyCommand = async (
@@ -1932,7 +1419,7 @@ export const de_GetAutoTerminationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetAutoTerminationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAutoTerminationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1945,26 +1432,6 @@ export const de_GetAutoTerminationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAutoTerminationPolicyCommandError
- */
-const de_GetAutoTerminationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAutoTerminationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand
  */
 export const de_GetBlockPublicAccessConfigurationCommand = async (
@@ -1972,7 +1439,7 @@ export const de_GetBlockPublicAccessConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBlockPublicAccessConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1985,35 +1452,6 @@ export const de_GetBlockPublicAccessConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError
- */
-const de_GetBlockPublicAccessConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlockPublicAccessConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetClusterSessionCredentialsCommand
  */
 export const de_GetClusterSessionCredentialsCommand = async (
@@ -2021,7 +1459,7 @@ export const de_GetClusterSessionCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<GetClusterSessionCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetClusterSessionCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2034,35 +1472,6 @@ export const de_GetClusterSessionCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetClusterSessionCredentialsCommandError
- */
-const de_GetClusterSessionCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClusterSessionCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetManagedScalingPolicyCommand
  */
 export const de_GetManagedScalingPolicyCommand = async (
@@ -2070,7 +1479,7 @@ export const de_GetManagedScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetManagedScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetManagedScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2083,26 +1492,6 @@ export const de_GetManagedScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetManagedScalingPolicyCommandError
- */
-const de_GetManagedScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetManagedScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetStudioSessionMappingCommand
  */
 export const de_GetStudioSessionMappingCommand = async (
@@ -2110,7 +1499,7 @@ export const de_GetStudioSessionMappingCommand = async (
   context: __SerdeContext
 ): Promise<GetStudioSessionMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetStudioSessionMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2123,35 +1512,6 @@ export const de_GetStudioSessionMappingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetStudioSessionMappingCommandError
- */
-const de_GetStudioSessionMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStudioSessionMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBootstrapActionsCommand
  */
 export const de_ListBootstrapActionsCommand = async (
@@ -2159,7 +1519,7 @@ export const de_ListBootstrapActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBootstrapActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2172,35 +1532,6 @@ export const de_ListBootstrapActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBootstrapActionsCommandError
- */
-const de_ListBootstrapActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBootstrapActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListClustersCommand
  */
 export const de_ListClustersCommand = async (
@@ -2208,7 +1539,7 @@ export const de_ListClustersCommand = async (
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListClustersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2221,35 +1552,6 @@ export const de_ListClustersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListClustersCommandError
- */
-const de_ListClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListInstanceFleetsCommand
  */
 export const de_ListInstanceFleetsCommand = async (
@@ -2257,7 +1559,7 @@ export const de_ListInstanceFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstanceFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2270,35 +1572,6 @@ export const de_ListInstanceFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInstanceFleetsCommandError
- */
-const de_ListInstanceFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListInstanceGroupsCommand
  */
 export const de_ListInstanceGroupsCommand = async (
@@ -2306,7 +1579,7 @@ export const de_ListInstanceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstanceGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2319,35 +1592,6 @@ export const de_ListInstanceGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInstanceGroupsCommandError
- */
-const de_ListInstanceGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListInstancesCommand
  */
 export const de_ListInstancesCommand = async (
@@ -2355,7 +1599,7 @@ export const de_ListInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2368,35 +1612,6 @@ export const de_ListInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInstancesCommandError
- */
-const de_ListInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListNotebookExecutionsCommand
  */
 export const de_ListNotebookExecutionsCommand = async (
@@ -2404,7 +1619,7 @@ export const de_ListNotebookExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListNotebookExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNotebookExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2417,35 +1632,6 @@ export const de_ListNotebookExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNotebookExecutionsCommandError
- */
-const de_ListNotebookExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotebookExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListReleaseLabelsCommand
  */
 export const de_ListReleaseLabelsCommand = async (
@@ -2453,7 +1639,7 @@ export const de_ListReleaseLabelsCommand = async (
   context: __SerdeContext
 ): Promise<ListReleaseLabelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReleaseLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2466,35 +1652,6 @@ export const de_ListReleaseLabelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListReleaseLabelsCommandError
- */
-const de_ListReleaseLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReleaseLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSecurityConfigurationsCommand
  */
 export const de_ListSecurityConfigurationsCommand = async (
@@ -2502,7 +1659,7 @@ export const de_ListSecurityConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSecurityConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2515,35 +1672,6 @@ export const de_ListSecurityConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSecurityConfigurationsCommandError
- */
-const de_ListSecurityConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecurityConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStepsCommand
  */
 export const de_ListStepsCommand = async (
@@ -2551,7 +1679,7 @@ export const de_ListStepsCommand = async (
   context: __SerdeContext
 ): Promise<ListStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2564,35 +1692,6 @@ export const de_ListStepsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStepsCommandError
- */
-const de_ListStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStudiosCommand
  */
 export const de_ListStudiosCommand = async (
@@ -2600,7 +1699,7 @@ export const de_ListStudiosCommand = async (
   context: __SerdeContext
 ): Promise<ListStudiosCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStudiosCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2613,35 +1712,6 @@ export const de_ListStudiosCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStudiosCommandError
- */
-const de_ListStudiosCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStudiosCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStudioSessionMappingsCommand
  */
 export const de_ListStudioSessionMappingsCommand = async (
@@ -2649,7 +1719,7 @@ export const de_ListStudioSessionMappingsCommand = async (
   context: __SerdeContext
 ): Promise<ListStudioSessionMappingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStudioSessionMappingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2662,35 +1732,6 @@ export const de_ListStudioSessionMappingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStudioSessionMappingsCommandError
- */
-const de_ListStudioSessionMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStudioSessionMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSupportedInstanceTypesCommand
  */
 export const de_ListSupportedInstanceTypesCommand = async (
@@ -2698,7 +1739,7 @@ export const de_ListSupportedInstanceTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListSupportedInstanceTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSupportedInstanceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2711,35 +1752,6 @@ export const de_ListSupportedInstanceTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSupportedInstanceTypesCommandError
- */
-const de_ListSupportedInstanceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSupportedInstanceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyClusterCommand
  */
 export const de_ModifyClusterCommand = async (
@@ -2747,7 +1759,7 @@ export const de_ModifyClusterCommand = async (
   context: __SerdeContext
 ): Promise<ModifyClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2760,35 +1772,6 @@ export const de_ModifyClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyClusterCommandError
- */
-const de_ModifyClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyInstanceFleetCommand
  */
 export const de_ModifyInstanceFleetCommand = async (
@@ -2796,42 +1779,13 @@ export const de_ModifyInstanceFleetCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyInstanceFleetCommandError
- */
-const de_ModifyInstanceFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2842,39 +1796,13 @@ export const de_ModifyInstanceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyInstanceGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ModifyInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyInstanceGroupsCommandError
- */
-const de_ModifyInstanceGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2885,7 +1813,7 @@ export const de_PutAutoScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAutoScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2898,26 +1826,6 @@ export const de_PutAutoScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAutoScalingPolicyCommandError
- */
-const de_PutAutoScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAutoScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1PutAutoTerminationPolicyCommand
  */
 export const de_PutAutoTerminationPolicyCommand = async (
@@ -2925,7 +1833,7 @@ export const de_PutAutoTerminationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutAutoTerminationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAutoTerminationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2938,26 +1846,6 @@ export const de_PutAutoTerminationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAutoTerminationPolicyCommandError
- */
-const de_PutAutoTerminationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAutoTerminationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand
  */
 export const de_PutBlockPublicAccessConfigurationCommand = async (
@@ -2965,7 +1853,7 @@ export const de_PutBlockPublicAccessConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutBlockPublicAccessConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2978,35 +1866,6 @@ export const de_PutBlockPublicAccessConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError
- */
-const de_PutBlockPublicAccessConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutBlockPublicAccessConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutManagedScalingPolicyCommand
  */
 export const de_PutManagedScalingPolicyCommand = async (
@@ -3014,7 +1873,7 @@ export const de_PutManagedScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutManagedScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutManagedScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3027,26 +1886,6 @@ export const de_PutManagedScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutManagedScalingPolicyCommandError
- */
-const de_PutManagedScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutManagedScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1RemoveAutoScalingPolicyCommand
  */
 export const de_RemoveAutoScalingPolicyCommand = async (
@@ -3054,7 +1893,7 @@ export const de_RemoveAutoScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveAutoScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3067,26 +1906,6 @@ export const de_RemoveAutoScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveAutoScalingPolicyCommandError
- */
-const de_RemoveAutoScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAutoScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1RemoveAutoTerminationPolicyCommand
  */
 export const de_RemoveAutoTerminationPolicyCommand = async (
@@ -3094,7 +1913,7 @@ export const de_RemoveAutoTerminationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAutoTerminationPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveAutoTerminationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3107,26 +1926,6 @@ export const de_RemoveAutoTerminationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveAutoTerminationPolicyCommandError
- */
-const de_RemoveAutoTerminationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAutoTerminationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1RemoveManagedScalingPolicyCommand
  */
 export const de_RemoveManagedScalingPolicyCommand = async (
@@ -3134,7 +1933,7 @@ export const de_RemoveManagedScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<RemoveManagedScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveManagedScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3147,26 +1946,6 @@ export const de_RemoveManagedScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveManagedScalingPolicyCommandError
- */
-const de_RemoveManagedScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveManagedScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1RemoveTagsCommand
  */
 export const de_RemoveTagsCommand = async (
@@ -3174,7 +1953,7 @@ export const de_RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3187,35 +1966,6 @@ export const de_RemoveTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveTagsCommandError
- */
-const de_RemoveTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RunJobFlowCommand
  */
 export const de_RunJobFlowCommand = async (
@@ -3223,7 +1973,7 @@ export const de_RunJobFlowCommand = async (
   context: __SerdeContext
 ): Promise<RunJobFlowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RunJobFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3236,32 +1986,6 @@ export const de_RunJobFlowCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RunJobFlowCommandError
- */
-const de_RunJobFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunJobFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetKeepJobFlowAliveWhenNoStepsCommand
  */
 export const de_SetKeepJobFlowAliveWhenNoStepsCommand = async (
@@ -3269,39 +1993,13 @@ export const de_SetKeepJobFlowAliveWhenNoStepsCommand = async (
   context: __SerdeContext
 ): Promise<SetKeepJobFlowAliveWhenNoStepsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetKeepJobFlowAliveWhenNoStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetKeepJobFlowAliveWhenNoStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1SetKeepJobFlowAliveWhenNoStepsCommandError
- */
-const de_SetKeepJobFlowAliveWhenNoStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetKeepJobFlowAliveWhenNoStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3312,39 +2010,13 @@ export const de_SetTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetTerminationProtectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetTerminationProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1SetTerminationProtectionCommandError
- */
-const de_SetTerminationProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTerminationProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3355,39 +2027,13 @@ export const de_SetVisibleToAllUsersCommand = async (
   context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetVisibleToAllUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetVisibleToAllUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1SetVisibleToAllUsersCommandError
- */
-const de_SetVisibleToAllUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetVisibleToAllUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3398,7 +2044,7 @@ export const de_StartNotebookExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartNotebookExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartNotebookExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3411,35 +2057,6 @@ export const de_StartNotebookExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartNotebookExecutionCommandError
- */
-const de_StartNotebookExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartNotebookExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.emr#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopNotebookExecutionCommand
  */
 export const de_StopNotebookExecutionCommand = async (
@@ -3447,42 +2064,13 @@ export const de_StopNotebookExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StopNotebookExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopNotebookExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopNotebookExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopNotebookExecutionCommandError
- */
-const de_StopNotebookExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopNotebookExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3493,39 +2081,13 @@ export const de_TerminateJobFlowsCommand = async (
   context: __SerdeContext
 ): Promise<TerminateJobFlowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateJobFlowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TerminateJobFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1TerminateJobFlowsCommandError
- */
-const de_TerminateJobFlowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateJobFlowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.emr#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3536,7 +2098,7 @@ export const de_UpdateStudioCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStudioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateStudioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateStudioCommandOutput = {
@@ -3546,12 +2108,26 @@ export const de_UpdateStudioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateStudioCommandError
+ * deserializeAws_json1_1UpdateStudioSessionMappingCommand
  */
-const de_UpdateStudioCommandError = async (
+export const de_UpdateStudioSessionMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateStudioCommandOutput> => {
+): Promise<UpdateStudioSessionMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateStudioSessionMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3564,52 +2140,9 @@ const de_UpdateStudioCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.emr#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateStudioSessionMappingCommand
- */
-export const de_UpdateStudioSessionMappingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStudioSessionMappingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStudioSessionMappingCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UpdateStudioSessionMappingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateStudioSessionMappingCommandError
- */
-const de_UpdateStudioSessionMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStudioSessionMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.emr#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.emr#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

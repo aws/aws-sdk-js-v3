@@ -69,7 +69,7 @@ export const de_SendSerialConsoleSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendSerialConsoleSSHPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -82,12 +82,29 @@ export const de_SendSerialConsoleSSHPublicKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError
+ * deserializeAws_json1_1SendSSHPublicKeyCommand
  */
-const de_SendSerialConsoleSSHPublicKeyCommandError = async (
+export const de_SendSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SendSerialConsoleSSHPublicKeyCommandOutput> => {
+): Promise<SendSSHPublicKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendSSHPublicKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -121,70 +138,6 @@ const de_SendSerialConsoleSSHPublicKeyCommandError = async (
     case "SerialConsoleSessionUnavailableException":
     case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnavailableException":
       throw await de_SerialConsoleSessionUnavailableExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.ec2instanceconnect#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ec2instanceconnect#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SendSSHPublicKeyCommand
- */
-export const de_SendSSHPublicKeyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendSSHPublicKeyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SendSSHPublicKeyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SendSSHPublicKeyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SendSSHPublicKeyCommandError
- */
-const de_SendSSHPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendSSHPublicKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthException":
-    case "com.amazonaws.ec2instanceconnect#AuthException":
-      throw await de_AuthExceptionRes(parsedOutput, context);
-    case "EC2InstanceNotFoundException":
-    case "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException":
-      throw await de_EC2InstanceNotFoundExceptionRes(parsedOutput, context);
-    case "EC2InstanceStateInvalidException":
-    case "com.amazonaws.ec2instanceconnect#EC2InstanceStateInvalidException":
-      throw await de_EC2InstanceStateInvalidExceptionRes(parsedOutput, context);
-    case "EC2InstanceUnavailableException":
-    case "com.amazonaws.ec2instanceconnect#EC2InstanceUnavailableException":
-      throw await de_EC2InstanceUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidArgsException":
-    case "com.amazonaws.ec2instanceconnect#InvalidArgsException":
-      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.ec2instanceconnect#ServiceException":
       throw await de_ServiceExceptionRes(parsedOutput, context);

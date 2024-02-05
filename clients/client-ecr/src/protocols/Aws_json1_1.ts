@@ -838,7 +838,7 @@ export const de_BatchCheckLayerAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchCheckLayerAvailabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -851,38 +851,6 @@ export const de_BatchCheckLayerAvailabilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError
- */
-const de_BatchCheckLayerAvailabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteImageCommand
  */
 export const de_BatchDeleteImageCommand = async (
@@ -890,7 +858,7 @@ export const de_BatchDeleteImageCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -903,38 +871,6 @@ export const de_BatchDeleteImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteImageCommandError
- */
-const de_BatchDeleteImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetImageCommand
  */
 export const de_BatchGetImageCommand = async (
@@ -942,7 +878,7 @@ export const de_BatchGetImageCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -955,44 +891,6 @@ export const de_BatchGetImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetImageCommandError
- */
-const de_BatchGetImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecr#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnableToGetUpstreamImageException":
-    case "com.amazonaws.ecr#UnableToGetUpstreamImageException":
-      throw await de_UnableToGetUpstreamImageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand
  */
 export const de_BatchGetRepositoryScanningConfigurationCommand = async (
@@ -1000,7 +898,7 @@ export const de_BatchGetRepositoryScanningConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetRepositoryScanningConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1013,41 +911,6 @@ export const de_BatchGetRepositoryScanningConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommandError
- */
-const de_BatchGetRepositoryScanningConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetRepositoryScanningConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CompleteLayerUploadCommand
  */
 export const de_CompleteLayerUploadCommand = async (
@@ -1055,7 +918,7 @@ export const de_CompleteLayerUploadCommand = async (
   context: __SerdeContext
 ): Promise<CompleteLayerUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CompleteLayerUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1068,56 +931,6 @@ export const de_CompleteLayerUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CompleteLayerUploadCommandError
- */
-const de_CompleteLayerUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteLayerUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EmptyUploadException":
-    case "com.amazonaws.ecr#EmptyUploadException":
-      throw await de_EmptyUploadExceptionRes(parsedOutput, context);
-    case "InvalidLayerException":
-    case "com.amazonaws.ecr#InvalidLayerException":
-      throw await de_InvalidLayerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.ecr#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "LayerAlreadyExistsException":
-    case "com.amazonaws.ecr#LayerAlreadyExistsException":
-      throw await de_LayerAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LayerPartTooSmallException":
-    case "com.amazonaws.ecr#LayerPartTooSmallException":
-      throw await de_LayerPartTooSmallExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UploadNotFoundException":
-    case "com.amazonaws.ecr#UploadNotFoundException":
-      throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePullThroughCacheRuleCommand
  */
 export const de_CreatePullThroughCacheRuleCommand = async (
@@ -1125,7 +938,7 @@ export const de_CreatePullThroughCacheRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreatePullThroughCacheRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePullThroughCacheRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1138,56 +951,6 @@ export const de_CreatePullThroughCacheRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePullThroughCacheRuleCommandError
- */
-const de_CreatePullThroughCacheRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePullThroughCacheRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecr#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PullThroughCacheRuleAlreadyExistsException":
-    case "com.amazonaws.ecr#PullThroughCacheRuleAlreadyExistsException":
-      throw await de_PullThroughCacheRuleAlreadyExistsExceptionRes(parsedOutput, context);
-    case "SecretNotFoundException":
-    case "com.amazonaws.ecr#SecretNotFoundException":
-      throw await de_SecretNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnableToAccessSecretException":
-    case "com.amazonaws.ecr#UnableToAccessSecretException":
-      throw await de_UnableToAccessSecretExceptionRes(parsedOutput, context);
-    case "UnableToDecryptSecretValueException":
-    case "com.amazonaws.ecr#UnableToDecryptSecretValueException":
-      throw await de_UnableToDecryptSecretValueExceptionRes(parsedOutput, context);
-    case "UnsupportedUpstreamRegistryException":
-    case "com.amazonaws.ecr#UnsupportedUpstreamRegistryException":
-      throw await de_UnsupportedUpstreamRegistryExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRepositoryCommand
  */
 export const de_CreateRepositoryCommand = async (
@@ -1195,7 +958,7 @@ export const de_CreateRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1208,50 +971,6 @@ export const de_CreateRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRepositoryCommandError
- */
-const de_CreateRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.ecr#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.ecr#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecr#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RepositoryAlreadyExistsException":
-    case "com.amazonaws.ecr#RepositoryAlreadyExistsException":
-      throw await de_RepositoryAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.ecr#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLifecyclePolicyCommand
  */
 export const de_DeleteLifecyclePolicyCommand = async (
@@ -1259,7 +978,7 @@ export const de_DeleteLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1272,44 +991,6 @@ export const de_DeleteLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLifecyclePolicyCommandError
- */
-const de_DeleteLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LifecyclePolicyNotFoundException":
-    case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePullThroughCacheRuleCommand
  */
 export const de_DeletePullThroughCacheRuleCommand = async (
@@ -1317,7 +998,7 @@ export const de_DeletePullThroughCacheRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeletePullThroughCacheRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePullThroughCacheRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1330,41 +1011,6 @@ export const de_DeletePullThroughCacheRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePullThroughCacheRuleCommandError
- */
-const de_DeletePullThroughCacheRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePullThroughCacheRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PullThroughCacheRuleNotFoundException":
-    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRegistryPolicyCommand
  */
 export const de_DeleteRegistryPolicyCommand = async (
@@ -1372,7 +1018,7 @@ export const de_DeleteRegistryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegistryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRegistryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1385,41 +1031,6 @@ export const de_DeleteRegistryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRegistryPolicyCommandError
- */
-const de_DeleteRegistryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRegistryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RegistryPolicyNotFoundException":
-    case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
-      throw await de_RegistryPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRepositoryCommand
  */
 export const de_DeleteRepositoryCommand = async (
@@ -1427,7 +1038,7 @@ export const de_DeleteRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1440,44 +1051,6 @@ export const de_DeleteRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRepositoryCommandError
- */
-const de_DeleteRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.ecr#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "RepositoryNotEmptyException":
-    case "com.amazonaws.ecr#RepositoryNotEmptyException":
-      throw await de_RepositoryNotEmptyExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRepositoryPolicyCommand
  */
 export const de_DeleteRepositoryPolicyCommand = async (
@@ -1485,7 +1058,7 @@ export const de_DeleteRepositoryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRepositoryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1498,41 +1071,6 @@ export const de_DeleteRepositoryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRepositoryPolicyCommandError
- */
-const de_DeleteRepositoryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryPolicyNotFoundException":
-    case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
-      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageReplicationStatusCommand
  */
 export const de_DescribeImageReplicationStatusCommand = async (
@@ -1540,7 +1078,7 @@ export const de_DescribeImageReplicationStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageReplicationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageReplicationStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1553,44 +1091,6 @@ export const de_DescribeImageReplicationStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageReplicationStatusCommandError
- */
-const de_DescribeImageReplicationStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageReplicationStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageNotFoundException":
-    case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImagesCommand
  */
 export const de_DescribeImagesCommand = async (
@@ -1598,7 +1098,7 @@ export const de_DescribeImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1611,41 +1111,6 @@ export const de_DescribeImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImagesCommandError
- */
-const de_DescribeImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageNotFoundException":
-    case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageScanFindingsCommand
  */
 export const de_DescribeImageScanFindingsCommand = async (
@@ -1653,7 +1118,7 @@ export const de_DescribeImageScanFindingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageScanFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageScanFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1666,47 +1131,6 @@ export const de_DescribeImageScanFindingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageScanFindingsCommandError
- */
-const de_DescribeImageScanFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageScanFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageNotFoundException":
-    case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ScanNotFoundException":
-    case "com.amazonaws.ecr#ScanNotFoundException":
-      throw await de_ScanNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePullThroughCacheRulesCommand
  */
 export const de_DescribePullThroughCacheRulesCommand = async (
@@ -1714,7 +1138,7 @@ export const de_DescribePullThroughCacheRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribePullThroughCacheRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePullThroughCacheRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1727,41 +1151,6 @@ export const de_DescribePullThroughCacheRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePullThroughCacheRulesCommandError
- */
-const de_DescribePullThroughCacheRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePullThroughCacheRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PullThroughCacheRuleNotFoundException":
-    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRegistryCommand
  */
 export const de_DescribeRegistryCommand = async (
@@ -1769,7 +1158,7 @@ export const de_DescribeRegistryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1782,38 +1171,6 @@ export const de_DescribeRegistryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRegistryCommandError
- */
-const de_DescribeRegistryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRepositoriesCommand
  */
 export const de_DescribeRepositoriesCommand = async (
@@ -1821,7 +1178,7 @@ export const de_DescribeRepositoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRepositoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1834,38 +1191,6 @@ export const de_DescribeRepositoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRepositoriesCommandError
- */
-const de_DescribeRepositoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRepositoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAuthorizationTokenCommand
  */
 export const de_GetAuthorizationTokenCommand = async (
@@ -1873,7 +1198,7 @@ export const de_GetAuthorizationTokenCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizationTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAuthorizationTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1886,35 +1211,6 @@ export const de_GetAuthorizationTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAuthorizationTokenCommandError
- */
-const de_GetAuthorizationTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAuthorizationTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDownloadUrlForLayerCommand
  */
 export const de_GetDownloadUrlForLayerCommand = async (
@@ -1922,7 +1218,7 @@ export const de_GetDownloadUrlForLayerCommand = async (
   context: __SerdeContext
 ): Promise<GetDownloadUrlForLayerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDownloadUrlForLayerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1935,47 +1231,6 @@ export const de_GetDownloadUrlForLayerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDownloadUrlForLayerCommandError
- */
-const de_GetDownloadUrlForLayerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDownloadUrlForLayerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LayerInaccessibleException":
-    case "com.amazonaws.ecr#LayerInaccessibleException":
-      throw await de_LayerInaccessibleExceptionRes(parsedOutput, context);
-    case "LayersNotFoundException":
-    case "com.amazonaws.ecr#LayersNotFoundException":
-      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnableToGetUpstreamLayerException":
-    case "com.amazonaws.ecr#UnableToGetUpstreamLayerException":
-      throw await de_UnableToGetUpstreamLayerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLifecyclePolicyCommand
  */
 export const de_GetLifecyclePolicyCommand = async (
@@ -1983,7 +1238,7 @@ export const de_GetLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1996,44 +1251,6 @@ export const de_GetLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLifecyclePolicyCommandError
- */
-const de_GetLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LifecyclePolicyNotFoundException":
-    case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLifecyclePolicyPreviewCommand
  */
 export const de_GetLifecyclePolicyPreviewCommand = async (
@@ -2041,7 +1258,7 @@ export const de_GetLifecyclePolicyPreviewCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLifecyclePolicyPreviewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2054,44 +1271,6 @@ export const de_GetLifecyclePolicyPreviewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError
- */
-const de_GetLifecyclePolicyPreviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LifecyclePolicyPreviewNotFoundException":
-    case "com.amazonaws.ecr#LifecyclePolicyPreviewNotFoundException":
-      throw await de_LifecyclePolicyPreviewNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRegistryPolicyCommand
  */
 export const de_GetRegistryPolicyCommand = async (
@@ -2099,7 +1278,7 @@ export const de_GetRegistryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetRegistryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegistryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2112,41 +1291,6 @@ export const de_GetRegistryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRegistryPolicyCommandError
- */
-const de_GetRegistryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegistryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RegistryPolicyNotFoundException":
-    case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
-      throw await de_RegistryPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRegistryScanningConfigurationCommand
  */
 export const de_GetRegistryScanningConfigurationCommand = async (
@@ -2154,7 +1298,7 @@ export const de_GetRegistryScanningConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetRegistryScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegistryScanningConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2167,38 +1311,6 @@ export const de_GetRegistryScanningConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRegistryScanningConfigurationCommandError
- */
-const de_GetRegistryScanningConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegistryScanningConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRepositoryPolicyCommand
  */
 export const de_GetRepositoryPolicyCommand = async (
@@ -2206,7 +1318,7 @@ export const de_GetRepositoryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRepositoryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2219,41 +1331,6 @@ export const de_GetRepositoryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRepositoryPolicyCommandError
- */
-const de_GetRepositoryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositoryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryPolicyNotFoundException":
-    case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
-      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InitiateLayerUploadCommand
  */
 export const de_InitiateLayerUploadCommand = async (
@@ -2261,7 +1338,7 @@ export const de_InitiateLayerUploadCommand = async (
   context: __SerdeContext
 ): Promise<InitiateLayerUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InitiateLayerUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2274,41 +1351,6 @@ export const de_InitiateLayerUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InitiateLayerUploadCommandError
- */
-const de_InitiateLayerUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateLayerUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.ecr#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListImagesCommand
  */
 export const de_ListImagesCommand = async (
@@ -2316,7 +1358,7 @@ export const de_ListImagesCommand = async (
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2329,38 +1371,6 @@ export const de_ListImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListImagesCommandError
- */
-const de_ListImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2368,7 +1378,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2381,38 +1391,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutImageCommand
  */
 export const de_PutImageCommand = async (
@@ -2420,7 +1398,7 @@ export const de_PutImageCommand = async (
   context: __SerdeContext
 ): Promise<PutImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2433,59 +1411,6 @@ export const de_PutImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutImageCommandError
- */
-const de_PutImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageAlreadyExistsException":
-    case "com.amazonaws.ecr#ImageAlreadyExistsException":
-      throw await de_ImageAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ImageDigestDoesNotMatchException":
-    case "com.amazonaws.ecr#ImageDigestDoesNotMatchException":
-      throw await de_ImageDigestDoesNotMatchExceptionRes(parsedOutput, context);
-    case "ImageTagAlreadyExistsException":
-    case "com.amazonaws.ecr#ImageTagAlreadyExistsException":
-      throw await de_ImageTagAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.ecr#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "LayersNotFoundException":
-    case "com.amazonaws.ecr#LayersNotFoundException":
-      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecr#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ReferencedImagesNotFoundException":
-    case "com.amazonaws.ecr#ReferencedImagesNotFoundException":
-      throw await de_ReferencedImagesNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutImageScanningConfigurationCommand
  */
 export const de_PutImageScanningConfigurationCommand = async (
@@ -2493,7 +1418,7 @@ export const de_PutImageScanningConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutImageScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutImageScanningConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2506,41 +1431,6 @@ export const de_PutImageScanningConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutImageScanningConfigurationCommandError
- */
-const de_PutImageScanningConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutImageScanningConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutImageTagMutabilityCommand
  */
 export const de_PutImageTagMutabilityCommand = async (
@@ -2548,7 +1438,7 @@ export const de_PutImageTagMutabilityCommand = async (
   context: __SerdeContext
 ): Promise<PutImageTagMutabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutImageTagMutabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2561,38 +1451,6 @@ export const de_PutImageTagMutabilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutImageTagMutabilityCommandError
- */
-const de_PutImageTagMutabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutImageTagMutabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutLifecyclePolicyCommand
  */
 export const de_PutLifecyclePolicyCommand = async (
@@ -2600,7 +1458,7 @@ export const de_PutLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2613,41 +1471,6 @@ export const de_PutLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutLifecyclePolicyCommandError
- */
-const de_PutLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRegistryPolicyCommand
  */
 export const de_PutRegistryPolicyCommand = async (
@@ -2655,7 +1478,7 @@ export const de_PutRegistryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutRegistryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRegistryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2668,38 +1491,6 @@ export const de_PutRegistryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRegistryPolicyCommandError
- */
-const de_PutRegistryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRegistryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRegistryScanningConfigurationCommand
  */
 export const de_PutRegistryScanningConfigurationCommand = async (
@@ -2707,7 +1498,7 @@ export const de_PutRegistryScanningConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutRegistryScanningConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRegistryScanningConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2720,38 +1511,6 @@ export const de_PutRegistryScanningConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRegistryScanningConfigurationCommandError
- */
-const de_PutRegistryScanningConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRegistryScanningConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutReplicationConfigurationCommand
  */
 export const de_PutReplicationConfigurationCommand = async (
@@ -2759,7 +1518,7 @@ export const de_PutReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutReplicationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2772,38 +1531,6 @@ export const de_PutReplicationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutReplicationConfigurationCommandError
- */
-const de_PutReplicationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutReplicationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetRepositoryPolicyCommand
  */
 export const de_SetRepositoryPolicyCommand = async (
@@ -2811,7 +1538,7 @@ export const de_SetRepositoryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SetRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetRepositoryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2824,38 +1551,6 @@ export const de_SetRepositoryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetRepositoryPolicyCommandError
- */
-const de_SetRepositoryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetRepositoryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartImageScanCommand
  */
 export const de_StartImageScanCommand = async (
@@ -2863,7 +1558,7 @@ export const de_StartImageScanCommand = async (
   context: __SerdeContext
 ): Promise<StartImageScanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartImageScanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2876,50 +1571,6 @@ export const de_StartImageScanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartImageScanCommandError
- */
-const de_StartImageScanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImageScanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageNotFoundException":
-    case "com.amazonaws.ecr#ImageNotFoundException":
-      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecr#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedImageTypeException":
-    case "com.amazonaws.ecr#UnsupportedImageTypeException":
-      throw await de_UnsupportedImageTypeExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartLifecyclePolicyPreviewCommand
  */
 export const de_StartLifecyclePolicyPreviewCommand = async (
@@ -2927,7 +1578,7 @@ export const de_StartLifecyclePolicyPreviewCommand = async (
   context: __SerdeContext
 ): Promise<StartLifecyclePolicyPreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartLifecyclePolicyPreviewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2940,47 +1591,6 @@ export const de_StartLifecyclePolicyPreviewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError
- */
-const de_StartLifecyclePolicyPreviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLifecyclePolicyPreviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LifecyclePolicyNotFoundException":
-    case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "LifecyclePolicyPreviewInProgressException":
-    case "com.amazonaws.ecr#LifecyclePolicyPreviewInProgressException":
-      throw await de_LifecyclePolicyPreviewInProgressExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2988,7 +1598,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3001,44 +1611,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.ecr#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.ecr#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -3046,7 +1618,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3059,44 +1631,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.ecr#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.ecr#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdatePullThroughCacheRuleCommand
  */
 export const de_UpdatePullThroughCacheRuleCommand = async (
@@ -3104,7 +1638,7 @@ export const de_UpdatePullThroughCacheRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePullThroughCacheRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePullThroughCacheRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3117,50 +1651,6 @@ export const de_UpdatePullThroughCacheRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePullThroughCacheRuleCommandError
- */
-const de_UpdatePullThroughCacheRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePullThroughCacheRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PullThroughCacheRuleNotFoundException":
-    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
-    case "SecretNotFoundException":
-    case "com.amazonaws.ecr#SecretNotFoundException":
-      throw await de_SecretNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnableToAccessSecretException":
-    case "com.amazonaws.ecr#UnableToAccessSecretException":
-      throw await de_UnableToAccessSecretExceptionRes(parsedOutput, context);
-    case "UnableToDecryptSecretValueException":
-    case "com.amazonaws.ecr#UnableToDecryptSecretValueException":
-      throw await de_UnableToDecryptSecretValueExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ecr#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UploadLayerPartCommand
  */
 export const de_UploadLayerPartCommand = async (
@@ -3168,7 +1658,7 @@ export const de_UploadLayerPartCommand = async (
   context: __SerdeContext
 ): Promise<UploadLayerPartCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UploadLayerPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3181,50 +1671,6 @@ export const de_UploadLayerPartCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UploadLayerPartCommandError
- */
-const de_UploadLayerPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadLayerPartCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLayerPartException":
-    case "com.amazonaws.ecr#InvalidLayerPartException":
-      throw await de_InvalidLayerPartExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecr#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.ecr#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecr#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecr#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecr#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UploadNotFoundException":
-    case "com.amazonaws.ecr#UploadNotFoundException":
-      throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ValidatePullThroughCacheRuleCommand
  */
 export const de_ValidatePullThroughCacheRuleCommand = async (
@@ -3232,7 +1678,7 @@ export const de_ValidatePullThroughCacheRuleCommand = async (
   context: __SerdeContext
 ): Promise<ValidatePullThroughCacheRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ValidatePullThroughCacheRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3245,12 +1691,9 @@ export const de_ValidatePullThroughCacheRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ValidatePullThroughCacheRuleCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_ValidatePullThroughCacheRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidatePullThroughCacheRuleCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3260,15 +1703,117 @@ const de_ValidatePullThroughCacheRuleCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PullThroughCacheRuleNotFoundException":
-    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
+    case "RepositoryNotFoundException":
+    case "com.amazonaws.ecr#RepositoryNotFoundException":
+      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.ecr#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "UnableToGetUpstreamImageException":
+    case "com.amazonaws.ecr#UnableToGetUpstreamImageException":
+      throw await de_UnableToGetUpstreamImageExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "EmptyUploadException":
+    case "com.amazonaws.ecr#EmptyUploadException":
+      throw await de_EmptyUploadExceptionRes(parsedOutput, context);
+    case "InvalidLayerException":
+    case "com.amazonaws.ecr#InvalidLayerException":
+      throw await de_InvalidLayerExceptionRes(parsedOutput, context);
+    case "KmsException":
+    case "com.amazonaws.ecr#KmsException":
+      throw await de_KmsExceptionRes(parsedOutput, context);
+    case "LayerAlreadyExistsException":
+    case "com.amazonaws.ecr#LayerAlreadyExistsException":
+      throw await de_LayerAlreadyExistsExceptionRes(parsedOutput, context);
+    case "LayerPartTooSmallException":
+    case "com.amazonaws.ecr#LayerPartTooSmallException":
+      throw await de_LayerPartTooSmallExceptionRes(parsedOutput, context);
+    case "UploadNotFoundException":
+    case "com.amazonaws.ecr#UploadNotFoundException":
+      throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
+    case "PullThroughCacheRuleAlreadyExistsException":
+    case "com.amazonaws.ecr#PullThroughCacheRuleAlreadyExistsException":
+      throw await de_PullThroughCacheRuleAlreadyExistsExceptionRes(parsedOutput, context);
+    case "SecretNotFoundException":
+    case "com.amazonaws.ecr#SecretNotFoundException":
+      throw await de_SecretNotFoundExceptionRes(parsedOutput, context);
+    case "UnableToAccessSecretException":
+    case "com.amazonaws.ecr#UnableToAccessSecretException":
+      throw await de_UnableToAccessSecretExceptionRes(parsedOutput, context);
+    case "UnableToDecryptSecretValueException":
+    case "com.amazonaws.ecr#UnableToDecryptSecretValueException":
+      throw await de_UnableToDecryptSecretValueExceptionRes(parsedOutput, context);
+    case "UnsupportedUpstreamRegistryException":
+    case "com.amazonaws.ecr#UnsupportedUpstreamRegistryException":
+      throw await de_UnsupportedUpstreamRegistryExceptionRes(parsedOutput, context);
+    case "InvalidTagParameterException":
+    case "com.amazonaws.ecr#InvalidTagParameterException":
+      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
+    case "RepositoryAlreadyExistsException":
+    case "com.amazonaws.ecr#RepositoryAlreadyExistsException":
+      throw await de_RepositoryAlreadyExistsExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.ecr#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "LifecyclePolicyNotFoundException":
+    case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
+      throw await de_LifecyclePolicyNotFoundExceptionRes(parsedOutput, context);
+    case "PullThroughCacheRuleNotFoundException":
+    case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
+      throw await de_PullThroughCacheRuleNotFoundExceptionRes(parsedOutput, context);
+    case "RegistryPolicyNotFoundException":
+    case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
+      throw await de_RegistryPolicyNotFoundExceptionRes(parsedOutput, context);
+    case "RepositoryNotEmptyException":
+    case "com.amazonaws.ecr#RepositoryNotEmptyException":
+      throw await de_RepositoryNotEmptyExceptionRes(parsedOutput, context);
+    case "RepositoryPolicyNotFoundException":
+    case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
+      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
+    case "ImageNotFoundException":
+    case "com.amazonaws.ecr#ImageNotFoundException":
+      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
+    case "ScanNotFoundException":
+    case "com.amazonaws.ecr#ScanNotFoundException":
+      throw await de_ScanNotFoundExceptionRes(parsedOutput, context);
+    case "LayerInaccessibleException":
+    case "com.amazonaws.ecr#LayerInaccessibleException":
+      throw await de_LayerInaccessibleExceptionRes(parsedOutput, context);
+    case "LayersNotFoundException":
+    case "com.amazonaws.ecr#LayersNotFoundException":
+      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
+    case "UnableToGetUpstreamLayerException":
+    case "com.amazonaws.ecr#UnableToGetUpstreamLayerException":
+      throw await de_UnableToGetUpstreamLayerExceptionRes(parsedOutput, context);
+    case "LifecyclePolicyPreviewNotFoundException":
+    case "com.amazonaws.ecr#LifecyclePolicyPreviewNotFoundException":
+      throw await de_LifecyclePolicyPreviewNotFoundExceptionRes(parsedOutput, context);
+    case "ImageAlreadyExistsException":
+    case "com.amazonaws.ecr#ImageAlreadyExistsException":
+      throw await de_ImageAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ImageDigestDoesNotMatchException":
+    case "com.amazonaws.ecr#ImageDigestDoesNotMatchException":
+      throw await de_ImageDigestDoesNotMatchExceptionRes(parsedOutput, context);
+    case "ImageTagAlreadyExistsException":
+    case "com.amazonaws.ecr#ImageTagAlreadyExistsException":
+      throw await de_ImageTagAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ReferencedImagesNotFoundException":
+    case "com.amazonaws.ecr#ReferencedImagesNotFoundException":
+      throw await de_ReferencedImagesNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedImageTypeException":
+    case "com.amazonaws.ecr#UnsupportedImageTypeException":
+      throw await de_UnsupportedImageTypeExceptionRes(parsedOutput, context);
+    case "LifecyclePolicyPreviewInProgressException":
+    case "com.amazonaws.ecr#LifecyclePolicyPreviewInProgressException":
+      throw await de_LifecyclePolicyPreviewInProgressExceptionRes(parsedOutput, context);
+    case "InvalidLayerPartException":
+    case "com.amazonaws.ecr#InvalidLayerPartException":
+      throw await de_InvalidLayerPartExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

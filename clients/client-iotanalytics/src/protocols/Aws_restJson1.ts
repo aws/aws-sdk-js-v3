@@ -884,7 +884,7 @@ export const de_BatchPutMessageCommand = async (
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchPutMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -898,44 +898,6 @@ export const de_BatchPutMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchPutMessageCommandError
- */
-const de_BatchPutMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchPutMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelPipelineReprocessingCommand
  */
 export const de_CancelPipelineReprocessingCommand = async (
@@ -943,51 +905,13 @@ export const de_CancelPipelineReprocessingCommand = async (
   context: __SerdeContext
 ): Promise<CancelPipelineReprocessingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelPipelineReprocessingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelPipelineReprocessingCommandError
- */
-const de_CancelPipelineReprocessingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelPipelineReprocessingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -998,7 +922,7 @@ export const de_CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1014,47 +938,6 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelCommandError
- */
-const de_CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDatasetCommand
  */
 export const de_CreateDatasetCommand = async (
@@ -1062,7 +945,7 @@ export const de_CreateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1078,47 +961,6 @@ export const de_CreateDatasetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDatasetCommandError
- */
-const de_CreateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDatasetContentCommand
  */
 export const de_CreateDatasetContentCommand = async (
@@ -1126,7 +968,7 @@ export const de_CreateDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDatasetContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1140,44 +982,6 @@ export const de_CreateDatasetContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDatasetContentCommandError
- */
-const de_CreateDatasetContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDatastoreCommand
  */
 export const de_CreateDatastoreCommand = async (
@@ -1185,7 +989,7 @@ export const de_CreateDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatastoreCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDatastoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1201,47 +1005,6 @@ export const de_CreateDatastoreCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDatastoreCommandError
- */
-const de_CreateDatastoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatastoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePipelineCommand
  */
 export const de_CreatePipelineCommand = async (
@@ -1249,7 +1012,7 @@ export const de_CreatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1264,47 +1027,6 @@ export const de_CreatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePipelineCommandError
- */
-const de_CreatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteChannelCommand
  */
 export const de_DeleteChannelCommand = async (
@@ -1312,51 +1034,13 @@ export const de_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelCommandError
- */
-const de_DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1367,51 +1051,13 @@ export const de_DeleteDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDatasetCommandError
- */
-const de_DeleteDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1422,51 +1068,13 @@ export const de_DeleteDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatasetContentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDatasetContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDatasetContentCommandError
- */
-const de_DeleteDatasetContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1477,51 +1085,13 @@ export const de_DeleteDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatastoreCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDatastoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDatastoreCommandError
- */
-const de_DeleteDatastoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatastoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1532,51 +1102,13 @@ export const de_DeletePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeletePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePipelineCommandError
- */
-const de_DeletePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1587,7 +1119,7 @@ export const de_DescribeChannelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1602,44 +1134,6 @@ export const de_DescribeChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelCommandError
- */
-const de_DescribeChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDatasetCommand
  */
 export const de_DescribeDatasetCommand = async (
@@ -1647,7 +1141,7 @@ export const de_DescribeDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1661,44 +1155,6 @@ export const de_DescribeDatasetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDatasetCommandError
- */
-const de_DescribeDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDatastoreCommand
  */
 export const de_DescribeDatastoreCommand = async (
@@ -1706,7 +1162,7 @@ export const de_DescribeDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatastoreCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDatastoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1721,44 +1177,6 @@ export const de_DescribeDatastoreCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDatastoreCommandError
- */
-const de_DescribeDatastoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatastoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeLoggingOptionsCommand
  */
 export const de_DescribeLoggingOptionsCommand = async (
@@ -1766,7 +1184,7 @@ export const de_DescribeLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeLoggingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1780,44 +1198,6 @@ export const de_DescribeLoggingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeLoggingOptionsCommandError
- */
-const de_DescribeLoggingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoggingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribePipelineCommand
  */
 export const de_DescribePipelineCommand = async (
@@ -1825,7 +1205,7 @@ export const de_DescribePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DescribePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1839,44 +1219,6 @@ export const de_DescribePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribePipelineCommandError
- */
-const de_DescribePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDatasetContentCommand
  */
 export const de_GetDatasetContentCommand = async (
@@ -1884,7 +1226,7 @@ export const de_GetDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<GetDatasetContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDatasetContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1900,44 +1242,6 @@ export const de_GetDatasetContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDatasetContentCommandError
- */
-const de_GetDatasetContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatasetContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -1945,7 +1249,7 @@ export const de_ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1960,41 +1264,6 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsCommandError
- */
-const de_ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDatasetContentsCommand
  */
 export const de_ListDatasetContentsCommand = async (
@@ -2002,7 +1271,7 @@ export const de_ListDatasetContentsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDatasetContentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2017,44 +1286,6 @@ export const de_ListDatasetContentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDatasetContentsCommandError
- */
-const de_ListDatasetContentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetContentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDatasetsCommand
  */
 export const de_ListDatasetsCommand = async (
@@ -2062,7 +1293,7 @@ export const de_ListDatasetsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDatasetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2077,41 +1308,6 @@ export const de_ListDatasetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDatasetsCommandError
- */
-const de_ListDatasetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDatastoresCommand
  */
 export const de_ListDatastoresCommand = async (
@@ -2119,7 +1315,7 @@ export const de_ListDatastoresCommand = async (
   context: __SerdeContext
 ): Promise<ListDatastoresCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDatastoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2134,41 +1330,6 @@ export const de_ListDatastoresCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDatastoresCommandError
- */
-const de_ListDatastoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatastoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPipelinesCommand
  */
 export const de_ListPipelinesCommand = async (
@@ -2176,7 +1337,7 @@ export const de_ListPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2191,41 +1352,6 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPipelinesCommandError
- */
-const de_ListPipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2233,7 +1359,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2247,47 +1373,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutLoggingOptionsCommand
  */
 export const de_PutLoggingOptionsCommand = async (
@@ -2295,48 +1380,13 @@ export const de_PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutLoggingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutLoggingOptionsCommandError
- */
-const de_PutLoggingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLoggingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2347,7 +1397,7 @@ export const de_RunPipelineActivityCommand = async (
   context: __SerdeContext
 ): Promise<RunPipelineActivityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RunPipelineActivityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2362,41 +1412,6 @@ export const de_RunPipelineActivityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RunPipelineActivityCommandError
- */
-const de_RunPipelineActivityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunPipelineActivityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SampleChannelDataCommand
  */
 export const de_SampleChannelDataCommand = async (
@@ -2404,7 +1419,7 @@ export const de_SampleChannelDataCommand = async (
   context: __SerdeContext
 ): Promise<SampleChannelDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SampleChannelDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2418,44 +1433,6 @@ export const de_SampleChannelDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SampleChannelDataCommandError
- */
-const de_SampleChannelDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SampleChannelDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartPipelineReprocessingCommand
  */
 export const de_StartPipelineReprocessingCommand = async (
@@ -2463,7 +1440,7 @@ export const de_StartPipelineReprocessingCommand = async (
   context: __SerdeContext
 ): Promise<StartPipelineReprocessingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartPipelineReprocessingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2477,47 +1454,6 @@ export const de_StartPipelineReprocessingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartPipelineReprocessingCommandError
- */
-const de_StartPipelineReprocessingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPipelineReprocessingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2525,54 +1461,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2583,54 +1478,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2641,51 +1495,13 @@ export const de_UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelCommandError
- */
-const de_UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2696,51 +1512,13 @@ export const de_UpdateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDatasetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDatasetCommandError
- */
-const de_UpdateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2751,51 +1529,13 @@ export const de_UpdateDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDatastoreCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDatastoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDatastoreCommandError
- */
-const de_UpdateDatastoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatastoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotanalytics#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotanalytics#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotanalytics#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotanalytics#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotanalytics#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2806,7 +1546,7 @@ export const de_UpdatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2816,12 +1556,9 @@ export const de_UpdatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePipelineCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2834,9 +1571,6 @@ const de_UpdatePipelineCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iotanalytics#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotanalytics#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotanalytics#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2846,6 +1580,12 @@ const de_UpdatePipelineCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotanalytics#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotanalytics#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotanalytics#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

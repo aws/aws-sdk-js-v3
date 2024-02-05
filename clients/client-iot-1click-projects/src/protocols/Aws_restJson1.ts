@@ -396,48 +396,13 @@ export const de_AssociateDeviceWithPlacementCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateDeviceWithPlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateDeviceWithPlacementCommandError
- */
-const de_AssociateDeviceWithPlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDeviceWithPlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.iot1clickprojects#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -448,48 +413,13 @@ export const de_CreatePlacementCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreatePlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreatePlacementCommandError
- */
-const de_CreatePlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.iot1clickprojects#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -500,45 +430,13 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.iot1clickprojects#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -549,48 +447,13 @@ export const de_DeletePlacementCommand = async (
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePlacementCommandError
- */
-const de_DeletePlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -601,48 +464,13 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -653,7 +481,7 @@ export const de_DescribePlacementCommand = async (
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribePlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -667,38 +495,6 @@ export const de_DescribePlacementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribePlacementCommandError
- */
-const de_DescribePlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeProjectCommand
  */
 export const de_DescribeProjectCommand = async (
@@ -706,7 +502,7 @@ export const de_DescribeProjectCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -720,38 +516,6 @@ export const de_DescribeProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeProjectCommandError
- */
-const de_DescribeProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateDeviceFromPlacementCommand
  */
 export const de_DisassociateDeviceFromPlacementCommand = async (
@@ -759,48 +523,13 @@ export const de_DisassociateDeviceFromPlacementCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateDeviceFromPlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError
- */
-const de_DisassociateDeviceFromPlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -811,7 +540,7 @@ export const de_GetDevicesInPlacementCommand = async (
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDevicesInPlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -825,38 +554,6 @@ export const de_GetDevicesInPlacementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDevicesInPlacementCommandError
- */
-const de_GetDevicesInPlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDevicesInPlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPlacementsCommand
  */
 export const de_ListPlacementsCommand = async (
@@ -864,7 +561,7 @@ export const de_ListPlacementsCommand = async (
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPlacementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -879,38 +576,6 @@ export const de_ListPlacementsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPlacementsCommandError
- */
-const de_ListPlacementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlacementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -918,7 +583,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -933,35 +598,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -969,7 +605,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -983,38 +619,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1022,45 +626,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1071,45 +643,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1120,48 +660,13 @@ export const de_UpdatePlacementCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdatePlacementCommandError
- */
-const de_UpdatePlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iot1clickprojects#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iot1clickprojects#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.iot1clickprojects#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1172,7 +677,7 @@ export const de_UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1182,12 +687,9 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateProjectCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1200,6 +702,9 @@ const de_UpdateProjectCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.iot1clickprojects#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.iot1clickprojects#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iot1clickprojects#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);

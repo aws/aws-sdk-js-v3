@@ -88,7 +88,7 @@ export const de_GetLatestConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetLatestConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLatestConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -103,41 +103,6 @@ export const de_GetLatestConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLatestConfigurationCommandError
- */
-const de_GetLatestConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLatestConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appconfigdata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appconfigdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appconfigdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appconfigdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartConfigurationSessionCommand
  */
 export const de_StartConfigurationSessionCommand = async (
@@ -145,7 +110,7 @@ export const de_StartConfigurationSessionCommand = async (
   context: __SerdeContext
 ): Promise<StartConfigurationSessionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_StartConfigurationSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -159,12 +124,9 @@ export const de_StartConfigurationSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartConfigurationSessionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_StartConfigurationSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigurationSessionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

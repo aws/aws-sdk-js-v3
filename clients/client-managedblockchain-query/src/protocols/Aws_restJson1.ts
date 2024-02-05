@@ -265,7 +265,7 @@ export const de_BatchGetTokenBalanceCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetTokenBalanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetTokenBalanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -280,47 +280,6 @@ export const de_BatchGetTokenBalanceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetTokenBalanceCommandError
- */
-const de_BatchGetTokenBalanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetTokenBalanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssetContractCommand
  */
 export const de_GetAssetContractCommand = async (
@@ -328,7 +287,7 @@ export const de_GetAssetContractCommand = async (
   context: __SerdeContext
 ): Promise<GetAssetContractCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssetContractCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -345,47 +304,6 @@ export const de_GetAssetContractCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssetContractCommandError
- */
-const de_GetAssetContractCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssetContractCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTokenBalanceCommand
  */
 export const de_GetTokenBalanceCommand = async (
@@ -393,7 +311,7 @@ export const de_GetTokenBalanceCommand = async (
   context: __SerdeContext
 ): Promise<GetTokenBalanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTokenBalanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -411,47 +329,6 @@ export const de_GetTokenBalanceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTokenBalanceCommandError
- */
-const de_GetTokenBalanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTokenBalanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTransactionCommand
  */
 export const de_GetTransactionCommand = async (
@@ -459,7 +336,7 @@ export const de_GetTransactionCommand = async (
   context: __SerdeContext
 ): Promise<GetTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -473,47 +350,6 @@ export const de_GetTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTransactionCommandError
- */
-const de_GetTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetContractsCommand
  */
 export const de_ListAssetContractsCommand = async (
@@ -521,7 +357,7 @@ export const de_ListAssetContractsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetContractsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetContractsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -536,44 +372,6 @@ export const de_ListAssetContractsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetContractsCommandError
- */
-const de_ListAssetContractsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetContractsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTokenBalancesCommand
  */
 export const de_ListTokenBalancesCommand = async (
@@ -581,7 +379,7 @@ export const de_ListTokenBalancesCommand = async (
   context: __SerdeContext
 ): Promise<ListTokenBalancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTokenBalancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -596,44 +394,6 @@ export const de_ListTokenBalancesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTokenBalancesCommandError
- */
-const de_ListTokenBalancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTokenBalancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTransactionEventsCommand
  */
 export const de_ListTransactionEventsCommand = async (
@@ -641,7 +401,7 @@ export const de_ListTransactionEventsCommand = async (
   context: __SerdeContext
 ): Promise<ListTransactionEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTransactionEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -656,44 +416,6 @@ export const de_ListTransactionEventsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTransactionEventsCommandError
- */
-const de_ListTransactionEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTransactionEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.managedblockchainquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchainquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.managedblockchainquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTransactionsCommand
  */
 export const de_ListTransactionsCommand = async (
@@ -701,7 +423,7 @@ export const de_ListTransactionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTransactionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTransactionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -716,12 +438,9 @@ export const de_ListTransactionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTransactionsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_ListTransactionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTransactionsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -734,6 +453,9 @@ const de_ListTransactionsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.managedblockchainquery#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);

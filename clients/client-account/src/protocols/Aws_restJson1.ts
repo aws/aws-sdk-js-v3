@@ -274,51 +274,13 @@ export const de_DeleteAlternateContactCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAlternateContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAlternateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAlternateContactCommandError
- */
-const de_DeleteAlternateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAlternateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.account#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -329,51 +291,13 @@ export const de_DisableRegionCommand = async (
   context: __SerdeContext
 ): Promise<DisableRegionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisableRegionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisableRegionCommandError
- */
-const de_DisableRegionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableRegionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.account#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -384,51 +308,13 @@ export const de_EnableRegionCommand = async (
   context: __SerdeContext
 ): Promise<EnableRegionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableRegionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1EnableRegionCommandError
- */
-const de_EnableRegionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableRegionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.account#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -439,7 +325,7 @@ export const de_GetAlternateContactCommand = async (
   context: __SerdeContext
 ): Promise<GetAlternateContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAlternateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -453,44 +339,6 @@ export const de_GetAlternateContactCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAlternateContactCommandError
- */
-const de_GetAlternateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAlternateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.account#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContactInformationCommand
  */
 export const de_GetContactInformationCommand = async (
@@ -498,7 +346,7 @@ export const de_GetContactInformationCommand = async (
   context: __SerdeContext
 ): Promise<GetContactInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContactInformationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -512,44 +360,6 @@ export const de_GetContactInformationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContactInformationCommandError
- */
-const de_GetContactInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.account#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRegionOptStatusCommand
  */
 export const de_GetRegionOptStatusCommand = async (
@@ -557,7 +367,7 @@ export const de_GetRegionOptStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetRegionOptStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRegionOptStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -572,41 +382,6 @@ export const de_GetRegionOptStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRegionOptStatusCommandError
- */
-const de_GetRegionOptStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegionOptStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRegionsCommand
  */
 export const de_ListRegionsCommand = async (
@@ -614,7 +389,7 @@ export const de_ListRegionsCommand = async (
   context: __SerdeContext
 ): Promise<ListRegionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRegionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -629,41 +404,6 @@ export const de_ListRegionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRegionsCommandError
- */
-const de_ListRegionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRegionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutAlternateContactCommand
  */
 export const de_PutAlternateContactCommand = async (
@@ -671,48 +411,13 @@ export const de_PutAlternateContactCommand = async (
   context: __SerdeContext
 ): Promise<PutAlternateContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAlternateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAlternateContactCommandError
- */
-const de_PutAlternateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAlternateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.account#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.account#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.account#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.account#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -723,7 +428,7 @@ export const de_PutContactInformationCommand = async (
   context: __SerdeContext
 ): Promise<PutContactInformationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutContactInformationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -733,12 +438,9 @@ export const de_PutContactInformationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutContactInformationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_PutContactInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutContactInformationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -751,12 +453,18 @@ const de_PutContactInformationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.account#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.account#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.account#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.account#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.account#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

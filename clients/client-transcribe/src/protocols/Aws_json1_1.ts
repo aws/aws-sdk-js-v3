@@ -859,7 +859,7 @@ export const de_CreateCallAnalyticsCategoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCallAnalyticsCategoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -872,41 +872,6 @@ export const de_CreateCallAnalyticsCategoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCallAnalyticsCategoryCommandError
- */
-const de_CreateCallAnalyticsCategoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCallAnalyticsCategoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLanguageModelCommand
  */
 export const de_CreateLanguageModelCommand = async (
@@ -914,7 +879,7 @@ export const de_CreateLanguageModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateLanguageModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLanguageModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -927,41 +892,6 @@ export const de_CreateLanguageModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLanguageModelCommandError
- */
-const de_CreateLanguageModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLanguageModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMedicalVocabularyCommand
  */
 export const de_CreateMedicalVocabularyCommand = async (
@@ -969,7 +899,7 @@ export const de_CreateMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<CreateMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMedicalVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -982,41 +912,6 @@ export const de_CreateMedicalVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMedicalVocabularyCommandError
- */
-const de_CreateMedicalVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMedicalVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateVocabularyCommand
  */
 export const de_CreateVocabularyCommand = async (
@@ -1024,7 +919,7 @@ export const de_CreateVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<CreateVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1037,41 +932,6 @@ export const de_CreateVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateVocabularyCommandError
- */
-const de_CreateVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateVocabularyFilterCommand
  */
 export const de_CreateVocabularyFilterCommand = async (
@@ -1079,7 +939,7 @@ export const de_CreateVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<CreateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVocabularyFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1092,41 +952,6 @@ export const de_CreateVocabularyFilterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateVocabularyFilterCommandError
- */
-const de_CreateVocabularyFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVocabularyFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand
  */
 export const de_DeleteCallAnalyticsCategoryCommand = async (
@@ -1134,7 +959,7 @@ export const de_DeleteCallAnalyticsCategoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCallAnalyticsCategoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1147,41 +972,6 @@ export const de_DeleteCallAnalyticsCategoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCallAnalyticsCategoryCommandError
- */
-const de_DeleteCallAnalyticsCategoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCallAnalyticsCategoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCallAnalyticsJobCommand
  */
 export const de_DeleteCallAnalyticsJobCommand = async (
@@ -1189,7 +979,7 @@ export const de_DeleteCallAnalyticsJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCallAnalyticsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCallAnalyticsJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1202,38 +992,6 @@ export const de_DeleteCallAnalyticsJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCallAnalyticsJobCommandError
- */
-const de_DeleteCallAnalyticsJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCallAnalyticsJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLanguageModelCommand
  */
 export const de_DeleteLanguageModelCommand = async (
@@ -1241,45 +999,13 @@ export const de_DeleteLanguageModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLanguageModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLanguageModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLanguageModelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteLanguageModelCommandError
- */
-const de_DeleteLanguageModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLanguageModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1290,45 +1016,13 @@ export const de_DeleteMedicalScribeJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMedicalScribeJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMedicalScribeJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMedicalScribeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMedicalScribeJobCommandError
- */
-const de_DeleteMedicalScribeJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMedicalScribeJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1339,45 +1033,13 @@ export const de_DeleteMedicalTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMedicalTranscriptionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMedicalTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError
- */
-const de_DeleteMedicalTranscriptionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1388,48 +1050,13 @@ export const de_DeleteMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMedicalVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMedicalVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMedicalVocabularyCommandError
- */
-const de_DeleteMedicalVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMedicalVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1440,45 +1067,13 @@ export const de_DeleteTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTranscriptionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTranscriptionJobCommandError
- */
-const de_DeleteTranscriptionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTranscriptionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1489,48 +1084,13 @@ export const de_DeleteVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteVocabularyCommandError
- */
-const de_DeleteVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1541,48 +1101,13 @@ export const de_DeleteVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVocabularyFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVocabularyFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteVocabularyFilterCommandError
- */
-const de_DeleteVocabularyFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVocabularyFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1593,7 +1118,7 @@ export const de_DescribeLanguageModelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLanguageModelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLanguageModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1606,41 +1131,6 @@ export const de_DescribeLanguageModelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLanguageModelCommandError
- */
-const de_DescribeLanguageModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLanguageModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCallAnalyticsCategoryCommand
  */
 export const de_GetCallAnalyticsCategoryCommand = async (
@@ -1648,7 +1138,7 @@ export const de_GetCallAnalyticsCategoryCommand = async (
   context: __SerdeContext
 ): Promise<GetCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCallAnalyticsCategoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1661,41 +1151,6 @@ export const de_GetCallAnalyticsCategoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCallAnalyticsCategoryCommandError
- */
-const de_GetCallAnalyticsCategoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCallAnalyticsCategoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCallAnalyticsJobCommand
  */
 export const de_GetCallAnalyticsJobCommand = async (
@@ -1703,7 +1158,7 @@ export const de_GetCallAnalyticsJobCommand = async (
   context: __SerdeContext
 ): Promise<GetCallAnalyticsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCallAnalyticsJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1716,41 +1171,6 @@ export const de_GetCallAnalyticsJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCallAnalyticsJobCommandError
- */
-const de_GetCallAnalyticsJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCallAnalyticsJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMedicalScribeJobCommand
  */
 export const de_GetMedicalScribeJobCommand = async (
@@ -1758,7 +1178,7 @@ export const de_GetMedicalScribeJobCommand = async (
   context: __SerdeContext
 ): Promise<GetMedicalScribeJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMedicalScribeJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1771,41 +1191,6 @@ export const de_GetMedicalScribeJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMedicalScribeJobCommandError
- */
-const de_GetMedicalScribeJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMedicalScribeJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMedicalTranscriptionJobCommand
  */
 export const de_GetMedicalTranscriptionJobCommand = async (
@@ -1813,7 +1198,7 @@ export const de_GetMedicalTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<GetMedicalTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMedicalTranscriptionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1826,41 +1211,6 @@ export const de_GetMedicalTranscriptionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMedicalTranscriptionJobCommandError
- */
-const de_GetMedicalTranscriptionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMedicalTranscriptionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMedicalVocabularyCommand
  */
 export const de_GetMedicalVocabularyCommand = async (
@@ -1868,7 +1218,7 @@ export const de_GetMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<GetMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMedicalVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1881,41 +1231,6 @@ export const de_GetMedicalVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMedicalVocabularyCommandError
- */
-const de_GetMedicalVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMedicalVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTranscriptionJobCommand
  */
 export const de_GetTranscriptionJobCommand = async (
@@ -1923,7 +1238,7 @@ export const de_GetTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<GetTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTranscriptionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1936,41 +1251,6 @@ export const de_GetTranscriptionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTranscriptionJobCommandError
- */
-const de_GetTranscriptionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTranscriptionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetVocabularyCommand
  */
 export const de_GetVocabularyCommand = async (
@@ -1978,7 +1258,7 @@ export const de_GetVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<GetVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1991,41 +1271,6 @@ export const de_GetVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetVocabularyCommandError
- */
-const de_GetVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetVocabularyFilterCommand
  */
 export const de_GetVocabularyFilterCommand = async (
@@ -2033,7 +1278,7 @@ export const de_GetVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<GetVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVocabularyFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2046,41 +1291,6 @@ export const de_GetVocabularyFilterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetVocabularyFilterCommandError
- */
-const de_GetVocabularyFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVocabularyFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCallAnalyticsCategoriesCommand
  */
 export const de_ListCallAnalyticsCategoriesCommand = async (
@@ -2088,7 +1298,7 @@ export const de_ListCallAnalyticsCategoriesCommand = async (
   context: __SerdeContext
 ): Promise<ListCallAnalyticsCategoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCallAnalyticsCategoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2101,38 +1311,6 @@ export const de_ListCallAnalyticsCategoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCallAnalyticsCategoriesCommandError
- */
-const de_ListCallAnalyticsCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCallAnalyticsCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCallAnalyticsJobsCommand
  */
 export const de_ListCallAnalyticsJobsCommand = async (
@@ -2140,7 +1318,7 @@ export const de_ListCallAnalyticsJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListCallAnalyticsJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCallAnalyticsJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2153,38 +1331,6 @@ export const de_ListCallAnalyticsJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCallAnalyticsJobsCommandError
- */
-const de_ListCallAnalyticsJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCallAnalyticsJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLanguageModelsCommand
  */
 export const de_ListLanguageModelsCommand = async (
@@ -2192,7 +1338,7 @@ export const de_ListLanguageModelsCommand = async (
   context: __SerdeContext
 ): Promise<ListLanguageModelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLanguageModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2205,38 +1351,6 @@ export const de_ListLanguageModelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLanguageModelsCommandError
- */
-const de_ListLanguageModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLanguageModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMedicalScribeJobsCommand
  */
 export const de_ListMedicalScribeJobsCommand = async (
@@ -2244,7 +1358,7 @@ export const de_ListMedicalScribeJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListMedicalScribeJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMedicalScribeJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2257,38 +1371,6 @@ export const de_ListMedicalScribeJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMedicalScribeJobsCommandError
- */
-const de_ListMedicalScribeJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMedicalScribeJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMedicalTranscriptionJobsCommand
  */
 export const de_ListMedicalTranscriptionJobsCommand = async (
@@ -2296,7 +1378,7 @@ export const de_ListMedicalTranscriptionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMedicalTranscriptionJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2309,38 +1391,6 @@ export const de_ListMedicalTranscriptionJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError
- */
-const de_ListMedicalTranscriptionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMedicalVocabulariesCommand
  */
 export const de_ListMedicalVocabulariesCommand = async (
@@ -2348,7 +1398,7 @@ export const de_ListMedicalVocabulariesCommand = async (
   context: __SerdeContext
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMedicalVocabulariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2361,38 +1411,6 @@ export const de_ListMedicalVocabulariesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMedicalVocabulariesCommandError
- */
-const de_ListMedicalVocabulariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMedicalVocabulariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2400,7 +1418,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2413,41 +1431,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTranscriptionJobsCommand
  */
 export const de_ListTranscriptionJobsCommand = async (
@@ -2455,7 +1438,7 @@ export const de_ListTranscriptionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListTranscriptionJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTranscriptionJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2468,38 +1451,6 @@ export const de_ListTranscriptionJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTranscriptionJobsCommandError
- */
-const de_ListTranscriptionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTranscriptionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListVocabulariesCommand
  */
 export const de_ListVocabulariesCommand = async (
@@ -2507,7 +1458,7 @@ export const de_ListVocabulariesCommand = async (
   context: __SerdeContext
 ): Promise<ListVocabulariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVocabulariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2520,38 +1471,6 @@ export const de_ListVocabulariesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListVocabulariesCommandError
- */
-const de_ListVocabulariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVocabulariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListVocabularyFiltersCommand
  */
 export const de_ListVocabularyFiltersCommand = async (
@@ -2559,7 +1478,7 @@ export const de_ListVocabularyFiltersCommand = async (
   context: __SerdeContext
 ): Promise<ListVocabularyFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVocabularyFiltersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2572,38 +1491,6 @@ export const de_ListVocabularyFiltersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListVocabularyFiltersCommandError
- */
-const de_ListVocabularyFiltersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVocabularyFiltersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartCallAnalyticsJobCommand
  */
 export const de_StartCallAnalyticsJobCommand = async (
@@ -2611,7 +1498,7 @@ export const de_StartCallAnalyticsJobCommand = async (
   context: __SerdeContext
 ): Promise<StartCallAnalyticsJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartCallAnalyticsJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2624,41 +1511,6 @@ export const de_StartCallAnalyticsJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartCallAnalyticsJobCommandError
- */
-const de_StartCallAnalyticsJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCallAnalyticsJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMedicalScribeJobCommand
  */
 export const de_StartMedicalScribeJobCommand = async (
@@ -2666,7 +1518,7 @@ export const de_StartMedicalScribeJobCommand = async (
   context: __SerdeContext
 ): Promise<StartMedicalScribeJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMedicalScribeJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2679,41 +1531,6 @@ export const de_StartMedicalScribeJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMedicalScribeJobCommandError
- */
-const de_StartMedicalScribeJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMedicalScribeJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMedicalTranscriptionJobCommand
  */
 export const de_StartMedicalTranscriptionJobCommand = async (
@@ -2721,7 +1538,7 @@ export const de_StartMedicalTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<StartMedicalTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMedicalTranscriptionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2734,41 +1551,6 @@ export const de_StartMedicalTranscriptionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMedicalTranscriptionJobCommandError
- */
-const de_StartMedicalTranscriptionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMedicalTranscriptionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartTranscriptionJobCommand
  */
 export const de_StartTranscriptionJobCommand = async (
@@ -2776,7 +1558,7 @@ export const de_StartTranscriptionJobCommand = async (
   context: __SerdeContext
 ): Promise<StartTranscriptionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartTranscriptionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2789,41 +1571,6 @@ export const de_StartTranscriptionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartTranscriptionJobCommandError
- */
-const de_StartTranscriptionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTranscriptionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2831,7 +1578,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2844,44 +1591,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2889,7 +1598,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2902,44 +1611,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCallAnalyticsCategoryCommand
  */
 export const de_UpdateCallAnalyticsCategoryCommand = async (
@@ -2947,7 +1618,7 @@ export const de_UpdateCallAnalyticsCategoryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCallAnalyticsCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCallAnalyticsCategoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2960,44 +1631,6 @@ export const de_UpdateCallAnalyticsCategoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCallAnalyticsCategoryCommandError
- */
-const de_UpdateCallAnalyticsCategoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCallAnalyticsCategoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMedicalVocabularyCommand
  */
 export const de_UpdateMedicalVocabularyCommand = async (
@@ -3005,7 +1638,7 @@ export const de_UpdateMedicalVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMedicalVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMedicalVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3018,44 +1651,6 @@ export const de_UpdateMedicalVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMedicalVocabularyCommandError
- */
-const de_UpdateMedicalVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMedicalVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateVocabularyCommand
  */
 export const de_UpdateVocabularyCommand = async (
@@ -3063,7 +1658,7 @@ export const de_UpdateVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVocabularyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3076,44 +1671,6 @@ export const de_UpdateVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateVocabularyCommandError
- */
-const de_UpdateVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribe#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribe#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribe#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribe#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.transcribe#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateVocabularyFilterCommand
  */
 export const de_UpdateVocabularyFilterCommand = async (
@@ -3121,7 +1678,7 @@ export const de_UpdateVocabularyFilterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateVocabularyFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3134,12 +1691,9 @@ export const de_UpdateVocabularyFilterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateVocabularyFilterCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateVocabularyFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVocabularyFilterCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3149,6 +1703,9 @@ const de_UpdateVocabularyFilterCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.transcribe#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.transcribe#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.transcribe#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);

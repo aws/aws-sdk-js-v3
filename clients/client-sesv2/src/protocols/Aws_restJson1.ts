@@ -2353,7 +2353,7 @@ export const de_BatchGetMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetMetricDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2368,41 +2368,6 @@ export const de_BatchGetMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetMetricDataCommandError
- */
-const de_BatchGetMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.sesv2#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelExportJobCommand
  */
 export const de_CancelExportJobCommand = async (
@@ -2410,45 +2375,13 @@ export const de_CancelExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelExportJobCommandError
- */
-const de_CancelExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2459,54 +2392,13 @@ export const de_CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigurationSetCommandError
- */
-const de_CreateConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2517,51 +2409,13 @@ export const de_CreateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
- */
-const de_CreateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2572,48 +2426,13 @@ export const de_CreateContactCommand = async (
   context: __SerdeContext
 ): Promise<CreateContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateContactCommandError
- */
-const de_CreateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2624,48 +2443,13 @@ export const de_CreateContactListCommand = async (
   context: __SerdeContext
 ): Promise<CreateContactListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateContactListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateContactListCommandError
- */
-const de_CreateContactListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContactListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2676,51 +2460,13 @@ export const de_CreateCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommandError
- */
-const de_CreateCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2731,51 +2477,13 @@ export const de_CreateDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDedicatedIpPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDedicatedIpPoolCommandError
- */
-const de_CreateDedicatedIpPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDedicatedIpPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2786,7 +2494,7 @@ export const de_CreateDeliverabilityTestReportCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeliverabilityTestReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2801,56 +2509,6 @@ export const de_CreateDeliverabilityTestReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeliverabilityTestReportCommandError
- */
-const de_CreateDeliverabilityTestReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeliverabilityTestReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSuspendedException":
-    case "com.amazonaws.sesv2#AccountSuspendedException":
-      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.sesv2#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.sesv2#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SendingPausedException":
-    case "com.amazonaws.sesv2#SendingPausedException":
-      throw await de_SendingPausedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEmailIdentityCommand
  */
 export const de_CreateEmailIdentityCommand = async (
@@ -2858,7 +2516,7 @@ export const de_CreateEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<CreateEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2874,47 +2532,6 @@ export const de_CreateEmailIdentityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEmailIdentityCommandError
- */
-const de_CreateEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEmailIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEmailIdentityPolicyCommand
  */
 export const de_CreateEmailIdentityPolicyCommand = async (
@@ -2922,51 +2539,13 @@ export const de_CreateEmailIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateEmailIdentityPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEmailIdentityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateEmailIdentityPolicyCommandError
- */
-const de_CreateEmailIdentityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEmailIdentityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2977,48 +2556,13 @@ export const de_CreateEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateEmailTemplateCommandError
- */
-const de_CreateEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3029,7 +2573,7 @@ export const de_CreateExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3040,41 +2584,6 @@ export const de_CreateExportJobCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateExportJobCommandError
- */
-const de_CreateExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3085,7 +2594,7 @@ export const de_CreateImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3099,38 +2608,6 @@ export const de_CreateImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateImportJobCommandError
- */
-const de_CreateImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -3138,48 +2615,13 @@ export const de_DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationSetCommandError
- */
-const de_DeleteConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3190,45 +2632,13 @@ export const de_DeleteConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
- */
-const de_DeleteConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3239,45 +2649,13 @@ export const de_DeleteContactCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteContactCommandError
- */
-const de_DeleteContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3288,48 +2666,13 @@ export const de_DeleteContactListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContactListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteContactListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteContactListCommandError
- */
-const de_DeleteContactListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContactListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3340,45 +2683,13 @@ export const de_DeleteCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommandError
- */
-const de_DeleteCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3389,48 +2700,13 @@ export const de_DeleteDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDedicatedIpPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDedicatedIpPoolCommandError
- */
-const de_DeleteDedicatedIpPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDedicatedIpPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3441,48 +2717,13 @@ export const de_DeleteEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEmailIdentityCommandError
- */
-const de_DeleteEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3493,45 +2734,13 @@ export const de_DeleteEmailIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailIdentityPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEmailIdentityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEmailIdentityPolicyCommandError
- */
-const de_DeleteEmailIdentityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailIdentityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3542,45 +2751,13 @@ export const de_DeleteEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEmailTemplateCommandError
- */
-const de_DeleteEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3591,45 +2768,13 @@ export const de_DeleteSuppressedDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSuppressedDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSuppressedDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSuppressedDestinationCommandError
- */
-const de_DeleteSuppressedDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSuppressedDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3640,7 +2785,7 @@ export const de_GetAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3661,35 +2806,6 @@ export const de_GetAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccountCommandError
- */
-const de_GetAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBlacklistReportsCommand
  */
 export const de_GetBlacklistReportsCommand = async (
@@ -3697,7 +2813,7 @@ export const de_GetBlacklistReportsCommand = async (
   context: __SerdeContext
 ): Promise<GetBlacklistReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBlacklistReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3711,38 +2827,6 @@ export const de_GetBlacklistReportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBlacklistReportsCommandError
- */
-const de_GetBlacklistReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlacklistReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigurationSetCommand
  */
 export const de_GetConfigurationSetCommand = async (
@@ -3750,7 +2834,7 @@ export const de_GetConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3771,38 +2855,6 @@ export const de_GetConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationSetCommandError
- */
-const de_GetConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
  */
 export const de_GetConfigurationSetEventDestinationsCommand = async (
@@ -3810,7 +2862,7 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationSetEventDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3824,38 +2876,6 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError
- */
-const de_GetConfigurationSetEventDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContactCommand
  */
 export const de_GetContactCommand = async (
@@ -3863,7 +2883,7 @@ export const de_GetContactCommand = async (
   context: __SerdeContext
 ): Promise<GetContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3884,38 +2904,6 @@ export const de_GetContactCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContactCommandError
- */
-const de_GetContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContactListCommand
  */
 export const de_GetContactListCommand = async (
@@ -3923,7 +2911,7 @@ export const de_GetContactListCommand = async (
   context: __SerdeContext
 ): Promise<GetContactListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContactListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3942,38 +2930,6 @@ export const de_GetContactListCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContactListCommandError
- */
-const de_GetContactListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCustomVerificationEmailTemplateCommand
  */
 export const de_GetCustomVerificationEmailTemplateCommand = async (
@@ -3981,7 +2937,7 @@ export const de_GetCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4000,38 +2956,6 @@ export const de_GetCustomVerificationEmailTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCustomVerificationEmailTemplateCommandError
- */
-const de_GetCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDedicatedIpCommand
  */
 export const de_GetDedicatedIpCommand = async (
@@ -4039,7 +2963,7 @@ export const de_GetDedicatedIpCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDedicatedIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4053,38 +2977,6 @@ export const de_GetDedicatedIpCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDedicatedIpCommandError
- */
-const de_GetDedicatedIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDedicatedIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDedicatedIpPoolCommand
  */
 export const de_GetDedicatedIpPoolCommand = async (
@@ -4092,7 +2984,7 @@ export const de_GetDedicatedIpPoolCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDedicatedIpPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4106,38 +2998,6 @@ export const de_GetDedicatedIpPoolCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDedicatedIpPoolCommandError
- */
-const de_GetDedicatedIpPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDedicatedIpPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDedicatedIpsCommand
  */
 export const de_GetDedicatedIpsCommand = async (
@@ -4145,7 +3005,7 @@ export const de_GetDedicatedIpsCommand = async (
   context: __SerdeContext
 ): Promise<GetDedicatedIpsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDedicatedIpsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4160,38 +3020,6 @@ export const de_GetDedicatedIpsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDedicatedIpsCommandError
- */
-const de_GetDedicatedIpsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDedicatedIpsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand
  */
 export const de_GetDeliverabilityDashboardOptionsCommand = async (
@@ -4199,7 +3027,7 @@ export const de_GetDeliverabilityDashboardOptionsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeliverabilityDashboardOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4217,38 +3045,6 @@ export const de_GetDeliverabilityDashboardOptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommandError
- */
-const de_GetDeliverabilityDashboardOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliverabilityDashboardOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeliverabilityTestReportCommand
  */
 export const de_GetDeliverabilityTestReportCommand = async (
@@ -4256,7 +3052,7 @@ export const de_GetDeliverabilityTestReportCommand = async (
   context: __SerdeContext
 ): Promise<GetDeliverabilityTestReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeliverabilityTestReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4274,38 +3070,6 @@ export const de_GetDeliverabilityTestReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeliverabilityTestReportCommandError
- */
-const de_GetDeliverabilityTestReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeliverabilityTestReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand
  */
 export const de_GetDomainDeliverabilityCampaignCommand = async (
@@ -4313,7 +3077,7 @@ export const de_GetDomainDeliverabilityCampaignCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainDeliverabilityCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4327,38 +3091,6 @@ export const de_GetDomainDeliverabilityCampaignCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainDeliverabilityCampaignCommandError
- */
-const de_GetDomainDeliverabilityCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainDeliverabilityCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainStatisticsReportCommand
  */
 export const de_GetDomainStatisticsReportCommand = async (
@@ -4366,7 +3098,7 @@ export const de_GetDomainStatisticsReportCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainStatisticsReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainStatisticsReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4381,38 +3113,6 @@ export const de_GetDomainStatisticsReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainStatisticsReportCommandError
- */
-const de_GetDomainStatisticsReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainStatisticsReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEmailIdentityCommand
  */
 export const de_GetEmailIdentityCommand = async (
@@ -4420,7 +3120,7 @@ export const de_GetEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4443,38 +3143,6 @@ export const de_GetEmailIdentityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEmailIdentityCommandError
- */
-const de_GetEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEmailIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEmailIdentityPoliciesCommand
  */
 export const de_GetEmailIdentityPoliciesCommand = async (
@@ -4482,7 +3150,7 @@ export const de_GetEmailIdentityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailIdentityPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEmailIdentityPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4496,38 +3164,6 @@ export const de_GetEmailIdentityPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEmailIdentityPoliciesCommandError
- */
-const de_GetEmailIdentityPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEmailIdentityPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEmailTemplateCommand
  */
 export const de_GetEmailTemplateCommand = async (
@@ -4535,7 +3171,7 @@ export const de_GetEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4550,38 +3186,6 @@ export const de_GetEmailTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEmailTemplateCommandError
- */
-const de_GetEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetExportJobCommand
  */
 export const de_GetExportJobCommand = async (
@@ -4589,7 +3193,7 @@ export const de_GetExportJobCommand = async (
   context: __SerdeContext
 ): Promise<GetExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4611,38 +3215,6 @@ export const de_GetExportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetExportJobCommandError
- */
-const de_GetExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImportJobCommand
  */
 export const de_GetImportJobCommand = async (
@@ -4650,7 +3222,7 @@ export const de_GetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4672,38 +3244,6 @@ export const de_GetImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImportJobCommandError
- */
-const de_GetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMessageInsightsCommand
  */
 export const de_GetMessageInsightsCommand = async (
@@ -4711,7 +3251,7 @@ export const de_GetMessageInsightsCommand = async (
   context: __SerdeContext
 ): Promise<GetMessageInsightsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMessageInsightsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4729,38 +3269,6 @@ export const de_GetMessageInsightsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMessageInsightsCommandError
- */
-const de_GetMessageInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMessageInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSuppressedDestinationCommand
  */
 export const de_GetSuppressedDestinationCommand = async (
@@ -4768,7 +3276,7 @@ export const de_GetSuppressedDestinationCommand = async (
   context: __SerdeContext
 ): Promise<GetSuppressedDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSuppressedDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4782,38 +3290,6 @@ export const de_GetSuppressedDestinationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSuppressedDestinationCommandError
- */
-const de_GetSuppressedDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSuppressedDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConfigurationSetsCommand
  */
 export const de_ListConfigurationSetsCommand = async (
@@ -4821,7 +3297,7 @@ export const de_ListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConfigurationSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4836,35 +3312,6 @@ export const de_ListConfigurationSetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConfigurationSetsCommandError
- */
-const de_ListConfigurationSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListContactListsCommand
  */
 export const de_ListContactListsCommand = async (
@@ -4872,7 +3319,7 @@ export const de_ListContactListsCommand = async (
   context: __SerdeContext
 ): Promise<ListContactListsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListContactListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4887,35 +3334,6 @@ export const de_ListContactListsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListContactListsCommandError
- */
-const de_ListContactListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContactListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListContactsCommand
  */
 export const de_ListContactsCommand = async (
@@ -4923,7 +3341,7 @@ export const de_ListContactsCommand = async (
   context: __SerdeContext
 ): Promise<ListContactsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListContactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4938,38 +3356,6 @@ export const de_ListContactsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListContactsCommandError
- */
-const de_ListContactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommand
  */
 export const de_ListCustomVerificationEmailTemplatesCommand = async (
@@ -4977,7 +3363,7 @@ export const de_ListCustomVerificationEmailTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCustomVerificationEmailTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4992,35 +3378,6 @@ export const de_ListCustomVerificationEmailTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommandError
- */
-const de_ListCustomVerificationEmailTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDedicatedIpPoolsCommand
  */
 export const de_ListDedicatedIpPoolsCommand = async (
@@ -5028,7 +3385,7 @@ export const de_ListDedicatedIpPoolsCommand = async (
   context: __SerdeContext
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDedicatedIpPoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5043,35 +3400,6 @@ export const de_ListDedicatedIpPoolsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDedicatedIpPoolsCommandError
- */
-const de_ListDedicatedIpPoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDedicatedIpPoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDeliverabilityTestReportsCommand
  */
 export const de_ListDeliverabilityTestReportsCommand = async (
@@ -5079,7 +3407,7 @@ export const de_ListDeliverabilityTestReportsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeliverabilityTestReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeliverabilityTestReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5094,38 +3422,6 @@ export const de_ListDeliverabilityTestReportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDeliverabilityTestReportsCommandError
- */
-const de_ListDeliverabilityTestReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeliverabilityTestReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand
  */
 export const de_ListDomainDeliverabilityCampaignsCommand = async (
@@ -5133,7 +3429,7 @@ export const de_ListDomainDeliverabilityCampaignsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainDeliverabilityCampaignsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5148,38 +3444,6 @@ export const de_ListDomainDeliverabilityCampaignsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommandError
- */
-const de_ListDomainDeliverabilityCampaignsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainDeliverabilityCampaignsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEmailIdentitiesCommand
  */
 export const de_ListEmailIdentitiesCommand = async (
@@ -5187,7 +3451,7 @@ export const de_ListEmailIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<ListEmailIdentitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEmailIdentitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5202,35 +3466,6 @@ export const de_ListEmailIdentitiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEmailIdentitiesCommandError
- */
-const de_ListEmailIdentitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEmailIdentitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEmailTemplatesCommand
  */
 export const de_ListEmailTemplatesCommand = async (
@@ -5238,7 +3473,7 @@ export const de_ListEmailTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListEmailTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEmailTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5253,35 +3488,6 @@ export const de_ListEmailTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEmailTemplatesCommandError
- */
-const de_ListEmailTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEmailTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExportJobsCommand
  */
 export const de_ListExportJobsCommand = async (
@@ -5289,7 +3495,7 @@ export const de_ListExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5304,35 +3510,6 @@ export const de_ListExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExportJobsCommandError
- */
-const de_ListExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImportJobsCommand
  */
 export const de_ListImportJobsCommand = async (
@@ -5340,7 +3517,7 @@ export const de_ListImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5355,35 +3532,6 @@ export const de_ListImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImportJobsCommandError
- */
-const de_ListImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecommendationsCommand
  */
 export const de_ListRecommendationsCommand = async (
@@ -5391,7 +3539,7 @@ export const de_ListRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5406,38 +3554,6 @@ export const de_ListRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecommendationsCommandError
- */
-const de_ListRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSuppressedDestinationsCommand
  */
 export const de_ListSuppressedDestinationsCommand = async (
@@ -5445,7 +3561,7 @@ export const de_ListSuppressedDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSuppressedDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSuppressedDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5460,38 +3576,6 @@ export const de_ListSuppressedDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSuppressedDestinationsCommandError
- */
-const de_ListSuppressedDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSuppressedDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.sesv2#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5499,7 +3583,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5513,38 +3597,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand
  */
 export const de_PutAccountDedicatedIpWarmupAttributesCommand = async (
@@ -5552,42 +3604,13 @@ export const de_PutAccountDedicatedIpWarmupAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountDedicatedIpWarmupAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommandError
- */
-const de_PutAccountDedicatedIpWarmupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5598,45 +3621,13 @@ export const de_PutAccountDetailsCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountDetailsCommandError
- */
-const de_PutAccountDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.sesv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5647,42 +3638,13 @@ export const de_PutAccountSendingAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountSendingAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountSendingAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountSendingAttributesCommandError
- */
-const de_PutAccountSendingAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSendingAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5693,42 +3655,13 @@ export const de_PutAccountSuppressionAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountSuppressionAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountSuppressionAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountSuppressionAttributesCommandError
- */
-const de_PutAccountSuppressionAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSuppressionAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5739,42 +3672,13 @@ export const de_PutAccountVdmAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountVdmAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAccountVdmAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutAccountVdmAttributesCommandError
- */
-const de_PutAccountVdmAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountVdmAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5785,45 +3689,13 @@ export const de_PutConfigurationSetDeliveryOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetDeliveryOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommandError
- */
-const de_PutConfigurationSetDeliveryOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5834,45 +3706,13 @@ export const de_PutConfigurationSetReputationOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetReputationOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetReputationOptionsCommandError
- */
-const de_PutConfigurationSetReputationOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetReputationOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5883,45 +3723,13 @@ export const de_PutConfigurationSetSendingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetSendingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetSendingOptionsCommandError
- */
-const de_PutConfigurationSetSendingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetSendingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5932,45 +3740,13 @@ export const de_PutConfigurationSetSuppressionOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetSuppressionOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommandError
- */
-const de_PutConfigurationSetSuppressionOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetSuppressionOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5981,45 +3757,13 @@ export const de_PutConfigurationSetTrackingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetTrackingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommandError
- */
-const de_PutConfigurationSetTrackingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetTrackingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6030,45 +3774,13 @@ export const de_PutConfigurationSetVdmOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetVdmOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutConfigurationSetVdmOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutConfigurationSetVdmOptionsCommandError
- */
-const de_PutConfigurationSetVdmOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetVdmOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6079,45 +3791,13 @@ export const de_PutDedicatedIpInPoolCommand = async (
   context: __SerdeContext
 ): Promise<PutDedicatedIpInPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDedicatedIpInPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDedicatedIpInPoolCommandError
- */
-const de_PutDedicatedIpInPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDedicatedIpInPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6128,48 +3808,13 @@ export const de_PutDedicatedIpPoolScalingAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutDedicatedIpPoolScalingAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDedicatedIpPoolScalingAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDedicatedIpPoolScalingAttributesCommandError
- */
-const de_PutDedicatedIpPoolScalingAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDedicatedIpPoolScalingAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6180,45 +3825,13 @@ export const de_PutDedicatedIpWarmupAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDedicatedIpWarmupAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommandError
- */
-const de_PutDedicatedIpWarmupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDedicatedIpWarmupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6229,51 +3842,13 @@ export const de_PutDeliverabilityDashboardOptionCommand = async (
   context: __SerdeContext
 ): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDeliverabilityDashboardOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutDeliverabilityDashboardOptionCommandError
- */
-const de_PutDeliverabilityDashboardOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDeliverabilityDashboardOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.sesv2#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6284,45 +3859,13 @@ export const de_PutEmailIdentityConfigurationSetAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityConfigurationSetAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommandError
- */
-const de_PutEmailIdentityConfigurationSetAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityConfigurationSetAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6333,45 +3876,13 @@ export const de_PutEmailIdentityDkimAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityDkimAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityDkimAttributesCommandError
- */
-const de_PutEmailIdentityDkimAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityDkimAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6382,7 +3893,7 @@ export const de_PutEmailIdentityDkimSigningAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityDkimSigningAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6397,38 +3908,6 @@ export const de_PutEmailIdentityDkimSigningAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommandError
- */
-const de_PutEmailIdentityDkimSigningAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityDkimSigningAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand
  */
 export const de_PutEmailIdentityFeedbackAttributesCommand = async (
@@ -6436,45 +3915,13 @@ export const de_PutEmailIdentityFeedbackAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityFeedbackAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommandError
- */
-const de_PutEmailIdentityFeedbackAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityFeedbackAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6485,45 +3932,13 @@ export const de_PutEmailIdentityMailFromAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEmailIdentityMailFromAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommandError
- */
-const de_PutEmailIdentityMailFromAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEmailIdentityMailFromAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6534,42 +3949,13 @@ export const de_PutSuppressedDestinationCommand = async (
   context: __SerdeContext
 ): Promise<PutSuppressedDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutSuppressedDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutSuppressedDestinationCommandError
- */
-const de_PutSuppressedDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSuppressedDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6580,7 +3966,7 @@ export const de_SendBulkEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendBulkEmailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendBulkEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6594,53 +3980,6 @@ export const de_SendBulkEmailCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendBulkEmailCommandError
- */
-const de_SendBulkEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendBulkEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSuspendedException":
-    case "com.amazonaws.sesv2#AccountSuspendedException":
-      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.sesv2#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.sesv2#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SendingPausedException":
-    case "com.amazonaws.sesv2#SendingPausedException":
-      throw await de_SendingPausedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SendCustomVerificationEmailCommand
  */
 export const de_SendCustomVerificationEmailCommand = async (
@@ -6648,7 +3987,7 @@ export const de_SendCustomVerificationEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendCustomVerificationEmailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendCustomVerificationEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6659,50 +3998,6 @@ export const de_SendCustomVerificationEmailCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1SendCustomVerificationEmailCommandError
- */
-const de_SendCustomVerificationEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendCustomVerificationEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.sesv2#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.sesv2#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SendingPausedException":
-    case "com.amazonaws.sesv2#SendingPausedException":
-      throw await de_SendingPausedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6713,7 +4008,7 @@ export const de_SendEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6727,53 +4022,6 @@ export const de_SendEmailCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendEmailCommandError
- */
-const de_SendEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSuspendedException":
-    case "com.amazonaws.sesv2#AccountSuspendedException":
-      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.sesv2#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.sesv2#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.sesv2#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SendingPausedException":
-    case "com.amazonaws.sesv2#SendingPausedException":
-      throw await de_SendingPausedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -6781,48 +4029,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6833,7 +4046,7 @@ export const de_TestRenderEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<TestRenderEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TestRenderEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6847,38 +4060,6 @@ export const de_TestRenderEmailTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TestRenderEmailTemplateCommandError
- */
-const de_TestRenderEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestRenderEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -6886,48 +4067,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6938,45 +4084,13 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
- */
-const de_UpdateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6987,48 +4101,13 @@ export const de_UpdateContactCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateContactCommandError
- */
-const de_UpdateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7039,48 +4118,13 @@ export const de_UpdateContactListCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContactListCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateContactListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateContactListCommandError
- */
-const de_UpdateContactListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContactListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.sesv2#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7091,45 +4135,13 @@ export const de_UpdateCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateCustomVerificationEmailTemplateCommandError
- */
-const de_UpdateCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7140,45 +4152,13 @@ export const de_UpdateEmailIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEmailIdentityPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEmailIdentityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateEmailIdentityPolicyCommandError
- */
-const de_UpdateEmailIdentityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEmailIdentityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.sesv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.sesv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.sesv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7189,7 +4169,7 @@ export const de_UpdateEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7199,12 +4179,9 @@ export const de_UpdateEmailTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateEmailTemplateCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEmailTemplateCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7214,12 +4191,42 @@ const de_UpdateEmailTemplateCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.sesv2#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.sesv2#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.sesv2#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sesv2#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.sesv2#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.sesv2#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.sesv2#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "AccountSuspendedException":
+    case "com.amazonaws.sesv2#AccountSuspendedException":
+      throw await de_AccountSuspendedExceptionRes(parsedOutput, context);
+    case "MailFromDomainNotVerifiedException":
+    case "com.amazonaws.sesv2#MailFromDomainNotVerifiedException":
+      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
+    case "MessageRejected":
+    case "com.amazonaws.sesv2#MessageRejected":
+      throw await de_MessageRejectedRes(parsedOutput, context);
+    case "SendingPausedException":
+    case "com.amazonaws.sesv2#SendingPausedException":
+      throw await de_SendingPausedExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.sesv2#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.sesv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

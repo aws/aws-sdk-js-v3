@@ -1889,7 +1889,7 @@ export const de_AcceptMatchCommand = async (
   context: __SerdeContext
 ): Promise<AcceptMatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptMatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1902,41 +1902,6 @@ export const de_AcceptMatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptMatchCommandError
- */
-const de_AcceptMatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptMatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ClaimGameServerCommand
  */
 export const de_ClaimGameServerCommand = async (
@@ -1944,7 +1909,7 @@ export const de_ClaimGameServerCommand = async (
   context: __SerdeContext
 ): Promise<ClaimGameServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ClaimGameServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1957,47 +1922,6 @@ export const de_ClaimGameServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ClaimGameServerCommandError
- */
-const de_ClaimGameServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ClaimGameServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OutOfCapacityException":
-    case "com.amazonaws.gamelift#OutOfCapacityException":
-      throw await de_OutOfCapacityExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAliasCommand
  */
 export const de_CreateAliasCommand = async (
@@ -2005,7 +1929,7 @@ export const de_CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2018,47 +1942,6 @@ export const de_CreateAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAliasCommandError
- */
-const de_CreateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBuildCommand
  */
 export const de_CreateBuildCommand = async (
@@ -2066,7 +1949,7 @@ export const de_CreateBuildCommand = async (
   context: __SerdeContext
 ): Promise<CreateBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2079,44 +1962,6 @@ export const de_CreateBuildCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBuildCommandError
- */
-const de_CreateBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFleetCommand
  */
 export const de_CreateFleetCommand = async (
@@ -2124,7 +1969,7 @@ export const de_CreateFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2137,53 +1982,6 @@ export const de_CreateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFleetCommandError
- */
-const de_CreateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFleetLocationsCommand
  */
 export const de_CreateFleetLocationsCommand = async (
@@ -2191,7 +1989,7 @@ export const de_CreateFleetLocationsCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetLocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2204,53 +2002,6 @@ export const de_CreateFleetLocationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFleetLocationsCommandError
- */
-const de_CreateFleetLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGameServerGroupCommand
  */
 export const de_CreateGameServerGroupCommand = async (
@@ -2258,7 +2009,7 @@ export const de_CreateGameServerGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGameServerGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGameServerGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2271,44 +2022,6 @@ export const de_CreateGameServerGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGameServerGroupCommandError
- */
-const de_CreateGameServerGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGameServerGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGameSessionCommand
  */
 export const de_CreateGameSessionCommand = async (
@@ -2316,7 +2029,7 @@ export const de_CreateGameSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateGameSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGameSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2329,62 +2042,6 @@ export const de_CreateGameSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGameSessionCommandError
- */
-const de_CreateGameSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGameSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "FleetCapacityExceededException":
-    case "com.amazonaws.gamelift#FleetCapacityExceededException":
-      throw await de_FleetCapacityExceededExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.gamelift#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGameSessionQueueCommand
  */
 export const de_CreateGameSessionQueueCommand = async (
@@ -2392,7 +2049,7 @@ export const de_CreateGameSessionQueueCommand = async (
   context: __SerdeContext
 ): Promise<CreateGameSessionQueueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGameSessionQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2405,47 +2062,6 @@ export const de_CreateGameSessionQueueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGameSessionQueueCommandError
- */
-const de_CreateGameSessionQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGameSessionQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationCommand
  */
 export const de_CreateLocationCommand = async (
@@ -2453,7 +2069,7 @@ export const de_CreateLocationCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2466,47 +2082,6 @@ export const de_CreateLocationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationCommandError
- */
-const de_CreateLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMatchmakingConfigurationCommand
  */
 export const de_CreateMatchmakingConfigurationCommand = async (
@@ -2514,7 +2089,7 @@ export const de_CreateMatchmakingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateMatchmakingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMatchmakingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2527,47 +2102,6 @@ export const de_CreateMatchmakingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMatchmakingConfigurationCommandError
- */
-const de_CreateMatchmakingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMatchmakingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMatchmakingRuleSetCommand
  */
 export const de_CreateMatchmakingRuleSetCommand = async (
@@ -2575,7 +2109,7 @@ export const de_CreateMatchmakingRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateMatchmakingRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMatchmakingRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2588,44 +2122,6 @@ export const de_CreateMatchmakingRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMatchmakingRuleSetCommandError
- */
-const de_CreateMatchmakingRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMatchmakingRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePlayerSessionCommand
  */
 export const de_CreatePlayerSessionCommand = async (
@@ -2633,7 +2129,7 @@ export const de_CreatePlayerSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlayerSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePlayerSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2646,50 +2142,6 @@ export const de_CreatePlayerSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePlayerSessionCommandError
- */
-const de_CreatePlayerSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlayerSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GameSessionFullException":
-    case "com.amazonaws.gamelift#GameSessionFullException":
-      throw await de_GameSessionFullExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidGameSessionStatusException":
-    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
-      throw await de_InvalidGameSessionStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePlayerSessionsCommand
  */
 export const de_CreatePlayerSessionsCommand = async (
@@ -2697,7 +2149,7 @@ export const de_CreatePlayerSessionsCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlayerSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePlayerSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2710,50 +2162,6 @@ export const de_CreatePlayerSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePlayerSessionsCommandError
- */
-const de_CreatePlayerSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlayerSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GameSessionFullException":
-    case "com.amazonaws.gamelift#GameSessionFullException":
-      throw await de_GameSessionFullExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidGameSessionStatusException":
-    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
-      throw await de_InvalidGameSessionStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateScriptCommand
  */
 export const de_CreateScriptCommand = async (
@@ -2761,7 +2169,7 @@ export const de_CreateScriptCommand = async (
   context: __SerdeContext
 ): Promise<CreateScriptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateScriptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2774,44 +2182,6 @@ export const de_CreateScriptCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateScriptCommandError
- */
-const de_CreateScriptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateScriptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateVpcPeeringAuthorizationCommand
  */
 export const de_CreateVpcPeeringAuthorizationCommand = async (
@@ -2819,7 +2189,7 @@ export const de_CreateVpcPeeringAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcPeeringAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcPeeringAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2832,41 +2202,6 @@ export const de_CreateVpcPeeringAuthorizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateVpcPeeringAuthorizationCommandError
- */
-const de_CreateVpcPeeringAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcPeeringAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateVpcPeeringConnectionCommand
  */
 export const de_CreateVpcPeeringConnectionCommand = async (
@@ -2874,7 +2209,7 @@ export const de_CreateVpcPeeringConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcPeeringConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcPeeringConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2887,41 +2222,6 @@ export const de_CreateVpcPeeringConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateVpcPeeringConnectionCommandError
- */
-const de_CreateVpcPeeringConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcPeeringConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAliasCommand
  */
 export const de_DeleteAliasCommand = async (
@@ -2929,51 +2229,13 @@ export const de_DeleteAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAliasCommandError
- */
-const de_DeleteAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2984,51 +2246,13 @@ export const de_DeleteBuildCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteBuildCommandError
- */
-const de_DeleteBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3039,54 +2263,13 @@ export const de_DeleteFleetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFleetCommandError
- */
-const de_DeleteFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3097,7 +2280,7 @@ export const de_DeleteFleetLocationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetLocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3110,44 +2293,6 @@ export const de_DeleteFleetLocationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFleetLocationsCommandError
- */
-const de_DeleteFleetLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteGameServerGroupCommand
  */
 export const de_DeleteGameServerGroupCommand = async (
@@ -3155,7 +2300,7 @@ export const de_DeleteGameServerGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGameServerGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGameServerGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3168,41 +2313,6 @@ export const de_DeleteGameServerGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteGameServerGroupCommandError
- */
-const de_DeleteGameServerGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGameServerGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteGameSessionQueueCommand
  */
 export const de_DeleteGameSessionQueueCommand = async (
@@ -3210,7 +2320,7 @@ export const de_DeleteGameSessionQueueCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGameSessionQueueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGameSessionQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3223,44 +2333,6 @@ export const de_DeleteGameSessionQueueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteGameSessionQueueCommandError
- */
-const de_DeleteGameSessionQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGameSessionQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLocationCommand
  */
 export const de_DeleteLocationCommand = async (
@@ -3268,7 +2340,7 @@ export const de_DeleteLocationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLocationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3281,41 +2353,6 @@ export const de_DeleteLocationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLocationCommandError
- */
-const de_DeleteLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMatchmakingConfigurationCommand
  */
 export const de_DeleteMatchmakingConfigurationCommand = async (
@@ -3323,7 +2360,7 @@ export const de_DeleteMatchmakingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMatchmakingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMatchmakingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3336,44 +2373,6 @@ export const de_DeleteMatchmakingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMatchmakingConfigurationCommandError
- */
-const de_DeleteMatchmakingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMatchmakingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMatchmakingRuleSetCommand
  */
 export const de_DeleteMatchmakingRuleSetCommand = async (
@@ -3381,7 +2380,7 @@ export const de_DeleteMatchmakingRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMatchmakingRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMatchmakingRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3394,44 +2393,6 @@ export const de_DeleteMatchmakingRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMatchmakingRuleSetCommandError
- */
-const de_DeleteMatchmakingRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMatchmakingRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteScalingPolicyCommand
  */
 export const de_DeleteScalingPolicyCommand = async (
@@ -3439,48 +2400,13 @@ export const de_DeleteScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteScalingPolicyCommandError
- */
-const de_DeleteScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3491,51 +2417,13 @@ export const de_DeleteScriptCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScriptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteScriptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteScriptCommandError
- */
-const de_DeleteScriptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScriptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3546,7 +2434,7 @@ export const de_DeleteVpcPeeringAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcPeeringAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3559,41 +2447,6 @@ export const de_DeleteVpcPeeringAuthorizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommandError
- */
-const de_DeleteVpcPeeringAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcPeeringAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteVpcPeeringConnectionCommand
  */
 export const de_DeleteVpcPeeringConnectionCommand = async (
@@ -3601,7 +2454,7 @@ export const de_DeleteVpcPeeringConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcPeeringConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3614,41 +2467,6 @@ export const de_DeleteVpcPeeringConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError
- */
-const de_DeleteVpcPeeringConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcPeeringConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterComputeCommand
  */
 export const de_DeregisterComputeCommand = async (
@@ -3656,7 +2474,7 @@ export const de_DeregisterComputeCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterComputeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterComputeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3669,41 +2487,6 @@ export const de_DeregisterComputeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterComputeCommandError
- */
-const de_DeregisterComputeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterComputeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterGameServerCommand
  */
 export const de_DeregisterGameServerCommand = async (
@@ -3711,48 +2494,13 @@ export const de_DeregisterGameServerCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterGameServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterGameServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeregisterGameServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterGameServerCommandError
- */
-const de_DeregisterGameServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterGameServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3763,7 +2511,7 @@ export const de_DescribeAliasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3776,41 +2524,6 @@ export const de_DescribeAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAliasCommandError
- */
-const de_DescribeAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeBuildCommand
  */
 export const de_DescribeBuildCommand = async (
@@ -3818,7 +2531,7 @@ export const de_DescribeBuildCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3831,41 +2544,6 @@ export const de_DescribeBuildCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBuildCommandError
- */
-const de_DescribeBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeComputeCommand
  */
 export const de_DescribeComputeCommand = async (
@@ -3873,7 +2551,7 @@ export const de_DescribeComputeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComputeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeComputeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3886,41 +2564,6 @@ export const de_DescribeComputeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeComputeCommandError
- */
-const de_DescribeComputeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComputeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEC2InstanceLimitsCommand
  */
 export const de_DescribeEC2InstanceLimitsCommand = async (
@@ -3928,7 +2571,7 @@ export const de_DescribeEC2InstanceLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEC2InstanceLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEC2InstanceLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3941,41 +2584,6 @@ export const de_DescribeEC2InstanceLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError
- */
-const de_DescribeEC2InstanceLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEC2InstanceLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetAttributesCommand
  */
 export const de_DescribeFleetAttributesCommand = async (
@@ -3983,7 +2591,7 @@ export const de_DescribeFleetAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3996,41 +2604,6 @@ export const de_DescribeFleetAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetAttributesCommandError
- */
-const de_DescribeFleetAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetCapacityCommand
  */
 export const de_DescribeFleetCapacityCommand = async (
@@ -4038,7 +2611,7 @@ export const de_DescribeFleetCapacityCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetCapacityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4051,41 +2624,6 @@ export const de_DescribeFleetCapacityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetCapacityCommandError
- */
-const de_DescribeFleetCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetEventsCommand
  */
 export const de_DescribeFleetEventsCommand = async (
@@ -4093,7 +2631,7 @@ export const de_DescribeFleetEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4106,41 +2644,6 @@ export const de_DescribeFleetEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetEventsCommandError
- */
-const de_DescribeFleetEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetLocationAttributesCommand
  */
 export const de_DescribeFleetLocationAttributesCommand = async (
@@ -4148,7 +2651,7 @@ export const de_DescribeFleetLocationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetLocationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetLocationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4161,44 +2664,6 @@ export const de_DescribeFleetLocationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetLocationAttributesCommandError
- */
-const de_DescribeFleetLocationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetLocationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetLocationCapacityCommand
  */
 export const de_DescribeFleetLocationCapacityCommand = async (
@@ -4206,7 +2671,7 @@ export const de_DescribeFleetLocationCapacityCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetLocationCapacityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetLocationCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4219,44 +2684,6 @@ export const de_DescribeFleetLocationCapacityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetLocationCapacityCommandError
- */
-const de_DescribeFleetLocationCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetLocationCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetLocationUtilizationCommand
  */
 export const de_DescribeFleetLocationUtilizationCommand = async (
@@ -4264,7 +2691,7 @@ export const de_DescribeFleetLocationUtilizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetLocationUtilizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetLocationUtilizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4277,44 +2704,6 @@ export const de_DescribeFleetLocationUtilizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetLocationUtilizationCommandError
- */
-const de_DescribeFleetLocationUtilizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetLocationUtilizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetPortSettingsCommand
  */
 export const de_DescribeFleetPortSettingsCommand = async (
@@ -4322,7 +2711,7 @@ export const de_DescribeFleetPortSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetPortSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetPortSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4335,44 +2724,6 @@ export const de_DescribeFleetPortSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetPortSettingsCommandError
- */
-const de_DescribeFleetPortSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetPortSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetUtilizationCommand
  */
 export const de_DescribeFleetUtilizationCommand = async (
@@ -4380,7 +2731,7 @@ export const de_DescribeFleetUtilizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetUtilizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetUtilizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4393,41 +2744,6 @@ export const de_DescribeFleetUtilizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetUtilizationCommandError
- */
-const de_DescribeFleetUtilizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetUtilizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameServerCommand
  */
 export const de_DescribeGameServerCommand = async (
@@ -4435,7 +2751,7 @@ export const de_DescribeGameServerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4448,41 +2764,6 @@ export const de_DescribeGameServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameServerCommandError
- */
-const de_DescribeGameServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameServerGroupCommand
  */
 export const de_DescribeGameServerGroupCommand = async (
@@ -4490,7 +2771,7 @@ export const de_DescribeGameServerGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameServerGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameServerGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4503,41 +2784,6 @@ export const de_DescribeGameServerGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameServerGroupCommandError
- */
-const de_DescribeGameServerGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameServerGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameServerInstancesCommand
  */
 export const de_DescribeGameServerInstancesCommand = async (
@@ -4545,7 +2791,7 @@ export const de_DescribeGameServerInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameServerInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameServerInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4558,41 +2804,6 @@ export const de_DescribeGameServerInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameServerInstancesCommandError
- */
-const de_DescribeGameServerInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameServerInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameSessionDetailsCommand
  */
 export const de_DescribeGameSessionDetailsCommand = async (
@@ -4600,7 +2811,7 @@ export const de_DescribeGameSessionDetailsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameSessionDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameSessionDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4613,47 +2824,6 @@ export const de_DescribeGameSessionDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameSessionDetailsCommandError
- */
-const de_DescribeGameSessionDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameSessionDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameSessionPlacementCommand
  */
 export const de_DescribeGameSessionPlacementCommand = async (
@@ -4661,7 +2831,7 @@ export const de_DescribeGameSessionPlacementCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameSessionPlacementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameSessionPlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4674,41 +2844,6 @@ export const de_DescribeGameSessionPlacementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameSessionPlacementCommandError
- */
-const de_DescribeGameSessionPlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameSessionPlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameSessionQueuesCommand
  */
 export const de_DescribeGameSessionQueuesCommand = async (
@@ -4716,7 +2851,7 @@ export const de_DescribeGameSessionQueuesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameSessionQueuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameSessionQueuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4729,41 +2864,6 @@ export const de_DescribeGameSessionQueuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameSessionQueuesCommandError
- */
-const de_DescribeGameSessionQueuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameSessionQueuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeGameSessionsCommand
  */
 export const de_DescribeGameSessionsCommand = async (
@@ -4771,7 +2871,7 @@ export const de_DescribeGameSessionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGameSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGameSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4784,47 +2884,6 @@ export const de_DescribeGameSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeGameSessionsCommandError
- */
-const de_DescribeGameSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGameSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInstancesCommand
  */
 export const de_DescribeInstancesCommand = async (
@@ -4832,7 +2891,7 @@ export const de_DescribeInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4845,44 +2904,6 @@ export const de_DescribeInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInstancesCommandError
- */
-const de_DescribeInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMatchmakingCommand
  */
 export const de_DescribeMatchmakingCommand = async (
@@ -4890,7 +2911,7 @@ export const de_DescribeMatchmakingCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMatchmakingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMatchmakingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4903,38 +2924,6 @@ export const de_DescribeMatchmakingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMatchmakingCommandError
- */
-const de_DescribeMatchmakingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMatchmakingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMatchmakingConfigurationsCommand
  */
 export const de_DescribeMatchmakingConfigurationsCommand = async (
@@ -4942,7 +2931,7 @@ export const de_DescribeMatchmakingConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMatchmakingConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMatchmakingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4955,38 +2944,6 @@ export const de_DescribeMatchmakingConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMatchmakingConfigurationsCommandError
- */
-const de_DescribeMatchmakingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMatchmakingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand
  */
 export const de_DescribeMatchmakingRuleSetsCommand = async (
@@ -4994,7 +2951,7 @@ export const de_DescribeMatchmakingRuleSetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMatchmakingRuleSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMatchmakingRuleSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5007,41 +2964,6 @@ export const de_DescribeMatchmakingRuleSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMatchmakingRuleSetsCommandError
- */
-const de_DescribeMatchmakingRuleSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMatchmakingRuleSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePlayerSessionsCommand
  */
 export const de_DescribePlayerSessionsCommand = async (
@@ -5049,7 +2971,7 @@ export const de_DescribePlayerSessionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePlayerSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePlayerSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5062,41 +2984,6 @@ export const de_DescribePlayerSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePlayerSessionsCommandError
- */
-const de_DescribePlayerSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePlayerSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRuntimeConfigurationCommand
  */
 export const de_DescribeRuntimeConfigurationCommand = async (
@@ -5104,7 +2991,7 @@ export const de_DescribeRuntimeConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRuntimeConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRuntimeConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5117,41 +3004,6 @@ export const de_DescribeRuntimeConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRuntimeConfigurationCommandError
- */
-const de_DescribeRuntimeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRuntimeConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeScalingPoliciesCommand
  */
 export const de_DescribeScalingPoliciesCommand = async (
@@ -5159,7 +3011,7 @@ export const de_DescribeScalingPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScalingPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5172,44 +3024,6 @@ export const de_DescribeScalingPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeScalingPoliciesCommandError
- */
-const de_DescribeScalingPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeScriptCommand
  */
 export const de_DescribeScriptCommand = async (
@@ -5217,7 +3031,7 @@ export const de_DescribeScriptCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScriptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScriptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5230,41 +3044,6 @@ export const de_DescribeScriptCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeScriptCommandError
- */
-const de_DescribeScriptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScriptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand
  */
 export const de_DescribeVpcPeeringAuthorizationsCommand = async (
@@ -5272,7 +3051,7 @@ export const de_DescribeVpcPeeringAuthorizationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcPeeringAuthorizationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5285,38 +3064,6 @@ export const de_DescribeVpcPeeringAuthorizationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeVpcPeeringAuthorizationsCommandError
- */
-const de_DescribeVpcPeeringAuthorizationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcPeeringAuthorizationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand
  */
 export const de_DescribeVpcPeeringConnectionsCommand = async (
@@ -5324,7 +3071,7 @@ export const de_DescribeVpcPeeringConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcPeeringConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVpcPeeringConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5337,41 +3084,6 @@ export const de_DescribeVpcPeeringConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError
- */
-const de_DescribeVpcPeeringConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcPeeringConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComputeAccessCommand
  */
 export const de_GetComputeAccessCommand = async (
@@ -5379,7 +3091,7 @@ export const de_GetComputeAccessCommand = async (
   context: __SerdeContext
 ): Promise<GetComputeAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComputeAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5392,41 +3104,6 @@ export const de_GetComputeAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComputeAccessCommandError
- */
-const de_GetComputeAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComputeAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComputeAuthTokenCommand
  */
 export const de_GetComputeAuthTokenCommand = async (
@@ -5434,7 +3111,7 @@ export const de_GetComputeAuthTokenCommand = async (
   context: __SerdeContext
 ): Promise<GetComputeAuthTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComputeAuthTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5447,41 +3124,6 @@ export const de_GetComputeAuthTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComputeAuthTokenCommandError
- */
-const de_GetComputeAuthTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComputeAuthTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetGameSessionLogUrlCommand
  */
 export const de_GetGameSessionLogUrlCommand = async (
@@ -5489,7 +3131,7 @@ export const de_GetGameSessionLogUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetGameSessionLogUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGameSessionLogUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5502,41 +3144,6 @@ export const de_GetGameSessionLogUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetGameSessionLogUrlCommandError
- */
-const de_GetGameSessionLogUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGameSessionLogUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceAccessCommand
  */
 export const de_GetInstanceAccessCommand = async (
@@ -5544,7 +3151,7 @@ export const de_GetInstanceAccessCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5557,41 +3164,6 @@ export const de_GetInstanceAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceAccessCommandError
- */
-const de_GetInstanceAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAliasesCommand
  */
 export const de_ListAliasesCommand = async (
@@ -5599,7 +3171,7 @@ export const de_ListAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5612,38 +3184,6 @@ export const de_ListAliasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAliasesCommandError
- */
-const de_ListAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBuildsCommand
  */
 export const de_ListBuildsCommand = async (
@@ -5651,7 +3191,7 @@ export const de_ListBuildsCommand = async (
   context: __SerdeContext
 ): Promise<ListBuildsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBuildsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5664,38 +3204,6 @@ export const de_ListBuildsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBuildsCommandError
- */
-const de_ListBuildsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuildsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListComputeCommand
  */
 export const de_ListComputeCommand = async (
@@ -5703,7 +3211,7 @@ export const de_ListComputeCommand = async (
   context: __SerdeContext
 ): Promise<ListComputeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListComputeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5716,38 +3224,6 @@ export const de_ListComputeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListComputeCommandError
- */
-const de_ListComputeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComputeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFleetsCommand
  */
 export const de_ListFleetsCommand = async (
@@ -5755,7 +3231,7 @@ export const de_ListFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5768,41 +3244,6 @@ export const de_ListFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFleetsCommandError
- */
-const de_ListFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGameServerGroupsCommand
  */
 export const de_ListGameServerGroupsCommand = async (
@@ -5810,7 +3251,7 @@ export const de_ListGameServerGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGameServerGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGameServerGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5823,38 +3264,6 @@ export const de_ListGameServerGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGameServerGroupsCommandError
- */
-const de_ListGameServerGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGameServerGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGameServersCommand
  */
 export const de_ListGameServersCommand = async (
@@ -5862,7 +3271,7 @@ export const de_ListGameServersCommand = async (
   context: __SerdeContext
 ): Promise<ListGameServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGameServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5875,38 +3284,6 @@ export const de_ListGameServersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGameServersCommandError
- */
-const de_ListGameServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGameServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLocationsCommand
  */
 export const de_ListLocationsCommand = async (
@@ -5914,7 +3291,7 @@ export const de_ListLocationsCommand = async (
   context: __SerdeContext
 ): Promise<ListLocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5927,38 +3304,6 @@ export const de_ListLocationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLocationsCommandError
- */
-const de_ListLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListScriptsCommand
  */
 export const de_ListScriptsCommand = async (
@@ -5966,7 +3311,7 @@ export const de_ListScriptsCommand = async (
   context: __SerdeContext
 ): Promise<ListScriptsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListScriptsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5979,38 +3324,6 @@ export const de_ListScriptsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListScriptsCommandError
- */
-const de_ListScriptsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListScriptsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -6018,7 +3331,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6031,41 +3344,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutScalingPolicyCommand
  */
 export const de_PutScalingPolicyCommand = async (
@@ -6073,7 +3351,7 @@ export const de_PutScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6086,41 +3364,6 @@ export const de_PutScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutScalingPolicyCommandError
- */
-const de_PutScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterComputeCommand
  */
 export const de_RegisterComputeCommand = async (
@@ -6128,7 +3371,7 @@ export const de_RegisterComputeCommand = async (
   context: __SerdeContext
 ): Promise<RegisterComputeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterComputeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6141,44 +3384,6 @@ export const de_RegisterComputeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterComputeCommandError
- */
-const de_RegisterComputeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterComputeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterGameServerCommand
  */
 export const de_RegisterGameServerCommand = async (
@@ -6186,7 +3391,7 @@ export const de_RegisterGameServerCommand = async (
   context: __SerdeContext
 ): Promise<RegisterGameServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterGameServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6199,44 +3404,6 @@ export const de_RegisterGameServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterGameServerCommandError
- */
-const de_RegisterGameServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterGameServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RequestUploadCredentialsCommand
  */
 export const de_RequestUploadCredentialsCommand = async (
@@ -6244,7 +3411,7 @@ export const de_RequestUploadCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<RequestUploadCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestUploadCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6257,41 +3424,6 @@ export const de_RequestUploadCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RequestUploadCredentialsCommandError
- */
-const de_RequestUploadCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestUploadCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResolveAliasCommand
  */
 export const de_ResolveAliasCommand = async (
@@ -6299,7 +3431,7 @@ export const de_ResolveAliasCommand = async (
   context: __SerdeContext
 ): Promise<ResolveAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResolveAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6312,44 +3444,6 @@ export const de_ResolveAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResolveAliasCommandError
- */
-const de_ResolveAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResolveAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResumeGameServerGroupCommand
  */
 export const de_ResumeGameServerGroupCommand = async (
@@ -6357,7 +3451,7 @@ export const de_ResumeGameServerGroupCommand = async (
   context: __SerdeContext
 ): Promise<ResumeGameServerGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResumeGameServerGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6370,41 +3464,6 @@ export const de_ResumeGameServerGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResumeGameServerGroupCommandError
- */
-const de_ResumeGameServerGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeGameServerGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchGameSessionsCommand
  */
 export const de_SearchGameSessionsCommand = async (
@@ -6412,7 +3471,7 @@ export const de_SearchGameSessionsCommand = async (
   context: __SerdeContext
 ): Promise<SearchGameSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchGameSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6425,47 +3484,6 @@ export const de_SearchGameSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchGameSessionsCommandError
- */
-const de_SearchGameSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchGameSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TerminalRoutingStrategyException":
-    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
-      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartFleetActionsCommand
  */
 export const de_StartFleetActionsCommand = async (
@@ -6473,7 +3491,7 @@ export const de_StartFleetActionsCommand = async (
   context: __SerdeContext
 ): Promise<StartFleetActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartFleetActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6486,44 +3504,6 @@ export const de_StartFleetActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartFleetActionsCommandError
- */
-const de_StartFleetActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFleetActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartGameSessionPlacementCommand
  */
 export const de_StartGameSessionPlacementCommand = async (
@@ -6531,7 +3511,7 @@ export const de_StartGameSessionPlacementCommand = async (
   context: __SerdeContext
 ): Promise<StartGameSessionPlacementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartGameSessionPlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6544,41 +3524,6 @@ export const de_StartGameSessionPlacementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartGameSessionPlacementCommandError
- */
-const de_StartGameSessionPlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartGameSessionPlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMatchBackfillCommand
  */
 export const de_StartMatchBackfillCommand = async (
@@ -6586,7 +3531,7 @@ export const de_StartMatchBackfillCommand = async (
   context: __SerdeContext
 ): Promise<StartMatchBackfillCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMatchBackfillCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6599,41 +3544,6 @@ export const de_StartMatchBackfillCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMatchBackfillCommandError
- */
-const de_StartMatchBackfillCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMatchBackfillCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMatchmakingCommand
  */
 export const de_StartMatchmakingCommand = async (
@@ -6641,7 +3551,7 @@ export const de_StartMatchmakingCommand = async (
   context: __SerdeContext
 ): Promise<StartMatchmakingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMatchmakingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6654,41 +3564,6 @@ export const de_StartMatchmakingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMatchmakingCommandError
- */
-const de_StartMatchmakingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMatchmakingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopFleetActionsCommand
  */
 export const de_StopFleetActionsCommand = async (
@@ -6696,7 +3571,7 @@ export const de_StopFleetActionsCommand = async (
   context: __SerdeContext
 ): Promise<StopFleetActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopFleetActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6709,44 +3584,6 @@ export const de_StopFleetActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopFleetActionsCommandError
- */
-const de_StopFleetActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopFleetActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopGameSessionPlacementCommand
  */
 export const de_StopGameSessionPlacementCommand = async (
@@ -6754,7 +3591,7 @@ export const de_StopGameSessionPlacementCommand = async (
   context: __SerdeContext
 ): Promise<StopGameSessionPlacementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopGameSessionPlacementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6767,41 +3604,6 @@ export const de_StopGameSessionPlacementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopGameSessionPlacementCommandError
- */
-const de_StopGameSessionPlacementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopGameSessionPlacementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopMatchmakingCommand
  */
 export const de_StopMatchmakingCommand = async (
@@ -6809,7 +3611,7 @@ export const de_StopMatchmakingCommand = async (
   context: __SerdeContext
 ): Promise<StopMatchmakingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopMatchmakingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6822,41 +3624,6 @@ export const de_StopMatchmakingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopMatchmakingCommandError
- */
-const de_StopMatchmakingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopMatchmakingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SuspendGameServerGroupCommand
  */
 export const de_SuspendGameServerGroupCommand = async (
@@ -6864,7 +3631,7 @@ export const de_SuspendGameServerGroupCommand = async (
   context: __SerdeContext
 ): Promise<SuspendGameServerGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SuspendGameServerGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6877,41 +3644,6 @@ export const de_SuspendGameServerGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SuspendGameServerGroupCommandError
- */
-const de_SuspendGameServerGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SuspendGameServerGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -6919,7 +3651,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6932,41 +3664,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -6974,7 +3671,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6987,41 +3684,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TaggingFailedException":
-    case "com.amazonaws.gamelift#TaggingFailedException":
-      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAliasCommand
  */
 export const de_UpdateAliasCommand = async (
@@ -7029,7 +3691,7 @@ export const de_UpdateAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7042,41 +3704,6 @@ export const de_UpdateAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAliasCommandError
- */
-const de_UpdateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateBuildCommand
  */
 export const de_UpdateBuildCommand = async (
@@ -7084,7 +3711,7 @@ export const de_UpdateBuildCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBuildCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateBuildCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7097,41 +3724,6 @@ export const de_UpdateBuildCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateBuildCommandError
- */
-const de_UpdateBuildCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBuildCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFleetAttributesCommand
  */
 export const de_UpdateFleetAttributesCommand = async (
@@ -7139,7 +3731,7 @@ export const de_UpdateFleetAttributesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFleetAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7152,50 +3744,6 @@ export const de_UpdateFleetAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFleetAttributesCommandError
- */
-const de_UpdateFleetAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFleetAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFleetCapacityCommand
  */
 export const de_UpdateFleetCapacityCommand = async (
@@ -7203,7 +3751,7 @@ export const de_UpdateFleetCapacityCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetCapacityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFleetCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7216,53 +3764,6 @@ export const de_UpdateFleetCapacityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFleetCapacityCommandError
- */
-const de_UpdateFleetCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFleetCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFleetPortSettingsCommand
  */
 export const de_UpdateFleetPortSettingsCommand = async (
@@ -7270,7 +3771,7 @@ export const de_UpdateFleetPortSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetPortSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFleetPortSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7283,50 +3784,6 @@ export const de_UpdateFleetPortSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFleetPortSettingsCommandError
- */
-const de_UpdateFleetPortSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFleetPortSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.gamelift#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGameServerCommand
  */
 export const de_UpdateGameServerCommand = async (
@@ -7334,7 +3791,7 @@ export const de_UpdateGameServerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGameServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGameServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7347,41 +3804,6 @@ export const de_UpdateGameServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGameServerCommandError
- */
-const de_UpdateGameServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGameServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGameServerGroupCommand
  */
 export const de_UpdateGameServerGroupCommand = async (
@@ -7389,7 +3811,7 @@ export const de_UpdateGameServerGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGameServerGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGameServerGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7402,41 +3824,6 @@ export const de_UpdateGameServerGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGameServerGroupCommandError
- */
-const de_UpdateGameServerGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGameServerGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGameSessionCommand
  */
 export const de_UpdateGameSessionCommand = async (
@@ -7444,7 +3831,7 @@ export const de_UpdateGameSessionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGameSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGameSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7457,47 +3844,6 @@ export const de_UpdateGameSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGameSessionCommandError
- */
-const de_UpdateGameSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGameSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.gamelift#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidGameSessionStatusException":
-    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
-      throw await de_InvalidGameSessionStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGameSessionQueueCommand
  */
 export const de_UpdateGameSessionQueueCommand = async (
@@ -7505,7 +3851,7 @@ export const de_UpdateGameSessionQueueCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGameSessionQueueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGameSessionQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7518,41 +3864,6 @@ export const de_UpdateGameSessionQueueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGameSessionQueueCommandError
- */
-const de_UpdateGameSessionQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGameSessionQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMatchmakingConfigurationCommand
  */
 export const de_UpdateMatchmakingConfigurationCommand = async (
@@ -7560,7 +3871,7 @@ export const de_UpdateMatchmakingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMatchmakingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMatchmakingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7573,41 +3884,6 @@ export const de_UpdateMatchmakingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMatchmakingConfigurationCommandError
- */
-const de_UpdateMatchmakingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMatchmakingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedRegionException":
-    case "com.amazonaws.gamelift#UnsupportedRegionException":
-      throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRuntimeConfigurationCommand
  */
 export const de_UpdateRuntimeConfigurationCommand = async (
@@ -7615,7 +3891,7 @@ export const de_UpdateRuntimeConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRuntimeConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRuntimeConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7628,44 +3904,6 @@ export const de_UpdateRuntimeConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRuntimeConfigurationCommandError
- */
-const de_UpdateRuntimeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRuntimeConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidFleetStatusException":
-    case "com.amazonaws.gamelift#InvalidFleetStatusException":
-      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.gamelift#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateScriptCommand
  */
 export const de_UpdateScriptCommand = async (
@@ -7673,7 +3911,7 @@ export const de_UpdateScriptCommand = async (
   context: __SerdeContext
 ): Promise<UpdateScriptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateScriptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7686,12 +3924,29 @@ export const de_UpdateScriptCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateScriptCommandError
+ * deserializeAws_json1_1ValidateMatchmakingRuleSetCommand
  */
-const de_UpdateScriptCommandError = async (
+export const de_ValidateMatchmakingRuleSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateScriptCommandOutput> => {
+): Promise<ValidateMatchmakingRuleSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ValidateMatchmakingRuleSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7707,61 +3962,42 @@ const de_UpdateScriptCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.gamelift#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.gamelift#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ValidateMatchmakingRuleSetCommand
- */
-export const de_ValidateMatchmakingRuleSetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidateMatchmakingRuleSetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ValidateMatchmakingRuleSetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ValidateMatchmakingRuleSetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ValidateMatchmakingRuleSetCommandError
- */
-const de_ValidateMatchmakingRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidateMatchmakingRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.gamelift#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.gamelift#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "UnsupportedRegionException":
     case "com.amazonaws.gamelift#UnsupportedRegionException":
       throw await de_UnsupportedRegionExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "OutOfCapacityException":
+    case "com.amazonaws.gamelift#OutOfCapacityException":
+      throw await de_OutOfCapacityExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
+      throw await de_TaggingFailedExceptionRes(parsedOutput, context);
+    case "InvalidFleetStatusException":
+    case "com.amazonaws.gamelift#InvalidFleetStatusException":
+      throw await de_InvalidFleetStatusExceptionRes(parsedOutput, context);
+    case "FleetCapacityExceededException":
+    case "com.amazonaws.gamelift#FleetCapacityExceededException":
+      throw await de_FleetCapacityExceededExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.gamelift#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "TerminalRoutingStrategyException":
+    case "com.amazonaws.gamelift#TerminalRoutingStrategyException":
+      throw await de_TerminalRoutingStrategyExceptionRes(parsedOutput, context);
+    case "GameSessionFullException":
+    case "com.amazonaws.gamelift#GameSessionFullException":
+      throw await de_GameSessionFullExceptionRes(parsedOutput, context);
+    case "InvalidGameSessionStatusException":
+    case "com.amazonaws.gamelift#InvalidGameSessionStatusException":
+      throw await de_InvalidGameSessionStatusExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

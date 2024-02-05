@@ -544,7 +544,7 @@ export const de_AssociateDefaultViewCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDefaultViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateDefaultViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -558,44 +558,6 @@ export const de_AssociateDefaultViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateDefaultViewCommandError
- */
-const de_AssociateDefaultViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDefaultViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetViewCommand
  */
 export const de_BatchGetViewCommand = async (
@@ -603,7 +565,7 @@ export const de_BatchGetViewCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -618,44 +580,6 @@ export const de_BatchGetViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetViewCommandError
- */
-const de_BatchGetViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIndexCommand
  */
 export const de_CreateIndexCommand = async (
@@ -663,7 +587,7 @@ export const de_CreateIndexCommand = async (
   context: __SerdeContext
 ): Promise<CreateIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -679,44 +603,6 @@ export const de_CreateIndexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIndexCommandError
- */
-const de_CreateIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.resourceexplorer2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateViewCommand
  */
 export const de_CreateViewCommand = async (
@@ -724,7 +610,7 @@ export const de_CreateViewCommand = async (
   context: __SerdeContext
 ): Promise<CreateViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -738,50 +624,6 @@ export const de_CreateViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateViewCommandError
- */
-const de_CreateViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.resourceexplorer2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.resourceexplorer2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteIndexCommand
  */
 export const de_DeleteIndexCommand = async (
@@ -789,7 +631,7 @@ export const de_DeleteIndexCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -805,44 +647,6 @@ export const de_DeleteIndexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteIndexCommandError
- */
-const de_DeleteIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteViewCommand
  */
 export const de_DeleteViewCommand = async (
@@ -850,7 +654,7 @@ export const de_DeleteViewCommand = async (
   context: __SerdeContext
 ): Promise<DeleteViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -864,47 +668,6 @@ export const de_DeleteViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteViewCommandError
- */
-const de_DeleteViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateDefaultViewCommand
  */
 export const de_DisassociateDefaultViewCommand = async (
@@ -912,51 +675,13 @@ export const de_DisassociateDefaultViewCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDefaultViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateDefaultViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateDefaultViewCommandError
- */
-const de_DisassociateDefaultViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDefaultViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -967,7 +692,7 @@ export const de_GetAccountLevelServiceConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountLevelServiceConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountLevelServiceConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -981,41 +706,6 @@ export const de_GetAccountLevelServiceConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccountLevelServiceConfigurationCommandError
- */
-const de_GetAccountLevelServiceConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountLevelServiceConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDefaultViewCommand
  */
 export const de_GetDefaultViewCommand = async (
@@ -1023,7 +713,7 @@ export const de_GetDefaultViewCommand = async (
   context: __SerdeContext
 ): Promise<GetDefaultViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDefaultViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1037,44 +727,6 @@ export const de_GetDefaultViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDefaultViewCommandError
- */
-const de_GetDefaultViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIndexCommand
  */
 export const de_GetIndexCommand = async (
@@ -1082,7 +734,7 @@ export const de_GetIndexCommand = async (
   context: __SerdeContext
 ): Promise<GetIndexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1103,44 +755,6 @@ export const de_GetIndexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIndexCommandError
- */
-const de_GetIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetViewCommand
  */
 export const de_GetViewCommand = async (
@@ -1148,7 +762,7 @@ export const de_GetViewCommand = async (
   context: __SerdeContext
 ): Promise<GetViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1163,47 +777,6 @@ export const de_GetViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetViewCommandError
- */
-const de_GetViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIndexesCommand
  */
 export const de_ListIndexesCommand = async (
@@ -1211,7 +784,7 @@ export const de_ListIndexesCommand = async (
   context: __SerdeContext
 ): Promise<ListIndexesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIndexesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1223,41 +796,6 @@ export const de_ListIndexesCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListIndexesCommandError
- */
-const de_ListIndexesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIndexesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1268,7 +806,7 @@ export const de_ListIndexesForMembersCommand = async (
   context: __SerdeContext
 ): Promise<ListIndexesForMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIndexesForMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1283,41 +821,6 @@ export const de_ListIndexesForMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIndexesForMembersCommandError
- */
-const de_ListIndexesForMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIndexesForMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSupportedResourceTypesCommand
  */
 export const de_ListSupportedResourceTypesCommand = async (
@@ -1325,7 +828,7 @@ export const de_ListSupportedResourceTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListSupportedResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSupportedResourceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1340,41 +843,6 @@ export const de_ListSupportedResourceTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSupportedResourceTypesCommandError
- */
-const de_ListSupportedResourceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSupportedResourceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1382,7 +850,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1396,47 +864,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListViewsCommand
  */
 export const de_ListViewsCommand = async (
@@ -1444,7 +871,7 @@ export const de_ListViewsCommand = async (
   context: __SerdeContext
 ): Promise<ListViewsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListViewsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1459,41 +886,6 @@ export const de_ListViewsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListViewsCommandError
- */
-const de_ListViewsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListViewsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchCommand
  */
 export const de_SearchCommand = async (
@@ -1501,7 +893,7 @@ export const de_SearchCommand = async (
   context: __SerdeContext
 ): Promise<SearchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1518,44 +910,6 @@ export const de_SearchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchCommandError
- */
-const de_SearchCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1563,54 +917,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.resourceexplorer2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1621,54 +934,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1679,7 +951,7 @@ export const de_UpdateIndexTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIndexTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIndexTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1696,50 +968,6 @@ export const de_UpdateIndexTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIndexTypeCommandError
- */
-const de_UpdateIndexTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIndexTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.resourceexplorer2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.resourceexplorer2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.resourceexplorer2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.resourceexplorer2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.resourceexplorer2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.resourceexplorer2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateViewCommand
  */
 export const de_UpdateViewCommand = async (
@@ -1747,7 +975,7 @@ export const de_UpdateViewCommand = async (
   context: __SerdeContext
 ): Promise<UpdateViewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1761,12 +989,9 @@ export const de_UpdateViewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateViewCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateViewCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1779,18 +1004,24 @@ const de_UpdateViewCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.resourceexplorer2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.resourceexplorer2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resourceexplorer2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.resourceexplorer2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.resourceexplorer2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.resourceexplorer2#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.resourceexplorer2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.resourceexplorer2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

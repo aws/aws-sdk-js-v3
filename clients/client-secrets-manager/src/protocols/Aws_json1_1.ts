@@ -430,7 +430,7 @@ export const de_BatchGetSecretValueCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetSecretValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetSecretValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -443,47 +443,6 @@ export const de_BatchGetSecretValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetSecretValueCommandError
- */
-const de_BatchGetSecretValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetSecretValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DecryptionFailure":
-    case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await de_DecryptionFailureRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelRotateSecretCommand
  */
 export const de_CancelRotateSecretCommand = async (
@@ -491,7 +450,7 @@ export const de_CancelRotateSecretCommand = async (
   context: __SerdeContext
 ): Promise<CancelRotateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelRotateSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -504,41 +463,6 @@ export const de_CancelRotateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelRotateSecretCommandError
- */
-const de_CancelRotateSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelRotateSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSecretCommand
  */
 export const de_CreateSecretCommand = async (
@@ -546,7 +470,7 @@ export const de_CreateSecretCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -559,59 +483,6 @@ export const de_CreateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSecretCommandError
- */
-const de_CreateSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DecryptionFailure":
-    case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await de_DecryptionFailureRes(parsedOutput, context);
-    case "EncryptionFailure":
-    case "com.amazonaws.secretsmanager#EncryptionFailure":
-      throw await de_EncryptionFailureRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.secretsmanager#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.secretsmanager#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -619,7 +490,7 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -632,41 +503,6 @@ export const de_DeleteResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSecretCommand
  */
 export const de_DeleteSecretCommand = async (
@@ -674,7 +510,7 @@ export const de_DeleteSecretCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -687,41 +523,6 @@ export const de_DeleteSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSecretCommandError
- */
-const de_DeleteSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSecretCommand
  */
 export const de_DescribeSecretCommand = async (
@@ -729,7 +530,7 @@ export const de_DescribeSecretCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -742,38 +543,6 @@ export const de_DescribeSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSecretCommandError
- */
-const de_DescribeSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRandomPasswordCommand
  */
 export const de_GetRandomPasswordCommand = async (
@@ -781,7 +550,7 @@ export const de_GetRandomPasswordCommand = async (
   context: __SerdeContext
 ): Promise<GetRandomPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRandomPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -794,38 +563,6 @@ export const de_GetRandomPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRandomPasswordCommandError
- */
-const de_GetRandomPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRandomPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -833,7 +570,7 @@ export const de_GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -846,41 +583,6 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSecretValueCommand
  */
 export const de_GetSecretValueCommand = async (
@@ -888,7 +590,7 @@ export const de_GetSecretValueCommand = async (
   context: __SerdeContext
 ): Promise<GetSecretValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSecretValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -901,44 +603,6 @@ export const de_GetSecretValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSecretValueCommandError
- */
-const de_GetSecretValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecretValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DecryptionFailure":
-    case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await de_DecryptionFailureRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSecretsCommand
  */
 export const de_ListSecretsCommand = async (
@@ -946,7 +610,7 @@ export const de_ListSecretsCommand = async (
   context: __SerdeContext
 ): Promise<ListSecretsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSecretsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -959,41 +623,6 @@ export const de_ListSecretsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSecretsCommandError
- */
-const de_ListSecretsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecretsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSecretVersionIdsCommand
  */
 export const de_ListSecretVersionIdsCommand = async (
@@ -1001,7 +630,7 @@ export const de_ListSecretVersionIdsCommand = async (
   context: __SerdeContext
 ): Promise<ListSecretVersionIdsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSecretVersionIdsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1014,41 +643,6 @@ export const de_ListSecretVersionIdsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSecretVersionIdsCommandError
- */
-const de_ListSecretVersionIdsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecretVersionIdsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -1056,7 +650,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1069,47 +663,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PublicPolicyException":
-    case "com.amazonaws.secretsmanager#PublicPolicyException":
-      throw await de_PublicPolicyExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutSecretValueCommand
  */
 export const de_PutSecretValueCommand = async (
@@ -1117,7 +670,7 @@ export const de_PutSecretValueCommand = async (
   context: __SerdeContext
 ): Promise<PutSecretValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutSecretValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1130,53 +683,6 @@ export const de_PutSecretValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutSecretValueCommandError
- */
-const de_PutSecretValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSecretValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DecryptionFailure":
-    case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await de_DecryptionFailureRes(parsedOutput, context);
-    case "EncryptionFailure":
-    case "com.amazonaws.secretsmanager#EncryptionFailure":
-      throw await de_EncryptionFailureRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.secretsmanager#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveRegionsFromReplicationCommand
  */
 export const de_RemoveRegionsFromReplicationCommand = async (
@@ -1184,7 +690,7 @@ export const de_RemoveRegionsFromReplicationCommand = async (
   context: __SerdeContext
 ): Promise<RemoveRegionsFromReplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveRegionsFromReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1197,41 +703,6 @@ export const de_RemoveRegionsFromReplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveRegionsFromReplicationCommandError
- */
-const de_RemoveRegionsFromReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRegionsFromReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ReplicateSecretToRegionsCommand
  */
 export const de_ReplicateSecretToRegionsCommand = async (
@@ -1239,7 +710,7 @@ export const de_ReplicateSecretToRegionsCommand = async (
   context: __SerdeContext
 ): Promise<ReplicateSecretToRegionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReplicateSecretToRegionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1252,41 +723,6 @@ export const de_ReplicateSecretToRegionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ReplicateSecretToRegionsCommandError
- */
-const de_ReplicateSecretToRegionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplicateSecretToRegionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreSecretCommand
  */
 export const de_RestoreSecretCommand = async (
@@ -1294,7 +730,7 @@ export const de_RestoreSecretCommand = async (
   context: __SerdeContext
 ): Promise<RestoreSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1307,41 +743,6 @@ export const de_RestoreSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreSecretCommandError
- */
-const de_RestoreSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RotateSecretCommand
  */
 export const de_RotateSecretCommand = async (
@@ -1349,7 +750,7 @@ export const de_RotateSecretCommand = async (
   context: __SerdeContext
 ): Promise<RotateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RotateSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1362,41 +763,6 @@ export const de_RotateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RotateSecretCommandError
- */
-const de_RotateSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RotateSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopReplicationToReplicaCommand
  */
 export const de_StopReplicationToReplicaCommand = async (
@@ -1404,7 +770,7 @@ export const de_StopReplicationToReplicaCommand = async (
   context: __SerdeContext
 ): Promise<StopReplicationToReplicaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopReplicationToReplicaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1417,41 +783,6 @@ export const de_StopReplicationToReplicaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopReplicationToReplicaCommandError
- */
-const de_StopReplicationToReplicaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopReplicationToReplicaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1459,48 +790,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1511,48 +807,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1563,7 +824,7 @@ export const de_UpdateSecretCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecretCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSecretCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1576,59 +837,6 @@ export const de_UpdateSecretCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSecretCommandError
- */
-const de_UpdateSecretCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecretCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DecryptionFailure":
-    case "com.amazonaws.secretsmanager#DecryptionFailure":
-      throw await de_DecryptionFailureRes(parsedOutput, context);
-    case "EncryptionFailure":
-    case "com.amazonaws.secretsmanager#EncryptionFailure":
-      throw await de_EncryptionFailureRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.secretsmanager#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.secretsmanager#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSecretVersionStageCommand
  */
 export const de_UpdateSecretVersionStageCommand = async (
@@ -1636,7 +844,7 @@ export const de_UpdateSecretVersionStageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecretVersionStageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSecretVersionStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1649,44 +857,6 @@ export const de_UpdateSecretVersionStageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSecretVersionStageCommandError
- */
-const de_UpdateSecretVersionStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecretVersionStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.secretsmanager#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.secretsmanager#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.secretsmanager#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.secretsmanager#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.secretsmanager#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ValidateResourcePolicyCommand
  */
 export const de_ValidateResourcePolicyCommand = async (
@@ -1694,7 +864,7 @@ export const de_ValidateResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<ValidateResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ValidateResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1707,33 +877,51 @@ export const de_ValidateResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ValidateResourcePolicyCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_ValidateResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidateResourcePolicyCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DecryptionFailure":
+    case "com.amazonaws.secretsmanager#DecryptionFailure":
+      throw await de_DecryptionFailureRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.secretsmanager#InternalServiceError":
       throw await de_InternalServiceErrorRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.secretsmanager#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.secretsmanager#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.secretsmanager#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.secretsmanager#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "EncryptionFailure":
+    case "com.amazonaws.secretsmanager#EncryptionFailure":
+      throw await de_EncryptionFailureRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.secretsmanager#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.secretsmanager#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.secretsmanager#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.secretsmanager#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "PublicPolicyException":
+    case "com.amazonaws.secretsmanager#PublicPolicyException":
+      throw await de_PublicPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

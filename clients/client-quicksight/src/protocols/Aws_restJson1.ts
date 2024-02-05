@@ -4984,7 +4984,7 @@ export const de_CancelIngestionCommand = async (
   context: __SerdeContext
 ): Promise<CancelIngestionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelIngestionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5003,47 +5003,6 @@ export const de_CancelIngestionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelIngestionCommandError
- */
-const de_CancelIngestionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelIngestionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAccountCustomizationCommand
  */
 export const de_CreateAccountCustomizationCommand = async (
@@ -5051,7 +5010,7 @@ export const de_CreateAccountCustomizationCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccountCustomizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAccountCustomizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5072,53 +5031,6 @@ export const de_CreateAccountCustomizationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAccountCustomizationCommandError
- */
-const de_CreateAccountCustomizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccountCustomizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAccountSubscriptionCommand
  */
 export const de_CreateAccountSubscriptionCommand = async (
@@ -5126,7 +5038,7 @@ export const de_CreateAccountSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccountSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAccountSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5144,56 +5056,6 @@ export const de_CreateAccountSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAccountSubscriptionCommandError
- */
-const de_CreateAccountSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccountSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAnalysisCommand
  */
 export const de_CreateAnalysisCommand = async (
@@ -5201,7 +5063,7 @@ export const de_CreateAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<CreateAnalysisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5221,53 +5083,6 @@ export const de_CreateAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAnalysisCommandError
- */
-const de_CreateAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDashboardCommand
  */
 export const de_CreateDashboardCommand = async (
@@ -5275,7 +5090,7 @@ export const de_CreateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5296,53 +5111,6 @@ export const de_CreateDashboardCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDashboardCommandError
- */
-const de_CreateDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDataSetCommand
  */
 export const de_CreateDataSetCommand = async (
@@ -5350,7 +5118,7 @@ export const de_CreateDataSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5371,56 +5139,6 @@ export const de_CreateDataSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDataSetCommandError
- */
-const de_CreateDataSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDataSourceCommand
  */
 export const de_CreateDataSourceCommand = async (
@@ -5428,7 +5146,7 @@ export const de_CreateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5448,53 +5166,6 @@ export const de_CreateDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDataSourceCommandError
- */
-const de_CreateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFolderCommand
  */
 export const de_CreateFolderCommand = async (
@@ -5502,7 +5173,7 @@ export const de_CreateFolderCommand = async (
   context: __SerdeContext
 ): Promise<CreateFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5521,56 +5192,6 @@ export const de_CreateFolderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFolderCommandError
- */
-const de_CreateFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFolderMembershipCommand
  */
 export const de_CreateFolderMembershipCommand = async (
@@ -5578,7 +5199,7 @@ export const de_CreateFolderMembershipCommand = async (
   context: __SerdeContext
 ): Promise<CreateFolderMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFolderMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5594,53 +5215,6 @@ export const de_CreateFolderMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFolderMembershipCommandError
- */
-const de_CreateFolderMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFolderMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGroupCommand
  */
 export const de_CreateGroupCommand = async (
@@ -5648,7 +5222,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5666,56 +5240,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGroupMembershipCommand
  */
 export const de_CreateGroupMembershipCommand = async (
@@ -5723,7 +5247,7 @@ export const de_CreateGroupMembershipCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5741,50 +5265,6 @@ export const de_CreateGroupMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGroupMembershipCommandError
- */
-const de_CreateGroupMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIAMPolicyAssignmentCommand
  */
 export const de_CreateIAMPolicyAssignmentCommand = async (
@@ -5792,7 +5272,7 @@ export const de_CreateIAMPolicyAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateIAMPolicyAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5814,50 +5294,6 @@ export const de_CreateIAMPolicyAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIAMPolicyAssignmentCommandError
- */
-const de_CreateIAMPolicyAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIAMPolicyAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentUpdatingException":
-    case "com.amazonaws.quicksight#ConcurrentUpdatingException":
-      throw await de_ConcurrentUpdatingExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIngestionCommand
  */
 export const de_CreateIngestionCommand = async (
@@ -5865,7 +5301,7 @@ export const de_CreateIngestionCommand = async (
   context: __SerdeContext
 ): Promise<CreateIngestionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateIngestionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5885,50 +5321,6 @@ export const de_CreateIngestionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIngestionCommandError
- */
-const de_CreateIngestionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIngestionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateNamespaceCommand
  */
 export const de_CreateNamespaceCommand = async (
@@ -5936,7 +5328,7 @@ export const de_CreateNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<CreateNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5958,59 +5350,6 @@ export const de_CreateNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateNamespaceCommandError
- */
-const de_CreateNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRefreshScheduleCommand
  */
 export const de_CreateRefreshScheduleCommand = async (
@@ -6018,7 +5357,7 @@ export const de_CreateRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<CreateRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6037,53 +5376,6 @@ export const de_CreateRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRefreshScheduleCommandError
- */
-const de_CreateRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRoleMembershipCommand
  */
 export const de_CreateRoleMembershipCommand = async (
@@ -6091,7 +5383,7 @@ export const de_CreateRoleMembershipCommand = async (
   context: __SerdeContext
 ): Promise<CreateRoleMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRoleMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6108,50 +5400,6 @@ export const de_CreateRoleMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRoleMembershipCommandError
- */
-const de_CreateRoleMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRoleMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTemplateCommand
  */
 export const de_CreateTemplateCommand = async (
@@ -6159,7 +5407,7 @@ export const de_CreateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6180,56 +5428,6 @@ export const de_CreateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTemplateCommandError
- */
-const de_CreateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTemplateAliasCommand
  */
 export const de_CreateTemplateAliasCommand = async (
@@ -6237,7 +5435,7 @@ export const de_CreateTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTemplateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6255,50 +5453,6 @@ export const de_CreateTemplateAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTemplateAliasCommandError
- */
-const de_CreateTemplateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTemplateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateThemeCommand
  */
 export const de_CreateThemeCommand = async (
@@ -6306,7 +5460,7 @@ export const de_CreateThemeCommand = async (
   context: __SerdeContext
 ): Promise<CreateThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6327,53 +5481,6 @@ export const de_CreateThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateThemeCommandError
- */
-const de_CreateThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateThemeAliasCommand
  */
 export const de_CreateThemeAliasCommand = async (
@@ -6381,7 +5488,7 @@ export const de_CreateThemeAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateThemeAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateThemeAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6399,53 +5506,6 @@ export const de_CreateThemeAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateThemeAliasCommandError
- */
-const de_CreateThemeAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateThemeAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTopicCommand
  */
 export const de_CreateTopicCommand = async (
@@ -6453,7 +5513,7 @@ export const de_CreateTopicCommand = async (
   context: __SerdeContext
 ): Promise<CreateTopicCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6473,53 +5533,6 @@ export const de_CreateTopicCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTopicCommandError
- */
-const de_CreateTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTopicRefreshScheduleCommand
  */
 export const de_CreateTopicRefreshScheduleCommand = async (
@@ -6527,7 +5540,7 @@ export const de_CreateTopicRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<CreateTopicRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTopicRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6547,53 +5560,6 @@ export const de_CreateTopicRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTopicRefreshScheduleCommandError
- */
-const de_CreateTopicRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTopicRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateVPCConnectionCommand
  */
 export const de_CreateVPCConnectionCommand = async (
@@ -6601,7 +5567,7 @@ export const de_CreateVPCConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateVPCConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVPCConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6622,53 +5588,6 @@ export const de_CreateVPCConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateVPCConnectionCommandError
- */
-const de_CreateVPCConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVPCConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAccountCustomizationCommand
  */
 export const de_DeleteAccountCustomizationCommand = async (
@@ -6676,7 +5595,7 @@ export const de_DeleteAccountCustomizationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccountCustomizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAccountCustomizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6690,56 +5609,6 @@ export const de_DeleteAccountCustomizationCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAccountCustomizationCommandError
- */
-const de_DeleteAccountCustomizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountCustomizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6750,7 +5619,7 @@ export const de_DeleteAccountSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccountSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAccountSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6767,50 +5636,6 @@ export const de_DeleteAccountSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAccountSubscriptionCommandError
- */
-const de_DeleteAccountSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAnalysisCommand
  */
 export const de_DeleteAnalysisCommand = async (
@@ -6818,7 +5643,7 @@ export const de_DeleteAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnalysisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6838,47 +5663,6 @@ export const de_DeleteAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAnalysisCommandError
- */
-const de_DeleteAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDashboardCommand
  */
 export const de_DeleteDashboardCommand = async (
@@ -6886,7 +5670,7 @@ export const de_DeleteDashboardCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6905,47 +5689,6 @@ export const de_DeleteDashboardCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDashboardCommandError
- */
-const de_DeleteDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDataSetCommand
  */
 export const de_DeleteDataSetCommand = async (
@@ -6953,7 +5696,7 @@ export const de_DeleteDataSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6972,44 +5715,6 @@ export const de_DeleteDataSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDataSetCommandError
- */
-const de_DeleteDataSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDataSetRefreshPropertiesCommand
  */
 export const de_DeleteDataSetRefreshPropertiesCommand = async (
@@ -7017,7 +5722,7 @@ export const de_DeleteDataSetRefreshPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSetRefreshPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataSetRefreshPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7034,50 +5739,6 @@ export const de_DeleteDataSetRefreshPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDataSetRefreshPropertiesCommandError
- */
-const de_DeleteDataSetRefreshPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSetRefreshPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDataSourceCommand
  */
 export const de_DeleteDataSourceCommand = async (
@@ -7085,7 +5746,7 @@ export const de_DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7104,44 +5765,6 @@ export const de_DeleteDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDataSourceCommandError
- */
-const de_DeleteDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteFolderCommand
  */
 export const de_DeleteFolderCommand = async (
@@ -7149,7 +5772,7 @@ export const de_DeleteFolderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7168,53 +5791,6 @@ export const de_DeleteFolderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteFolderCommandError
- */
-const de_DeleteFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteFolderMembershipCommand
  */
 export const de_DeleteFolderMembershipCommand = async (
@@ -7222,7 +5798,7 @@ export const de_DeleteFolderMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFolderMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFolderMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7237,47 +5813,6 @@ export const de_DeleteFolderMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteFolderMembershipCommandError
- */
-const de_DeleteFolderMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFolderMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteGroupCommand
  */
 export const de_DeleteGroupCommand = async (
@@ -7285,7 +5820,7 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7299,50 +5834,6 @@ export const de_DeleteGroupCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7353,7 +5844,7 @@ export const de_DeleteGroupMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGroupMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7370,50 +5861,6 @@ export const de_DeleteGroupMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteGroupMembershipCommandError
- */
-const de_DeleteGroupMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteIAMPolicyAssignmentCommand
  */
 export const de_DeleteIAMPolicyAssignmentCommand = async (
@@ -7421,7 +5868,7 @@ export const de_DeleteIAMPolicyAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteIAMPolicyAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7439,50 +5886,6 @@ export const de_DeleteIAMPolicyAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteIAMPolicyAssignmentCommandError
- */
-const de_DeleteIAMPolicyAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIAMPolicyAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentUpdatingException":
-    case "com.amazonaws.quicksight#ConcurrentUpdatingException":
-      throw await de_ConcurrentUpdatingExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteIdentityPropagationConfigCommand
  */
 export const de_DeleteIdentityPropagationConfigCommand = async (
@@ -7490,7 +5893,7 @@ export const de_DeleteIdentityPropagationConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIdentityPropagationConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteIdentityPropagationConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7504,44 +5907,6 @@ export const de_DeleteIdentityPropagationConfigCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIdentityPropagationConfigCommandError
- */
-const de_DeleteIdentityPropagationConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIdentityPropagationConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7552,7 +5917,7 @@ export const de_DeleteNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7569,50 +5934,6 @@ export const de_DeleteNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteNamespaceCommandError
- */
-const de_DeleteNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteRefreshScheduleCommand
  */
 export const de_DeleteRefreshScheduleCommand = async (
@@ -7620,7 +5941,7 @@ export const de_DeleteRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7639,47 +5960,6 @@ export const de_DeleteRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteRefreshScheduleCommandError
- */
-const de_DeleteRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteRoleCustomPermissionCommand
  */
 export const de_DeleteRoleCustomPermissionCommand = async (
@@ -7687,7 +5967,7 @@ export const de_DeleteRoleCustomPermissionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRoleCustomPermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRoleCustomPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7702,50 +5982,6 @@ export const de_DeleteRoleCustomPermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteRoleCustomPermissionCommandError
- */
-const de_DeleteRoleCustomPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRoleCustomPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteRoleMembershipCommand
  */
 export const de_DeleteRoleMembershipCommand = async (
@@ -7753,7 +5989,7 @@ export const de_DeleteRoleMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRoleMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRoleMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7767,50 +6003,6 @@ export const de_DeleteRoleMembershipCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRoleMembershipCommandError
- */
-const de_DeleteRoleMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRoleMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7821,7 +6013,7 @@ export const de_DeleteTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7837,50 +6029,6 @@ export const de_DeleteTemplateCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTemplateCommandError
- */
-const de_DeleteTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7891,7 +6039,7 @@ export const de_DeleteTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTemplateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7911,44 +6059,6 @@ export const de_DeleteTemplateAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteTemplateAliasCommandError
- */
-const de_DeleteTemplateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTemplateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteThemeCommand
  */
 export const de_DeleteThemeCommand = async (
@@ -7956,7 +6066,7 @@ export const de_DeleteThemeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7975,50 +6085,6 @@ export const de_DeleteThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteThemeCommandError
- */
-const de_DeleteThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteThemeAliasCommand
  */
 export const de_DeleteThemeAliasCommand = async (
@@ -8026,7 +6092,7 @@ export const de_DeleteThemeAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteThemeAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteThemeAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8046,47 +6112,6 @@ export const de_DeleteThemeAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteThemeAliasCommandError
- */
-const de_DeleteThemeAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteThemeAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteTopicCommand
  */
 export const de_DeleteTopicCommand = async (
@@ -8094,7 +6119,7 @@ export const de_DeleteTopicCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTopicCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8113,47 +6138,6 @@ export const de_DeleteTopicCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteTopicCommandError
- */
-const de_DeleteTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteTopicRefreshScheduleCommand
  */
 export const de_DeleteTopicRefreshScheduleCommand = async (
@@ -8161,7 +6145,7 @@ export const de_DeleteTopicRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTopicRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTopicRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8181,53 +6165,6 @@ export const de_DeleteTopicRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteTopicRefreshScheduleCommandError
- */
-const de_DeleteTopicRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTopicRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -8235,7 +6172,7 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8249,50 +6186,6 @@ export const de_DeleteUserCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8303,7 +6196,7 @@ export const de_DeleteUserByPrincipalIdCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserByPrincipalIdCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteUserByPrincipalIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8320,50 +6213,6 @@ export const de_DeleteUserByPrincipalIdCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteUserByPrincipalIdCommandError
- */
-const de_DeleteUserByPrincipalIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserByPrincipalIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteVPCConnectionCommand
  */
 export const de_DeleteVPCConnectionCommand = async (
@@ -8371,7 +6220,7 @@ export const de_DeleteVPCConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVPCConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVPCConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8392,50 +6241,6 @@ export const de_DeleteVPCConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteVPCConnectionCommandError
- */
-const de_DeleteVPCConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVPCConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAccountCustomizationCommand
  */
 export const de_DescribeAccountCustomizationCommand = async (
@@ -8443,7 +6248,7 @@ export const de_DescribeAccountCustomizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountCustomizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccountCustomizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8464,47 +6269,6 @@ export const de_DescribeAccountCustomizationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAccountCustomizationCommandError
- */
-const de_DescribeAccountCustomizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountCustomizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAccountSettingsCommand
  */
 export const de_DescribeAccountSettingsCommand = async (
@@ -8512,7 +6276,7 @@ export const de_DescribeAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8530,47 +6294,6 @@ export const de_DescribeAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAccountSettingsCommandError
- */
-const de_DescribeAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAccountSubscriptionCommand
  */
 export const de_DescribeAccountSubscriptionCommand = async (
@@ -8578,7 +6301,7 @@ export const de_DescribeAccountSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccountSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8596,47 +6319,6 @@ export const de_DescribeAccountSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAccountSubscriptionCommandError
- */
-const de_DescribeAccountSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAnalysisCommand
  */
 export const de_DescribeAnalysisCommand = async (
@@ -8644,7 +6326,7 @@ export const de_DescribeAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAnalysisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8662,47 +6344,6 @@ export const de_DescribeAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAnalysisCommandError
- */
-const de_DescribeAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAnalysisDefinitionCommand
  */
 export const de_DescribeAnalysisDefinitionCommand = async (
@@ -8710,7 +6351,7 @@ export const de_DescribeAnalysisDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAnalysisDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAnalysisDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8733,53 +6374,6 @@ export const de_DescribeAnalysisDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAnalysisDefinitionCommandError
- */
-const de_DescribeAnalysisDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnalysisDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAnalysisPermissionsCommand
  */
 export const de_DescribeAnalysisPermissionsCommand = async (
@@ -8787,7 +6381,7 @@ export const de_DescribeAnalysisPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAnalysisPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAnalysisPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8807,44 +6401,6 @@ export const de_DescribeAnalysisPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAnalysisPermissionsCommandError
- */
-const de_DescribeAnalysisPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnalysisPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetBundleExportJobCommand
  */
 export const de_DescribeAssetBundleExportJobCommand = async (
@@ -8852,7 +6408,7 @@ export const de_DescribeAssetBundleExportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetBundleExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetBundleExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8884,38 +6440,6 @@ export const de_DescribeAssetBundleExportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetBundleExportJobCommandError
- */
-const de_DescribeAssetBundleExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetBundleExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetBundleImportJobCommand
  */
 export const de_DescribeAssetBundleImportJobCommand = async (
@@ -8923,7 +6447,7 @@ export const de_DescribeAssetBundleImportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetBundleImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetBundleImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8953,38 +6477,6 @@ export const de_DescribeAssetBundleImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetBundleImportJobCommandError
- */
-const de_DescribeAssetBundleImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetBundleImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDashboardCommand
  */
 export const de_DescribeDashboardCommand = async (
@@ -8992,7 +6484,7 @@ export const de_DescribeDashboardCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9010,47 +6502,6 @@ export const de_DescribeDashboardCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDashboardCommandError
- */
-const de_DescribeDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDashboardDefinitionCommand
  */
 export const de_DescribeDashboardDefinitionCommand = async (
@@ -9058,7 +6509,7 @@ export const de_DescribeDashboardDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDashboardDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9082,53 +6533,6 @@ export const de_DescribeDashboardDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDashboardDefinitionCommandError
- */
-const de_DescribeDashboardDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDashboardDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDashboardPermissionsCommand
  */
 export const de_DescribeDashboardPermissionsCommand = async (
@@ -9136,7 +6540,7 @@ export const de_DescribeDashboardPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDashboardPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9157,44 +6561,6 @@ export const de_DescribeDashboardPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDashboardPermissionsCommandError
- */
-const de_DescribeDashboardPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDashboardPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDashboardSnapshotJobCommand
  */
 export const de_DescribeDashboardSnapshotJobCommand = async (
@@ -9202,7 +6568,7 @@ export const de_DescribeDashboardSnapshotJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardSnapshotJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDashboardSnapshotJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9226,44 +6592,6 @@ export const de_DescribeDashboardSnapshotJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDashboardSnapshotJobCommandError
- */
-const de_DescribeDashboardSnapshotJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDashboardSnapshotJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDashboardSnapshotJobResultCommand
  */
 export const de_DescribeDashboardSnapshotJobResultCommand = async (
@@ -9271,7 +6599,7 @@ export const de_DescribeDashboardSnapshotJobResultCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardSnapshotJobResultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDashboardSnapshotJobResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9294,50 +6622,6 @@ export const de_DescribeDashboardSnapshotJobResultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDashboardSnapshotJobResultCommandError
- */
-const de_DescribeDashboardSnapshotJobResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDashboardSnapshotJobResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDataSetCommand
  */
 export const de_DescribeDataSetCommand = async (
@@ -9345,7 +6629,7 @@ export const de_DescribeDataSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDataSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9363,44 +6647,6 @@ export const de_DescribeDataSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDataSetCommandError
- */
-const de_DescribeDataSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDataSetPermissionsCommand
  */
 export const de_DescribeDataSetPermissionsCommand = async (
@@ -9408,7 +6654,7 @@ export const de_DescribeDataSetPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSetPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDataSetPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9428,44 +6674,6 @@ export const de_DescribeDataSetPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDataSetPermissionsCommandError
- */
-const de_DescribeDataSetPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSetPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDataSetRefreshPropertiesCommand
  */
 export const de_DescribeDataSetRefreshPropertiesCommand = async (
@@ -9473,7 +6681,7 @@ export const de_DescribeDataSetRefreshPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSetRefreshPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDataSetRefreshPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9491,50 +6699,6 @@ export const de_DescribeDataSetRefreshPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDataSetRefreshPropertiesCommandError
- */
-const de_DescribeDataSetRefreshPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSetRefreshPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDataSourceCommand
  */
 export const de_DescribeDataSourceCommand = async (
@@ -9542,7 +6706,7 @@ export const de_DescribeDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9560,44 +6724,6 @@ export const de_DescribeDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDataSourceCommandError
- */
-const de_DescribeDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDataSourcePermissionsCommand
  */
 export const de_DescribeDataSourcePermissionsCommand = async (
@@ -9605,7 +6731,7 @@ export const de_DescribeDataSourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataSourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDataSourcePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9625,44 +6751,6 @@ export const de_DescribeDataSourcePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDataSourcePermissionsCommandError
- */
-const de_DescribeDataSourcePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSourcePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFolderCommand
  */
 export const de_DescribeFolderCommand = async (
@@ -9670,7 +6758,7 @@ export const de_DescribeFolderCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9688,47 +6776,6 @@ export const de_DescribeFolderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFolderCommandError
- */
-const de_DescribeFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFolderPermissionsCommand
  */
 export const de_DescribeFolderPermissionsCommand = async (
@@ -9736,7 +6783,7 @@ export const de_DescribeFolderPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFolderPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFolderPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9754,50 +6801,6 @@ export const de_DescribeFolderPermissionsCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeFolderPermissionsCommandError
- */
-const de_DescribeFolderPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFolderPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9808,7 +6811,7 @@ export const de_DescribeFolderResolvedPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFolderResolvedPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFolderResolvedPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9829,50 +6832,6 @@ export const de_DescribeFolderResolvedPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFolderResolvedPermissionsCommandError
- */
-const de_DescribeFolderResolvedPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFolderResolvedPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeGroupCommand
  */
 export const de_DescribeGroupCommand = async (
@@ -9880,7 +6839,7 @@ export const de_DescribeGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9898,50 +6857,6 @@ export const de_DescribeGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGroupCommandError
- */
-const de_DescribeGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeGroupMembershipCommand
  */
 export const de_DescribeGroupMembershipCommand = async (
@@ -9949,7 +6864,7 @@ export const de_DescribeGroupMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGroupMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGroupMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9967,50 +6882,6 @@ export const de_DescribeGroupMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGroupMembershipCommandError
- */
-const de_DescribeGroupMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGroupMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeIAMPolicyAssignmentCommand
  */
 export const de_DescribeIAMPolicyAssignmentCommand = async (
@@ -10018,7 +6889,7 @@ export const de_DescribeIAMPolicyAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIAMPolicyAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10036,47 +6907,6 @@ export const de_DescribeIAMPolicyAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeIAMPolicyAssignmentCommandError
- */
-const de_DescribeIAMPolicyAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIAMPolicyAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeIngestionCommand
  */
 export const de_DescribeIngestionCommand = async (
@@ -10084,7 +6914,7 @@ export const de_DescribeIngestionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIngestionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIngestionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10102,47 +6932,6 @@ export const de_DescribeIngestionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeIngestionCommandError
- */
-const de_DescribeIngestionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIngestionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeIpRestrictionCommand
  */
 export const de_DescribeIpRestrictionCommand = async (
@@ -10150,7 +6939,7 @@ export const de_DescribeIpRestrictionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIpRestrictionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIpRestrictionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10170,44 +6959,6 @@ export const de_DescribeIpRestrictionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeIpRestrictionCommandError
- */
-const de_DescribeIpRestrictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIpRestrictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeNamespaceCommand
  */
 export const de_DescribeNamespaceCommand = async (
@@ -10215,7 +6966,7 @@ export const de_DescribeNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10233,47 +6984,6 @@ export const de_DescribeNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeNamespaceCommandError
- */
-const de_DescribeNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRefreshScheduleCommand
  */
 export const de_DescribeRefreshScheduleCommand = async (
@@ -10281,7 +6991,7 @@ export const de_DescribeRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10300,47 +7010,6 @@ export const de_DescribeRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRefreshScheduleCommandError
- */
-const de_DescribeRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRoleCustomPermissionCommand
  */
 export const de_DescribeRoleCustomPermissionCommand = async (
@@ -10348,7 +7017,7 @@ export const de_DescribeRoleCustomPermissionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRoleCustomPermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRoleCustomPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10364,50 +7033,6 @@ export const de_DescribeRoleCustomPermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRoleCustomPermissionCommandError
- */
-const de_DescribeRoleCustomPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRoleCustomPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTemplateCommand
  */
 export const de_DescribeTemplateCommand = async (
@@ -10415,7 +7040,7 @@ export const de_DescribeTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10433,53 +7058,6 @@ export const de_DescribeTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTemplateCommandError
- */
-const de_DescribeTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTemplateAliasCommand
  */
 export const de_DescribeTemplateAliasCommand = async (
@@ -10487,7 +7065,7 @@ export const de_DescribeTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTemplateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10505,41 +7083,6 @@ export const de_DescribeTemplateAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTemplateAliasCommandError
- */
-const de_DescribeTemplateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTemplateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTemplateDefinitionCommand
  */
 export const de_DescribeTemplateDefinitionCommand = async (
@@ -10547,7 +7090,7 @@ export const de_DescribeTemplateDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTemplateDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTemplateDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10570,53 +7113,6 @@ export const de_DescribeTemplateDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTemplateDefinitionCommandError
- */
-const de_DescribeTemplateDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTemplateDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTemplatePermissionsCommand
  */
 export const de_DescribeTemplatePermissionsCommand = async (
@@ -10624,7 +7120,7 @@ export const de_DescribeTemplatePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTemplatePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTemplatePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10644,47 +7140,6 @@ export const de_DescribeTemplatePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTemplatePermissionsCommandError
- */
-const de_DescribeTemplatePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTemplatePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeThemeCommand
  */
 export const de_DescribeThemeCommand = async (
@@ -10692,7 +7147,7 @@ export const de_DescribeThemeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10710,50 +7165,6 @@ export const de_DescribeThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeThemeCommandError
- */
-const de_DescribeThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeThemeAliasCommand
  */
 export const de_DescribeThemeAliasCommand = async (
@@ -10761,7 +7172,7 @@ export const de_DescribeThemeAliasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeThemeAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeThemeAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10779,47 +7190,6 @@ export const de_DescribeThemeAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeThemeAliasCommandError
- */
-const de_DescribeThemeAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeThemeAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeThemePermissionsCommand
  */
 export const de_DescribeThemePermissionsCommand = async (
@@ -10827,7 +7197,7 @@ export const de_DescribeThemePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeThemePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeThemePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10847,47 +7217,6 @@ export const de_DescribeThemePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeThemePermissionsCommandError
- */
-const de_DescribeThemePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeThemePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTopicCommand
  */
 export const de_DescribeTopicCommand = async (
@@ -10895,7 +7224,7 @@ export const de_DescribeTopicCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTopicCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10915,44 +7244,6 @@ export const de_DescribeTopicCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTopicCommandError
- */
-const de_DescribeTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTopicPermissionsCommand
  */
 export const de_DescribeTopicPermissionsCommand = async (
@@ -10960,7 +7251,7 @@ export const de_DescribeTopicPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTopicPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTopicPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10980,44 +7271,6 @@ export const de_DescribeTopicPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTopicPermissionsCommandError
- */
-const de_DescribeTopicPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTopicPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTopicRefreshCommand
  */
 export const de_DescribeTopicRefreshCommand = async (
@@ -11025,7 +7278,7 @@ export const de_DescribeTopicRefreshCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTopicRefreshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTopicRefreshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11043,44 +7296,6 @@ export const de_DescribeTopicRefreshCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTopicRefreshCommandError
- */
-const de_DescribeTopicRefreshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTopicRefreshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTopicRefreshScheduleCommand
  */
 export const de_DescribeTopicRefreshScheduleCommand = async (
@@ -11088,7 +7303,7 @@ export const de_DescribeTopicRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTopicRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTopicRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11109,53 +7324,6 @@ export const de_DescribeTopicRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTopicRefreshScheduleCommandError
- */
-const de_DescribeTopicRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTopicRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeUserCommand
  */
 export const de_DescribeUserCommand = async (
@@ -11163,7 +7331,7 @@ export const de_DescribeUserCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11181,50 +7349,6 @@ export const de_DescribeUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeUserCommandError
- */
-const de_DescribeUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVPCConnectionCommand
  */
 export const de_DescribeVPCConnectionCommand = async (
@@ -11232,7 +7356,7 @@ export const de_DescribeVPCConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVPCConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVPCConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11248,47 +7372,6 @@ export const de_DescribeVPCConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVPCConnectionCommandError
- */
-const de_DescribeVPCConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVPCConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand
  */
 export const de_GenerateEmbedUrlForAnonymousUserCommand = async (
@@ -11296,7 +7379,7 @@ export const de_GenerateEmbedUrlForAnonymousUserCommand = async (
   context: __SerdeContext
 ): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GenerateEmbedUrlForAnonymousUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11315,53 +7398,6 @@ export const de_GenerateEmbedUrlForAnonymousUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommandError
- */
-const de_GenerateEmbedUrlForAnonymousUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateEmbedUrlForAnonymousUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SessionLifetimeInMinutesInvalidException":
-    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
-      throw await de_SessionLifetimeInMinutesInvalidExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedPricingPlanException":
-    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
-      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand
  */
 export const de_GenerateEmbedUrlForRegisteredUserCommand = async (
@@ -11369,7 +7405,7 @@ export const de_GenerateEmbedUrlForRegisteredUserCommand = async (
   context: __SerdeContext
 ): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GenerateEmbedUrlForRegisteredUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11384,56 +7420,6 @@ export const de_GenerateEmbedUrlForRegisteredUserCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommandError
- */
-const de_GenerateEmbedUrlForRegisteredUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateEmbedUrlForRegisteredUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "QuickSightUserNotFoundException":
-    case "com.amazonaws.quicksight#QuickSightUserNotFoundException":
-      throw await de_QuickSightUserNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SessionLifetimeInMinutesInvalidException":
-    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
-      throw await de_SessionLifetimeInMinutesInvalidExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedPricingPlanException":
-    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
-      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11444,7 +7430,7 @@ export const de_GetDashboardEmbedUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetDashboardEmbedUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDashboardEmbedUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11459,65 +7445,6 @@ export const de_GetDashboardEmbedUrlCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDashboardEmbedUrlCommandError
- */
-const de_GetDashboardEmbedUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDashboardEmbedUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DomainNotWhitelistedException":
-    case "com.amazonaws.quicksight#DomainNotWhitelistedException":
-      throw await de_DomainNotWhitelistedExceptionRes(parsedOutput, context);
-    case "IdentityTypeNotSupportedException":
-    case "com.amazonaws.quicksight#IdentityTypeNotSupportedException":
-      throw await de_IdentityTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "QuickSightUserNotFoundException":
-    case "com.amazonaws.quicksight#QuickSightUserNotFoundException":
-      throw await de_QuickSightUserNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SessionLifetimeInMinutesInvalidException":
-    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
-      throw await de_SessionLifetimeInMinutesInvalidExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedPricingPlanException":
-    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
-      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11528,7 +7455,7 @@ export const de_GetSessionEmbedUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionEmbedUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSessionEmbedUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11546,56 +7473,6 @@ export const de_GetSessionEmbedUrlCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSessionEmbedUrlCommandError
- */
-const de_GetSessionEmbedUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionEmbedUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "QuickSightUserNotFoundException":
-    case "com.amazonaws.quicksight#QuickSightUserNotFoundException":
-      throw await de_QuickSightUserNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SessionLifetimeInMinutesInvalidException":
-    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
-      throw await de_SessionLifetimeInMinutesInvalidExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAnalysesCommand
  */
 export const de_ListAnalysesCommand = async (
@@ -11603,7 +7480,7 @@ export const de_ListAnalysesCommand = async (
   context: __SerdeContext
 ): Promise<ListAnalysesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAnalysesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11622,41 +7499,6 @@ export const de_ListAnalysesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAnalysesCommandError
- */
-const de_ListAnalysesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnalysesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetBundleExportJobsCommand
  */
 export const de_ListAssetBundleExportJobsCommand = async (
@@ -11664,7 +7506,7 @@ export const de_ListAssetBundleExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetBundleExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetBundleExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11683,44 +7525,6 @@ export const de_ListAssetBundleExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetBundleExportJobsCommandError
- */
-const de_ListAssetBundleExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetBundleExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetBundleImportJobsCommand
  */
 export const de_ListAssetBundleImportJobsCommand = async (
@@ -11728,7 +7532,7 @@ export const de_ListAssetBundleImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetBundleImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetBundleImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11747,44 +7551,6 @@ export const de_ListAssetBundleImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetBundleImportJobsCommandError
- */
-const de_ListAssetBundleImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetBundleImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDashboardsCommand
  */
 export const de_ListDashboardsCommand = async (
@@ -11792,7 +7558,7 @@ export const de_ListDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDashboardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11811,41 +7577,6 @@ export const de_ListDashboardsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDashboardsCommandError
- */
-const de_ListDashboardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDashboardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDashboardVersionsCommand
  */
 export const de_ListDashboardVersionsCommand = async (
@@ -11853,7 +7584,7 @@ export const de_ListDashboardVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDashboardVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDashboardVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11872,47 +7603,6 @@ export const de_ListDashboardVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDashboardVersionsCommandError
- */
-const de_ListDashboardVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDashboardVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataSetsCommand
  */
 export const de_ListDataSetsCommand = async (
@@ -11920,7 +7610,7 @@ export const de_ListDataSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -11939,44 +7629,6 @@ export const de_ListDataSetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataSetsCommandError
- */
-const de_ListDataSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataSourcesCommand
  */
 export const de_ListDataSourcesCommand = async (
@@ -11984,7 +7636,7 @@ export const de_ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12003,44 +7655,6 @@ export const de_ListDataSourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataSourcesCommandError
- */
-const de_ListDataSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFolderMembersCommand
  */
 export const de_ListFolderMembersCommand = async (
@@ -12048,7 +7662,7 @@ export const de_ListFolderMembersCommand = async (
   context: __SerdeContext
 ): Promise<ListFolderMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFolderMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12067,50 +7681,6 @@ export const de_ListFolderMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFolderMembersCommandError
- */
-const de_ListFolderMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFolderMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFoldersCommand
  */
 export const de_ListFoldersCommand = async (
@@ -12118,7 +7688,7 @@ export const de_ListFoldersCommand = async (
   context: __SerdeContext
 ): Promise<ListFoldersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFoldersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12137,50 +7707,6 @@ export const de_ListFoldersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFoldersCommandError
- */
-const de_ListFoldersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFoldersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroupMembershipsCommand
  */
 export const de_ListGroupMembershipsCommand = async (
@@ -12188,7 +7714,7 @@ export const de_ListGroupMembershipsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupMembershipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupMembershipsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12207,53 +7733,6 @@ export const de_ListGroupMembershipsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroupMembershipsCommandError
- */
-const de_ListGroupMembershipsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupMembershipsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroupsCommand
  */
 export const de_ListGroupsCommand = async (
@@ -12261,7 +7740,7 @@ export const de_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12280,53 +7759,6 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroupsCommandError
- */
-const de_ListGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIAMPolicyAssignmentsCommand
  */
 export const de_ListIAMPolicyAssignmentsCommand = async (
@@ -12334,7 +7766,7 @@ export const de_ListIAMPolicyAssignmentsCommand = async (
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIAMPolicyAssignmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12353,47 +7785,6 @@ export const de_ListIAMPolicyAssignmentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIAMPolicyAssignmentsCommandError
- */
-const de_ListIAMPolicyAssignmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIAMPolicyAssignmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand
  */
 export const de_ListIAMPolicyAssignmentsForUserCommand = async (
@@ -12401,7 +7792,7 @@ export const de_ListIAMPolicyAssignmentsForUserCommand = async (
   context: __SerdeContext
 ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIAMPolicyAssignmentsForUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12420,50 +7811,6 @@ export const de_ListIAMPolicyAssignmentsForUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommandError
- */
-const de_ListIAMPolicyAssignmentsForUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentUpdatingException":
-    case "com.amazonaws.quicksight#ConcurrentUpdatingException":
-      throw await de_ConcurrentUpdatingExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIdentityPropagationConfigsCommand
  */
 export const de_ListIdentityPropagationConfigsCommand = async (
@@ -12471,7 +7818,7 @@ export const de_ListIdentityPropagationConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentityPropagationConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIdentityPropagationConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12490,44 +7837,6 @@ export const de_ListIdentityPropagationConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIdentityPropagationConfigsCommandError
- */
-const de_ListIdentityPropagationConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityPropagationConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIngestionsCommand
  */
 export const de_ListIngestionsCommand = async (
@@ -12535,7 +7844,7 @@ export const de_ListIngestionsCommand = async (
   context: __SerdeContext
 ): Promise<ListIngestionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIngestionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12554,50 +7863,6 @@ export const de_ListIngestionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIngestionsCommandError
- */
-const de_ListIngestionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIngestionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListNamespacesCommand
  */
 export const de_ListNamespacesCommand = async (
@@ -12605,7 +7870,7 @@ export const de_ListNamespacesCommand = async (
   context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListNamespacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12624,53 +7889,6 @@ export const de_ListNamespacesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListNamespacesCommandError
- */
-const de_ListNamespacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNamespacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRefreshSchedulesCommand
  */
 export const de_ListRefreshSchedulesCommand = async (
@@ -12678,7 +7896,7 @@ export const de_ListRefreshSchedulesCommand = async (
   context: __SerdeContext
 ): Promise<ListRefreshSchedulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRefreshSchedulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12696,47 +7914,6 @@ export const de_ListRefreshSchedulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRefreshSchedulesCommandError
- */
-const de_ListRefreshSchedulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRefreshSchedulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRoleMembershipsCommand
  */
 export const de_ListRoleMembershipsCommand = async (
@@ -12744,7 +7921,7 @@ export const de_ListRoleMembershipsCommand = async (
   context: __SerdeContext
 ): Promise<ListRoleMembershipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRoleMembershipsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12763,56 +7940,6 @@ export const de_ListRoleMembershipsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRoleMembershipsCommandError
- */
-const de_ListRoleMembershipsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRoleMembershipsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -12820,7 +7947,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12838,44 +7965,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTemplateAliasesCommand
  */
 export const de_ListTemplateAliasesCommand = async (
@@ -12883,7 +7972,7 @@ export const de_ListTemplateAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplateAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12902,44 +7991,6 @@ export const de_ListTemplateAliasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplateAliasesCommandError
- */
-const de_ListTemplateAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplateAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTemplatesCommand
  */
 export const de_ListTemplatesCommand = async (
@@ -12947,7 +7998,7 @@ export const de_ListTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -12966,47 +8017,6 @@ export const de_ListTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplatesCommandError
- */
-const de_ListTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTemplateVersionsCommand
  */
 export const de_ListTemplateVersionsCommand = async (
@@ -13014,7 +8024,7 @@ export const de_ListTemplateVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplateVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13033,47 +8043,6 @@ export const de_ListTemplateVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplateVersionsCommandError
- */
-const de_ListTemplateVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplateVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListThemeAliasesCommand
  */
 export const de_ListThemeAliasesCommand = async (
@@ -13081,7 +8050,7 @@ export const de_ListThemeAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListThemeAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListThemeAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13100,50 +8069,6 @@ export const de_ListThemeAliasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListThemeAliasesCommandError
- */
-const de_ListThemeAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListThemeAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListThemesCommand
  */
 export const de_ListThemesCommand = async (
@@ -13151,7 +8076,7 @@ export const de_ListThemesCommand = async (
   context: __SerdeContext
 ): Promise<ListThemesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListThemesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13170,50 +8095,6 @@ export const de_ListThemesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListThemesCommandError
- */
-const de_ListThemesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListThemesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListThemeVersionsCommand
  */
 export const de_ListThemeVersionsCommand = async (
@@ -13221,7 +8102,7 @@ export const de_ListThemeVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListThemeVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListThemeVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13240,50 +8121,6 @@ export const de_ListThemeVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListThemeVersionsCommandError
- */
-const de_ListThemeVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListThemeVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTopicRefreshSchedulesCommand
  */
 export const de_ListTopicRefreshSchedulesCommand = async (
@@ -13291,7 +8128,7 @@ export const de_ListTopicRefreshSchedulesCommand = async (
   context: __SerdeContext
 ): Promise<ListTopicRefreshSchedulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTopicRefreshSchedulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13311,53 +8148,6 @@ export const de_ListTopicRefreshSchedulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTopicRefreshSchedulesCommandError
- */
-const de_ListTopicRefreshSchedulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTopicRefreshSchedulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTopicsCommand
  */
 export const de_ListTopicsCommand = async (
@@ -13365,7 +8155,7 @@ export const de_ListTopicsCommand = async (
   context: __SerdeContext
 ): Promise<ListTopicsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTopicsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13384,44 +8174,6 @@ export const de_ListTopicsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTopicsCommandError
- */
-const de_ListTopicsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTopicsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListUserGroupsCommand
  */
 export const de_ListUserGroupsCommand = async (
@@ -13429,7 +8181,7 @@ export const de_ListUserGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListUserGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListUserGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13448,50 +8200,6 @@ export const de_ListUserGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListUserGroupsCommandError
- */
-const de_ListUserGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListUsersCommand
  */
 export const de_ListUsersCommand = async (
@@ -13499,7 +8207,7 @@ export const de_ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13518,53 +8226,6 @@ export const de_ListUsersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListUsersCommandError
- */
-const de_ListUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVPCConnectionsCommand
  */
 export const de_ListVPCConnectionsCommand = async (
@@ -13572,7 +8233,7 @@ export const de_ListVPCConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListVPCConnectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVPCConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13591,47 +8252,6 @@ export const de_ListVPCConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVPCConnectionsCommandError
- */
-const de_ListVPCConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVPCConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutDataSetRefreshPropertiesCommand
  */
 export const de_PutDataSetRefreshPropertiesCommand = async (
@@ -13639,7 +8259,7 @@ export const de_PutDataSetRefreshPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<PutDataSetRefreshPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDataSetRefreshPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13656,53 +8276,6 @@ export const de_PutDataSetRefreshPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutDataSetRefreshPropertiesCommandError
- */
-const de_PutDataSetRefreshPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDataSetRefreshPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterUserCommand
  */
 export const de_RegisterUserCommand = async (
@@ -13710,7 +8283,7 @@ export const de_RegisterUserCommand = async (
   context: __SerdeContext
 ): Promise<RegisterUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13729,56 +8302,6 @@ export const de_RegisterUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterUserCommandError
- */
-const de_RegisterUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RestoreAnalysisCommand
  */
 export const de_RestoreAnalysisCommand = async (
@@ -13786,7 +8309,7 @@ export const de_RestoreAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<RestoreAnalysisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RestoreAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13805,47 +8328,6 @@ export const de_RestoreAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RestoreAnalysisCommandError
- */
-const de_RestoreAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchAnalysesCommand
  */
 export const de_SearchAnalysesCommand = async (
@@ -13853,7 +8335,7 @@ export const de_SearchAnalysesCommand = async (
   context: __SerdeContext
 ): Promise<SearchAnalysesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchAnalysesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13872,47 +8354,6 @@ export const de_SearchAnalysesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchAnalysesCommandError
- */
-const de_SearchAnalysesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchAnalysesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchDashboardsCommand
  */
 export const de_SearchDashboardsCommand = async (
@@ -13920,7 +8361,7 @@ export const de_SearchDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<SearchDashboardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchDashboardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -13939,47 +8380,6 @@ export const de_SearchDashboardsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchDashboardsCommandError
- */
-const de_SearchDashboardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchDashboardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchDataSetsCommand
  */
 export const de_SearchDataSetsCommand = async (
@@ -13987,7 +8387,7 @@ export const de_SearchDataSetsCommand = async (
   context: __SerdeContext
 ): Promise<SearchDataSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchDataSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14006,47 +8406,6 @@ export const de_SearchDataSetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchDataSetsCommandError
- */
-const de_SearchDataSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchDataSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchDataSourcesCommand
  */
 export const de_SearchDataSourcesCommand = async (
@@ -14054,7 +8413,7 @@ export const de_SearchDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<SearchDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchDataSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14073,47 +8432,6 @@ export const de_SearchDataSourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchDataSourcesCommandError
- */
-const de_SearchDataSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchDataSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchFoldersCommand
  */
 export const de_SearchFoldersCommand = async (
@@ -14121,7 +8439,7 @@ export const de_SearchFoldersCommand = async (
   context: __SerdeContext
 ): Promise<SearchFoldersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchFoldersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14140,53 +8458,6 @@ export const de_SearchFoldersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchFoldersCommandError
- */
-const de_SearchFoldersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFoldersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.quicksight#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchGroupsCommand
  */
 export const de_SearchGroupsCommand = async (
@@ -14194,7 +8465,7 @@ export const de_SearchGroupsCommand = async (
   context: __SerdeContext
 ): Promise<SearchGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14213,53 +8484,6 @@ export const de_SearchGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchGroupsCommandError
- */
-const de_SearchGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.quicksight#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartAssetBundleExportJobCommand
  */
 export const de_StartAssetBundleExportJobCommand = async (
@@ -14267,7 +8491,7 @@ export const de_StartAssetBundleExportJobCommand = async (
   context: __SerdeContext
 ): Promise<StartAssetBundleExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartAssetBundleExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14286,50 +8510,6 @@ export const de_StartAssetBundleExportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartAssetBundleExportJobCommandError
- */
-const de_StartAssetBundleExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAssetBundleExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartAssetBundleImportJobCommand
  */
 export const de_StartAssetBundleImportJobCommand = async (
@@ -14337,7 +8517,7 @@ export const de_StartAssetBundleImportJobCommand = async (
   context: __SerdeContext
 ): Promise<StartAssetBundleImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartAssetBundleImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14356,50 +8536,6 @@ export const de_StartAssetBundleImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartAssetBundleImportJobCommandError
- */
-const de_StartAssetBundleImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAssetBundleImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartDashboardSnapshotJobCommand
  */
 export const de_StartDashboardSnapshotJobCommand = async (
@@ -14407,7 +8543,7 @@ export const de_StartDashboardSnapshotJobCommand = async (
   context: __SerdeContext
 ): Promise<StartDashboardSnapshotJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDashboardSnapshotJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14426,56 +8562,6 @@ export const de_StartDashboardSnapshotJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartDashboardSnapshotJobCommandError
- */
-const de_StartDashboardSnapshotJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDashboardSnapshotJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedPricingPlanException":
-    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
-      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -14483,7 +8569,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14497,47 +8583,6 @@ export const de_TagResourceCommand = async (
     Status: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -14548,7 +8593,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14565,44 +8610,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAccountCustomizationCommand
  */
 export const de_UpdateAccountCustomizationCommand = async (
@@ -14610,7 +8617,7 @@ export const de_UpdateAccountCustomizationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountCustomizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccountCustomizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14631,50 +8638,6 @@ export const de_UpdateAccountCustomizationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAccountCustomizationCommandError
- */
-const de_UpdateAccountCustomizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountCustomizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAccountSettingsCommand
  */
 export const de_UpdateAccountSettingsCommand = async (
@@ -14682,7 +8645,7 @@ export const de_UpdateAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14699,47 +8662,6 @@ export const de_UpdateAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAccountSettingsCommandError
- */
-const de_UpdateAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAnalysisCommand
  */
 export const de_UpdateAnalysisCommand = async (
@@ -14747,7 +8669,7 @@ export const de_UpdateAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAnalysisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14767,50 +8689,6 @@ export const de_UpdateAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAnalysisCommandError
- */
-const de_UpdateAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAnalysisPermissionsCommand
  */
 export const de_UpdateAnalysisPermissionsCommand = async (
@@ -14818,7 +8696,7 @@ export const de_UpdateAnalysisPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAnalysisPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAnalysisPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14838,50 +8716,6 @@ export const de_UpdateAnalysisPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAnalysisPermissionsCommandError
- */
-const de_UpdateAnalysisPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAnalysisPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDashboardCommand
  */
 export const de_UpdateDashboardCommand = async (
@@ -14889,7 +8723,7 @@ export const de_UpdateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14908,50 +8742,6 @@ export const de_UpdateDashboardCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDashboardCommandError
- */
-const de_UpdateDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDashboardLinksCommand
  */
 export const de_UpdateDashboardLinksCommand = async (
@@ -14959,7 +8749,7 @@ export const de_UpdateDashboardLinksCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDashboardLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDashboardLinksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -14978,50 +8768,6 @@ export const de_UpdateDashboardLinksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDashboardLinksCommandError
- */
-const de_UpdateDashboardLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDashboardLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDashboardPermissionsCommand
  */
 export const de_UpdateDashboardPermissionsCommand = async (
@@ -15029,7 +8775,7 @@ export const de_UpdateDashboardPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDashboardPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDashboardPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15050,50 +8796,6 @@ export const de_UpdateDashboardPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDashboardPermissionsCommandError
- */
-const de_UpdateDashboardPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDashboardPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDashboardPublishedVersionCommand
  */
 export const de_UpdateDashboardPublishedVersionCommand = async (
@@ -15101,7 +8803,7 @@ export const de_UpdateDashboardPublishedVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDashboardPublishedVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDashboardPublishedVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15120,47 +8822,6 @@ export const de_UpdateDashboardPublishedVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDashboardPublishedVersionCommandError
- */
-const de_UpdateDashboardPublishedVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDashboardPublishedVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataSetCommand
  */
 export const de_UpdateDataSetCommand = async (
@@ -15168,7 +8829,7 @@ export const de_UpdateDataSetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15189,53 +8850,6 @@ export const de_UpdateDataSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDataSetCommandError
- */
-const de_UpdateDataSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataSetPermissionsCommand
  */
 export const de_UpdateDataSetPermissionsCommand = async (
@@ -15243,7 +8857,7 @@ export const de_UpdateDataSetPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSetPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSetPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15262,47 +8876,6 @@ export const de_UpdateDataSetPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDataSetPermissionsCommandError
- */
-const de_UpdateDataSetPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSetPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataSourceCommand
  */
 export const de_UpdateDataSourceCommand = async (
@@ -15310,7 +8883,7 @@ export const de_UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15330,47 +8903,6 @@ export const de_UpdateDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDataSourceCommandError
- */
-const de_UpdateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataSourcePermissionsCommand
  */
 export const de_UpdateDataSourcePermissionsCommand = async (
@@ -15378,7 +8910,7 @@ export const de_UpdateDataSourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSourcePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15397,47 +8929,6 @@ export const de_UpdateDataSourcePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDataSourcePermissionsCommandError
- */
-const de_UpdateDataSourcePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourcePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFolderCommand
  */
 export const de_UpdateFolderCommand = async (
@@ -15445,7 +8936,7 @@ export const de_UpdateFolderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15464,53 +8955,6 @@ export const de_UpdateFolderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFolderCommandError
- */
-const de_UpdateFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFolderPermissionsCommand
  */
 export const de_UpdateFolderPermissionsCommand = async (
@@ -15518,7 +8962,7 @@ export const de_UpdateFolderPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFolderPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFolderPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15536,50 +8980,6 @@ export const de_UpdateFolderPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFolderPermissionsCommandError
- */
-const de_UpdateFolderPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFolderPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateGroupCommand
  */
 export const de_UpdateGroupCommand = async (
@@ -15587,7 +8987,7 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15605,50 +9005,6 @@ export const de_UpdateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIAMPolicyAssignmentCommand
  */
 export const de_UpdateIAMPolicyAssignmentCommand = async (
@@ -15656,7 +9012,7 @@ export const de_UpdateIAMPolicyAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIAMPolicyAssignmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIAMPolicyAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15678,50 +9034,6 @@ export const de_UpdateIAMPolicyAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIAMPolicyAssignmentCommandError
- */
-const de_UpdateIAMPolicyAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIAMPolicyAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentUpdatingException":
-    case "com.amazonaws.quicksight#ConcurrentUpdatingException":
-      throw await de_ConcurrentUpdatingExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIdentityPropagationConfigCommand
  */
 export const de_UpdateIdentityPropagationConfigCommand = async (
@@ -15729,7 +9041,7 @@ export const de_UpdateIdentityPropagationConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIdentityPropagationConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIdentityPropagationConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15746,44 +9058,6 @@ export const de_UpdateIdentityPropagationConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIdentityPropagationConfigCommandError
- */
-const de_UpdateIdentityPropagationConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIdentityPropagationConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIpRestrictionCommand
  */
 export const de_UpdateIpRestrictionCommand = async (
@@ -15791,7 +9065,7 @@ export const de_UpdateIpRestrictionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIpRestrictionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIpRestrictionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15809,47 +9083,6 @@ export const de_UpdateIpRestrictionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIpRestrictionCommandError
- */
-const de_UpdateIpRestrictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIpRestrictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePublicSharingSettingsCommand
  */
 export const de_UpdatePublicSharingSettingsCommand = async (
@@ -15857,7 +9090,7 @@ export const de_UpdatePublicSharingSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePublicSharingSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePublicSharingSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15874,47 +9107,6 @@ export const de_UpdatePublicSharingSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePublicSharingSettingsCommandError
- */
-const de_UpdatePublicSharingSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePublicSharingSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedPricingPlanException":
-    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
-      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRefreshScheduleCommand
  */
 export const de_UpdateRefreshScheduleCommand = async (
@@ -15922,7 +9114,7 @@ export const de_UpdateRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -15941,50 +9133,6 @@ export const de_UpdateRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRefreshScheduleCommandError
- */
-const de_UpdateRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRoleCustomPermissionCommand
  */
 export const de_UpdateRoleCustomPermissionCommand = async (
@@ -15992,7 +9140,7 @@ export const de_UpdateRoleCustomPermissionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoleCustomPermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRoleCustomPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16007,50 +9155,6 @@ export const de_UpdateRoleCustomPermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRoleCustomPermissionCommandError
- */
-const de_UpdateRoleCustomPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRoleCustomPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTemplateCommand
  */
 export const de_UpdateTemplateCommand = async (
@@ -16058,7 +9162,7 @@ export const de_UpdateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16079,53 +9183,6 @@ export const de_UpdateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTemplateCommandError
- */
-const de_UpdateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTemplateAliasCommand
  */
 export const de_UpdateTemplateAliasCommand = async (
@@ -16133,7 +9190,7 @@ export const de_UpdateTemplateAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTemplateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16151,44 +9208,6 @@ export const de_UpdateTemplateAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTemplateAliasCommandError
- */
-const de_UpdateTemplateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTemplatePermissionsCommand
  */
 export const de_UpdateTemplatePermissionsCommand = async (
@@ -16196,7 +9215,7 @@ export const de_UpdateTemplatePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplatePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTemplatePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16216,50 +9235,6 @@ export const de_UpdateTemplatePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTemplatePermissionsCommandError
- */
-const de_UpdateTemplatePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplatePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateThemeCommand
  */
 export const de_UpdateThemeCommand = async (
@@ -16267,7 +9242,7 @@ export const de_UpdateThemeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16288,53 +9263,6 @@ export const de_UpdateThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateThemeCommandError
- */
-const de_UpdateThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateThemeAliasCommand
  */
 export const de_UpdateThemeAliasCommand = async (
@@ -16342,7 +9270,7 @@ export const de_UpdateThemeAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateThemeAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateThemeAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16360,50 +9288,6 @@ export const de_UpdateThemeAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateThemeAliasCommandError
- */
-const de_UpdateThemeAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThemeAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateThemePermissionsCommand
  */
 export const de_UpdateThemePermissionsCommand = async (
@@ -16411,7 +9295,7 @@ export const de_UpdateThemePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateThemePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateThemePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16431,50 +9315,6 @@ export const de_UpdateThemePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateThemePermissionsCommandError
- */
-const de_UpdateThemePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThemePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTopicCommand
  */
 export const de_UpdateTopicCommand = async (
@@ -16482,7 +9322,7 @@ export const de_UpdateTopicCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTopicCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16502,53 +9342,6 @@ export const de_UpdateTopicCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTopicCommandError
- */
-const de_UpdateTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTopicPermissionsCommand
  */
 export const de_UpdateTopicPermissionsCommand = async (
@@ -16556,7 +9349,7 @@ export const de_UpdateTopicPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTopicPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTopicPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16576,53 +9369,6 @@ export const de_UpdateTopicPermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTopicPermissionsCommandError
- */
-const de_UpdateTopicPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTopicPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedUserEditionException":
-    case "com.amazonaws.quicksight#UnsupportedUserEditionException":
-      throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTopicRefreshScheduleCommand
  */
 export const de_UpdateTopicRefreshScheduleCommand = async (
@@ -16630,7 +9376,7 @@ export const de_UpdateTopicRefreshScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTopicRefreshScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTopicRefreshScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16650,53 +9396,6 @@ export const de_UpdateTopicRefreshScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTopicRefreshScheduleCommandError
- */
-const de_UpdateTopicRefreshScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTopicRefreshScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.quicksight#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateUserCommand
  */
 export const de_UpdateUserCommand = async (
@@ -16704,7 +9403,7 @@ export const de_UpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16722,50 +9421,6 @@ export const de_UpdateUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateUserCommandError
- */
-const de_UpdateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.quicksight#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.quicksight#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.quicksight#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.quicksight#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.quicksight#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.quicksight#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.quicksight#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVPCConnectionCommand
  */
 export const de_UpdateVPCConnectionCommand = async (
@@ -16773,7 +9428,7 @@ export const de_UpdateVPCConnectionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVPCConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVPCConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -16794,12 +9449,9 @@ export const de_UpdateVPCConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVPCConnectionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateVPCConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVPCConnectionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -16809,27 +9461,60 @@ const de_UpdateVPCConnectionCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.quicksight#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.quicksight#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.quicksight#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.quicksight#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.quicksight#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.quicksight#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.quicksight#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "UnsupportedUserEditionException":
     case "com.amazonaws.quicksight#UnsupportedUserEditionException":
       throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    case "ConcurrentUpdatingException":
+    case "com.amazonaws.quicksight#ConcurrentUpdatingException":
+      throw await de_ConcurrentUpdatingExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "SessionLifetimeInMinutesInvalidException":
+    case "com.amazonaws.quicksight#SessionLifetimeInMinutesInvalidException":
+      throw await de_SessionLifetimeInMinutesInvalidExceptionRes(parsedOutput, context);
+    case "UnsupportedPricingPlanException":
+    case "com.amazonaws.quicksight#UnsupportedPricingPlanException":
+      throw await de_UnsupportedPricingPlanExceptionRes(parsedOutput, context);
+    case "QuickSightUserNotFoundException":
+    case "com.amazonaws.quicksight#QuickSightUserNotFoundException":
+      throw await de_QuickSightUserNotFoundExceptionRes(parsedOutput, context);
+    case "DomainNotWhitelistedException":
+    case "com.amazonaws.quicksight#DomainNotWhitelistedException":
+      throw await de_DomainNotWhitelistedExceptionRes(parsedOutput, context);
+    case "IdentityTypeNotSupportedException":
+    case "com.amazonaws.quicksight#IdentityTypeNotSupportedException":
+      throw await de_IdentityTypeNotSupportedExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.quicksight#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

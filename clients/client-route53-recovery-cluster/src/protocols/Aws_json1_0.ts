@@ -106,7 +106,7 @@ export const de_GetRoutingControlStateCommand = async (
   context: __SerdeContext
 ): Promise<GetRoutingControlStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRoutingControlStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -119,47 +119,6 @@ export const de_GetRoutingControlStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRoutingControlStateCommandError
- */
-const de_GetRoutingControlStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRoutingControlStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53recoverycluster#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EndpointTemporarilyUnavailableException":
-    case "com.amazonaws.route53recoverycluster#EndpointTemporarilyUnavailableException":
-      throw await de_EndpointTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.route53recoverycluster#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53recoverycluster#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53recoverycluster#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53recoverycluster#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListRoutingControlsCommand
  */
 export const de_ListRoutingControlsCommand = async (
@@ -167,7 +126,7 @@ export const de_ListRoutingControlsCommand = async (
   context: __SerdeContext
 ): Promise<ListRoutingControlsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRoutingControlsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -180,47 +139,6 @@ export const de_ListRoutingControlsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListRoutingControlsCommandError
- */
-const de_ListRoutingControlsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRoutingControlsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53recoverycluster#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EndpointTemporarilyUnavailableException":
-    case "com.amazonaws.route53recoverycluster#EndpointTemporarilyUnavailableException":
-      throw await de_EndpointTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.route53recoverycluster#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53recoverycluster#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53recoverycluster#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53recoverycluster#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateRoutingControlStateCommand
  */
 export const de_UpdateRoutingControlStateCommand = async (
@@ -228,7 +146,7 @@ export const de_UpdateRoutingControlStateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoutingControlStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRoutingControlStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -241,50 +159,6 @@ export const de_UpdateRoutingControlStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateRoutingControlStateCommandError
- */
-const de_UpdateRoutingControlStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRoutingControlStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53recoverycluster#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53recoverycluster#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EndpointTemporarilyUnavailableException":
-    case "com.amazonaws.route53recoverycluster#EndpointTemporarilyUnavailableException":
-      throw await de_EndpointTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.route53recoverycluster#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53recoverycluster#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53recoverycluster#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53recoverycluster#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateRoutingControlStatesCommand
  */
 export const de_UpdateRoutingControlStatesCommand = async (
@@ -292,7 +166,7 @@ export const de_UpdateRoutingControlStatesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoutingControlStatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRoutingControlStatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -305,12 +179,9 @@ export const de_UpdateRoutingControlStatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateRoutingControlStatesCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateRoutingControlStatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRoutingControlStatesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -320,9 +191,6 @@ const de_UpdateRoutingControlStatesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.route53recoverycluster#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53recoverycluster#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "EndpointTemporarilyUnavailableException":
     case "com.amazonaws.route53recoverycluster#EndpointTemporarilyUnavailableException":
       throw await de_EndpointTemporarilyUnavailableExceptionRes(parsedOutput, context);
@@ -332,15 +200,18 @@ const de_UpdateRoutingControlStatesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.route53recoverycluster#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceLimitExceededException":
-    case "com.amazonaws.route53recoverycluster#ServiceLimitExceededException":
-      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.route53recoverycluster#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.route53recoverycluster#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.route53recoverycluster#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceLimitExceededException":
+    case "com.amazonaws.route53recoverycluster#ServiceLimitExceededException":
+      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

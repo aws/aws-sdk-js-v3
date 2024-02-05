@@ -715,7 +715,7 @@ export const de_AcceptQualificationRequestCommand = async (
   context: __SerdeContext
 ): Promise<AcceptQualificationRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptQualificationRequestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -728,35 +728,6 @@ export const de_AcceptQualificationRequestCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptQualificationRequestCommandError
- */
-const de_AcceptQualificationRequestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptQualificationRequestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ApproveAssignmentCommand
  */
 export const de_ApproveAssignmentCommand = async (
@@ -764,7 +735,7 @@ export const de_ApproveAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<ApproveAssignmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ApproveAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -777,35 +748,6 @@ export const de_ApproveAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ApproveAssignmentCommandError
- */
-const de_ApproveAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApproveAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateQualificationWithWorkerCommand
  */
 export const de_AssociateQualificationWithWorkerCommand = async (
@@ -813,7 +755,7 @@ export const de_AssociateQualificationWithWorkerCommand = async (
   context: __SerdeContext
 ): Promise<AssociateQualificationWithWorkerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateQualificationWithWorkerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -826,35 +768,6 @@ export const de_AssociateQualificationWithWorkerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateQualificationWithWorkerCommandError
- */
-const de_AssociateQualificationWithWorkerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateQualificationWithWorkerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand
  */
 export const de_CreateAdditionalAssignmentsForHITCommand = async (
@@ -862,7 +775,7 @@ export const de_CreateAdditionalAssignmentsForHITCommand = async (
   context: __SerdeContext
 ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAdditionalAssignmentsForHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -875,35 +788,6 @@ export const de_CreateAdditionalAssignmentsForHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError
- */
-const de_CreateAdditionalAssignmentsForHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAdditionalAssignmentsForHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHITCommand
  */
 export const de_CreateHITCommand = async (
@@ -911,7 +795,7 @@ export const de_CreateHITCommand = async (
   context: __SerdeContext
 ): Promise<CreateHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -924,35 +808,6 @@ export const de_CreateHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHITCommandError
- */
-const de_CreateHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHITTypeCommand
  */
 export const de_CreateHITTypeCommand = async (
@@ -960,7 +815,7 @@ export const de_CreateHITTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateHITTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHITTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -973,35 +828,6 @@ export const de_CreateHITTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHITTypeCommandError
- */
-const de_CreateHITTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHITTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHITWithHITTypeCommand
  */
 export const de_CreateHITWithHITTypeCommand = async (
@@ -1009,7 +835,7 @@ export const de_CreateHITWithHITTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateHITWithHITTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHITWithHITTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1022,35 +848,6 @@ export const de_CreateHITWithHITTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHITWithHITTypeCommandError
- */
-const de_CreateHITWithHITTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHITWithHITTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateQualificationTypeCommand
  */
 export const de_CreateQualificationTypeCommand = async (
@@ -1058,7 +855,7 @@ export const de_CreateQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateQualificationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1071,35 +868,6 @@ export const de_CreateQualificationTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateQualificationTypeCommandError
- */
-const de_CreateQualificationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateQualificationTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkerBlockCommand
  */
 export const de_CreateWorkerBlockCommand = async (
@@ -1107,7 +875,7 @@ export const de_CreateWorkerBlockCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkerBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkerBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1120,35 +888,6 @@ export const de_CreateWorkerBlockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkerBlockCommandError
- */
-const de_CreateWorkerBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkerBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteHITCommand
  */
 export const de_DeleteHITCommand = async (
@@ -1156,7 +895,7 @@ export const de_DeleteHITCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1169,35 +908,6 @@ export const de_DeleteHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteHITCommandError
- */
-const de_DeleteHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteQualificationTypeCommand
  */
 export const de_DeleteQualificationTypeCommand = async (
@@ -1205,7 +915,7 @@ export const de_DeleteQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteQualificationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1218,35 +928,6 @@ export const de_DeleteQualificationTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteQualificationTypeCommandError
- */
-const de_DeleteQualificationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteQualificationTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkerBlockCommand
  */
 export const de_DeleteWorkerBlockCommand = async (
@@ -1254,7 +935,7 @@ export const de_DeleteWorkerBlockCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkerBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkerBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1267,35 +948,6 @@ export const de_DeleteWorkerBlockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkerBlockCommandError
- */
-const de_DeleteWorkerBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkerBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateQualificationFromWorkerCommand
  */
 export const de_DisassociateQualificationFromWorkerCommand = async (
@@ -1303,7 +955,7 @@ export const de_DisassociateQualificationFromWorkerCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateQualificationFromWorkerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateQualificationFromWorkerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1316,35 +968,6 @@ export const de_DisassociateQualificationFromWorkerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError
- */
-const de_DisassociateQualificationFromWorkerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateQualificationFromWorkerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAccountBalanceCommand
  */
 export const de_GetAccountBalanceCommand = async (
@@ -1352,7 +975,7 @@ export const de_GetAccountBalanceCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountBalanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountBalanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1365,35 +988,6 @@ export const de_GetAccountBalanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAccountBalanceCommandError
- */
-const de_GetAccountBalanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountBalanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAssignmentCommand
  */
 export const de_GetAssignmentCommand = async (
@@ -1401,7 +995,7 @@ export const de_GetAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<GetAssignmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1414,35 +1008,6 @@ export const de_GetAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAssignmentCommandError
- */
-const de_GetAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFileUploadURLCommand
  */
 export const de_GetFileUploadURLCommand = async (
@@ -1450,7 +1015,7 @@ export const de_GetFileUploadURLCommand = async (
   context: __SerdeContext
 ): Promise<GetFileUploadURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFileUploadURLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1463,35 +1028,6 @@ export const de_GetFileUploadURLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFileUploadURLCommandError
- */
-const de_GetFileUploadURLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFileUploadURLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetHITCommand
  */
 export const de_GetHITCommand = async (
@@ -1499,7 +1035,7 @@ export const de_GetHITCommand = async (
   context: __SerdeContext
 ): Promise<GetHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1512,32 +1048,6 @@ export const de_GetHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetHITCommandError
- */
-const de_GetHITCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQualificationScoreCommand
  */
 export const de_GetQualificationScoreCommand = async (
@@ -1545,7 +1055,7 @@ export const de_GetQualificationScoreCommand = async (
   context: __SerdeContext
 ): Promise<GetQualificationScoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQualificationScoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1558,35 +1068,6 @@ export const de_GetQualificationScoreCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQualificationScoreCommandError
- */
-const de_GetQualificationScoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQualificationScoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQualificationTypeCommand
  */
 export const de_GetQualificationTypeCommand = async (
@@ -1594,7 +1075,7 @@ export const de_GetQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQualificationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1607,35 +1088,6 @@ export const de_GetQualificationTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQualificationTypeCommandError
- */
-const de_GetQualificationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQualificationTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAssignmentsForHITCommand
  */
 export const de_ListAssignmentsForHITCommand = async (
@@ -1643,7 +1095,7 @@ export const de_ListAssignmentsForHITCommand = async (
   context: __SerdeContext
 ): Promise<ListAssignmentsForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssignmentsForHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1656,35 +1108,6 @@ export const de_ListAssignmentsForHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssignmentsForHITCommandError
- */
-const de_ListAssignmentsForHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssignmentsForHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBonusPaymentsCommand
  */
 export const de_ListBonusPaymentsCommand = async (
@@ -1692,7 +1115,7 @@ export const de_ListBonusPaymentsCommand = async (
   context: __SerdeContext
 ): Promise<ListBonusPaymentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBonusPaymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1705,35 +1128,6 @@ export const de_ListBonusPaymentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBonusPaymentsCommandError
- */
-const de_ListBonusPaymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBonusPaymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHITsCommand
  */
 export const de_ListHITsCommand = async (
@@ -1741,7 +1135,7 @@ export const de_ListHITsCommand = async (
   context: __SerdeContext
 ): Promise<ListHITsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHITsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1754,35 +1148,6 @@ export const de_ListHITsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHITsCommandError
- */
-const de_ListHITsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHITsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHITsForQualificationTypeCommand
  */
 export const de_ListHITsForQualificationTypeCommand = async (
@@ -1790,7 +1155,7 @@ export const de_ListHITsForQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<ListHITsForQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHITsForQualificationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1803,35 +1168,6 @@ export const de_ListHITsForQualificationTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHITsForQualificationTypeCommandError
- */
-const de_ListHITsForQualificationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHITsForQualificationTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListQualificationRequestsCommand
  */
 export const de_ListQualificationRequestsCommand = async (
@@ -1839,7 +1175,7 @@ export const de_ListQualificationRequestsCommand = async (
   context: __SerdeContext
 ): Promise<ListQualificationRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListQualificationRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1852,35 +1188,6 @@ export const de_ListQualificationRequestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListQualificationRequestsCommandError
- */
-const de_ListQualificationRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQualificationRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListQualificationTypesCommand
  */
 export const de_ListQualificationTypesCommand = async (
@@ -1888,7 +1195,7 @@ export const de_ListQualificationTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListQualificationTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListQualificationTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1901,35 +1208,6 @@ export const de_ListQualificationTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListQualificationTypesCommandError
- */
-const de_ListQualificationTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQualificationTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListReviewableHITsCommand
  */
 export const de_ListReviewableHITsCommand = async (
@@ -1937,7 +1215,7 @@ export const de_ListReviewableHITsCommand = async (
   context: __SerdeContext
 ): Promise<ListReviewableHITsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReviewableHITsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1950,35 +1228,6 @@ export const de_ListReviewableHITsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListReviewableHITsCommandError
- */
-const de_ListReviewableHITsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReviewableHITsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListReviewPolicyResultsForHITCommand
  */
 export const de_ListReviewPolicyResultsForHITCommand = async (
@@ -1986,7 +1235,7 @@ export const de_ListReviewPolicyResultsForHITCommand = async (
   context: __SerdeContext
 ): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReviewPolicyResultsForHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1999,35 +1248,6 @@ export const de_ListReviewPolicyResultsForHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError
- */
-const de_ListReviewPolicyResultsForHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkerBlocksCommand
  */
 export const de_ListWorkerBlocksCommand = async (
@@ -2035,7 +1255,7 @@ export const de_ListWorkerBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkerBlocksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkerBlocksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2048,35 +1268,6 @@ export const de_ListWorkerBlocksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkerBlocksCommandError
- */
-const de_ListWorkerBlocksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkerBlocksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkersWithQualificationTypeCommand
  */
 export const de_ListWorkersWithQualificationTypeCommand = async (
@@ -2084,7 +1275,7 @@ export const de_ListWorkersWithQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkersWithQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkersWithQualificationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2097,35 +1288,6 @@ export const de_ListWorkersWithQualificationTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError
- */
-const de_ListWorkersWithQualificationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkersWithQualificationTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyWorkersCommand
  */
 export const de_NotifyWorkersCommand = async (
@@ -2133,7 +1295,7 @@ export const de_NotifyWorkersCommand = async (
   context: __SerdeContext
 ): Promise<NotifyWorkersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyWorkersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2146,35 +1308,6 @@ export const de_NotifyWorkersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1NotifyWorkersCommandError
- */
-const de_NotifyWorkersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyWorkersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RejectAssignmentCommand
  */
 export const de_RejectAssignmentCommand = async (
@@ -2182,7 +1315,7 @@ export const de_RejectAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<RejectAssignmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectAssignmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2195,35 +1328,6 @@ export const de_RejectAssignmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RejectAssignmentCommandError
- */
-const de_RejectAssignmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectAssignmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RejectQualificationRequestCommand
  */
 export const de_RejectQualificationRequestCommand = async (
@@ -2231,7 +1335,7 @@ export const de_RejectQualificationRequestCommand = async (
   context: __SerdeContext
 ): Promise<RejectQualificationRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectQualificationRequestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2244,35 +1348,6 @@ export const de_RejectQualificationRequestCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RejectQualificationRequestCommandError
- */
-const de_RejectQualificationRequestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectQualificationRequestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendBonusCommand
  */
 export const de_SendBonusCommand = async (
@@ -2280,7 +1355,7 @@ export const de_SendBonusCommand = async (
   context: __SerdeContext
 ): Promise<SendBonusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendBonusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2293,35 +1368,6 @@ export const de_SendBonusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendBonusCommandError
- */
-const de_SendBonusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendBonusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendTestEventNotificationCommand
  */
 export const de_SendTestEventNotificationCommand = async (
@@ -2329,7 +1375,7 @@ export const de_SendTestEventNotificationCommand = async (
   context: __SerdeContext
 ): Promise<SendTestEventNotificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendTestEventNotificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2342,35 +1388,6 @@ export const de_SendTestEventNotificationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendTestEventNotificationCommandError
- */
-const de_SendTestEventNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTestEventNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateExpirationForHITCommand
  */
 export const de_UpdateExpirationForHITCommand = async (
@@ -2378,7 +1395,7 @@ export const de_UpdateExpirationForHITCommand = async (
   context: __SerdeContext
 ): Promise<UpdateExpirationForHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateExpirationForHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2391,35 +1408,6 @@ export const de_UpdateExpirationForHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateExpirationForHITCommandError
- */
-const de_UpdateExpirationForHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateExpirationForHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateHITReviewStatusCommand
  */
 export const de_UpdateHITReviewStatusCommand = async (
@@ -2427,7 +1415,7 @@ export const de_UpdateHITReviewStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHITReviewStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateHITReviewStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2440,35 +1428,6 @@ export const de_UpdateHITReviewStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateHITReviewStatusCommandError
- */
-const de_UpdateHITReviewStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHITReviewStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateHITTypeOfHITCommand
  */
 export const de_UpdateHITTypeOfHITCommand = async (
@@ -2476,7 +1435,7 @@ export const de_UpdateHITTypeOfHITCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHITTypeOfHITCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateHITTypeOfHITCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2489,35 +1448,6 @@ export const de_UpdateHITTypeOfHITCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateHITTypeOfHITCommandError
- */
-const de_UpdateHITTypeOfHITCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHITTypeOfHITCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNotificationSettingsCommand
  */
 export const de_UpdateNotificationSettingsCommand = async (
@@ -2525,7 +1455,7 @@ export const de_UpdateNotificationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotificationSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNotificationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2538,35 +1468,6 @@ export const de_UpdateNotificationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNotificationSettingsCommandError
- */
-const de_UpdateNotificationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotificationSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestError":
-    case "com.amazonaws.mturk#RequestError":
-      throw await de_RequestErrorRes(parsedOutput, context);
-    case "ServiceFault":
-    case "com.amazonaws.mturk#ServiceFault":
-      throw await de_ServiceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateQualificationTypeCommand
  */
 export const de_UpdateQualificationTypeCommand = async (
@@ -2574,7 +1475,7 @@ export const de_UpdateQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateQualificationTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateQualificationTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2587,12 +1488,9 @@ export const de_UpdateQualificationTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateQualificationTypeCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateQualificationTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateQualificationTypeCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

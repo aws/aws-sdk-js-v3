@@ -283,7 +283,7 @@ export const de_CancelQueryCommand = async (
   context: __SerdeContext
 ): Promise<CancelQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -296,44 +296,6 @@ export const de_CancelQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CancelQueryCommandError
- */
-const de_CancelQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateScheduledQueryCommand
  */
 export const de_CreateScheduledQueryCommand = async (
@@ -341,7 +303,7 @@ export const de_CreateScheduledQueryCommand = async (
   context: __SerdeContext
 ): Promise<CreateScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateScheduledQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -354,50 +316,6 @@ export const de_CreateScheduledQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateScheduledQueryCommandError
- */
-const de_CreateScheduledQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateScheduledQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.timestreamquery#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteScheduledQueryCommand
  */
 export const de_DeleteScheduledQueryCommand = async (
@@ -405,54 +323,13 @@ export const de_DeleteScheduledQueryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteScheduledQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteScheduledQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteScheduledQueryCommandError
- */
-const de_DeleteScheduledQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScheduledQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -463,7 +340,7 @@ export const de_DescribeEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -476,38 +353,6 @@ export const de_DescribeEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeEndpointsCommandError
- */
-const de_DescribeEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeScheduledQueryCommand
  */
 export const de_DescribeScheduledQueryCommand = async (
@@ -515,7 +360,7 @@ export const de_DescribeScheduledQueryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScheduledQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -528,47 +373,6 @@ export const de_DescribeScheduledQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeScheduledQueryCommandError
- */
-const de_DescribeScheduledQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduledQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExecuteScheduledQueryCommand
  */
 export const de_ExecuteScheduledQueryCommand = async (
@@ -576,54 +380,13 @@ export const de_ExecuteScheduledQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecuteScheduledQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ExecuteScheduledQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0ExecuteScheduledQueryCommandError
- */
-const de_ExecuteScheduledQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteScheduledQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -634,7 +397,7 @@ export const de_ListScheduledQueriesCommand = async (
   context: __SerdeContext
 ): Promise<ListScheduledQueriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListScheduledQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -647,44 +410,6 @@ export const de_ListScheduledQueriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListScheduledQueriesCommandError
- */
-const de_ListScheduledQueriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListScheduledQueriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -692,7 +417,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -705,41 +430,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PrepareQueryCommand
  */
 export const de_PrepareQueryCommand = async (
@@ -747,7 +437,7 @@ export const de_PrepareQueryCommand = async (
   context: __SerdeContext
 ): Promise<PrepareQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PrepareQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -760,49 +450,11 @@ export const de_PrepareQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PrepareQueryCommandError
- */
-const de_PrepareQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PrepareQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0QueryCommand
  */
 export const de_QueryCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -815,47 +467,6 @@ export const de_QueryCommand = async (output: __HttpResponse, context: __SerdeCo
 };
 
 /**
- * deserializeAws_json1_0QueryCommandError
- */
-const de_QueryCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamquery#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.timestreamquery#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamquery#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "QueryExecutionException":
-    case "com.amazonaws.timestreamquery#QueryExecutionException":
-      throw await de_QueryExecutionExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -863,7 +474,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -876,44 +487,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamquery#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -921,7 +494,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -934,41 +507,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamquery#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamquery#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamquery#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateScheduledQueryCommand
  */
 export const de_UpdateScheduledQueryCommand = async (
@@ -976,7 +514,7 @@ export const de_UpdateScheduledQueryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateScheduledQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateScheduledQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateScheduledQueryCommandOutput = {
@@ -986,12 +524,9 @@ export const de_UpdateScheduledQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateScheduledQueryCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateScheduledQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScheduledQueryCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1007,15 +542,24 @@ const de_UpdateScheduledQueryCommandError = async (
     case "InvalidEndpointException":
     case "com.amazonaws.timestreamquery#InvalidEndpointException":
       throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.timestreamquery#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.timestreamquery#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.timestreamquery#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.timestreamquery#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.timestreamquery#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "QueryExecutionException":
+    case "com.amazonaws.timestreamquery#QueryExecutionException":
+      throw await de_QueryExecutionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

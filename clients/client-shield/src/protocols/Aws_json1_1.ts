@@ -679,7 +679,7 @@ export const de_AssociateDRTLogBucketCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDRTLogBucketCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDRTLogBucketCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -692,53 +692,6 @@ export const de_AssociateDRTLogBucketCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDRTLogBucketCommandError
- */
-const de_AssociateDRTLogBucketCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDRTLogBucketCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedForDependencyException":
-    case "com.amazonaws.shield#AccessDeniedForDependencyException":
-      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitsExceededException":
-    case "com.amazonaws.shield#LimitsExceededException":
-      throw await de_LimitsExceededExceptionRes(parsedOutput, context);
-    case "NoAssociatedRoleException":
-    case "com.amazonaws.shield#NoAssociatedRoleException":
-      throw await de_NoAssociatedRoleExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateDRTRoleCommand
  */
 export const de_AssociateDRTRoleCommand = async (
@@ -746,7 +699,7 @@ export const de_AssociateDRTRoleCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDRTRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDRTRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -759,47 +712,6 @@ export const de_AssociateDRTRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDRTRoleCommandError
- */
-const de_AssociateDRTRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDRTRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedForDependencyException":
-    case "com.amazonaws.shield#AccessDeniedForDependencyException":
-      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateHealthCheckCommand
  */
 export const de_AssociateHealthCheckCommand = async (
@@ -807,7 +719,7 @@ export const de_AssociateHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<AssociateHealthCheckCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateHealthCheckCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -820,47 +732,6 @@ export const de_AssociateHealthCheckCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateHealthCheckCommandError
- */
-const de_AssociateHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.shield#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "LimitsExceededException":
-    case "com.amazonaws.shield#LimitsExceededException":
-      throw await de_LimitsExceededExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand
  */
 export const de_AssociateProactiveEngagementDetailsCommand = async (
@@ -868,7 +739,7 @@ export const de_AssociateProactiveEngagementDetailsCommand = async (
   context: __SerdeContext
 ): Promise<AssociateProactiveEngagementDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateProactiveEngagementDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -881,44 +752,6 @@ export const de_AssociateProactiveEngagementDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateProactiveEngagementDetailsCommandError
- */
-const de_AssociateProactiveEngagementDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateProactiveEngagementDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProtectionCommand
  */
 export const de_CreateProtectionCommand = async (
@@ -926,7 +759,7 @@ export const de_CreateProtectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProtectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -939,53 +772,6 @@ export const de_CreateProtectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProtectionCommandError
- */
-const de_CreateProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.shield#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "LimitsExceededException":
-    case "com.amazonaws.shield#LimitsExceededException":
-      throw await de_LimitsExceededExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.shield#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProtectionGroupCommand
  */
 export const de_CreateProtectionGroupCommand = async (
@@ -993,7 +779,7 @@ export const de_CreateProtectionGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateProtectionGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProtectionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1006,47 +792,6 @@ export const de_CreateProtectionGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProtectionGroupCommandError
- */
-const de_CreateProtectionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProtectionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitsExceededException":
-    case "com.amazonaws.shield#LimitsExceededException":
-      throw await de_LimitsExceededExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.shield#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSubscriptionCommand
  */
 export const de_CreateSubscriptionCommand = async (
@@ -1054,7 +799,7 @@ export const de_CreateSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1067,35 +812,6 @@ export const de_CreateSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSubscriptionCommandError
- */
-const de_CreateSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.shield#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProtectionCommand
  */
 export const de_DeleteProtectionCommand = async (
@@ -1103,7 +819,7 @@ export const de_DeleteProtectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProtectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1116,38 +832,6 @@ export const de_DeleteProtectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProtectionCommandError
- */
-const de_DeleteProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProtectionGroupCommand
  */
 export const de_DeleteProtectionGroupCommand = async (
@@ -1155,7 +839,7 @@ export const de_DeleteProtectionGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProtectionGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProtectionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1168,38 +852,6 @@ export const de_DeleteProtectionGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProtectionGroupCommandError
- */
-const de_DeleteProtectionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProtectionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSubscriptionCommand
  */
 export const de_DeleteSubscriptionCommand = async (
@@ -1207,7 +859,7 @@ export const de_DeleteSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1220,38 +872,6 @@ export const de_DeleteSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSubscriptionCommandError
- */
-const de_DeleteSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "LockedSubscriptionException":
-    case "com.amazonaws.shield#LockedSubscriptionException":
-      throw await de_LockedSubscriptionExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAttackCommand
  */
 export const de_DescribeAttackCommand = async (
@@ -1259,7 +879,7 @@ export const de_DescribeAttackCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAttackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAttackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1272,35 +892,6 @@ export const de_DescribeAttackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAttackCommandError
- */
-const de_DescribeAttackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAttackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.shield#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAttackStatisticsCommand
  */
 export const de_DescribeAttackStatisticsCommand = async (
@@ -1308,7 +899,7 @@ export const de_DescribeAttackStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAttackStatisticsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAttackStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1321,32 +912,6 @@ export const de_DescribeAttackStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAttackStatisticsCommandError
- */
-const de_DescribeAttackStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAttackStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDRTAccessCommand
  */
 export const de_DescribeDRTAccessCommand = async (
@@ -1354,7 +919,7 @@ export const de_DescribeDRTAccessCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDRTAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDRTAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1367,35 +932,6 @@ export const de_DescribeDRTAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDRTAccessCommandError
- */
-const de_DescribeDRTAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDRTAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEmergencyContactSettingsCommand
  */
 export const de_DescribeEmergencyContactSettingsCommand = async (
@@ -1403,7 +939,7 @@ export const de_DescribeEmergencyContactSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEmergencyContactSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEmergencyContactSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1416,35 +952,6 @@ export const de_DescribeEmergencyContactSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEmergencyContactSettingsCommandError
- */
-const de_DescribeEmergencyContactSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEmergencyContactSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProtectionCommand
  */
 export const de_DescribeProtectionCommand = async (
@@ -1452,7 +959,7 @@ export const de_DescribeProtectionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProtectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1465,38 +972,6 @@ export const de_DescribeProtectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProtectionCommandError
- */
-const de_DescribeProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProtectionGroupCommand
  */
 export const de_DescribeProtectionGroupCommand = async (
@@ -1504,7 +979,7 @@ export const de_DescribeProtectionGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProtectionGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProtectionGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1517,35 +992,6 @@ export const de_DescribeProtectionGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProtectionGroupCommandError
- */
-const de_DescribeProtectionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProtectionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSubscriptionCommand
  */
 export const de_DescribeSubscriptionCommand = async (
@@ -1553,7 +999,7 @@ export const de_DescribeSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1566,35 +1012,6 @@ export const de_DescribeSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSubscriptionCommandError
- */
-const de_DescribeSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand
  */
 export const de_DisableApplicationLayerAutomaticResponseCommand = async (
@@ -1602,7 +1019,7 @@ export const de_DisableApplicationLayerAutomaticResponseCommand = async (
   context: __SerdeContext
 ): Promise<DisableApplicationLayerAutomaticResponseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableApplicationLayerAutomaticResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1615,44 +1032,6 @@ export const de_DisableApplicationLayerAutomaticResponseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableApplicationLayerAutomaticResponseCommandError
- */
-const de_DisableApplicationLayerAutomaticResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableApplicationLayerAutomaticResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableProactiveEngagementCommand
  */
 export const de_DisableProactiveEngagementCommand = async (
@@ -1660,7 +1039,7 @@ export const de_DisableProactiveEngagementCommand = async (
   context: __SerdeContext
 ): Promise<DisableProactiveEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableProactiveEngagementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1673,44 +1052,6 @@ export const de_DisableProactiveEngagementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableProactiveEngagementCommandError
- */
-const de_DisableProactiveEngagementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableProactiveEngagementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateDRTLogBucketCommand
  */
 export const de_DisassociateDRTLogBucketCommand = async (
@@ -1718,7 +1059,7 @@ export const de_DisassociateDRTLogBucketCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDRTLogBucketCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateDRTLogBucketCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1731,12 +1072,329 @@ export const de_DisassociateDRTLogBucketCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateDRTLogBucketCommandError
+ * deserializeAws_json1_1DisassociateDRTRoleCommand
  */
-const de_DisassociateDRTLogBucketCommandError = async (
+export const de_DisassociateDRTRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateDRTLogBucketCommandOutput> => {
+): Promise<DisassociateDRTRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateDRTRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateHealthCheckCommand
+ */
+export const de_DisassociateHealthCheckCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateHealthCheckCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateHealthCheckCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand
+ */
+export const de_EnableApplicationLayerAutomaticResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableApplicationLayerAutomaticResponseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnableApplicationLayerAutomaticResponseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableProactiveEngagementCommand
+ */
+export const de_EnableProactiveEngagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableProactiveEngagementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnableProactiveEngagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetSubscriptionStateCommand
+ */
+export const de_GetSubscriptionStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSubscriptionStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetSubscriptionStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAttacksCommand
+ */
+export const de_ListAttacksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttacksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAttacksResponse(data, context);
+  const response: ListAttacksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListProtectionGroupsCommand
+ */
+export const de_ListProtectionGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectionGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListProtectionGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListProtectionsCommand
+ */
+export const de_ListProtectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListProtectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListResourcesInProtectionGroupCommand
+ */
+export const de_ListResourcesInProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcesInProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListResourcesInProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand
+ */
+export const de_UpdateApplicationLayerAutomaticResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationLayerAutomaticResponseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateApplicationLayerAutomaticResponseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEmergencyContactSettingsCommand
+ */
+export const de_UpdateEmergencyContactSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEmergencyContactSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateEmergencyContactSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProtectionGroupCommand
+ */
+export const de_UpdateProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSubscriptionCommand
+ */
+export const de_UpdateSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1752,6 +1410,12 @@ const de_DisassociateDRTLogBucketCommandError = async (
     case "InvalidOperationException":
     case "com.amazonaws.shield#InvalidOperationException":
       throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "LimitsExceededException":
+    case "com.amazonaws.shield#LimitsExceededException":
+      throw await de_LimitsExceededExceptionRes(parsedOutput, context);
     case "NoAssociatedRoleException":
     case "com.amazonaws.shield#NoAssociatedRoleException":
       throw await de_NoAssociatedRoleExceptionRes(parsedOutput, context);
@@ -1761,880 +1425,21 @@ const de_DisassociateDRTLogBucketCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.shield#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateDRTRoleCommand
- */
-export const de_DisassociateDRTRoleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDRTRoleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateDRTRoleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateDRTRoleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateDRTRoleCommandError
- */
-const de_DisassociateDRTRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDRTRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateHealthCheckCommand
- */
-export const de_DisassociateHealthCheckCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateHealthCheckCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateHealthCheckCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateHealthCheckCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateHealthCheckCommandError
- */
-const de_DisassociateHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidResourceException":
     case "com.amazonaws.shield#InvalidResourceException":
       throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommand
- */
-export const de_EnableApplicationLayerAutomaticResponseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableApplicationLayerAutomaticResponseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableApplicationLayerAutomaticResponseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: EnableApplicationLayerAutomaticResponseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1EnableApplicationLayerAutomaticResponseCommandError
- */
-const de_EnableApplicationLayerAutomaticResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableApplicationLayerAutomaticResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitsExceededException":
-    case "com.amazonaws.shield#LimitsExceededException":
-      throw await de_LimitsExceededExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1EnableProactiveEngagementCommand
- */
-export const de_EnableProactiveEngagementCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableProactiveEngagementCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableProactiveEngagementCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: EnableProactiveEngagementCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1EnableProactiveEngagementCommandError
- */
-const de_EnableProactiveEngagementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableProactiveEngagementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetSubscriptionStateCommand
- */
-export const de_GetSubscriptionStateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionStateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSubscriptionStateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetSubscriptionStateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetSubscriptionStateCommandError
- */
-const de_GetSubscriptionStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAttacksCommand
- */
-export const de_ListAttacksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttacksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAttacksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAttacksResponse(data, context);
-  const response: ListAttacksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAttacksCommandError
- */
-const de_ListAttacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListProtectionGroupsCommand
- */
-export const de_ListProtectionGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtectionGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListProtectionGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListProtectionGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListProtectionGroupsCommandError
- */
-const de_ListProtectionGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtectionGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.shield#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListProtectionsCommand
- */
-export const de_ListProtectionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtectionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListProtectionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListProtectionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListProtectionsCommandError
- */
-const de_ListProtectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.shield#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListResourcesInProtectionGroupCommand
- */
-export const de_ListResourcesInProtectionGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesInProtectionGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListResourcesInProtectionGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListResourcesInProtectionGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListResourcesInProtectionGroupCommandError
- */
-const de_ListResourcesInProtectionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesInProtectionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.shield#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.shield#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.shield#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.shield#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand
- */
-export const de_UpdateApplicationLayerAutomaticResponseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationLayerAutomaticResponseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateApplicationLayerAutomaticResponseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateApplicationLayerAutomaticResponseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommandError
- */
-const de_UpdateApplicationLayerAutomaticResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationLayerAutomaticResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.shield#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEmergencyContactSettingsCommand
- */
-export const de_UpdateEmergencyContactSettingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEmergencyContactSettingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEmergencyContactSettingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateEmergencyContactSettingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError
- */
-const de_UpdateEmergencyContactSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEmergencyContactSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProtectionGroupCommand
- */
-export const de_UpdateProtectionGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProtectionGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProtectionGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateProtectionGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProtectionGroupCommandError
- */
-const de_UpdateProtectionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProtectionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSubscriptionCommand
- */
-export const de_UpdateSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSubscriptionCommandError
- */
-const de_UpdateSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.shield#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.shield#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.shield#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "LockedSubscriptionException":
     case "com.amazonaws.shield#LockedSubscriptionException":
       throw await de_LockedSubscriptionExceptionRes(parsedOutput, context);
-    case "OptimisticLockException":
-    case "com.amazonaws.shield#OptimisticLockException":
-      throw await de_OptimisticLockExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.shield#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.shield#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.shield#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

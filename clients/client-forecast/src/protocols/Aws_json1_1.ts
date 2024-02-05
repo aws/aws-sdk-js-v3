@@ -1182,7 +1182,7 @@ export const de_CreateAutoPredictorCommand = async (
   context: __SerdeContext
 ): Promise<CreateAutoPredictorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAutoPredictorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1195,44 +1195,6 @@ export const de_CreateAutoPredictorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAutoPredictorCommandError
- */
-const de_CreateAutoPredictorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAutoPredictorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetCommand
  */
 export const de_CreateDatasetCommand = async (
@@ -1240,7 +1202,7 @@ export const de_CreateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1253,38 +1215,6 @@ export const de_CreateDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetCommandError
- */
-const de_CreateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetGroupCommand
  */
 export const de_CreateDatasetGroupCommand = async (
@@ -1292,7 +1222,7 @@ export const de_CreateDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1305,44 +1235,6 @@ export const de_CreateDatasetGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetGroupCommandError
- */
-const de_CreateDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetImportJobCommand
  */
 export const de_CreateDatasetImportJobCommand = async (
@@ -1350,7 +1242,7 @@ export const de_CreateDatasetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1363,44 +1255,6 @@ export const de_CreateDatasetImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetImportJobCommandError
- */
-const de_CreateDatasetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateExplainabilityCommand
  */
 export const de_CreateExplainabilityCommand = async (
@@ -1408,7 +1262,7 @@ export const de_CreateExplainabilityCommand = async (
   context: __SerdeContext
 ): Promise<CreateExplainabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateExplainabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1421,44 +1275,6 @@ export const de_CreateExplainabilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateExplainabilityCommandError
- */
-const de_CreateExplainabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExplainabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateExplainabilityExportCommand
  */
 export const de_CreateExplainabilityExportCommand = async (
@@ -1466,7 +1282,7 @@ export const de_CreateExplainabilityExportCommand = async (
   context: __SerdeContext
 ): Promise<CreateExplainabilityExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateExplainabilityExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1479,44 +1295,6 @@ export const de_CreateExplainabilityExportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateExplainabilityExportCommandError
- */
-const de_CreateExplainabilityExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExplainabilityExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateForecastCommand
  */
 export const de_CreateForecastCommand = async (
@@ -1524,7 +1302,7 @@ export const de_CreateForecastCommand = async (
   context: __SerdeContext
 ): Promise<CreateForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1537,44 +1315,6 @@ export const de_CreateForecastCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateForecastCommandError
- */
-const de_CreateForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateForecastExportJobCommand
  */
 export const de_CreateForecastExportJobCommand = async (
@@ -1582,7 +1322,7 @@ export const de_CreateForecastExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateForecastExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateForecastExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1595,44 +1335,6 @@ export const de_CreateForecastExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateForecastExportJobCommandError
- */
-const de_CreateForecastExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateForecastExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMonitorCommand
  */
 export const de_CreateMonitorCommand = async (
@@ -1640,7 +1342,7 @@ export const de_CreateMonitorCommand = async (
   context: __SerdeContext
 ): Promise<CreateMonitorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1653,44 +1355,6 @@ export const de_CreateMonitorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMonitorCommandError
- */
-const de_CreateMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePredictorCommand
  */
 export const de_CreatePredictorCommand = async (
@@ -1698,7 +1362,7 @@ export const de_CreatePredictorCommand = async (
   context: __SerdeContext
 ): Promise<CreatePredictorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePredictorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1711,44 +1375,6 @@ export const de_CreatePredictorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePredictorCommandError
- */
-const de_CreatePredictorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePredictorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePredictorBacktestExportJobCommand
  */
 export const de_CreatePredictorBacktestExportJobCommand = async (
@@ -1756,7 +1382,7 @@ export const de_CreatePredictorBacktestExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreatePredictorBacktestExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePredictorBacktestExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1769,44 +1395,6 @@ export const de_CreatePredictorBacktestExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePredictorBacktestExportJobCommandError
- */
-const de_CreatePredictorBacktestExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePredictorBacktestExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWhatIfAnalysisCommand
  */
 export const de_CreateWhatIfAnalysisCommand = async (
@@ -1814,7 +1402,7 @@ export const de_CreateWhatIfAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<CreateWhatIfAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWhatIfAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1827,44 +1415,6 @@ export const de_CreateWhatIfAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWhatIfAnalysisCommandError
- */
-const de_CreateWhatIfAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWhatIfAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWhatIfForecastCommand
  */
 export const de_CreateWhatIfForecastCommand = async (
@@ -1872,7 +1422,7 @@ export const de_CreateWhatIfForecastCommand = async (
   context: __SerdeContext
 ): Promise<CreateWhatIfForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWhatIfForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1885,44 +1435,6 @@ export const de_CreateWhatIfForecastCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWhatIfForecastCommandError
- */
-const de_CreateWhatIfForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWhatIfForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.forecast#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWhatIfForecastExportCommand
  */
 export const de_CreateWhatIfForecastExportCommand = async (
@@ -1930,7 +1442,7 @@ export const de_CreateWhatIfForecastExportCommand = async (
   context: __SerdeContext
 ): Promise<CreateWhatIfForecastExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWhatIfForecastExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1943,12 +1455,941 @@ export const de_CreateWhatIfForecastExportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWhatIfForecastExportCommandError
+ * deserializeAws_json1_1DeleteDatasetCommand
  */
-const de_CreateWhatIfForecastExportCommandError = async (
+export const de_DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateWhatIfForecastExportCommandOutput> => {
+): Promise<DeleteDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDatasetGroupCommand
+ */
+export const de_DeleteDatasetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDatasetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDatasetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDatasetImportJobCommand
+ */
+export const de_DeleteDatasetImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDatasetImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDatasetImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteExplainabilityCommand
+ */
+export const de_DeleteExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteExplainabilityExportCommand
+ */
+export const de_DeleteExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteForecastCommand
+ */
+export const de_DeleteForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteForecastExportJobCommand
+ */
+export const de_DeleteForecastExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteForecastExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteForecastExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMonitorCommand
+ */
+export const de_DeleteMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePredictorCommand
+ */
+export const de_DeletePredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeletePredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePredictorBacktestExportJobCommand
+ */
+export const de_DeletePredictorBacktestExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePredictorBacktestExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeletePredictorBacktestExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourceTreeCommand
+ */
+export const de_DeleteResourceTreeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceTreeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourceTreeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfAnalysisCommand
+ */
+export const de_DeleteWhatIfAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWhatIfAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfForecastCommand
+ */
+export const de_DeleteWhatIfForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWhatIfForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteWhatIfForecastExportCommand
+ */
+export const de_DeleteWhatIfForecastExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWhatIfForecastExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteWhatIfForecastExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAutoPredictorCommand
+ */
+export const de_DescribeAutoPredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoPredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAutoPredictorResponse(data, context);
+  const response: DescribeAutoPredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDatasetCommand
+ */
+export const de_DescribeDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDatasetResponse(data, context);
+  const response: DescribeDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDatasetGroupCommand
+ */
+export const de_DescribeDatasetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDatasetGroupResponse(data, context);
+  const response: DescribeDatasetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDatasetImportJobCommand
+ */
+export const de_DescribeDatasetImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDatasetImportJobResponse(data, context);
+  const response: DescribeDatasetImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeExplainabilityCommand
+ */
+export const de_DescribeExplainabilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeExplainabilityResponse(data, context);
+  const response: DescribeExplainabilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeExplainabilityExportCommand
+ */
+export const de_DescribeExplainabilityExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExplainabilityExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeExplainabilityExportResponse(data, context);
+  const response: DescribeExplainabilityExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeForecastCommand
+ */
+export const de_DescribeForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeForecastResponse(data, context);
+  const response: DescribeForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeForecastExportJobCommand
+ */
+export const de_DescribeForecastExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeForecastExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeForecastExportJobResponse(data, context);
+  const response: DescribeForecastExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMonitorCommand
+ */
+export const de_DescribeMonitorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMonitorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMonitorResponse(data, context);
+  const response: DescribeMonitorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePredictorCommand
+ */
+export const de_DescribePredictorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePredictorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribePredictorResponse(data, context);
+  const response: DescribePredictorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePredictorBacktestExportJobCommand
+ */
+export const de_DescribePredictorBacktestExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePredictorBacktestExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribePredictorBacktestExportJobResponse(data, context);
+  const response: DescribePredictorBacktestExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfAnalysisCommand
+ */
+export const de_DescribeWhatIfAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWhatIfAnalysisResponse(data, context);
+  const response: DescribeWhatIfAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastCommand
+ */
+export const de_DescribeWhatIfForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWhatIfForecastResponse(data, context);
+  const response: DescribeWhatIfForecastCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWhatIfForecastExportCommand
+ */
+export const de_DescribeWhatIfForecastExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWhatIfForecastExportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeWhatIfForecastExportResponse(data, context);
+  const response: DescribeWhatIfForecastExportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAccuracyMetricsCommand
+ */
+export const de_GetAccuracyMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccuracyMetricsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAccuracyMetricsResponse(data, context);
+  const response: GetAccuracyMetricsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetGroupsCommand
+ */
+export const de_ListDatasetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDatasetGroupsResponse(data, context);
+  const response: ListDatasetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetImportJobsCommand
+ */
+export const de_ListDatasetImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetImportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDatasetImportJobsResponse(data, context);
+  const response: ListDatasetImportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetsCommand
+ */
+export const de_ListDatasetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDatasetsResponse(data, context);
+  const response: ListDatasetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilitiesCommand
+ */
+export const de_ListExplainabilitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListExplainabilitiesResponse(data, context);
+  const response: ListExplainabilitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListExplainabilityExportsCommand
+ */
+export const de_ListExplainabilityExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExplainabilityExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListExplainabilityExportsResponse(data, context);
+  const response: ListExplainabilityExportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListForecastExportJobsCommand
+ */
+export const de_ListForecastExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListForecastExportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListForecastExportJobsResponse(data, context);
+  const response: ListForecastExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListForecastsCommand
+ */
+export const de_ListForecastsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListForecastsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListForecastsResponse(data, context);
+  const response: ListForecastsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMonitorEvaluationsCommand
+ */
+export const de_ListMonitorEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitorEvaluationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMonitorEvaluationsResponse(data, context);
+  const response: ListMonitorEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMonitorsCommand
+ */
+export const de_ListMonitorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMonitorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMonitorsResponse(data, context);
+  const response: ListMonitorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPredictorBacktestExportJobsCommand
+ */
+export const de_ListPredictorBacktestExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPredictorBacktestExportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPredictorBacktestExportJobsResponse(data, context);
+  const response: ListPredictorBacktestExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPredictorsCommand
+ */
+export const de_ListPredictorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPredictorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPredictorsResponse(data, context);
+  const response: ListPredictorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfAnalysesCommand
+ */
+export const de_ListWhatIfAnalysesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfAnalysesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWhatIfAnalysesResponse(data, context);
+  const response: ListWhatIfAnalysesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastExportsCommand
+ */
+export const de_ListWhatIfForecastExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfForecastExportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWhatIfForecastExportsResponse(data, context);
+  const response: ListWhatIfForecastExportsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListWhatIfForecastsCommand
+ */
+export const de_ListWhatIfForecastsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWhatIfForecastsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWhatIfForecastsResponse(data, context);
+  const response: ListWhatIfForecastsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResumeResourceCommand
+ */
+export const de_ResumeResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ResumeResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopResourceCommand
+ */
+export const de_StopResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDatasetGroupCommand
+ */
+export const de_UpdateDatasetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDatasetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1970,2416 +2411,9 @@ const de_CreateWhatIfForecastExportCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.forecast#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetCommand
- */
-export const de_DeleteDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDatasetCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDatasetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetCommandError
- */
-const de_DeleteDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetGroupCommand
- */
-export const de_DeleteDatasetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDatasetGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDatasetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetGroupCommandError
- */
-const de_DeleteDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetImportJobCommand
- */
-export const de_DeleteDatasetImportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDatasetImportJobCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDatasetImportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetImportJobCommandError
- */
-const de_DeleteDatasetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteExplainabilityCommand
- */
-export const de_DeleteExplainabilityCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExplainabilityCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteExplainabilityCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteExplainabilityCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteExplainabilityCommandError
- */
-const de_DeleteExplainabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExplainabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteExplainabilityExportCommand
- */
-export const de_DeleteExplainabilityExportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExplainabilityExportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteExplainabilityExportCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteExplainabilityExportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteExplainabilityExportCommandError
- */
-const de_DeleteExplainabilityExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExplainabilityExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteForecastCommand
- */
-export const de_DeleteForecastCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteForecastCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteForecastCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteForecastCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteForecastCommandError
- */
-const de_DeleteForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteForecastExportJobCommand
- */
-export const de_DeleteForecastExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteForecastExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteForecastExportJobCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteForecastExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteForecastExportJobCommandError
- */
-const de_DeleteForecastExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteForecastExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteMonitorCommand
- */
-export const de_DeleteMonitorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMonitorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteMonitorCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteMonitorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMonitorCommandError
- */
-const de_DeleteMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeletePredictorCommand
- */
-export const de_DeletePredictorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePredictorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePredictorCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeletePredictorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePredictorCommandError
- */
-const de_DeletePredictorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePredictorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeletePredictorBacktestExportJobCommand
- */
-export const de_DeletePredictorBacktestExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePredictorBacktestExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePredictorBacktestExportJobCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeletePredictorBacktestExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePredictorBacktestExportJobCommandError
- */
-const de_DeletePredictorBacktestExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePredictorBacktestExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceTreeCommand
- */
-export const de_DeleteResourceTreeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceTreeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourceTreeCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteResourceTreeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceTreeCommandError
- */
-const de_DeleteResourceTreeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceTreeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteWhatIfAnalysisCommand
- */
-export const de_DeleteWhatIfAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWhatIfAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteWhatIfAnalysisCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteWhatIfAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteWhatIfAnalysisCommandError
- */
-const de_DeleteWhatIfAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWhatIfAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteWhatIfForecastCommand
- */
-export const de_DeleteWhatIfForecastCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWhatIfForecastCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteWhatIfForecastCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteWhatIfForecastCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteWhatIfForecastCommandError
- */
-const de_DeleteWhatIfForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWhatIfForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteWhatIfForecastExportCommand
- */
-export const de_DeleteWhatIfForecastExportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWhatIfForecastExportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteWhatIfForecastExportCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteWhatIfForecastExportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteWhatIfForecastExportCommandError
- */
-const de_DeleteWhatIfForecastExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWhatIfForecastExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAutoPredictorCommand
- */
-export const de_DescribeAutoPredictorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoPredictorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAutoPredictorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAutoPredictorResponse(data, context);
-  const response: DescribeAutoPredictorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAutoPredictorCommandError
- */
-const de_DescribeAutoPredictorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoPredictorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetCommand
- */
-export const de_DescribeDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDatasetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDatasetResponse(data, context);
-  const response: DescribeDatasetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetCommandError
- */
-const de_DescribeDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetGroupCommand
- */
-export const de_DescribeDatasetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDatasetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDatasetGroupResponse(data, context);
-  const response: DescribeDatasetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetGroupCommandError
- */
-const de_DescribeDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetImportJobCommand
- */
-export const de_DescribeDatasetImportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDatasetImportJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDatasetImportJobResponse(data, context);
-  const response: DescribeDatasetImportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetImportJobCommandError
- */
-const de_DescribeDatasetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeExplainabilityCommand
- */
-export const de_DescribeExplainabilityCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExplainabilityCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeExplainabilityCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeExplainabilityResponse(data, context);
-  const response: DescribeExplainabilityCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeExplainabilityCommandError
- */
-const de_DescribeExplainabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExplainabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeExplainabilityExportCommand
- */
-export const de_DescribeExplainabilityExportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExplainabilityExportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeExplainabilityExportCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeExplainabilityExportResponse(data, context);
-  const response: DescribeExplainabilityExportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeExplainabilityExportCommandError
- */
-const de_DescribeExplainabilityExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExplainabilityExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeForecastCommand
- */
-export const de_DescribeForecastCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeForecastCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeForecastCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeForecastResponse(data, context);
-  const response: DescribeForecastCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeForecastCommandError
- */
-const de_DescribeForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeForecastExportJobCommand
- */
-export const de_DescribeForecastExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeForecastExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeForecastExportJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeForecastExportJobResponse(data, context);
-  const response: DescribeForecastExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeForecastExportJobCommandError
- */
-const de_DescribeForecastExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeForecastExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMonitorCommand
- */
-export const de_DescribeMonitorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMonitorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMonitorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeMonitorResponse(data, context);
-  const response: DescribeMonitorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMonitorCommandError
- */
-const de_DescribeMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePredictorCommand
- */
-export const de_DescribePredictorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePredictorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePredictorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribePredictorResponse(data, context);
-  const response: DescribePredictorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePredictorCommandError
- */
-const de_DescribePredictorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePredictorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePredictorBacktestExportJobCommand
- */
-export const de_DescribePredictorBacktestExportJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePredictorBacktestExportJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePredictorBacktestExportJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribePredictorBacktestExportJobResponse(data, context);
-  const response: DescribePredictorBacktestExportJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePredictorBacktestExportJobCommandError
- */
-const de_DescribePredictorBacktestExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePredictorBacktestExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeWhatIfAnalysisCommand
- */
-export const de_DescribeWhatIfAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWhatIfAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeWhatIfAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeWhatIfAnalysisResponse(data, context);
-  const response: DescribeWhatIfAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeWhatIfAnalysisCommandError
- */
-const de_DescribeWhatIfAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWhatIfAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeWhatIfForecastCommand
- */
-export const de_DescribeWhatIfForecastCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWhatIfForecastCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeWhatIfForecastCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeWhatIfForecastResponse(data, context);
-  const response: DescribeWhatIfForecastCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeWhatIfForecastCommandError
- */
-const de_DescribeWhatIfForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWhatIfForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeWhatIfForecastExportCommand
- */
-export const de_DescribeWhatIfForecastExportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWhatIfForecastExportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeWhatIfForecastExportCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeWhatIfForecastExportResponse(data, context);
-  const response: DescribeWhatIfForecastExportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeWhatIfForecastExportCommandError
- */
-const de_DescribeWhatIfForecastExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWhatIfForecastExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetAccuracyMetricsCommand
- */
-export const de_GetAccuracyMetricsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccuracyMetricsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetAccuracyMetricsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetAccuracyMetricsResponse(data, context);
-  const response: GetAccuracyMetricsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetAccuracyMetricsCommandError
- */
-const de_GetAccuracyMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccuracyMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatasetGroupsCommand
- */
-export const de_ListDatasetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatasetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDatasetGroupsResponse(data, context);
-  const response: ListDatasetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatasetGroupsCommandError
- */
-const de_ListDatasetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatasetImportJobsCommand
- */
-export const de_ListDatasetImportJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetImportJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatasetImportJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDatasetImportJobsResponse(data, context);
-  const response: ListDatasetImportJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatasetImportJobsCommandError
- */
-const de_ListDatasetImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatasetsCommand
- */
-export const de_ListDatasetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatasetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDatasetsResponse(data, context);
-  const response: ListDatasetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatasetsCommandError
- */
-const de_ListDatasetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListExplainabilitiesCommand
- */
-export const de_ListExplainabilitiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExplainabilitiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListExplainabilitiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListExplainabilitiesResponse(data, context);
-  const response: ListExplainabilitiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListExplainabilitiesCommandError
- */
-const de_ListExplainabilitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExplainabilitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListExplainabilityExportsCommand
- */
-export const de_ListExplainabilityExportsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExplainabilityExportsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListExplainabilityExportsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListExplainabilityExportsResponse(data, context);
-  const response: ListExplainabilityExportsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListExplainabilityExportsCommandError
- */
-const de_ListExplainabilityExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExplainabilityExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListForecastExportJobsCommand
- */
-export const de_ListForecastExportJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListForecastExportJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListForecastExportJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListForecastExportJobsResponse(data, context);
-  const response: ListForecastExportJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListForecastExportJobsCommandError
- */
-const de_ListForecastExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListForecastExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListForecastsCommand
- */
-export const de_ListForecastsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListForecastsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListForecastsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListForecastsResponse(data, context);
-  const response: ListForecastsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListForecastsCommandError
- */
-const de_ListForecastsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListForecastsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListMonitorEvaluationsCommand
- */
-export const de_ListMonitorEvaluationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitorEvaluationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListMonitorEvaluationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListMonitorEvaluationsResponse(data, context);
-  const response: ListMonitorEvaluationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListMonitorEvaluationsCommandError
- */
-const de_ListMonitorEvaluationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitorEvaluationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListMonitorsCommand
- */
-export const de_ListMonitorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListMonitorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListMonitorsResponse(data, context);
-  const response: ListMonitorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListMonitorsCommandError
- */
-const de_ListMonitorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMonitorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPredictorBacktestExportJobsCommand
- */
-export const de_ListPredictorBacktestExportJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPredictorBacktestExportJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPredictorBacktestExportJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListPredictorBacktestExportJobsResponse(data, context);
-  const response: ListPredictorBacktestExportJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPredictorBacktestExportJobsCommandError
- */
-const de_ListPredictorBacktestExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPredictorBacktestExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPredictorsCommand
- */
-export const de_ListPredictorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPredictorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPredictorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListPredictorsResponse(data, context);
-  const response: ListPredictorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPredictorsCommandError
- */
-const de_ListPredictorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPredictorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListWhatIfAnalysesCommand
- */
-export const de_ListWhatIfAnalysesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWhatIfAnalysesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListWhatIfAnalysesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListWhatIfAnalysesResponse(data, context);
-  const response: ListWhatIfAnalysesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListWhatIfAnalysesCommandError
- */
-const de_ListWhatIfAnalysesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWhatIfAnalysesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListWhatIfForecastExportsCommand
- */
-export const de_ListWhatIfForecastExportsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWhatIfForecastExportsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListWhatIfForecastExportsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListWhatIfForecastExportsResponse(data, context);
-  const response: ListWhatIfForecastExportsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListWhatIfForecastExportsCommandError
- */
-const de_ListWhatIfForecastExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWhatIfForecastExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListWhatIfForecastsCommand
- */
-export const de_ListWhatIfForecastsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWhatIfForecastsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListWhatIfForecastsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListWhatIfForecastsResponse(data, context);
-  const response: ListWhatIfForecastsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListWhatIfForecastsCommandError
- */
-const de_ListWhatIfForecastsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWhatIfForecastsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecast#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResumeResourceCommand
- */
-export const de_ResumeResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResumeResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: ResumeResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResumeResourceCommandError
- */
-const de_ResumeResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopResourceCommand
- */
-export const de_StopResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: StopResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopResourceCommandError
- */
-const de_StopResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecast#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDatasetGroupCommand
- */
-export const de_UpdateDatasetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDatasetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDatasetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDatasetGroupCommandError
- */
-const de_UpdateDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecast#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecast#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecast#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

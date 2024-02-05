@@ -1560,7 +1560,7 @@ export const de_ActivateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<ActivateGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ActivateGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1573,35 +1573,6 @@ export const de_ActivateGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ActivateGatewayCommandError
- */
-const de_ActivateGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddCacheCommand
  */
 export const de_AddCacheCommand = async (
@@ -1609,7 +1580,7 @@ export const de_AddCacheCommand = async (
   context: __SerdeContext
 ): Promise<AddCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1622,35 +1593,6 @@ export const de_AddCacheCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddCacheCommandError
- */
-const de_AddCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddTagsToResourceCommand
  */
 export const de_AddTagsToResourceCommand = async (
@@ -1658,7 +1600,7 @@ export const de_AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1671,35 +1613,6 @@ export const de_AddTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddUploadBufferCommand
  */
 export const de_AddUploadBufferCommand = async (
@@ -1707,7 +1620,7 @@ export const de_AddUploadBufferCommand = async (
   context: __SerdeContext
 ): Promise<AddUploadBufferCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddUploadBufferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1720,35 +1633,6 @@ export const de_AddUploadBufferCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddUploadBufferCommandError
- */
-const de_AddUploadBufferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddUploadBufferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddWorkingStorageCommand
  */
 export const de_AddWorkingStorageCommand = async (
@@ -1756,7 +1640,7 @@ export const de_AddWorkingStorageCommand = async (
   context: __SerdeContext
 ): Promise<AddWorkingStorageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddWorkingStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1769,35 +1653,6 @@ export const de_AddWorkingStorageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddWorkingStorageCommandError
- */
-const de_AddWorkingStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddWorkingStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssignTapePoolCommand
  */
 export const de_AssignTapePoolCommand = async (
@@ -1805,7 +1660,7 @@ export const de_AssignTapePoolCommand = async (
   context: __SerdeContext
 ): Promise<AssignTapePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssignTapePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1818,35 +1673,6 @@ export const de_AssignTapePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssignTapePoolCommandError
- */
-const de_AssignTapePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssignTapePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateFileSystemCommand
  */
 export const de_AssociateFileSystemCommand = async (
@@ -1854,7 +1680,7 @@ export const de_AssociateFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<AssociateFileSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateFileSystemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1867,35 +1693,6 @@ export const de_AssociateFileSystemCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateFileSystemCommandError
- */
-const de_AssociateFileSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateFileSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachVolumeCommand
  */
 export const de_AttachVolumeCommand = async (
@@ -1903,7 +1700,7 @@ export const de_AttachVolumeCommand = async (
   context: __SerdeContext
 ): Promise<AttachVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1916,35 +1713,6 @@ export const de_AttachVolumeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AttachVolumeCommandError
- */
-const de_AttachVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelArchivalCommand
  */
 export const de_CancelArchivalCommand = async (
@@ -1952,7 +1720,7 @@ export const de_CancelArchivalCommand = async (
   context: __SerdeContext
 ): Promise<CancelArchivalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelArchivalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1965,35 +1733,6 @@ export const de_CancelArchivalCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelArchivalCommandError
- */
-const de_CancelArchivalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelArchivalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelRetrievalCommand
  */
 export const de_CancelRetrievalCommand = async (
@@ -2001,7 +1740,7 @@ export const de_CancelRetrievalCommand = async (
   context: __SerdeContext
 ): Promise<CancelRetrievalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelRetrievalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2014,35 +1753,6 @@ export const de_CancelRetrievalCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelRetrievalCommandError
- */
-const de_CancelRetrievalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelRetrievalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCachediSCSIVolumeCommand
  */
 export const de_CreateCachediSCSIVolumeCommand = async (
@@ -2050,7 +1760,7 @@ export const de_CreateCachediSCSIVolumeCommand = async (
   context: __SerdeContext
 ): Promise<CreateCachediSCSIVolumeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCachediSCSIVolumeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2063,35 +1773,6 @@ export const de_CreateCachediSCSIVolumeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCachediSCSIVolumeCommandError
- */
-const de_CreateCachediSCSIVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCachediSCSIVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNFSFileShareCommand
  */
 export const de_CreateNFSFileShareCommand = async (
@@ -2099,7 +1780,7 @@ export const de_CreateNFSFileShareCommand = async (
   context: __SerdeContext
 ): Promise<CreateNFSFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNFSFileShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2112,35 +1793,6 @@ export const de_CreateNFSFileShareCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNFSFileShareCommandError
- */
-const de_CreateNFSFileShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNFSFileShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSMBFileShareCommand
  */
 export const de_CreateSMBFileShareCommand = async (
@@ -2148,7 +1800,7 @@ export const de_CreateSMBFileShareCommand = async (
   context: __SerdeContext
 ): Promise<CreateSMBFileShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSMBFileShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2161,35 +1813,6 @@ export const de_CreateSMBFileShareCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSMBFileShareCommandError
- */
-const de_CreateSMBFileShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSMBFileShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSnapshotCommand
  */
 export const de_CreateSnapshotCommand = async (
@@ -2197,7 +1820,7 @@ export const de_CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2210,38 +1833,6 @@ export const de_CreateSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableError":
-    case "com.amazonaws.storagegateway#ServiceUnavailableError":
-      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand
  */
 export const de_CreateSnapshotFromVolumeRecoveryPointCommand = async (
@@ -2249,7 +1840,7 @@ export const de_CreateSnapshotFromVolumeRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotFromVolumeRecoveryPointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2262,12 +1853,1509 @@ export const de_CreateSnapshotFromVolumeRecoveryPointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError
+ * deserializeAws_json1_1CreateStorediSCSIVolumeCommand
  */
-const de_CreateSnapshotFromVolumeRecoveryPointCommandError = async (
+export const de_CreateStorediSCSIVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSnapshotFromVolumeRecoveryPointCommandOutput> => {
+): Promise<CreateStorediSCSIVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateStorediSCSIVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateTapePoolCommand
+ */
+export const de_CreateTapePoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTapePoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateTapePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateTapesCommand
+ */
+export const de_CreateTapesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTapesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateTapesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateTapeWithBarcodeCommand
+ */
+export const de_CreateTapeWithBarcodeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTapeWithBarcodeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateTapeWithBarcodeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand
+ */
+export const de_DeleteAutomaticTapeCreationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAutomaticTapeCreationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteBandwidthRateLimitCommand
+ */
+export const de_DeleteBandwidthRateLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBandwidthRateLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteBandwidthRateLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteChapCredentialsCommand
+ */
+export const de_DeleteChapCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChapCredentialsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteChapCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteFileShareCommand
+ */
+export const de_DeleteFileShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteFileShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteGatewayCommand
+ */
+export const de_DeleteGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteSnapshotScheduleCommand
+ */
+export const de_DeleteSnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteSnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTapeCommand
+ */
+export const de_DeleteTapeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTapeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTapeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTapeArchiveCommand
+ */
+export const de_DeleteTapeArchiveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTapeArchiveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTapeArchiveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTapePoolCommand
+ */
+export const de_DeleteTapePoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTapePoolCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTapePoolCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteVolumeCommand
+ */
+export const de_DeleteVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand
+ */
+export const de_DescribeAvailabilityMonitorTestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAvailabilityMonitorTestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAvailabilityMonitorTestOutput(data, context);
+  const response: DescribeAvailabilityMonitorTestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitCommand
+ */
+export const de_DescribeBandwidthRateLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBandwidthRateLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeBandwidthRateLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand
+ */
+export const de_DescribeBandwidthRateLimitScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeBandwidthRateLimitScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCacheCommand
+ */
+export const de_DescribeCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCacheOutput(data, context);
+  const response: DescribeCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCachediSCSIVolumesCommand
+ */
+export const de_DescribeCachediSCSIVolumesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCachediSCSIVolumesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCachediSCSIVolumesOutput(data, context);
+  const response: DescribeCachediSCSIVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeChapCredentialsCommand
+ */
+export const de_DescribeChapCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChapCredentialsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeChapCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFileSystemAssociationsCommand
+ */
+export const de_DescribeFileSystemAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeFileSystemAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeGatewayInformationCommand
+ */
+export const de_DescribeGatewayInformationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGatewayInformationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeGatewayInformationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceStartTimeCommand
+ */
+export const de_DescribeMaintenanceStartTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceStartTimeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMaintenanceStartTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeNFSFileSharesCommand
+ */
+export const de_DescribeNFSFileSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNFSFileSharesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeNFSFileSharesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSMBFileSharesCommand
+ */
+export const de_DescribeSMBFileSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSMBFileSharesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSMBFileSharesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSMBSettingsCommand
+ */
+export const de_DescribeSMBSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSMBSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSMBSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSnapshotScheduleCommand
+ */
+export const de_DescribeSnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorediSCSIVolumesCommand
+ */
+export const de_DescribeStorediSCSIVolumesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorediSCSIVolumesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStorediSCSIVolumesOutput(data, context);
+  const response: DescribeStorediSCSIVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTapeArchivesCommand
+ */
+export const de_DescribeTapeArchivesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTapeArchivesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTapeArchivesOutput(data, context);
+  const response: DescribeTapeArchivesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTapeRecoveryPointsCommand
+ */
+export const de_DescribeTapeRecoveryPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTapeRecoveryPointsOutput(data, context);
+  const response: DescribeTapeRecoveryPointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTapesCommand
+ */
+export const de_DescribeTapesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTapesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTapesOutput(data, context);
+  const response: DescribeTapesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeUploadBufferCommand
+ */
+export const de_DescribeUploadBufferCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUploadBufferCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeUploadBufferCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeVTLDevicesCommand
+ */
+export const de_DescribeVTLDevicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVTLDevicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeVTLDevicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeWorkingStorageCommand
+ */
+export const de_DescribeWorkingStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkingStorageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeWorkingStorageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetachVolumeCommand
+ */
+export const de_DetachVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DetachVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisableGatewayCommand
+ */
+export const de_DisableGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisableGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateFileSystemCommand
+ */
+export const de_DisassociateFileSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFileSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateFileSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1JoinDomainCommand
+ */
+export const de_JoinDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<JoinDomainCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: JoinDomainCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand
+ */
+export const de_ListAutomaticTapeCreationPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAutomaticTapeCreationPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFileSharesCommand
+ */
+export const de_ListFileSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileSharesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListFileSharesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFileSystemAssociationsCommand
+ */
+export const de_ListFileSystemAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFileSystemAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListFileSystemAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListGatewaysCommand
+ */
+export const de_ListGatewaysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGatewaysCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListGatewaysCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListLocalDisksCommand
+ */
+export const de_ListLocalDisksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLocalDisksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListLocalDisksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTapePoolsCommand
+ */
+export const de_ListTapePoolsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTapePoolsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTapePoolsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTapesCommand
+ */
+export const de_ListTapesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTapesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTapesOutput(data, context);
+  const response: ListTapesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListVolumeInitiatorsCommand
+ */
+export const de_ListVolumeInitiatorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVolumeInitiatorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListVolumeInitiatorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListVolumeRecoveryPointsCommand
+ */
+export const de_ListVolumeRecoveryPointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVolumeRecoveryPointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListVolumeRecoveryPointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListVolumesCommand
+ */
+export const de_ListVolumesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVolumesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1NotifyWhenUploadedCommand
+ */
+export const de_NotifyWhenUploadedCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NotifyWhenUploadedCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: NotifyWhenUploadedCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RefreshCacheCommand
+ */
+export const de_RefreshCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RefreshCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RefreshCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RemoveTagsFromResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResetCacheCommand
+ */
+export const de_ResetCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ResetCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RetrieveTapeArchiveCommand
+ */
+export const de_RetrieveTapeArchiveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RetrieveTapeArchiveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RetrieveTapeArchiveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RetrieveTapeRecoveryPointCommand
+ */
+export const de_RetrieveTapeRecoveryPointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RetrieveTapeRecoveryPointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RetrieveTapeRecoveryPointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SetLocalConsolePasswordCommand
+ */
+export const de_SetLocalConsolePasswordCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetLocalConsolePasswordCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SetLocalConsolePasswordCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SetSMBGuestPasswordCommand
+ */
+export const de_SetSMBGuestPasswordCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetSMBGuestPasswordCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SetSMBGuestPasswordCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ShutdownGatewayCommand
+ */
+export const de_ShutdownGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ShutdownGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ShutdownGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartAvailabilityMonitorTestCommand
+ */
+export const de_StartAvailabilityMonitorTestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAvailabilityMonitorTestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAvailabilityMonitorTestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartGatewayCommand
+ */
+export const de_StartGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand
+ */
+export const de_UpdateAutomaticTapeCreationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateAutomaticTapeCreationPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitCommand
+ */
+export const de_UpdateBandwidthRateLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBandwidthRateLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateBandwidthRateLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand
+ */
+export const de_UpdateBandwidthRateLimitScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateBandwidthRateLimitScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateChapCredentialsCommand
+ */
+export const de_UpdateChapCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChapCredentialsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateChapCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateFileSystemAssociationCommand
+ */
+export const de_UpdateFileSystemAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateFileSystemAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateGatewayInformationCommand
+ */
+export const de_UpdateGatewayInformationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayInformationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateGatewayInformationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateGatewaySoftwareNowCommand
+ */
+export const de_UpdateGatewaySoftwareNowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateGatewaySoftwareNowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMaintenanceStartTimeCommand
+ */
+export const de_UpdateMaintenanceStartTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMaintenanceStartTimeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMaintenanceStartTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateNFSFileShareCommand
+ */
+export const de_UpdateNFSFileShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNFSFileShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateNFSFileShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareCommand
+ */
+export const de_UpdateSMBFileShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBFileShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSMBFileShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand
+ */
+export const de_UpdateSMBFileShareVisibilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSMBFileShareVisibilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSMBLocalGroupsCommand
+ */
+export const de_UpdateSMBLocalGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBLocalGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSMBLocalGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSMBSecurityStrategyCommand
+ */
+export const de_UpdateSMBSecurityStrategyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBSecurityStrategyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSMBSecurityStrategyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotScheduleCommand
+ */
+export const de_UpdateSnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateVTLDeviceTypeCommand
+ */
+export const de_UpdateVTLDeviceTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVTLDeviceTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateVTLDeviceTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2283,3681 +3371,6 @@ const de_CreateSnapshotFromVolumeRecoveryPointCommandError = async (
     case "ServiceUnavailableError":
     case "com.amazonaws.storagegateway#ServiceUnavailableError":
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateStorediSCSIVolumeCommand
- */
-export const de_CreateStorediSCSIVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStorediSCSIVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateStorediSCSIVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateStorediSCSIVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateStorediSCSIVolumeCommandError
- */
-const de_CreateStorediSCSIVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStorediSCSIVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateTapePoolCommand
- */
-export const de_CreateTapePoolCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTapePoolCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTapePoolCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateTapePoolCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateTapePoolCommandError
- */
-const de_CreateTapePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTapePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateTapesCommand
- */
-export const de_CreateTapesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTapesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTapesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateTapesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateTapesCommandError
- */
-const de_CreateTapesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTapesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateTapeWithBarcodeCommand
- */
-export const de_CreateTapeWithBarcodeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTapeWithBarcodeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTapeWithBarcodeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateTapeWithBarcodeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateTapeWithBarcodeCommandError
- */
-const de_CreateTapeWithBarcodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTapeWithBarcodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand
- */
-export const de_DeleteAutomaticTapeCreationPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAutomaticTapeCreationPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteAutomaticTapeCreationPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError
- */
-const de_DeleteAutomaticTapeCreationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAutomaticTapeCreationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteBandwidthRateLimitCommand
- */
-export const de_DeleteBandwidthRateLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBandwidthRateLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteBandwidthRateLimitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteBandwidthRateLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteBandwidthRateLimitCommandError
- */
-const de_DeleteBandwidthRateLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBandwidthRateLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteChapCredentialsCommand
- */
-export const de_DeleteChapCredentialsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChapCredentialsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteChapCredentialsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteChapCredentialsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteChapCredentialsCommandError
- */
-const de_DeleteChapCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChapCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteFileShareCommand
- */
-export const de_DeleteFileShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFileShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteFileShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteFileShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFileShareCommandError
- */
-const de_DeleteFileShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFileShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteGatewayCommand
- */
-export const de_DeleteGatewayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteGatewayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteGatewayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteGatewayCommandError
- */
-const de_DeleteGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteSnapshotScheduleCommand
- */
-export const de_DeleteSnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSnapshotScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteSnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSnapshotScheduleCommandError
- */
-const de_DeleteSnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteTapeCommand
- */
-export const de_DeleteTapeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTapeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTapeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteTapeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTapeCommandError
- */
-const de_DeleteTapeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTapeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteTapeArchiveCommand
- */
-export const de_DeleteTapeArchiveCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTapeArchiveCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTapeArchiveCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteTapeArchiveCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTapeArchiveCommandError
- */
-const de_DeleteTapeArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTapeArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteTapePoolCommand
- */
-export const de_DeleteTapePoolCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTapePoolCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTapePoolCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteTapePoolCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTapePoolCommandError
- */
-const de_DeleteTapePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTapePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteVolumeCommand
- */
-export const de_DeleteVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteVolumeCommandError
- */
-const de_DeleteVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand
- */
-export const de_DescribeAvailabilityMonitorTestCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAvailabilityMonitorTestCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAvailabilityMonitorTestCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAvailabilityMonitorTestOutput(data, context);
-  const response: DescribeAvailabilityMonitorTestCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError
- */
-const de_DescribeAvailabilityMonitorTestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAvailabilityMonitorTestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBandwidthRateLimitCommand
- */
-export const de_DescribeBandwidthRateLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBandwidthRateLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBandwidthRateLimitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeBandwidthRateLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBandwidthRateLimitCommandError
- */
-const de_DescribeBandwidthRateLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBandwidthRateLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand
- */
-export const de_DescribeBandwidthRateLimitScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBandwidthRateLimitScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeBandwidthRateLimitScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError
- */
-const de_DescribeBandwidthRateLimitScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCacheCommand
- */
-export const de_DescribeCacheCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCacheCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeCacheOutput(data, context);
-  const response: DescribeCacheCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCacheCommandError
- */
-const de_DescribeCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCachediSCSIVolumesCommand
- */
-export const de_DescribeCachediSCSIVolumesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCachediSCSIVolumesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCachediSCSIVolumesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeCachediSCSIVolumesOutput(data, context);
-  const response: DescribeCachediSCSIVolumesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError
- */
-const de_DescribeCachediSCSIVolumesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCachediSCSIVolumesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeChapCredentialsCommand
- */
-export const de_DescribeChapCredentialsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChapCredentialsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeChapCredentialsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeChapCredentialsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeChapCredentialsCommandError
- */
-const de_DescribeChapCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChapCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeFileSystemAssociationsCommand
- */
-export const de_DescribeFileSystemAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileSystemAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeFileSystemAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeFileSystemAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeFileSystemAssociationsCommandError
- */
-const de_DescribeFileSystemAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileSystemAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeGatewayInformationCommand
- */
-export const de_DescribeGatewayInformationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGatewayInformationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeGatewayInformationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeGatewayInformationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeGatewayInformationCommandError
- */
-const de_DescribeGatewayInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGatewayInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceStartTimeCommand
- */
-export const de_DescribeMaintenanceStartTimeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceStartTimeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceStartTimeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeMaintenanceStartTimeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError
- */
-const de_DescribeMaintenanceStartTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceStartTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeNFSFileSharesCommand
- */
-export const de_DescribeNFSFileSharesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNFSFileSharesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeNFSFileSharesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeNFSFileSharesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeNFSFileSharesCommandError
- */
-const de_DescribeNFSFileSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNFSFileSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSMBFileSharesCommand
- */
-export const de_DescribeSMBFileSharesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSMBFileSharesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSMBFileSharesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSMBFileSharesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSMBFileSharesCommandError
- */
-const de_DescribeSMBFileSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSMBFileSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSMBSettingsCommand
- */
-export const de_DescribeSMBSettingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSMBSettingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSMBSettingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSMBSettingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSMBSettingsCommandError
- */
-const de_DescribeSMBSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSMBSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSnapshotScheduleCommand
- */
-export const de_DescribeSnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSnapshotScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSnapshotScheduleCommandError
- */
-const de_DescribeSnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeStorediSCSIVolumesCommand
- */
-export const de_DescribeStorediSCSIVolumesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorediSCSIVolumesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStorediSCSIVolumesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeStorediSCSIVolumesOutput(data, context);
-  const response: DescribeStorediSCSIVolumesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError
- */
-const de_DescribeStorediSCSIVolumesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorediSCSIVolumesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTapeArchivesCommand
- */
-export const de_DescribeTapeArchivesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTapeArchivesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTapeArchivesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTapeArchivesOutput(data, context);
-  const response: DescribeTapeArchivesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTapeArchivesCommandError
- */
-const de_DescribeTapeArchivesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTapeArchivesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTapeRecoveryPointsCommand
- */
-export const de_DescribeTapeRecoveryPointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTapeRecoveryPointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTapeRecoveryPointsOutput(data, context);
-  const response: DescribeTapeRecoveryPointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError
- */
-const de_DescribeTapeRecoveryPointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTapesCommand
- */
-export const de_DescribeTapesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTapesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTapesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTapesOutput(data, context);
-  const response: DescribeTapesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTapesCommandError
- */
-const de_DescribeTapesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTapesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeUploadBufferCommand
- */
-export const de_DescribeUploadBufferCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUploadBufferCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeUploadBufferCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeUploadBufferCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeUploadBufferCommandError
- */
-const de_DescribeUploadBufferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUploadBufferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeVTLDevicesCommand
- */
-export const de_DescribeVTLDevicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVTLDevicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeVTLDevicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeVTLDevicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeVTLDevicesCommandError
- */
-const de_DescribeVTLDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVTLDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeWorkingStorageCommand
- */
-export const de_DescribeWorkingStorageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkingStorageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeWorkingStorageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeWorkingStorageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeWorkingStorageCommandError
- */
-const de_DescribeWorkingStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkingStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetachVolumeCommand
- */
-export const de_DetachVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetachVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DetachVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetachVolumeCommandError
- */
-const de_DetachVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisableGatewayCommand
- */
-export const de_DisableGatewayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableGatewayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisableGatewayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisableGatewayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisableGatewayCommandError
- */
-const de_DisableGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateFileSystemCommand
- */
-export const de_DisassociateFileSystemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFileSystemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateFileSystemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateFileSystemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateFileSystemCommandError
- */
-const de_DisassociateFileSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFileSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1JoinDomainCommand
- */
-export const de_JoinDomainCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JoinDomainCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_JoinDomainCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: JoinDomainCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1JoinDomainCommandError
- */
-const de_JoinDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JoinDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand
- */
-export const de_ListAutomaticTapeCreationPoliciesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAutomaticTapeCreationPoliciesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListAutomaticTapeCreationPoliciesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError
- */
-const de_ListAutomaticTapeCreationPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAutomaticTapeCreationPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListFileSharesCommand
- */
-export const de_ListFileSharesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFileSharesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListFileSharesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListFileSharesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListFileSharesCommandError
- */
-const de_ListFileSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFileSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListFileSystemAssociationsCommand
- */
-export const de_ListFileSystemAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFileSystemAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListFileSystemAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListFileSystemAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListFileSystemAssociationsCommandError
- */
-const de_ListFileSystemAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFileSystemAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListGatewaysCommand
- */
-export const de_ListGatewaysCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewaysCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListGatewaysCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListGatewaysCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListGatewaysCommandError
- */
-const de_ListGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListLocalDisksCommand
- */
-export const de_ListLocalDisksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLocalDisksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListLocalDisksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListLocalDisksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListLocalDisksCommandError
- */
-const de_ListLocalDisksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLocalDisksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTapePoolsCommand
- */
-export const de_ListTapePoolsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTapePoolsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTapePoolsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTapePoolsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTapePoolsCommandError
- */
-const de_ListTapePoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTapePoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTapesCommand
- */
-export const de_ListTapesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTapesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTapesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListTapesOutput(data, context);
-  const response: ListTapesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTapesCommandError
- */
-const de_ListTapesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTapesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListVolumeInitiatorsCommand
- */
-export const de_ListVolumeInitiatorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVolumeInitiatorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListVolumeInitiatorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListVolumeInitiatorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListVolumeInitiatorsCommandError
- */
-const de_ListVolumeInitiatorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVolumeInitiatorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListVolumeRecoveryPointsCommand
- */
-export const de_ListVolumeRecoveryPointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVolumeRecoveryPointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListVolumeRecoveryPointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListVolumeRecoveryPointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListVolumeRecoveryPointsCommandError
- */
-const de_ListVolumeRecoveryPointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVolumeRecoveryPointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListVolumesCommand
- */
-export const de_ListVolumesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVolumesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListVolumesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListVolumesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListVolumesCommandError
- */
-const de_ListVolumesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVolumesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1NotifyWhenUploadedCommand
- */
-export const de_NotifyWhenUploadedCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyWhenUploadedCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NotifyWhenUploadedCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: NotifyWhenUploadedCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1NotifyWhenUploadedCommandError
- */
-const de_NotifyWhenUploadedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyWhenUploadedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RefreshCacheCommand
- */
-export const de_RefreshCacheCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshCacheCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RefreshCacheCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RefreshCacheCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RefreshCacheCommandError
- */
-const de_RefreshCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceCommand
- */
-export const de_RemoveTagsFromResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RemoveTagsFromResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceCommandError
- */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResetCacheCommand
- */
-export const de_ResetCacheCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetCacheCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetCacheCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ResetCacheCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResetCacheCommandError
- */
-const de_ResetCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RetrieveTapeArchiveCommand
- */
-export const de_RetrieveTapeArchiveCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveTapeArchiveCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RetrieveTapeArchiveCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RetrieveTapeArchiveCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RetrieveTapeArchiveCommandError
- */
-const de_RetrieveTapeArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveTapeArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RetrieveTapeRecoveryPointCommand
- */
-export const de_RetrieveTapeRecoveryPointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveTapeRecoveryPointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RetrieveTapeRecoveryPointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RetrieveTapeRecoveryPointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError
- */
-const de_RetrieveTapeRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveTapeRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SetLocalConsolePasswordCommand
- */
-export const de_SetLocalConsolePasswordCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetLocalConsolePasswordCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetLocalConsolePasswordCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SetLocalConsolePasswordCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SetLocalConsolePasswordCommandError
- */
-const de_SetLocalConsolePasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetLocalConsolePasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SetSMBGuestPasswordCommand
- */
-export const de_SetSMBGuestPasswordCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSMBGuestPasswordCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetSMBGuestPasswordCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SetSMBGuestPasswordCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SetSMBGuestPasswordCommandError
- */
-const de_SetSMBGuestPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSMBGuestPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ShutdownGatewayCommand
- */
-export const de_ShutdownGatewayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ShutdownGatewayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ShutdownGatewayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ShutdownGatewayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ShutdownGatewayCommandError
- */
-const de_ShutdownGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ShutdownGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartAvailabilityMonitorTestCommand
- */
-export const de_StartAvailabilityMonitorTestCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAvailabilityMonitorTestCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartAvailabilityMonitorTestCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartAvailabilityMonitorTestCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartAvailabilityMonitorTestCommandError
- */
-const de_StartAvailabilityMonitorTestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAvailabilityMonitorTestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartGatewayCommand
- */
-export const de_StartGatewayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartGatewayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartGatewayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartGatewayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartGatewayCommandError
- */
-const de_StartGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand
- */
-export const de_UpdateAutomaticTapeCreationPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateAutomaticTapeCreationPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateAutomaticTapeCreationPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError
- */
-const de_UpdateAutomaticTapeCreationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAutomaticTapeCreationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateBandwidthRateLimitCommand
- */
-export const de_UpdateBandwidthRateLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBandwidthRateLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateBandwidthRateLimitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateBandwidthRateLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateBandwidthRateLimitCommandError
- */
-const de_UpdateBandwidthRateLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBandwidthRateLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand
- */
-export const de_UpdateBandwidthRateLimitScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateBandwidthRateLimitScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateBandwidthRateLimitScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError
- */
-const de_UpdateBandwidthRateLimitScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateChapCredentialsCommand
- */
-export const de_UpdateChapCredentialsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChapCredentialsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateChapCredentialsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateChapCredentialsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateChapCredentialsCommandError
- */
-const de_UpdateChapCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChapCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateFileSystemAssociationCommand
- */
-export const de_UpdateFileSystemAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFileSystemAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateFileSystemAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateFileSystemAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateFileSystemAssociationCommandError
- */
-const de_UpdateFileSystemAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFileSystemAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateGatewayInformationCommand
- */
-export const de_UpdateGatewayInformationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayInformationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateGatewayInformationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateGatewayInformationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateGatewayInformationCommandError
- */
-const de_UpdateGatewayInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateGatewaySoftwareNowCommand
- */
-export const de_UpdateGatewaySoftwareNowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateGatewaySoftwareNowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateGatewaySoftwareNowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError
- */
-const de_UpdateGatewaySoftwareNowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceStartTimeCommand
- */
-export const de_UpdateMaintenanceStartTimeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceStartTimeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateMaintenanceStartTimeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateMaintenanceStartTimeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError
- */
-const de_UpdateMaintenanceStartTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceStartTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateNFSFileShareCommand
- */
-export const de_UpdateNFSFileShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNFSFileShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateNFSFileShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateNFSFileShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateNFSFileShareCommandError
- */
-const de_UpdateNFSFileShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNFSFileShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBFileShareCommand
- */
-export const de_UpdateSMBFileShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBFileShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSMBFileShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSMBFileShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBFileShareCommandError
- */
-const de_UpdateSMBFileShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBFileShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand
- */
-export const de_UpdateSMBFileShareVisibilityCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSMBFileShareVisibilityCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSMBFileShareVisibilityCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError
- */
-const de_UpdateSMBFileShareVisibilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBFileShareVisibilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBLocalGroupsCommand
- */
-export const de_UpdateSMBLocalGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBLocalGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSMBLocalGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSMBLocalGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBLocalGroupsCommandError
- */
-const de_UpdateSMBLocalGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBLocalGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBSecurityStrategyCommand
- */
-export const de_UpdateSMBSecurityStrategyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBSecurityStrategyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSMBSecurityStrategyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSMBSecurityStrategyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError
- */
-const de_UpdateSMBSecurityStrategyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSMBSecurityStrategyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotScheduleCommand
- */
-export const de_UpdateSnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSnapshotScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotScheduleCommandError
- */
-const de_UpdateSnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateVTLDeviceTypeCommand
- */
-export const de_UpdateVTLDeviceTypeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVTLDeviceTypeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateVTLDeviceTypeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateVTLDeviceTypeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateVTLDeviceTypeCommandError
- */
-const de_UpdateVTLDeviceTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVTLDeviceTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.storagegateway#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidGatewayRequestException":
-    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      throw await de_InvalidGatewayRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -1371,7 +1371,7 @@ export const de_CreateDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateDevicePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDevicePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1384,41 +1384,6 @@ export const de_CreateDevicePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDevicePoolCommandError
- */
-const de_CreateDevicePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDevicePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInstanceProfileCommand
  */
 export const de_CreateInstanceProfileCommand = async (
@@ -1426,7 +1391,7 @@ export const de_CreateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1439,41 +1404,6 @@ export const de_CreateInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInstanceProfileCommandError
- */
-const de_CreateInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNetworkProfileCommand
  */
 export const de_CreateNetworkProfileCommand = async (
@@ -1481,7 +1411,7 @@ export const de_CreateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1494,41 +1424,6 @@ export const de_CreateNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNetworkProfileCommandError
- */
-const de_CreateNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProjectCommand
  */
 export const de_CreateProjectCommand = async (
@@ -1536,7 +1431,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1549,44 +1444,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    case "TagOperationException":
-    case "com.amazonaws.devicefarm#TagOperationException":
-      throw await de_TagOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRemoteAccessSessionCommand
  */
 export const de_CreateRemoteAccessSessionCommand = async (
@@ -1594,7 +1451,7 @@ export const de_CreateRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRemoteAccessSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1607,41 +1464,6 @@ export const de_CreateRemoteAccessSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRemoteAccessSessionCommandError
- */
-const de_CreateRemoteAccessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRemoteAccessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTestGridProjectCommand
  */
 export const de_CreateTestGridProjectCommand = async (
@@ -1649,7 +1471,7 @@ export const de_CreateTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateTestGridProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTestGridProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1662,38 +1484,6 @@ export const de_CreateTestGridProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTestGridProjectCommandError
- */
-const de_CreateTestGridProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTestGridProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTestGridUrlCommand
  */
 export const de_CreateTestGridUrlCommand = async (
@@ -1701,7 +1491,7 @@ export const de_CreateTestGridUrlCommand = async (
   context: __SerdeContext
 ): Promise<CreateTestGridUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTestGridUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1714,38 +1504,6 @@ export const de_CreateTestGridUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTestGridUrlCommandError
- */
-const de_CreateTestGridUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTestGridUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUploadCommand
  */
 export const de_CreateUploadCommand = async (
@@ -1753,7 +1511,7 @@ export const de_CreateUploadCommand = async (
   context: __SerdeContext
 ): Promise<CreateUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1766,41 +1524,6 @@ export const de_CreateUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUploadCommandError
- */
-const de_CreateUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateVPCEConfigurationCommand
  */
 export const de_CreateVPCEConfigurationCommand = async (
@@ -1808,7 +1531,7 @@ export const de_CreateVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVPCEConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1821,38 +1544,6 @@ export const de_CreateVPCEConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateVPCEConfigurationCommandError
- */
-const de_CreateVPCEConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVPCEConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDevicePoolCommand
  */
 export const de_DeleteDevicePoolCommand = async (
@@ -1860,7 +1551,7 @@ export const de_DeleteDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDevicePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDevicePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1873,41 +1564,6 @@ export const de_DeleteDevicePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDevicePoolCommandError
- */
-const de_DeleteDevicePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDevicePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteInstanceProfileCommand
  */
 export const de_DeleteInstanceProfileCommand = async (
@@ -1915,7 +1571,7 @@ export const de_DeleteInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1928,41 +1584,6 @@ export const de_DeleteInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteInstanceProfileCommandError
- */
-const de_DeleteInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteNetworkProfileCommand
  */
 export const de_DeleteNetworkProfileCommand = async (
@@ -1970,7 +1591,7 @@ export const de_DeleteNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1983,41 +1604,6 @@ export const de_DeleteNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteNetworkProfileCommandError
- */
-const de_DeleteNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -2025,7 +1611,7 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2038,41 +1624,6 @@ export const de_DeleteProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRemoteAccessSessionCommand
  */
 export const de_DeleteRemoteAccessSessionCommand = async (
@@ -2080,7 +1631,7 @@ export const de_DeleteRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRemoteAccessSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2093,41 +1644,6 @@ export const de_DeleteRemoteAccessSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRemoteAccessSessionCommandError
- */
-const de_DeleteRemoteAccessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRemoteAccessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRunCommand
  */
 export const de_DeleteRunCommand = async (
@@ -2135,7 +1651,7 @@ export const de_DeleteRunCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2148,41 +1664,6 @@ export const de_DeleteRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRunCommandError
- */
-const de_DeleteRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTestGridProjectCommand
  */
 export const de_DeleteTestGridProjectCommand = async (
@@ -2190,7 +1671,7 @@ export const de_DeleteTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTestGridProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTestGridProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2203,41 +1684,6 @@ export const de_DeleteTestGridProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTestGridProjectCommandError
- */
-const de_DeleteTestGridProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTestGridProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "CannotDeleteException":
-    case "com.amazonaws.devicefarm#CannotDeleteException":
-      throw await de_CannotDeleteExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUploadCommand
  */
 export const de_DeleteUploadCommand = async (
@@ -2245,7 +1691,7 @@ export const de_DeleteUploadCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2258,41 +1704,6 @@ export const de_DeleteUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUploadCommandError
- */
-const de_DeleteUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteVPCEConfigurationCommand
  */
 export const de_DeleteVPCEConfigurationCommand = async (
@@ -2300,7 +1711,7 @@ export const de_DeleteVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVPCEConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2313,41 +1724,6 @@ export const de_DeleteVPCEConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteVPCEConfigurationCommandError
- */
-const de_DeleteVPCEConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVPCEConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.devicefarm#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAccountSettingsCommand
  */
 export const de_GetAccountSettingsCommand = async (
@@ -2355,7 +1731,7 @@ export const de_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2368,41 +1744,6 @@ export const de_GetAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAccountSettingsCommandError
- */
-const de_GetAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeviceCommand
  */
 export const de_GetDeviceCommand = async (
@@ -2410,7 +1751,7 @@ export const de_GetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2423,41 +1764,6 @@ export const de_GetDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeviceCommandError
- */
-const de_GetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeviceInstanceCommand
  */
 export const de_GetDeviceInstanceCommand = async (
@@ -2465,7 +1771,7 @@ export const de_GetDeviceInstanceCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeviceInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2478,41 +1784,6 @@ export const de_GetDeviceInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeviceInstanceCommandError
- */
-const de_GetDeviceInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDevicePoolCommand
  */
 export const de_GetDevicePoolCommand = async (
@@ -2520,7 +1791,7 @@ export const de_GetDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<GetDevicePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDevicePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2533,41 +1804,6 @@ export const de_GetDevicePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDevicePoolCommandError
- */
-const de_GetDevicePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDevicePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDevicePoolCompatibilityCommand
  */
 export const de_GetDevicePoolCompatibilityCommand = async (
@@ -2575,7 +1811,7 @@ export const de_GetDevicePoolCompatibilityCommand = async (
   context: __SerdeContext
 ): Promise<GetDevicePoolCompatibilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDevicePoolCompatibilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2588,41 +1824,6 @@ export const de_GetDevicePoolCompatibilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDevicePoolCompatibilityCommandError
- */
-const de_GetDevicePoolCompatibilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDevicePoolCompatibilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceProfileCommand
  */
 export const de_GetInstanceProfileCommand = async (
@@ -2630,7 +1831,7 @@ export const de_GetInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2643,41 +1844,6 @@ export const de_GetInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceProfileCommandError
- */
-const de_GetInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobCommand
  */
 export const de_GetJobCommand = async (
@@ -2685,7 +1851,7 @@ export const de_GetJobCommand = async (
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2698,38 +1864,6 @@ export const de_GetJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobCommandError
- */
-const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNetworkProfileCommand
  */
 export const de_GetNetworkProfileCommand = async (
@@ -2737,7 +1871,7 @@ export const de_GetNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2750,41 +1884,6 @@ export const de_GetNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNetworkProfileCommandError
- */
-const de_GetNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOfferingStatusCommand
  */
 export const de_GetOfferingStatusCommand = async (
@@ -2792,7 +1891,7 @@ export const de_GetOfferingStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetOfferingStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOfferingStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2805,44 +1904,6 @@ export const de_GetOfferingStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOfferingStatusCommandError
- */
-const de_GetOfferingStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOfferingStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotEligibleException":
-    case "com.amazonaws.devicefarm#NotEligibleException":
-      throw await de_NotEligibleExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetProjectCommand
  */
 export const de_GetProjectCommand = async (
@@ -2850,7 +1911,7 @@ export const de_GetProjectCommand = async (
   context: __SerdeContext
 ): Promise<GetProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2863,41 +1924,6 @@ export const de_GetProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetProjectCommandError
- */
-const de_GetProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRemoteAccessSessionCommand
  */
 export const de_GetRemoteAccessSessionCommand = async (
@@ -2905,7 +1931,7 @@ export const de_GetRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRemoteAccessSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2918,41 +1944,6 @@ export const de_GetRemoteAccessSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRemoteAccessSessionCommandError
- */
-const de_GetRemoteAccessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRemoteAccessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRunCommand
  */
 export const de_GetRunCommand = async (
@@ -2960,7 +1951,7 @@ export const de_GetRunCommand = async (
   context: __SerdeContext
 ): Promise<GetRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2973,38 +1964,6 @@ export const de_GetRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRunCommandError
- */
-const de_GetRunCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSuiteCommand
  */
 export const de_GetSuiteCommand = async (
@@ -3012,7 +1971,7 @@ export const de_GetSuiteCommand = async (
   context: __SerdeContext
 ): Promise<GetSuiteCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSuiteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3025,41 +1984,6 @@ export const de_GetSuiteCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSuiteCommandError
- */
-const de_GetSuiteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSuiteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTestCommand
  */
 export const de_GetTestCommand = async (
@@ -3067,7 +1991,7 @@ export const de_GetTestCommand = async (
   context: __SerdeContext
 ): Promise<GetTestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3080,41 +2004,6 @@ export const de_GetTestCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTestCommandError
- */
-const de_GetTestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTestGridProjectCommand
  */
 export const de_GetTestGridProjectCommand = async (
@@ -3122,7 +2011,7 @@ export const de_GetTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<GetTestGridProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTestGridProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3135,38 +2024,6 @@ export const de_GetTestGridProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTestGridProjectCommandError
- */
-const de_GetTestGridProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTestGridProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTestGridSessionCommand
  */
 export const de_GetTestGridSessionCommand = async (
@@ -3174,7 +2031,7 @@ export const de_GetTestGridSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetTestGridSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTestGridSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3187,38 +2044,6 @@ export const de_GetTestGridSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTestGridSessionCommandError
- */
-const de_GetTestGridSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTestGridSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUploadCommand
  */
 export const de_GetUploadCommand = async (
@@ -3226,7 +2051,7 @@ export const de_GetUploadCommand = async (
   context: __SerdeContext
 ): Promise<GetUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3239,41 +2064,6 @@ export const de_GetUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUploadCommandError
- */
-const de_GetUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetVPCEConfigurationCommand
  */
 export const de_GetVPCEConfigurationCommand = async (
@@ -3281,7 +2071,7 @@ export const de_GetVPCEConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetVPCEConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVPCEConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3294,38 +2084,6 @@ export const de_GetVPCEConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetVPCEConfigurationCommandError
- */
-const de_GetVPCEConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVPCEConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InstallToRemoteAccessSessionCommand
  */
 export const de_InstallToRemoteAccessSessionCommand = async (
@@ -3333,7 +2091,7 @@ export const de_InstallToRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<InstallToRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InstallToRemoteAccessSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3346,41 +2104,6 @@ export const de_InstallToRemoteAccessSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InstallToRemoteAccessSessionCommandError
- */
-const de_InstallToRemoteAccessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InstallToRemoteAccessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListArtifactsCommand
  */
 export const de_ListArtifactsCommand = async (
@@ -3388,7 +2111,7 @@ export const de_ListArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListArtifactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListArtifactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3401,41 +2124,6 @@ export const de_ListArtifactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListArtifactsCommandError
- */
-const de_ListArtifactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListArtifactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDeviceInstancesCommand
  */
 export const de_ListDeviceInstancesCommand = async (
@@ -3443,7 +2131,7 @@ export const de_ListDeviceInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDeviceInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3456,41 +2144,6 @@ export const de_ListDeviceInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDeviceInstancesCommandError
- */
-const de_ListDeviceInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeviceInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDevicePoolsCommand
  */
 export const de_ListDevicePoolsCommand = async (
@@ -3498,7 +2151,7 @@ export const de_ListDevicePoolsCommand = async (
   context: __SerdeContext
 ): Promise<ListDevicePoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDevicePoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3511,41 +2164,6 @@ export const de_ListDevicePoolsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDevicePoolsCommandError
- */
-const de_ListDevicePoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevicePoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDevicesCommand
  */
 export const de_ListDevicesCommand = async (
@@ -3553,7 +2171,7 @@ export const de_ListDevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3566,41 +2184,6 @@ export const de_ListDevicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDevicesCommandError
- */
-const de_ListDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListInstanceProfilesCommand
  */
 export const de_ListInstanceProfilesCommand = async (
@@ -3608,7 +2191,7 @@ export const de_ListInstanceProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstanceProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3621,41 +2204,6 @@ export const de_ListInstanceProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInstanceProfilesCommandError
- */
-const de_ListInstanceProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -3663,7 +2211,7 @@ export const de_ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3676,41 +2224,6 @@ export const de_ListJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListJobsCommandError
- */
-const de_ListJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListNetworkProfilesCommand
  */
 export const de_ListNetworkProfilesCommand = async (
@@ -3718,7 +2231,7 @@ export const de_ListNetworkProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListNetworkProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNetworkProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3731,41 +2244,6 @@ export const de_ListNetworkProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNetworkProfilesCommandError
- */
-const de_ListNetworkProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNetworkProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOfferingPromotionsCommand
  */
 export const de_ListOfferingPromotionsCommand = async (
@@ -3773,7 +2251,7 @@ export const de_ListOfferingPromotionsCommand = async (
   context: __SerdeContext
 ): Promise<ListOfferingPromotionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOfferingPromotionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3786,44 +2264,6 @@ export const de_ListOfferingPromotionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOfferingPromotionsCommandError
- */
-const de_ListOfferingPromotionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOfferingPromotionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotEligibleException":
-    case "com.amazonaws.devicefarm#NotEligibleException":
-      throw await de_NotEligibleExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOfferingsCommand
  */
 export const de_ListOfferingsCommand = async (
@@ -3831,7 +2271,7 @@ export const de_ListOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<ListOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3844,44 +2284,6 @@ export const de_ListOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOfferingsCommandError
- */
-const de_ListOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotEligibleException":
-    case "com.amazonaws.devicefarm#NotEligibleException":
-      throw await de_NotEligibleExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOfferingTransactionsCommand
  */
 export const de_ListOfferingTransactionsCommand = async (
@@ -3889,7 +2291,7 @@ export const de_ListOfferingTransactionsCommand = async (
   context: __SerdeContext
 ): Promise<ListOfferingTransactionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOfferingTransactionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3902,44 +2304,6 @@ export const de_ListOfferingTransactionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOfferingTransactionsCommandError
- */
-const de_ListOfferingTransactionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOfferingTransactionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotEligibleException":
-    case "com.amazonaws.devicefarm#NotEligibleException":
-      throw await de_NotEligibleExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -3947,7 +2311,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3960,41 +2324,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRemoteAccessSessionsCommand
  */
 export const de_ListRemoteAccessSessionsCommand = async (
@@ -4002,7 +2331,7 @@ export const de_ListRemoteAccessSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListRemoteAccessSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRemoteAccessSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4015,41 +2344,6 @@ export const de_ListRemoteAccessSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRemoteAccessSessionsCommandError
- */
-const de_ListRemoteAccessSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRemoteAccessSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRunsCommand
  */
 export const de_ListRunsCommand = async (
@@ -4057,7 +2351,7 @@ export const de_ListRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4070,41 +2364,6 @@ export const de_ListRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRunsCommandError
- */
-const de_ListRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSamplesCommand
  */
 export const de_ListSamplesCommand = async (
@@ -4112,7 +2371,7 @@ export const de_ListSamplesCommand = async (
   context: __SerdeContext
 ): Promise<ListSamplesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSamplesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4125,41 +2384,6 @@ export const de_ListSamplesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSamplesCommandError
- */
-const de_ListSamplesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSamplesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSuitesCommand
  */
 export const de_ListSuitesCommand = async (
@@ -4167,7 +2391,7 @@ export const de_ListSuitesCommand = async (
   context: __SerdeContext
 ): Promise<ListSuitesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSuitesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4180,41 +2404,6 @@ export const de_ListSuitesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSuitesCommandError
- */
-const de_ListSuitesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSuitesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4222,7 +2411,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4235,38 +2424,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TagOperationException":
-    case "com.amazonaws.devicefarm#TagOperationException":
-      throw await de_TagOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTestGridProjectsCommand
  */
 export const de_ListTestGridProjectsCommand = async (
@@ -4274,7 +2431,7 @@ export const de_ListTestGridProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTestGridProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4287,35 +2444,6 @@ export const de_ListTestGridProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTestGridProjectsCommandError
- */
-const de_ListTestGridProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestGridProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTestGridSessionActionsCommand
  */
 export const de_ListTestGridSessionActionsCommand = async (
@@ -4323,7 +2451,7 @@ export const de_ListTestGridSessionActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridSessionActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTestGridSessionActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4336,38 +2464,6 @@ export const de_ListTestGridSessionActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTestGridSessionActionsCommandError
- */
-const de_ListTestGridSessionActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestGridSessionActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTestGridSessionArtifactsCommand
  */
 export const de_ListTestGridSessionArtifactsCommand = async (
@@ -4375,7 +2471,7 @@ export const de_ListTestGridSessionArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridSessionArtifactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTestGridSessionArtifactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4388,38 +2484,6 @@ export const de_ListTestGridSessionArtifactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTestGridSessionArtifactsCommandError
- */
-const de_ListTestGridSessionArtifactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestGridSessionArtifactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTestGridSessionsCommand
  */
 export const de_ListTestGridSessionsCommand = async (
@@ -4427,7 +2491,7 @@ export const de_ListTestGridSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestGridSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTestGridSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4440,38 +2504,6 @@ export const de_ListTestGridSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTestGridSessionsCommandError
- */
-const de_ListTestGridSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestGridSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTestsCommand
  */
 export const de_ListTestsCommand = async (
@@ -4479,7 +2511,7 @@ export const de_ListTestsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4492,41 +2524,6 @@ export const de_ListTestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTestsCommandError
- */
-const de_ListTestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUniqueProblemsCommand
  */
 export const de_ListUniqueProblemsCommand = async (
@@ -4534,7 +2531,7 @@ export const de_ListUniqueProblemsCommand = async (
   context: __SerdeContext
 ): Promise<ListUniqueProblemsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUniqueProblemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4547,41 +2544,6 @@ export const de_ListUniqueProblemsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUniqueProblemsCommandError
- */
-const de_ListUniqueProblemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUniqueProblemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUploadsCommand
  */
 export const de_ListUploadsCommand = async (
@@ -4589,7 +2551,7 @@ export const de_ListUploadsCommand = async (
   context: __SerdeContext
 ): Promise<ListUploadsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUploadsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4602,41 +2564,6 @@ export const de_ListUploadsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUploadsCommandError
- */
-const de_ListUploadsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUploadsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListVPCEConfigurationsCommand
  */
 export const de_ListVPCEConfigurationsCommand = async (
@@ -4644,7 +2571,7 @@ export const de_ListVPCEConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListVPCEConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVPCEConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4657,35 +2584,6 @@ export const de_ListVPCEConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListVPCEConfigurationsCommandError
- */
-const de_ListVPCEConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVPCEConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PurchaseOfferingCommand
  */
 export const de_PurchaseOfferingCommand = async (
@@ -4693,7 +2591,7 @@ export const de_PurchaseOfferingCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseOfferingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurchaseOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4706,44 +2604,6 @@ export const de_PurchaseOfferingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PurchaseOfferingCommandError
- */
-const de_PurchaseOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotEligibleException":
-    case "com.amazonaws.devicefarm#NotEligibleException":
-      throw await de_NotEligibleExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RenewOfferingCommand
  */
 export const de_RenewOfferingCommand = async (
@@ -4751,7 +2611,7 @@ export const de_RenewOfferingCommand = async (
   context: __SerdeContext
 ): Promise<RenewOfferingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RenewOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4764,44 +2624,6 @@ export const de_RenewOfferingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RenewOfferingCommandError
- */
-const de_RenewOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RenewOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotEligibleException":
-    case "com.amazonaws.devicefarm#NotEligibleException":
-      throw await de_NotEligibleExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ScheduleRunCommand
  */
 export const de_ScheduleRunCommand = async (
@@ -4809,7 +2631,7 @@ export const de_ScheduleRunCommand = async (
   context: __SerdeContext
 ): Promise<ScheduleRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ScheduleRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4822,44 +2644,6 @@ export const de_ScheduleRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ScheduleRunCommandError
- */
-const de_ScheduleRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ScheduleRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "IdempotencyException":
-    case "com.amazonaws.devicefarm#IdempotencyException":
-      throw await de_IdempotencyExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopJobCommand
  */
 export const de_StopJobCommand = async (
@@ -4867,7 +2651,7 @@ export const de_StopJobCommand = async (
   context: __SerdeContext
 ): Promise<StopJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4880,41 +2664,6 @@ export const de_StopJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopJobCommandError
- */
-const de_StopJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopRemoteAccessSessionCommand
  */
 export const de_StopRemoteAccessSessionCommand = async (
@@ -4922,7 +2671,7 @@ export const de_StopRemoteAccessSessionCommand = async (
   context: __SerdeContext
 ): Promise<StopRemoteAccessSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopRemoteAccessSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4935,41 +2684,6 @@ export const de_StopRemoteAccessSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopRemoteAccessSessionCommandError
- */
-const de_StopRemoteAccessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopRemoteAccessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopRunCommand
  */
 export const de_StopRunCommand = async (
@@ -4977,7 +2691,7 @@ export const de_StopRunCommand = async (
   context: __SerdeContext
 ): Promise<StopRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4990,41 +2704,6 @@ export const de_StopRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopRunCommandError
- */
-const de_StopRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -5032,7 +2711,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5045,44 +2724,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TagOperationException":
-    case "com.amazonaws.devicefarm#TagOperationException":
-      throw await de_TagOperationExceptionRes(parsedOutput, context);
-    case "TagPolicyException":
-    case "com.amazonaws.devicefarm#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.devicefarm#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -5090,7 +2731,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5103,38 +2744,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TagOperationException":
-    case "com.amazonaws.devicefarm#TagOperationException":
-      throw await de_TagOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDeviceInstanceCommand
  */
 export const de_UpdateDeviceInstanceCommand = async (
@@ -5142,7 +2751,7 @@ export const de_UpdateDeviceInstanceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDeviceInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5155,41 +2764,6 @@ export const de_UpdateDeviceInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDeviceInstanceCommandError
- */
-const de_UpdateDeviceInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeviceInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDevicePoolCommand
  */
 export const de_UpdateDevicePoolCommand = async (
@@ -5197,7 +2771,7 @@ export const de_UpdateDevicePoolCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDevicePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDevicePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5210,41 +2784,6 @@ export const de_UpdateDevicePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDevicePoolCommandError
- */
-const de_UpdateDevicePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDevicePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateInstanceProfileCommand
  */
 export const de_UpdateInstanceProfileCommand = async (
@@ -5252,7 +2791,7 @@ export const de_UpdateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5265,41 +2804,6 @@ export const de_UpdateInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateInstanceProfileCommandError
- */
-const de_UpdateInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNetworkProfileCommand
  */
 export const de_UpdateNetworkProfileCommand = async (
@@ -5307,7 +2811,7 @@ export const de_UpdateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5320,41 +2824,6 @@ export const de_UpdateNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNetworkProfileCommandError
- */
-const de_UpdateNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -5362,7 +2831,7 @@ export const de_UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5375,41 +2844,6 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateProjectCommandError
- */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTestGridProjectCommand
  */
 export const de_UpdateTestGridProjectCommand = async (
@@ -5417,7 +2851,7 @@ export const de_UpdateTestGridProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTestGridProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTestGridProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5430,41 +2864,6 @@ export const de_UpdateTestGridProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTestGridProjectCommandError
- */
-const de_UpdateTestGridProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTestGridProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.devicefarm#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.devicefarm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUploadCommand
  */
 export const de_UpdateUploadCommand = async (
@@ -5472,7 +2871,7 @@ export const de_UpdateUploadCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5485,12 +2884,29 @@ export const de_UpdateUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUploadCommandError
+ * deserializeAws_json1_1UpdateVPCEConfigurationCommand
  */
-const de_UpdateUploadCommandError = async (
+export const de_UpdateVPCEConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateUploadCommandOutput> => {
+): Promise<UpdateVPCEConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateVPCEConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5509,61 +2925,30 @@ const de_UpdateUploadCommandError = async (
     case "ServiceAccountException":
     case "com.amazonaws.devicefarm#ServiceAccountException":
       throw await de_ServiceAccountExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateVPCEConfigurationCommand
- */
-export const de_UpdateVPCEConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVPCEConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateVPCEConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateVPCEConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateVPCEConfigurationCommandError
- */
-const de_UpdateVPCEConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVPCEConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ArgumentException":
-    case "com.amazonaws.devicefarm#ArgumentException":
-      throw await de_ArgumentExceptionRes(parsedOutput, context);
+    case "TagOperationException":
+    case "com.amazonaws.devicefarm#TagOperationException":
+      throw await de_TagOperationExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.devicefarm#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "CannotDeleteException":
+    case "com.amazonaws.devicefarm#CannotDeleteException":
+      throw await de_CannotDeleteExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.devicefarm#InvalidOperationException":
       throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.devicefarm#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceAccountException":
-    case "com.amazonaws.devicefarm#ServiceAccountException":
-      throw await de_ServiceAccountExceptionRes(parsedOutput, context);
+    case "NotEligibleException":
+    case "com.amazonaws.devicefarm#NotEligibleException":
+      throw await de_NotEligibleExceptionRes(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.devicefarm#IdempotencyException":
+      throw await de_IdempotencyExceptionRes(parsedOutput, context);
+    case "TagPolicyException":
+    case "com.amazonaws.devicefarm#TagPolicyException":
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.devicefarm#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

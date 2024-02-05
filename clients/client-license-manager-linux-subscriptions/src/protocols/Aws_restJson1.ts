@@ -138,7 +138,7 @@ export const de_GetServiceSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetServiceSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -156,38 +156,6 @@ export const de_GetServiceSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetServiceSettingsCommandError
- */
-const de_GetServiceSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLinuxSubscriptionInstancesCommand
  */
 export const de_ListLinuxSubscriptionInstancesCommand = async (
@@ -195,7 +163,7 @@ export const de_ListLinuxSubscriptionInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListLinuxSubscriptionInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLinuxSubscriptionInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -210,38 +178,6 @@ export const de_ListLinuxSubscriptionInstancesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLinuxSubscriptionInstancesCommandError
- */
-const de_ListLinuxSubscriptionInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLinuxSubscriptionInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLinuxSubscriptionsCommand
  */
 export const de_ListLinuxSubscriptionsCommand = async (
@@ -249,7 +185,7 @@ export const de_ListLinuxSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLinuxSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLinuxSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -264,38 +200,6 @@ export const de_ListLinuxSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLinuxSubscriptionsCommandError
- */
-const de_ListLinuxSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLinuxSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.licensemanagerlinuxsubscriptions#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateServiceSettingsCommand
  */
 export const de_UpdateServiceSettingsCommand = async (
@@ -303,7 +207,7 @@ export const de_UpdateServiceSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServiceSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateServiceSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -321,12 +225,9 @@ export const de_UpdateServiceSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateServiceSettingsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateServiceSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceSettingsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

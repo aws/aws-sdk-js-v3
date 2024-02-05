@@ -762,51 +762,13 @@ export const de_AssociateAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<AssociateAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AssociateAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AssociateAdminAccountCommandError
- */
-const de_AssociateAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -817,7 +779,7 @@ export const de_AssociateThirdPartyFirewallCommand = async (
   context: __SerdeContext
 ): Promise<AssociateThirdPartyFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateThirdPartyFirewallCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -830,41 +792,6 @@ export const de_AssociateThirdPartyFirewallCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateThirdPartyFirewallCommandError
- */
-const de_AssociateThirdPartyFirewallCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateThirdPartyFirewallCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchAssociateResourceCommand
  */
 export const de_BatchAssociateResourceCommand = async (
@@ -872,7 +799,7 @@ export const de_BatchAssociateResourceCommand = async (
   context: __SerdeContext
 ): Promise<BatchAssociateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchAssociateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -885,44 +812,6 @@ export const de_BatchAssociateResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchAssociateResourceCommandError
- */
-const de_BatchAssociateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchAssociateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDisassociateResourceCommand
  */
 export const de_BatchDisassociateResourceCommand = async (
@@ -930,7 +819,7 @@ export const de_BatchDisassociateResourceCommand = async (
   context: __SerdeContext
 ): Promise<BatchDisassociateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDisassociateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -943,41 +832,6 @@ export const de_BatchDisassociateResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDisassociateResourceCommandError
- */
-const de_BatchDisassociateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDisassociateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppsListCommand
  */
 export const de_DeleteAppsListCommand = async (
@@ -985,45 +839,13 @@ export const de_DeleteAppsListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppsListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAppsListCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAppsListCommandError
- */
-const de_DeleteAppsListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppsListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1034,45 +856,13 @@ export const de_DeleteNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotificationChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNotificationChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteNotificationChannelCommandError
- */
-const de_DeleteNotificationChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotificationChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1083,51 +873,13 @@ export const de_DeletePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePolicyCommandError
- */
-const de_DeletePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1138,45 +890,13 @@ export const de_DeleteProtocolsListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProtocolsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProtocolsListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteProtocolsListCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteProtocolsListCommandError
- */
-const de_DeleteProtocolsListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProtocolsListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1187,48 +907,13 @@ export const de_DeleteResourceSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourceSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourceSetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceSetCommandError
- */
-const de_DeleteResourceSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1239,45 +924,13 @@ export const de_DisassociateAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisassociateAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateAdminAccountCommandError
- */
-const de_DisassociateAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1288,7 +941,7 @@ export const de_DisassociateThirdPartyFirewallCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateThirdPartyFirewallCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateThirdPartyFirewallCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1301,41 +954,6 @@ export const de_DisassociateThirdPartyFirewallCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateThirdPartyFirewallCommandError
- */
-const de_DisassociateThirdPartyFirewallCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateThirdPartyFirewallCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAdminAccountCommand
  */
 export const de_GetAdminAccountCommand = async (
@@ -1343,7 +961,7 @@ export const de_GetAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1356,38 +974,6 @@ export const de_GetAdminAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAdminAccountCommandError
- */
-const de_GetAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAdminScopeCommand
  */
 export const de_GetAdminScopeCommand = async (
@@ -1395,7 +981,7 @@ export const de_GetAdminScopeCommand = async (
   context: __SerdeContext
 ): Promise<GetAdminScopeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAdminScopeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1408,44 +994,6 @@ export const de_GetAdminScopeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAdminScopeCommandError
- */
-const de_GetAdminScopeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdminScopeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAppsListCommand
  */
 export const de_GetAppsListCommand = async (
@@ -1453,7 +1001,7 @@ export const de_GetAppsListCommand = async (
   context: __SerdeContext
 ): Promise<GetAppsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAppsListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1466,38 +1014,6 @@ export const de_GetAppsListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAppsListCommandError
- */
-const de_GetAppsListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppsListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComplianceDetailCommand
  */
 export const de_GetComplianceDetailCommand = async (
@@ -1505,7 +1021,7 @@ export const de_GetComplianceDetailCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceDetailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComplianceDetailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1518,41 +1034,6 @@ export const de_GetComplianceDetailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComplianceDetailCommandError
- */
-const de_GetComplianceDetailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComplianceDetailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNotificationChannelCommand
  */
 export const de_GetNotificationChannelCommand = async (
@@ -1560,7 +1041,7 @@ export const de_GetNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetNotificationChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNotificationChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1573,38 +1054,6 @@ export const de_GetNotificationChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNotificationChannelCommandError
- */
-const de_GetNotificationChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNotificationChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPolicyCommand
  */
 export const de_GetPolicyCommand = async (
@@ -1612,7 +1061,7 @@ export const de_GetPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1625,41 +1074,6 @@ export const de_GetPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPolicyCommandError
- */
-const de_GetPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidTypeException":
-    case "com.amazonaws.fms#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetProtectionStatusCommand
  */
 export const de_GetProtectionStatusCommand = async (
@@ -1667,7 +1081,7 @@ export const de_GetProtectionStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetProtectionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetProtectionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1680,38 +1094,6 @@ export const de_GetProtectionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetProtectionStatusCommandError
- */
-const de_GetProtectionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProtectionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetProtocolsListCommand
  */
 export const de_GetProtocolsListCommand = async (
@@ -1719,7 +1101,7 @@ export const de_GetProtocolsListCommand = async (
   context: __SerdeContext
 ): Promise<GetProtocolsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetProtocolsListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1732,38 +1114,6 @@ export const de_GetProtocolsListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetProtocolsListCommandError
- */
-const de_GetProtocolsListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProtocolsListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourceSetCommand
  */
 export const de_GetResourceSetCommand = async (
@@ -1771,7 +1121,7 @@ export const de_GetResourceSetCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1784,41 +1134,6 @@ export const de_GetResourceSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourceSetCommandError
- */
-const de_GetResourceSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand
  */
 export const de_GetThirdPartyFirewallAssociationStatusCommand = async (
@@ -1826,7 +1141,7 @@ export const de_GetThirdPartyFirewallAssociationStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetThirdPartyFirewallAssociationStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1839,41 +1154,6 @@ export const de_GetThirdPartyFirewallAssociationStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommandError
- */
-const de_GetThirdPartyFirewallAssociationStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetThirdPartyFirewallAssociationStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetViolationDetailsCommand
  */
 export const de_GetViolationDetailsCommand = async (
@@ -1881,7 +1161,7 @@ export const de_GetViolationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetViolationDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetViolationDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1894,38 +1174,6 @@ export const de_GetViolationDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetViolationDetailsCommandError
- */
-const de_GetViolationDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetViolationDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAdminAccountsForOrganizationCommand
  */
 export const de_ListAdminAccountsForOrganizationCommand = async (
@@ -1933,7 +1181,7 @@ export const de_ListAdminAccountsForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<ListAdminAccountsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAdminAccountsForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1946,41 +1194,6 @@ export const de_ListAdminAccountsForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAdminAccountsForOrganizationCommandError
- */
-const de_ListAdminAccountsForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAdminAccountsForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAdminsManagingAccountCommand
  */
 export const de_ListAdminsManagingAccountCommand = async (
@@ -1988,7 +1201,7 @@ export const de_ListAdminsManagingAccountCommand = async (
   context: __SerdeContext
 ): Promise<ListAdminsManagingAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAdminsManagingAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2001,38 +1214,6 @@ export const de_ListAdminsManagingAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAdminsManagingAccountCommandError
- */
-const de_ListAdminsManagingAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAdminsManagingAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAppsListsCommand
  */
 export const de_ListAppsListsCommand = async (
@@ -2040,7 +1221,7 @@ export const de_ListAppsListsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppsListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAppsListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2053,41 +1234,6 @@ export const de_ListAppsListsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAppsListsCommandError
- */
-const de_ListAppsListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppsListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListComplianceStatusCommand
  */
 export const de_ListComplianceStatusCommand = async (
@@ -2095,7 +1241,7 @@ export const de_ListComplianceStatusCommand = async (
   context: __SerdeContext
 ): Promise<ListComplianceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListComplianceStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2108,35 +1254,6 @@ export const de_ListComplianceStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListComplianceStatusCommandError
- */
-const de_ListComplianceStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComplianceStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDiscoveredResourcesCommand
  */
 export const de_ListDiscoveredResourcesCommand = async (
@@ -2144,7 +1261,7 @@ export const de_ListDiscoveredResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDiscoveredResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDiscoveredResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2157,38 +1274,6 @@ export const de_ListDiscoveredResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDiscoveredResourcesCommandError
- */
-const de_ListDiscoveredResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDiscoveredResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMemberAccountsCommand
  */
 export const de_ListMemberAccountsCommand = async (
@@ -2196,7 +1281,7 @@ export const de_ListMemberAccountsCommand = async (
   context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMemberAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2209,35 +1294,6 @@ export const de_ListMemberAccountsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMemberAccountsCommandError
- */
-const de_ListMemberAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMemberAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPoliciesCommand
  */
 export const de_ListPoliciesCommand = async (
@@ -2245,7 +1301,7 @@ export const de_ListPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2258,41 +1314,6 @@ export const de_ListPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPoliciesCommandError
- */
-const de_ListPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProtocolsListsCommand
  */
 export const de_ListProtocolsListsCommand = async (
@@ -2300,7 +1321,7 @@ export const de_ListProtocolsListsCommand = async (
   context: __SerdeContext
 ): Promise<ListProtocolsListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProtocolsListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2313,38 +1334,6 @@ export const de_ListProtocolsListsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProtocolsListsCommandError
- */
-const de_ListProtocolsListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtocolsListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourceSetResourcesCommand
  */
 export const de_ListResourceSetResourcesCommand = async (
@@ -2352,7 +1341,7 @@ export const de_ListResourceSetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceSetResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceSetResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2365,41 +1354,6 @@ export const de_ListResourceSetResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourceSetResourcesCommandError
- */
-const de_ListResourceSetResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceSetResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourceSetsCommand
  */
 export const de_ListResourceSetsCommand = async (
@@ -2407,7 +1361,7 @@ export const de_ListResourceSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2420,38 +1374,6 @@ export const de_ListResourceSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourceSetsCommandError
- */
-const de_ListResourceSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2459,7 +1381,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2472,41 +1394,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommand
  */
 export const de_ListThirdPartyFirewallFirewallPoliciesCommand = async (
@@ -2514,7 +1401,7 @@ export const de_ListThirdPartyFirewallFirewallPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListThirdPartyFirewallFirewallPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2527,41 +1414,6 @@ export const de_ListThirdPartyFirewallFirewallPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListThirdPartyFirewallFirewallPoliciesCommandError
- */
-const de_ListThirdPartyFirewallFirewallPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListThirdPartyFirewallFirewallPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAdminAccountCommand
  */
 export const de_PutAdminAccountCommand = async (
@@ -2569,48 +1421,13 @@ export const de_PutAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<PutAdminAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutAdminAccountCommandError
- */
-const de_PutAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2621,7 +1438,7 @@ export const de_PutAppsListCommand = async (
   context: __SerdeContext
 ): Promise<PutAppsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAppsListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2634,44 +1451,6 @@ export const de_PutAppsListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAppsListCommandError
- */
-const de_PutAppsListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAppsListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutNotificationChannelCommand
  */
 export const de_PutNotificationChannelCommand = async (
@@ -2679,45 +1458,13 @@ export const de_PutNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<PutNotificationChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutNotificationChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutNotificationChannelCommandError
- */
-const de_PutNotificationChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutNotificationChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2728,7 +1475,7 @@ export const de_PutPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2741,47 +1488,6 @@ export const de_PutPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutPolicyCommandError
- */
-const de_PutPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "InvalidTypeException":
-    case "com.amazonaws.fms#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutProtocolsListCommand
  */
 export const de_PutProtocolsListCommand = async (
@@ -2789,7 +1495,7 @@ export const de_PutProtocolsListCommand = async (
   context: __SerdeContext
 ): Promise<PutProtocolsListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutProtocolsListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2802,44 +1508,6 @@ export const de_PutProtocolsListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutProtocolsListCommandError
- */
-const de_PutProtocolsListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutProtocolsListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourceSetCommand
  */
 export const de_PutResourceSetCommand = async (
@@ -2847,7 +1515,7 @@ export const de_PutResourceSetCommand = async (
   context: __SerdeContext
 ): Promise<PutResourceSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourceSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2860,41 +1528,6 @@ export const de_PutResourceSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourceSetCommandError
- */
-const de_PutResourceSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourceSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.fms#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2902,7 +1535,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2915,12 +1548,29 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
+ * deserializeAws_json1_1UntagResourceCommand
  */
-const de_TagResourceCommandError = async (
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2942,61 +1592,9 @@ const de_TagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.fms#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.fms#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.fms#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.fms#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidTypeException":
+    case "com.amazonaws.fms#InvalidTypeException":
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

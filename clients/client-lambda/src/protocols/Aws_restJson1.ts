@@ -1792,7 +1792,7 @@ export const de_AddLayerVersionPermissionCommand = async (
   context: __SerdeContext
 ): Promise<AddLayerVersionPermissionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_AddLayerVersionPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1807,50 +1807,6 @@ export const de_AddLayerVersionPermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddLayerVersionPermissionCommandError
- */
-const de_AddLayerVersionPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddLayerVersionPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PolicyLengthExceededException":
-    case "com.amazonaws.lambda#PolicyLengthExceededException":
-      throw await de_PolicyLengthExceededExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AddPermissionCommand
  */
 export const de_AddPermissionCommand = async (
@@ -1858,7 +1814,7 @@ export const de_AddPermissionCommand = async (
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_AddPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1872,50 +1828,6 @@ export const de_AddPermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddPermissionCommandError
- */
-const de_AddPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PolicyLengthExceededException":
-    case "com.amazonaws.lambda#PolicyLengthExceededException":
-      throw await de_PolicyLengthExceededExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAliasCommand
  */
 export const de_CreateAliasCommand = async (
@@ -1923,7 +1835,7 @@ export const de_CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1942,44 +1854,6 @@ export const de_CreateAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAliasCommandError
- */
-const de_CreateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCodeSigningConfigCommand
  */
 export const de_CreateCodeSigningConfigCommand = async (
@@ -1987,7 +1861,7 @@ export const de_CreateCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2001,35 +1875,6 @@ export const de_CreateCodeSigningConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCodeSigningConfigCommandError
- */
-const de_CreateCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEventSourceMappingCommand
  */
 export const de_CreateEventSourceMappingCommand = async (
@@ -2037,7 +1882,7 @@ export const de_CreateEventSourceMappingCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventSourceMappingCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateEventSourceMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2077,44 +1922,6 @@ export const de_CreateEventSourceMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEventSourceMappingCommandError
- */
-const de_CreateEventSourceMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSourceMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFunctionCommand
  */
 export const de_CreateFunctionCommand = async (
@@ -2122,7 +1929,7 @@ export const de_CreateFunctionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2171,56 +1978,6 @@ export const de_CreateFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFunctionCommandError
- */
-const de_CreateFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeSigningConfigNotFoundException":
-    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
-      throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
-    case "CodeStorageExceededException":
-    case "com.amazonaws.lambda#CodeStorageExceededException":
-      throw await de_CodeStorageExceededExceptionRes(parsedOutput, context);
-    case "CodeVerificationFailedException":
-    case "com.amazonaws.lambda#CodeVerificationFailedException":
-      throw await de_CodeVerificationFailedExceptionRes(parsedOutput, context);
-    case "InvalidCodeSignatureException":
-    case "com.amazonaws.lambda#InvalidCodeSignatureException":
-      throw await de_InvalidCodeSignatureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFunctionUrlConfigCommand
  */
 export const de_CreateFunctionUrlConfigCommand = async (
@@ -2228,7 +1985,7 @@ export const de_CreateFunctionUrlConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionUrlConfigCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateFunctionUrlConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2247,44 +2004,6 @@ export const de_CreateFunctionUrlConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFunctionUrlConfigCommandError
- */
-const de_CreateFunctionUrlConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFunctionUrlConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAliasCommand
  */
 export const de_DeleteAliasCommand = async (
@@ -2292,48 +2011,13 @@ export const de_DeleteAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAliasCommandError
- */
-const de_DeleteAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2344,48 +2028,13 @@ export const de_DeleteCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCodeSigningConfigCommandError
- */
-const de_DeleteCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2396,7 +2045,7 @@ export const de_DeleteEventSourceMappingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventSourceMappingCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteEventSourceMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2436,47 +2085,6 @@ export const de_DeleteEventSourceMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteEventSourceMappingCommandError
- */
-const de_DeleteEventSourceMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSourceMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.lambda#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteFunctionCommand
  */
 export const de_DeleteFunctionCommand = async (
@@ -2484,51 +2092,13 @@ export const de_DeleteFunctionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionCommandError
- */
-const de_DeleteFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2539,54 +2109,13 @@ export const de_DeleteFunctionCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFunctionCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionCodeSigningConfigCommandError
- */
-const de_DeleteFunctionCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeSigningConfigNotFoundException":
-    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
-      throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2597,51 +2126,13 @@ export const de_DeleteFunctionConcurrencyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionConcurrencyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFunctionConcurrencyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionConcurrencyCommandError
- */
-const de_DeleteFunctionConcurrencyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionConcurrencyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2652,51 +2143,13 @@ export const de_DeleteFunctionEventInvokeConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFunctionEventInvokeConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError
- */
-const de_DeleteFunctionEventInvokeConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionEventInvokeConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2707,48 +2160,13 @@ export const de_DeleteFunctionUrlConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionUrlConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFunctionUrlConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionUrlConfigCommandError
- */
-const de_DeleteFunctionUrlConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionUrlConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2759,42 +2177,13 @@ export const de_DeleteLayerVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLayerVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteLayerVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLayerVersionCommandError
- */
-const de_DeleteLayerVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLayerVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2805,51 +2194,13 @@ export const de_DeleteProvisionedConcurrencyConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteProvisionedConcurrencyConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommandError
- */
-const de_DeleteProvisionedConcurrencyConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2860,7 +2211,7 @@ export const de_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2875,35 +2226,6 @@ export const de_GetAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccountSettingsCommandError
- */
-const de_GetAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAliasCommand
  */
 export const de_GetAliasCommand = async (
@@ -2911,7 +2233,7 @@ export const de_GetAliasCommand = async (
   context: __SerdeContext
 ): Promise<GetAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2930,41 +2252,6 @@ export const de_GetAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAliasCommandError
- */
-const de_GetAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCodeSigningConfigCommand
  */
 export const de_GetCodeSigningConfigCommand = async (
@@ -2972,7 +2259,7 @@ export const de_GetCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2986,38 +2273,6 @@ export const de_GetCodeSigningConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCodeSigningConfigCommandError
- */
-const de_GetCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEventSourceMappingCommand
  */
 export const de_GetEventSourceMappingCommand = async (
@@ -3025,7 +2280,7 @@ export const de_GetEventSourceMappingCommand = async (
   context: __SerdeContext
 ): Promise<GetEventSourceMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEventSourceMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3065,41 +2320,6 @@ export const de_GetEventSourceMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEventSourceMappingCommandError
- */
-const de_GetEventSourceMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventSourceMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionCommand
  */
 export const de_GetFunctionCommand = async (
@@ -3107,7 +2327,7 @@ export const de_GetFunctionCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3124,41 +2344,6 @@ export const de_GetFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionCommandError
- */
-const de_GetFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionCodeSigningConfigCommand
  */
 export const de_GetFunctionCodeSigningConfigCommand = async (
@@ -3166,7 +2351,7 @@ export const de_GetFunctionCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3181,41 +2366,6 @@ export const de_GetFunctionCodeSigningConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionCodeSigningConfigCommandError
- */
-const de_GetFunctionCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionConcurrencyCommand
  */
 export const de_GetFunctionConcurrencyCommand = async (
@@ -3223,7 +2373,7 @@ export const de_GetFunctionConcurrencyCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionConcurrencyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionConcurrencyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3237,41 +2387,6 @@ export const de_GetFunctionConcurrencyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionConcurrencyCommandError
- */
-const de_GetFunctionConcurrencyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionConcurrencyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionConfigurationCommand
  */
 export const de_GetFunctionConfigurationCommand = async (
@@ -3279,7 +2394,7 @@ export const de_GetFunctionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3328,41 +2443,6 @@ export const de_GetFunctionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionConfigurationCommandError
- */
-const de_GetFunctionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionEventInvokeConfigCommand
  */
 export const de_GetFunctionEventInvokeConfigCommand = async (
@@ -3370,7 +2450,7 @@ export const de_GetFunctionEventInvokeConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionEventInvokeConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionEventInvokeConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3388,41 +2468,6 @@ export const de_GetFunctionEventInvokeConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionEventInvokeConfigCommandError
- */
-const de_GetFunctionEventInvokeConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionEventInvokeConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionUrlConfigCommand
  */
 export const de_GetFunctionUrlConfigCommand = async (
@@ -3430,7 +2475,7 @@ export const de_GetFunctionUrlConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionUrlConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionUrlConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3450,41 +2495,6 @@ export const de_GetFunctionUrlConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionUrlConfigCommandError
- */
-const de_GetFunctionUrlConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionUrlConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLayerVersionCommand
  */
 export const de_GetLayerVersionCommand = async (
@@ -3492,7 +2502,7 @@ export const de_GetLayerVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetLayerVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLayerVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3511,41 +2521,6 @@ export const de_GetLayerVersionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetLayerVersionCommandError
- */
-const de_GetLayerVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLayerVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3556,7 +2531,7 @@ export const de_GetLayerVersionByArnCommand = async (
   context: __SerdeContext
 ): Promise<GetLayerVersionByArnCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLayerVersionByArnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3578,41 +2553,6 @@ export const de_GetLayerVersionByArnCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLayerVersionByArnCommandError
- */
-const de_GetLayerVersionByArnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLayerVersionByArnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLayerVersionPolicyCommand
  */
 export const de_GetLayerVersionPolicyCommand = async (
@@ -3620,7 +2560,7 @@ export const de_GetLayerVersionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetLayerVersionPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLayerVersionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3632,41 +2572,6 @@ export const de_GetLayerVersionPolicyCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetLayerVersionPolicyCommandError
- */
-const de_GetLayerVersionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLayerVersionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3677,7 +2582,7 @@ export const de_GetPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3692,41 +2597,6 @@ export const de_GetPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPolicyCommandError
- */
-const de_GetPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand
  */
 export const de_GetProvisionedConcurrencyConfigCommand = async (
@@ -3734,7 +2604,7 @@ export const de_GetProvisionedConcurrencyConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetProvisionedConcurrencyConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetProvisionedConcurrencyConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3753,44 +2623,6 @@ export const de_GetProvisionedConcurrencyConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError
- */
-const de_GetProvisionedConcurrencyConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProvisionedConcurrencyConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ProvisionedConcurrencyConfigNotFoundException":
-    case "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException":
-      throw await de_ProvisionedConcurrencyConfigNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRuntimeManagementConfigCommand
  */
 export const de_GetRuntimeManagementConfigCommand = async (
@@ -3798,7 +2630,7 @@ export const de_GetRuntimeManagementConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetRuntimeManagementConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRuntimeManagementConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3814,41 +2646,6 @@ export const de_GetRuntimeManagementConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRuntimeManagementConfigCommandError
- */
-const de_GetRuntimeManagementConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRuntimeManagementConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InvokeCommand
  */
 export const de_InvokeCommand = async (
@@ -3856,7 +2653,7 @@ export const de_InvokeCommand = async (
   context: __SerdeContext
 ): Promise<InvokeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3873,116 +2670,6 @@ export const de_InvokeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeCommandError
- */
-const de_InvokeCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<InvokeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EC2AccessDeniedException":
-    case "com.amazonaws.lambda#EC2AccessDeniedException":
-      throw await de_EC2AccessDeniedExceptionRes(parsedOutput, context);
-    case "EC2ThrottledException":
-    case "com.amazonaws.lambda#EC2ThrottledException":
-      throw await de_EC2ThrottledExceptionRes(parsedOutput, context);
-    case "EC2UnexpectedException":
-    case "com.amazonaws.lambda#EC2UnexpectedException":
-      throw await de_EC2UnexpectedExceptionRes(parsedOutput, context);
-    case "EFSIOException":
-    case "com.amazonaws.lambda#EFSIOException":
-      throw await de_EFSIOExceptionRes(parsedOutput, context);
-    case "EFSMountConnectivityException":
-    case "com.amazonaws.lambda#EFSMountConnectivityException":
-      throw await de_EFSMountConnectivityExceptionRes(parsedOutput, context);
-    case "EFSMountFailureException":
-    case "com.amazonaws.lambda#EFSMountFailureException":
-      throw await de_EFSMountFailureExceptionRes(parsedOutput, context);
-    case "EFSMountTimeoutException":
-    case "com.amazonaws.lambda#EFSMountTimeoutException":
-      throw await de_EFSMountTimeoutExceptionRes(parsedOutput, context);
-    case "ENILimitReachedException":
-    case "com.amazonaws.lambda#ENILimitReachedException":
-      throw await de_ENILimitReachedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestContentException":
-    case "com.amazonaws.lambda#InvalidRequestContentException":
-      throw await de_InvalidRequestContentExceptionRes(parsedOutput, context);
-    case "InvalidRuntimeException":
-    case "com.amazonaws.lambda#InvalidRuntimeException":
-      throw await de_InvalidRuntimeExceptionRes(parsedOutput, context);
-    case "InvalidSecurityGroupIDException":
-    case "com.amazonaws.lambda#InvalidSecurityGroupIDException":
-      throw await de_InvalidSecurityGroupIDExceptionRes(parsedOutput, context);
-    case "InvalidSubnetIDException":
-    case "com.amazonaws.lambda#InvalidSubnetIDException":
-      throw await de_InvalidSubnetIDExceptionRes(parsedOutput, context);
-    case "InvalidZipFileException":
-    case "com.amazonaws.lambda#InvalidZipFileException":
-      throw await de_InvalidZipFileExceptionRes(parsedOutput, context);
-    case "KMSAccessDeniedException":
-    case "com.amazonaws.lambda#KMSAccessDeniedException":
-      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
-    case "KMSDisabledException":
-    case "com.amazonaws.lambda#KMSDisabledException":
-      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
-    case "KMSInvalidStateException":
-    case "com.amazonaws.lambda#KMSInvalidStateException":
-      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
-    case "KMSNotFoundException":
-    case "com.amazonaws.lambda#KMSNotFoundException":
-      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
-    case "RecursiveInvocationException":
-    case "com.amazonaws.lambda#RecursiveInvocationException":
-      throw await de_RecursiveInvocationExceptionRes(parsedOutput, context);
-    case "RequestTooLargeException":
-    case "com.amazonaws.lambda#RequestTooLargeException":
-      throw await de_RequestTooLargeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.lambda#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "SnapStartException":
-    case "com.amazonaws.lambda#SnapStartException":
-      throw await de_SnapStartExceptionRes(parsedOutput, context);
-    case "SnapStartNotReadyException":
-    case "com.amazonaws.lambda#SnapStartNotReadyException":
-      throw await de_SnapStartNotReadyExceptionRes(parsedOutput, context);
-    case "SnapStartTimeoutException":
-    case "com.amazonaws.lambda#SnapStartTimeoutException":
-      throw await de_SnapStartTimeoutExceptionRes(parsedOutput, context);
-    case "SubnetIPAddressLimitReachedException":
-    case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
-      throw await de_SubnetIPAddressLimitReachedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedMediaTypeException":
-    case "com.amazonaws.lambda#UnsupportedMediaTypeException":
-      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InvokeAsyncCommand
  */
 export const de_InvokeAsyncCommand = async (
@@ -3990,7 +2677,7 @@ export const de_InvokeAsyncCommand = async (
   context: __SerdeContext
 ): Promise<InvokeAsyncCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_InvokeAsyncCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4003,44 +2690,6 @@ export const de_InvokeAsyncCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeAsyncCommandError
- */
-const de_InvokeAsyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeAsyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestContentException":
-    case "com.amazonaws.lambda#InvalidRequestContentException":
-      throw await de_InvalidRequestContentExceptionRes(parsedOutput, context);
-    case "InvalidRuntimeException":
-    case "com.amazonaws.lambda#InvalidRuntimeException":
-      throw await de_InvalidRuntimeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InvokeWithResponseStreamCommand
  */
 export const de_InvokeWithResponseStreamCommand = async (
@@ -4048,7 +2697,7 @@ export const de_InvokeWithResponseStreamCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<InvokeWithResponseStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeWithResponseStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4064,119 +2713,6 @@ export const de_InvokeWithResponseStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeWithResponseStreamCommandError
- */
-const de_InvokeWithResponseStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeWithResponseStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EC2AccessDeniedException":
-    case "com.amazonaws.lambda#EC2AccessDeniedException":
-      throw await de_EC2AccessDeniedExceptionRes(parsedOutput, context);
-    case "EC2ThrottledException":
-    case "com.amazonaws.lambda#EC2ThrottledException":
-      throw await de_EC2ThrottledExceptionRes(parsedOutput, context);
-    case "EC2UnexpectedException":
-    case "com.amazonaws.lambda#EC2UnexpectedException":
-      throw await de_EC2UnexpectedExceptionRes(parsedOutput, context);
-    case "EFSIOException":
-    case "com.amazonaws.lambda#EFSIOException":
-      throw await de_EFSIOExceptionRes(parsedOutput, context);
-    case "EFSMountConnectivityException":
-    case "com.amazonaws.lambda#EFSMountConnectivityException":
-      throw await de_EFSMountConnectivityExceptionRes(parsedOutput, context);
-    case "EFSMountFailureException":
-    case "com.amazonaws.lambda#EFSMountFailureException":
-      throw await de_EFSMountFailureExceptionRes(parsedOutput, context);
-    case "EFSMountTimeoutException":
-    case "com.amazonaws.lambda#EFSMountTimeoutException":
-      throw await de_EFSMountTimeoutExceptionRes(parsedOutput, context);
-    case "ENILimitReachedException":
-    case "com.amazonaws.lambda#ENILimitReachedException":
-      throw await de_ENILimitReachedExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestContentException":
-    case "com.amazonaws.lambda#InvalidRequestContentException":
-      throw await de_InvalidRequestContentExceptionRes(parsedOutput, context);
-    case "InvalidRuntimeException":
-    case "com.amazonaws.lambda#InvalidRuntimeException":
-      throw await de_InvalidRuntimeExceptionRes(parsedOutput, context);
-    case "InvalidSecurityGroupIDException":
-    case "com.amazonaws.lambda#InvalidSecurityGroupIDException":
-      throw await de_InvalidSecurityGroupIDExceptionRes(parsedOutput, context);
-    case "InvalidSubnetIDException":
-    case "com.amazonaws.lambda#InvalidSubnetIDException":
-      throw await de_InvalidSubnetIDExceptionRes(parsedOutput, context);
-    case "InvalidZipFileException":
-    case "com.amazonaws.lambda#InvalidZipFileException":
-      throw await de_InvalidZipFileExceptionRes(parsedOutput, context);
-    case "KMSAccessDeniedException":
-    case "com.amazonaws.lambda#KMSAccessDeniedException":
-      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
-    case "KMSDisabledException":
-    case "com.amazonaws.lambda#KMSDisabledException":
-      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
-    case "KMSInvalidStateException":
-    case "com.amazonaws.lambda#KMSInvalidStateException":
-      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
-    case "KMSNotFoundException":
-    case "com.amazonaws.lambda#KMSNotFoundException":
-      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
-    case "RecursiveInvocationException":
-    case "com.amazonaws.lambda#RecursiveInvocationException":
-      throw await de_RecursiveInvocationExceptionRes(parsedOutput, context);
-    case "RequestTooLargeException":
-    case "com.amazonaws.lambda#RequestTooLargeException":
-      throw await de_RequestTooLargeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.lambda#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "SnapStartException":
-    case "com.amazonaws.lambda#SnapStartException":
-      throw await de_SnapStartExceptionRes(parsedOutput, context);
-    case "SnapStartNotReadyException":
-    case "com.amazonaws.lambda#SnapStartNotReadyException":
-      throw await de_SnapStartNotReadyExceptionRes(parsedOutput, context);
-    case "SnapStartTimeoutException":
-    case "com.amazonaws.lambda#SnapStartTimeoutException":
-      throw await de_SnapStartTimeoutExceptionRes(parsedOutput, context);
-    case "SubnetIPAddressLimitReachedException":
-    case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
-      throw await de_SubnetIPAddressLimitReachedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedMediaTypeException":
-    case "com.amazonaws.lambda#UnsupportedMediaTypeException":
-      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAliasesCommand
  */
 export const de_ListAliasesCommand = async (
@@ -4184,7 +2720,7 @@ export const de_ListAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4199,41 +2735,6 @@ export const de_ListAliasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAliasesCommandError
- */
-const de_ListAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCodeSigningConfigsCommand
  */
 export const de_ListCodeSigningConfigsCommand = async (
@@ -4241,7 +2742,7 @@ export const de_ListCodeSigningConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListCodeSigningConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCodeSigningConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4256,35 +2757,6 @@ export const de_ListCodeSigningConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCodeSigningConfigsCommandError
- */
-const de_ListCodeSigningConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCodeSigningConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEventSourceMappingsCommand
  */
 export const de_ListEventSourceMappingsCommand = async (
@@ -4292,7 +2764,7 @@ export const de_ListEventSourceMappingsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventSourceMappingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEventSourceMappingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4307,41 +2779,6 @@ export const de_ListEventSourceMappingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEventSourceMappingsCommandError
- */
-const de_ListEventSourceMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventSourceMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand
  */
 export const de_ListFunctionEventInvokeConfigsCommand = async (
@@ -4349,7 +2786,7 @@ export const de_ListFunctionEventInvokeConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionEventInvokeConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionEventInvokeConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4364,41 +2801,6 @@ export const de_ListFunctionEventInvokeConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionEventInvokeConfigsCommandError
- */
-const de_ListFunctionEventInvokeConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionEventInvokeConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFunctionsCommand
  */
 export const de_ListFunctionsCommand = async (
@@ -4406,7 +2808,7 @@ export const de_ListFunctionsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4421,38 +2823,6 @@ export const de_ListFunctionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionsCommandError
- */
-const de_ListFunctionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommand
  */
 export const de_ListFunctionsByCodeSigningConfigCommand = async (
@@ -4460,7 +2830,7 @@ export const de_ListFunctionsByCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionsByCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionsByCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4475,38 +2845,6 @@ export const de_ListFunctionsByCodeSigningConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionsByCodeSigningConfigCommandError
- */
-const de_ListFunctionsByCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionsByCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFunctionUrlConfigsCommand
  */
 export const de_ListFunctionUrlConfigsCommand = async (
@@ -4514,7 +2852,7 @@ export const de_ListFunctionUrlConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionUrlConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionUrlConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4529,41 +2867,6 @@ export const de_ListFunctionUrlConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionUrlConfigsCommandError
- */
-const de_ListFunctionUrlConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionUrlConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLayersCommand
  */
 export const de_ListLayersCommand = async (
@@ -4571,7 +2874,7 @@ export const de_ListLayersCommand = async (
   context: __SerdeContext
 ): Promise<ListLayersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLayersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4586,38 +2889,6 @@ export const de_ListLayersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLayersCommandError
- */
-const de_ListLayersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLayersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLayerVersionsCommand
  */
 export const de_ListLayerVersionsCommand = async (
@@ -4625,7 +2896,7 @@ export const de_ListLayerVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLayerVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLayerVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4640,41 +2911,6 @@ export const de_ListLayerVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLayerVersionsCommandError
- */
-const de_ListLayerVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLayerVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand
  */
 export const de_ListProvisionedConcurrencyConfigsCommand = async (
@@ -4682,7 +2918,7 @@ export const de_ListProvisionedConcurrencyConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProvisionedConcurrencyConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4697,41 +2933,6 @@ export const de_ListProvisionedConcurrencyConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommandError
- */
-const de_ListProvisionedConcurrencyConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProvisionedConcurrencyConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -4739,7 +2940,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4753,41 +2954,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVersionsByFunctionCommand
  */
 export const de_ListVersionsByFunctionCommand = async (
@@ -4795,7 +2961,7 @@ export const de_ListVersionsByFunctionCommand = async (
   context: __SerdeContext
 ): Promise<ListVersionsByFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVersionsByFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4810,41 +2976,6 @@ export const de_ListVersionsByFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVersionsByFunctionCommandError
- */
-const de_ListVersionsByFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVersionsByFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PublishLayerVersionCommand
  */
 export const de_PublishLayerVersionCommand = async (
@@ -4852,7 +2983,7 @@ export const de_PublishLayerVersionCommand = async (
   context: __SerdeContext
 ): Promise<PublishLayerVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PublishLayerVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4874,44 +3005,6 @@ export const de_PublishLayerVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PublishLayerVersionCommandError
- */
-const de_PublishLayerVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishLayerVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeStorageExceededException":
-    case "com.amazonaws.lambda#CodeStorageExceededException":
-      throw await de_CodeStorageExceededExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PublishVersionCommand
  */
 export const de_PublishVersionCommand = async (
@@ -4919,7 +3012,7 @@ export const de_PublishVersionCommand = async (
   context: __SerdeContext
 ): Promise<PublishVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PublishVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4968,50 +3061,6 @@ export const de_PublishVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PublishVersionCommandError
- */
-const de_PublishVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeStorageExceededException":
-    case "com.amazonaws.lambda#CodeStorageExceededException":
-      throw await de_CodeStorageExceededExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutFunctionCodeSigningConfigCommand
  */
 export const de_PutFunctionCodeSigningConfigCommand = async (
@@ -5019,7 +3068,7 @@ export const de_PutFunctionCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<PutFunctionCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutFunctionCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5034,47 +3083,6 @@ export const de_PutFunctionCodeSigningConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutFunctionCodeSigningConfigCommandError
- */
-const de_PutFunctionCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFunctionCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeSigningConfigNotFoundException":
-    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
-      throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutFunctionConcurrencyCommand
  */
 export const de_PutFunctionConcurrencyCommand = async (
@@ -5082,7 +3090,7 @@ export const de_PutFunctionConcurrencyCommand = async (
   context: __SerdeContext
 ): Promise<PutFunctionConcurrencyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutFunctionConcurrencyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5096,44 +3104,6 @@ export const de_PutFunctionConcurrencyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutFunctionConcurrencyCommandError
- */
-const de_PutFunctionConcurrencyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFunctionConcurrencyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutFunctionEventInvokeConfigCommand
  */
 export const de_PutFunctionEventInvokeConfigCommand = async (
@@ -5141,7 +3111,7 @@ export const de_PutFunctionEventInvokeConfigCommand = async (
   context: __SerdeContext
 ): Promise<PutFunctionEventInvokeConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutFunctionEventInvokeConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5159,44 +3129,6 @@ export const de_PutFunctionEventInvokeConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutFunctionEventInvokeConfigCommandError
- */
-const de_PutFunctionEventInvokeConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFunctionEventInvokeConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand
  */
 export const de_PutProvisionedConcurrencyConfigCommand = async (
@@ -5204,7 +3136,7 @@ export const de_PutProvisionedConcurrencyConfigCommand = async (
   context: __SerdeContext
 ): Promise<PutProvisionedConcurrencyConfigCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_PutProvisionedConcurrencyConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5223,44 +3155,6 @@ export const de_PutProvisionedConcurrencyConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutProvisionedConcurrencyConfigCommandError
- */
-const de_PutProvisionedConcurrencyConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutProvisionedConcurrencyConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutRuntimeManagementConfigCommand
  */
 export const de_PutRuntimeManagementConfigCommand = async (
@@ -5268,7 +3162,7 @@ export const de_PutRuntimeManagementConfigCommand = async (
   context: __SerdeContext
 ): Promise<PutRuntimeManagementConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutRuntimeManagementConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5284,44 +3178,6 @@ export const de_PutRuntimeManagementConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutRuntimeManagementConfigCommandError
- */
-const de_PutRuntimeManagementConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRuntimeManagementConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveLayerVersionPermissionCommand
  */
 export const de_RemoveLayerVersionPermissionCommand = async (
@@ -5329,51 +3185,13 @@ export const de_RemoveLayerVersionPermissionCommand = async (
   context: __SerdeContext
 ): Promise<RemoveLayerVersionPermissionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveLayerVersionPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveLayerVersionPermissionCommandError
- */
-const de_RemoveLayerVersionPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveLayerVersionPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5384,51 +3202,13 @@ export const de_RemovePermissionCommand = async (
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemovePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemovePermissionCommandError
- */
-const de_RemovePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemovePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5439,51 +3219,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5494,51 +3236,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5549,7 +3253,7 @@ export const de_UpdateAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5568,47 +3272,6 @@ export const de_UpdateAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAliasCommandError
- */
-const de_UpdateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateCodeSigningConfigCommand
  */
 export const de_UpdateCodeSigningConfigCommand = async (
@@ -5616,7 +3279,7 @@ export const de_UpdateCodeSigningConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCodeSigningConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateCodeSigningConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5630,38 +3293,6 @@ export const de_UpdateCodeSigningConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateCodeSigningConfigCommandError
- */
-const de_UpdateCodeSigningConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCodeSigningConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateEventSourceMappingCommand
  */
 export const de_UpdateEventSourceMappingCommand = async (
@@ -5669,7 +3300,7 @@ export const de_UpdateEventSourceMappingCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEventSourceMappingCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateEventSourceMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5709,47 +3340,6 @@ export const de_UpdateEventSourceMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateEventSourceMappingCommandError
- */
-const de_UpdateEventSourceMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventSourceMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.lambda#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFunctionCodeCommand
  */
 export const de_UpdateFunctionCodeCommand = async (
@@ -5757,7 +3347,7 @@ export const de_UpdateFunctionCodeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFunctionCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5803,59 +3393,6 @@ export const de_UpdateFunctionCodeCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateFunctionCodeCommandError
- */
-const de_UpdateFunctionCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFunctionCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeSigningConfigNotFoundException":
-    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
-      throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
-    case "CodeStorageExceededException":
-    case "com.amazonaws.lambda#CodeStorageExceededException":
-      throw await de_CodeStorageExceededExceptionRes(parsedOutput, context);
-    case "CodeVerificationFailedException":
-    case "com.amazonaws.lambda#CodeVerificationFailedException":
-      throw await de_CodeVerificationFailedExceptionRes(parsedOutput, context);
-    case "InvalidCodeSignatureException":
-    case "com.amazonaws.lambda#InvalidCodeSignatureException":
-      throw await de_InvalidCodeSignatureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5866,7 +3403,7 @@ export const de_UpdateFunctionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFunctionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5915,56 +3452,6 @@ export const de_UpdateFunctionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFunctionConfigurationCommandError
- */
-const de_UpdateFunctionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFunctionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeSigningConfigNotFoundException":
-    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
-      throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
-    case "CodeVerificationFailedException":
-    case "com.amazonaws.lambda#CodeVerificationFailedException":
-      throw await de_CodeVerificationFailedExceptionRes(parsedOutput, context);
-    case "InvalidCodeSignatureException":
-    case "com.amazonaws.lambda#InvalidCodeSignatureException":
-      throw await de_InvalidCodeSignatureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lambda#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand
  */
 export const de_UpdateFunctionEventInvokeConfigCommand = async (
@@ -5972,7 +3459,7 @@ export const de_UpdateFunctionEventInvokeConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFunctionEventInvokeConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5990,44 +3477,6 @@ export const de_UpdateFunctionEventInvokeConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError
- */
-const de_UpdateFunctionEventInvokeConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFunctionEventInvokeConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.lambda#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.lambda#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lambda#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lambda#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.lambda#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFunctionUrlConfigCommand
  */
 export const de_UpdateFunctionUrlConfigCommand = async (
@@ -6035,7 +3484,7 @@ export const de_UpdateFunctionUrlConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionUrlConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFunctionUrlConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6055,12 +3504,9 @@ export const de_UpdateFunctionUrlConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFunctionUrlConfigCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateFunctionUrlConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFunctionUrlConfigCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6070,6 +3516,12 @@ const de_UpdateFunctionUrlConfigCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.lambda#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "PolicyLengthExceededException":
+    case "com.amazonaws.lambda#PolicyLengthExceededException":
+      throw await de_PolicyLengthExceededExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lambda#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.lambda#ResourceConflictException":
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
@@ -6082,6 +3534,99 @@ const de_UpdateFunctionUrlConfigCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.lambda#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "CodeSigningConfigNotFoundException":
+    case "com.amazonaws.lambda#CodeSigningConfigNotFoundException":
+      throw await de_CodeSigningConfigNotFoundExceptionRes(parsedOutput, context);
+    case "CodeStorageExceededException":
+    case "com.amazonaws.lambda#CodeStorageExceededException":
+      throw await de_CodeStorageExceededExceptionRes(parsedOutput, context);
+    case "CodeVerificationFailedException":
+    case "com.amazonaws.lambda#CodeVerificationFailedException":
+      throw await de_CodeVerificationFailedExceptionRes(parsedOutput, context);
+    case "InvalidCodeSignatureException":
+    case "com.amazonaws.lambda#InvalidCodeSignatureException":
+      throw await de_InvalidCodeSignatureExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.lambda#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ProvisionedConcurrencyConfigNotFoundException":
+    case "com.amazonaws.lambda#ProvisionedConcurrencyConfigNotFoundException":
+      throw await de_ProvisionedConcurrencyConfigNotFoundExceptionRes(parsedOutput, context);
+    case "EC2AccessDeniedException":
+    case "com.amazonaws.lambda#EC2AccessDeniedException":
+      throw await de_EC2AccessDeniedExceptionRes(parsedOutput, context);
+    case "EC2ThrottledException":
+    case "com.amazonaws.lambda#EC2ThrottledException":
+      throw await de_EC2ThrottledExceptionRes(parsedOutput, context);
+    case "EC2UnexpectedException":
+    case "com.amazonaws.lambda#EC2UnexpectedException":
+      throw await de_EC2UnexpectedExceptionRes(parsedOutput, context);
+    case "EFSIOException":
+    case "com.amazonaws.lambda#EFSIOException":
+      throw await de_EFSIOExceptionRes(parsedOutput, context);
+    case "EFSMountConnectivityException":
+    case "com.amazonaws.lambda#EFSMountConnectivityException":
+      throw await de_EFSMountConnectivityExceptionRes(parsedOutput, context);
+    case "EFSMountFailureException":
+    case "com.amazonaws.lambda#EFSMountFailureException":
+      throw await de_EFSMountFailureExceptionRes(parsedOutput, context);
+    case "EFSMountTimeoutException":
+    case "com.amazonaws.lambda#EFSMountTimeoutException":
+      throw await de_EFSMountTimeoutExceptionRes(parsedOutput, context);
+    case "ENILimitReachedException":
+    case "com.amazonaws.lambda#ENILimitReachedException":
+      throw await de_ENILimitReachedExceptionRes(parsedOutput, context);
+    case "InvalidRequestContentException":
+    case "com.amazonaws.lambda#InvalidRequestContentException":
+      throw await de_InvalidRequestContentExceptionRes(parsedOutput, context);
+    case "InvalidRuntimeException":
+    case "com.amazonaws.lambda#InvalidRuntimeException":
+      throw await de_InvalidRuntimeExceptionRes(parsedOutput, context);
+    case "InvalidSecurityGroupIDException":
+    case "com.amazonaws.lambda#InvalidSecurityGroupIDException":
+      throw await de_InvalidSecurityGroupIDExceptionRes(parsedOutput, context);
+    case "InvalidSubnetIDException":
+    case "com.amazonaws.lambda#InvalidSubnetIDException":
+      throw await de_InvalidSubnetIDExceptionRes(parsedOutput, context);
+    case "InvalidZipFileException":
+    case "com.amazonaws.lambda#InvalidZipFileException":
+      throw await de_InvalidZipFileExceptionRes(parsedOutput, context);
+    case "KMSAccessDeniedException":
+    case "com.amazonaws.lambda#KMSAccessDeniedException":
+      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
+    case "KMSDisabledException":
+    case "com.amazonaws.lambda#KMSDisabledException":
+      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
+    case "KMSInvalidStateException":
+    case "com.amazonaws.lambda#KMSInvalidStateException":
+      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
+    case "KMSNotFoundException":
+    case "com.amazonaws.lambda#KMSNotFoundException":
+      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
+    case "RecursiveInvocationException":
+    case "com.amazonaws.lambda#RecursiveInvocationException":
+      throw await de_RecursiveInvocationExceptionRes(parsedOutput, context);
+    case "RequestTooLargeException":
+    case "com.amazonaws.lambda#RequestTooLargeException":
+      throw await de_RequestTooLargeExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.lambda#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "SnapStartException":
+    case "com.amazonaws.lambda#SnapStartException":
+      throw await de_SnapStartExceptionRes(parsedOutput, context);
+    case "SnapStartNotReadyException":
+    case "com.amazonaws.lambda#SnapStartNotReadyException":
+      throw await de_SnapStartNotReadyExceptionRes(parsedOutput, context);
+    case "SnapStartTimeoutException":
+    case "com.amazonaws.lambda#SnapStartTimeoutException":
+      throw await de_SnapStartTimeoutExceptionRes(parsedOutput, context);
+    case "SubnetIPAddressLimitReachedException":
+    case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
+      throw await de_SubnetIPAddressLimitReachedExceptionRes(parsedOutput, context);
+    case "UnsupportedMediaTypeException":
+    case "com.amazonaws.lambda#UnsupportedMediaTypeException":
+      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -156,48 +156,13 @@ export const de_DeleteHumanLoopCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteHumanLoopCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteHumanLoopCommandError
- */
-const de_DeleteHumanLoopCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHumanLoopCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.sagemakera2iruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.sagemakera2iruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sagemakera2iruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -208,7 +173,7 @@ export const de_DescribeHumanLoopCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeHumanLoopCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -229,41 +194,6 @@ export const de_DescribeHumanLoopCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeHumanLoopCommandError
- */
-const de_DescribeHumanLoopCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHumanLoopCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.sagemakera2iruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.sagemakera2iruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sagemakera2iruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListHumanLoopsCommand
  */
 export const de_ListHumanLoopsCommand = async (
@@ -271,7 +201,7 @@ export const de_ListHumanLoopsCommand = async (
   context: __SerdeContext
 ): Promise<ListHumanLoopsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListHumanLoopsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -286,41 +216,6 @@ export const de_ListHumanLoopsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListHumanLoopsCommandError
- */
-const de_ListHumanLoopsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHumanLoopsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.sagemakera2iruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sagemakera2iruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.sagemakera2iruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sagemakera2iruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartHumanLoopCommand
  */
 export const de_StartHumanLoopCommand = async (
@@ -328,7 +223,7 @@ export const de_StartHumanLoopCommand = async (
   context: __SerdeContext
 ): Promise<StartHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartHumanLoopCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -342,44 +237,6 @@ export const de_StartHumanLoopCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartHumanLoopCommandError
- */
-const de_StartHumanLoopCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartHumanLoopCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sagemakera2iruntime#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.sagemakera2iruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.sagemakera2iruntime#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.sagemakera2iruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sagemakera2iruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopHumanLoopCommand
  */
 export const de_StopHumanLoopCommand = async (
@@ -387,7 +244,7 @@ export const de_StopHumanLoopCommand = async (
   context: __SerdeContext
 ): Promise<StopHumanLoopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopHumanLoopCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -397,12 +254,9 @@ export const de_StopHumanLoopCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopHumanLoopCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_StopHumanLoopCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopHumanLoopCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -421,6 +275,12 @@ const de_StopHumanLoopCommandError = async (
     case "ValidationException":
     case "com.amazonaws.sagemakera2iruntime#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.sagemakera2iruntime#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.sagemakera2iruntime#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

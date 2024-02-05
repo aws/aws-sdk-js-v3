@@ -240,51 +240,13 @@ export const de_CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigurationSetCommandError
- */
-const de_CreateConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.pinpointsmsvoice#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointsmsvoice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -295,54 +257,13 @@ export const de_CreateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
- */
-const de_CreateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.pinpointsmsvoice#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.pinpointsmsvoice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -353,48 +274,13 @@ export const de_DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationSetCommandError
- */
-const de_DeleteConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -405,48 +291,13 @@ export const de_DeleteConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
- */
-const de_DeleteConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -457,7 +308,7 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationSetEventDestinationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -471,41 +322,6 @@ export const de_GetConfigurationSetEventDestinationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError
- */
-const de_GetConfigurationSetEventDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationSetEventDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConfigurationSetsCommand
  */
 export const de_ListConfigurationSetsCommand = async (
@@ -513,7 +329,7 @@ export const de_ListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConfigurationSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -528,38 +344,6 @@ export const de_ListConfigurationSetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConfigurationSetsCommandError
- */
-const de_ListConfigurationSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SendVoiceMessageCommand
  */
 export const de_SendVoiceMessageCommand = async (
@@ -567,7 +351,7 @@ export const de_SendVoiceMessageCommand = async (
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendVoiceMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -581,38 +365,6 @@ export const de_SendVoiceMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendVoiceMessageCommandError
- */
-const de_SendVoiceMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendVoiceMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpointsmsvoice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
  */
 export const de_UpdateConfigurationSetEventDestinationCommand = async (
@@ -620,7 +372,7 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -630,30 +382,33 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.pinpointsmsvoice#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.pinpointsmsvoice#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.pinpointsmsvoice#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpointsmsvoice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.pinpointsmsvoice#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.pinpointsmsvoice#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.pinpointsmsvoice#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

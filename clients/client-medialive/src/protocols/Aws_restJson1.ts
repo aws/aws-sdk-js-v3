@@ -1753,63 +1753,13 @@ export const de_AcceptInputDeviceTransferCommand = async (
   context: __SerdeContext
 ): Promise<AcceptInputDeviceTransferCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AcceptInputDeviceTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AcceptInputDeviceTransferCommandError
- */
-const de_AcceptInputDeviceTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptInputDeviceTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1820,7 +1770,7 @@ export const de_BatchDeleteCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDeleteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1832,53 +1782,6 @@ export const de_BatchDeleteCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchDeleteCommandError
- */
-const de_BatchDeleteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1889,7 +1792,7 @@ export const de_BatchStartCommand = async (
   context: __SerdeContext
 ): Promise<BatchStartCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchStartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1901,53 +1804,6 @@ export const de_BatchStartCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchStartCommandError
- */
-const de_BatchStartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchStartCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1958,7 +1814,7 @@ export const de_BatchStopCommand = async (
   context: __SerdeContext
 ): Promise<BatchStopCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchStopCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1973,53 +1829,6 @@ export const de_BatchStopCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchStopCommandError
- */
-const de_BatchStopCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchStopCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchUpdateScheduleCommand
  */
 export const de_BatchUpdateScheduleCommand = async (
@@ -2027,7 +1836,7 @@ export const de_BatchUpdateScheduleCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2042,53 +1851,6 @@ export const de_BatchUpdateScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchUpdateScheduleCommandError
- */
-const de_BatchUpdateScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelInputDeviceTransferCommand
  */
 export const de_CancelInputDeviceTransferCommand = async (
@@ -2096,63 +1858,13 @@ export const de_CancelInputDeviceTransferCommand = async (
   context: __SerdeContext
 ): Promise<CancelInputDeviceTransferCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelInputDeviceTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelInputDeviceTransferCommandError
- */
-const de_CancelInputDeviceTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelInputDeviceTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2163,60 +1875,13 @@ export const de_ClaimDeviceCommand = async (
   context: __SerdeContext
 ): Promise<ClaimDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ClaimDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ClaimDeviceCommandError
- */
-const de_ClaimDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ClaimDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2227,7 +1892,7 @@ export const de_CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2241,53 +1906,6 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelCommandError
- */
-const de_CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateInputCommand
  */
 export const de_CreateInputCommand = async (
@@ -2295,7 +1913,7 @@ export const de_CreateInputCommand = async (
   context: __SerdeContext
 ): Promise<CreateInputCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateInputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2309,47 +1927,6 @@ export const de_CreateInputCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateInputCommandError
- */
-const de_CreateInputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateInputSecurityGroupCommand
  */
 export const de_CreateInputSecurityGroupCommand = async (
@@ -2357,7 +1934,7 @@ export const de_CreateInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateInputSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2371,47 +1948,6 @@ export const de_CreateInputSecurityGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateInputSecurityGroupCommandError
- */
-const de_CreateInputSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInputSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMultiplexCommand
  */
 export const de_CreateMultiplexCommand = async (
@@ -2419,7 +1955,7 @@ export const de_CreateMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<CreateMultiplexCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMultiplexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2433,53 +1969,6 @@ export const de_CreateMultiplexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMultiplexCommandError
- */
-const de_CreateMultiplexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMultiplexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMultiplexProgramCommand
  */
 export const de_CreateMultiplexProgramCommand = async (
@@ -2487,7 +1976,7 @@ export const de_CreateMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<CreateMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMultiplexProgramCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2501,53 +1990,6 @@ export const de_CreateMultiplexProgramCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMultiplexProgramCommandError
- */
-const de_CreateMultiplexProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMultiplexProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePartnerInputCommand
  */
 export const de_CreatePartnerInputCommand = async (
@@ -2555,7 +1997,7 @@ export const de_CreatePartnerInputCommand = async (
   context: __SerdeContext
 ): Promise<CreatePartnerInputCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreatePartnerInputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2569,47 +2011,6 @@ export const de_CreatePartnerInputCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePartnerInputCommandError
- */
-const de_CreatePartnerInputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePartnerInputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTagsCommand
  */
 export const de_CreateTagsCommand = async (
@@ -2617,48 +2018,13 @@ export const de_CreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_CreateTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateTagsCommandError
- */
-const de_CreateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2669,7 +2035,7 @@ export const de_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2700,53 +2066,6 @@ export const de_DeleteChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteChannelCommandError
- */
-const de_DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteInputCommand
  */
 export const de_DeleteInputCommand = async (
@@ -2754,60 +2073,13 @@ export const de_DeleteInputCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteInputCommandError
- */
-const de_DeleteInputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2818,57 +2090,13 @@ export const de_DeleteInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInputSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteInputSecurityGroupCommandError
- */
-const de_DeleteInputSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInputSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2879,7 +2107,7 @@ export const de_DeleteMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMultiplexCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteMultiplexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2902,53 +2130,6 @@ export const de_DeleteMultiplexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteMultiplexCommandError
- */
-const de_DeleteMultiplexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMultiplexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteMultiplexProgramCommand
  */
 export const de_DeleteMultiplexProgramCommand = async (
@@ -2956,7 +2137,7 @@ export const de_DeleteMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteMultiplexProgramCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2974,53 +2155,6 @@ export const de_DeleteMultiplexProgramCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteMultiplexProgramCommandError
- */
-const de_DeleteMultiplexProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMultiplexProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteReservationCommand
  */
 export const de_DeleteReservationCommand = async (
@@ -3028,7 +2162,7 @@ export const de_DeleteReservationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3060,53 +2194,6 @@ export const de_DeleteReservationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteReservationCommandError
- */
-const de_DeleteReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteScheduleCommand
  */
 export const de_DeleteScheduleCommand = async (
@@ -3114,57 +2201,13 @@ export const de_DeleteScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteScheduleCommandError
- */
-const de_DeleteScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3175,48 +2218,13 @@ export const de_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3227,7 +2235,7 @@ export const de_DescribeAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3241,47 +2249,6 @@ export const de_DescribeAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAccountConfigurationCommandError
- */
-const de_DescribeAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelCommand
  */
 export const de_DescribeChannelCommand = async (
@@ -3289,7 +2256,7 @@ export const de_DescribeChannelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3320,50 +2287,6 @@ export const de_DescribeChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelCommandError
- */
-const de_DescribeChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInputCommand
  */
 export const de_DescribeInputCommand = async (
@@ -3371,7 +2294,7 @@ export const de_DescribeInputCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3400,50 +2323,6 @@ export const de_DescribeInputCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInputCommandError
- */
-const de_DescribeInputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInputDeviceCommand
  */
 export const de_DescribeInputDeviceCommand = async (
@@ -3451,7 +2330,7 @@ export const de_DescribeInputDeviceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInputDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInputDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3480,50 +2359,6 @@ export const de_DescribeInputDeviceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInputDeviceCommandError
- */
-const de_DescribeInputDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInputDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInputDeviceThumbnailCommand
  */
 export const de_DescribeInputDeviceThumbnailCommand = async (
@@ -3531,7 +2366,7 @@ export const de_DescribeInputDeviceThumbnailCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<DescribeInputDeviceThumbnailCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInputDeviceThumbnailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3547,50 +2382,6 @@ export const de_DescribeInputDeviceThumbnailCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInputDeviceThumbnailCommandError
- */
-const de_DescribeInputDeviceThumbnailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInputDeviceThumbnailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInputSecurityGroupCommand
  */
 export const de_DescribeInputSecurityGroupCommand = async (
@@ -3598,7 +2389,7 @@ export const de_DescribeInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInputSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3617,50 +2408,6 @@ export const de_DescribeInputSecurityGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInputSecurityGroupCommandError
- */
-const de_DescribeInputSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInputSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeMultiplexCommand
  */
 export const de_DescribeMultiplexCommand = async (
@@ -3668,7 +2415,7 @@ export const de_DescribeMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMultiplexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeMultiplexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3691,50 +2438,6 @@ export const de_DescribeMultiplexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeMultiplexCommandError
- */
-const de_DescribeMultiplexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMultiplexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeMultiplexProgramCommand
  */
 export const de_DescribeMultiplexProgramCommand = async (
@@ -3742,7 +2445,7 @@ export const de_DescribeMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeMultiplexProgramCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3760,50 +2463,6 @@ export const de_DescribeMultiplexProgramCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeMultiplexProgramCommandError
- */
-const de_DescribeMultiplexProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMultiplexProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeOfferingCommand
  */
 export const de_DescribeOfferingCommand = async (
@@ -3811,7 +2470,7 @@ export const de_DescribeOfferingCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOfferingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3835,50 +2494,6 @@ export const de_DescribeOfferingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeOfferingCommandError
- */
-const de_DescribeOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeReservationCommand
  */
 export const de_DescribeReservationCommand = async (
@@ -3886,7 +2501,7 @@ export const de_DescribeReservationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3918,50 +2533,6 @@ export const de_DescribeReservationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeReservationCommandError
- */
-const de_DescribeReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeScheduleCommand
  */
 export const de_DescribeScheduleCommand = async (
@@ -3969,7 +2540,7 @@ export const de_DescribeScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3984,50 +2555,6 @@ export const de_DescribeScheduleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeScheduleCommandError
- */
-const de_DescribeScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeThumbnailsCommand
  */
 export const de_DescribeThumbnailsCommand = async (
@@ -4035,7 +2562,7 @@ export const de_DescribeThumbnailsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeThumbnailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeThumbnailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4049,53 +2576,6 @@ export const de_DescribeThumbnailsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeThumbnailsCommandError
- */
-const de_DescribeThumbnailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeThumbnailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -4103,7 +2583,7 @@ export const de_ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4118,47 +2598,6 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsCommandError
- */
-const de_ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInputDevicesCommand
  */
 export const de_ListInputDevicesCommand = async (
@@ -4166,7 +2605,7 @@ export const de_ListInputDevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListInputDevicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInputDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4181,47 +2620,6 @@ export const de_ListInputDevicesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInputDevicesCommandError
- */
-const de_ListInputDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInputDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInputDeviceTransfersCommand
  */
 export const de_ListInputDeviceTransfersCommand = async (
@@ -4229,7 +2627,7 @@ export const de_ListInputDeviceTransfersCommand = async (
   context: __SerdeContext
 ): Promise<ListInputDeviceTransfersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInputDeviceTransfersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4244,50 +2642,6 @@ export const de_ListInputDeviceTransfersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInputDeviceTransfersCommandError
- */
-const de_ListInputDeviceTransfersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInputDeviceTransfersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInputsCommand
  */
 export const de_ListInputsCommand = async (
@@ -4295,7 +2649,7 @@ export const de_ListInputsCommand = async (
   context: __SerdeContext
 ): Promise<ListInputsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInputsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4310,47 +2664,6 @@ export const de_ListInputsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInputsCommandError
- */
-const de_ListInputsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInputsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInputSecurityGroupsCommand
  */
 export const de_ListInputSecurityGroupsCommand = async (
@@ -4358,7 +2671,7 @@ export const de_ListInputSecurityGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListInputSecurityGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInputSecurityGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4373,47 +2686,6 @@ export const de_ListInputSecurityGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInputSecurityGroupsCommandError
- */
-const de_ListInputSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInputSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMultiplexesCommand
  */
 export const de_ListMultiplexesCommand = async (
@@ -4421,7 +2693,7 @@ export const de_ListMultiplexesCommand = async (
   context: __SerdeContext
 ): Promise<ListMultiplexesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMultiplexesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4436,47 +2708,6 @@ export const de_ListMultiplexesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMultiplexesCommandError
- */
-const de_ListMultiplexesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMultiplexesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMultiplexProgramsCommand
  */
 export const de_ListMultiplexProgramsCommand = async (
@@ -4484,7 +2715,7 @@ export const de_ListMultiplexProgramsCommand = async (
   context: __SerdeContext
 ): Promise<ListMultiplexProgramsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMultiplexProgramsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4499,50 +2730,6 @@ export const de_ListMultiplexProgramsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMultiplexProgramsCommandError
- */
-const de_ListMultiplexProgramsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMultiplexProgramsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOfferingsCommand
  */
 export const de_ListOfferingsCommand = async (
@@ -4550,7 +2737,7 @@ export const de_ListOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<ListOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4565,47 +2752,6 @@ export const de_ListOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOfferingsCommandError
- */
-const de_ListOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListReservationsCommand
  */
 export const de_ListReservationsCommand = async (
@@ -4613,7 +2759,7 @@ export const de_ListReservationsCommand = async (
   context: __SerdeContext
 ): Promise<ListReservationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListReservationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4628,47 +2774,6 @@ export const de_ListReservationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListReservationsCommandError
- */
-const de_ListReservationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReservationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4676,7 +2781,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4690,41 +2795,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PurchaseOfferingCommand
  */
 export const de_PurchaseOfferingCommand = async (
@@ -4732,7 +2802,7 @@ export const de_PurchaseOfferingCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseOfferingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PurchaseOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4746,53 +2816,6 @@ export const de_PurchaseOfferingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PurchaseOfferingCommandError
- */
-const de_PurchaseOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RebootInputDeviceCommand
  */
 export const de_RebootInputDeviceCommand = async (
@@ -4800,60 +2823,13 @@ export const de_RebootInputDeviceCommand = async (
   context: __SerdeContext
 ): Promise<RebootInputDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RebootInputDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RebootInputDeviceCommandError
- */
-const de_RebootInputDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootInputDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4864,63 +2840,13 @@ export const de_RejectInputDeviceTransferCommand = async (
   context: __SerdeContext
 ): Promise<RejectInputDeviceTransferCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RejectInputDeviceTransferCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RejectInputDeviceTransferCommandError
- */
-const de_RejectInputDeviceTransferCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectInputDeviceTransferCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4931,7 +2857,7 @@ export const de_StartChannelCommand = async (
   context: __SerdeContext
 ): Promise<StartChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4959,53 +2885,6 @@ export const de_StartChannelCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartChannelCommandError
- */
-const de_StartChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5016,60 +2895,13 @@ export const de_StartInputDeviceCommand = async (
   context: __SerdeContext
 ): Promise<StartInputDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartInputDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartInputDeviceCommandError
- */
-const de_StartInputDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartInputDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5080,60 +2912,13 @@ export const de_StartInputDeviceMaintenanceWindowCommand = async (
   context: __SerdeContext
 ): Promise<StartInputDeviceMaintenanceWindowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartInputDeviceMaintenanceWindowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommandError
- */
-const de_StartInputDeviceMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartInputDeviceMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5144,7 +2929,7 @@ export const de_StartMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<StartMultiplexCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartMultiplexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5167,53 +2952,6 @@ export const de_StartMultiplexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartMultiplexCommandError
- */
-const de_StartMultiplexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMultiplexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopChannelCommand
  */
 export const de_StopChannelCommand = async (
@@ -5221,7 +2959,7 @@ export const de_StopChannelCommand = async (
   context: __SerdeContext
 ): Promise<StopChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5252,53 +2990,6 @@ export const de_StopChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopChannelCommandError
- */
-const de_StopChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopInputDeviceCommand
  */
 export const de_StopInputDeviceCommand = async (
@@ -5306,60 +2997,13 @@ export const de_StopInputDeviceCommand = async (
   context: __SerdeContext
 ): Promise<StopInputDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopInputDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StopInputDeviceCommandError
- */
-const de_StopInputDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopInputDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5370,7 +3014,7 @@ export const de_StopMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<StopMultiplexCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StopMultiplexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5393,53 +3037,6 @@ export const de_StopMultiplexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopMultiplexCommandError
- */
-const de_StopMultiplexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopMultiplexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TransferInputDeviceCommand
  */
 export const de_TransferInputDeviceCommand = async (
@@ -5447,63 +3044,13 @@ export const de_TransferInputDeviceCommand = async (
   context: __SerdeContext
 ): Promise<TransferInputDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TransferInputDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TransferInputDeviceCommandError
- */
-const de_TransferInputDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TransferInputDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5514,7 +3061,7 @@ export const de_UpdateAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5528,50 +3075,6 @@ export const de_UpdateAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAccountConfigurationCommandError
- */
-const de_UpdateAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateChannelCommand
  */
 export const de_UpdateChannelCommand = async (
@@ -5579,7 +3082,7 @@ export const de_UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5590,50 +3093,6 @@ export const de_UpdateChannelCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelCommandError
- */
-const de_UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5644,7 +3103,7 @@ export const de_UpdateChannelClassCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChannelClassCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelClassCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5658,56 +3117,6 @@ export const de_UpdateChannelClassCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateChannelClassCommandError
- */
-const de_UpdateChannelClassCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelClassCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateInputCommand
  */
 export const de_UpdateInputCommand = async (
@@ -5715,7 +3124,7 @@ export const de_UpdateInputCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateInputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5729,50 +3138,6 @@ export const de_UpdateInputCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateInputCommandError
- */
-const de_UpdateInputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateInputDeviceCommand
  */
 export const de_UpdateInputDeviceCommand = async (
@@ -5780,7 +3145,7 @@ export const de_UpdateInputDeviceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInputDeviceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateInputDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5809,53 +3174,6 @@ export const de_UpdateInputDeviceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateInputDeviceCommandError
- */
-const de_UpdateInputDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInputDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.medialive#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateInputSecurityGroupCommand
  */
 export const de_UpdateInputSecurityGroupCommand = async (
@@ -5863,7 +3181,7 @@ export const de_UpdateInputSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInputSecurityGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateInputSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5877,50 +3195,6 @@ export const de_UpdateInputSecurityGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateInputSecurityGroupCommandError
- */
-const de_UpdateInputSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInputSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateMultiplexCommand
  */
 export const de_UpdateMultiplexCommand = async (
@@ -5928,7 +3202,7 @@ export const de_UpdateMultiplexCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMultiplexCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMultiplexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5942,53 +3216,6 @@ export const de_UpdateMultiplexCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateMultiplexCommandError
- */
-const de_UpdateMultiplexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMultiplexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateMultiplexProgramCommand
  */
 export const de_UpdateMultiplexProgramCommand = async (
@@ -5996,7 +3223,7 @@ export const de_UpdateMultiplexProgramCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMultiplexProgramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMultiplexProgramCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6010,53 +3237,6 @@ export const de_UpdateMultiplexProgramCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateMultiplexProgramCommandError
- */
-const de_UpdateMultiplexProgramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMultiplexProgramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.medialive#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.medialive#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.medialive#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.medialive#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GatewayTimeoutException":
-    case "com.amazonaws.medialive#GatewayTimeoutException":
-      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.medialive#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.medialive#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.medialive#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateReservationCommand
  */
 export const de_UpdateReservationCommand = async (
@@ -6064,7 +3244,7 @@ export const de_UpdateReservationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReservationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6078,12 +3258,9 @@ export const de_UpdateReservationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateReservationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReservationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6114,6 +3291,9 @@ const de_UpdateReservationCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.medialive#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

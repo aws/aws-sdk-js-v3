@@ -1134,7 +1134,7 @@ export const de_CancelGremlinQueryCommand = async (
   context: __SerdeContext
 ): Promise<CancelGremlinQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelGremlinQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1145,71 +1145,6 @@ export const de_CancelGremlinQueryCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelGremlinQueryCommandError
- */
-const de_CancelGremlinQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelGremlinQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1220,7 +1155,7 @@ export const de_CancelLoaderJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelLoaderJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelLoaderJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1231,68 +1166,6 @@ export const de_CancelLoaderJobCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelLoaderJobCommandError
- */
-const de_CancelLoaderJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelLoaderJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "BulkLoadIdNotFoundException":
-    case "com.amazonaws.neptunedata#BulkLoadIdNotFoundException":
-      throw await de_BulkLoadIdNotFoundExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.neptunedata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LoadUrlAccessDeniedException":
-    case "com.amazonaws.neptunedata#LoadUrlAccessDeniedException":
-      throw await de_LoadUrlAccessDeniedExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1303,7 +1176,7 @@ export const de_CancelMLDataProcessingJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelMLDataProcessingJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelMLDataProcessingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1314,62 +1187,6 @@ export const de_CancelMLDataProcessingJobCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelMLDataProcessingJobCommandError
- */
-const de_CancelMLDataProcessingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMLDataProcessingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1380,7 +1197,7 @@ export const de_CancelMLModelTrainingJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelMLModelTrainingJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelMLModelTrainingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1391,62 +1208,6 @@ export const de_CancelMLModelTrainingJobCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelMLModelTrainingJobCommandError
- */
-const de_CancelMLModelTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMLModelTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1457,7 +1218,7 @@ export const de_CancelMLModelTransformJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelMLModelTransformJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelMLModelTransformJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1471,62 +1232,6 @@ export const de_CancelMLModelTransformJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelMLModelTransformJobCommandError
- */
-const de_CancelMLModelTransformJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMLModelTransformJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelOpenCypherQueryCommand
  */
 export const de_CancelOpenCypherQueryCommand = async (
@@ -1534,7 +1239,7 @@ export const de_CancelOpenCypherQueryCommand = async (
   context: __SerdeContext
 ): Promise<CancelOpenCypherQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelOpenCypherQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1549,74 +1254,6 @@ export const de_CancelOpenCypherQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelOpenCypherQueryCommandError
- */
-const de_CancelOpenCypherQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelOpenCypherQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNumericDataException":
-    case "com.amazonaws.neptunedata#InvalidNumericDataException":
-      throw await de_InvalidNumericDataExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMLEndpointCommand
  */
 export const de_CreateMLEndpointCommand = async (
@@ -1624,7 +1261,7 @@ export const de_CreateMLEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateMLEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMLEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1640,62 +1277,6 @@ export const de_CreateMLEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMLEndpointCommandError
- */
-const de_CreateMLEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMLEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteMLEndpointCommand
  */
 export const de_DeleteMLEndpointCommand = async (
@@ -1703,7 +1284,7 @@ export const de_DeleteMLEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMLEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteMLEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1714,62 +1295,6 @@ export const de_DeleteMLEndpointCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMLEndpointCommandError
- */
-const de_DeleteMLEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMLEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1780,7 +1305,7 @@ export const de_DeletePropertygraphStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<DeletePropertygraphStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePropertygraphStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1795,68 +1320,6 @@ export const de_DeletePropertygraphStatisticsCommand = async (
     statusCode: [, output.statusCode],
   });
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePropertygraphStatisticsCommandError
- */
-const de_DeletePropertygraphStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePropertygraphStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1867,7 +1330,7 @@ export const de_DeleteSparqlStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSparqlStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSparqlStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1885,68 +1348,6 @@ export const de_DeleteSparqlStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSparqlStatisticsCommandError
- */
-const de_DeleteSparqlStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSparqlStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteFastResetCommand
  */
 export const de_ExecuteFastResetCommand = async (
@@ -1954,7 +1355,7 @@ export const de_ExecuteFastResetCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteFastResetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteFastResetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1969,68 +1370,6 @@ export const de_ExecuteFastResetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteFastResetCommandError
- */
-const de_ExecuteFastResetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteFastResetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.neptunedata#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "ServerShutdownException":
-    case "com.amazonaws.neptunedata#ServerShutdownException":
-      throw await de_ServerShutdownExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteGremlinExplainQueryCommand
  */
 export const de_ExecuteGremlinExplainQueryCommand = async (
@@ -2038,7 +1377,7 @@ export const de_ExecuteGremlinExplainQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteGremlinExplainQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteGremlinExplainQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2046,89 +1385,6 @@ export const de_ExecuteGremlinExplainQueryCommand = async (
   const data: any = await collectBody(output.body, context);
   contents.output = data;
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ExecuteGremlinExplainQueryCommandError
- */
-const de_ExecuteGremlinExplainQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteGremlinExplainQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "CancelledByUserException":
-    case "com.amazonaws.neptunedata#CancelledByUserException":
-      throw await de_CancelledByUserExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedQueryException":
-    case "com.amazonaws.neptunedata#MalformedQueryException":
-      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "QueryLimitExceededException":
-    case "com.amazonaws.neptunedata#QueryLimitExceededException":
-      throw await de_QueryLimitExceededExceptionRes(parsedOutput, context);
-    case "QueryLimitException":
-    case "com.amazonaws.neptunedata#QueryLimitException":
-      throw await de_QueryLimitExceptionRes(parsedOutput, context);
-    case "QueryTooLargeException":
-    case "com.amazonaws.neptunedata#QueryTooLargeException":
-      throw await de_QueryTooLargeExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2139,7 +1395,7 @@ export const de_ExecuteGremlinProfileQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteGremlinProfileQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteGremlinProfileQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2150,89 +1406,6 @@ export const de_ExecuteGremlinProfileQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteGremlinProfileQueryCommandError
- */
-const de_ExecuteGremlinProfileQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteGremlinProfileQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "CancelledByUserException":
-    case "com.amazonaws.neptunedata#CancelledByUserException":
-      throw await de_CancelledByUserExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedQueryException":
-    case "com.amazonaws.neptunedata#MalformedQueryException":
-      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "QueryLimitExceededException":
-    case "com.amazonaws.neptunedata#QueryLimitExceededException":
-      throw await de_QueryLimitExceededExceptionRes(parsedOutput, context);
-    case "QueryLimitException":
-    case "com.amazonaws.neptunedata#QueryLimitException":
-      throw await de_QueryLimitExceptionRes(parsedOutput, context);
-    case "QueryTooLargeException":
-    case "com.amazonaws.neptunedata#QueryTooLargeException":
-      throw await de_QueryTooLargeExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteGremlinQueryCommand
  */
 export const de_ExecuteGremlinQueryCommand = async (
@@ -2240,7 +1413,7 @@ export const de_ExecuteGremlinQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteGremlinQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteGremlinQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2257,89 +1430,6 @@ export const de_ExecuteGremlinQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteGremlinQueryCommandError
- */
-const de_ExecuteGremlinQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteGremlinQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "CancelledByUserException":
-    case "com.amazonaws.neptunedata#CancelledByUserException":
-      throw await de_CancelledByUserExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedQueryException":
-    case "com.amazonaws.neptunedata#MalformedQueryException":
-      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "QueryLimitExceededException":
-    case "com.amazonaws.neptunedata#QueryLimitExceededException":
-      throw await de_QueryLimitExceededExceptionRes(parsedOutput, context);
-    case "QueryLimitException":
-    case "com.amazonaws.neptunedata#QueryLimitException":
-      throw await de_QueryLimitExceptionRes(parsedOutput, context);
-    case "QueryTooLargeException":
-    case "com.amazonaws.neptunedata#QueryTooLargeException":
-      throw await de_QueryTooLargeExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteOpenCypherExplainQueryCommand
  */
 export const de_ExecuteOpenCypherExplainQueryCommand = async (
@@ -2347,7 +1437,7 @@ export const de_ExecuteOpenCypherExplainQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteOpenCypherExplainQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteOpenCypherExplainQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2358,92 +1448,6 @@ export const de_ExecuteOpenCypherExplainQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteOpenCypherExplainQueryCommandError
- */
-const de_ExecuteOpenCypherExplainQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteOpenCypherExplainQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "CancelledByUserException":
-    case "com.amazonaws.neptunedata#CancelledByUserException":
-      throw await de_CancelledByUserExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNumericDataException":
-    case "com.amazonaws.neptunedata#InvalidNumericDataException":
-      throw await de_InvalidNumericDataExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedQueryException":
-    case "com.amazonaws.neptunedata#MalformedQueryException":
-      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "QueryLimitExceededException":
-    case "com.amazonaws.neptunedata#QueryLimitExceededException":
-      throw await de_QueryLimitExceededExceptionRes(parsedOutput, context);
-    case "QueryLimitException":
-    case "com.amazonaws.neptunedata#QueryLimitException":
-      throw await de_QueryLimitExceptionRes(parsedOutput, context);
-    case "QueryTooLargeException":
-    case "com.amazonaws.neptunedata#QueryTooLargeException":
-      throw await de_QueryTooLargeExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteOpenCypherQueryCommand
  */
 export const de_ExecuteOpenCypherQueryCommand = async (
@@ -2451,7 +1455,7 @@ export const de_ExecuteOpenCypherQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteOpenCypherQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteOpenCypherQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2465,92 +1469,6 @@ export const de_ExecuteOpenCypherQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteOpenCypherQueryCommandError
- */
-const de_ExecuteOpenCypherQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteOpenCypherQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "CancelledByUserException":
-    case "com.amazonaws.neptunedata#CancelledByUserException":
-      throw await de_CancelledByUserExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNumericDataException":
-    case "com.amazonaws.neptunedata#InvalidNumericDataException":
-      throw await de_InvalidNumericDataExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedQueryException":
-    case "com.amazonaws.neptunedata#MalformedQueryException":
-      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "QueryLimitExceededException":
-    case "com.amazonaws.neptunedata#QueryLimitExceededException":
-      throw await de_QueryLimitExceededExceptionRes(parsedOutput, context);
-    case "QueryLimitException":
-    case "com.amazonaws.neptunedata#QueryLimitException":
-      throw await de_QueryLimitExceptionRes(parsedOutput, context);
-    case "QueryTooLargeException":
-    case "com.amazonaws.neptunedata#QueryTooLargeException":
-      throw await de_QueryTooLargeExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEngineStatusCommand
  */
 export const de_GetEngineStatusCommand = async (
@@ -2558,7 +1476,7 @@ export const de_GetEngineStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetEngineStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEngineStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2584,53 +1502,6 @@ export const de_GetEngineStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEngineStatusCommandError
- */
-const de_GetEngineStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEngineStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.neptunedata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGremlinQueryStatusCommand
  */
 export const de_GetGremlinQueryStatusCommand = async (
@@ -2638,7 +1509,7 @@ export const de_GetGremlinQueryStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetGremlinQueryStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGremlinQueryStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2654,77 +1525,6 @@ export const de_GetGremlinQueryStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGremlinQueryStatusCommandError
- */
-const de_GetGremlinQueryStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGremlinQueryStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLoaderJobStatusCommand
  */
 export const de_GetLoaderJobStatusCommand = async (
@@ -2732,7 +1532,7 @@ export const de_GetLoaderJobStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetLoaderJobStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLoaderJobStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2747,68 +1547,6 @@ export const de_GetLoaderJobStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLoaderJobStatusCommandError
- */
-const de_GetLoaderJobStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoaderJobStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "BulkLoadIdNotFoundException":
-    case "com.amazonaws.neptunedata#BulkLoadIdNotFoundException":
-      throw await de_BulkLoadIdNotFoundExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.neptunedata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LoadUrlAccessDeniedException":
-    case "com.amazonaws.neptunedata#LoadUrlAccessDeniedException":
-      throw await de_LoadUrlAccessDeniedExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMLDataProcessingJobCommand
  */
 export const de_GetMLDataProcessingJobCommand = async (
@@ -2816,7 +1554,7 @@ export const de_GetMLDataProcessingJobCommand = async (
   context: __SerdeContext
 ): Promise<GetMLDataProcessingJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMLDataProcessingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2832,62 +1570,6 @@ export const de_GetMLDataProcessingJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMLDataProcessingJobCommandError
- */
-const de_GetMLDataProcessingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLDataProcessingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMLEndpointCommand
  */
 export const de_GetMLEndpointCommand = async (
@@ -2895,7 +1577,7 @@ export const de_GetMLEndpointCommand = async (
   context: __SerdeContext
 ): Promise<GetMLEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMLEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2912,62 +1594,6 @@ export const de_GetMLEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMLEndpointCommandError
- */
-const de_GetMLEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMLModelTrainingJobCommand
  */
 export const de_GetMLModelTrainingJobCommand = async (
@@ -2975,7 +1601,7 @@ export const de_GetMLModelTrainingJobCommand = async (
   context: __SerdeContext
 ): Promise<GetMLModelTrainingJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMLModelTrainingJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2994,62 +1620,6 @@ export const de_GetMLModelTrainingJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMLModelTrainingJobCommandError
- */
-const de_GetMLModelTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLModelTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMLModelTransformJobCommand
  */
 export const de_GetMLModelTransformJobCommand = async (
@@ -3057,7 +1627,7 @@ export const de_GetMLModelTransformJobCommand = async (
   context: __SerdeContext
 ): Promise<GetMLModelTransformJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMLModelTransformJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3075,62 +1645,6 @@ export const de_GetMLModelTransformJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMLModelTransformJobCommandError
- */
-const de_GetMLModelTransformJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLModelTransformJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetOpenCypherQueryStatusCommand
  */
 export const de_GetOpenCypherQueryStatusCommand = async (
@@ -3138,7 +1652,7 @@ export const de_GetOpenCypherQueryStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetOpenCypherQueryStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetOpenCypherQueryStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3154,80 +1668,6 @@ export const de_GetOpenCypherQueryStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetOpenCypherQueryStatusCommandError
- */
-const de_GetOpenCypherQueryStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpenCypherQueryStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNumericDataException":
-    case "com.amazonaws.neptunedata#InvalidNumericDataException":
-      throw await de_InvalidNumericDataExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPropertygraphStatisticsCommand
  */
 export const de_GetPropertygraphStatisticsCommand = async (
@@ -3235,7 +1675,7 @@ export const de_GetPropertygraphStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetPropertygraphStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPropertygraphStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3250,68 +1690,6 @@ export const de_GetPropertygraphStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPropertygraphStatisticsCommandError
- */
-const de_GetPropertygraphStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPropertygraphStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPropertygraphStreamCommand
  */
 export const de_GetPropertygraphStreamCommand = async (
@@ -3319,7 +1697,7 @@ export const de_GetPropertygraphStreamCommand = async (
   context: __SerdeContext
 ): Promise<GetPropertygraphStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPropertygraphStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3337,65 +1715,6 @@ export const de_GetPropertygraphStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPropertygraphStreamCommandError
- */
-const de_GetPropertygraphStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPropertygraphStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "ExpiredStreamException":
-    case "com.amazonaws.neptunedata#ExpiredStreamException":
-      throw await de_ExpiredStreamExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "StreamRecordsNotFoundException":
-    case "com.amazonaws.neptunedata#StreamRecordsNotFoundException":
-      throw await de_StreamRecordsNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.neptunedata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPropertygraphSummaryCommand
  */
 export const de_GetPropertygraphSummaryCommand = async (
@@ -3403,7 +1722,7 @@ export const de_GetPropertygraphSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetPropertygraphSummaryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPropertygraphSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3420,68 +1739,6 @@ export const de_GetPropertygraphSummaryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPropertygraphSummaryCommandError
- */
-const de_GetPropertygraphSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPropertygraphSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRDFGraphSummaryCommand
  */
 export const de_GetRDFGraphSummaryCommand = async (
@@ -3489,7 +1746,7 @@ export const de_GetRDFGraphSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetRDFGraphSummaryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRDFGraphSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3506,68 +1763,6 @@ export const de_GetRDFGraphSummaryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRDFGraphSummaryCommandError
- */
-const de_GetRDFGraphSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRDFGraphSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSparqlStatisticsCommand
  */
 export const de_GetSparqlStatisticsCommand = async (
@@ -3575,7 +1770,7 @@ export const de_GetSparqlStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetSparqlStatisticsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSparqlStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3590,68 +1785,6 @@ export const de_GetSparqlStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSparqlStatisticsCommandError
- */
-const de_GetSparqlStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSparqlStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSparqlStreamCommand
  */
 export const de_GetSparqlStreamCommand = async (
@@ -3659,7 +1792,7 @@ export const de_GetSparqlStreamCommand = async (
   context: __SerdeContext
 ): Promise<GetSparqlStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSparqlStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3677,65 +1810,6 @@ export const de_GetSparqlStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSparqlStreamCommandError
- */
-const de_GetSparqlStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSparqlStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "ExpiredStreamException":
-    case "com.amazonaws.neptunedata#ExpiredStreamException":
-      throw await de_ExpiredStreamExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MemoryLimitExceededException":
-    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
-      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "StreamRecordsNotFoundException":
-    case "com.amazonaws.neptunedata#StreamRecordsNotFoundException":
-      throw await de_StreamRecordsNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.neptunedata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGremlinQueriesCommand
  */
 export const de_ListGremlinQueriesCommand = async (
@@ -3743,7 +1817,7 @@ export const de_ListGremlinQueriesCommand = async (
   context: __SerdeContext
 ): Promise<ListGremlinQueriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGremlinQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3759,77 +1833,6 @@ export const de_ListGremlinQueriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGremlinQueriesCommandError
- */
-const de_ListGremlinQueriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGremlinQueriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.neptunedata#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FailureByQueryException":
-    case "com.amazonaws.neptunedata#FailureByQueryException":
-      throw await de_FailureByQueryExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "ParsingException":
-    case "com.amazonaws.neptunedata#ParsingException":
-      throw await de_ParsingExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "TimeLimitExceededException":
-    case "com.amazonaws.neptunedata#TimeLimitExceededException":
-      throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLoaderJobsCommand
  */
 export const de_ListLoaderJobsCommand = async (
@@ -3837,7 +1840,7 @@ export const de_ListLoaderJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListLoaderJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLoaderJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3852,65 +1855,6 @@ export const de_ListLoaderJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLoaderJobsCommandError
- */
-const de_ListLoaderJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLoaderJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "BulkLoadIdNotFoundException":
-    case "com.amazonaws.neptunedata#BulkLoadIdNotFoundException":
-      throw await de_BulkLoadIdNotFoundExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.neptunedata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LoadUrlAccessDeniedException":
-    case "com.amazonaws.neptunedata#LoadUrlAccessDeniedException":
-      throw await de_LoadUrlAccessDeniedExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMLDataProcessingJobsCommand
  */
 export const de_ListMLDataProcessingJobsCommand = async (
@@ -3918,7 +1862,7 @@ export const de_ListMLDataProcessingJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListMLDataProcessingJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMLDataProcessingJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3929,62 +1873,6 @@ export const de_ListMLDataProcessingJobsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListMLDataProcessingJobsCommandError
- */
-const de_ListMLDataProcessingJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMLDataProcessingJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3995,7 +1883,7 @@ export const de_ListMLEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListMLEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMLEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4006,62 +1894,6 @@ export const de_ListMLEndpointsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListMLEndpointsCommandError
- */
-const de_ListMLEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMLEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4072,7 +1904,7 @@ export const de_ListMLModelTrainingJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListMLModelTrainingJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMLModelTrainingJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4083,62 +1915,6 @@ export const de_ListMLModelTrainingJobsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListMLModelTrainingJobsCommandError
- */
-const de_ListMLModelTrainingJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMLModelTrainingJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4149,7 +1925,7 @@ export const de_ListMLModelTransformJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListMLModelTransformJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMLModelTransformJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4163,62 +1939,6 @@ export const de_ListMLModelTransformJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMLModelTransformJobsCommandError
- */
-const de_ListMLModelTransformJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMLModelTransformJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOpenCypherQueriesCommand
  */
 export const de_ListOpenCypherQueriesCommand = async (
@@ -4226,7 +1946,7 @@ export const de_ListOpenCypherQueriesCommand = async (
   context: __SerdeContext
 ): Promise<ListOpenCypherQueriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOpenCypherQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4242,21 +1962,150 @@ export const de_ListOpenCypherQueriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOpenCypherQueriesCommandError
+ * deserializeAws_restJson1ManagePropertygraphStatisticsCommand
  */
-const de_ListOpenCypherQueriesCommandError = async (
+export const de_ManagePropertygraphStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListOpenCypherQueriesCommandOutput> => {
+): Promise<ManagePropertygraphStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    payload: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ManageSparqlStatisticsCommand
+ */
+export const de_ManageSparqlStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ManageSparqlStatisticsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    payload: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartLoaderJobCommand
+ */
+export const de_StartLoaderJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLoaderJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    payload: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMLDataProcessingJobCommand
+ */
+export const de_StartMLDataProcessingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMLDataProcessingJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationTimeInMillis: __expectLong,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMLModelTrainingJobCommand
+ */
+export const de_StartMLModelTrainingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMLModelTrainingJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationTimeInMillis: __expectLong,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMLModelTransformJobCommand
+ */
+export const de_StartMLModelTransformJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMLModelTransformJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationTimeInMillis: __expectLong,
+    id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.neptunedata#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
@@ -4278,9 +2127,6 @@ const de_ListOpenCypherQueriesCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.neptunedata#InvalidArgumentException":
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidNumericDataException":
-    case "com.amazonaws.neptunedata#InvalidNumericDataException":
-      throw await de_InvalidNumericDataExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.neptunedata#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
@@ -4293,9 +2139,6 @@ const de_ListOpenCypherQueriesCommandError = async (
     case "PreconditionsFailedException":
     case "com.amazonaws.neptunedata#PreconditionsFailedException":
       throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
     case "TimeLimitExceededException":
     case "com.amazonaws.neptunedata#TimeLimitExceededException":
       throw await de_TimeLimitExceededExceptionRes(parsedOutput, context);
@@ -4305,498 +2148,66 @@ const de_ListOpenCypherQueriesCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.neptunedata#UnsupportedOperationException":
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ManagePropertygraphStatisticsCommand
- */
-export const de_ManagePropertygraphStatisticsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ManagePropertygraphStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ManagePropertygraphStatisticsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    payload: _json,
-    status: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ManagePropertygraphStatisticsCommandError
- */
-const de_ManagePropertygraphStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ManagePropertygraphStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ManageSparqlStatisticsCommand
- */
-export const de_ManageSparqlStatisticsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ManageSparqlStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ManageSparqlStatisticsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    payload: _json,
-    status: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ManageSparqlStatisticsCommandError
- */
-const de_ManageSparqlStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ManageSparqlStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.neptunedata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "ReadOnlyViolationException":
-    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
-      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
-    case "StatisticsNotAvailableException":
-    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
-      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartLoaderJobCommand
- */
-export const de_StartLoaderJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLoaderJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartLoaderJobCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    payload: _json,
-    status: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartLoaderJobCommandError
- */
-const de_StartLoaderJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLoaderJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "BulkLoadIdNotFoundException":
     case "com.amazonaws.neptunedata#BulkLoadIdNotFoundException":
       throw await de_BulkLoadIdNotFoundExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.neptunedata#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LoadUrlAccessDeniedException":
     case "com.amazonaws.neptunedata#LoadUrlAccessDeniedException":
       throw await de_LoadUrlAccessDeniedExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
+    case "MLResourceNotFoundException":
+    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
+      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidNumericDataException":
+    case "com.amazonaws.neptunedata#InvalidNumericDataException":
+      throw await de_InvalidNumericDataExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.neptunedata#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ReadOnlyViolationException":
+    case "com.amazonaws.neptunedata#ReadOnlyViolationException":
+      throw await de_ReadOnlyViolationExceptionRes(parsedOutput, context);
+    case "StatisticsNotAvailableException":
+    case "com.amazonaws.neptunedata#StatisticsNotAvailableException":
+      throw await de_StatisticsNotAvailableExceptionRes(parsedOutput, context);
+    case "MethodNotAllowedException":
+    case "com.amazonaws.neptunedata#MethodNotAllowedException":
+      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
+    case "ServerShutdownException":
+    case "com.amazonaws.neptunedata#ServerShutdownException":
+      throw await de_ServerShutdownExceptionRes(parsedOutput, context);
+    case "CancelledByUserException":
+    case "com.amazonaws.neptunedata#CancelledByUserException":
+      throw await de_CancelledByUserExceptionRes(parsedOutput, context);
+    case "MalformedQueryException":
+    case "com.amazonaws.neptunedata#MalformedQueryException":
+      throw await de_MalformedQueryExceptionRes(parsedOutput, context);
+    case "MemoryLimitExceededException":
+    case "com.amazonaws.neptunedata#MemoryLimitExceededException":
+      throw await de_MemoryLimitExceededExceptionRes(parsedOutput, context);
+    case "QueryLimitExceededException":
+    case "com.amazonaws.neptunedata#QueryLimitExceededException":
+      throw await de_QueryLimitExceededExceptionRes(parsedOutput, context);
+    case "QueryLimitException":
+    case "com.amazonaws.neptunedata#QueryLimitException":
+      throw await de_QueryLimitExceptionRes(parsedOutput, context);
+    case "QueryTooLargeException":
+    case "com.amazonaws.neptunedata#QueryTooLargeException":
+      throw await de_QueryTooLargeExceptionRes(parsedOutput, context);
+    case "ExpiredStreamException":
+    case "com.amazonaws.neptunedata#ExpiredStreamException":
+      throw await de_ExpiredStreamExceptionRes(parsedOutput, context);
+    case "StreamRecordsNotFoundException":
+    case "com.amazonaws.neptunedata#StreamRecordsNotFoundException":
+      throw await de_StreamRecordsNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.neptunedata#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "S3Exception":
     case "com.amazonaws.neptunedata#S3Exception":
       throw await de_S3ExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartMLDataProcessingJobCommand
- */
-export const de_StartMLDataProcessingJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLDataProcessingJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartMLDataProcessingJobCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    arn: __expectString,
-    creationTimeInMillis: __expectLong,
-    id: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartMLDataProcessingJobCommandError
- */
-const de_StartMLDataProcessingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLDataProcessingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartMLModelTrainingJobCommand
- */
-export const de_StartMLModelTrainingJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLModelTrainingJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartMLModelTrainingJobCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    arn: __expectString,
-    creationTimeInMillis: __expectLong,
-    id: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartMLModelTrainingJobCommandError
- */
-const de_StartMLModelTrainingJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLModelTrainingJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartMLModelTransformJobCommand
- */
-export const de_StartMLModelTransformJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLModelTransformJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartMLModelTransformJobCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    arn: __expectString,
-    creationTimeInMillis: __expectLong,
-    id: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartMLModelTransformJobCommandError
- */
-const de_StartMLModelTransformJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLModelTransformJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.neptunedata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ClientTimeoutException":
-    case "com.amazonaws.neptunedata#ClientTimeoutException":
-      throw await de_ClientTimeoutExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.neptunedata#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.neptunedata#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.neptunedata#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.neptunedata#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MLResourceNotFoundException":
-    case "com.amazonaws.neptunedata#MLResourceNotFoundException":
-      throw await de_MLResourceNotFoundExceptionRes(parsedOutput, context);
-    case "MissingParameterException":
-    case "com.amazonaws.neptunedata#MissingParameterException":
-      throw await de_MissingParameterExceptionRes(parsedOutput, context);
-    case "PreconditionsFailedException":
-    case "com.amazonaws.neptunedata#PreconditionsFailedException":
-      throw await de_PreconditionsFailedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.neptunedata#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.neptunedata#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

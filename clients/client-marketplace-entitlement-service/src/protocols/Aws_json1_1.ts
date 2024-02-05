@@ -55,7 +55,7 @@ export const de_GetEntitlementsCommand = async (
   context: __SerdeContext
 ): Promise<GetEntitlementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEntitlementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -68,12 +68,9 @@ export const de_GetEntitlementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEntitlementsCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_GetEntitlementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEntitlementsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

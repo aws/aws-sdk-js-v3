@@ -663,7 +663,7 @@ export const de_AssociateEntityToThingCommand = async (
   context: __SerdeContext
 ): Promise<AssociateEntityToThingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateEntityToThingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -676,41 +676,6 @@ export const de_AssociateEntityToThingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateEntityToThingCommandError
- */
-const de_AssociateEntityToThingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateEntityToThingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFlowTemplateCommand
  */
 export const de_CreateFlowTemplateCommand = async (
@@ -718,7 +683,7 @@ export const de_CreateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFlowTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -731,44 +696,6 @@ export const de_CreateFlowTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFlowTemplateCommandError
- */
-const de_CreateFlowTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFlowTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotthingsgraph#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSystemInstanceCommand
  */
 export const de_CreateSystemInstanceCommand = async (
@@ -776,7 +703,7 @@ export const de_CreateSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<CreateSystemInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSystemInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -789,44 +716,6 @@ export const de_CreateSystemInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSystemInstanceCommandError
- */
-const de_CreateSystemInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSystemInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotthingsgraph#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSystemTemplateCommand
  */
 export const de_CreateSystemTemplateCommand = async (
@@ -834,7 +723,7 @@ export const de_CreateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSystemTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -847,41 +736,6 @@ export const de_CreateSystemTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSystemTemplateCommandError
- */
-const de_CreateSystemTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSystemTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFlowTemplateCommand
  */
 export const de_DeleteFlowTemplateCommand = async (
@@ -889,7 +743,7 @@ export const de_DeleteFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFlowTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFlowTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -902,41 +756,6 @@ export const de_DeleteFlowTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFlowTemplateCommandError
- */
-const de_DeleteFlowTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFlowTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteNamespaceCommand
  */
 export const de_DeleteNamespaceCommand = async (
@@ -944,7 +763,7 @@ export const de_DeleteNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -957,35 +776,6 @@ export const de_DeleteNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteNamespaceCommandError
- */
-const de_DeleteNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSystemInstanceCommand
  */
 export const de_DeleteSystemInstanceCommand = async (
@@ -993,7 +783,7 @@ export const de_DeleteSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSystemInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSystemInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1006,41 +796,6 @@ export const de_DeleteSystemInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSystemInstanceCommandError
- */
-const de_DeleteSystemInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSystemInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSystemTemplateCommand
  */
 export const de_DeleteSystemTemplateCommand = async (
@@ -1048,7 +803,7 @@ export const de_DeleteSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSystemTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSystemTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1061,41 +816,6 @@ export const de_DeleteSystemTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSystemTemplateCommandError
- */
-const de_DeleteSystemTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSystemTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeploySystemInstanceCommand
  */
 export const de_DeploySystemInstanceCommand = async (
@@ -1103,7 +823,7 @@ export const de_DeploySystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeploySystemInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeploySystemInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1116,44 +836,6 @@ export const de_DeploySystemInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeploySystemInstanceCommandError
- */
-const de_DeploySystemInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeploySystemInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeprecateFlowTemplateCommand
  */
 export const de_DeprecateFlowTemplateCommand = async (
@@ -1161,7 +843,7 @@ export const de_DeprecateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprecateFlowTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1174,41 +856,6 @@ export const de_DeprecateFlowTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeprecateFlowTemplateCommandError
- */
-const de_DeprecateFlowTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprecateFlowTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeprecateSystemTemplateCommand
  */
 export const de_DeprecateSystemTemplateCommand = async (
@@ -1216,7 +863,7 @@ export const de_DeprecateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprecateSystemTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1229,41 +876,6 @@ export const de_DeprecateSystemTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeprecateSystemTemplateCommandError
- */
-const de_DeprecateSystemTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprecateSystemTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeNamespaceCommand
  */
 export const de_DescribeNamespaceCommand = async (
@@ -1271,7 +883,7 @@ export const de_DescribeNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1284,41 +896,6 @@ export const de_DescribeNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeNamespaceCommandError
- */
-const de_DescribeNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DissociateEntityFromThingCommand
  */
 export const de_DissociateEntityFromThingCommand = async (
@@ -1326,7 +903,7 @@ export const de_DissociateEntityFromThingCommand = async (
   context: __SerdeContext
 ): Promise<DissociateEntityFromThingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DissociateEntityFromThingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1339,41 +916,6 @@ export const de_DissociateEntityFromThingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DissociateEntityFromThingCommandError
- */
-const de_DissociateEntityFromThingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DissociateEntityFromThingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEntitiesCommand
  */
 export const de_GetEntitiesCommand = async (
@@ -1381,7 +923,7 @@ export const de_GetEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<GetEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1394,41 +936,6 @@ export const de_GetEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEntitiesCommandError
- */
-const de_GetEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFlowTemplateCommand
  */
 export const de_GetFlowTemplateCommand = async (
@@ -1436,7 +943,7 @@ export const de_GetFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetFlowTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFlowTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1449,41 +956,6 @@ export const de_GetFlowTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFlowTemplateCommandError
- */
-const de_GetFlowTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFlowTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFlowTemplateRevisionsCommand
  */
 export const de_GetFlowTemplateRevisionsCommand = async (
@@ -1491,7 +963,7 @@ export const de_GetFlowTemplateRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<GetFlowTemplateRevisionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFlowTemplateRevisionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1504,41 +976,6 @@ export const de_GetFlowTemplateRevisionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFlowTemplateRevisionsCommandError
- */
-const de_GetFlowTemplateRevisionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFlowTemplateRevisionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNamespaceDeletionStatusCommand
  */
 export const de_GetNamespaceDeletionStatusCommand = async (
@@ -1546,7 +983,7 @@ export const de_GetNamespaceDeletionStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetNamespaceDeletionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNamespaceDeletionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1559,38 +996,6 @@ export const de_GetNamespaceDeletionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNamespaceDeletionStatusCommandError
- */
-const de_GetNamespaceDeletionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNamespaceDeletionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSystemInstanceCommand
  */
 export const de_GetSystemInstanceCommand = async (
@@ -1598,7 +1003,7 @@ export const de_GetSystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<GetSystemInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSystemInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1611,41 +1016,6 @@ export const de_GetSystemInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSystemInstanceCommandError
- */
-const de_GetSystemInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSystemInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSystemTemplateCommand
  */
 export const de_GetSystemTemplateCommand = async (
@@ -1653,7 +1023,7 @@ export const de_GetSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetSystemTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSystemTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1666,41 +1036,6 @@ export const de_GetSystemTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSystemTemplateCommandError
- */
-const de_GetSystemTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSystemTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSystemTemplateRevisionsCommand
  */
 export const de_GetSystemTemplateRevisionsCommand = async (
@@ -1708,7 +1043,7 @@ export const de_GetSystemTemplateRevisionsCommand = async (
   context: __SerdeContext
 ): Promise<GetSystemTemplateRevisionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSystemTemplateRevisionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1721,41 +1056,6 @@ export const de_GetSystemTemplateRevisionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSystemTemplateRevisionsCommandError
- */
-const de_GetSystemTemplateRevisionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSystemTemplateRevisionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUploadStatusCommand
  */
 export const de_GetUploadStatusCommand = async (
@@ -1763,7 +1063,7 @@ export const de_GetUploadStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetUploadStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUploadStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1776,41 +1076,6 @@ export const de_GetUploadStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUploadStatusCommandError
- */
-const de_GetUploadStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUploadStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFlowExecutionMessagesCommand
  */
 export const de_ListFlowExecutionMessagesCommand = async (
@@ -1818,7 +1083,7 @@ export const de_ListFlowExecutionMessagesCommand = async (
   context: __SerdeContext
 ): Promise<ListFlowExecutionMessagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFlowExecutionMessagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1831,41 +1096,6 @@ export const de_ListFlowExecutionMessagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFlowExecutionMessagesCommandError
- */
-const de_ListFlowExecutionMessagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlowExecutionMessagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1873,7 +1103,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1886,41 +1116,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchEntitiesCommand
  */
 export const de_SearchEntitiesCommand = async (
@@ -1928,7 +1123,7 @@ export const de_SearchEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<SearchEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1941,38 +1136,6 @@ export const de_SearchEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchEntitiesCommandError
- */
-const de_SearchEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchFlowExecutionsCommand
  */
 export const de_SearchFlowExecutionsCommand = async (
@@ -1980,7 +1143,7 @@ export const de_SearchFlowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<SearchFlowExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchFlowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1993,41 +1156,6 @@ export const de_SearchFlowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchFlowExecutionsCommandError
- */
-const de_SearchFlowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFlowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchFlowTemplatesCommand
  */
 export const de_SearchFlowTemplatesCommand = async (
@@ -2035,7 +1163,7 @@ export const de_SearchFlowTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<SearchFlowTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchFlowTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2048,38 +1176,6 @@ export const de_SearchFlowTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchFlowTemplatesCommandError
- */
-const de_SearchFlowTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFlowTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchSystemInstancesCommand
  */
 export const de_SearchSystemInstancesCommand = async (
@@ -2087,7 +1183,7 @@ export const de_SearchSystemInstancesCommand = async (
   context: __SerdeContext
 ): Promise<SearchSystemInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchSystemInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2100,38 +1196,6 @@ export const de_SearchSystemInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchSystemInstancesCommandError
- */
-const de_SearchSystemInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchSystemInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchSystemTemplatesCommand
  */
 export const de_SearchSystemTemplatesCommand = async (
@@ -2139,7 +1203,7 @@ export const de_SearchSystemTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<SearchSystemTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchSystemTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2152,38 +1216,6 @@ export const de_SearchSystemTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchSystemTemplatesCommandError
- */
-const de_SearchSystemTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchSystemTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchThingsCommand
  */
 export const de_SearchThingsCommand = async (
@@ -2191,7 +1223,7 @@ export const de_SearchThingsCommand = async (
   context: __SerdeContext
 ): Promise<SearchThingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchThingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2204,41 +1236,6 @@ export const de_SearchThingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchThingsCommandError
- */
-const de_SearchThingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchThingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2246,7 +1243,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2259,41 +1256,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UndeploySystemInstanceCommand
  */
 export const de_UndeploySystemInstanceCommand = async (
@@ -2301,7 +1263,7 @@ export const de_UndeploySystemInstanceCommand = async (
   context: __SerdeContext
 ): Promise<UndeploySystemInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UndeploySystemInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2314,44 +1276,6 @@ export const de_UndeploySystemInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UndeploySystemInstanceCommandError
- */
-const de_UndeploySystemInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UndeploySystemInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2359,7 +1283,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2372,41 +1296,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFlowTemplateCommand
  */
 export const de_UpdateFlowTemplateCommand = async (
@@ -2414,7 +1303,7 @@ export const de_UpdateFlowTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFlowTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFlowTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2427,41 +1316,6 @@ export const de_UpdateFlowTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFlowTemplateCommandError
- */
-const de_UpdateFlowTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFlowTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotthingsgraph#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSystemTemplateCommand
  */
 export const de_UpdateSystemTemplateCommand = async (
@@ -2469,7 +1323,7 @@ export const de_UpdateSystemTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSystemTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSystemTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2482,12 +1336,29 @@ export const de_UpdateSystemTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSystemTemplateCommandError
+ * deserializeAws_json1_1UploadEntityDefinitionsCommand
  */
-const de_UpdateSystemTemplateCommandError = async (
+export const de_UploadEntityDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSystemTemplateCommandOutput> => {
+): Promise<UploadEntityDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UploadEntityDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2506,58 +1377,15 @@ const de_UpdateSystemTemplateCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotthingsgraph#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UploadEntityDefinitionsCommand
- */
-export const de_UploadEntityDefinitionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadEntityDefinitionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UploadEntityDefinitionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UploadEntityDefinitionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UploadEntityDefinitionsCommandError
- */
-const de_UploadEntityDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadEntityDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotthingsgraph#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotthingsgraph#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotthingsgraph#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotthingsgraph#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.iotthingsgraph#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.iotthingsgraph#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -1007,51 +1007,13 @@ export const de_ActivateEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<ActivateEventSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ActivateEventSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ActivateEventSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1ActivateEventSourceCommandError
- */
-const de_ActivateEventSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateEventSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.eventbridge#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1062,7 +1024,7 @@ export const de_CancelReplayCommand = async (
   context: __SerdeContext
 ): Promise<CancelReplayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelReplayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1075,41 +1037,6 @@ export const de_CancelReplayCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelReplayCommandError
- */
-const de_CancelReplayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelReplayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IllegalStatusException":
-    case "com.amazonaws.eventbridge#IllegalStatusException":
-      throw await de_IllegalStatusExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApiDestinationCommand
  */
 export const de_CreateApiDestinationCommand = async (
@@ -1117,7 +1044,7 @@ export const de_CreateApiDestinationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApiDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1130,41 +1057,6 @@ export const de_CreateApiDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApiDestinationCommandError
- */
-const de_CreateApiDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApiDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateArchiveCommand
  */
 export const de_CreateArchiveCommand = async (
@@ -1172,7 +1064,7 @@ export const de_CreateArchiveCommand = async (
   context: __SerdeContext
 ): Promise<CreateArchiveCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateArchiveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1185,47 +1077,6 @@ export const de_CreateArchiveCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateArchiveCommandError
- */
-const de_CreateArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidEventPatternException":
-    case "com.amazonaws.eventbridge#InvalidEventPatternException":
-      throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConnectionCommand
  */
 export const de_CreateConnectionCommand = async (
@@ -1233,7 +1084,7 @@ export const de_CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1246,38 +1097,6 @@ export const de_CreateConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConnectionCommandError
- */
-const de_CreateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEndpointCommand
  */
 export const de_CreateEndpointCommand = async (
@@ -1285,7 +1104,7 @@ export const de_CreateEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1298,38 +1117,6 @@ export const de_CreateEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEndpointCommandError
- */
-const de_CreateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEventBusCommand
  */
 export const de_CreateEventBusCommand = async (
@@ -1337,7 +1124,7 @@ export const de_CreateEventBusCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventBusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEventBusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1350,50 +1137,6 @@ export const de_CreateEventBusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEventBusCommandError
- */
-const de_CreateEventBusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventBusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.eventbridge#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePartnerEventSourceCommand
  */
 export const de_CreatePartnerEventSourceCommand = async (
@@ -1401,7 +1144,7 @@ export const de_CreatePartnerEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreatePartnerEventSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePartnerEventSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1414,44 +1157,6 @@ export const de_CreatePartnerEventSourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePartnerEventSourceCommandError
- */
-const de_CreatePartnerEventSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePartnerEventSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeactivateEventSourceCommand
  */
 export const de_DeactivateEventSourceCommand = async (
@@ -1459,7 +1164,7 @@ export const de_DeactivateEventSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateEventSourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeactivateEventSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeactivateEventSourceCommandOutput = {
@@ -1469,12 +1174,928 @@ export const de_DeactivateEventSourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeactivateEventSourceCommandError
+ * deserializeAws_json1_1DeauthorizeConnectionCommand
  */
-const de_DeactivateEventSourceCommandError = async (
+export const de_DeauthorizeConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeactivateEventSourceCommandOutput> => {
+): Promise<DeauthorizeConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeauthorizeConnectionResponse(data, context);
+  const response: DeauthorizeConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApiDestinationCommand
+ */
+export const de_DeleteApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteArchiveCommand
+ */
+export const de_DeleteArchiveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteArchiveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteArchiveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteConnectionCommand
+ */
+export const de_DeleteConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteConnectionResponse(data, context);
+  const response: DeleteConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteEndpointCommand
+ */
+export const de_DeleteEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteEventBusCommand
+ */
+export const de_DeleteEventBusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventBusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteEventBusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePartnerEventSourceCommand
+ */
+export const de_DeletePartnerEventSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePartnerEventSourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeletePartnerEventSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteRuleCommand
+ */
+export const de_DeleteRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApiDestinationCommand
+ */
+export const de_DescribeApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeApiDestinationResponse(data, context);
+  const response: DescribeApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeArchiveCommand
+ */
+export const de_DescribeArchiveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeArchiveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeArchiveResponse(data, context);
+  const response: DescribeArchiveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeConnectionCommand
+ */
+export const de_DescribeConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeConnectionResponse(data, context);
+  const response: DescribeConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEndpointCommand
+ */
+export const de_DescribeEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEndpointResponse(data, context);
+  const response: DescribeEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEventBusCommand
+ */
+export const de_DescribeEventBusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventBusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeEventBusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEventSourceCommand
+ */
+export const de_DescribeEventSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEventSourceResponse(data, context);
+  const response: DescribeEventSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePartnerEventSourceCommand
+ */
+export const de_DescribePartnerEventSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePartnerEventSourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribePartnerEventSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeReplayCommand
+ */
+export const de_DescribeReplayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReplayResponse(data, context);
+  const response: DescribeReplayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeRuleCommand
+ */
+export const de_DescribeRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisableRuleCommand
+ */
+export const de_DisableRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DisableRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableRuleCommand
+ */
+export const de_EnableRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: EnableRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApiDestinationsCommand
+ */
+export const de_ListApiDestinationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApiDestinationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListApiDestinationsResponse(data, context);
+  const response: ListApiDestinationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListArchivesCommand
+ */
+export const de_ListArchivesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListArchivesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListArchivesResponse(data, context);
+  const response: ListArchivesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListConnectionsCommand
+ */
+export const de_ListConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListConnectionsResponse(data, context);
+  const response: ListConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEndpointsCommand
+ */
+export const de_ListEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEndpointsResponse(data, context);
+  const response: ListEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEventBusesCommand
+ */
+export const de_ListEventBusesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventBusesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListEventBusesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEventSourcesCommand
+ */
+export const de_ListEventSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventSourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEventSourcesResponse(data, context);
+  const response: ListEventSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPartnerEventSourceAccountsCommand
+ */
+export const de_ListPartnerEventSourceAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPartnerEventSourceAccountsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPartnerEventSourceAccountsResponse(data, context);
+  const response: ListPartnerEventSourceAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPartnerEventSourcesCommand
+ */
+export const de_ListPartnerEventSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPartnerEventSourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListPartnerEventSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListReplaysCommand
+ */
+export const de_ListReplaysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReplaysCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListReplaysResponse(data, context);
+  const response: ListReplaysCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRuleNamesByTargetCommand
+ */
+export const de_ListRuleNamesByTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleNamesByTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListRuleNamesByTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRulesCommand
+ */
+export const de_ListRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTargetsByRuleCommand
+ */
+export const de_ListTargetsByRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetsByRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTargetsByRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutEventsCommand
+ */
+export const de_PutEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutPartnerEventsCommand
+ */
+export const de_PutPartnerEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPartnerEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutPartnerEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutPermissionCommand
+ */
+export const de_PutPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutPermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutPermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutRuleCommand
+ */
+export const de_PutRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutTargetsCommand
+ */
+export const de_PutTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemovePermissionCommand
+ */
+export const de_RemovePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemovePermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemovePermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveTargetsCommand
+ */
+export const de_RemoveTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RemoveTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartReplayCommand
+ */
+export const de_StartReplayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartReplayResponse(data, context);
+  const response: StartReplayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TestEventPatternCommand
+ */
+export const de_TestEventPatternCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestEventPatternCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestEventPatternCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateApiDestinationCommand
+ */
+export const de_UpdateApiDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApiDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateApiDestinationResponse(data, context);
+  const response: UpdateApiDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateArchiveCommand
+ */
+export const de_UpdateArchiveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateArchiveCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateArchiveResponse(data, context);
+  const response: UpdateArchiveCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateConnectionCommand
+ */
+export const de_UpdateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateConnectionResponse(data, context);
+  const response: UpdateConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEndpointCommand
+ */
+export const de_UpdateEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1496,2405 +2117,24 @@ const de_DeactivateEventSourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.eventbridge#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeauthorizeConnectionCommand
- */
-export const de_DeauthorizeConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeauthorizeConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeauthorizeConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeauthorizeConnectionResponse(data, context);
-  const response: DeauthorizeConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeauthorizeConnectionCommandError
- */
-const de_DeauthorizeConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeauthorizeConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteApiDestinationCommand
- */
-export const de_DeleteApiDestinationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiDestinationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteApiDestinationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteApiDestinationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteApiDestinationCommandError
- */
-const de_DeleteApiDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteArchiveCommand
- */
-export const de_DeleteArchiveCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteArchiveCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteArchiveCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteArchiveCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteArchiveCommandError
- */
-const de_DeleteArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteConnectionCommand
- */
-export const de_DeleteConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteConnectionResponse(data, context);
-  const response: DeleteConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointCommand
- */
-export const de_DeleteEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointCommandError
- */
-const de_DeleteEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteEventBusCommand
- */
-export const de_DeleteEventBusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventBusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEventBusCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteEventBusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEventBusCommandError
- */
-const de_DeleteEventBusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventBusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeletePartnerEventSourceCommand
- */
-export const de_DeletePartnerEventSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePartnerEventSourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePartnerEventSourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeletePartnerEventSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePartnerEventSourceCommandError
- */
-const de_DeletePartnerEventSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePartnerEventSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteRuleCommand
- */
-export const de_DeleteRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteRuleCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteRuleCommandError
- */
-const de_DeleteRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeApiDestinationCommand
- */
-export const de_DescribeApiDestinationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApiDestinationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeApiDestinationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeApiDestinationResponse(data, context);
-  const response: DescribeApiDestinationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeApiDestinationCommandError
- */
-const de_DescribeApiDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApiDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeArchiveCommand
- */
-export const de_DescribeArchiveCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeArchiveCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeArchiveCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeArchiveResponse(data, context);
-  const response: DescribeArchiveCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeArchiveCommandError
- */
-const de_DescribeArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "IllegalStatusException":
+    case "com.amazonaws.eventbridge#IllegalStatusException":
+      throw await de_IllegalStatusExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.eventbridge#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeConnectionCommand
- */
-export const de_DescribeConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeConnectionResponse(data, context);
-  const response: DescribeConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeConnectionCommandError
- */
-const de_DescribeConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEndpointCommand
- */
-export const de_DescribeEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEndpointResponse(data, context);
-  const response: DescribeEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEndpointCommandError
- */
-const de_DescribeEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEventBusCommand
- */
-export const de_DescribeEventBusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventBusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventBusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeEventBusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEventBusCommandError
- */
-const de_DescribeEventBusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventBusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEventSourceCommand
- */
-export const de_DescribeEventSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventSourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEventSourceResponse(data, context);
-  const response: DescribeEventSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEventSourceCommandError
- */
-const de_DescribeEventSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePartnerEventSourceCommand
- */
-export const de_DescribePartnerEventSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePartnerEventSourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePartnerEventSourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribePartnerEventSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePartnerEventSourceCommandError
- */
-const de_DescribePartnerEventSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePartnerEventSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeReplayCommand
- */
-export const de_DescribeReplayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReplayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeReplayResponse(data, context);
-  const response: DescribeReplayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeReplayCommandError
- */
-const de_DescribeReplayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeRuleCommand
- */
-export const de_DescribeRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeRuleCommandError
- */
-const de_DescribeRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisableRuleCommand
- */
-export const de_DisableRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisableRuleCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DisableRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisableRuleCommandError
- */
-const de_DisableRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidEventPatternException":
+    case "com.amazonaws.eventbridge#InvalidEventPatternException":
+      throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
     case "ManagedRuleException":
     case "com.amazonaws.eventbridge#ManagedRuleException":
       throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1EnableRuleCommand
- */
-export const de_EnableRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableRuleCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: EnableRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1EnableRuleCommandError
- */
-const de_EnableRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListApiDestinationsCommand
- */
-export const de_ListApiDestinationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApiDestinationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListApiDestinationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListApiDestinationsResponse(data, context);
-  const response: ListApiDestinationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListApiDestinationsCommandError
- */
-const de_ListApiDestinationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApiDestinationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListArchivesCommand
- */
-export const de_ListArchivesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListArchivesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListArchivesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListArchivesResponse(data, context);
-  const response: ListArchivesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListArchivesCommandError
- */
-const de_ListArchivesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListArchivesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListConnectionsCommand
- */
-export const de_ListConnectionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListConnectionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListConnectionsResponse(data, context);
-  const response: ListConnectionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListConnectionsCommandError
- */
-const de_ListConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEndpointsCommand
- */
-export const de_ListEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEndpointsResponse(data, context);
-  const response: ListEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEndpointsCommandError
- */
-const de_ListEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEventBusesCommand
- */
-export const de_ListEventBusesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventBusesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEventBusesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListEventBusesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEventBusesCommandError
- */
-const de_ListEventBusesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventBusesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEventSourcesCommand
- */
-export const de_ListEventSourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventSourcesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEventSourcesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEventSourcesResponse(data, context);
-  const response: ListEventSourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEventSourcesCommandError
- */
-const de_ListEventSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPartnerEventSourceAccountsCommand
- */
-export const de_ListPartnerEventSourceAccountsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPartnerEventSourceAccountsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPartnerEventSourceAccountsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListPartnerEventSourceAccountsResponse(data, context);
-  const response: ListPartnerEventSourceAccountsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPartnerEventSourceAccountsCommandError
- */
-const de_ListPartnerEventSourceAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPartnerEventSourceAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPartnerEventSourcesCommand
- */
-export const de_ListPartnerEventSourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPartnerEventSourcesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPartnerEventSourcesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListPartnerEventSourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPartnerEventSourcesCommandError
- */
-const de_ListPartnerEventSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPartnerEventSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListReplaysCommand
- */
-export const de_ListReplaysCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReplaysCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListReplaysCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListReplaysResponse(data, context);
-  const response: ListReplaysCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListReplaysCommandError
- */
-const de_ListReplaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReplaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListRuleNamesByTargetCommand
- */
-export const de_ListRuleNamesByTargetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRuleNamesByTargetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRuleNamesByTargetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListRuleNamesByTargetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListRuleNamesByTargetCommandError
- */
-const de_ListRuleNamesByTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRuleNamesByTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListRulesCommand
- */
-export const de_ListRulesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRulesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRulesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListRulesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListRulesCommandError
- */
-const de_ListRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTargetsByRuleCommand
- */
-export const de_ListTargetsByRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetsByRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTargetsByRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTargetsByRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTargetsByRuleCommandError
- */
-const de_ListTargetsByRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetsByRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutEventsCommand
- */
-export const de_PutEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutEventsCommandError
- */
-const de_PutEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutPartnerEventsCommand
- */
-export const de_PutPartnerEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPartnerEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutPartnerEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutPartnerEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutPartnerEventsCommandError
- */
-const de_PutPartnerEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPartnerEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutPermissionCommand
- */
-export const de_PutPermissionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPermissionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutPermissionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutPermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutPermissionCommandError
- */
-const de_PutPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
     case "PolicyLengthExceededException":
     case "com.amazonaws.eventbridge#PolicyLengthExceededException":
       throw await de_PolicyLengthExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutRuleCommand
- */
-export const de_PutRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutRuleCommandError
- */
-const de_PutRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidEventPatternException":
-    case "com.amazonaws.eventbridge#InvalidEventPatternException":
-      throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutTargetsCommand
- */
-export const de_PutTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutTargetsCommandError
- */
-const de_PutTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemovePermissionCommand
- */
-export const de_RemovePermissionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemovePermissionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemovePermissionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemovePermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemovePermissionCommandError
- */
-const de_RemovePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemovePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "OperationDisabledException":
-    case "com.amazonaws.eventbridge#OperationDisabledException":
-      throw await de_OperationDisabledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveTargetsCommand
- */
-export const de_RemoveTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RemoveTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTargetsCommandError
- */
-const de_RemoveTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartReplayCommand
- */
-export const de_StartReplayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartReplayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartReplayResponse(data, context);
-  const response: StartReplayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartReplayCommandError
- */
-const de_StartReplayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidEventPatternException":
-    case "com.amazonaws.eventbridge#InvalidEventPatternException":
-      throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.eventbridge#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TestEventPatternCommand
- */
-export const de_TestEventPatternCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestEventPatternCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TestEventPatternCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TestEventPatternCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TestEventPatternCommandError
- */
-const de_TestEventPatternCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestEventPatternCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidEventPatternException":
-    case "com.amazonaws.eventbridge#InvalidEventPatternException":
-      throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ManagedRuleException":
-    case "com.amazonaws.eventbridge#ManagedRuleException":
-      throw await de_ManagedRuleExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateApiDestinationCommand
- */
-export const de_UpdateApiDestinationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiDestinationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateApiDestinationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateApiDestinationResponse(data, context);
-  const response: UpdateApiDestinationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateApiDestinationCommandError
- */
-const de_UpdateApiDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateArchiveCommand
- */
-export const de_UpdateArchiveCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateArchiveCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateArchiveCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateArchiveResponse(data, context);
-  const response: UpdateArchiveCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateArchiveCommandError
- */
-const de_UpdateArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidEventPatternException":
-    case "com.amazonaws.eventbridge#InvalidEventPatternException":
-      throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateConnectionCommand
- */
-export const de_UpdateConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateConnectionResponse(data, context);
-  const response: UpdateConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateConnectionCommandError
- */
-const de_UpdateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.eventbridge#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointCommand
- */
-export const de_UpdateEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointCommandError
- */
-const de_UpdateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.eventbridge#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.eventbridge#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eventbridge#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

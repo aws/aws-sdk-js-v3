@@ -693,7 +693,7 @@ export const de_CreateActivityCommand = async (
   context: __SerdeContext
 ): Promise<CreateActivityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateActivityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -706,12 +706,709 @@ export const de_CreateActivityCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateActivityCommandError
+ * deserializeAws_json1_0CreateStateMachineCommand
  */
-const de_CreateActivityCommandError = async (
+export const de_CreateStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateActivityCommandOutput> => {
+): Promise<CreateStateMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateStateMachineOutput(data, context);
+  const response: CreateStateMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0CreateStateMachineAliasCommand
+ */
+export const de_CreateStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateStateMachineAliasOutput(data, context);
+  const response: CreateStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteActivityCommand
+ */
+export const de_DeleteActivityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteActivityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteActivityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineCommand
+ */
+export const de_DeleteStateMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStateMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineAliasCommand
+ */
+export const de_DeleteStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteStateMachineVersionCommand
+ */
+export const de_DeleteStateMachineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStateMachineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStateMachineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeActivityCommand
+ */
+export const de_DescribeActivityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeActivityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeActivityOutput(data, context);
+  const response: DescribeActivityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeExecutionCommand
+ */
+export const de_DescribeExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeExecutionOutput(data, context);
+  const response: DescribeExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeMapRunCommand
+ */
+export const de_DescribeMapRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMapRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMapRunOutput(data, context);
+  const response: DescribeMapRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeStateMachineCommand
+ */
+export const de_DescribeStateMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStateMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStateMachineOutput(data, context);
+  const response: DescribeStateMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeStateMachineAliasCommand
+ */
+export const de_DescribeStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStateMachineAliasOutput(data, context);
+  const response: DescribeStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeStateMachineForExecutionCommand
+ */
+export const de_DescribeStateMachineForExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStateMachineForExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStateMachineForExecutionOutput(data, context);
+  const response: DescribeStateMachineForExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetActivityTaskCommand
+ */
+export const de_GetActivityTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetActivityTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetActivityTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetExecutionHistoryCommand
+ */
+export const de_GetExecutionHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExecutionHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetExecutionHistoryOutput(data, context);
+  const response: GetExecutionHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListActivitiesCommand
+ */
+export const de_ListActivitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListActivitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListActivitiesOutput(data, context);
+  const response: ListActivitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListExecutionsCommand
+ */
+export const de_ListExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListExecutionsOutput(data, context);
+  const response: ListExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListMapRunsCommand
+ */
+export const de_ListMapRunsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMapRunsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMapRunsOutput(data, context);
+  const response: ListMapRunsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachineAliasesCommand
+ */
+export const de_ListStateMachineAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachineAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStateMachineAliasesOutput(data, context);
+  const response: ListStateMachineAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachinesCommand
+ */
+export const de_ListStateMachinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachinesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStateMachinesOutput(data, context);
+  const response: ListStateMachinesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListStateMachineVersionsCommand
+ */
+export const de_ListStateMachineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStateMachineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStateMachineVersionsOutput(data, context);
+  const response: ListStateMachineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PublishStateMachineVersionCommand
+ */
+export const de_PublishStateMachineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishStateMachineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PublishStateMachineVersionOutput(data, context);
+  const response: PublishStateMachineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0RedriveExecutionCommand
+ */
+export const de_RedriveExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedriveExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RedriveExecutionOutput(data, context);
+  const response: RedriveExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SendTaskFailureCommand
+ */
+export const de_SendTaskFailureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendTaskFailureCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendTaskFailureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SendTaskHeartbeatCommand
+ */
+export const de_SendTaskHeartbeatCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendTaskHeartbeatCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendTaskHeartbeatCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SendTaskSuccessCommand
+ */
+export const de_SendTaskSuccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendTaskSuccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendTaskSuccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartExecutionCommand
+ */
+export const de_StartExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartExecutionOutput(data, context);
+  const response: StartExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartSyncExecutionCommand
+ */
+export const de_StartSyncExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSyncExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartSyncExecutionOutput(data, context);
+  const response: StartSyncExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StopExecutionCommand
+ */
+export const de_StopExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopExecutionOutput(data, context);
+  const response: StopExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TestStateCommand
+ */
+export const de_TestStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateMapRunCommand
+ */
+export const de_UpdateMapRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMapRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMapRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateStateMachineCommand
+ */
+export const de_UpdateStateMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStateMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateStateMachineOutput(data, context);
+  const response: UpdateStateMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateStateMachineAliasCommand
+ */
+export const de_UpdateStateMachineAliasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStateMachineAliasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateStateMachineAliasOutput(data, context);
+  const response: UpdateStateMachineAliasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_0CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -727,49 +1424,6 @@ const de_CreateActivityCommandError = async (
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
       throw await de_TooManyTagsRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0CreateStateMachineCommand
- */
-export const de_CreateStateMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStateMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateStateMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateStateMachineOutput(data, context);
-  const response: CreateStateMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0CreateStateMachineCommandError
- */
-const de_CreateStateMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStateMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.sfn#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
@@ -782,9 +1436,6 @@ const de_CreateStateMachineCommandError = async (
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.sfn#InvalidLoggingConfiguration":
       throw await de_InvalidLoggingConfigurationRes(parsedOutput, context);
-    case "InvalidName":
-    case "com.amazonaws.sfn#InvalidName":
-      throw await de_InvalidNameRes(parsedOutput, context);
     case "InvalidTracingConfiguration":
     case "com.amazonaws.sfn#InvalidTracingConfiguration":
       throw await de_InvalidTracingConfigurationRes(parsedOutput, context);
@@ -800,1837 +1451,54 @@ const de_CreateStateMachineCommandError = async (
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
       throw await de_StateMachineTypeNotSupportedRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.sfn#TooManyTags":
-      throw await de_TooManyTagsRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0CreateStateMachineAliasCommand
- */
-export const de_CreateStateMachineAliasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStateMachineAliasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateStateMachineAliasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateStateMachineAliasOutput(data, context);
-  const response: CreateStateMachineAliasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0CreateStateMachineAliasCommandError
- */
-const de_CreateStateMachineAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStateMachineAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sfn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidName":
-    case "com.amazonaws.sfn#InvalidName":
-      throw await de_InvalidNameRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.sfn#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteActivityCommand
- */
-export const de_DeleteActivityCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteActivityCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteActivityCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteActivityCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteActivityCommandError
- */
-const de_DeleteActivityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteActivityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteStateMachineCommand
- */
-export const de_DeleteStateMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStateMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteStateMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteStateMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteStateMachineCommandError
- */
-const de_DeleteStateMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStateMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteStateMachineAliasCommand
- */
-export const de_DeleteStateMachineAliasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStateMachineAliasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteStateMachineAliasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteStateMachineAliasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteStateMachineAliasCommandError
- */
-const de_DeleteStateMachineAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStateMachineAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sfn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteStateMachineVersionCommand
- */
-export const de_DeleteStateMachineVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStateMachineVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteStateMachineVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteStateMachineVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteStateMachineVersionCommandError
- */
-const de_DeleteStateMachineVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStateMachineVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sfn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeActivityCommand
- */
-export const de_DescribeActivityCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActivityCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeActivityCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeActivityOutput(data, context);
-  const response: DescribeActivityCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeActivityCommandError
- */
-const de_DescribeActivityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActivityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.sfn#ActivityDoesNotExist":
       throw await de_ActivityDoesNotExistRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeExecutionCommand
- */
-export const de_DescribeExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeExecutionOutput(data, context);
-  const response: DescribeExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeExecutionCommandError
- */
-const de_DescribeExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
       throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeMapRunCommand
- */
-export const de_DescribeMapRunCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMapRunCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMapRunCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeMapRunOutput(data, context);
-  const response: DescribeMapRunCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeMapRunCommandError
- */
-const de_DescribeMapRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMapRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeStateMachineCommand
- */
-export const de_DescribeStateMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStateMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStateMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeStateMachineOutput(data, context);
-  const response: DescribeStateMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeStateMachineCommandError
- */
-const de_DescribeStateMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStateMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeStateMachineAliasCommand
- */
-export const de_DescribeStateMachineAliasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStateMachineAliasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStateMachineAliasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeStateMachineAliasOutput(data, context);
-  const response: DescribeStateMachineAliasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeStateMachineAliasCommandError
- */
-const de_DescribeStateMachineAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStateMachineAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeStateMachineForExecutionCommand
- */
-export const de_DescribeStateMachineForExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStateMachineForExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStateMachineForExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeStateMachineForExecutionOutput(data, context);
-  const response: DescribeStateMachineForExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeStateMachineForExecutionCommandError
- */
-const de_DescribeStateMachineForExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStateMachineForExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExecutionDoesNotExist":
-    case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0GetActivityTaskCommand
- */
-export const de_GetActivityTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetActivityTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetActivityTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetActivityTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetActivityTaskCommandError
- */
-const de_GetActivityTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetActivityTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActivityDoesNotExist":
-    case "com.amazonaws.sfn#ActivityDoesNotExist":
-      throw await de_ActivityDoesNotExistRes(parsedOutput, context);
     case "ActivityWorkerLimitExceeded":
     case "com.amazonaws.sfn#ActivityWorkerLimitExceeded":
       throw await de_ActivityWorkerLimitExceededRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0GetExecutionHistoryCommand
- */
-export const de_GetExecutionHistoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExecutionHistoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetExecutionHistoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetExecutionHistoryOutput(data, context);
-  const response: GetExecutionHistoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0GetExecutionHistoryCommandError
- */
-const de_GetExecutionHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExecutionHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExecutionDoesNotExist":
-    case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
       throw await de_InvalidTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListActivitiesCommand
- */
-export const de_ListActivitiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActivitiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListActivitiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListActivitiesOutput(data, context);
-  const response: ListActivitiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListActivitiesCommandError
- */
-const de_ListActivitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActivitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListExecutionsCommand
- */
-export const de_ListExecutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExecutionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListExecutionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListExecutionsOutput(data, context);
-  const response: ListExecutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListExecutionsCommandError
- */
-const de_ListExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "StateMachineDoesNotExist":
-    case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    case "StateMachineTypeNotSupported":
-    case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      throw await de_StateMachineTypeNotSupportedRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListMapRunsCommand
- */
-export const de_ListMapRunsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMapRunsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListMapRunsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListMapRunsOutput(data, context);
-  const response: ListMapRunsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListMapRunsCommandError
- */
-const de_ListMapRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMapRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExecutionDoesNotExist":
-    case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListStateMachineAliasesCommand
- */
-export const de_ListStateMachineAliasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStateMachineAliasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListStateMachineAliasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListStateMachineAliasesOutput(data, context);
-  const response: ListStateMachineAliasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListStateMachineAliasesCommandError
- */
-const de_ListStateMachineAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStateMachineAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "StateMachineDoesNotExist":
-    case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListStateMachinesCommand
- */
-export const de_ListStateMachinesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStateMachinesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListStateMachinesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListStateMachinesOutput(data, context);
-  const response: ListStateMachinesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListStateMachinesCommandError
- */
-const de_ListStateMachinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStateMachinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListStateMachineVersionsCommand
- */
-export const de_ListStateMachineVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStateMachineVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListStateMachineVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListStateMachineVersionsOutput(data, context);
-  const response: ListStateMachineVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListStateMachineVersionsCommandError
- */
-const de_ListStateMachineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStateMachineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0PublishStateMachineVersionCommand
- */
-export const de_PublishStateMachineVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishStateMachineVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PublishStateMachineVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PublishStateMachineVersionOutput(data, context);
-  const response: PublishStateMachineVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0PublishStateMachineVersionCommandError
- */
-const de_PublishStateMachineVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishStateMachineVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sfn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.sfn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "StateMachineDoesNotExist":
-    case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0RedriveExecutionCommand
- */
-export const de_RedriveExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RedriveExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RedriveExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RedriveExecutionOutput(data, context);
-  const response: RedriveExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0RedriveExecutionCommandError
- */
-const de_RedriveExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RedriveExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExecutionDoesNotExist":
-    case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
     case "ExecutionLimitExceeded":
     case "com.amazonaws.sfn#ExecutionLimitExceeded":
       throw await de_ExecutionLimitExceededRes(parsedOutput, context);
     case "ExecutionNotRedrivable":
     case "com.amazonaws.sfn#ExecutionNotRedrivable":
       throw await de_ExecutionNotRedrivableRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0SendTaskFailureCommand
- */
-export const de_SendTaskFailureCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTaskFailureCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SendTaskFailureCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SendTaskFailureCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0SendTaskFailureCommandError
- */
-const de_SendTaskFailureCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTaskFailureCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
       throw await de_TaskDoesNotExistRes(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
       throw await de_TaskTimedOutRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0SendTaskHeartbeatCommand
- */
-export const de_SendTaskHeartbeatCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTaskHeartbeatCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SendTaskHeartbeatCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SendTaskHeartbeatCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0SendTaskHeartbeatCommandError
- */
-const de_SendTaskHeartbeatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTaskHeartbeatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    case "TaskDoesNotExist":
-    case "com.amazonaws.sfn#TaskDoesNotExist":
-      throw await de_TaskDoesNotExistRes(parsedOutput, context);
-    case "TaskTimedOut":
-    case "com.amazonaws.sfn#TaskTimedOut":
-      throw await de_TaskTimedOutRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0SendTaskSuccessCommand
- */
-export const de_SendTaskSuccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTaskSuccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SendTaskSuccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SendTaskSuccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0SendTaskSuccessCommandError
- */
-const de_SendTaskSuccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTaskSuccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidOutput":
     case "com.amazonaws.sfn#InvalidOutput":
       throw await de_InvalidOutputRes(parsedOutput, context);
-    case "InvalidToken":
-    case "com.amazonaws.sfn#InvalidToken":
-      throw await de_InvalidTokenRes(parsedOutput, context);
-    case "TaskDoesNotExist":
-    case "com.amazonaws.sfn#TaskDoesNotExist":
-      throw await de_TaskDoesNotExistRes(parsedOutput, context);
-    case "TaskTimedOut":
-    case "com.amazonaws.sfn#TaskTimedOut":
-      throw await de_TaskTimedOutRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0StartExecutionCommand
- */
-export const de_StartExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartExecutionOutput(data, context);
-  const response: StartExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0StartExecutionCommandError
- */
-const de_StartExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ExecutionAlreadyExists":
     case "com.amazonaws.sfn#ExecutionAlreadyExists":
       throw await de_ExecutionAlreadyExistsRes(parsedOutput, context);
-    case "ExecutionLimitExceeded":
-    case "com.amazonaws.sfn#ExecutionLimitExceeded":
-      throw await de_ExecutionLimitExceededRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
     case "InvalidExecutionInput":
     case "com.amazonaws.sfn#InvalidExecutionInput":
       throw await de_InvalidExecutionInputRes(parsedOutput, context);
-    case "InvalidName":
-    case "com.amazonaws.sfn#InvalidName":
-      throw await de_InvalidNameRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "StateMachineDoesNotExist":
-    case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0StartSyncExecutionCommand
- */
-export const de_StartSyncExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSyncExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartSyncExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartSyncExecutionOutput(data, context);
-  const response: StartSyncExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0StartSyncExecutionCommandError
- */
-const de_StartSyncExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSyncExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidExecutionInput":
-    case "com.amazonaws.sfn#InvalidExecutionInput":
-      throw await de_InvalidExecutionInputRes(parsedOutput, context);
-    case "InvalidName":
-    case "com.amazonaws.sfn#InvalidName":
-      throw await de_InvalidNameRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "StateMachineDoesNotExist":
-    case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    case "StateMachineTypeNotSupported":
-    case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      throw await de_StateMachineTypeNotSupportedRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0StopExecutionCommand
- */
-export const de_StopExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopExecutionOutput(data, context);
-  const response: StopExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0StopExecutionCommandError
- */
-const de_StopExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExecutionDoesNotExist":
-    case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.sfn#TooManyTags":
-      throw await de_TooManyTagsRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0TestStateCommand
- */
-export const de_TestStateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestStateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TestStateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TestStateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0TestStateCommandError
- */
-const de_TestStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidDefinition":
-    case "com.amazonaws.sfn#InvalidDefinition":
-      throw await de_InvalidDefinitionRes(parsedOutput, context);
-    case "InvalidExecutionInput":
-    case "com.amazonaws.sfn#InvalidExecutionInput":
-      throw await de_InvalidExecutionInputRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateMapRunCommand
- */
-export const de_UpdateMapRunCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMapRunCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateMapRunCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateMapRunCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateMapRunCommandError
- */
-const de_UpdateMapRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMapRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateStateMachineCommand
- */
-export const de_UpdateStateMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStateMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStateMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateStateMachineOutput(data, context);
-  const response: UpdateStateMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateStateMachineCommandError
- */
-const de_UpdateStateMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStateMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sfn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "InvalidDefinition":
-    case "com.amazonaws.sfn#InvalidDefinition":
-      throw await de_InvalidDefinitionRes(parsedOutput, context);
-    case "InvalidLoggingConfiguration":
-    case "com.amazonaws.sfn#InvalidLoggingConfiguration":
-      throw await de_InvalidLoggingConfigurationRes(parsedOutput, context);
-    case "InvalidTracingConfiguration":
-    case "com.amazonaws.sfn#InvalidTracingConfiguration":
-      throw await de_InvalidTracingConfigurationRes(parsedOutput, context);
     case "MissingRequiredParameter":
     case "com.amazonaws.sfn#MissingRequiredParameter":
       throw await de_MissingRequiredParameterRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.sfn#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "StateMachineDoesNotExist":
-    case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateStateMachineAliasCommand
- */
-export const de_UpdateStateMachineAliasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStateMachineAliasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStateMachineAliasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateStateMachineAliasOutput(data, context);
-  const response: UpdateStateMachineAliasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateStateMachineAliasCommandError
- */
-const de_UpdateStateMachineAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStateMachineAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.sfn#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArn":
-    case "com.amazonaws.sfn#InvalidArn":
-      throw await de_InvalidArnRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sfn#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "StateMachineDeleting":
-    case "com.amazonaws.sfn#StateMachineDeleting":
-      throw await de_StateMachineDeletingRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sfn#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

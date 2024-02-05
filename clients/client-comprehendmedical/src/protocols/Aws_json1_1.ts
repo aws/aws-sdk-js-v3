@@ -527,7 +527,7 @@ export const de_DescribeEntitiesDetectionV2JobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEntitiesDetectionV2JobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -540,41 +540,6 @@ export const de_DescribeEntitiesDetectionV2JobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError
- */
-const de_DescribeEntitiesDetectionV2JobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntitiesDetectionV2JobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeICD10CMInferenceJobCommand
  */
 export const de_DescribeICD10CMInferenceJobCommand = async (
@@ -582,7 +547,7 @@ export const de_DescribeICD10CMInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeICD10CMInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeICD10CMInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -595,41 +560,6 @@ export const de_DescribeICD10CMInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeICD10CMInferenceJobCommandError
- */
-const de_DescribeICD10CMInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeICD10CMInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePHIDetectionJobCommand
  */
 export const de_DescribePHIDetectionJobCommand = async (
@@ -637,7 +567,7 @@ export const de_DescribePHIDetectionJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribePHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePHIDetectionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -650,41 +580,6 @@ export const de_DescribePHIDetectionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePHIDetectionJobCommandError
- */
-const de_DescribePHIDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePHIDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRxNormInferenceJobCommand
  */
 export const de_DescribeRxNormInferenceJobCommand = async (
@@ -692,7 +587,7 @@ export const de_DescribeRxNormInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRxNormInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRxNormInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -705,41 +600,6 @@ export const de_DescribeRxNormInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRxNormInferenceJobCommandError
- */
-const de_DescribeRxNormInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRxNormInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommand
  */
 export const de_DescribeSNOMEDCTInferenceJobCommand = async (
@@ -747,7 +607,7 @@ export const de_DescribeSNOMEDCTInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSNOMEDCTInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSNOMEDCTInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -760,41 +620,6 @@ export const de_DescribeSNOMEDCTInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSNOMEDCTInferenceJobCommandError
- */
-const de_DescribeSNOMEDCTInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSNOMEDCTInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectEntitiesCommand
  */
 export const de_DetectEntitiesCommand = async (
@@ -802,7 +627,7 @@ export const de_DetectEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<DetectEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -815,47 +640,6 @@ export const de_DetectEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectEntitiesCommandError
- */
-const de_DetectEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEncodingException":
-    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
-      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectEntitiesV2Command
  */
 export const de_DetectEntitiesV2Command = async (
@@ -863,7 +647,7 @@ export const de_DetectEntitiesV2Command = async (
   context: __SerdeContext
 ): Promise<DetectEntitiesV2CommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectEntitiesV2CommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -876,47 +660,6 @@ export const de_DetectEntitiesV2Command = async (
 };
 
 /**
- * deserializeAws_json1_1DetectEntitiesV2CommandError
- */
-const de_DetectEntitiesV2CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectEntitiesV2CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEncodingException":
-    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
-      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectPHICommand
  */
 export const de_DetectPHICommand = async (
@@ -924,7 +667,7 @@ export const de_DetectPHICommand = async (
   context: __SerdeContext
 ): Promise<DetectPHICommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectPHICommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -937,47 +680,6 @@ export const de_DetectPHICommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectPHICommandError
- */
-const de_DetectPHICommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectPHICommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEncodingException":
-    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
-      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InferICD10CMCommand
  */
 export const de_InferICD10CMCommand = async (
@@ -985,7 +687,7 @@ export const de_InferICD10CMCommand = async (
   context: __SerdeContext
 ): Promise<InferICD10CMCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InferICD10CMCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -998,47 +700,6 @@ export const de_InferICD10CMCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InferICD10CMCommandError
- */
-const de_InferICD10CMCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InferICD10CMCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEncodingException":
-    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
-      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InferRxNormCommand
  */
 export const de_InferRxNormCommand = async (
@@ -1046,7 +707,7 @@ export const de_InferRxNormCommand = async (
   context: __SerdeContext
 ): Promise<InferRxNormCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InferRxNormCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1059,47 +720,6 @@ export const de_InferRxNormCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InferRxNormCommandError
- */
-const de_InferRxNormCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InferRxNormCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEncodingException":
-    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
-      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InferSNOMEDCTCommand
  */
 export const de_InferSNOMEDCTCommand = async (
@@ -1107,7 +727,7 @@ export const de_InferSNOMEDCTCommand = async (
   context: __SerdeContext
 ): Promise<InferSNOMEDCTCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InferSNOMEDCTCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1120,47 +740,6 @@ export const de_InferSNOMEDCTCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InferSNOMEDCTCommandError
- */
-const de_InferSNOMEDCTCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InferSNOMEDCTCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEncodingException":
-    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
-      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand
  */
 export const de_ListEntitiesDetectionV2JobsCommand = async (
@@ -1168,7 +747,7 @@ export const de_ListEntitiesDetectionV2JobsCommand = async (
   context: __SerdeContext
 ): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEntitiesDetectionV2JobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1181,41 +760,6 @@ export const de_ListEntitiesDetectionV2JobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError
- */
-const de_ListEntitiesDetectionV2JobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitiesDetectionV2JobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.comprehendmedical#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListICD10CMInferenceJobsCommand
  */
 export const de_ListICD10CMInferenceJobsCommand = async (
@@ -1223,7 +767,7 @@ export const de_ListICD10CMInferenceJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListICD10CMInferenceJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListICD10CMInferenceJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1236,41 +780,6 @@ export const de_ListICD10CMInferenceJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListICD10CMInferenceJobsCommandError
- */
-const de_ListICD10CMInferenceJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListICD10CMInferenceJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.comprehendmedical#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPHIDetectionJobsCommand
  */
 export const de_ListPHIDetectionJobsCommand = async (
@@ -1278,7 +787,7 @@ export const de_ListPHIDetectionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListPHIDetectionJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPHIDetectionJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1291,41 +800,6 @@ export const de_ListPHIDetectionJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPHIDetectionJobsCommandError
- */
-const de_ListPHIDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPHIDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.comprehendmedical#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRxNormInferenceJobsCommand
  */
 export const de_ListRxNormInferenceJobsCommand = async (
@@ -1333,7 +807,7 @@ export const de_ListRxNormInferenceJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListRxNormInferenceJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRxNormInferenceJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1346,41 +820,6 @@ export const de_ListRxNormInferenceJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRxNormInferenceJobsCommandError
- */
-const de_ListRxNormInferenceJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRxNormInferenceJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.comprehendmedical#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommand
  */
 export const de_ListSNOMEDCTInferenceJobsCommand = async (
@@ -1388,7 +827,7 @@ export const de_ListSNOMEDCTInferenceJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListSNOMEDCTInferenceJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSNOMEDCTInferenceJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1401,41 +840,6 @@ export const de_ListSNOMEDCTInferenceJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSNOMEDCTInferenceJobsCommandError
- */
-const de_ListSNOMEDCTInferenceJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSNOMEDCTInferenceJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.comprehendmedical#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartEntitiesDetectionV2JobCommand
  */
 export const de_StartEntitiesDetectionV2JobCommand = async (
@@ -1443,7 +847,7 @@ export const de_StartEntitiesDetectionV2JobCommand = async (
   context: __SerdeContext
 ): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartEntitiesDetectionV2JobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1456,41 +860,6 @@ export const de_StartEntitiesDetectionV2JobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError
- */
-const de_StartEntitiesDetectionV2JobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEntitiesDetectionV2JobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartICD10CMInferenceJobCommand
  */
 export const de_StartICD10CMInferenceJobCommand = async (
@@ -1498,7 +867,7 @@ export const de_StartICD10CMInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<StartICD10CMInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartICD10CMInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1511,41 +880,6 @@ export const de_StartICD10CMInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartICD10CMInferenceJobCommandError
- */
-const de_StartICD10CMInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartICD10CMInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartPHIDetectionJobCommand
  */
 export const de_StartPHIDetectionJobCommand = async (
@@ -1553,7 +887,7 @@ export const de_StartPHIDetectionJobCommand = async (
   context: __SerdeContext
 ): Promise<StartPHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartPHIDetectionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1566,41 +900,6 @@ export const de_StartPHIDetectionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartPHIDetectionJobCommandError
- */
-const de_StartPHIDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPHIDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartRxNormInferenceJobCommand
  */
 export const de_StartRxNormInferenceJobCommand = async (
@@ -1608,7 +907,7 @@ export const de_StartRxNormInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<StartRxNormInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartRxNormInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1621,41 +920,6 @@ export const de_StartRxNormInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartRxNormInferenceJobCommandError
- */
-const de_StartRxNormInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRxNormInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartSNOMEDCTInferenceJobCommand
  */
 export const de_StartSNOMEDCTInferenceJobCommand = async (
@@ -1663,7 +927,7 @@ export const de_StartSNOMEDCTInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<StartSNOMEDCTInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartSNOMEDCTInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1676,41 +940,6 @@ export const de_StartSNOMEDCTInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartSNOMEDCTInferenceJobCommandError
- */
-const de_StartSNOMEDCTInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSNOMEDCTInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehendmedical#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopEntitiesDetectionV2JobCommand
  */
 export const de_StopEntitiesDetectionV2JobCommand = async (
@@ -1718,7 +947,7 @@ export const de_StopEntitiesDetectionV2JobCommand = async (
   context: __SerdeContext
 ): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopEntitiesDetectionV2JobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1731,38 +960,6 @@ export const de_StopEntitiesDetectionV2JobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError
- */
-const de_StopEntitiesDetectionV2JobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEntitiesDetectionV2JobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopICD10CMInferenceJobCommand
  */
 export const de_StopICD10CMInferenceJobCommand = async (
@@ -1770,7 +967,7 @@ export const de_StopICD10CMInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<StopICD10CMInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopICD10CMInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1783,38 +980,6 @@ export const de_StopICD10CMInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopICD10CMInferenceJobCommandError
- */
-const de_StopICD10CMInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopICD10CMInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopPHIDetectionJobCommand
  */
 export const de_StopPHIDetectionJobCommand = async (
@@ -1822,7 +987,7 @@ export const de_StopPHIDetectionJobCommand = async (
   context: __SerdeContext
 ): Promise<StopPHIDetectionJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopPHIDetectionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1835,38 +1000,6 @@ export const de_StopPHIDetectionJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopPHIDetectionJobCommandError
- */
-const de_StopPHIDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopPHIDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopRxNormInferenceJobCommand
  */
 export const de_StopRxNormInferenceJobCommand = async (
@@ -1874,7 +1007,7 @@ export const de_StopRxNormInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<StopRxNormInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopRxNormInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1887,38 +1020,6 @@ export const de_StopRxNormInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopRxNormInferenceJobCommandError
- */
-const de_StopRxNormInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopRxNormInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehendmedical#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehendmedical#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehendmedical#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopSNOMEDCTInferenceJobCommand
  */
 export const de_StopSNOMEDCTInferenceJobCommand = async (
@@ -1926,7 +1027,7 @@ export const de_StopSNOMEDCTInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<StopSNOMEDCTInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopSNOMEDCTInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1939,12 +1040,9 @@ export const de_StopSNOMEDCTInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopSNOMEDCTInferenceJobCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_StopSNOMEDCTInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSNOMEDCTInferenceJobCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1963,6 +1061,18 @@ const de_StopSNOMEDCTInferenceJobCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.comprehendmedical#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "InvalidEncodingException":
+    case "com.amazonaws.comprehendmedical#InvalidEncodingException":
+      throw await de_InvalidEncodingExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.comprehendmedical#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.comprehendmedical#TextSizeLimitExceededException":
+      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.comprehendmedical#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

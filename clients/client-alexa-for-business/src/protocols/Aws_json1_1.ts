@@ -1597,7 +1597,7 @@ export const de_ApproveSkillCommand = async (
   context: __SerdeContext
 ): Promise<ApproveSkillCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ApproveSkillCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1610,38 +1610,6 @@ export const de_ApproveSkillCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ApproveSkillCommandError
- */
-const de_ApproveSkillCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApproveSkillCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateContactWithAddressBookCommand
  */
 export const de_AssociateContactWithAddressBookCommand = async (
@@ -1649,7 +1617,7 @@ export const de_AssociateContactWithAddressBookCommand = async (
   context: __SerdeContext
 ): Promise<AssociateContactWithAddressBookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateContactWithAddressBookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1662,32 +1630,6 @@ export const de_AssociateContactWithAddressBookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateContactWithAddressBookCommandError
- */
-const de_AssociateContactWithAddressBookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateContactWithAddressBookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand
  */
 export const de_AssociateDeviceWithNetworkProfileCommand = async (
@@ -1695,7 +1637,7 @@ export const de_AssociateDeviceWithNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDeviceWithNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDeviceWithNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1708,38 +1650,6 @@ export const de_AssociateDeviceWithNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommandError
- */
-const de_AssociateDeviceWithNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDeviceWithNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
-      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateDeviceWithRoomCommand
  */
 export const de_AssociateDeviceWithRoomCommand = async (
@@ -1747,7 +1657,7 @@ export const de_AssociateDeviceWithRoomCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDeviceWithRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDeviceWithRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1760,38 +1670,6 @@ export const de_AssociateDeviceWithRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDeviceWithRoomCommandError
- */
-const de_AssociateDeviceWithRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDeviceWithRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
-      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateSkillGroupWithRoomCommand
  */
 export const de_AssociateSkillGroupWithRoomCommand = async (
@@ -1799,7 +1677,7 @@ export const de_AssociateSkillGroupWithRoomCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSkillGroupWithRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateSkillGroupWithRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1812,32 +1690,6 @@ export const de_AssociateSkillGroupWithRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateSkillGroupWithRoomCommandError
- */
-const de_AssociateSkillGroupWithRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSkillGroupWithRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateSkillWithSkillGroupCommand
  */
 export const de_AssociateSkillWithSkillGroupCommand = async (
@@ -1845,7 +1697,7 @@ export const de_AssociateSkillWithSkillGroupCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSkillWithSkillGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateSkillWithSkillGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1858,38 +1710,6 @@ export const de_AssociateSkillWithSkillGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateSkillWithSkillGroupCommandError
- */
-const de_AssociateSkillWithSkillGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSkillWithSkillGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SkillNotLinkedException":
-    case "com.amazonaws.alexaforbusiness#SkillNotLinkedException":
-      throw await de_SkillNotLinkedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateSkillWithUsersCommand
  */
 export const de_AssociateSkillWithUsersCommand = async (
@@ -1897,7 +1717,7 @@ export const de_AssociateSkillWithUsersCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSkillWithUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateSkillWithUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1910,35 +1730,6 @@ export const de_AssociateSkillWithUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateSkillWithUsersCommandError
- */
-const de_AssociateSkillWithUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSkillWithUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAddressBookCommand
  */
 export const de_CreateAddressBookCommand = async (
@@ -1946,7 +1737,7 @@ export const de_CreateAddressBookCommand = async (
   context: __SerdeContext
 ): Promise<CreateAddressBookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAddressBookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1959,35 +1750,6 @@ export const de_CreateAddressBookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAddressBookCommandError
- */
-const de_CreateAddressBookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAddressBookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBusinessReportScheduleCommand
  */
 export const de_CreateBusinessReportScheduleCommand = async (
@@ -1995,7 +1757,7 @@ export const de_CreateBusinessReportScheduleCommand = async (
   context: __SerdeContext
 ): Promise<CreateBusinessReportScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBusinessReportScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2008,32 +1770,6 @@ export const de_CreateBusinessReportScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBusinessReportScheduleCommandError
- */
-const de_CreateBusinessReportScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBusinessReportScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConferenceProviderCommand
  */
 export const de_CreateConferenceProviderCommand = async (
@@ -2041,7 +1777,7 @@ export const de_CreateConferenceProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateConferenceProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConferenceProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2054,32 +1790,6 @@ export const de_CreateConferenceProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConferenceProviderCommandError
- */
-const de_CreateConferenceProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConferenceProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContactCommand
  */
 export const de_CreateContactCommand = async (
@@ -2087,7 +1797,7 @@ export const de_CreateContactCommand = async (
   context: __SerdeContext
 ): Promise<CreateContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2100,35 +1810,6 @@ export const de_CreateContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContactCommandError
- */
-const de_CreateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGatewayGroupCommand
  */
 export const de_CreateGatewayGroupCommand = async (
@@ -2136,7 +1817,7 @@ export const de_CreateGatewayGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGatewayGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGatewayGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2149,35 +1830,6 @@ export const de_CreateGatewayGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGatewayGroupCommandError
- */
-const de_CreateGatewayGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGatewayGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNetworkProfileCommand
  */
 export const de_CreateNetworkProfileCommand = async (
@@ -2185,7 +1837,7 @@ export const de_CreateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2198,44 +1850,6 @@ export const de_CreateNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNetworkProfileCommandError
- */
-const de_CreateNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidCertificateAuthorityException":
-    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
-      throw await de_InvalidCertificateAuthorityExceptionRes(parsedOutput, context);
-    case "InvalidServiceLinkedRoleStateException":
-    case "com.amazonaws.alexaforbusiness#InvalidServiceLinkedRoleStateException":
-      throw await de_InvalidServiceLinkedRoleStateExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProfileCommand
  */
 export const de_CreateProfileCommand = async (
@@ -2243,7 +1857,7 @@ export const de_CreateProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2256,38 +1870,6 @@ export const de_CreateProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProfileCommandError
- */
-const de_CreateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRoomCommand
  */
 export const de_CreateRoomCommand = async (
@@ -2295,7 +1877,7 @@ export const de_CreateRoomCommand = async (
   context: __SerdeContext
 ): Promise<CreateRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2308,35 +1890,6 @@ export const de_CreateRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRoomCommandError
- */
-const de_CreateRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSkillGroupCommand
  */
 export const de_CreateSkillGroupCommand = async (
@@ -2344,7 +1897,7 @@ export const de_CreateSkillGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateSkillGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSkillGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2357,38 +1910,6 @@ export const de_CreateSkillGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSkillGroupCommandError
- */
-const de_CreateSkillGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSkillGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -2396,7 +1917,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2409,38 +1930,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.alexaforbusiness#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAddressBookCommand
  */
 export const de_DeleteAddressBookCommand = async (
@@ -2448,7 +1937,7 @@ export const de_DeleteAddressBookCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAddressBookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAddressBookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2461,35 +1950,6 @@ export const de_DeleteAddressBookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAddressBookCommandError
- */
-const de_DeleteAddressBookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAddressBookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBusinessReportScheduleCommand
  */
 export const de_DeleteBusinessReportScheduleCommand = async (
@@ -2497,7 +1957,7 @@ export const de_DeleteBusinessReportScheduleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBusinessReportScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBusinessReportScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2510,35 +1970,6 @@ export const de_DeleteBusinessReportScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBusinessReportScheduleCommandError
- */
-const de_DeleteBusinessReportScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBusinessReportScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConferenceProviderCommand
  */
 export const de_DeleteConferenceProviderCommand = async (
@@ -2546,7 +1977,7 @@ export const de_DeleteConferenceProviderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConferenceProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConferenceProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2559,32 +1990,6 @@ export const de_DeleteConferenceProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConferenceProviderCommandError
- */
-const de_DeleteConferenceProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConferenceProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteContactCommand
  */
 export const de_DeleteContactCommand = async (
@@ -2592,7 +1997,7 @@ export const de_DeleteContactCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2605,35 +2010,6 @@ export const de_DeleteContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContactCommandError
- */
-const de_DeleteContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDeviceCommand
  */
 export const de_DeleteDeviceCommand = async (
@@ -2641,7 +2017,7 @@ export const de_DeleteDeviceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2654,38 +2030,6 @@ export const de_DeleteDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDeviceCommandError
- */
-const de_DeleteDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidCertificateAuthorityException":
-    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
-      throw await de_InvalidCertificateAuthorityExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDeviceUsageDataCommand
  */
 export const de_DeleteDeviceUsageDataCommand = async (
@@ -2693,7 +2037,7 @@ export const de_DeleteDeviceUsageDataCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeviceUsageDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeviceUsageDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2706,38 +2050,6 @@ export const de_DeleteDeviceUsageDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDeviceUsageDataCommandError
- */
-const de_DeleteDeviceUsageDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeviceUsageDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
-      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteGatewayGroupCommand
  */
 export const de_DeleteGatewayGroupCommand = async (
@@ -2745,7 +2057,7 @@ export const de_DeleteGatewayGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGatewayGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGatewayGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2758,32 +2070,6 @@ export const de_DeleteGatewayGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteGatewayGroupCommandError
- */
-const de_DeleteGatewayGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceAssociatedException":
-    case "com.amazonaws.alexaforbusiness#ResourceAssociatedException":
-      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteNetworkProfileCommand
  */
 export const de_DeleteNetworkProfileCommand = async (
@@ -2791,7 +2077,7 @@ export const de_DeleteNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2804,38 +2090,6 @@ export const de_DeleteNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteNetworkProfileCommandError
- */
-const de_DeleteNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.alexaforbusiness#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProfileCommand
  */
 export const de_DeleteProfileCommand = async (
@@ -2843,7 +2097,7 @@ export const de_DeleteProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2856,35 +2110,6 @@ export const de_DeleteProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProfileCommandError
- */
-const de_DeleteProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRoomCommand
  */
 export const de_DeleteRoomCommand = async (
@@ -2892,7 +2117,7 @@ export const de_DeleteRoomCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2905,35 +2130,6 @@ export const de_DeleteRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRoomCommandError
- */
-const de_DeleteRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRoomSkillParameterCommand
  */
 export const de_DeleteRoomSkillParameterCommand = async (
@@ -2941,7 +2137,7 @@ export const de_DeleteRoomSkillParameterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRoomSkillParameterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRoomSkillParameterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2954,32 +2150,6 @@ export const de_DeleteRoomSkillParameterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRoomSkillParameterCommandError
- */
-const de_DeleteRoomSkillParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRoomSkillParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSkillAuthorizationCommand
  */
 export const de_DeleteSkillAuthorizationCommand = async (
@@ -2987,7 +2157,7 @@ export const de_DeleteSkillAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSkillAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSkillAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3000,35 +2170,6 @@ export const de_DeleteSkillAuthorizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSkillAuthorizationCommandError
- */
-const de_DeleteSkillAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSkillAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSkillGroupCommand
  */
 export const de_DeleteSkillGroupCommand = async (
@@ -3036,7 +2177,7 @@ export const de_DeleteSkillGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSkillGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSkillGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3049,35 +2190,6 @@ export const de_DeleteSkillGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSkillGroupCommandError
- */
-const de_DeleteSkillGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSkillGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -3085,7 +2197,7 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3098,35 +2210,6 @@ export const de_DeleteUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateContactFromAddressBookCommand
  */
 export const de_DisassociateContactFromAddressBookCommand = async (
@@ -3134,7 +2217,7 @@ export const de_DisassociateContactFromAddressBookCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateContactFromAddressBookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateContactFromAddressBookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3147,26 +2230,6 @@ export const de_DisassociateContactFromAddressBookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateContactFromAddressBookCommandError
- */
-const de_DisassociateContactFromAddressBookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateContactFromAddressBookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DisassociateDeviceFromRoomCommand
  */
 export const de_DisassociateDeviceFromRoomCommand = async (
@@ -3174,7 +2237,7 @@ export const de_DisassociateDeviceFromRoomCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateDeviceFromRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3187,35 +2250,6 @@ export const de_DisassociateDeviceFromRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateDeviceFromRoomCommandError
- */
-const de_DisassociateDeviceFromRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDeviceFromRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
-      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand
  */
 export const de_DisassociateSkillFromSkillGroupCommand = async (
@@ -3223,7 +2257,7 @@ export const de_DisassociateSkillFromSkillGroupCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateSkillFromSkillGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateSkillFromSkillGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3236,35 +2270,6 @@ export const de_DisassociateSkillFromSkillGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateSkillFromSkillGroupCommandError
- */
-const de_DisassociateSkillFromSkillGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateSkillFromSkillGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateSkillFromUsersCommand
  */
 export const de_DisassociateSkillFromUsersCommand = async (
@@ -3272,7 +2277,7 @@ export const de_DisassociateSkillFromUsersCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateSkillFromUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateSkillFromUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3285,35 +2290,6 @@ export const de_DisassociateSkillFromUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateSkillFromUsersCommandError
- */
-const de_DisassociateSkillFromUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateSkillFromUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand
  */
 export const de_DisassociateSkillGroupFromRoomCommand = async (
@@ -3321,7 +2297,7 @@ export const de_DisassociateSkillGroupFromRoomCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateSkillGroupFromRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateSkillGroupFromRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3334,32 +2310,6 @@ export const de_DisassociateSkillGroupFromRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateSkillGroupFromRoomCommandError
- */
-const de_DisassociateSkillGroupFromRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateSkillGroupFromRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ForgetSmartHomeAppliancesCommand
  */
 export const de_ForgetSmartHomeAppliancesCommand = async (
@@ -3367,7 +2317,7 @@ export const de_ForgetSmartHomeAppliancesCommand = async (
   context: __SerdeContext
 ): Promise<ForgetSmartHomeAppliancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ForgetSmartHomeAppliancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3380,32 +2330,6 @@ export const de_ForgetSmartHomeAppliancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ForgetSmartHomeAppliancesCommandError
- */
-const de_ForgetSmartHomeAppliancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ForgetSmartHomeAppliancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAddressBookCommand
  */
 export const de_GetAddressBookCommand = async (
@@ -3413,7 +2337,7 @@ export const de_GetAddressBookCommand = async (
   context: __SerdeContext
 ): Promise<GetAddressBookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAddressBookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3426,32 +2350,6 @@ export const de_GetAddressBookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAddressBookCommandError
- */
-const de_GetAddressBookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAddressBookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConferencePreferenceCommand
  */
 export const de_GetConferencePreferenceCommand = async (
@@ -3459,7 +2357,7 @@ export const de_GetConferencePreferenceCommand = async (
   context: __SerdeContext
 ): Promise<GetConferencePreferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConferencePreferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3472,32 +2370,6 @@ export const de_GetConferencePreferenceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConferencePreferenceCommandError
- */
-const de_GetConferencePreferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConferencePreferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConferenceProviderCommand
  */
 export const de_GetConferenceProviderCommand = async (
@@ -3505,7 +2377,7 @@ export const de_GetConferenceProviderCommand = async (
   context: __SerdeContext
 ): Promise<GetConferenceProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConferenceProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3518,32 +2390,6 @@ export const de_GetConferenceProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConferenceProviderCommandError
- */
-const de_GetConferenceProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConferenceProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContactCommand
  */
 export const de_GetContactCommand = async (
@@ -3551,7 +2397,7 @@ export const de_GetContactCommand = async (
   context: __SerdeContext
 ): Promise<GetContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3564,32 +2410,6 @@ export const de_GetContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContactCommandError
- */
-const de_GetContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeviceCommand
  */
 export const de_GetDeviceCommand = async (
@@ -3597,7 +2417,7 @@ export const de_GetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3610,32 +2430,6 @@ export const de_GetDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeviceCommandError
- */
-const de_GetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetGatewayCommand
  */
 export const de_GetGatewayCommand = async (
@@ -3643,7 +2437,7 @@ export const de_GetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<GetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3656,32 +2450,6 @@ export const de_GetGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetGatewayCommandError
- */
-const de_GetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetGatewayGroupCommand
  */
 export const de_GetGatewayGroupCommand = async (
@@ -3689,7 +2457,7 @@ export const de_GetGatewayGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetGatewayGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGatewayGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3702,32 +2470,6 @@ export const de_GetGatewayGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetGatewayGroupCommandError
- */
-const de_GetGatewayGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGatewayGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInvitationConfigurationCommand
  */
 export const de_GetInvitationConfigurationCommand = async (
@@ -3735,7 +2477,7 @@ export const de_GetInvitationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetInvitationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInvitationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3748,32 +2490,6 @@ export const de_GetInvitationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInvitationConfigurationCommandError
- */
-const de_GetInvitationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInvitationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNetworkProfileCommand
  */
 export const de_GetNetworkProfileCommand = async (
@@ -3781,7 +2497,7 @@ export const de_GetNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3794,35 +2510,6 @@ export const de_GetNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNetworkProfileCommandError
- */
-const de_GetNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidSecretsManagerResourceException":
-    case "com.amazonaws.alexaforbusiness#InvalidSecretsManagerResourceException":
-      throw await de_InvalidSecretsManagerResourceExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetProfileCommand
  */
 export const de_GetProfileCommand = async (
@@ -3830,7 +2517,7 @@ export const de_GetProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3843,32 +2530,6 @@ export const de_GetProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetProfileCommandError
- */
-const de_GetProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRoomCommand
  */
 export const de_GetRoomCommand = async (
@@ -3876,7 +2537,7 @@ export const de_GetRoomCommand = async (
   context: __SerdeContext
 ): Promise<GetRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3889,32 +2550,6 @@ export const de_GetRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRoomCommandError
- */
-const de_GetRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRoomSkillParameterCommand
  */
 export const de_GetRoomSkillParameterCommand = async (
@@ -3922,7 +2557,7 @@ export const de_GetRoomSkillParameterCommand = async (
   context: __SerdeContext
 ): Promise<GetRoomSkillParameterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRoomSkillParameterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3935,32 +2570,6 @@ export const de_GetRoomSkillParameterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRoomSkillParameterCommandError
- */
-const de_GetRoomSkillParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRoomSkillParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSkillGroupCommand
  */
 export const de_GetSkillGroupCommand = async (
@@ -3968,7 +2577,7 @@ export const de_GetSkillGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetSkillGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSkillGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3981,32 +2590,6 @@ export const de_GetSkillGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSkillGroupCommandError
- */
-const de_GetSkillGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSkillGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBusinessReportSchedulesCommand
  */
 export const de_ListBusinessReportSchedulesCommand = async (
@@ -4014,7 +2597,7 @@ export const de_ListBusinessReportSchedulesCommand = async (
   context: __SerdeContext
 ): Promise<ListBusinessReportSchedulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBusinessReportSchedulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4027,26 +2610,6 @@ export const de_ListBusinessReportSchedulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBusinessReportSchedulesCommandError
- */
-const de_ListBusinessReportSchedulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBusinessReportSchedulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListConferenceProvidersCommand
  */
 export const de_ListConferenceProvidersCommand = async (
@@ -4054,7 +2617,7 @@ export const de_ListConferenceProvidersCommand = async (
   context: __SerdeContext
 ): Promise<ListConferenceProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConferenceProvidersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4067,26 +2630,6 @@ export const de_ListConferenceProvidersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListConferenceProvidersCommandError
- */
-const de_ListConferenceProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConferenceProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListDeviceEventsCommand
  */
 export const de_ListDeviceEventsCommand = async (
@@ -4094,7 +2637,7 @@ export const de_ListDeviceEventsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDeviceEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4107,32 +2650,6 @@ export const de_ListDeviceEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDeviceEventsCommandError
- */
-const de_ListDeviceEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeviceEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGatewayGroupsCommand
  */
 export const de_ListGatewayGroupsCommand = async (
@@ -4140,7 +2657,7 @@ export const de_ListGatewayGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGatewayGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGatewayGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4153,26 +2670,6 @@ export const de_ListGatewayGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGatewayGroupsCommandError
- */
-const de_ListGatewayGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewayGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListGatewaysCommand
  */
 export const de_ListGatewaysCommand = async (
@@ -4180,7 +2677,7 @@ export const de_ListGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4193,26 +2690,6 @@ export const de_ListGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGatewaysCommandError
- */
-const de_ListGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListSkillsCommand
  */
 export const de_ListSkillsCommand = async (
@@ -4220,7 +2697,7 @@ export const de_ListSkillsCommand = async (
   context: __SerdeContext
 ): Promise<ListSkillsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSkillsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4233,26 +2710,6 @@ export const de_ListSkillsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSkillsCommandError
- */
-const de_ListSkillsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSkillsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListSkillsStoreCategoriesCommand
  */
 export const de_ListSkillsStoreCategoriesCommand = async (
@@ -4260,7 +2717,7 @@ export const de_ListSkillsStoreCategoriesCommand = async (
   context: __SerdeContext
 ): Promise<ListSkillsStoreCategoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSkillsStoreCategoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4273,26 +2730,6 @@ export const de_ListSkillsStoreCategoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSkillsStoreCategoriesCommandError
- */
-const de_ListSkillsStoreCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSkillsStoreCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand
  */
 export const de_ListSkillsStoreSkillsByCategoryCommand = async (
@@ -4300,7 +2737,7 @@ export const de_ListSkillsStoreSkillsByCategoryCommand = async (
   context: __SerdeContext
 ): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSkillsStoreSkillsByCategoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4313,26 +2750,6 @@ export const de_ListSkillsStoreSkillsByCategoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommandError
- */
-const de_ListSkillsStoreSkillsByCategoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSkillsStoreSkillsByCategoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListSmartHomeAppliancesCommand
  */
 export const de_ListSmartHomeAppliancesCommand = async (
@@ -4340,7 +2757,7 @@ export const de_ListSmartHomeAppliancesCommand = async (
   context: __SerdeContext
 ): Promise<ListSmartHomeAppliancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSmartHomeAppliancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4353,32 +2770,6 @@ export const de_ListSmartHomeAppliancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSmartHomeAppliancesCommandError
- */
-const de_ListSmartHomeAppliancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSmartHomeAppliancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -4386,7 +2777,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4399,32 +2790,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutConferencePreferenceCommand
  */
 export const de_PutConferencePreferenceCommand = async (
@@ -4432,7 +2797,7 @@ export const de_PutConferencePreferenceCommand = async (
   context: __SerdeContext
 ): Promise<PutConferencePreferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutConferencePreferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4445,32 +2810,6 @@ export const de_PutConferencePreferenceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutConferencePreferenceCommandError
- */
-const de_PutConferencePreferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConferencePreferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutInvitationConfigurationCommand
  */
 export const de_PutInvitationConfigurationCommand = async (
@@ -4478,7 +2817,7 @@ export const de_PutInvitationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutInvitationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutInvitationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4491,35 +2830,6 @@ export const de_PutInvitationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutInvitationConfigurationCommandError
- */
-const de_PutInvitationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInvitationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRoomSkillParameterCommand
  */
 export const de_PutRoomSkillParameterCommand = async (
@@ -4527,7 +2837,7 @@ export const de_PutRoomSkillParameterCommand = async (
   context: __SerdeContext
 ): Promise<PutRoomSkillParameterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRoomSkillParameterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4540,32 +2850,6 @@ export const de_PutRoomSkillParameterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRoomSkillParameterCommandError
- */
-const de_PutRoomSkillParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRoomSkillParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutSkillAuthorizationCommand
  */
 export const de_PutSkillAuthorizationCommand = async (
@@ -4573,7 +2857,7 @@ export const de_PutSkillAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<PutSkillAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutSkillAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4586,35 +2870,6 @@ export const de_PutSkillAuthorizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutSkillAuthorizationCommandError
- */
-const de_PutSkillAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSkillAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.alexaforbusiness#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterAVSDeviceCommand
  */
 export const de_RegisterAVSDeviceCommand = async (
@@ -4622,7 +2877,7 @@ export const de_RegisterAVSDeviceCommand = async (
   context: __SerdeContext
 ): Promise<RegisterAVSDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterAVSDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4635,41 +2890,6 @@ export const de_RegisterAVSDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterAVSDeviceCommandError
- */
-const de_RegisterAVSDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterAVSDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidDeviceException":
-    case "com.amazonaws.alexaforbusiness#InvalidDeviceException":
-      throw await de_InvalidDeviceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RejectSkillCommand
  */
 export const de_RejectSkillCommand = async (
@@ -4677,7 +2897,7 @@ export const de_RejectSkillCommand = async (
   context: __SerdeContext
 ): Promise<RejectSkillCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectSkillCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4690,35 +2910,6 @@ export const de_RejectSkillCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RejectSkillCommandError
- */
-const de_RejectSkillCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectSkillCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResolveRoomCommand
  */
 export const de_ResolveRoomCommand = async (
@@ -4726,7 +2917,7 @@ export const de_ResolveRoomCommand = async (
   context: __SerdeContext
 ): Promise<ResolveRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResolveRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4739,32 +2930,6 @@ export const de_ResolveRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResolveRoomCommandError
- */
-const de_ResolveRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResolveRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RevokeInvitationCommand
  */
 export const de_RevokeInvitationCommand = async (
@@ -4772,7 +2937,7 @@ export const de_RevokeInvitationCommand = async (
   context: __SerdeContext
 ): Promise<RevokeInvitationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RevokeInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4785,35 +2950,6 @@ export const de_RevokeInvitationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RevokeInvitationCommandError
- */
-const de_RevokeInvitationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeInvitationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchAddressBooksCommand
  */
 export const de_SearchAddressBooksCommand = async (
@@ -4821,7 +2957,7 @@ export const de_SearchAddressBooksCommand = async (
   context: __SerdeContext
 ): Promise<SearchAddressBooksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchAddressBooksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4834,26 +2970,6 @@ export const de_SearchAddressBooksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchAddressBooksCommandError
- */
-const de_SearchAddressBooksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchAddressBooksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchContactsCommand
  */
 export const de_SearchContactsCommand = async (
@@ -4861,7 +2977,7 @@ export const de_SearchContactsCommand = async (
   context: __SerdeContext
 ): Promise<SearchContactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchContactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4874,26 +2990,6 @@ export const de_SearchContactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchContactsCommandError
- */
-const de_SearchContactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchContactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchDevicesCommand
  */
 export const de_SearchDevicesCommand = async (
@@ -4901,7 +2997,7 @@ export const de_SearchDevicesCommand = async (
   context: __SerdeContext
 ): Promise<SearchDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4914,26 +3010,6 @@ export const de_SearchDevicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchDevicesCommandError
- */
-const de_SearchDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchNetworkProfilesCommand
  */
 export const de_SearchNetworkProfilesCommand = async (
@@ -4941,7 +3017,7 @@ export const de_SearchNetworkProfilesCommand = async (
   context: __SerdeContext
 ): Promise<SearchNetworkProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchNetworkProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4954,26 +3030,6 @@ export const de_SearchNetworkProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchNetworkProfilesCommandError
- */
-const de_SearchNetworkProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchNetworkProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchProfilesCommand
  */
 export const de_SearchProfilesCommand = async (
@@ -4981,7 +3037,7 @@ export const de_SearchProfilesCommand = async (
   context: __SerdeContext
 ): Promise<SearchProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4994,26 +3050,6 @@ export const de_SearchProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchProfilesCommandError
- */
-const de_SearchProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchRoomsCommand
  */
 export const de_SearchRoomsCommand = async (
@@ -5021,7 +3057,7 @@ export const de_SearchRoomsCommand = async (
   context: __SerdeContext
 ): Promise<SearchRoomsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchRoomsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5034,26 +3070,6 @@ export const de_SearchRoomsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchRoomsCommandError
- */
-const de_SearchRoomsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchRoomsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchSkillGroupsCommand
  */
 export const de_SearchSkillGroupsCommand = async (
@@ -5061,7 +3077,7 @@ export const de_SearchSkillGroupsCommand = async (
   context: __SerdeContext
 ): Promise<SearchSkillGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchSkillGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5074,26 +3090,6 @@ export const de_SearchSkillGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchSkillGroupsCommandError
- */
-const de_SearchSkillGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchSkillGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SearchUsersCommand
  */
 export const de_SearchUsersCommand = async (
@@ -5101,7 +3097,7 @@ export const de_SearchUsersCommand = async (
   context: __SerdeContext
 ): Promise<SearchUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5114,26 +3110,6 @@ export const de_SearchUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchUsersCommandError
- */
-const de_SearchUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1SendAnnouncementCommand
  */
 export const de_SendAnnouncementCommand = async (
@@ -5141,7 +3117,7 @@ export const de_SendAnnouncementCommand = async (
   context: __SerdeContext
 ): Promise<SendAnnouncementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendAnnouncementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5154,35 +3130,6 @@ export const de_SendAnnouncementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendAnnouncementCommandError
- */
-const de_SendAnnouncementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAnnouncementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.alexaforbusiness#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendInvitationCommand
  */
 export const de_SendInvitationCommand = async (
@@ -5190,7 +3137,7 @@ export const de_SendInvitationCommand = async (
   context: __SerdeContext
 ): Promise<SendInvitationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5203,38 +3150,6 @@ export const de_SendInvitationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendInvitationCommandError
- */
-const de_SendInvitationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendInvitationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidUserStatusException":
-    case "com.amazonaws.alexaforbusiness#InvalidUserStatusException":
-      throw await de_InvalidUserStatusExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartDeviceSyncCommand
  */
 export const de_StartDeviceSyncCommand = async (
@@ -5242,7 +3157,7 @@ export const de_StartDeviceSyncCommand = async (
   context: __SerdeContext
 ): Promise<StartDeviceSyncCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartDeviceSyncCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5255,32 +3170,6 @@ export const de_StartDeviceSyncCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartDeviceSyncCommandError
- */
-const de_StartDeviceSyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDeviceSyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
-      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand
  */
 export const de_StartSmartHomeApplianceDiscoveryCommand = async (
@@ -5288,7 +3177,7 @@ export const de_StartSmartHomeApplianceDiscoveryCommand = async (
   context: __SerdeContext
 ): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartSmartHomeApplianceDiscoveryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5301,32 +3190,6 @@ export const de_StartSmartHomeApplianceDiscoveryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommandError
- */
-const de_StartSmartHomeApplianceDiscoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSmartHomeApplianceDiscoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -5334,7 +3197,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5347,32 +3210,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -5380,7 +3217,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5393,32 +3230,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAddressBookCommand
  */
 export const de_UpdateAddressBookCommand = async (
@@ -5426,7 +3237,7 @@ export const de_UpdateAddressBookCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAddressBookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAddressBookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5439,38 +3250,6 @@ export const de_UpdateAddressBookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAddressBookCommandError
- */
-const de_UpdateAddressBookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAddressBookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateBusinessReportScheduleCommand
  */
 export const de_UpdateBusinessReportScheduleCommand = async (
@@ -5478,7 +3257,7 @@ export const de_UpdateBusinessReportScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBusinessReportScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateBusinessReportScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5491,35 +3270,6 @@ export const de_UpdateBusinessReportScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateBusinessReportScheduleCommandError
- */
-const de_UpdateBusinessReportScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBusinessReportScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateConferenceProviderCommand
  */
 export const de_UpdateConferenceProviderCommand = async (
@@ -5527,7 +3277,7 @@ export const de_UpdateConferenceProviderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConferenceProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConferenceProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5540,32 +3290,6 @@ export const de_UpdateConferenceProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConferenceProviderCommandError
- */
-const de_UpdateConferenceProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConferenceProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateContactCommand
  */
 export const de_UpdateContactCommand = async (
@@ -5573,7 +3297,7 @@ export const de_UpdateContactCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5586,35 +3310,6 @@ export const de_UpdateContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateContactCommandError
- */
-const de_UpdateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDeviceCommand
  */
 export const de_UpdateDeviceCommand = async (
@@ -5622,7 +3317,7 @@ export const de_UpdateDeviceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5635,38 +3330,6 @@ export const de_UpdateDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDeviceCommandError
- */
-const de_UpdateDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeviceNotRegisteredException":
-    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
-      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGatewayCommand
  */
 export const de_UpdateGatewayCommand = async (
@@ -5674,7 +3337,7 @@ export const de_UpdateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5687,35 +3350,6 @@ export const de_UpdateGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGatewayCommandError
- */
-const de_UpdateGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGatewayGroupCommand
  */
 export const de_UpdateGatewayGroupCommand = async (
@@ -5723,7 +3357,7 @@ export const de_UpdateGatewayGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewayGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGatewayGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5736,35 +3370,6 @@ export const de_UpdateGatewayGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGatewayGroupCommandError
- */
-const de_UpdateGatewayGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNetworkProfileCommand
  */
 export const de_UpdateNetworkProfileCommand = async (
@@ -5772,7 +3377,7 @@ export const de_UpdateNetworkProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNetworkProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNetworkProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5785,44 +3390,6 @@ export const de_UpdateNetworkProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNetworkProfileCommandError
- */
-const de_UpdateNetworkProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNetworkProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidCertificateAuthorityException":
-    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
-      throw await de_InvalidCertificateAuthorityExceptionRes(parsedOutput, context);
-    case "InvalidSecretsManagerResourceException":
-    case "com.amazonaws.alexaforbusiness#InvalidSecretsManagerResourceException":
-      throw await de_InvalidSecretsManagerResourceExceptionRes(parsedOutput, context);
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateProfileCommand
  */
 export const de_UpdateProfileCommand = async (
@@ -5830,7 +3397,7 @@ export const de_UpdateProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5843,38 +3410,6 @@ export const de_UpdateProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateProfileCommandError
- */
-const de_UpdateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRoomCommand
  */
 export const de_UpdateRoomCommand = async (
@@ -5882,7 +3417,7 @@ export const de_UpdateRoomCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoomCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRoomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5895,35 +3430,6 @@ export const de_UpdateRoomCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRoomCommandError
- */
-const de_UpdateRoomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRoomCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.alexaforbusiness#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSkillGroupCommand
  */
 export const de_UpdateSkillGroupCommand = async (
@@ -5931,7 +3437,7 @@ export const de_UpdateSkillGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSkillGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSkillGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5944,12 +3450,9 @@ export const de_UpdateSkillGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSkillGroupCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateSkillGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSkillGroupCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5959,12 +3462,48 @@ const de_UpdateSkillGroupCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.alexaforbusiness#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NameInUseException":
-    case "com.amazonaws.alexaforbusiness#NameInUseException":
-      throw await de_NameInUseExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.alexaforbusiness#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.alexaforbusiness#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "DeviceNotRegisteredException":
+    case "com.amazonaws.alexaforbusiness#DeviceNotRegisteredException":
+      throw await de_DeviceNotRegisteredExceptionRes(parsedOutput, context);
+    case "SkillNotLinkedException":
+    case "com.amazonaws.alexaforbusiness#SkillNotLinkedException":
+      throw await de_SkillNotLinkedExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.alexaforbusiness#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidCertificateAuthorityException":
+    case "com.amazonaws.alexaforbusiness#InvalidCertificateAuthorityException":
+      throw await de_InvalidCertificateAuthorityExceptionRes(parsedOutput, context);
+    case "InvalidServiceLinkedRoleStateException":
+    case "com.amazonaws.alexaforbusiness#InvalidServiceLinkedRoleStateException":
+      throw await de_InvalidServiceLinkedRoleStateExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.alexaforbusiness#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceAssociatedException":
+    case "com.amazonaws.alexaforbusiness#ResourceAssociatedException":
+      throw await de_ResourceAssociatedExceptionRes(parsedOutput, context);
+    case "InvalidSecretsManagerResourceException":
+    case "com.amazonaws.alexaforbusiness#InvalidSecretsManagerResourceException":
+      throw await de_InvalidSecretsManagerResourceExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.alexaforbusiness#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "InvalidDeviceException":
+    case "com.amazonaws.alexaforbusiness#InvalidDeviceException":
+      throw await de_InvalidDeviceExceptionRes(parsedOutput, context);
+    case "InvalidUserStatusException":
+    case "com.amazonaws.alexaforbusiness#InvalidUserStatusException":
+      throw await de_InvalidUserStatusExceptionRes(parsedOutput, context);
+    case "NameInUseException":
+    case "com.amazonaws.alexaforbusiness#NameInUseException":
+      throw await de_NameInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -514,7 +514,7 @@ export const de_AnalyzeDocumentCommand = async (
   context: __SerdeContext
 ): Promise<AnalyzeDocumentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AnalyzeDocumentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -527,12 +527,489 @@ export const de_AnalyzeDocumentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AnalyzeDocumentCommandError
+ * deserializeAws_json1_1AnalyzeExpenseCommand
  */
-const de_AnalyzeDocumentCommandError = async (
+export const de_AnalyzeExpenseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AnalyzeDocumentCommandOutput> => {
+): Promise<AnalyzeExpenseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AnalyzeExpenseResponse(data, context);
+  const response: AnalyzeExpenseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1AnalyzeIDCommand
+ */
+export const de_AnalyzeIDCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AnalyzeIDCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AnalyzeIDResponse(data, context);
+  const response: AnalyzeIDCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAdapterCommand
+ */
+export const de_CreateAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAdapterVersionCommand
+ */
+export const de_CreateAdapterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAdapterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateAdapterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAdapterCommand
+ */
+export const de_DeleteAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAdapterVersionCommand
+ */
+export const de_DeleteAdapterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAdapterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAdapterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectDocumentTextCommand
+ */
+export const de_DetectDocumentTextCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectDocumentTextCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectDocumentTextResponse(data, context);
+  const response: DetectDocumentTextCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterCommand
+ */
+export const de_GetAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAdapterResponse(data, context);
+  const response: GetAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAdapterVersionCommand
+ */
+export const de_GetAdapterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdapterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAdapterVersionResponse(data, context);
+  const response: GetAdapterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDocumentAnalysisCommand
+ */
+export const de_GetDocumentAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDocumentAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDocumentAnalysisResponse(data, context);
+  const response: GetDocumentAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDocumentTextDetectionCommand
+ */
+export const de_GetDocumentTextDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDocumentTextDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDocumentTextDetectionResponse(data, context);
+  const response: GetDocumentTextDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetExpenseAnalysisCommand
+ */
+export const de_GetExpenseAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExpenseAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetExpenseAnalysisResponse(data, context);
+  const response: GetExpenseAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetLendingAnalysisCommand
+ */
+export const de_GetLendingAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLendingAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetLendingAnalysisResponse(data, context);
+  const response: GetLendingAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetLendingAnalysisSummaryCommand
+ */
+export const de_GetLendingAnalysisSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLendingAnalysisSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetLendingAnalysisSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAdaptersCommand
+ */
+export const de_ListAdaptersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdaptersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAdaptersResponse(data, context);
+  const response: ListAdaptersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAdapterVersionsCommand
+ */
+export const de_ListAdapterVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAdapterVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAdapterVersionsResponse(data, context);
+  const response: ListAdapterVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartDocumentAnalysisCommand
+ */
+export const de_StartDocumentAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDocumentAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDocumentAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartDocumentTextDetectionCommand
+ */
+export const de_StartDocumentTextDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDocumentTextDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDocumentTextDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartExpenseAnalysisCommand
+ */
+export const de_StartExpenseAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExpenseAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartExpenseAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartLendingAnalysisCommand
+ */
+export const de_StartLendingAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLendingAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartLendingAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAdapterCommand
+ */
+export const de_UpdateAdapterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAdapterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAdapterResponse(data, context);
+  const response: UpdateAdapterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -569,1671 +1046,30 @@ const de_AnalyzeDocumentCommandError = async (
     case "UnsupportedDocumentException":
     case "com.amazonaws.textract#UnsupportedDocumentException":
       throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AnalyzeExpenseCommand
- */
-export const de_AnalyzeExpenseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AnalyzeExpenseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AnalyzeExpenseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AnalyzeExpenseResponse(data, context);
-  const response: AnalyzeExpenseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AnalyzeExpenseCommandError
- */
-const de_AnalyzeExpenseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AnalyzeExpenseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AnalyzeIDCommand
- */
-export const de_AnalyzeIDCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AnalyzeIDCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AnalyzeIDCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AnalyzeIDResponse(data, context);
-  const response: AnalyzeIDCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AnalyzeIDCommandError
- */
-const de_AnalyzeIDCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AnalyzeIDCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateAdapterCommand
- */
-export const de_CreateAdapterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAdapterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateAdapterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateAdapterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateAdapterCommandError
- */
-const de_CreateAdapterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAdapterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.textract#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.textract#IdempotentParameterMismatchException":
       throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.textract#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.textract#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.textract#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateAdapterVersionCommand
- */
-export const de_CreateAdapterVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAdapterVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateAdapterVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateAdapterVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateAdapterVersionCommandError
- */
-const de_CreateAdapterVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAdapterVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.textract#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidKMSKeyException":
     case "com.amazonaws.textract#InvalidKMSKeyException":
       throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.textract#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.textract#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.textract#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAdapterCommand
- */
-export const de_DeleteAdapterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAdapterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAdapterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteAdapterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAdapterCommandError
- */
-const de_DeleteAdapterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAdapterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.textract#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAdapterVersionCommand
- */
-export const de_DeleteAdapterVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAdapterVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAdapterVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteAdapterVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAdapterVersionCommandError
- */
-const de_DeleteAdapterVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAdapterVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.textract#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectDocumentTextCommand
- */
-export const de_DetectDocumentTextCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectDocumentTextCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectDocumentTextCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectDocumentTextResponse(data, context);
-  const response: DetectDocumentTextCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectDocumentTextCommandError
- */
-const de_DetectDocumentTextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectDocumentTextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetAdapterCommand
- */
-export const de_GetAdapterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdapterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetAdapterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetAdapterResponse(data, context);
-  const response: GetAdapterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetAdapterCommandError
- */
-const de_GetAdapterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdapterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetAdapterVersionCommand
- */
-export const de_GetAdapterVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdapterVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetAdapterVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetAdapterVersionResponse(data, context);
-  const response: GetAdapterVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetAdapterVersionCommandError
- */
-const de_GetAdapterVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdapterVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDocumentAnalysisCommand
- */
-export const de_GetDocumentAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDocumentAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDocumentAnalysisResponse(data, context);
-  const response: GetDocumentAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDocumentAnalysisCommandError
- */
-const de_GetDocumentAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidJobIdException":
     case "com.amazonaws.textract#InvalidJobIdException":
       throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDocumentTextDetectionCommand
- */
-export const de_GetDocumentTextDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentTextDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDocumentTextDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDocumentTextDetectionResponse(data, context);
-  const response: GetDocumentTextDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDocumentTextDetectionCommandError
- */
-const de_GetDocumentTextDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentTextDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidJobIdException":
-    case "com.amazonaws.textract#InvalidJobIdException":
-      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetExpenseAnalysisCommand
- */
-export const de_GetExpenseAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExpenseAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetExpenseAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetExpenseAnalysisResponse(data, context);
-  const response: GetExpenseAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetExpenseAnalysisCommandError
- */
-const de_GetExpenseAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExpenseAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidJobIdException":
-    case "com.amazonaws.textract#InvalidJobIdException":
-      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetLendingAnalysisCommand
- */
-export const de_GetLendingAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLendingAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetLendingAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetLendingAnalysisResponse(data, context);
-  const response: GetLendingAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetLendingAnalysisCommandError
- */
-const de_GetLendingAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLendingAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidJobIdException":
-    case "com.amazonaws.textract#InvalidJobIdException":
-      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetLendingAnalysisSummaryCommand
- */
-export const de_GetLendingAnalysisSummaryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLendingAnalysisSummaryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetLendingAnalysisSummaryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetLendingAnalysisSummaryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetLendingAnalysisSummaryCommandError
- */
-const de_GetLendingAnalysisSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLendingAnalysisSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidJobIdException":
-    case "com.amazonaws.textract#InvalidJobIdException":
-      throw await de_InvalidJobIdExceptionRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAdaptersCommand
- */
-export const de_ListAdaptersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAdaptersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAdaptersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAdaptersResponse(data, context);
-  const response: ListAdaptersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAdaptersCommandError
- */
-const de_ListAdaptersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAdaptersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAdapterVersionsCommand
- */
-export const de_ListAdapterVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAdapterVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAdapterVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAdapterVersionsResponse(data, context);
-  const response: ListAdapterVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAdapterVersionsCommandError
- */
-const de_ListAdapterVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAdapterVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartDocumentAnalysisCommand
- */
-export const de_StartDocumentAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDocumentAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDocumentAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartDocumentAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartDocumentAnalysisCommandError
- */
-const de_StartDocumentAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDocumentAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.textract#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartDocumentTextDetectionCommand
- */
-export const de_StartDocumentTextDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDocumentTextDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDocumentTextDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartDocumentTextDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartDocumentTextDetectionCommandError
- */
-const de_StartDocumentTextDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDocumentTextDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.textract#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartExpenseAnalysisCommand
- */
-export const de_StartExpenseAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExpenseAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartExpenseAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartExpenseAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartExpenseAnalysisCommandError
- */
-const de_StartExpenseAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExpenseAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.textract#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartLendingAnalysisCommand
- */
-export const de_StartLendingAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLendingAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartLendingAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartLendingAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartLendingAnalysisCommandError
- */
-const de_StartLendingAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLendingAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadDocumentException":
-    case "com.amazonaws.textract#BadDocumentException":
-      throw await de_BadDocumentExceptionRes(parsedOutput, context);
-    case "DocumentTooLargeException":
-    case "com.amazonaws.textract#DocumentTooLargeException":
-      throw await de_DocumentTooLargeExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.textract#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidKMSKeyException":
-    case "com.amazonaws.textract#InvalidKMSKeyException":
-      throw await de_InvalidKMSKeyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.textract#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.textract#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentException":
-    case "com.amazonaws.textract#UnsupportedDocumentException":
-      throw await de_UnsupportedDocumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.textract#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateAdapterCommand
- */
-export const de_UpdateAdapterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAdapterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateAdapterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateAdapterResponse(data, context);
-  const response: UpdateAdapterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAdapterCommandError
- */
-const de_UpdateAdapterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAdapterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.textract#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.textract#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.textract#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.textract#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.textract#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.textract#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.textract#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.textract#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

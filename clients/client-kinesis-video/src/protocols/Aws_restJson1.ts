@@ -875,7 +875,7 @@ export const de_CreateSignalingChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateSignalingChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSignalingChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -889,12 +889,585 @@ export const de_CreateSignalingChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSignalingChannelCommandError
+ * deserializeAws_restJson1CreateStreamCommand
  */
-const de_CreateSignalingChannelCommandError = async (
+export const de_CreateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSignalingChannelCommandOutput> => {
+): Promise<CreateStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    StreamARN: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteEdgeConfigurationCommand
+ */
+export const de_DeleteEdgeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEdgeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteSignalingChannelCommand
+ */
+export const de_DeleteSignalingChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSignalingChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteStreamCommand
+ */
+export const de_DeleteStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEdgeConfigurationCommand
+ */
+export const de_DescribeEdgeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEdgeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeAgentStatus: (_) => de_EdgeAgentStatus(_, context),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeImageGenerationConfigurationCommand
+ */
+export const de_DescribeImageGenerationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ImageGenerationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeMappedResourceConfigurationCommand
+ */
+export const de_DescribeMappedResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MappedResourceConfigurationList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeMediaStorageConfigurationCommand
+ */
+export const de_DescribeMediaStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaStorageConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeNotificationConfigurationCommand
+ */
+export const de_DescribeNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NotificationConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeSignalingChannelCommand
+ */
+export const de_DescribeSignalingChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSignalingChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelInfo: (_) => de_ChannelInfo(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeStreamCommand
+ */
+export const de_DescribeStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    StreamInfo: (_) => de_StreamInfo(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDataEndpointCommand
+ */
+export const de_GetDataEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSignalingChannelEndpointCommand
+ */
+export const de_GetSignalingChannelEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSignalingChannelEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ResourceEndpointList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEdgeAgentConfigurationsCommand
+ */
+export const de_ListEdgeAgentConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEdgeAgentConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EdgeConfigs: (_) => de_ListEdgeAgentConfigurationsEdgeConfigList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSignalingChannelsCommand
+ */
+export const de_ListSignalingChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSignalingChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelInfoList: (_) => de_ChannelInfoList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListStreamsCommand
+ */
+export const de_ListStreamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    StreamInfoList: (_) => de_StreamInfoList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForStreamCommand
+ */
+export const de_ListTagsForStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartEdgeConfigurationUpdateCommand
+ */
+export const de_StartEdgeConfigurationUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEdgeConfigurationUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    EdgeConfig: _json,
+    FailedStatusDetails: __expectString,
+    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    StreamARN: __expectString,
+    StreamName: __expectString,
+    SyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagStreamCommand
+ */
+export const de_TagStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagStreamCommand
+ */
+export const de_UntagStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDataRetentionCommand
+ */
+export const de_UpdateDataRetentionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataRetentionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateImageGenerationConfigurationCommand
+ */
+export const de_UpdateImageGenerationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaStorageConfigurationCommand
+ */
+export const de_UpdateMediaStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateNotificationConfigurationCommand
+ */
+export const de_UpdateNotificationConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNotificationConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSignalingChannelCommand
+ */
+export const de_UpdateSignalingChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSignalingChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateStreamCommand
+ */
+export const de_UpdateStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -919,1672 +1492,33 @@ const de_CreateSignalingChannelCommandError = async (
     case "TagsPerResourceExceededLimitException":
     case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
       throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1CreateStreamCommand
- */
-export const de_CreateStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    StreamARN: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateStreamCommandError
- */
-const de_CreateStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AccountStreamLimitExceededException":
     case "com.amazonaws.kinesisvideo#AccountStreamLimitExceededException":
       throw await de_AccountStreamLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
     case "DeviceStreamLimitExceededException":
     case "com.amazonaws.kinesisvideo#DeviceStreamLimitExceededException":
       throw await de_DeviceStreamLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidDeviceException":
     case "com.amazonaws.kinesisvideo#InvalidDeviceException":
       throw await de_InvalidDeviceExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TagsPerResourceExceededLimitException":
-    case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteEdgeConfigurationCommand
- */
-export const de_DeleteEdgeConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEdgeConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEdgeConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEdgeConfigurationCommandError
- */
-const de_DeleteEdgeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEdgeConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "StreamEdgeConfigurationNotFoundException":
     case "com.amazonaws.kinesisvideo#StreamEdgeConfigurationNotFoundException":
       throw await de_StreamEdgeConfigurationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteSignalingChannelCommand
- */
-export const de_DeleteSignalingChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSignalingChannelCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSignalingChannelCommandError
- */
-const de_DeleteSignalingChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSignalingChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "VersionMismatchException":
     case "com.amazonaws.kinesisvideo#VersionMismatchException":
       throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteStreamCommand
- */
-export const de_DeleteStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteStreamCommandError
- */
-const de_DeleteStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideo#NotAuthorizedException":
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeEdgeConfigurationCommand
- */
-export const de_DescribeEdgeConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEdgeConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeEdgeConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    EdgeAgentStatus: (_) => de_EdgeAgentStatus(_, context),
-    EdgeConfig: _json,
-    FailedStatusDetails: __expectString,
-    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    StreamARN: __expectString,
-    StreamName: __expectString,
-    SyncStatus: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeEdgeConfigurationCommandError
- */
-const de_DescribeEdgeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEdgeConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "StreamEdgeConfigurationNotFoundException":
-    case "com.amazonaws.kinesisvideo#StreamEdgeConfigurationNotFoundException":
-      throw await de_StreamEdgeConfigurationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeImageGenerationConfigurationCommand
- */
-export const de_DescribeImageGenerationConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeImageGenerationConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ImageGenerationConfiguration: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeImageGenerationConfigurationCommandError
- */
-const de_DescribeImageGenerationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeMappedResourceConfigurationCommand
- */
-export const de_DescribeMappedResourceConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeMappedResourceConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    MappedResourceConfigurationList: _json,
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeMappedResourceConfigurationCommandError
- */
-const de_DescribeMappedResourceConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeMediaStorageConfigurationCommand
- */
-export const de_DescribeMediaStorageConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeMediaStorageConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    MediaStorageConfiguration: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeMediaStorageConfigurationCommandError
- */
-const de_DescribeMediaStorageConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeNotificationConfigurationCommand
- */
-export const de_DescribeNotificationConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotificationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeNotificationConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NotificationConfiguration: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeNotificationConfigurationCommandError
- */
-const de_DescribeNotificationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotificationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeSignalingChannelCommand
- */
-export const de_DescribeSignalingChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSignalingChannelCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelInfo: (_) => de_ChannelInfo(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeSignalingChannelCommandError
- */
-const de_DescribeSignalingChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSignalingChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeStreamCommand
- */
-export const de_DescribeStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    StreamInfo: (_) => de_StreamInfo(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeStreamCommandError
- */
-const de_DescribeStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetDataEndpointCommand
- */
-export const de_GetDataEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataEndpointCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    DataEndpoint: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDataEndpointCommandError
- */
-const de_GetDataEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetSignalingChannelEndpointCommand
- */
-export const de_GetSignalingChannelEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSignalingChannelEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSignalingChannelEndpointCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ResourceEndpointList: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetSignalingChannelEndpointCommandError
- */
-const de_GetSignalingChannelEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSignalingChannelEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListEdgeAgentConfigurationsCommand
- */
-export const de_ListEdgeAgentConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEdgeAgentConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEdgeAgentConfigurationsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    EdgeConfigs: (_) => de_ListEdgeAgentConfigurationsEdgeConfigList(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListEdgeAgentConfigurationsCommandError
- */
-const de_ListEdgeAgentConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEdgeAgentConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListSignalingChannelsCommand
- */
-export const de_ListSignalingChannelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSignalingChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSignalingChannelsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelInfoList: (_) => de_ChannelInfoList(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListSignalingChannelsCommandError
- */
-const de_ListSignalingChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSignalingChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListStreamsCommand
- */
-export const de_ListStreamsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListStreamsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    StreamInfoList: (_) => de_StreamInfoList(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListStreamsCommandError
- */
-const de_ListStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    Tags: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListTagsForStreamCommand
- */
-export const de_ListTagsForStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    NextToken: __expectString,
-    Tags: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTagsForStreamCommandError
- */
-const de_ListTagsForStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "InvalidResourceFormatException":
     case "com.amazonaws.kinesisvideo#InvalidResourceFormatException":
       throw await de_InvalidResourceFormatExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartEdgeConfigurationUpdateCommand
- */
-export const de_StartEdgeConfigurationUpdateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEdgeConfigurationUpdateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartEdgeConfigurationUpdateCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    EdgeConfig: _json,
-    FailedStatusDetails: __expectString,
-    LastUpdatedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    StreamARN: __expectString,
-    StreamName: __expectString,
-    SyncStatus: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartEdgeConfigurationUpdateCommandError
- */
-const de_StartEdgeConfigurationUpdateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEdgeConfigurationUpdateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "NoDataRetentionException":
     case "com.amazonaws.kinesisvideo#NoDataRetentionException":
       throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagsPerResourceExceededLimitException":
-    case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1TagStreamCommand
- */
-export const de_TagStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1TagStreamCommandError
- */
-const de_TagStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidResourceFormatException":
-    case "com.amazonaws.kinesisvideo#InvalidResourceFormatException":
-      throw await de_InvalidResourceFormatExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagsPerResourceExceededLimitException":
-    case "com.amazonaws.kinesisvideo#TagsPerResourceExceededLimitException":
-      throw await de_TagsPerResourceExceededLimitExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UntagStreamCommand
- */
-export const de_UntagStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagStreamCommandError
- */
-const de_UntagStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidResourceFormatException":
-    case "com.amazonaws.kinesisvideo#InvalidResourceFormatException":
-      throw await de_InvalidResourceFormatExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateDataRetentionCommand
- */
-export const de_UpdateDataRetentionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataRetentionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataRetentionCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDataRetentionCommandError
- */
-const de_UpdateDataRetentionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataRetentionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateImageGenerationConfigurationCommand
- */
-export const de_UpdateImageGenerationConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateImageGenerationConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateImageGenerationConfigurationCommandError
- */
-const de_UpdateImageGenerationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImageGenerationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NoDataRetentionException":
-    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
-      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaStorageConfigurationCommand
- */
-export const de_UpdateMediaStorageConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMediaStorageConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaStorageConfigurationCommandError
- */
-const de_UpdateMediaStorageConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NoDataRetentionException":
-    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
-      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateNotificationConfigurationCommand
- */
-export const de_UpdateNotificationConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotificationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateNotificationConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateNotificationConfigurationCommandError
- */
-const de_UpdateNotificationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotificationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NoDataRetentionException":
-    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
-      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateSignalingChannelCommand
- */
-export const de_UpdateSignalingChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSignalingChannelCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateSignalingChannelCommandError
- */
-const de_UpdateSignalingChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSignalingChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesisvideo#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateStreamCommand
- */
-export const de_UpdateStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateStreamCommandError
- */
-const de_UpdateStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideo#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesisvideo#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.kinesisvideo#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

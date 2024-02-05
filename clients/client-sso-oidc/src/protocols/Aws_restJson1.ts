@@ -163,7 +163,7 @@ export const de_CreateTokenCommand = async (
   context: __SerdeContext
 ): Promise<CreateTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -181,62 +181,6 @@ export const de_CreateTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTokenCommandError
- */
-const de_CreateTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssooidc#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AuthorizationPendingException":
-    case "com.amazonaws.ssooidc#AuthorizationPendingException":
-      throw await de_AuthorizationPendingExceptionRes(parsedOutput, context);
-    case "ExpiredTokenException":
-    case "com.amazonaws.ssooidc#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssooidc#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidClientException":
-    case "com.amazonaws.ssooidc#InvalidClientException":
-      throw await de_InvalidClientExceptionRes(parsedOutput, context);
-    case "InvalidGrantException":
-    case "com.amazonaws.ssooidc#InvalidGrantException":
-      throw await de_InvalidGrantExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ssooidc#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidScopeException":
-    case "com.amazonaws.ssooidc#InvalidScopeException":
-      throw await de_InvalidScopeExceptionRes(parsedOutput, context);
-    case "SlowDownException":
-    case "com.amazonaws.ssooidc#SlowDownException":
-      throw await de_SlowDownExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.ssooidc#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    case "UnsupportedGrantTypeException":
-    case "com.amazonaws.ssooidc#UnsupportedGrantTypeException":
-      throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTokenWithIAMCommand
  */
 export const de_CreateTokenWithIAMCommand = async (
@@ -244,7 +188,7 @@ export const de_CreateTokenWithIAMCommand = async (
   context: __SerdeContext
 ): Promise<CreateTokenWithIAMCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTokenWithIAMCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -264,12 +208,61 @@ export const de_CreateTokenWithIAMCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTokenWithIAMCommandError
+ * deserializeAws_restJson1RegisterClientCommand
  */
-const de_CreateTokenWithIAMCommandError = async (
+export const de_RegisterClientCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTokenWithIAMCommandOutput> => {
+): Promise<RegisterClientCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    authorizationEndpoint: __expectString,
+    clientId: __expectString,
+    clientIdIssuedAt: __expectLong,
+    clientSecret: __expectString,
+    clientSecretExpiresAt: __expectLong,
+    tokenEndpoint: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartDeviceAuthorizationCommand
+ */
+export const de_StartDeviceAuthorizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDeviceAuthorizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    deviceCode: __expectString,
+    expiresIn: __expectInt32,
+    interval: __expectInt32,
+    userCode: __expectString,
+    verificationUri: __expectString,
+    verificationUriComplete: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -297,9 +290,6 @@ const de_CreateTokenWithIAMCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.ssooidc#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidRequestRegionException":
-    case "com.amazonaws.ssooidc#InvalidRequestRegionException":
-      throw await de_InvalidRequestRegionExceptionRes(parsedOutput, context);
     case "InvalidScopeException":
     case "com.amazonaws.ssooidc#InvalidScopeException":
       throw await de_InvalidScopeExceptionRes(parsedOutput, context);
@@ -312,131 +302,12 @@ const de_CreateTokenWithIAMCommandError = async (
     case "UnsupportedGrantTypeException":
     case "com.amazonaws.ssooidc#UnsupportedGrantTypeException":
       throw await de_UnsupportedGrantTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1RegisterClientCommand
- */
-export const de_RegisterClientCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterClientCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterClientCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    authorizationEndpoint: __expectString,
-    clientId: __expectString,
-    clientIdIssuedAt: __expectLong,
-    clientSecret: __expectString,
-    clientSecretExpiresAt: __expectLong,
-    tokenEndpoint: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1RegisterClientCommandError
- */
-const de_RegisterClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssooidc#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestRegionException":
+    case "com.amazonaws.ssooidc#InvalidRequestRegionException":
+      throw await de_InvalidRequestRegionExceptionRes(parsedOutput, context);
     case "InvalidClientMetadataException":
     case "com.amazonaws.ssooidc#InvalidClientMetadataException":
       throw await de_InvalidClientMetadataExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ssooidc#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidScopeException":
-    case "com.amazonaws.ssooidc#InvalidScopeException":
-      throw await de_InvalidScopeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartDeviceAuthorizationCommand
- */
-export const de_StartDeviceAuthorizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDeviceAuthorizationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDeviceAuthorizationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    deviceCode: __expectString,
-    expiresIn: __expectInt32,
-    interval: __expectInt32,
-    userCode: __expectString,
-    verificationUri: __expectString,
-    verificationUriComplete: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartDeviceAuthorizationCommandError
- */
-const de_StartDeviceAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDeviceAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ssooidc#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidClientException":
-    case "com.amazonaws.ssooidc#InvalidClientException":
-      throw await de_InvalidClientExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ssooidc#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "SlowDownException":
-    case "com.amazonaws.ssooidc#SlowDownException":
-      throw await de_SlowDownExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.ssooidc#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

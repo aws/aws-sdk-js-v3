@@ -114,7 +114,7 @@ export const de_BatchMeterUsageCommand = async (
   context: __SerdeContext
 ): Promise<BatchMeterUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchMeterUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -127,12 +127,69 @@ export const de_BatchMeterUsageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchMeterUsageCommandError
+ * deserializeAws_json1_1MeterUsageCommand
  */
-const de_BatchMeterUsageCommandError = async (
+export const de_MeterUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchMeterUsageCommandOutput> => {
+): Promise<MeterUsageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: MeterUsageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterUsageCommand
+ */
+export const de_RegisterUsageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterUsageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterUsageResult(data, context);
+  const response: RegisterUsageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResolveCustomerCommand
+ */
+export const de_ResolveCustomerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResolveCustomerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ResolveCustomerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -166,134 +223,15 @@ const de_BatchMeterUsageCommandError = async (
     case "TimestampOutOfBoundsException":
     case "com.amazonaws.marketplacemetering#TimestampOutOfBoundsException":
       throw await de_TimestampOutOfBoundsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1MeterUsageCommand
- */
-export const de_MeterUsageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MeterUsageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_MeterUsageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: MeterUsageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1MeterUsageCommandError
- */
-const de_MeterUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MeterUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplacemetering#CustomerNotEntitledException":
       throw await de_CustomerNotEntitledExceptionRes(parsedOutput, context);
     case "DuplicateRequestException":
     case "com.amazonaws.marketplacemetering#DuplicateRequestException":
       throw await de_DuplicateRequestExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidEndpointRegionException":
     case "com.amazonaws.marketplacemetering#InvalidEndpointRegionException":
       throw await de_InvalidEndpointRegionExceptionRes(parsedOutput, context);
-    case "InvalidProductCodeException":
-    case "com.amazonaws.marketplacemetering#InvalidProductCodeException":
-      throw await de_InvalidProductCodeExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.marketplacemetering#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "InvalidUsageAllocationsException":
-    case "com.amazonaws.marketplacemetering#InvalidUsageAllocationsException":
-      throw await de_InvalidUsageAllocationsExceptionRes(parsedOutput, context);
-    case "InvalidUsageDimensionException":
-    case "com.amazonaws.marketplacemetering#InvalidUsageDimensionException":
-      throw await de_InvalidUsageDimensionExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.marketplacemetering#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TimestampOutOfBoundsException":
-    case "com.amazonaws.marketplacemetering#TimestampOutOfBoundsException":
-      throw await de_TimestampOutOfBoundsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterUsageCommand
- */
-export const de_RegisterUsageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterUsageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterUsageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RegisterUsageResult(data, context);
-  const response: RegisterUsageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterUsageCommandError
- */
-const de_RegisterUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomerNotEntitledException":
-    case "com.amazonaws.marketplacemetering#CustomerNotEntitledException":
-      throw await de_CustomerNotEntitledExceptionRes(parsedOutput, context);
-    case "DisabledApiException":
-    case "com.amazonaws.marketplacemetering#DisabledApiException":
-      throw await de_DisabledApiExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidProductCodeException":
-    case "com.amazonaws.marketplacemetering#InvalidProductCodeException":
-      throw await de_InvalidProductCodeExceptionRes(parsedOutput, context);
     case "InvalidPublicKeyVersionException":
     case "com.amazonaws.marketplacemetering#InvalidPublicKeyVersionException":
       throw await de_InvalidPublicKeyVersionExceptionRes(parsedOutput, context);
@@ -303,67 +241,12 @@ const de_RegisterUsageCommandError = async (
     case "PlatformNotSupportedException":
     case "com.amazonaws.marketplacemetering#PlatformNotSupportedException":
       throw await de_PlatformNotSupportedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.marketplacemetering#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResolveCustomerCommand
- */
-export const de_ResolveCustomerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResolveCustomerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResolveCustomerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ResolveCustomerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResolveCustomerCommandError
- */
-const de_ResolveCustomerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResolveCustomerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledApiException":
-    case "com.amazonaws.marketplacemetering#DisabledApiException":
-      throw await de_DisabledApiExceptionRes(parsedOutput, context);
     case "ExpiredTokenException":
     case "com.amazonaws.marketplacemetering#ExpiredTokenException":
       throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.marketplacemetering#InvalidTokenException":
       throw await de_InvalidTokenExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.marketplacemetering#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

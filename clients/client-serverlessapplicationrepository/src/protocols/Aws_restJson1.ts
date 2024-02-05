@@ -410,7 +410,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -436,44 +436,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateApplicationVersionCommand
  */
 export const de_CreateApplicationVersionCommand = async (
@@ -481,7 +443,7 @@ export const de_CreateApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -503,44 +465,6 @@ export const de_CreateApplicationVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApplicationVersionCommandError
- */
-const de_CreateApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCloudFormationChangeSetCommand
  */
 export const de_CreateCloudFormationChangeSetCommand = async (
@@ -548,7 +472,7 @@ export const de_CreateCloudFormationChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateCloudFormationChangeSetCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateCloudFormationChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -565,41 +489,6 @@ export const de_CreateCloudFormationChangeSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCloudFormationChangeSetCommandError
- */
-const de_CreateCloudFormationChangeSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCloudFormationChangeSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCloudFormationTemplateCommand
  */
 export const de_CreateCloudFormationTemplateCommand = async (
@@ -607,7 +496,7 @@ export const de_CreateCloudFormationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateCloudFormationTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateCloudFormationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -627,44 +516,6 @@ export const de_CreateCloudFormationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCloudFormationTemplateCommandError
- */
-const de_CreateCloudFormationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCloudFormationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -672,54 +523,13 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.serverlessapplicationrepository#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -730,7 +540,7 @@ export const de_GetApplicationCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -756,44 +566,6 @@ export const de_GetApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationCommandError
- */
-const de_GetApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApplicationPolicyCommand
  */
 export const de_GetApplicationPolicyCommand = async (
@@ -801,7 +573,7 @@ export const de_GetApplicationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -815,44 +587,6 @@ export const de_GetApplicationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationPolicyCommandError
- */
-const de_GetApplicationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCloudFormationTemplateCommand
  */
 export const de_GetCloudFormationTemplateCommand = async (
@@ -860,7 +594,7 @@ export const de_GetCloudFormationTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetCloudFormationTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCloudFormationTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -880,44 +614,6 @@ export const de_GetCloudFormationTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCloudFormationTemplateCommandError
- */
-const de_GetCloudFormationTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCloudFormationTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationDependenciesCommand
  */
 export const de_ListApplicationDependenciesCommand = async (
@@ -925,7 +621,7 @@ export const de_ListApplicationDependenciesCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationDependenciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationDependenciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -940,44 +636,6 @@ export const de_ListApplicationDependenciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationDependenciesCommandError
- */
-const de_ListApplicationDependenciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationDependenciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationsCommand
  */
 export const de_ListApplicationsCommand = async (
@@ -985,7 +643,7 @@ export const de_ListApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1000,41 +658,6 @@ export const de_ListApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationVersionsCommand
  */
 export const de_ListApplicationVersionsCommand = async (
@@ -1042,7 +665,7 @@ export const de_ListApplicationVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1057,44 +680,6 @@ export const de_ListApplicationVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationVersionsCommandError
- */
-const de_ListApplicationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutApplicationPolicyCommand
  */
 export const de_PutApplicationPolicyCommand = async (
@@ -1102,7 +687,7 @@ export const de_PutApplicationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutApplicationPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutApplicationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1116,44 +701,6 @@ export const de_PutApplicationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutApplicationPolicyCommandError
- */
-const de_PutApplicationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutApplicationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UnshareApplicationCommand
  */
 export const de_UnshareApplicationCommand = async (
@@ -1161,51 +708,13 @@ export const de_UnshareApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UnshareApplicationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UnshareApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UnshareApplicationCommandError
- */
-const de_UnshareApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnshareApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.serverlessapplicationrepository#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1216,7 +725,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1242,12 +751,9 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApplicationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1266,12 +772,12 @@ const de_UpdateApplicationCommandError = async (
     case "InternalServerErrorException":
     case "com.amazonaws.serverlessapplicationrepository#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.serverlessapplicationrepository#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.serverlessapplicationrepository#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

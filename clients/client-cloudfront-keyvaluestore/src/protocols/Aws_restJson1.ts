@@ -169,7 +169,7 @@ export const de_DeleteKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -185,47 +185,6 @@ export const de_DeleteKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteKeyCommandError
- */
-const de_DeleteKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeKeyValueStoreCommand
  */
 export const de_DescribeKeyValueStoreCommand = async (
@@ -233,7 +192,7 @@ export const de_DescribeKeyValueStoreCommand = async (
   context: __SerdeContext
 ): Promise<DescribeKeyValueStoreCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeKeyValueStoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -254,41 +213,6 @@ export const de_DescribeKeyValueStoreCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeKeyValueStoreCommandError
- */
-const de_DescribeKeyValueStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeKeyValueStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetKeyCommand
  */
 export const de_GetKeyCommand = async (
@@ -296,7 +220,7 @@ export const de_GetKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -313,38 +237,6 @@ export const de_GetKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetKeyCommandError
- */
-const de_GetKeyCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListKeysCommand
  */
 export const de_ListKeysCommand = async (
@@ -352,7 +244,7 @@ export const de_ListKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -367,44 +259,6 @@ export const de_ListKeysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListKeysCommandError
- */
-const de_ListKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutKeyCommand
  */
 export const de_PutKeyCommand = async (
@@ -412,7 +266,7 @@ export const de_PutKeyCommand = async (
   context: __SerdeContext
 ): Promise<PutKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -425,44 +279,6 @@ export const de_PutKeyCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutKeyCommandError
- */
-const de_PutKeyCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<PutKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudfrontkeyvaluestore#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -473,7 +289,7 @@ export const de_UpdateKeysCommand = async (
   context: __SerdeContext
 ): Promise<UpdateKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -489,12 +305,9 @@ export const de_UpdateKeysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateKeysCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateKeysCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

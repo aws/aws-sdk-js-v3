@@ -181,7 +181,7 @@ export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartCallAnalyticsStreamTranscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -206,44 +206,6 @@ export const de_StartCallAnalyticsStreamTranscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommandError
- */
-const de_StartCallAnalyticsStreamTranscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribestreaming#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribestreaming#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribestreaming#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribestreaming#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transcribestreaming#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartMedicalStreamTranscriptionCommand
  */
 export const de_StartMedicalStreamTranscriptionCommand = async (
@@ -251,7 +213,7 @@ export const de_StartMedicalStreamTranscriptionCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartMedicalStreamTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartMedicalStreamTranscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -274,44 +236,6 @@ export const de_StartMedicalStreamTranscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartMedicalStreamTranscriptionCommandError
- */
-const de_StartMedicalStreamTranscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMedicalStreamTranscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.transcribestreaming#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.transcribestreaming#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.transcribestreaming#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.transcribestreaming#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.transcribestreaming#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartStreamTranscriptionCommand
  */
 export const de_StartStreamTranscriptionCommand = async (
@@ -319,7 +243,7 @@ export const de_StartStreamTranscriptionCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartStreamTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartStreamTranscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -353,12 +277,9 @@ export const de_StartStreamTranscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartStreamTranscriptionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_StartStreamTranscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartStreamTranscriptionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

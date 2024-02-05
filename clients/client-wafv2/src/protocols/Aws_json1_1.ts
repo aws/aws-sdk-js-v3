@@ -1047,7 +1047,7 @@ export const de_AssociateWebACLCommand = async (
   context: __SerdeContext
 ): Promise<AssociateWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1060,44 +1060,6 @@ export const de_AssociateWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateWebACLCommandError
- */
-const de_AssociateWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateWebACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CheckCapacityCommand
  */
 export const de_CheckCapacityCommand = async (
@@ -1105,7 +1067,7 @@ export const de_CheckCapacityCommand = async (
   context: __SerdeContext
 ): Promise<CheckCapacityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CheckCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1118,56 +1080,6 @@ export const de_CheckCapacityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CheckCapacityCommandError
- */
-const de_CheckCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CheckCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFExpiredManagedRuleGroupVersionException":
-    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
-      throw await de_WAFExpiredManagedRuleGroupVersionExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFInvalidResourceException":
-    case "com.amazonaws.wafv2#WAFInvalidResourceException":
-      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFSubscriptionNotFoundException":
-    case "com.amazonaws.wafv2#WAFSubscriptionNotFoundException":
-      throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAPIKeyCommand
  */
 export const de_CreateAPIKeyCommand = async (
@@ -1175,7 +1087,7 @@ export const de_CreateAPIKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateAPIKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAPIKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1188,41 +1100,6 @@ export const de_CreateAPIKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAPIKeyCommandError
- */
-const de_CreateAPIKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAPIKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateIPSetCommand
  */
 export const de_CreateIPSetCommand = async (
@@ -1230,7 +1107,7 @@ export const de_CreateIPSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateIPSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIPSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1243,53 +1120,6 @@ export const de_CreateIPSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateIPSetCommandError
- */
-const de_CreateIPSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIPSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRegexPatternSetCommand
  */
 export const de_CreateRegexPatternSetCommand = async (
@@ -1297,7 +1127,7 @@ export const de_CreateRegexPatternSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRegexPatternSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1310,53 +1140,6 @@ export const de_CreateRegexPatternSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRegexPatternSetCommandError
- */
-const de_CreateRegexPatternSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRegexPatternSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRuleGroupCommand
  */
 export const de_CreateRuleGroupCommand = async (
@@ -1364,7 +1147,7 @@ export const de_CreateRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1377,62 +1160,6 @@ export const de_CreateRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRuleGroupCommandError
- */
-const de_CreateRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFSubscriptionNotFoundException":
-    case "com.amazonaws.wafv2#WAFSubscriptionNotFoundException":
-      throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWebACLCommand
  */
 export const de_CreateWebACLCommand = async (
@@ -1440,7 +1167,7 @@ export const de_CreateWebACLCommand = async (
   context: __SerdeContext
 ): Promise<CreateWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1453,71 +1180,6 @@ export const de_CreateWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWebACLCommandError
- */
-const de_CreateWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWebACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFConfigurationWarningException":
-    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
-      throw await de_WAFConfigurationWarningExceptionRes(parsedOutput, context);
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFExpiredManagedRuleGroupVersionException":
-    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
-      throw await de_WAFExpiredManagedRuleGroupVersionExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFInvalidResourceException":
-    case "com.amazonaws.wafv2#WAFInvalidResourceException":
-      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFSubscriptionNotFoundException":
-    case "com.amazonaws.wafv2#WAFSubscriptionNotFoundException":
-      throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommand
  */
 export const de_DeleteFirewallManagerRuleGroupsCommand = async (
@@ -1525,7 +1187,7 @@ export const de_DeleteFirewallManagerRuleGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFirewallManagerRuleGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFirewallManagerRuleGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1538,44 +1200,6 @@ export const de_DeleteFirewallManagerRuleGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommandError
- */
-const de_DeleteFirewallManagerRuleGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFirewallManagerRuleGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteIPSetCommand
  */
 export const de_DeleteIPSetCommand = async (
@@ -1583,7 +1207,7 @@ export const de_DeleteIPSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIPSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIPSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1596,53 +1220,6 @@ export const de_DeleteIPSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteIPSetCommandError
- */
-const de_DeleteIPSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIPSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFAssociatedItemException":
-    case "com.amazonaws.wafv2#WAFAssociatedItemException":
-      throw await de_WAFAssociatedItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLoggingConfigurationCommand
  */
 export const de_DeleteLoggingConfigurationCommand = async (
@@ -1650,7 +1227,7 @@ export const de_DeleteLoggingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoggingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1663,44 +1240,6 @@ export const de_DeleteLoggingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLoggingConfigurationCommandError
- */
-const de_DeleteLoggingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoggingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePermissionPolicyCommand
  */
 export const de_DeletePermissionPolicyCommand = async (
@@ -1708,7 +1247,7 @@ export const de_DeletePermissionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeletePermissionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePermissionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1721,38 +1260,6 @@ export const de_DeletePermissionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePermissionPolicyCommandError
- */
-const de_DeletePermissionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePermissionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRegexPatternSetCommand
  */
 export const de_DeleteRegexPatternSetCommand = async (
@@ -1760,7 +1267,7 @@ export const de_DeleteRegexPatternSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRegexPatternSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1773,53 +1280,6 @@ export const de_DeleteRegexPatternSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRegexPatternSetCommandError
- */
-const de_DeleteRegexPatternSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRegexPatternSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFAssociatedItemException":
-    case "com.amazonaws.wafv2#WAFAssociatedItemException":
-      throw await de_WAFAssociatedItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRuleGroupCommand
  */
 export const de_DeleteRuleGroupCommand = async (
@@ -1827,7 +1287,7 @@ export const de_DeleteRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1840,53 +1300,6 @@ export const de_DeleteRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRuleGroupCommandError
- */
-const de_DeleteRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFAssociatedItemException":
-    case "com.amazonaws.wafv2#WAFAssociatedItemException":
-      throw await de_WAFAssociatedItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWebACLCommand
  */
 export const de_DeleteWebACLCommand = async (
@@ -1894,7 +1307,7 @@ export const de_DeleteWebACLCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1907,53 +1320,6 @@ export const de_DeleteWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWebACLCommandError
- */
-const de_DeleteWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWebACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFAssociatedItemException":
-    case "com.amazonaws.wafv2#WAFAssociatedItemException":
-      throw await de_WAFAssociatedItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAllManagedProductsCommand
  */
 export const de_DescribeAllManagedProductsCommand = async (
@@ -1961,7 +1327,7 @@ export const de_DescribeAllManagedProductsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAllManagedProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAllManagedProductsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1974,35 +1340,6 @@ export const de_DescribeAllManagedProductsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAllManagedProductsCommandError
- */
-const de_DescribeAllManagedProductsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAllManagedProductsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeManagedProductsByVendorCommand
  */
 export const de_DescribeManagedProductsByVendorCommand = async (
@@ -2010,7 +1347,7 @@ export const de_DescribeManagedProductsByVendorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeManagedProductsByVendorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeManagedProductsByVendorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2023,38 +1360,6 @@ export const de_DescribeManagedProductsByVendorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeManagedProductsByVendorCommandError
- */
-const de_DescribeManagedProductsByVendorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeManagedProductsByVendorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeManagedRuleGroupCommand
  */
 export const de_DescribeManagedRuleGroupCommand = async (
@@ -2062,7 +1367,7 @@ export const de_DescribeManagedRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeManagedRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeManagedRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2075,47 +1380,6 @@ export const de_DescribeManagedRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeManagedRuleGroupCommandError
- */
-const de_DescribeManagedRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeManagedRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFExpiredManagedRuleGroupVersionException":
-    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
-      throw await de_WAFExpiredManagedRuleGroupVersionExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFInvalidResourceException":
-    case "com.amazonaws.wafv2#WAFInvalidResourceException":
-      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateWebACLCommand
  */
 export const de_DisassociateWebACLCommand = async (
@@ -2123,7 +1387,7 @@ export const de_DisassociateWebACLCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2136,41 +1400,6 @@ export const de_DisassociateWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateWebACLCommandError
- */
-const de_DisassociateWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateWebACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommand
  */
 export const de_GenerateMobileSdkReleaseUrlCommand = async (
@@ -2178,7 +1407,7 @@ export const de_GenerateMobileSdkReleaseUrlCommand = async (
   context: __SerdeContext
 ): Promise<GenerateMobileSdkReleaseUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateMobileSdkReleaseUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2191,41 +1420,6 @@ export const de_GenerateMobileSdkReleaseUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommandError
- */
-const de_GenerateMobileSdkReleaseUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateMobileSdkReleaseUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDecryptedAPIKeyCommand
  */
 export const de_GetDecryptedAPIKeyCommand = async (
@@ -2233,7 +1427,7 @@ export const de_GetDecryptedAPIKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetDecryptedAPIKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDecryptedAPIKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2246,41 +1440,6 @@ export const de_GetDecryptedAPIKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDecryptedAPIKeyCommandError
- */
-const de_GetDecryptedAPIKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDecryptedAPIKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFInvalidResourceException":
-    case "com.amazonaws.wafv2#WAFInvalidResourceException":
-      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetIPSetCommand
  */
 export const de_GetIPSetCommand = async (
@@ -2288,7 +1447,7 @@ export const de_GetIPSetCommand = async (
   context: __SerdeContext
 ): Promise<GetIPSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIPSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2301,41 +1460,6 @@ export const de_GetIPSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetIPSetCommandError
- */
-const de_GetIPSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIPSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLoggingConfigurationCommand
  */
 export const de_GetLoggingConfigurationCommand = async (
@@ -2343,7 +1467,7 @@ export const de_GetLoggingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoggingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2356,41 +1480,6 @@ export const de_GetLoggingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLoggingConfigurationCommandError
- */
-const de_GetLoggingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoggingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetManagedRuleSetCommand
  */
 export const de_GetManagedRuleSetCommand = async (
@@ -2398,7 +1487,7 @@ export const de_GetManagedRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<GetManagedRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetManagedRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2411,41 +1500,6 @@ export const de_GetManagedRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetManagedRuleSetCommandError
- */
-const de_GetManagedRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetManagedRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMobileSdkReleaseCommand
  */
 export const de_GetMobileSdkReleaseCommand = async (
@@ -2453,7 +1507,7 @@ export const de_GetMobileSdkReleaseCommand = async (
   context: __SerdeContext
 ): Promise<GetMobileSdkReleaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMobileSdkReleaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2466,41 +1520,6 @@ export const de_GetMobileSdkReleaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMobileSdkReleaseCommandError
- */
-const de_GetMobileSdkReleaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMobileSdkReleaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPermissionPolicyCommand
  */
 export const de_GetPermissionPolicyCommand = async (
@@ -2508,7 +1527,7 @@ export const de_GetPermissionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetPermissionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPermissionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2521,38 +1540,6 @@ export const de_GetPermissionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPermissionPolicyCommandError
- */
-const de_GetPermissionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPermissionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand
  */
 export const de_GetRateBasedStatementManagedKeysCommand = async (
@@ -2560,7 +1547,7 @@ export const de_GetRateBasedStatementManagedKeysCommand = async (
   context: __SerdeContext
 ): Promise<GetRateBasedStatementManagedKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRateBasedStatementManagedKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2573,44 +1560,6 @@ export const de_GetRateBasedStatementManagedKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError
- */
-const de_GetRateBasedStatementManagedKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRateBasedStatementManagedKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFUnsupportedAggregateKeyTypeException":
-    case "com.amazonaws.wafv2#WAFUnsupportedAggregateKeyTypeException":
-      throw await de_WAFUnsupportedAggregateKeyTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRegexPatternSetCommand
  */
 export const de_GetRegexPatternSetCommand = async (
@@ -2618,7 +1567,7 @@ export const de_GetRegexPatternSetCommand = async (
   context: __SerdeContext
 ): Promise<GetRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegexPatternSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2631,41 +1580,6 @@ export const de_GetRegexPatternSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRegexPatternSetCommandError
- */
-const de_GetRegexPatternSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegexPatternSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRuleGroupCommand
  */
 export const de_GetRuleGroupCommand = async (
@@ -2673,7 +1587,7 @@ export const de_GetRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2686,41 +1600,6 @@ export const de_GetRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRuleGroupCommandError
- */
-const de_GetRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSampledRequestsCommand
  */
 export const de_GetSampledRequestsCommand = async (
@@ -2728,7 +1607,7 @@ export const de_GetSampledRequestsCommand = async (
   context: __SerdeContext
 ): Promise<GetSampledRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSampledRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2741,38 +1620,6 @@ export const de_GetSampledRequestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSampledRequestsCommandError
- */
-const de_GetSampledRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSampledRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWebACLCommand
  */
 export const de_GetWebACLCommand = async (
@@ -2780,7 +1627,7 @@ export const de_GetWebACLCommand = async (
   context: __SerdeContext
 ): Promise<GetWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2793,41 +1640,6 @@ export const de_GetWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWebACLCommandError
- */
-const de_GetWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWebACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWebACLForResourceCommand
  */
 export const de_GetWebACLForResourceCommand = async (
@@ -2835,7 +1647,7 @@ export const de_GetWebACLForResourceCommand = async (
   context: __SerdeContext
 ): Promise<GetWebACLForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWebACLForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2848,44 +1660,6 @@ export const de_GetWebACLForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWebACLForResourceCommandError
- */
-const de_GetWebACLForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWebACLForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAPIKeysCommand
  */
 export const de_ListAPIKeysCommand = async (
@@ -2893,7 +1667,7 @@ export const de_ListAPIKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListAPIKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAPIKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2906,41 +1680,6 @@ export const de_ListAPIKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAPIKeysCommandError
- */
-const de_ListAPIKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAPIKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFInvalidResourceException":
-    case "com.amazonaws.wafv2#WAFInvalidResourceException":
-      throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailableManagedRuleGroupsCommand
  */
 export const de_ListAvailableManagedRuleGroupsCommand = async (
@@ -2948,7 +1687,7 @@ export const de_ListAvailableManagedRuleGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableManagedRuleGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableManagedRuleGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2961,38 +1700,6 @@ export const de_ListAvailableManagedRuleGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError
- */
-const de_ListAvailableManagedRuleGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableManagedRuleGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand
  */
 export const de_ListAvailableManagedRuleGroupVersionsCommand = async (
@@ -3000,7 +1707,7 @@ export const de_ListAvailableManagedRuleGroupVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableManagedRuleGroupVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3013,41 +1720,6 @@ export const de_ListAvailableManagedRuleGroupVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommandError
- */
-const de_ListAvailableManagedRuleGroupVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableManagedRuleGroupVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListIPSetsCommand
  */
 export const de_ListIPSetsCommand = async (
@@ -3055,7 +1727,7 @@ export const de_ListIPSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListIPSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListIPSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3068,38 +1740,6 @@ export const de_ListIPSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListIPSetsCommandError
- */
-const de_ListIPSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIPSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLoggingConfigurationsCommand
  */
 export const de_ListLoggingConfigurationsCommand = async (
@@ -3107,7 +1747,7 @@ export const de_ListLoggingConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListLoggingConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLoggingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3120,38 +1760,6 @@ export const de_ListLoggingConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLoggingConfigurationsCommandError
- */
-const de_ListLoggingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLoggingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListManagedRuleSetsCommand
  */
 export const de_ListManagedRuleSetsCommand = async (
@@ -3159,7 +1767,7 @@ export const de_ListManagedRuleSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListManagedRuleSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListManagedRuleSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3172,38 +1780,6 @@ export const de_ListManagedRuleSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListManagedRuleSetsCommandError
- */
-const de_ListManagedRuleSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListManagedRuleSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMobileSdkReleasesCommand
  */
 export const de_ListMobileSdkReleasesCommand = async (
@@ -3211,7 +1787,7 @@ export const de_ListMobileSdkReleasesCommand = async (
   context: __SerdeContext
 ): Promise<ListMobileSdkReleasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMobileSdkReleasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3224,38 +1800,6 @@ export const de_ListMobileSdkReleasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMobileSdkReleasesCommandError
- */
-const de_ListMobileSdkReleasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMobileSdkReleasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRegexPatternSetsCommand
  */
 export const de_ListRegexPatternSetsCommand = async (
@@ -3263,7 +1807,7 @@ export const de_ListRegexPatternSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListRegexPatternSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRegexPatternSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3276,38 +1820,6 @@ export const de_ListRegexPatternSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRegexPatternSetsCommandError
- */
-const de_ListRegexPatternSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRegexPatternSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourcesForWebACLCommand
  */
 export const de_ListResourcesForWebACLCommand = async (
@@ -3315,7 +1827,7 @@ export const de_ListResourcesForWebACLCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcesForWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourcesForWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3328,41 +1840,6 @@ export const de_ListResourcesForWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourcesForWebACLCommandError
- */
-const de_ListResourcesForWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesForWebACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRuleGroupsCommand
  */
 export const de_ListRuleGroupsCommand = async (
@@ -3370,7 +1847,7 @@ export const de_ListRuleGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListRuleGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRuleGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3383,38 +1860,6 @@ export const de_ListRuleGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRuleGroupsCommandError
- */
-const de_ListRuleGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRuleGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3422,7 +1867,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3435,47 +1880,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWebACLsCommand
  */
 export const de_ListWebACLsCommand = async (
@@ -3483,7 +1887,7 @@ export const de_ListWebACLsCommand = async (
   context: __SerdeContext
 ): Promise<ListWebACLsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWebACLsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3496,38 +1900,6 @@ export const de_ListWebACLsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWebACLsCommandError
- */
-const de_ListWebACLsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWebACLsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutLoggingConfigurationCommand
  */
 export const de_PutLoggingConfigurationCommand = async (
@@ -3535,7 +1907,7 @@ export const de_PutLoggingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutLoggingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutLoggingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3548,53 +1920,6 @@ export const de_PutLoggingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutLoggingConfigurationCommandError
- */
-const de_PutLoggingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLoggingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFLogDestinationPermissionIssueException":
-    case "com.amazonaws.wafv2#WAFLogDestinationPermissionIssueException":
-      throw await de_WAFLogDestinationPermissionIssueExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFServiceLinkedRoleErrorException":
-    case "com.amazonaws.wafv2#WAFServiceLinkedRoleErrorException":
-      throw await de_WAFServiceLinkedRoleErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutManagedRuleSetVersionsCommand
  */
 export const de_PutManagedRuleSetVersionsCommand = async (
@@ -3602,7 +1927,7 @@ export const de_PutManagedRuleSetVersionsCommand = async (
   context: __SerdeContext
 ): Promise<PutManagedRuleSetVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutManagedRuleSetVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3615,44 +1940,6 @@ export const de_PutManagedRuleSetVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutManagedRuleSetVersionsCommandError
- */
-const de_PutManagedRuleSetVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutManagedRuleSetVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutPermissionPolicyCommand
  */
 export const de_PutPermissionPolicyCommand = async (
@@ -3660,7 +1947,7 @@ export const de_PutPermissionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutPermissionPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutPermissionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3673,41 +1960,6 @@ export const de_PutPermissionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutPermissionPolicyCommandError
- */
-const de_PutPermissionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPermissionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFInvalidPermissionPolicyException":
-    case "com.amazonaws.wafv2#WAFInvalidPermissionPolicyException":
-      throw await de_WAFInvalidPermissionPolicyExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3715,7 +1967,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3728,50 +1980,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -3779,7 +1987,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3792,47 +2000,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFTagOperationException":
-    case "com.amazonaws.wafv2#WAFTagOperationException":
-      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
-    case "WAFTagOperationInternalErrorException":
-    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
-      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateIPSetCommand
  */
 export const de_UpdateIPSetCommand = async (
@@ -3840,7 +2007,7 @@ export const de_UpdateIPSetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIPSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateIPSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3853,50 +2020,6 @@ export const de_UpdateIPSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateIPSetCommandError
- */
-const de_UpdateIPSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIPSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommand
  */
 export const de_UpdateManagedRuleSetVersionExpiryDateCommand = async (
@@ -3904,7 +2027,7 @@ export const de_UpdateManagedRuleSetVersionExpiryDateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateManagedRuleSetVersionExpiryDateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3917,44 +2040,6 @@ export const de_UpdateManagedRuleSetVersionExpiryDateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommandError
- */
-const de_UpdateManagedRuleSetVersionExpiryDateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateManagedRuleSetVersionExpiryDateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRegexPatternSetCommand
  */
 export const de_UpdateRegexPatternSetCommand = async (
@@ -3962,7 +2047,7 @@ export const de_UpdateRegexPatternSetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRegexPatternSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRegexPatternSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3975,50 +2060,6 @@ export const de_UpdateRegexPatternSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRegexPatternSetCommandError
- */
-const de_UpdateRegexPatternSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRegexPatternSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRuleGroupCommand
  */
 export const de_UpdateRuleGroupCommand = async (
@@ -4026,7 +2067,7 @@ export const de_UpdateRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4039,59 +2080,6 @@ export const de_UpdateRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRuleGroupCommandError
- */
-const de_UpdateRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "WAFConfigurationWarningException":
-    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
-      throw await de_WAFConfigurationWarningExceptionRes(parsedOutput, context);
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFInternalErrorException":
-    case "com.amazonaws.wafv2#WAFInternalErrorException":
-      throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
-    case "WAFInvalidOperationException":
-    case "com.amazonaws.wafv2#WAFInvalidOperationException":
-      throw await de_WAFInvalidOperationExceptionRes(parsedOutput, context);
-    case "WAFInvalidParameterException":
-    case "com.amazonaws.wafv2#WAFInvalidParameterException":
-      throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
-    case "WAFLimitsExceededException":
-    case "com.amazonaws.wafv2#WAFLimitsExceededException":
-      throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
-    case "WAFSubscriptionNotFoundException":
-    case "com.amazonaws.wafv2#WAFSubscriptionNotFoundException":
-      throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateWebACLCommand
  */
 export const de_UpdateWebACLCommand = async (
@@ -4099,7 +2087,7 @@ export const de_UpdateWebACLCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWebACLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateWebACLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4112,27 +2100,15 @@ export const de_UpdateWebACLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateWebACLCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateWebACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWebACLCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "WAFConfigurationWarningException":
-    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
-      throw await de_WAFConfigurationWarningExceptionRes(parsedOutput, context);
-    case "WAFDuplicateItemException":
-    case "com.amazonaws.wafv2#WAFDuplicateItemException":
-      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
-    case "WAFExpiredManagedRuleGroupVersionException":
-    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
-      throw await de_WAFExpiredManagedRuleGroupVersionExceptionRes(parsedOutput, context);
     case "WAFInternalErrorException":
     case "com.amazonaws.wafv2#WAFInternalErrorException":
       throw await de_WAFInternalErrorExceptionRes(parsedOutput, context);
@@ -4142,24 +2118,54 @@ const de_UpdateWebACLCommandError = async (
     case "WAFInvalidParameterException":
     case "com.amazonaws.wafv2#WAFInvalidParameterException":
       throw await de_WAFInvalidParameterExceptionRes(parsedOutput, context);
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
+    case "WAFUnavailableEntityException":
+    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
+      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
+    case "WAFExpiredManagedRuleGroupVersionException":
+    case "com.amazonaws.wafv2#WAFExpiredManagedRuleGroupVersionException":
+      throw await de_WAFExpiredManagedRuleGroupVersionExceptionRes(parsedOutput, context);
     case "WAFInvalidResourceException":
     case "com.amazonaws.wafv2#WAFInvalidResourceException":
       throw await de_WAFInvalidResourceExceptionRes(parsedOutput, context);
     case "WAFLimitsExceededException":
     case "com.amazonaws.wafv2#WAFLimitsExceededException":
       throw await de_WAFLimitsExceededExceptionRes(parsedOutput, context);
-    case "WAFNonexistentItemException":
-    case "com.amazonaws.wafv2#WAFNonexistentItemException":
-      throw await de_WAFNonexistentItemExceptionRes(parsedOutput, context);
-    case "WAFOptimisticLockException":
-    case "com.amazonaws.wafv2#WAFOptimisticLockException":
-      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
     case "WAFSubscriptionNotFoundException":
     case "com.amazonaws.wafv2#WAFSubscriptionNotFoundException":
       throw await de_WAFSubscriptionNotFoundExceptionRes(parsedOutput, context);
-    case "WAFUnavailableEntityException":
-    case "com.amazonaws.wafv2#WAFUnavailableEntityException":
-      throw await de_WAFUnavailableEntityExceptionRes(parsedOutput, context);
+    case "WAFDuplicateItemException":
+    case "com.amazonaws.wafv2#WAFDuplicateItemException":
+      throw await de_WAFDuplicateItemExceptionRes(parsedOutput, context);
+    case "WAFOptimisticLockException":
+    case "com.amazonaws.wafv2#WAFOptimisticLockException":
+      throw await de_WAFOptimisticLockExceptionRes(parsedOutput, context);
+    case "WAFTagOperationException":
+    case "com.amazonaws.wafv2#WAFTagOperationException":
+      throw await de_WAFTagOperationExceptionRes(parsedOutput, context);
+    case "WAFTagOperationInternalErrorException":
+    case "com.amazonaws.wafv2#WAFTagOperationInternalErrorException":
+      throw await de_WAFTagOperationInternalErrorExceptionRes(parsedOutput, context);
+    case "WAFConfigurationWarningException":
+    case "com.amazonaws.wafv2#WAFConfigurationWarningException":
+      throw await de_WAFConfigurationWarningExceptionRes(parsedOutput, context);
+    case "WAFAssociatedItemException":
+    case "com.amazonaws.wafv2#WAFAssociatedItemException":
+      throw await de_WAFAssociatedItemExceptionRes(parsedOutput, context);
+    case "WAFUnsupportedAggregateKeyTypeException":
+    case "com.amazonaws.wafv2#WAFUnsupportedAggregateKeyTypeException":
+      throw await de_WAFUnsupportedAggregateKeyTypeExceptionRes(parsedOutput, context);
+    case "WAFLogDestinationPermissionIssueException":
+    case "com.amazonaws.wafv2#WAFLogDestinationPermissionIssueException":
+      throw await de_WAFLogDestinationPermissionIssueExceptionRes(parsedOutput, context);
+    case "WAFServiceLinkedRoleErrorException":
+    case "com.amazonaws.wafv2#WAFServiceLinkedRoleErrorException":
+      throw await de_WAFServiceLinkedRoleErrorExceptionRes(parsedOutput, context);
+    case "WAFInvalidPermissionPolicyException":
+    case "com.amazonaws.wafv2#WAFInvalidPermissionPolicyException":
+      throw await de_WAFInvalidPermissionPolicyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

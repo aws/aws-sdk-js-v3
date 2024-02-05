@@ -1110,7 +1110,7 @@ export const de_CreateCapacityProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateCapacityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCapacityProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1123,12 +1123,1109 @@ export const de_CreateCapacityProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCapacityProviderCommandError
+ * deserializeAws_json1_1CreateClusterCommand
  */
-const de_CreateCapacityProviderCommandError = async (
+export const de_CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateCapacityProviderCommandOutput> => {
+): Promise<CreateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateServiceCommand
+ */
+export const de_CreateServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateServiceResponse(data, context);
+  const response: CreateServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateTaskSetCommand
+ */
+export const de_CreateTaskSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTaskSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTaskSetResponse(data, context);
+  const response: CreateTaskSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAccountSettingCommand
+ */
+export const de_DeleteAccountSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAccountSettingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAttributesCommand
+ */
+export const de_DeleteAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCapacityProviderCommand
+ */
+export const de_DeleteCapacityProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCapacityProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteCapacityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteServiceCommand
+ */
+export const de_DeleteServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteServiceResponse(data, context);
+  const response: DeleteServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTaskDefinitionsCommand
+ */
+export const de_DeleteTaskDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTaskDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTaskDefinitionsResponse(data, context);
+  const response: DeleteTaskDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTaskSetCommand
+ */
+export const de_DeleteTaskSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTaskSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTaskSetResponse(data, context);
+  const response: DeleteTaskSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterContainerInstanceCommand
+ */
+export const de_DeregisterContainerInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterContainerInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterContainerInstanceResponse(data, context);
+  const response: DeregisterContainerInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterTaskDefinitionCommand
+ */
+export const de_DeregisterTaskDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterTaskDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterTaskDefinitionResponse(data, context);
+  const response: DeregisterTaskDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCapacityProvidersCommand
+ */
+export const de_DescribeCapacityProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityProvidersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCapacityProvidersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeClustersCommand
+ */
+export const de_DescribeClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeContainerInstancesCommand
+ */
+export const de_DescribeContainerInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContainerInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeContainerInstancesResponse(data, context);
+  const response: DescribeContainerInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeServicesCommand
+ */
+export const de_DescribeServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServicesResponse(data, context);
+  const response: DescribeServicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTaskDefinitionCommand
+ */
+export const de_DescribeTaskDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTaskDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTaskDefinitionResponse(data, context);
+  const response: DescribeTaskDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTasksCommand
+ */
+export const de_DescribeTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTasksResponse(data, context);
+  const response: DescribeTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTaskSetsCommand
+ */
+export const de_DescribeTaskSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTaskSetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTaskSetsResponse(data, context);
+  const response: DescribeTaskSetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DiscoverPollEndpointCommand
+ */
+export const de_DiscoverPollEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscoverPollEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DiscoverPollEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ExecuteCommandCommand
+ */
+export const de_ExecuteCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteCommandCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ExecuteCommandCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetTaskProtectionCommand
+ */
+export const de_GetTaskProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTaskProtectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTaskProtectionResponse(data, context);
+  const response: GetTaskProtectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAccountSettingsCommand
+ */
+export const de_ListAccountSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAccountSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAttributesCommand
+ */
+export const de_ListAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListClustersCommand
+ */
+export const de_ListClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListContainerInstancesCommand
+ */
+export const de_ListContainerInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContainerInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListContainerInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServicesCommand
+ */
+export const de_ListServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListServicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServicesByNamespaceCommand
+ */
+export const de_ListServicesByNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesByNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListServicesByNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTaskDefinitionFamiliesCommand
+ */
+export const de_ListTaskDefinitionFamiliesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTaskDefinitionFamiliesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTaskDefinitionFamiliesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTaskDefinitionsCommand
+ */
+export const de_ListTaskDefinitionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTaskDefinitionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTaskDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTasksCommand
+ */
+export const de_ListTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutAccountSettingCommand
+ */
+export const de_PutAccountSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutAccountSettingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutAccountSettingDefaultCommand
+ */
+export const de_PutAccountSettingDefaultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountSettingDefaultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutAccountSettingDefaultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutAttributesCommand
+ */
+export const de_PutAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutClusterCapacityProvidersCommand
+ */
+export const de_PutClusterCapacityProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutClusterCapacityProvidersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutClusterCapacityProvidersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterContainerInstanceCommand
+ */
+export const de_RegisterContainerInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterContainerInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterContainerInstanceResponse(data, context);
+  const response: RegisterContainerInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterTaskDefinitionCommand
+ */
+export const de_RegisterTaskDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterTaskDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterTaskDefinitionResponse(data, context);
+  const response: RegisterTaskDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RunTaskCommand
+ */
+export const de_RunTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RunTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RunTaskResponse(data, context);
+  const response: RunTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartTaskCommand
+ */
+export const de_StartTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartTaskResponse(data, context);
+  const response: StartTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopTaskCommand
+ */
+export const de_StopTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopTaskResponse(data, context);
+  const response: StopTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SubmitAttachmentStateChangesCommand
+ */
+export const de_SubmitAttachmentStateChangesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitAttachmentStateChangesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SubmitAttachmentStateChangesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SubmitContainerStateChangeCommand
+ */
+export const de_SubmitContainerStateChangeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitContainerStateChangeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SubmitContainerStateChangeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SubmitTaskStateChangeCommand
+ */
+export const de_SubmitTaskStateChangeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitTaskStateChangeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SubmitTaskStateChangeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCapacityProviderCommand
+ */
+export const de_UpdateCapacityProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCapacityProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateCapacityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateClusterSettingsCommand
+ */
+export const de_UpdateClusterSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateClusterSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateContainerAgentCommand
+ */
+export const de_UpdateContainerAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContainerAgentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateContainerAgentResponse(data, context);
+  const response: UpdateContainerAgentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateContainerInstancesStateCommand
+ */
+export const de_UpdateContainerInstancesStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContainerInstancesStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateContainerInstancesStateResponse(data, context);
+  const response: UpdateContainerInstancesStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateServiceCommand
+ */
+export const de_UpdateServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateServiceResponse(data, context);
+  const response: UpdateServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand
+ */
+export const de_UpdateServicePrimaryTaskSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServicePrimaryTaskSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateServicePrimaryTaskSetResponse(data, context);
+  const response: UpdateServicePrimaryTaskSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTaskProtectionCommand
+ */
+export const de_UpdateTaskProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTaskProtectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateTaskProtectionResponse(data, context);
+  const response: UpdateTaskProtectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTaskSetCommand
+ */
+export const de_UpdateTaskSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTaskSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateTaskSetResponse(data, context);
+  const response: UpdateTaskSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1150,409 +2247,33 @@ const de_CreateCapacityProviderCommandError = async (
     case "UpdateInProgressException":
     case "com.amazonaws.ecs#UpdateInProgressException":
       throw await de_UpdateInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateClusterCommand
- */
-export const de_CreateClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NamespaceNotFoundException":
     case "com.amazonaws.ecs#NamespaceNotFoundException":
       throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateServiceCommand
- */
-export const de_CreateServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateServiceResponse(data, context);
-  const response: CreateServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateServiceCommandError
- */
-const de_CreateServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ecs#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
     case "ClusterNotFoundException":
     case "com.amazonaws.ecs#ClusterNotFoundException":
       throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NamespaceNotFoundException":
-    case "com.amazonaws.ecs#NamespaceNotFoundException":
-      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
     case "PlatformTaskDefinitionIncompatibilityException":
     case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       throw await de_PlatformTaskDefinitionIncompatibilityExceptionRes(parsedOutput, context);
     case "PlatformUnknownException":
     case "com.amazonaws.ecs#PlatformUnknownException":
       throw await de_PlatformUnknownExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
     case "UnsupportedFeatureException":
     case "com.amazonaws.ecs#UnsupportedFeatureException":
       throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateTaskSetCommand
- */
-export const de_CreateTaskSetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTaskSetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTaskSetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateTaskSetResponse(data, context);
-  const response: CreateTaskSetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateTaskSetCommandError
- */
-const de_CreateTaskSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTaskSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NamespaceNotFoundException":
-    case "com.amazonaws.ecs#NamespaceNotFoundException":
-      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
-    case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
-      throw await de_PlatformTaskDefinitionIncompatibilityExceptionRes(parsedOutput, context);
-    case "PlatformUnknownException":
-    case "com.amazonaws.ecs#PlatformUnknownException":
-      throw await de_PlatformUnknownExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
     case "ServiceNotActiveException":
     case "com.amazonaws.ecs#ServiceNotActiveException":
       throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
     case "ServiceNotFoundException":
     case "com.amazonaws.ecs#ServiceNotFoundException":
       throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAccountSettingCommand
- */
-export const de_DeleteAccountSettingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountSettingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAccountSettingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteAccountSettingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAccountSettingCommandError
- */
-const de_DeleteAccountSettingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountSettingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAttributesCommand
- */
-export const de_DeleteAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAttributesCommandError
- */
-const de_DeleteAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "TargetNotFoundException":
     case "com.amazonaws.ecs#TargetNotFoundException":
       throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteCapacityProviderCommand
- */
-export const de_DeleteCapacityProviderCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCapacityProviderCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCapacityProviderCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteCapacityProviderCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCapacityProviderCommandError
- */
-const de_DeleteCapacityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCapacityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteClusterCommand
- */
-export const de_DeleteClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteClusterCommandError
- */
-const de_DeleteClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
     case "ClusterContainsContainerInstancesException":
     case "com.amazonaws.ecs#ClusterContainsContainerInstancesException":
       throw await de_ClusterContainsContainerInstancesExceptionRes(parsedOutput, context);
@@ -1562,2757 +2283,33 @@ const de_DeleteClusterCommandError = async (
     case "ClusterContainsTasksException":
     case "com.amazonaws.ecs#ClusterContainsTasksException":
       throw await de_ClusterContainsTasksExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UpdateInProgressException":
-    case "com.amazonaws.ecs#UpdateInProgressException":
-      throw await de_UpdateInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteServiceCommand
- */
-export const de_DeleteServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteServiceResponse(data, context);
-  const response: DeleteServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteServiceCommandError
- */
-const de_DeleteServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteTaskDefinitionsCommand
- */
-export const de_DeleteTaskDefinitionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTaskDefinitionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTaskDefinitionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteTaskDefinitionsResponse(data, context);
-  const response: DeleteTaskDefinitionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTaskDefinitionsCommandError
- */
-const de_DeleteTaskDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTaskDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteTaskSetCommand
- */
-export const de_DeleteTaskSetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTaskSetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTaskSetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteTaskSetResponse(data, context);
-  const response: DeleteTaskSetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTaskSetCommandError
- */
-const de_DeleteTaskSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTaskSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotActiveException":
-    case "com.amazonaws.ecs#ServiceNotActiveException":
-      throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
     case "TaskSetNotFoundException":
     case "com.amazonaws.ecs#TaskSetNotFoundException":
       throw await de_TaskSetNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterContainerInstanceCommand
- */
-export const de_DeregisterContainerInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterContainerInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterContainerInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeregisterContainerInstanceResponse(data, context);
-  const response: DeregisterContainerInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterContainerInstanceCommandError
- */
-const de_DeregisterContainerInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterContainerInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterTaskDefinitionCommand
- */
-export const de_DeregisterTaskDefinitionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTaskDefinitionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterTaskDefinitionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeregisterTaskDefinitionResponse(data, context);
-  const response: DeregisterTaskDefinitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterTaskDefinitionCommandError
- */
-const de_DeregisterTaskDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTaskDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCapacityProvidersCommand
- */
-export const de_DescribeCapacityProvidersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCapacityProvidersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCapacityProvidersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCapacityProvidersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCapacityProvidersCommandError
- */
-const de_DescribeCapacityProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCapacityProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeClustersCommand
- */
-export const de_DescribeClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeClustersCommandError
- */
-const de_DescribeClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeContainerInstancesCommand
- */
-export const de_DescribeContainerInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContainerInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeContainerInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeContainerInstancesResponse(data, context);
-  const response: DescribeContainerInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeContainerInstancesCommandError
- */
-const de_DescribeContainerInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContainerInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeServicesCommand
- */
-export const de_DescribeServicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeServicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeServicesResponse(data, context);
-  const response: DescribeServicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeServicesCommandError
- */
-const de_DescribeServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTaskDefinitionCommand
- */
-export const de_DescribeTaskDefinitionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTaskDefinitionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTaskDefinitionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTaskDefinitionResponse(data, context);
-  const response: DescribeTaskDefinitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTaskDefinitionCommandError
- */
-const de_DescribeTaskDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTaskDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTasksCommand
- */
-export const de_DescribeTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTasksResponse(data, context);
-  const response: DescribeTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTasksCommandError
- */
-const de_DescribeTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTaskSetsCommand
- */
-export const de_DescribeTaskSetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTaskSetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTaskSetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTaskSetsResponse(data, context);
-  const response: DescribeTaskSetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTaskSetsCommandError
- */
-const de_DescribeTaskSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTaskSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotActiveException":
-    case "com.amazonaws.ecs#ServiceNotActiveException":
-      throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DiscoverPollEndpointCommand
- */
-export const de_DiscoverPollEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverPollEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DiscoverPollEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DiscoverPollEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DiscoverPollEndpointCommandError
- */
-const de_DiscoverPollEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverPollEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ExecuteCommandCommand
- */
-export const de_ExecuteCommandCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteCommandCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ExecuteCommandCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ExecuteCommandCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ExecuteCommandCommandError
- */
-const de_ExecuteCommandCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteCommandCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
     case "TargetNotConnectedException":
     case "com.amazonaws.ecs#TargetNotConnectedException":
       throw await de_TargetNotConnectedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetTaskProtectionCommand
- */
-export const de_GetTaskProtectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTaskProtectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetTaskProtectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetTaskProtectionResponse(data, context);
-  const response: GetTaskProtectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetTaskProtectionCommandError
- */
-const de_GetTaskProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTaskProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.ecs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAccountSettingsCommand
- */
-export const de_ListAccountSettingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountSettingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAccountSettingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListAccountSettingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAccountSettingsCommandError
- */
-const de_ListAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAttributesCommand
- */
-export const de_ListAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAttributesCommandError
- */
-const de_ListAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListClustersCommand
- */
-export const de_ListClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListClustersCommandError
- */
-const de_ListClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListContainerInstancesCommand
- */
-export const de_ListContainerInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContainerInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListContainerInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListContainerInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListContainerInstancesCommandError
- */
-const de_ListContainerInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContainerInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListServicesCommand
- */
-export const de_ListServicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListServicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListServicesCommandError
- */
-const de_ListServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListServicesByNamespaceCommand
- */
-export const de_ListServicesByNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesByNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServicesByNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListServicesByNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListServicesByNamespaceCommandError
- */
-const de_ListServicesByNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesByNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NamespaceNotFoundException":
-    case "com.amazonaws.ecs#NamespaceNotFoundException":
-      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTaskDefinitionFamiliesCommand
- */
-export const de_ListTaskDefinitionFamiliesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTaskDefinitionFamiliesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTaskDefinitionFamiliesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTaskDefinitionFamiliesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTaskDefinitionFamiliesCommandError
- */
-const de_ListTaskDefinitionFamiliesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTaskDefinitionFamiliesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTaskDefinitionsCommand
- */
-export const de_ListTaskDefinitionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTaskDefinitionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTaskDefinitionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTaskDefinitionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTaskDefinitionsCommandError
- */
-const de_ListTaskDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTaskDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTasksCommand
- */
-export const de_ListTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTasksCommandError
- */
-const de_ListTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutAccountSettingCommand
- */
-export const de_PutAccountSettingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSettingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutAccountSettingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutAccountSettingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutAccountSettingCommandError
- */
-const de_PutAccountSettingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSettingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutAccountSettingDefaultCommand
- */
-export const de_PutAccountSettingDefaultCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSettingDefaultCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutAccountSettingDefaultCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutAccountSettingDefaultCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutAccountSettingDefaultCommandError
- */
-const de_PutAccountSettingDefaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountSettingDefaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutAttributesCommand
- */
-export const de_PutAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutAttributesCommandError
- */
-const de_PutAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AttributeLimitExceededException":
     case "com.amazonaws.ecs#AttributeLimitExceededException":
       throw await de_AttributeLimitExceededExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.ecs#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutClusterCapacityProvidersCommand
- */
-export const de_PutClusterCapacityProvidersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutClusterCapacityProvidersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutClusterCapacityProvidersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutClusterCapacityProvidersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutClusterCapacityProvidersCommandError
- */
-const de_PutClusterCapacityProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutClusterCapacityProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.ecs#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UpdateInProgressException":
-    case "com.amazonaws.ecs#UpdateInProgressException":
-      throw await de_UpdateInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterContainerInstanceCommand
- */
-export const de_RegisterContainerInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterContainerInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterContainerInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RegisterContainerInstanceResponse(data, context);
-  const response: RegisterContainerInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterContainerInstanceCommandError
- */
-const de_RegisterContainerInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterContainerInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterTaskDefinitionCommand
- */
-export const de_RegisterTaskDefinitionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTaskDefinitionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterTaskDefinitionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RegisterTaskDefinitionResponse(data, context);
-  const response: RegisterTaskDefinitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterTaskDefinitionCommandError
- */
-const de_RegisterTaskDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTaskDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RunTaskCommand
- */
-export const de_RunTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RunTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RunTaskResponse(data, context);
-  const response: RunTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RunTaskCommandError
- */
-const de_RunTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BlockedException":
     case "com.amazonaws.ecs#BlockedException":
       throw await de_BlockedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.ecs#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
-      throw await de_PlatformTaskDefinitionIncompatibilityExceptionRes(parsedOutput, context);
-    case "PlatformUnknownException":
-    case "com.amazonaws.ecs#PlatformUnknownException":
-      throw await de_PlatformUnknownExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartTaskCommand
- */
-export const de_StartTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartTaskResponse(data, context);
-  const response: StartTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartTaskCommandError
- */
-const de_StartTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopTaskCommand
- */
-export const de_StopTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopTaskResponse(data, context);
-  const response: StopTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopTaskCommandError
- */
-const de_StopTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SubmitAttachmentStateChangesCommand
- */
-export const de_SubmitAttachmentStateChangesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitAttachmentStateChangesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SubmitAttachmentStateChangesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SubmitAttachmentStateChangesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SubmitAttachmentStateChangesCommandError
- */
-const de_SubmitAttachmentStateChangesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitAttachmentStateChangesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SubmitContainerStateChangeCommand
- */
-export const de_SubmitContainerStateChangeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitContainerStateChangeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SubmitContainerStateChangeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SubmitContainerStateChangeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SubmitContainerStateChangeCommandError
- */
-const de_SubmitContainerStateChangeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitContainerStateChangeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SubmitTaskStateChangeCommand
- */
-export const de_SubmitTaskStateChangeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitTaskStateChangeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SubmitTaskStateChangeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SubmitTaskStateChangeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SubmitTaskStateChangeCommandError
- */
-const de_SubmitTaskStateChangeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitTaskStateChangeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ecs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ecs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateCapacityProviderCommand
- */
-export const de_UpdateCapacityProviderCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCapacityProviderCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateCapacityProviderCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateCapacityProviderCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateCapacityProviderCommandError
- */
-const de_UpdateCapacityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCapacityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateClusterCommand
- */
-export const de_UpdateClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateClusterCommandError
- */
-const de_UpdateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NamespaceNotFoundException":
-    case "com.amazonaws.ecs#NamespaceNotFoundException":
-      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateClusterSettingsCommand
- */
-export const de_UpdateClusterSettingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterSettingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateClusterSettingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateClusterSettingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateClusterSettingsCommandError
- */
-const de_UpdateClusterSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateContainerAgentCommand
- */
-export const de_UpdateContainerAgentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContainerAgentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateContainerAgentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateContainerAgentResponse(data, context);
-  const response: UpdateContainerAgentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateContainerAgentCommandError
- */
-const de_UpdateContainerAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContainerAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "MissingVersionException":
     case "com.amazonaws.ecs#MissingVersionException":
       throw await de_MissingVersionExceptionRes(parsedOutput, context);
     case "NoUpdateAvailableException":
     case "com.amazonaws.ecs#NoUpdateAvailableException":
       throw await de_NoUpdateAvailableExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UpdateInProgressException":
-    case "com.amazonaws.ecs#UpdateInProgressException":
-      throw await de_UpdateInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateContainerInstancesStateCommand
- */
-export const de_UpdateContainerInstancesStateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContainerInstancesStateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateContainerInstancesStateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateContainerInstancesStateResponse(data, context);
-  const response: UpdateContainerInstancesStateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateContainerInstancesStateCommandError
- */
-const de_UpdateContainerInstancesStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContainerInstancesStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceCommand
- */
-export const de_UpdateServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateServiceResponse(data, context);
-  const response: UpdateServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceCommandError
- */
-const de_UpdateServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NamespaceNotFoundException":
-    case "com.amazonaws.ecs#NamespaceNotFoundException":
-      throw await de_NamespaceNotFoundExceptionRes(parsedOutput, context);
-    case "PlatformTaskDefinitionIncompatibilityException":
-    case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
-      throw await de_PlatformTaskDefinitionIncompatibilityExceptionRes(parsedOutput, context);
-    case "PlatformUnknownException":
-    case "com.amazonaws.ecs#PlatformUnknownException":
-      throw await de_PlatformUnknownExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotActiveException":
-    case "com.amazonaws.ecs#ServiceNotActiveException":
-      throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand
- */
-export const de_UpdateServicePrimaryTaskSetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServicePrimaryTaskSetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateServicePrimaryTaskSetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateServicePrimaryTaskSetResponse(data, context);
-  const response: UpdateServicePrimaryTaskSetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError
- */
-const de_UpdateServicePrimaryTaskSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServicePrimaryTaskSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotActiveException":
-    case "com.amazonaws.ecs#ServiceNotActiveException":
-      throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    case "TaskSetNotFoundException":
-    case "com.amazonaws.ecs#TaskSetNotFoundException":
-      throw await de_TaskSetNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateTaskProtectionCommand
- */
-export const de_UpdateTaskProtectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTaskProtectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTaskProtectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateTaskProtectionResponse(data, context);
-  const response: UpdateTaskProtectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateTaskProtectionCommandError
- */
-const de_UpdateTaskProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTaskProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ecs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateTaskSetCommand
- */
-export const de_UpdateTaskSetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTaskSetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTaskSetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateTaskSetResponse(data, context);
-  const response: UpdateTaskSetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateTaskSetCommandError
- */
-const de_UpdateTaskSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTaskSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ecs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.ecs#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ClusterNotFoundException":
-    case "com.amazonaws.ecs#ClusterNotFoundException":
-      throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecs#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecs#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceNotActiveException":
-    case "com.amazonaws.ecs#ServiceNotActiveException":
-      throw await de_ServiceNotActiveExceptionRes(parsedOutput, context);
-    case "ServiceNotFoundException":
-    case "com.amazonaws.ecs#ServiceNotFoundException":
-      throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
-    case "TaskSetNotFoundException":
-    case "com.amazonaws.ecs#TaskSetNotFoundException":
-      throw await de_TaskSetNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.ecs#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

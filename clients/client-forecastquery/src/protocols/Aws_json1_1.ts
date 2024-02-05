@@ -70,7 +70,7 @@ export const de_QueryForecastCommand = async (
   context: __SerdeContext
 ): Promise<QueryForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QueryForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -83,44 +83,6 @@ export const de_QueryForecastCommand = async (
 };
 
 /**
- * deserializeAws_json1_1QueryForecastCommandError
- */
-const de_QueryForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.forecastquery#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.forecastquery#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.forecastquery#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.forecastquery#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.forecastquery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1QueryWhatIfForecastCommand
  */
 export const de_QueryWhatIfForecastCommand = async (
@@ -128,7 +90,7 @@ export const de_QueryWhatIfForecastCommand = async (
   context: __SerdeContext
 ): Promise<QueryWhatIfForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QueryWhatIfForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -141,12 +103,9 @@ export const de_QueryWhatIfForecastCommand = async (
 };
 
 /**
- * deserializeAws_json1_1QueryWhatIfForecastCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_QueryWhatIfForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryWhatIfForecastCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

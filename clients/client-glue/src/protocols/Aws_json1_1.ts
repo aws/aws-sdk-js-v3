@@ -3862,7 +3862,7 @@ export const de_BatchCreatePartitionCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreatePartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchCreatePartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3875,50 +3875,6 @@ export const de_BatchCreatePartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchCreatePartitionCommandError
- */
-const de_BatchCreatePartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreatePartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteConnectionCommand
  */
 export const de_BatchDeleteConnectionCommand = async (
@@ -3926,7 +3882,7 @@ export const de_BatchDeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3939,35 +3895,6 @@ export const de_BatchDeleteConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteConnectionCommandError
- */
-const de_BatchDeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeletePartitionCommand
  */
 export const de_BatchDeletePartitionCommand = async (
@@ -3975,7 +3902,7 @@ export const de_BatchDeletePartitionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeletePartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeletePartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3988,41 +3915,6 @@ export const de_BatchDeletePartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeletePartitionCommandError
- */
-const de_BatchDeletePartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeletePartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteTableCommand
  */
 export const de_BatchDeleteTableCommand = async (
@@ -4030,7 +3922,7 @@ export const de_BatchDeleteTableCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4043,47 +3935,6 @@ export const de_BatchDeleteTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteTableCommandError
- */
-const de_BatchDeleteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.glue#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteTableVersionCommand
  */
 export const de_BatchDeleteTableVersionCommand = async (
@@ -4091,7 +3942,7 @@ export const de_BatchDeleteTableVersionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteTableVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteTableVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4104,41 +3955,6 @@ export const de_BatchDeleteTableVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteTableVersionCommandError
- */
-const de_BatchDeleteTableVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteTableVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetBlueprintsCommand
  */
 export const de_BatchGetBlueprintsCommand = async (
@@ -4146,7 +3962,7 @@ export const de_BatchGetBlueprintsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetBlueprintsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetBlueprintsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4159,38 +3975,6 @@ export const de_BatchGetBlueprintsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetBlueprintsCommandError
- */
-const de_BatchGetBlueprintsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetBlueprintsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetCrawlersCommand
  */
 export const de_BatchGetCrawlersCommand = async (
@@ -4198,7 +3982,7 @@ export const de_BatchGetCrawlersCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetCrawlersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetCrawlersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4211,35 +3995,6 @@ export const de_BatchGetCrawlersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetCrawlersCommandError
- */
-const de_BatchGetCrawlersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetCrawlersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetCustomEntityTypesCommand
  */
 export const de_BatchGetCustomEntityTypesCommand = async (
@@ -4247,7 +4002,7 @@ export const de_BatchGetCustomEntityTypesCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetCustomEntityTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetCustomEntityTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4260,38 +4015,6 @@ export const de_BatchGetCustomEntityTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetCustomEntityTypesCommandError
- */
-const de_BatchGetCustomEntityTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetCustomEntityTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetDataQualityResultCommand
  */
 export const de_BatchGetDataQualityResultCommand = async (
@@ -4299,7 +4022,7 @@ export const de_BatchGetDataQualityResultCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetDataQualityResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetDataQualityResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4312,38 +4035,6 @@ export const de_BatchGetDataQualityResultCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetDataQualityResultCommandError
- */
-const de_BatchGetDataQualityResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDataQualityResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetDevEndpointsCommand
  */
 export const de_BatchGetDevEndpointsCommand = async (
@@ -4351,7 +4042,7 @@ export const de_BatchGetDevEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetDevEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetDevEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4364,41 +4055,6 @@ export const de_BatchGetDevEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetDevEndpointsCommandError
- */
-const de_BatchGetDevEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDevEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetJobsCommand
  */
 export const de_BatchGetJobsCommand = async (
@@ -4406,7 +4062,7 @@ export const de_BatchGetJobsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4419,38 +4075,6 @@ export const de_BatchGetJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetJobsCommandError
- */
-const de_BatchGetJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetPartitionCommand
  */
 export const de_BatchGetPartitionCommand = async (
@@ -4458,7 +4082,7 @@ export const de_BatchGetPartitionCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetPartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetPartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4471,53 +4095,6 @@ export const de_BatchGetPartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetPartitionCommandError
- */
-const de_BatchGetPartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetPartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.glue#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetTableOptimizerCommand
  */
 export const de_BatchGetTableOptimizerCommand = async (
@@ -4525,7 +4102,7 @@ export const de_BatchGetTableOptimizerCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetTableOptimizerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetTableOptimizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4538,32 +4115,6 @@ export const de_BatchGetTableOptimizerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetTableOptimizerCommandError
- */
-const de_BatchGetTableOptimizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetTableOptimizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetTriggersCommand
  */
 export const de_BatchGetTriggersCommand = async (
@@ -4571,7 +4122,7 @@ export const de_BatchGetTriggersCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetTriggersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetTriggersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4584,38 +4135,6 @@ export const de_BatchGetTriggersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetTriggersCommandError
- */
-const de_BatchGetTriggersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetTriggersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetWorkflowsCommand
  */
 export const de_BatchGetWorkflowsCommand = async (
@@ -4623,7 +4142,7 @@ export const de_BatchGetWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetWorkflowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetWorkflowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4636,38 +4155,6 @@ export const de_BatchGetWorkflowsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetWorkflowsCommandError
- */
-const de_BatchGetWorkflowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetWorkflowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchStopJobRunCommand
  */
 export const de_BatchStopJobRunCommand = async (
@@ -4675,7 +4162,7 @@ export const de_BatchStopJobRunCommand = async (
   context: __SerdeContext
 ): Promise<BatchStopJobRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchStopJobRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4688,38 +4175,6 @@ export const de_BatchStopJobRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchStopJobRunCommandError
- */
-const de_BatchStopJobRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchStopJobRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchUpdatePartitionCommand
  */
 export const de_BatchUpdatePartitionCommand = async (
@@ -4727,7 +4182,7 @@ export const de_BatchUpdatePartitionCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdatePartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchUpdatePartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4740,44 +4195,6 @@ export const de_BatchUpdatePartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchUpdatePartitionCommandError
- */
-const de_BatchUpdatePartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdatePartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand
  */
 export const de_CancelDataQualityRuleRecommendationRunCommand = async (
@@ -4785,7 +4202,7 @@ export const de_CancelDataQualityRuleRecommendationRunCommand = async (
   context: __SerdeContext
 ): Promise<CancelDataQualityRuleRecommendationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelDataQualityRuleRecommendationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4798,41 +4215,6 @@ export const de_CancelDataQualityRuleRecommendationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelDataQualityRuleRecommendationRunCommandError
- */
-const de_CancelDataQualityRuleRecommendationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelDataQualityRuleRecommendationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommand
  */
 export const de_CancelDataQualityRulesetEvaluationRunCommand = async (
@@ -4840,7 +4222,7 @@ export const de_CancelDataQualityRulesetEvaluationRunCommand = async (
   context: __SerdeContext
 ): Promise<CancelDataQualityRulesetEvaluationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelDataQualityRulesetEvaluationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4853,41 +4235,6 @@ export const de_CancelDataQualityRulesetEvaluationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelDataQualityRulesetEvaluationRunCommandError
- */
-const de_CancelDataQualityRulesetEvaluationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelDataQualityRulesetEvaluationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelMLTaskRunCommand
  */
 export const de_CancelMLTaskRunCommand = async (
@@ -4895,7 +4242,7 @@ export const de_CancelMLTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<CancelMLTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelMLTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4908,41 +4255,6 @@ export const de_CancelMLTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelMLTaskRunCommandError
- */
-const de_CancelMLTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMLTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelStatementCommand
  */
 export const de_CancelStatementCommand = async (
@@ -4950,7 +4262,7 @@ export const de_CancelStatementCommand = async (
   context: __SerdeContext
 ): Promise<CancelStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4963,47 +4275,6 @@ export const de_CancelStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelStatementCommandError
- */
-const de_CancelStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalSessionStateException":
-    case "com.amazonaws.glue#IllegalSessionStateException":
-      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CheckSchemaVersionValidityCommand
  */
 export const de_CheckSchemaVersionValidityCommand = async (
@@ -5011,7 +4282,7 @@ export const de_CheckSchemaVersionValidityCommand = async (
   context: __SerdeContext
 ): Promise<CheckSchemaVersionValidityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CheckSchemaVersionValidityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5024,38 +4295,6 @@ export const de_CheckSchemaVersionValidityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CheckSchemaVersionValidityCommandError
- */
-const de_CheckSchemaVersionValidityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CheckSchemaVersionValidityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBlueprintCommand
  */
 export const de_CreateBlueprintCommand = async (
@@ -5063,7 +4302,7 @@ export const de_CreateBlueprintCommand = async (
   context: __SerdeContext
 ): Promise<CreateBlueprintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBlueprintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5076,44 +4315,6 @@ export const de_CreateBlueprintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBlueprintCommandError
- */
-const de_CreateBlueprintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBlueprintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateClassifierCommand
  */
 export const de_CreateClassifierCommand = async (
@@ -5121,7 +4322,7 @@ export const de_CreateClassifierCommand = async (
   context: __SerdeContext
 ): Promise<CreateClassifierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateClassifierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5134,38 +4335,6 @@ export const de_CreateClassifierCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateClassifierCommandError
- */
-const de_CreateClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConnectionCommand
  */
 export const de_CreateConnectionCommand = async (
@@ -5173,7 +4342,7 @@ export const de_CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5186,44 +4355,6 @@ export const de_CreateConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConnectionCommandError
- */
-const de_CreateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCrawlerCommand
  */
 export const de_CreateCrawlerCommand = async (
@@ -5231,7 +4362,7 @@ export const de_CreateCrawlerCommand = async (
   context: __SerdeContext
 ): Promise<CreateCrawlerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCrawlerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5244,41 +4375,6 @@ export const de_CreateCrawlerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCrawlerCommandError
- */
-const de_CreateCrawlerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCrawlerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCustomEntityTypeCommand
  */
 export const de_CreateCustomEntityTypeCommand = async (
@@ -5286,7 +4382,7 @@ export const de_CreateCustomEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomEntityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCustomEntityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5299,50 +4395,6 @@ export const de_CreateCustomEntityTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCustomEntityTypeCommandError
- */
-const de_CreateCustomEntityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomEntityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatabaseCommand
  */
 export const de_CreateDatabaseCommand = async (
@@ -5350,7 +4402,7 @@ export const de_CreateDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5363,53 +4415,6 @@ export const de_CreateDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatabaseCommandError
- */
-const de_CreateDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "FederatedResourceAlreadyExistsException":
-    case "com.amazonaws.glue#FederatedResourceAlreadyExistsException":
-      throw await de_FederatedResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDataQualityRulesetCommand
  */
 export const de_CreateDataQualityRulesetCommand = async (
@@ -5417,7 +4422,7 @@ export const de_CreateDataQualityRulesetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataQualityRulesetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDataQualityRulesetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5430,44 +4435,6 @@ export const de_CreateDataQualityRulesetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDataQualityRulesetCommandError
- */
-const de_CreateDataQualityRulesetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataQualityRulesetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDevEndpointCommand
  */
 export const de_CreateDevEndpointCommand = async (
@@ -5475,7 +4442,7 @@ export const de_CreateDevEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateDevEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDevEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5488,53 +4455,6 @@ export const de_CreateDevEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDevEndpointCommandError
- */
-const de_CreateDevEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDevEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateJobCommand
  */
 export const de_CreateJobCommand = async (
@@ -5542,7 +4462,7 @@ export const de_CreateJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5555,50 +4475,6 @@ export const de_CreateJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateJobCommandError
- */
-const de_CreateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMLTransformCommand
  */
 export const de_CreateMLTransformCommand = async (
@@ -5606,7 +4482,7 @@ export const de_CreateMLTransformCommand = async (
   context: __SerdeContext
 ): Promise<CreateMLTransformCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMLTransformCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5619,50 +4495,6 @@ export const de_CreateMLTransformCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMLTransformCommandError
- */
-const de_CreateMLTransformCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMLTransformCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePartitionCommand
  */
 export const de_CreatePartitionCommand = async (
@@ -5670,7 +4502,7 @@ export const de_CreatePartitionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5683,50 +4515,6 @@ export const de_CreatePartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePartitionCommandError
- */
-const de_CreatePartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePartitionIndexCommand
  */
 export const de_CreatePartitionIndexCommand = async (
@@ -5734,7 +4522,7 @@ export const de_CreatePartitionIndexCommand = async (
   context: __SerdeContext
 ): Promise<CreatePartitionIndexCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePartitionIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5747,50 +4535,6 @@ export const de_CreatePartitionIndexCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePartitionIndexCommandError
- */
-const de_CreatePartitionIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePartitionIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRegistryCommand
  */
 export const de_CreateRegistryCommand = async (
@@ -5798,7 +4542,7 @@ export const de_CreateRegistryCommand = async (
   context: __SerdeContext
 ): Promise<CreateRegistryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRegistryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5811,47 +4555,6 @@ export const de_CreateRegistryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRegistryCommandError
- */
-const de_CreateRegistryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRegistryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSchemaCommand
  */
 export const de_CreateSchemaCommand = async (
@@ -5859,7 +4562,7 @@ export const de_CreateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5872,50 +4575,6 @@ export const de_CreateSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSchemaCommandError
- */
-const de_CreateSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateScriptCommand
  */
 export const de_CreateScriptCommand = async (
@@ -5923,7 +4582,7 @@ export const de_CreateScriptCommand = async (
   context: __SerdeContext
 ): Promise<CreateScriptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateScriptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5936,38 +4595,6 @@ export const de_CreateScriptCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateScriptCommandError
- */
-const de_CreateScriptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateScriptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSecurityConfigurationCommand
  */
 export const de_CreateSecurityConfigurationCommand = async (
@@ -5975,7 +4602,7 @@ export const de_CreateSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSecurityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5988,44 +4615,6 @@ export const de_CreateSecurityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSecurityConfigurationCommandError
- */
-const de_CreateSecurityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSecurityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSessionCommand
  */
 export const de_CreateSessionCommand = async (
@@ -6033,7 +4622,7 @@ export const de_CreateSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6046,53 +4635,6 @@ export const de_CreateSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSessionCommandError
- */
-const de_CreateSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTableCommand
  */
 export const de_CreateTableCommand = async (
@@ -6100,7 +4642,7 @@ export const de_CreateTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6113,56 +4655,6 @@ export const de_CreateTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTableCommandError
- */
-const de_CreateTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.glue#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTableOptimizerCommand
  */
 export const de_CreateTableOptimizerCommand = async (
@@ -6170,7 +4662,7 @@ export const de_CreateTableOptimizerCommand = async (
   context: __SerdeContext
 ): Promise<CreateTableOptimizerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTableOptimizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6183,44 +4675,6 @@ export const de_CreateTableOptimizerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTableOptimizerCommandError
- */
-const de_CreateTableOptimizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTableOptimizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTriggerCommand
  */
 export const de_CreateTriggerCommand = async (
@@ -6228,7 +4682,7 @@ export const de_CreateTriggerCommand = async (
   context: __SerdeContext
 ): Promise<CreateTriggerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTriggerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6241,53 +4695,6 @@ export const de_CreateTriggerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTriggerCommandError
- */
-const de_CreateTriggerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTriggerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserDefinedFunctionCommand
  */
 export const de_CreateUserDefinedFunctionCommand = async (
@@ -6295,7 +4702,7 @@ export const de_CreateUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserDefinedFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6308,50 +4715,6 @@ export const de_CreateUserDefinedFunctionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserDefinedFunctionCommandError
- */
-const de_CreateUserDefinedFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserDefinedFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkflowCommand
  */
 export const de_CreateWorkflowCommand = async (
@@ -6359,7 +4722,7 @@ export const de_CreateWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6372,47 +4735,6 @@ export const de_CreateWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkflowCommandError
- */
-const de_CreateWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBlueprintCommand
  */
 export const de_DeleteBlueprintCommand = async (
@@ -6420,7 +4742,7 @@ export const de_DeleteBlueprintCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBlueprintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBlueprintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6433,38 +4755,6 @@ export const de_DeleteBlueprintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBlueprintCommandError
- */
-const de_DeleteBlueprintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBlueprintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteClassifierCommand
  */
 export const de_DeleteClassifierCommand = async (
@@ -6472,7 +4762,7 @@ export const de_DeleteClassifierCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClassifierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteClassifierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6485,35 +4775,6 @@ export const de_DeleteClassifierCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteClassifierCommandError
- */
-const de_DeleteClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand
  */
 export const de_DeleteColumnStatisticsForPartitionCommand = async (
@@ -6521,7 +4782,7 @@ export const de_DeleteColumnStatisticsForPartitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteColumnStatisticsForPartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteColumnStatisticsForPartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6534,44 +4795,6 @@ export const de_DeleteColumnStatisticsForPartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommandError
- */
-const de_DeleteColumnStatisticsForPartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteColumnStatisticsForPartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteColumnStatisticsForTableCommand
  */
 export const de_DeleteColumnStatisticsForTableCommand = async (
@@ -6579,7 +4802,7 @@ export const de_DeleteColumnStatisticsForTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteColumnStatisticsForTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteColumnStatisticsForTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6592,44 +4815,6 @@ export const de_DeleteColumnStatisticsForTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteColumnStatisticsForTableCommandError
- */
-const de_DeleteColumnStatisticsForTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteColumnStatisticsForTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConnectionCommand
  */
 export const de_DeleteConnectionCommand = async (
@@ -6637,7 +4822,7 @@ export const de_DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6650,35 +4835,6 @@ export const de_DeleteConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCrawlerCommand
  */
 export const de_DeleteCrawlerCommand = async (
@@ -6686,7 +4842,7 @@ export const de_DeleteCrawlerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCrawlerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCrawlerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6699,41 +4855,6 @@ export const de_DeleteCrawlerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCrawlerCommandError
- */
-const de_DeleteCrawlerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCrawlerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CrawlerRunningException":
-    case "com.amazonaws.glue#CrawlerRunningException":
-      throw await de_CrawlerRunningExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "SchedulerTransitioningException":
-    case "com.amazonaws.glue#SchedulerTransitioningException":
-      throw await de_SchedulerTransitioningExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCustomEntityTypeCommand
  */
 export const de_DeleteCustomEntityTypeCommand = async (
@@ -6741,7 +4862,7 @@ export const de_DeleteCustomEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomEntityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCustomEntityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6754,44 +4875,6 @@ export const de_DeleteCustomEntityTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCustomEntityTypeCommandError
- */
-const de_DeleteCustomEntityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomEntityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDatabaseCommand
  */
 export const de_DeleteDatabaseCommand = async (
@@ -6799,7 +4882,7 @@ export const de_DeleteDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6812,44 +4895,6 @@ export const de_DeleteDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDatabaseCommandError
- */
-const de_DeleteDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDataQualityRulesetCommand
  */
 export const de_DeleteDataQualityRulesetCommand = async (
@@ -6857,7 +4902,7 @@ export const de_DeleteDataQualityRulesetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataQualityRulesetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDataQualityRulesetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6870,41 +4915,6 @@ export const de_DeleteDataQualityRulesetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDataQualityRulesetCommandError
- */
-const de_DeleteDataQualityRulesetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataQualityRulesetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDevEndpointCommand
  */
 export const de_DeleteDevEndpointCommand = async (
@@ -6912,7 +4922,7 @@ export const de_DeleteDevEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDevEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDevEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6925,41 +4935,6 @@ export const de_DeleteDevEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDevEndpointCommandError
- */
-const de_DeleteDevEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDevEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteJobCommand
  */
 export const de_DeleteJobCommand = async (
@@ -6967,7 +4942,7 @@ export const de_DeleteJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6980,38 +4955,6 @@ export const de_DeleteJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteJobCommandError
- */
-const de_DeleteJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMLTransformCommand
  */
 export const de_DeleteMLTransformCommand = async (
@@ -7019,7 +4962,7 @@ export const de_DeleteMLTransformCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMLTransformCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMLTransformCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7032,41 +4975,6 @@ export const de_DeleteMLTransformCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMLTransformCommandError
- */
-const de_DeleteMLTransformCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMLTransformCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePartitionCommand
  */
 export const de_DeletePartitionCommand = async (
@@ -7074,7 +4982,7 @@ export const de_DeletePartitionCommand = async (
   context: __SerdeContext
 ): Promise<DeletePartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7087,41 +4995,6 @@ export const de_DeletePartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePartitionCommandError
- */
-const de_DeletePartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePartitionIndexCommand
  */
 export const de_DeletePartitionIndexCommand = async (
@@ -7129,7 +5002,7 @@ export const de_DeletePartitionIndexCommand = async (
   context: __SerdeContext
 ): Promise<DeletePartitionIndexCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePartitionIndexCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7142,47 +5015,6 @@ export const de_DeletePartitionIndexCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePartitionIndexCommandError
- */
-const de_DeletePartitionIndexCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePartitionIndexCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.glue#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRegistryCommand
  */
 export const de_DeleteRegistryCommand = async (
@@ -7190,7 +5022,7 @@ export const de_DeleteRegistryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegistryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRegistryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7203,41 +5035,6 @@ export const de_DeleteRegistryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRegistryCommandError
- */
-const de_DeleteRegistryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRegistryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -7245,7 +5042,7 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7258,44 +5055,6 @@ export const de_DeleteResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionCheckFailureException":
-    case "com.amazonaws.glue#ConditionCheckFailureException":
-      throw await de_ConditionCheckFailureExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSchemaCommand
  */
 export const de_DeleteSchemaCommand = async (
@@ -7303,7 +5062,7 @@ export const de_DeleteSchemaCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7316,41 +5075,6 @@ export const de_DeleteSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSchemaCommandError
- */
-const de_DeleteSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSchemaVersionsCommand
  */
 export const de_DeleteSchemaVersionsCommand = async (
@@ -7358,7 +5082,7 @@ export const de_DeleteSchemaVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSchemaVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSchemaVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7371,41 +5095,6 @@ export const de_DeleteSchemaVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSchemaVersionsCommandError
- */
-const de_DeleteSchemaVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSchemaVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSecurityConfigurationCommand
  */
 export const de_DeleteSecurityConfigurationCommand = async (
@@ -7413,7 +5102,7 @@ export const de_DeleteSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSecurityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7426,41 +5115,6 @@ export const de_DeleteSecurityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSecurityConfigurationCommandError
- */
-const de_DeleteSecurityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSecurityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSessionCommand
  */
 export const de_DeleteSessionCommand = async (
@@ -7468,7 +5122,7 @@ export const de_DeleteSessionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7481,47 +5135,6 @@ export const de_DeleteSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSessionCommandError
- */
-const de_DeleteSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IllegalSessionStateException":
-    case "com.amazonaws.glue#IllegalSessionStateException":
-      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTableCommand
  */
 export const de_DeleteTableCommand = async (
@@ -7529,7 +5142,7 @@ export const de_DeleteTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7542,47 +5155,6 @@ export const de_DeleteTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTableCommandError
- */
-const de_DeleteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.glue#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTableOptimizerCommand
  */
 export const de_DeleteTableOptimizerCommand = async (
@@ -7590,7 +5162,7 @@ export const de_DeleteTableOptimizerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTableOptimizerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTableOptimizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7603,41 +5175,6 @@ export const de_DeleteTableOptimizerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTableOptimizerCommandError
- */
-const de_DeleteTableOptimizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTableOptimizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTableVersionCommand
  */
 export const de_DeleteTableVersionCommand = async (
@@ -7645,7 +5182,7 @@ export const de_DeleteTableVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTableVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTableVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7658,41 +5195,6 @@ export const de_DeleteTableVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTableVersionCommandError
- */
-const de_DeleteTableVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTableVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTriggerCommand
  */
 export const de_DeleteTriggerCommand = async (
@@ -7700,7 +5202,7 @@ export const de_DeleteTriggerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTriggerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTriggerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7713,41 +5215,6 @@ export const de_DeleteTriggerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTriggerCommandError
- */
-const de_DeleteTriggerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTriggerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserDefinedFunctionCommand
  */
 export const de_DeleteUserDefinedFunctionCommand = async (
@@ -7755,7 +5222,7 @@ export const de_DeleteUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserDefinedFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7768,41 +5235,6 @@ export const de_DeleteUserDefinedFunctionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserDefinedFunctionCommandError
- */
-const de_DeleteUserDefinedFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserDefinedFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkflowCommand
  */
 export const de_DeleteWorkflowCommand = async (
@@ -7810,7 +5242,7 @@ export const de_DeleteWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7823,41 +5255,6 @@ export const de_DeleteWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkflowCommandError
- */
-const de_DeleteWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBlueprintCommand
  */
 export const de_GetBlueprintCommand = async (
@@ -7865,7 +5262,7 @@ export const de_GetBlueprintCommand = async (
   context: __SerdeContext
 ): Promise<GetBlueprintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBlueprintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7878,41 +5275,6 @@ export const de_GetBlueprintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBlueprintCommandError
- */
-const de_GetBlueprintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlueprintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBlueprintRunCommand
  */
 export const de_GetBlueprintRunCommand = async (
@@ -7920,7 +5282,7 @@ export const de_GetBlueprintRunCommand = async (
   context: __SerdeContext
 ): Promise<GetBlueprintRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBlueprintRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7933,38 +5295,6 @@ export const de_GetBlueprintRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBlueprintRunCommandError
- */
-const de_GetBlueprintRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlueprintRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBlueprintRunsCommand
  */
 export const de_GetBlueprintRunsCommand = async (
@@ -7972,7 +5302,7 @@ export const de_GetBlueprintRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetBlueprintRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBlueprintRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7985,41 +5315,6 @@ export const de_GetBlueprintRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBlueprintRunsCommandError
- */
-const de_GetBlueprintRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlueprintRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCatalogImportStatusCommand
  */
 export const de_GetCatalogImportStatusCommand = async (
@@ -8027,7 +5322,7 @@ export const de_GetCatalogImportStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetCatalogImportStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCatalogImportStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8040,35 +5335,6 @@ export const de_GetCatalogImportStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCatalogImportStatusCommandError
- */
-const de_GetCatalogImportStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCatalogImportStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetClassifierCommand
  */
 export const de_GetClassifierCommand = async (
@@ -8076,7 +5342,7 @@ export const de_GetClassifierCommand = async (
   context: __SerdeContext
 ): Promise<GetClassifierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetClassifierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8089,35 +5355,6 @@ export const de_GetClassifierCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetClassifierCommandError
- */
-const de_GetClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetClassifiersCommand
  */
 export const de_GetClassifiersCommand = async (
@@ -8125,7 +5362,7 @@ export const de_GetClassifiersCommand = async (
   context: __SerdeContext
 ): Promise<GetClassifiersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetClassifiersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8138,32 +5375,6 @@ export const de_GetClassifiersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetClassifiersCommandError
- */
-const de_GetClassifiersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClassifiersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetColumnStatisticsForPartitionCommand
  */
 export const de_GetColumnStatisticsForPartitionCommand = async (
@@ -8171,7 +5382,7 @@ export const de_GetColumnStatisticsForPartitionCommand = async (
   context: __SerdeContext
 ): Promise<GetColumnStatisticsForPartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetColumnStatisticsForPartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8184,44 +5395,6 @@ export const de_GetColumnStatisticsForPartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetColumnStatisticsForPartitionCommandError
- */
-const de_GetColumnStatisticsForPartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetColumnStatisticsForPartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetColumnStatisticsForTableCommand
  */
 export const de_GetColumnStatisticsForTableCommand = async (
@@ -8229,7 +5402,7 @@ export const de_GetColumnStatisticsForTableCommand = async (
   context: __SerdeContext
 ): Promise<GetColumnStatisticsForTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetColumnStatisticsForTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8242,44 +5415,6 @@ export const de_GetColumnStatisticsForTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetColumnStatisticsForTableCommandError
- */
-const de_GetColumnStatisticsForTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetColumnStatisticsForTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetColumnStatisticsTaskRunCommand
  */
 export const de_GetColumnStatisticsTaskRunCommand = async (
@@ -8287,7 +5422,7 @@ export const de_GetColumnStatisticsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<GetColumnStatisticsTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetColumnStatisticsTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8300,38 +5435,6 @@ export const de_GetColumnStatisticsTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetColumnStatisticsTaskRunCommandError
- */
-const de_GetColumnStatisticsTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetColumnStatisticsTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetColumnStatisticsTaskRunsCommand
  */
 export const de_GetColumnStatisticsTaskRunsCommand = async (
@@ -8339,7 +5442,7 @@ export const de_GetColumnStatisticsTaskRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetColumnStatisticsTaskRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetColumnStatisticsTaskRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8352,32 +5455,6 @@ export const de_GetColumnStatisticsTaskRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetColumnStatisticsTaskRunsCommandError
- */
-const de_GetColumnStatisticsTaskRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetColumnStatisticsTaskRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConnectionCommand
  */
 export const de_GetConnectionCommand = async (
@@ -8385,7 +5462,7 @@ export const de_GetConnectionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8398,41 +5475,6 @@ export const de_GetConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConnectionCommandError
- */
-const de_GetConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConnectionsCommand
  */
 export const de_GetConnectionsCommand = async (
@@ -8440,7 +5482,7 @@ export const de_GetConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8453,41 +5495,6 @@ export const de_GetConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConnectionsCommandError
- */
-const de_GetConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCrawlerCommand
  */
 export const de_GetCrawlerCommand = async (
@@ -8495,7 +5502,7 @@ export const de_GetCrawlerCommand = async (
   context: __SerdeContext
 ): Promise<GetCrawlerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCrawlerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8508,35 +5515,6 @@ export const de_GetCrawlerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCrawlerCommandError
- */
-const de_GetCrawlerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCrawlerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCrawlerMetricsCommand
  */
 export const de_GetCrawlerMetricsCommand = async (
@@ -8544,7 +5522,7 @@ export const de_GetCrawlerMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetCrawlerMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCrawlerMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8557,32 +5535,6 @@ export const de_GetCrawlerMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCrawlerMetricsCommandError
- */
-const de_GetCrawlerMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCrawlerMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCrawlersCommand
  */
 export const de_GetCrawlersCommand = async (
@@ -8590,7 +5542,7 @@ export const de_GetCrawlersCommand = async (
   context: __SerdeContext
 ): Promise<GetCrawlersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCrawlersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8603,32 +5555,6 @@ export const de_GetCrawlersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCrawlersCommandError
- */
-const de_GetCrawlersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCrawlersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCustomEntityTypeCommand
  */
 export const de_GetCustomEntityTypeCommand = async (
@@ -8636,7 +5562,7 @@ export const de_GetCustomEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetCustomEntityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCustomEntityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8649,44 +5575,6 @@ export const de_GetCustomEntityTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCustomEntityTypeCommandError
- */
-const de_GetCustomEntityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCustomEntityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDatabaseCommand
  */
 export const de_GetDatabaseCommand = async (
@@ -8694,7 +5582,7 @@ export const de_GetDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<GetDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8707,47 +5595,6 @@ export const de_GetDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDatabaseCommandError
- */
-const de_GetDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDatabasesCommand
  */
 export const de_GetDatabasesCommand = async (
@@ -8755,7 +5602,7 @@ export const de_GetDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<GetDatabasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDatabasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8768,41 +5615,6 @@ export const de_GetDatabasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDatabasesCommandError
- */
-const de_GetDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommand
  */
 export const de_GetDataCatalogEncryptionSettingsCommand = async (
@@ -8810,7 +5622,7 @@ export const de_GetDataCatalogEncryptionSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetDataCatalogEncryptionSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataCatalogEncryptionSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8823,38 +5635,6 @@ export const de_GetDataCatalogEncryptionSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandError
- */
-const de_GetDataCatalogEncryptionSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataCatalogEncryptionSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataflowGraphCommand
  */
 export const de_GetDataflowGraphCommand = async (
@@ -8862,7 +5642,7 @@ export const de_GetDataflowGraphCommand = async (
   context: __SerdeContext
 ): Promise<GetDataflowGraphCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataflowGraphCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8875,38 +5655,6 @@ export const de_GetDataflowGraphCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataflowGraphCommandError
- */
-const de_GetDataflowGraphCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataflowGraphCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataQualityResultCommand
  */
 export const de_GetDataQualityResultCommand = async (
@@ -8914,7 +5662,7 @@ export const de_GetDataQualityResultCommand = async (
   context: __SerdeContext
 ): Promise<GetDataQualityResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataQualityResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8927,41 +5675,6 @@ export const de_GetDataQualityResultCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataQualityResultCommandError
- */
-const de_GetDataQualityResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataQualityResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataQualityRuleRecommendationRunCommand
  */
 export const de_GetDataQualityRuleRecommendationRunCommand = async (
@@ -8969,7 +5682,7 @@ export const de_GetDataQualityRuleRecommendationRunCommand = async (
   context: __SerdeContext
 ): Promise<GetDataQualityRuleRecommendationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataQualityRuleRecommendationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8982,41 +5695,6 @@ export const de_GetDataQualityRuleRecommendationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataQualityRuleRecommendationRunCommandError
- */
-const de_GetDataQualityRuleRecommendationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataQualityRuleRecommendationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataQualityRulesetCommand
  */
 export const de_GetDataQualityRulesetCommand = async (
@@ -9024,7 +5702,7 @@ export const de_GetDataQualityRulesetCommand = async (
   context: __SerdeContext
 ): Promise<GetDataQualityRulesetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataQualityRulesetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9037,41 +5715,6 @@ export const de_GetDataQualityRulesetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataQualityRulesetCommandError
- */
-const de_GetDataQualityRulesetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataQualityRulesetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataQualityRulesetEvaluationRunCommand
  */
 export const de_GetDataQualityRulesetEvaluationRunCommand = async (
@@ -9079,7 +5722,7 @@ export const de_GetDataQualityRulesetEvaluationRunCommand = async (
   context: __SerdeContext
 ): Promise<GetDataQualityRulesetEvaluationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataQualityRulesetEvaluationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9092,41 +5735,6 @@ export const de_GetDataQualityRulesetEvaluationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataQualityRulesetEvaluationRunCommandError
- */
-const de_GetDataQualityRulesetEvaluationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataQualityRulesetEvaluationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDevEndpointCommand
  */
 export const de_GetDevEndpointCommand = async (
@@ -9134,7 +5742,7 @@ export const de_GetDevEndpointCommand = async (
   context: __SerdeContext
 ): Promise<GetDevEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDevEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9147,41 +5755,6 @@ export const de_GetDevEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDevEndpointCommandError
- */
-const de_GetDevEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDevEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDevEndpointsCommand
  */
 export const de_GetDevEndpointsCommand = async (
@@ -9189,7 +5762,7 @@ export const de_GetDevEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<GetDevEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDevEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9202,41 +5775,6 @@ export const de_GetDevEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDevEndpointsCommandError
- */
-const de_GetDevEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDevEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobCommand
  */
 export const de_GetJobCommand = async (
@@ -9244,7 +5782,7 @@ export const de_GetJobCommand = async (
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9257,38 +5795,6 @@ export const de_GetJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobCommandError
- */
-const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobBookmarkCommand
  */
 export const de_GetJobBookmarkCommand = async (
@@ -9296,7 +5802,7 @@ export const de_GetJobBookmarkCommand = async (
   context: __SerdeContext
 ): Promise<GetJobBookmarkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobBookmarkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9309,44 +5815,6 @@ export const de_GetJobBookmarkCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobBookmarkCommandError
- */
-const de_GetJobBookmarkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobBookmarkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobRunCommand
  */
 export const de_GetJobRunCommand = async (
@@ -9354,7 +5822,7 @@ export const de_GetJobRunCommand = async (
   context: __SerdeContext
 ): Promise<GetJobRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9367,41 +5835,6 @@ export const de_GetJobRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobRunCommandError
- */
-const de_GetJobRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobRunsCommand
  */
 export const de_GetJobRunsCommand = async (
@@ -9409,7 +5842,7 @@ export const de_GetJobRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetJobRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9422,41 +5855,6 @@ export const de_GetJobRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobRunsCommandError
- */
-const de_GetJobRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobsCommand
  */
 export const de_GetJobsCommand = async (
@@ -9464,7 +5862,7 @@ export const de_GetJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9477,41 +5875,6 @@ export const de_GetJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobsCommandError
- */
-const de_GetJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMappingCommand
  */
 export const de_GetMappingCommand = async (
@@ -9519,7 +5882,7 @@ export const de_GetMappingCommand = async (
   context: __SerdeContext
 ): Promise<GetMappingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9532,41 +5895,6 @@ export const de_GetMappingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMappingCommandError
- */
-const de_GetMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMLTaskRunCommand
  */
 export const de_GetMLTaskRunCommand = async (
@@ -9574,7 +5902,7 @@ export const de_GetMLTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<GetMLTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMLTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9587,41 +5915,6 @@ export const de_GetMLTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMLTaskRunCommandError
- */
-const de_GetMLTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMLTaskRunsCommand
  */
 export const de_GetMLTaskRunsCommand = async (
@@ -9629,7 +5922,7 @@ export const de_GetMLTaskRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetMLTaskRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMLTaskRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9642,41 +5935,6 @@ export const de_GetMLTaskRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMLTaskRunsCommandError
- */
-const de_GetMLTaskRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLTaskRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMLTransformCommand
  */
 export const de_GetMLTransformCommand = async (
@@ -9684,7 +5942,7 @@ export const de_GetMLTransformCommand = async (
   context: __SerdeContext
 ): Promise<GetMLTransformCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMLTransformCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9697,41 +5955,6 @@ export const de_GetMLTransformCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMLTransformCommandError
- */
-const de_GetMLTransformCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLTransformCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetMLTransformsCommand
  */
 export const de_GetMLTransformsCommand = async (
@@ -9739,7 +5962,7 @@ export const de_GetMLTransformsCommand = async (
   context: __SerdeContext
 ): Promise<GetMLTransformsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMLTransformsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9752,41 +5975,6 @@ export const de_GetMLTransformsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetMLTransformsCommandError
- */
-const de_GetMLTransformsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLTransformsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPartitionCommand
  */
 export const de_GetPartitionCommand = async (
@@ -9794,7 +5982,7 @@ export const de_GetPartitionCommand = async (
   context: __SerdeContext
 ): Promise<GetPartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9807,50 +5995,6 @@ export const de_GetPartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPartitionCommandError
- */
-const de_GetPartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPartitionIndexesCommand
  */
 export const de_GetPartitionIndexesCommand = async (
@@ -9858,7 +6002,7 @@ export const de_GetPartitionIndexesCommand = async (
   context: __SerdeContext
 ): Promise<GetPartitionIndexesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPartitionIndexesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9871,44 +6015,6 @@ export const de_GetPartitionIndexesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPartitionIndexesCommandError
- */
-const de_GetPartitionIndexesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPartitionIndexesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.glue#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPartitionsCommand
  */
 export const de_GetPartitionsCommand = async (
@@ -9916,7 +6022,7 @@ export const de_GetPartitionsCommand = async (
   context: __SerdeContext
 ): Promise<GetPartitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPartitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9929,56 +6035,6 @@ export const de_GetPartitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPartitionsCommandError
- */
-const de_GetPartitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPartitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.glue#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.glue#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPlanCommand
  */
 export const de_GetPlanCommand = async (
@@ -9986,7 +6042,7 @@ export const de_GetPlanCommand = async (
   context: __SerdeContext
 ): Promise<GetPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9999,38 +6055,6 @@ export const de_GetPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPlanCommandError
- */
-const de_GetPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRegistryCommand
  */
 export const de_GetRegistryCommand = async (
@@ -10038,7 +6062,7 @@ export const de_GetRegistryCommand = async (
   context: __SerdeContext
 ): Promise<GetRegistryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegistryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10051,41 +6075,6 @@ export const de_GetRegistryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRegistryCommandError
- */
-const de_GetRegistryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegistryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePoliciesCommand
  */
 export const de_GetResourcePoliciesCommand = async (
@@ -10093,7 +6082,7 @@ export const de_GetResourcePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10106,41 +6095,6 @@ export const de_GetResourcePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePoliciesCommandError
- */
-const de_GetResourcePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -10148,7 +6102,7 @@ export const de_GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10161,41 +6115,6 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSchemaCommand
  */
 export const de_GetSchemaCommand = async (
@@ -10203,7 +6122,7 @@ export const de_GetSchemaCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10216,41 +6135,6 @@ export const de_GetSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSchemaCommandError
- */
-const de_GetSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSchemaByDefinitionCommand
  */
 export const de_GetSchemaByDefinitionCommand = async (
@@ -10258,7 +6142,7 @@ export const de_GetSchemaByDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaByDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSchemaByDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10271,41 +6155,6 @@ export const de_GetSchemaByDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSchemaByDefinitionCommandError
- */
-const de_GetSchemaByDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSchemaByDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSchemaVersionCommand
  */
 export const de_GetSchemaVersionCommand = async (
@@ -10313,7 +6162,7 @@ export const de_GetSchemaVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSchemaVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10326,41 +6175,6 @@ export const de_GetSchemaVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSchemaVersionCommandError
- */
-const de_GetSchemaVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSchemaVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSchemaVersionsDiffCommand
  */
 export const de_GetSchemaVersionsDiffCommand = async (
@@ -10368,7 +6182,7 @@ export const de_GetSchemaVersionsDiffCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaVersionsDiffCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSchemaVersionsDiffCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10381,41 +6195,6 @@ export const de_GetSchemaVersionsDiffCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSchemaVersionsDiffCommandError
- */
-const de_GetSchemaVersionsDiffCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSchemaVersionsDiffCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSecurityConfigurationCommand
  */
 export const de_GetSecurityConfigurationCommand = async (
@@ -10423,7 +6202,7 @@ export const de_GetSecurityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSecurityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10436,41 +6215,6 @@ export const de_GetSecurityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSecurityConfigurationCommandError
- */
-const de_GetSecurityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecurityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSecurityConfigurationsCommand
  */
 export const de_GetSecurityConfigurationsCommand = async (
@@ -10478,7 +6222,7 @@ export const de_GetSecurityConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSecurityConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10491,41 +6235,6 @@ export const de_GetSecurityConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSecurityConfigurationsCommandError
- */
-const de_GetSecurityConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecurityConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSessionCommand
  */
 export const de_GetSessionCommand = async (
@@ -10533,7 +6242,7 @@ export const de_GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10546,44 +6255,6 @@ export const de_GetSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSessionCommandError
- */
-const de_GetSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetStatementCommand
  */
 export const de_GetStatementCommand = async (
@@ -10591,7 +6262,7 @@ export const de_GetStatementCommand = async (
   context: __SerdeContext
 ): Promise<GetStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10604,47 +6275,6 @@ export const de_GetStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetStatementCommandError
- */
-const de_GetStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalSessionStateException":
-    case "com.amazonaws.glue#IllegalSessionStateException":
-      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTableCommand
  */
 export const de_GetTableCommand = async (
@@ -10652,7 +6282,7 @@ export const de_GetTableCommand = async (
   context: __SerdeContext
 ): Promise<GetTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10665,53 +6295,6 @@ export const de_GetTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTableCommandError
- */
-const de_GetTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.glue#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTableOptimizerCommand
  */
 export const de_GetTableOptimizerCommand = async (
@@ -10719,7 +6302,7 @@ export const de_GetTableOptimizerCommand = async (
   context: __SerdeContext
 ): Promise<GetTableOptimizerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTableOptimizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10732,41 +6315,6 @@ export const de_GetTableOptimizerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTableOptimizerCommandError
- */
-const de_GetTableOptimizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableOptimizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTablesCommand
  */
 export const de_GetTablesCommand = async (
@@ -10774,7 +6322,7 @@ export const de_GetTablesCommand = async (
   context: __SerdeContext
 ): Promise<GetTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10787,50 +6335,6 @@ export const de_GetTablesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTablesCommandError
- */
-const de_GetTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTableVersionCommand
  */
 export const de_GetTableVersionCommand = async (
@@ -10838,7 +6342,7 @@ export const de_GetTableVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetTableVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTableVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10851,44 +6355,6 @@ export const de_GetTableVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTableVersionCommandError
- */
-const de_GetTableVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTableVersionsCommand
  */
 export const de_GetTableVersionsCommand = async (
@@ -10896,7 +6362,7 @@ export const de_GetTableVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetTableVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTableVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10909,44 +6375,6 @@ export const de_GetTableVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTableVersionsCommandError
- */
-const de_GetTableVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTagsCommand
  */
 export const de_GetTagsCommand = async (
@@ -10954,7 +6382,7 @@ export const de_GetTagsCommand = async (
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10967,41 +6395,6 @@ export const de_GetTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTagsCommandError
- */
-const de_GetTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTriggerCommand
  */
 export const de_GetTriggerCommand = async (
@@ -11009,7 +6402,7 @@ export const de_GetTriggerCommand = async (
   context: __SerdeContext
 ): Promise<GetTriggerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTriggerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11022,41 +6415,6 @@ export const de_GetTriggerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTriggerCommandError
- */
-const de_GetTriggerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTriggerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTriggersCommand
  */
 export const de_GetTriggersCommand = async (
@@ -11064,7 +6422,7 @@ export const de_GetTriggersCommand = async (
   context: __SerdeContext
 ): Promise<GetTriggersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTriggersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11077,41 +6435,6 @@ export const de_GetTriggersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTriggersCommandError
- */
-const de_GetTriggersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTriggersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand
  */
 export const de_GetUnfilteredPartitionMetadataCommand = async (
@@ -11119,7 +6442,7 @@ export const de_GetUnfilteredPartitionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetUnfilteredPartitionMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUnfilteredPartitionMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11132,53 +6455,6 @@ export const de_GetUnfilteredPartitionMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUnfilteredPartitionMetadataCommandError
- */
-const de_GetUnfilteredPartitionMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUnfilteredPartitionMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "PermissionTypeMismatchException":
-    case "com.amazonaws.glue#PermissionTypeMismatchException":
-      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommand
  */
 export const de_GetUnfilteredPartitionsMetadataCommand = async (
@@ -11186,7 +6462,7 @@ export const de_GetUnfilteredPartitionsMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetUnfilteredPartitionsMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUnfilteredPartitionsMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11199,53 +6475,6 @@ export const de_GetUnfilteredPartitionsMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUnfilteredPartitionsMetadataCommandError
- */
-const de_GetUnfilteredPartitionsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUnfilteredPartitionsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "PermissionTypeMismatchException":
-    case "com.amazonaws.glue#PermissionTypeMismatchException":
-      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUnfilteredTableMetadataCommand
  */
 export const de_GetUnfilteredTableMetadataCommand = async (
@@ -11253,7 +6482,7 @@ export const de_GetUnfilteredTableMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetUnfilteredTableMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUnfilteredTableMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11266,53 +6495,6 @@ export const de_GetUnfilteredTableMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUnfilteredTableMetadataCommandError
- */
-const de_GetUnfilteredTableMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUnfilteredTableMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "FederationSourceException":
-    case "com.amazonaws.glue#FederationSourceException":
-      throw await de_FederationSourceExceptionRes(parsedOutput, context);
-    case "FederationSourceRetryableException":
-    case "com.amazonaws.glue#FederationSourceRetryableException":
-      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "PermissionTypeMismatchException":
-    case "com.amazonaws.glue#PermissionTypeMismatchException":
-      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUserDefinedFunctionCommand
  */
 export const de_GetUserDefinedFunctionCommand = async (
@@ -11320,7 +6502,7 @@ export const de_GetUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<GetUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserDefinedFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11333,44 +6515,6 @@ export const de_GetUserDefinedFunctionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUserDefinedFunctionCommandError
- */
-const de_GetUserDefinedFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserDefinedFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUserDefinedFunctionsCommand
  */
 export const de_GetUserDefinedFunctionsCommand = async (
@@ -11378,7 +6522,7 @@ export const de_GetUserDefinedFunctionsCommand = async (
   context: __SerdeContext
 ): Promise<GetUserDefinedFunctionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserDefinedFunctionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11391,44 +6535,6 @@ export const de_GetUserDefinedFunctionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUserDefinedFunctionsCommandError
- */
-const de_GetUserDefinedFunctionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserDefinedFunctionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWorkflowCommand
  */
 export const de_GetWorkflowCommand = async (
@@ -11436,7 +6542,7 @@ export const de_GetWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11449,41 +6555,6 @@ export const de_GetWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWorkflowCommandError
- */
-const de_GetWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWorkflowRunCommand
  */
 export const de_GetWorkflowRunCommand = async (
@@ -11491,7 +6562,7 @@ export const de_GetWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkflowRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11504,41 +6575,6 @@ export const de_GetWorkflowRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWorkflowRunCommandError
- */
-const de_GetWorkflowRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWorkflowRunPropertiesCommand
  */
 export const de_GetWorkflowRunPropertiesCommand = async (
@@ -11546,7 +6582,7 @@ export const de_GetWorkflowRunPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowRunPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkflowRunPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11559,41 +6595,6 @@ export const de_GetWorkflowRunPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWorkflowRunPropertiesCommandError
- */
-const de_GetWorkflowRunPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowRunPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWorkflowRunsCommand
  */
 export const de_GetWorkflowRunsCommand = async (
@@ -11601,7 +6602,7 @@ export const de_GetWorkflowRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkflowRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11614,41 +6615,6 @@ export const de_GetWorkflowRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWorkflowRunsCommandError
- */
-const de_GetWorkflowRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportCatalogToGlueCommand
  */
 export const de_ImportCatalogToGlueCommand = async (
@@ -11656,7 +6622,7 @@ export const de_ImportCatalogToGlueCommand = async (
   context: __SerdeContext
 ): Promise<ImportCatalogToGlueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportCatalogToGlueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11669,35 +6635,6 @@ export const de_ImportCatalogToGlueCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportCatalogToGlueCommandError
- */
-const de_ImportCatalogToGlueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportCatalogToGlueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBlueprintsCommand
  */
 export const de_ListBlueprintsCommand = async (
@@ -11705,7 +6642,7 @@ export const de_ListBlueprintsCommand = async (
   context: __SerdeContext
 ): Promise<ListBlueprintsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBlueprintsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11718,38 +6655,6 @@ export const de_ListBlueprintsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBlueprintsCommandError
- */
-const de_ListBlueprintsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBlueprintsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListColumnStatisticsTaskRunsCommand
  */
 export const de_ListColumnStatisticsTaskRunsCommand = async (
@@ -11757,7 +6662,7 @@ export const de_ListColumnStatisticsTaskRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListColumnStatisticsTaskRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListColumnStatisticsTaskRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11770,32 +6675,6 @@ export const de_ListColumnStatisticsTaskRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListColumnStatisticsTaskRunsCommandError
- */
-const de_ListColumnStatisticsTaskRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListColumnStatisticsTaskRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCrawlersCommand
  */
 export const de_ListCrawlersCommand = async (
@@ -11803,7 +6682,7 @@ export const de_ListCrawlersCommand = async (
   context: __SerdeContext
 ): Promise<ListCrawlersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCrawlersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11816,32 +6695,6 @@ export const de_ListCrawlersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCrawlersCommandError
- */
-const de_ListCrawlersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrawlersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCrawlsCommand
  */
 export const de_ListCrawlsCommand = async (
@@ -11849,7 +6702,7 @@ export const de_ListCrawlsCommand = async (
   context: __SerdeContext
 ): Promise<ListCrawlsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCrawlsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11862,38 +6715,6 @@ export const de_ListCrawlsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCrawlsCommandError
- */
-const de_ListCrawlsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCrawlsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCustomEntityTypesCommand
  */
 export const de_ListCustomEntityTypesCommand = async (
@@ -11901,7 +6722,7 @@ export const de_ListCustomEntityTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListCustomEntityTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCustomEntityTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11914,38 +6735,6 @@ export const de_ListCustomEntityTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCustomEntityTypesCommandError
- */
-const de_ListCustomEntityTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomEntityTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDataQualityResultsCommand
  */
 export const de_ListDataQualityResultsCommand = async (
@@ -11953,7 +6742,7 @@ export const de_ListDataQualityResultsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataQualityResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDataQualityResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11966,38 +6755,6 @@ export const de_ListDataQualityResultsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDataQualityResultsCommandError
- */
-const de_ListDataQualityResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataQualityResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand
  */
 export const de_ListDataQualityRuleRecommendationRunsCommand = async (
@@ -12005,7 +6762,7 @@ export const de_ListDataQualityRuleRecommendationRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataQualityRuleRecommendationRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDataQualityRuleRecommendationRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12018,38 +6775,6 @@ export const de_ListDataQualityRuleRecommendationRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommandError
- */
-const de_ListDataQualityRuleRecommendationRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataQualityRuleRecommendationRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommand
  */
 export const de_ListDataQualityRulesetEvaluationRunsCommand = async (
@@ -12057,7 +6782,7 @@ export const de_ListDataQualityRulesetEvaluationRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDataQualityRulesetEvaluationRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12070,38 +6795,6 @@ export const de_ListDataQualityRulesetEvaluationRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDataQualityRulesetEvaluationRunsCommandError
- */
-const de_ListDataQualityRulesetEvaluationRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDataQualityRulesetsCommand
  */
 export const de_ListDataQualityRulesetsCommand = async (
@@ -12109,7 +6802,7 @@ export const de_ListDataQualityRulesetsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataQualityRulesetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDataQualityRulesetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12122,41 +6815,6 @@ export const de_ListDataQualityRulesetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDataQualityRulesetsCommandError
- */
-const de_ListDataQualityRulesetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataQualityRulesetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDevEndpointsCommand
  */
 export const de_ListDevEndpointsCommand = async (
@@ -12164,7 +6822,7 @@ export const de_ListDevEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListDevEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDevEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12177,41 +6835,6 @@ export const de_ListDevEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDevEndpointsCommandError
- */
-const de_ListDevEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -12219,7 +6842,7 @@ export const de_ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12232,41 +6855,6 @@ export const de_ListJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListJobsCommandError
- */
-const de_ListJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMLTransformsCommand
  */
 export const de_ListMLTransformsCommand = async (
@@ -12274,7 +6862,7 @@ export const de_ListMLTransformsCommand = async (
   context: __SerdeContext
 ): Promise<ListMLTransformsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMLTransformsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12287,41 +6875,6 @@ export const de_ListMLTransformsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMLTransformsCommandError
- */
-const de_ListMLTransformsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMLTransformsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRegistriesCommand
  */
 export const de_ListRegistriesCommand = async (
@@ -12329,7 +6882,7 @@ export const de_ListRegistriesCommand = async (
   context: __SerdeContext
 ): Promise<ListRegistriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRegistriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12342,38 +6895,6 @@ export const de_ListRegistriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRegistriesCommandError
- */
-const de_ListRegistriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRegistriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSchemasCommand
  */
 export const de_ListSchemasCommand = async (
@@ -12381,7 +6902,7 @@ export const de_ListSchemasCommand = async (
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSchemasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12394,41 +6915,6 @@ export const de_ListSchemasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSchemasCommandError
- */
-const de_ListSchemasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchemasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSchemaVersionsCommand
  */
 export const de_ListSchemaVersionsCommand = async (
@@ -12436,7 +6922,7 @@ export const de_ListSchemaVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSchemaVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSchemaVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12449,41 +6935,6 @@ export const de_ListSchemaVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSchemaVersionsCommandError
- */
-const de_ListSchemaVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchemaVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSessionsCommand
  */
 export const de_ListSessionsCommand = async (
@@ -12491,7 +6942,7 @@ export const de_ListSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12504,41 +6955,6 @@ export const de_ListSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSessionsCommandError
- */
-const de_ListSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStatementsCommand
  */
 export const de_ListStatementsCommand = async (
@@ -12546,7 +6962,7 @@ export const de_ListStatementsCommand = async (
   context: __SerdeContext
 ): Promise<ListStatementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStatementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12559,47 +6975,6 @@ export const de_ListStatementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStatementsCommandError
- */
-const de_ListStatementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStatementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalSessionStateException":
-    case "com.amazonaws.glue#IllegalSessionStateException":
-      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTableOptimizerRunsCommand
  */
 export const de_ListTableOptimizerRunsCommand = async (
@@ -12607,7 +6982,7 @@ export const de_ListTableOptimizerRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListTableOptimizerRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTableOptimizerRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12620,41 +6995,6 @@ export const de_ListTableOptimizerRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTableOptimizerRunsCommandError
- */
-const de_ListTableOptimizerRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTableOptimizerRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTriggersCommand
  */
 export const de_ListTriggersCommand = async (
@@ -12662,7 +7002,7 @@ export const de_ListTriggersCommand = async (
   context: __SerdeContext
 ): Promise<ListTriggersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTriggersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12675,41 +7015,6 @@ export const de_ListTriggersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTriggersCommandError
- */
-const de_ListTriggersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTriggersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkflowsCommand
  */
 export const de_ListWorkflowsCommand = async (
@@ -12717,7 +7022,7 @@ export const de_ListWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkflowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12730,38 +7035,6 @@ export const de_ListWorkflowsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkflowsCommandError
- */
-const de_ListWorkflowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommand
  */
 export const de_PutDataCatalogEncryptionSettingsCommand = async (
@@ -12769,7 +7042,7 @@ export const de_PutDataCatalogEncryptionSettingsCommand = async (
   context: __SerdeContext
 ): Promise<PutDataCatalogEncryptionSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDataCatalogEncryptionSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12782,38 +7055,6 @@ export const de_PutDataCatalogEncryptionSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandError
- */
-const de_PutDataCatalogEncryptionSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDataCatalogEncryptionSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -12821,7 +7062,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12834,44 +7075,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionCheckFailureException":
-    case "com.amazonaws.glue#ConditionCheckFailureException":
-      throw await de_ConditionCheckFailureExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutSchemaVersionMetadataCommand
  */
 export const de_PutSchemaVersionMetadataCommand = async (
@@ -12879,7 +7082,7 @@ export const de_PutSchemaVersionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<PutSchemaVersionMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutSchemaVersionMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12892,44 +7095,6 @@ export const de_PutSchemaVersionMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutSchemaVersionMetadataCommandError
- */
-const de_PutSchemaVersionMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSchemaVersionMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutWorkflowRunPropertiesCommand
  */
 export const de_PutWorkflowRunPropertiesCommand = async (
@@ -12937,7 +7102,7 @@ export const de_PutWorkflowRunPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<PutWorkflowRunPropertiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutWorkflowRunPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12950,50 +7115,6 @@ export const de_PutWorkflowRunPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutWorkflowRunPropertiesCommandError
- */
-const de_PutWorkflowRunPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWorkflowRunPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1QuerySchemaVersionMetadataCommand
  */
 export const de_QuerySchemaVersionMetadataCommand = async (
@@ -13001,7 +7122,7 @@ export const de_QuerySchemaVersionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<QuerySchemaVersionMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QuerySchemaVersionMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13014,38 +7135,6 @@ export const de_QuerySchemaVersionMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1QuerySchemaVersionMetadataCommandError
- */
-const de_QuerySchemaVersionMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QuerySchemaVersionMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterSchemaVersionCommand
  */
 export const de_RegisterSchemaVersionCommand = async (
@@ -13053,7 +7142,7 @@ export const de_RegisterSchemaVersionCommand = async (
   context: __SerdeContext
 ): Promise<RegisterSchemaVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterSchemaVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13066,47 +7155,6 @@ export const de_RegisterSchemaVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterSchemaVersionCommandError
- */
-const de_RegisterSchemaVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterSchemaVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveSchemaVersionMetadataCommand
  */
 export const de_RemoveSchemaVersionMetadataCommand = async (
@@ -13114,7 +7162,7 @@ export const de_RemoveSchemaVersionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<RemoveSchemaVersionMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveSchemaVersionMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13127,38 +7175,6 @@ export const de_RemoveSchemaVersionMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveSchemaVersionMetadataCommandError
- */
-const de_RemoveSchemaVersionMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveSchemaVersionMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResetJobBookmarkCommand
  */
 export const de_ResetJobBookmarkCommand = async (
@@ -13166,7 +7182,7 @@ export const de_ResetJobBookmarkCommand = async (
   context: __SerdeContext
 ): Promise<ResetJobBookmarkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetJobBookmarkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13179,41 +7195,6 @@ export const de_ResetJobBookmarkCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResetJobBookmarkCommandError
- */
-const de_ResetJobBookmarkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetJobBookmarkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResumeWorkflowRunCommand
  */
 export const de_ResumeWorkflowRunCommand = async (
@@ -13221,7 +7202,7 @@ export const de_ResumeWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<ResumeWorkflowRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResumeWorkflowRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13234,47 +7215,6 @@ export const de_ResumeWorkflowRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResumeWorkflowRunCommandError
- */
-const de_ResumeWorkflowRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeWorkflowRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentRunsExceededException":
-    case "com.amazonaws.glue#ConcurrentRunsExceededException":
-      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalWorkflowStateException":
-    case "com.amazonaws.glue#IllegalWorkflowStateException":
-      throw await de_IllegalWorkflowStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RunStatementCommand
  */
 export const de_RunStatementCommand = async (
@@ -13282,7 +7222,7 @@ export const de_RunStatementCommand = async (
   context: __SerdeContext
 ): Promise<RunStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RunStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13295,53 +7235,6 @@ export const de_RunStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RunStatementCommandError
- */
-const de_RunStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalSessionStateException":
-    case "com.amazonaws.glue#IllegalSessionStateException":
-      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchTablesCommand
  */
 export const de_SearchTablesCommand = async (
@@ -13349,7 +7242,7 @@ export const de_SearchTablesCommand = async (
   context: __SerdeContext
 ): Promise<SearchTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13362,38 +7255,6 @@ export const de_SearchTablesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchTablesCommandError
- */
-const de_SearchTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartBlueprintRunCommand
  */
 export const de_StartBlueprintRunCommand = async (
@@ -13401,7 +7262,7 @@ export const de_StartBlueprintRunCommand = async (
   context: __SerdeContext
 ): Promise<StartBlueprintRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartBlueprintRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13414,47 +7275,6 @@ export const de_StartBlueprintRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartBlueprintRunCommandError
- */
-const de_StartBlueprintRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBlueprintRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalBlueprintStateException":
-    case "com.amazonaws.glue#IllegalBlueprintStateException":
-      throw await de_IllegalBlueprintStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartColumnStatisticsTaskRunCommand
  */
 export const de_StartColumnStatisticsTaskRunCommand = async (
@@ -13462,7 +7282,7 @@ export const de_StartColumnStatisticsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartColumnStatisticsTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartColumnStatisticsTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13475,47 +7295,6 @@ export const de_StartColumnStatisticsTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartColumnStatisticsTaskRunCommandError
- */
-const de_StartColumnStatisticsTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartColumnStatisticsTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ColumnStatisticsTaskRunningException":
-    case "com.amazonaws.glue#ColumnStatisticsTaskRunningException":
-      throw await de_ColumnStatisticsTaskRunningExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartCrawlerCommand
  */
 export const de_StartCrawlerCommand = async (
@@ -13523,7 +7302,7 @@ export const de_StartCrawlerCommand = async (
   context: __SerdeContext
 ): Promise<StartCrawlerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartCrawlerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13536,38 +7315,6 @@ export const de_StartCrawlerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartCrawlerCommandError
- */
-const de_StartCrawlerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCrawlerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CrawlerRunningException":
-    case "com.amazonaws.glue#CrawlerRunningException":
-      throw await de_CrawlerRunningExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartCrawlerScheduleCommand
  */
 export const de_StartCrawlerScheduleCommand = async (
@@ -13575,7 +7322,7 @@ export const de_StartCrawlerScheduleCommand = async (
   context: __SerdeContext
 ): Promise<StartCrawlerScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartCrawlerScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13588,44 +7335,6 @@ export const de_StartCrawlerScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartCrawlerScheduleCommandError
- */
-const de_StartCrawlerScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCrawlerScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "NoScheduleException":
-    case "com.amazonaws.glue#NoScheduleException":
-      throw await de_NoScheduleExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "SchedulerRunningException":
-    case "com.amazonaws.glue#SchedulerRunningException":
-      throw await de_SchedulerRunningExceptionRes(parsedOutput, context);
-    case "SchedulerTransitioningException":
-    case "com.amazonaws.glue#SchedulerTransitioningException":
-      throw await de_SchedulerTransitioningExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand
  */
 export const de_StartDataQualityRuleRecommendationRunCommand = async (
@@ -13633,7 +7342,7 @@ export const de_StartDataQualityRuleRecommendationRunCommand = async (
   context: __SerdeContext
 ): Promise<StartDataQualityRuleRecommendationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartDataQualityRuleRecommendationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13646,41 +7355,6 @@ export const de_StartDataQualityRuleRecommendationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommandError
- */
-const de_StartDataQualityRuleRecommendationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDataQualityRuleRecommendationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.glue#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartDataQualityRulesetEvaluationRunCommand
  */
 export const de_StartDataQualityRulesetEvaluationRunCommand = async (
@@ -13688,7 +7362,7 @@ export const de_StartDataQualityRulesetEvaluationRunCommand = async (
   context: __SerdeContext
 ): Promise<StartDataQualityRulesetEvaluationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartDataQualityRulesetEvaluationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13701,44 +7375,6 @@ export const de_StartDataQualityRulesetEvaluationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartDataQualityRulesetEvaluationRunCommandError
- */
-const de_StartDataQualityRulesetEvaluationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDataQualityRulesetEvaluationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.glue#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartExportLabelsTaskRunCommand
  */
 export const de_StartExportLabelsTaskRunCommand = async (
@@ -13746,7 +7382,7 @@ export const de_StartExportLabelsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartExportLabelsTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartExportLabelsTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13759,41 +7395,6 @@ export const de_StartExportLabelsTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartExportLabelsTaskRunCommandError
- */
-const de_StartExportLabelsTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExportLabelsTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartImportLabelsTaskRunCommand
  */
 export const de_StartImportLabelsTaskRunCommand = async (
@@ -13801,7 +7402,7 @@ export const de_StartImportLabelsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartImportLabelsTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartImportLabelsTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13814,44 +7415,6 @@ export const de_StartImportLabelsTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartImportLabelsTaskRunCommandError
- */
-const de_StartImportLabelsTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportLabelsTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartJobRunCommand
  */
 export const de_StartJobRunCommand = async (
@@ -13859,7 +7422,7 @@ export const de_StartJobRunCommand = async (
   context: __SerdeContext
 ): Promise<StartJobRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartJobRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13872,47 +7435,6 @@ export const de_StartJobRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartJobRunCommandError
- */
-const de_StartJobRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartJobRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentRunsExceededException":
-    case "com.amazonaws.glue#ConcurrentRunsExceededException":
-      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMLEvaluationTaskRunCommand
  */
 export const de_StartMLEvaluationTaskRunCommand = async (
@@ -13920,7 +7442,7 @@ export const de_StartMLEvaluationTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartMLEvaluationTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMLEvaluationTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13933,47 +7455,6 @@ export const de_StartMLEvaluationTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMLEvaluationTaskRunCommandError
- */
-const de_StartMLEvaluationTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLEvaluationTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentRunsExceededException":
-    case "com.amazonaws.glue#ConcurrentRunsExceededException":
-      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "MLTransformNotReadyException":
-    case "com.amazonaws.glue#MLTransformNotReadyException":
-      throw await de_MLTransformNotReadyExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand
  */
 export const de_StartMLLabelingSetGenerationTaskRunCommand = async (
@@ -13981,7 +7462,7 @@ export const de_StartMLLabelingSetGenerationTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMLLabelingSetGenerationTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -13994,44 +7475,6 @@ export const de_StartMLLabelingSetGenerationTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandError
- */
-const de_StartMLLabelingSetGenerationTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMLLabelingSetGenerationTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentRunsExceededException":
-    case "com.amazonaws.glue#ConcurrentRunsExceededException":
-      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartTriggerCommand
  */
 export const de_StartTriggerCommand = async (
@@ -14039,7 +7482,7 @@ export const de_StartTriggerCommand = async (
   context: __SerdeContext
 ): Promise<StartTriggerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartTriggerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14052,47 +7495,6 @@ export const de_StartTriggerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartTriggerCommandError
- */
-const de_StartTriggerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTriggerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentRunsExceededException":
-    case "com.amazonaws.glue#ConcurrentRunsExceededException":
-      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartWorkflowRunCommand
  */
 export const de_StartWorkflowRunCommand = async (
@@ -14100,7 +7502,7 @@ export const de_StartWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<StartWorkflowRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartWorkflowRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14113,47 +7515,6 @@ export const de_StartWorkflowRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartWorkflowRunCommandError
- */
-const de_StartWorkflowRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartWorkflowRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentRunsExceededException":
-    case "com.amazonaws.glue#ConcurrentRunsExceededException":
-      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopColumnStatisticsTaskRunCommand
  */
 export const de_StopColumnStatisticsTaskRunCommand = async (
@@ -14161,7 +7522,7 @@ export const de_StopColumnStatisticsTaskRunCommand = async (
   context: __SerdeContext
 ): Promise<StopColumnStatisticsTaskRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopColumnStatisticsTaskRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14174,41 +7535,6 @@ export const de_StopColumnStatisticsTaskRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopColumnStatisticsTaskRunCommandError
- */
-const de_StopColumnStatisticsTaskRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopColumnStatisticsTaskRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ColumnStatisticsTaskNotRunningException":
-    case "com.amazonaws.glue#ColumnStatisticsTaskNotRunningException":
-      throw await de_ColumnStatisticsTaskNotRunningExceptionRes(parsedOutput, context);
-    case "ColumnStatisticsTaskStoppingException":
-    case "com.amazonaws.glue#ColumnStatisticsTaskStoppingException":
-      throw await de_ColumnStatisticsTaskStoppingExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopCrawlerCommand
  */
 export const de_StopCrawlerCommand = async (
@@ -14216,7 +7542,7 @@ export const de_StopCrawlerCommand = async (
   context: __SerdeContext
 ): Promise<StopCrawlerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopCrawlerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14229,41 +7555,6 @@ export const de_StopCrawlerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopCrawlerCommandError
- */
-const de_StopCrawlerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopCrawlerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CrawlerNotRunningException":
-    case "com.amazonaws.glue#CrawlerNotRunningException":
-      throw await de_CrawlerNotRunningExceptionRes(parsedOutput, context);
-    case "CrawlerStoppingException":
-    case "com.amazonaws.glue#CrawlerStoppingException":
-      throw await de_CrawlerStoppingExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopCrawlerScheduleCommand
  */
 export const de_StopCrawlerScheduleCommand = async (
@@ -14271,7 +7562,7 @@ export const de_StopCrawlerScheduleCommand = async (
   context: __SerdeContext
 ): Promise<StopCrawlerScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopCrawlerScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14284,41 +7575,6 @@ export const de_StopCrawlerScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopCrawlerScheduleCommandError
- */
-const de_StopCrawlerScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopCrawlerScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "SchedulerNotRunningException":
-    case "com.amazonaws.glue#SchedulerNotRunningException":
-      throw await de_SchedulerNotRunningExceptionRes(parsedOutput, context);
-    case "SchedulerTransitioningException":
-    case "com.amazonaws.glue#SchedulerTransitioningException":
-      throw await de_SchedulerTransitioningExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopSessionCommand
  */
 export const de_StopSessionCommand = async (
@@ -14326,7 +7582,7 @@ export const de_StopSessionCommand = async (
   context: __SerdeContext
 ): Promise<StopSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14339,47 +7595,6 @@ export const de_StopSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopSessionCommandError
- */
-const de_StopSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IllegalSessionStateException":
-    case "com.amazonaws.glue#IllegalSessionStateException":
-      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopTriggerCommand
  */
 export const de_StopTriggerCommand = async (
@@ -14387,7 +7602,7 @@ export const de_StopTriggerCommand = async (
   context: __SerdeContext
 ): Promise<StopTriggerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopTriggerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14400,44 +7615,6 @@ export const de_StopTriggerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopTriggerCommandError
- */
-const de_StopTriggerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTriggerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopWorkflowRunCommand
  */
 export const de_StopWorkflowRunCommand = async (
@@ -14445,7 +7622,7 @@ export const de_StopWorkflowRunCommand = async (
   context: __SerdeContext
 ): Promise<StopWorkflowRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopWorkflowRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14458,44 +7635,6 @@ export const de_StopWorkflowRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopWorkflowRunCommandError
- */
-const de_StopWorkflowRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopWorkflowRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalWorkflowStateException":
-    case "com.amazonaws.glue#IllegalWorkflowStateException":
-      throw await de_IllegalWorkflowStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -14503,7 +7642,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14516,41 +7655,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -14558,7 +7662,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14571,41 +7675,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateBlueprintCommand
  */
 export const de_UpdateBlueprintCommand = async (
@@ -14613,7 +7682,7 @@ export const de_UpdateBlueprintCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBlueprintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateBlueprintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14626,47 +7695,6 @@ export const de_UpdateBlueprintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateBlueprintCommandError
- */
-const de_UpdateBlueprintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBlueprintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IllegalBlueprintStateException":
-    case "com.amazonaws.glue#IllegalBlueprintStateException":
-      throw await de_IllegalBlueprintStateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateClassifierCommand
  */
 export const de_UpdateClassifierCommand = async (
@@ -14674,7 +7702,7 @@ export const de_UpdateClassifierCommand = async (
   context: __SerdeContext
 ): Promise<UpdateClassifierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateClassifierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14687,41 +7715,6 @@ export const de_UpdateClassifierCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateClassifierCommandError
- */
-const de_UpdateClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.glue#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateColumnStatisticsForPartitionCommand
  */
 export const de_UpdateColumnStatisticsForPartitionCommand = async (
@@ -14729,7 +7722,7 @@ export const de_UpdateColumnStatisticsForPartitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateColumnStatisticsForPartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateColumnStatisticsForPartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14742,44 +7735,6 @@ export const de_UpdateColumnStatisticsForPartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateColumnStatisticsForPartitionCommandError
- */
-const de_UpdateColumnStatisticsForPartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateColumnStatisticsForPartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateColumnStatisticsForTableCommand
  */
 export const de_UpdateColumnStatisticsForTableCommand = async (
@@ -14787,7 +7742,7 @@ export const de_UpdateColumnStatisticsForTableCommand = async (
   context: __SerdeContext
 ): Promise<UpdateColumnStatisticsForTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateColumnStatisticsForTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14800,44 +7755,6 @@ export const de_UpdateColumnStatisticsForTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateColumnStatisticsForTableCommandError
- */
-const de_UpdateColumnStatisticsForTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateColumnStatisticsForTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateConnectionCommand
  */
 export const de_UpdateConnectionCommand = async (
@@ -14845,7 +7762,7 @@ export const de_UpdateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14858,41 +7775,6 @@ export const de_UpdateConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConnectionCommandError
- */
-const de_UpdateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCrawlerCommand
  */
 export const de_UpdateCrawlerCommand = async (
@@ -14900,7 +7782,7 @@ export const de_UpdateCrawlerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCrawlerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCrawlerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14913,44 +7795,6 @@ export const de_UpdateCrawlerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCrawlerCommandError
- */
-const de_UpdateCrawlerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCrawlerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CrawlerRunningException":
-    case "com.amazonaws.glue#CrawlerRunningException":
-      throw await de_CrawlerRunningExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.glue#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCrawlerScheduleCommand
  */
 export const de_UpdateCrawlerScheduleCommand = async (
@@ -14958,7 +7802,7 @@ export const de_UpdateCrawlerScheduleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCrawlerScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCrawlerScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -14971,44 +7815,6 @@ export const de_UpdateCrawlerScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCrawlerScheduleCommandError
- */
-const de_UpdateCrawlerScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCrawlerScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "SchedulerTransitioningException":
-    case "com.amazonaws.glue#SchedulerTransitioningException":
-      throw await de_SchedulerTransitioningExceptionRes(parsedOutput, context);
-    case "VersionMismatchException":
-    case "com.amazonaws.glue#VersionMismatchException":
-      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDatabaseCommand
  */
 export const de_UpdateDatabaseCommand = async (
@@ -15016,7 +7822,7 @@ export const de_UpdateDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15029,47 +7835,6 @@ export const de_UpdateDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDatabaseCommandError
- */
-const de_UpdateDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDataQualityRulesetCommand
  */
 export const de_UpdateDataQualityRulesetCommand = async (
@@ -15077,7 +7842,7 @@ export const de_UpdateDataQualityRulesetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataQualityRulesetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDataQualityRulesetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15090,50 +7855,6 @@ export const de_UpdateDataQualityRulesetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDataQualityRulesetCommandError
- */
-const de_UpdateDataQualityRulesetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataQualityRulesetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.glue#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDevEndpointCommand
  */
 export const de_UpdateDevEndpointCommand = async (
@@ -15141,7 +7862,7 @@ export const de_UpdateDevEndpointCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDevEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDevEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15154,44 +7875,6 @@ export const de_UpdateDevEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDevEndpointCommandError
- */
-const de_UpdateDevEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDevEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateJobCommand
  */
 export const de_UpdateJobCommand = async (
@@ -15199,7 +7882,7 @@ export const de_UpdateJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15212,44 +7895,6 @@ export const de_UpdateJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateJobCommandError
- */
-const de_UpdateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateJobFromSourceControlCommand
  */
 export const de_UpdateJobFromSourceControlCommand = async (
@@ -15257,7 +7902,7 @@ export const de_UpdateJobFromSourceControlCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobFromSourceControlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateJobFromSourceControlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15270,50 +7915,6 @@ export const de_UpdateJobFromSourceControlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateJobFromSourceControlCommandError
- */
-const de_UpdateJobFromSourceControlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJobFromSourceControlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMLTransformCommand
  */
 export const de_UpdateMLTransformCommand = async (
@@ -15321,7 +7922,7 @@ export const de_UpdateMLTransformCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMLTransformCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMLTransformCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15334,44 +7935,6 @@ export const de_UpdateMLTransformCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMLTransformCommandError
- */
-const de_UpdateMLTransformCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMLTransformCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdatePartitionCommand
  */
 export const de_UpdatePartitionCommand = async (
@@ -15379,7 +7942,7 @@ export const de_UpdatePartitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePartitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePartitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15392,44 +7955,6 @@ export const de_UpdatePartitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePartitionCommandError
- */
-const de_UpdatePartitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePartitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRegistryCommand
  */
 export const de_UpdateRegistryCommand = async (
@@ -15437,7 +7962,7 @@ export const de_UpdateRegistryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRegistryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRegistryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15450,44 +7975,6 @@ export const de_UpdateRegistryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRegistryCommandError
- */
-const de_UpdateRegistryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRegistryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSchemaCommand
  */
 export const de_UpdateSchemaCommand = async (
@@ -15495,7 +7982,7 @@ export const de_UpdateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15508,44 +7995,6 @@ export const de_UpdateSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSchemaCommandError
- */
-const de_UpdateSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSourceControlFromJobCommand
  */
 export const de_UpdateSourceControlFromJobCommand = async (
@@ -15553,7 +8002,7 @@ export const de_UpdateSourceControlFromJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSourceControlFromJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSourceControlFromJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15566,50 +8015,6 @@ export const de_UpdateSourceControlFromJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSourceControlFromJobCommandError
- */
-const de_UpdateSourceControlFromJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSourceControlFromJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AlreadyExistsException":
-    case "com.amazonaws.glue#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.glue#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTableCommand
  */
 export const de_UpdateTableCommand = async (
@@ -15617,7 +8022,7 @@ export const de_UpdateTableCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15630,53 +8035,6 @@ export const de_UpdateTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTableCommandError
- */
-const de_UpdateTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "GlueEncryptionException":
-    case "com.amazonaws.glue#GlueEncryptionException":
-      throw await de_GlueEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.glue#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ResourceNumberLimitExceededException":
-    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
-      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTableOptimizerCommand
  */
 export const de_UpdateTableOptimizerCommand = async (
@@ -15684,7 +8042,7 @@ export const de_UpdateTableOptimizerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTableOptimizerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTableOptimizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15697,41 +8055,6 @@ export const de_UpdateTableOptimizerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTableOptimizerCommandError
- */
-const de_UpdateTableOptimizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableOptimizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.glue#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTriggerCommand
  */
 export const de_UpdateTriggerCommand = async (
@@ -15739,7 +8062,7 @@ export const de_UpdateTriggerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTriggerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTriggerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15752,44 +8075,6 @@ export const de_UpdateTriggerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTriggerCommandError
- */
-const de_UpdateTriggerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTriggerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.glue#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserDefinedFunctionCommand
  */
 export const de_UpdateUserDefinedFunctionCommand = async (
@@ -15797,7 +8082,7 @@ export const de_UpdateUserDefinedFunctionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserDefinedFunctionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserDefinedFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -15810,18 +8095,38 @@ export const de_UpdateUserDefinedFunctionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserDefinedFunctionCommandError
+ * deserializeAws_json1_1UpdateWorkflowCommand
  */
-const de_UpdateUserDefinedFunctionCommandError = async (
+export const de_UpdateWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateUserDefinedFunctionCommandOutput> => {
+): Promise<UpdateWorkflowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWorkflowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.glue#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.glue#EntityNotFoundException":
       throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
@@ -15837,64 +8142,93 @@ const de_UpdateUserDefinedFunctionCommandError = async (
     case "OperationTimeoutException":
     case "com.amazonaws.glue#OperationTimeoutException":
       throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkflowCommand
- */
-export const de_UpdateWorkflowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkflowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateWorkflowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateWorkflowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkflowCommandError
- */
-const de_UpdateWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
+    case "ResourceNumberLimitExceededException":
+    case "com.amazonaws.glue#ResourceNumberLimitExceededException":
+      throw await de_ResourceNumberLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.glue#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.glue#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "FederationSourceException":
+    case "com.amazonaws.glue#FederationSourceException":
+      throw await de_FederationSourceExceptionRes(parsedOutput, context);
+    case "FederationSourceRetryableException":
+    case "com.amazonaws.glue#FederationSourceRetryableException":
+      throw await de_FederationSourceRetryableExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.glue#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
+    case "IllegalSessionStateException":
+    case "com.amazonaws.glue#IllegalSessionStateException":
+      throw await de_IllegalSessionStateExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.glue#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.glue#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotFoundException":
-    case "com.amazonaws.glue#EntityNotFoundException":
-      throw await de_EntityNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.glue#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.glue#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OperationTimeoutException":
-    case "com.amazonaws.glue#OperationTimeoutException":
-      throw await de_OperationTimeoutExceptionRes(parsedOutput, context);
+    case "FederatedResourceAlreadyExistsException":
+    case "com.amazonaws.glue#FederatedResourceAlreadyExistsException":
+      throw await de_FederatedResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.glue#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "CrawlerRunningException":
+    case "com.amazonaws.glue#CrawlerRunningException":
+      throw await de_CrawlerRunningExceptionRes(parsedOutput, context);
+    case "SchedulerTransitioningException":
+    case "com.amazonaws.glue#SchedulerTransitioningException":
+      throw await de_SchedulerTransitioningExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.glue#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ConditionCheckFailureException":
+    case "com.amazonaws.glue#ConditionCheckFailureException":
+      throw await de_ConditionCheckFailureExceptionRes(parsedOutput, context);
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.glue#PermissionTypeMismatchException":
+      throw await de_PermissionTypeMismatchExceptionRes(parsedOutput, context);
+    case "ConcurrentRunsExceededException":
+    case "com.amazonaws.glue#ConcurrentRunsExceededException":
+      throw await de_ConcurrentRunsExceededExceptionRes(parsedOutput, context);
+    case "IllegalWorkflowStateException":
+    case "com.amazonaws.glue#IllegalWorkflowStateException":
+      throw await de_IllegalWorkflowStateExceptionRes(parsedOutput, context);
+    case "IllegalBlueprintStateException":
+    case "com.amazonaws.glue#IllegalBlueprintStateException":
+      throw await de_IllegalBlueprintStateExceptionRes(parsedOutput, context);
+    case "ColumnStatisticsTaskRunningException":
+    case "com.amazonaws.glue#ColumnStatisticsTaskRunningException":
+      throw await de_ColumnStatisticsTaskRunningExceptionRes(parsedOutput, context);
+    case "NoScheduleException":
+    case "com.amazonaws.glue#NoScheduleException":
+      throw await de_NoScheduleExceptionRes(parsedOutput, context);
+    case "SchedulerRunningException":
+    case "com.amazonaws.glue#SchedulerRunningException":
+      throw await de_SchedulerRunningExceptionRes(parsedOutput, context);
+    case "MLTransformNotReadyException":
+    case "com.amazonaws.glue#MLTransformNotReadyException":
+      throw await de_MLTransformNotReadyExceptionRes(parsedOutput, context);
+    case "ColumnStatisticsTaskNotRunningException":
+    case "com.amazonaws.glue#ColumnStatisticsTaskNotRunningException":
+      throw await de_ColumnStatisticsTaskNotRunningExceptionRes(parsedOutput, context);
+    case "ColumnStatisticsTaskStoppingException":
+    case "com.amazonaws.glue#ColumnStatisticsTaskStoppingException":
+      throw await de_ColumnStatisticsTaskStoppingExceptionRes(parsedOutput, context);
+    case "CrawlerNotRunningException":
+    case "com.amazonaws.glue#CrawlerNotRunningException":
+      throw await de_CrawlerNotRunningExceptionRes(parsedOutput, context);
+    case "CrawlerStoppingException":
+    case "com.amazonaws.glue#CrawlerStoppingException":
+      throw await de_CrawlerStoppingExceptionRes(parsedOutput, context);
+    case "SchedulerNotRunningException":
+    case "com.amazonaws.glue#SchedulerNotRunningException":
+      throw await de_SchedulerNotRunningExceptionRes(parsedOutput, context);
+    case "VersionMismatchException":
+    case "com.amazonaws.glue#VersionMismatchException":
+      throw await de_VersionMismatchExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

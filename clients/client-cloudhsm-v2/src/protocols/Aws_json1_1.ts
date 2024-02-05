@@ -279,7 +279,7 @@ export const de_CopyBackupToRegionCommand = async (
   context: __SerdeContext
 ): Promise<CopyBackupToRegionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyBackupToRegionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -292,47 +292,6 @@ export const de_CopyBackupToRegionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopyBackupToRegionCommandError
- */
-const de_CopyBackupToRegionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyBackupToRegionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateClusterCommand
  */
 export const de_CreateClusterCommand = async (
@@ -340,7 +299,7 @@ export const de_CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -353,47 +312,6 @@ export const de_CreateClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHsmCommand
  */
 export const de_CreateHsmCommand = async (
@@ -401,7 +319,7 @@ export const de_CreateHsmCommand = async (
   context: __SerdeContext
 ): Promise<CreateHsmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHsmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -414,44 +332,6 @@ export const de_CreateHsmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHsmCommandError
- */
-const de_CreateHsmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHsmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBackupCommand
  */
 export const de_DeleteBackupCommand = async (
@@ -459,7 +339,7 @@ export const de_DeleteBackupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -472,44 +352,6 @@ export const de_DeleteBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBackupCommandError
- */
-const de_DeleteBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteClusterCommand
  */
 export const de_DeleteClusterCommand = async (
@@ -517,7 +359,7 @@ export const de_DeleteClusterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -530,47 +372,6 @@ export const de_DeleteClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteClusterCommandError
- */
-const de_DeleteClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteHsmCommand
  */
 export const de_DeleteHsmCommand = async (
@@ -578,7 +379,7 @@ export const de_DeleteHsmCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHsmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHsmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -591,44 +392,6 @@ export const de_DeleteHsmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteHsmCommandError
- */
-const de_DeleteHsmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHsmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeBackupsCommand
  */
 export const de_DescribeBackupsCommand = async (
@@ -636,7 +399,7 @@ export const de_DescribeBackupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBackupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -649,47 +412,6 @@ export const de_DescribeBackupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBackupsCommandError
- */
-const de_DescribeBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClustersCommand
  */
 export const de_DescribeClustersCommand = async (
@@ -697,7 +419,7 @@ export const de_DescribeClustersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClustersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -710,44 +432,6 @@ export const de_DescribeClustersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClustersCommandError
- */
-const de_DescribeClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InitializeClusterCommand
  */
 export const de_InitializeClusterCommand = async (
@@ -755,7 +439,7 @@ export const de_InitializeClusterCommand = async (
   context: __SerdeContext
 ): Promise<InitializeClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InitializeClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -768,44 +452,6 @@ export const de_InitializeClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InitializeClusterCommandError
- */
-const de_InitializeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitializeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -813,7 +459,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -826,47 +472,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyBackupAttributesCommand
  */
 export const de_ModifyBackupAttributesCommand = async (
@@ -874,7 +479,7 @@ export const de_ModifyBackupAttributesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyBackupAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyBackupAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -887,44 +492,6 @@ export const de_ModifyBackupAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyBackupAttributesCommandError
- */
-const de_ModifyBackupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyBackupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyClusterCommand
  */
 export const de_ModifyClusterCommand = async (
@@ -932,7 +499,7 @@ export const de_ModifyClusterCommand = async (
   context: __SerdeContext
 ): Promise<ModifyClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -945,44 +512,6 @@ export const de_ModifyClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyClusterCommandError
- */
-const de_ModifyClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreBackupCommand
  */
 export const de_RestoreBackupCommand = async (
@@ -990,7 +519,7 @@ export const de_RestoreBackupCommand = async (
   context: __SerdeContext
 ): Promise<RestoreBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1003,44 +532,6 @@ export const de_RestoreBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreBackupCommandError
- */
-const de_RestoreBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1048,7 +539,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1061,47 +552,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmAccessDeniedException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException":
-      throw await de_CloudHsmAccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudHsmInternalFailureException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException":
-      throw await de_CloudHsmInternalFailureExceptionRes(parsedOutput, context);
-    case "CloudHsmInvalidRequestException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException":
-      throw await de_CloudHsmInvalidRequestExceptionRes(parsedOutput, context);
-    case "CloudHsmResourceNotFoundException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException":
-      throw await de_CloudHsmResourceNotFoundExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "CloudHsmTagException":
-    case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
-      throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1109,7 +559,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1122,12 +572,9 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

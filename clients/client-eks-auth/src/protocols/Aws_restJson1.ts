@@ -70,7 +70,7 @@ export const de_AssumeRoleForPodIdentityCommand = async (
   context: __SerdeContext
 ): Promise<AssumeRoleForPodIdentityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssumeRoleForPodIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -88,12 +88,9 @@ export const de_AssumeRoleForPodIdentityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssumeRoleForPodIdentityCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_AssumeRoleForPodIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssumeRoleForPodIdentityCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

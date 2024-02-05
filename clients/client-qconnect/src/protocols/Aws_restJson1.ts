@@ -1081,7 +1081,7 @@ export const de_CreateAssistantCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssistantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAssistantCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1095,41 +1095,6 @@ export const de_CreateAssistantCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAssistantCommandError
- */
-const de_CreateAssistantCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssistantCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAssistantAssociationCommand
  */
 export const de_CreateAssistantAssociationCommand = async (
@@ -1137,7 +1102,7 @@ export const de_CreateAssistantAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssistantAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAssistantAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1151,44 +1116,6 @@ export const de_CreateAssistantAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAssistantAssociationCommandError
- */
-const de_CreateAssistantAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssistantAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateContentCommand
  */
 export const de_CreateContentCommand = async (
@@ -1196,7 +1123,7 @@ export const de_CreateContentCommand = async (
   context: __SerdeContext
 ): Promise<CreateContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1210,44 +1137,6 @@ export const de_CreateContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateContentCommandError
- */
-const de_CreateContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateKnowledgeBaseCommand
  */
 export const de_CreateKnowledgeBaseCommand = async (
@@ -1255,7 +1144,7 @@ export const de_CreateKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<CreateKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1269,41 +1158,6 @@ export const de_CreateKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateKnowledgeBaseCommandError
- */
-const de_CreateKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateQuickResponseCommand
  */
 export const de_CreateQuickResponseCommand = async (
@@ -1311,7 +1165,7 @@ export const de_CreateQuickResponseCommand = async (
   context: __SerdeContext
 ): Promise<CreateQuickResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateQuickResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1325,44 +1179,6 @@ export const de_CreateQuickResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateQuickResponseCommandError
- */
-const de_CreateQuickResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateQuickResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSessionCommand
  */
 export const de_CreateSessionCommand = async (
@@ -1370,7 +1186,7 @@ export const de_CreateSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1384,38 +1200,6 @@ export const de_CreateSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSessionCommandError
- */
-const de_CreateSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAssistantCommand
  */
 export const de_DeleteAssistantCommand = async (
@@ -1423,45 +1207,13 @@ export const de_DeleteAssistantCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssistantCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAssistantCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAssistantCommandError
- */
-const de_DeleteAssistantCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssistantCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1472,45 +1224,13 @@ export const de_DeleteAssistantAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssistantAssociationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAssistantAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAssistantAssociationCommandError
- */
-const de_DeleteAssistantAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssistantAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1521,45 +1241,13 @@ export const de_DeleteContentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteContentCommandError
- */
-const de_DeleteContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1570,48 +1258,13 @@ export const de_DeleteImportJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImportJobCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteImportJobCommandError
- */
-const de_DeleteImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1622,48 +1275,13 @@ export const de_DeleteKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteKnowledgeBaseCommandError
- */
-const de_DeleteKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1674,45 +1292,13 @@ export const de_DeleteQuickResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteQuickResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteQuickResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteQuickResponseCommandError
- */
-const de_DeleteQuickResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteQuickResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1723,7 +1309,7 @@ export const de_GetAssistantCommand = async (
   context: __SerdeContext
 ): Promise<GetAssistantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssistantCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1737,38 +1323,6 @@ export const de_GetAssistantCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssistantCommandError
- */
-const de_GetAssistantCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssistantCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssistantAssociationCommand
  */
 export const de_GetAssistantAssociationCommand = async (
@@ -1776,7 +1330,7 @@ export const de_GetAssistantAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetAssistantAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssistantAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1790,38 +1344,6 @@ export const de_GetAssistantAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssistantAssociationCommandError
- */
-const de_GetAssistantAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssistantAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContentCommand
  */
 export const de_GetContentCommand = async (
@@ -1829,7 +1351,7 @@ export const de_GetContentCommand = async (
   context: __SerdeContext
 ): Promise<GetContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1843,38 +1365,6 @@ export const de_GetContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContentCommandError
- */
-const de_GetContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContentSummaryCommand
  */
 export const de_GetContentSummaryCommand = async (
@@ -1882,7 +1372,7 @@ export const de_GetContentSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetContentSummaryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContentSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1896,38 +1386,6 @@ export const de_GetContentSummaryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContentSummaryCommandError
- */
-const de_GetContentSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContentSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImportJobCommand
  */
 export const de_GetImportJobCommand = async (
@@ -1935,7 +1393,7 @@ export const de_GetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1949,38 +1407,6 @@ export const de_GetImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImportJobCommandError
- */
-const de_GetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetKnowledgeBaseCommand
  */
 export const de_GetKnowledgeBaseCommand = async (
@@ -1988,7 +1414,7 @@ export const de_GetKnowledgeBaseCommand = async (
   context: __SerdeContext
 ): Promise<GetKnowledgeBaseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetKnowledgeBaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2002,38 +1428,6 @@ export const de_GetKnowledgeBaseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetKnowledgeBaseCommandError
- */
-const de_GetKnowledgeBaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetKnowledgeBaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetQuickResponseCommand
  */
 export const de_GetQuickResponseCommand = async (
@@ -2041,7 +1435,7 @@ export const de_GetQuickResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetQuickResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetQuickResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2055,38 +1449,6 @@ export const de_GetQuickResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetQuickResponseCommandError
- */
-const de_GetQuickResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQuickResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecommendationsCommand
  */
 export const de_GetRecommendationsCommand = async (
@@ -2094,7 +1456,7 @@ export const de_GetRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2109,38 +1471,6 @@ export const de_GetRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecommendationsCommandError
- */
-const de_GetRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSessionCommand
  */
 export const de_GetSessionCommand = async (
@@ -2148,7 +1478,7 @@ export const de_GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2162,38 +1492,6 @@ export const de_GetSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSessionCommandError
- */
-const de_GetSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssistantAssociationsCommand
  */
 export const de_ListAssistantAssociationsCommand = async (
@@ -2201,7 +1499,7 @@ export const de_ListAssistantAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssistantAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssistantAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2216,38 +1514,6 @@ export const de_ListAssistantAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssistantAssociationsCommandError
- */
-const de_ListAssistantAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssistantAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssistantsCommand
  */
 export const de_ListAssistantsCommand = async (
@@ -2255,7 +1521,7 @@ export const de_ListAssistantsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssistantsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssistantsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2270,35 +1536,6 @@ export const de_ListAssistantsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssistantsCommandError
- */
-const de_ListAssistantsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssistantsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListContentsCommand
  */
 export const de_ListContentsCommand = async (
@@ -2306,7 +1543,7 @@ export const de_ListContentsCommand = async (
   context: __SerdeContext
 ): Promise<ListContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListContentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2321,38 +1558,6 @@ export const de_ListContentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListContentsCommandError
- */
-const de_ListContentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImportJobsCommand
  */
 export const de_ListImportJobsCommand = async (
@@ -2360,7 +1565,7 @@ export const de_ListImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2375,35 +1580,6 @@ export const de_ListImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImportJobsCommandError
- */
-const de_ListImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListKnowledgeBasesCommand
  */
 export const de_ListKnowledgeBasesCommand = async (
@@ -2411,7 +1587,7 @@ export const de_ListKnowledgeBasesCommand = async (
   context: __SerdeContext
 ): Promise<ListKnowledgeBasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListKnowledgeBasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2426,35 +1602,6 @@ export const de_ListKnowledgeBasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListKnowledgeBasesCommandError
- */
-const de_ListKnowledgeBasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListKnowledgeBasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListQuickResponsesCommand
  */
 export const de_ListQuickResponsesCommand = async (
@@ -2462,7 +1609,7 @@ export const de_ListQuickResponsesCommand = async (
   context: __SerdeContext
 ): Promise<ListQuickResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListQuickResponsesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2477,38 +1624,6 @@ export const de_ListQuickResponsesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListQuickResponsesCommandError
- */
-const de_ListQuickResponsesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQuickResponsesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2516,7 +1631,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2530,32 +1645,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1NotifyRecommendationsReceivedCommand
  */
 export const de_NotifyRecommendationsReceivedCommand = async (
@@ -2563,7 +1652,7 @@ export const de_NotifyRecommendationsReceivedCommand = async (
   context: __SerdeContext
 ): Promise<NotifyRecommendationsReceivedCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NotifyRecommendationsReceivedCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2578,38 +1667,6 @@ export const de_NotifyRecommendationsReceivedCommand = async (
 };
 
 /**
- * deserializeAws_restJson1NotifyRecommendationsReceivedCommandError
- */
-const de_NotifyRecommendationsReceivedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyRecommendationsReceivedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutFeedbackCommand
  */
 export const de_PutFeedbackCommand = async (
@@ -2617,7 +1674,7 @@ export const de_PutFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<PutFeedbackCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutFeedbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2635,38 +1692,6 @@ export const de_PutFeedbackCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutFeedbackCommandError
- */
-const de_PutFeedbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFeedbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1QueryAssistantCommand
  */
 export const de_QueryAssistantCommand = async (
@@ -2674,7 +1699,7 @@ export const de_QueryAssistantCommand = async (
   context: __SerdeContext
 ): Promise<QueryAssistantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_QueryAssistantCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2689,41 +1714,6 @@ export const de_QueryAssistantCommand = async (
 };
 
 /**
- * deserializeAws_restJson1QueryAssistantCommandError
- */
-const de_QueryAssistantCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryAssistantCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "RequestTimeoutException":
-    case "com.amazonaws.qconnect#RequestTimeoutException":
-      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommand
  */
 export const de_RemoveKnowledgeBaseTemplateUriCommand = async (
@@ -2731,45 +1721,13 @@ export const de_RemoveKnowledgeBaseTemplateUriCommand = async (
   context: __SerdeContext
 ): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveKnowledgeBaseTemplateUriCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveKnowledgeBaseTemplateUriCommandError
- */
-const de_RemoveKnowledgeBaseTemplateUriCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveKnowledgeBaseTemplateUriCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2780,7 +1738,7 @@ export const de_SearchContentCommand = async (
   context: __SerdeContext
 ): Promise<SearchContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2795,38 +1753,6 @@ export const de_SearchContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchContentCommandError
- */
-const de_SearchContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchQuickResponsesCommand
  */
 export const de_SearchQuickResponsesCommand = async (
@@ -2834,7 +1760,7 @@ export const de_SearchQuickResponsesCommand = async (
   context: __SerdeContext
 ): Promise<SearchQuickResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchQuickResponsesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2849,41 +1775,6 @@ export const de_SearchQuickResponsesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchQuickResponsesCommandError
- */
-const de_SearchQuickResponsesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchQuickResponsesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "RequestTimeoutException":
-    case "com.amazonaws.qconnect#RequestTimeoutException":
-      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchSessionsCommand
  */
 export const de_SearchSessionsCommand = async (
@@ -2891,7 +1782,7 @@ export const de_SearchSessionsCommand = async (
   context: __SerdeContext
 ): Promise<SearchSessionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2906,38 +1797,6 @@ export const de_SearchSessionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchSessionsCommandError
- */
-const de_SearchSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartContentUploadCommand
  */
 export const de_StartContentUploadCommand = async (
@@ -2945,7 +1804,7 @@ export const de_StartContentUploadCommand = async (
   context: __SerdeContext
 ): Promise<StartContentUploadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartContentUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2962,38 +1821,6 @@ export const de_StartContentUploadCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartContentUploadCommandError
- */
-const de_StartContentUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartContentUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartImportJobCommand
  */
 export const de_StartImportJobCommand = async (
@@ -3001,7 +1828,7 @@ export const de_StartImportJobCommand = async (
   context: __SerdeContext
 ): Promise<StartImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3015,44 +1842,6 @@ export const de_StartImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartImportJobCommandError
- */
-const de_StartImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.qconnect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3060,42 +1849,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.qconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3106,39 +1866,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3149,7 +1883,7 @@ export const de_UpdateContentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3163,41 +1897,6 @@ export const de_UpdateContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateContentCommandError
- */
-const de_UpdateContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.qconnect#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommand
  */
 export const de_UpdateKnowledgeBaseTemplateUriCommand = async (
@@ -3205,7 +1904,7 @@ export const de_UpdateKnowledgeBaseTemplateUriCommand = async (
   context: __SerdeContext
 ): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateKnowledgeBaseTemplateUriCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3219,38 +1918,6 @@ export const de_UpdateKnowledgeBaseTemplateUriCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateKnowledgeBaseTemplateUriCommandError
- */
-const de_UpdateKnowledgeBaseTemplateUriCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateKnowledgeBaseTemplateUriCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.qconnect#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.qconnect#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateQuickResponseCommand
  */
 export const de_UpdateQuickResponseCommand = async (
@@ -3258,7 +1925,7 @@ export const de_UpdateQuickResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateQuickResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateQuickResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3272,12 +1939,9 @@ export const de_UpdateQuickResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateQuickResponseCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateQuickResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateQuickResponseCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3290,15 +1954,24 @@ const de_UpdateQuickResponseCommandError = async (
     case "ConflictException":
     case "com.amazonaws.qconnect#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.qconnect#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.qconnect#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.qconnect#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.qconnect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.qconnect#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.qconnect#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.qconnect#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

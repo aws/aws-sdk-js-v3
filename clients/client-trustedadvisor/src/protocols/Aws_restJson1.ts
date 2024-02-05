@@ -340,7 +340,7 @@ export const de_GetOrganizationRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetOrganizationRecommendationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetOrganizationRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -354,44 +354,6 @@ export const de_GetOrganizationRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetOrganizationRecommendationCommandError
- */
-const de_GetOrganizationRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOrganizationRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecommendationCommand
  */
 export const de_GetRecommendationCommand = async (
@@ -399,7 +361,7 @@ export const de_GetRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -413,44 +375,6 @@ export const de_GetRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecommendationCommandError
- */
-const de_GetRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChecksCommand
  */
 export const de_ListChecksCommand = async (
@@ -458,7 +382,7 @@ export const de_ListChecksCommand = async (
   context: __SerdeContext
 ): Promise<ListChecksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChecksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -473,41 +397,6 @@ export const de_ListChecksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChecksCommandError
- */
-const de_ListChecksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChecksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOrganizationRecommendationAccountsCommand
  */
 export const de_ListOrganizationRecommendationAccountsCommand = async (
@@ -515,7 +404,7 @@ export const de_ListOrganizationRecommendationAccountsCommand = async (
   context: __SerdeContext
 ): Promise<ListOrganizationRecommendationAccountsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOrganizationRecommendationAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -530,44 +419,6 @@ export const de_ListOrganizationRecommendationAccountsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOrganizationRecommendationAccountsCommandError
- */
-const de_ListOrganizationRecommendationAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationRecommendationAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOrganizationRecommendationResourcesCommand
  */
 export const de_ListOrganizationRecommendationResourcesCommand = async (
@@ -575,7 +426,7 @@ export const de_ListOrganizationRecommendationResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListOrganizationRecommendationResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOrganizationRecommendationResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -590,44 +441,6 @@ export const de_ListOrganizationRecommendationResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOrganizationRecommendationResourcesCommandError
- */
-const de_ListOrganizationRecommendationResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationRecommendationResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOrganizationRecommendationsCommand
  */
 export const de_ListOrganizationRecommendationsCommand = async (
@@ -635,7 +448,7 @@ export const de_ListOrganizationRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ListOrganizationRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOrganizationRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -650,41 +463,6 @@ export const de_ListOrganizationRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOrganizationRecommendationsCommandError
- */
-const de_ListOrganizationRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecommendationResourcesCommand
  */
 export const de_ListRecommendationResourcesCommand = async (
@@ -692,7 +470,7 @@ export const de_ListRecommendationResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendationResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecommendationResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -707,44 +485,6 @@ export const de_ListRecommendationResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecommendationResourcesCommandError
- */
-const de_ListRecommendationResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecommendationsCommand
  */
 export const de_ListRecommendationsCommand = async (
@@ -752,7 +492,7 @@ export const de_ListRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -767,41 +507,6 @@ export const de_ListRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecommendationsCommandError
- */
-const de_ListRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateOrganizationRecommendationLifecycleCommand
  */
 export const de_UpdateOrganizationRecommendationLifecycleCommand = async (
@@ -809,54 +514,13 @@ export const de_UpdateOrganizationRecommendationLifecycleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateOrganizationRecommendationLifecycleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateOrganizationRecommendationLifecycleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateOrganizationRecommendationLifecycleCommandError
- */
-const de_UpdateOrganizationRecommendationLifecycleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOrganizationRecommendationLifecycleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.trustedadvisor#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.trustedadvisor#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.trustedadvisor#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.trustedadvisor#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.trustedadvisor#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.trustedadvisor#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -867,7 +531,7 @@ export const de_UpdateRecommendationLifecycleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRecommendationLifecycleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRecommendationLifecycleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -877,12 +541,9 @@ export const de_UpdateRecommendationLifecycleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRecommendationLifecycleCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateRecommendationLifecycleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRecommendationLifecycleCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -892,9 +553,6 @@ const de_UpdateRecommendationLifecycleCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.trustedadvisor#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.trustedadvisor#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.trustedadvisor#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -907,6 +565,9 @@ const de_UpdateRecommendationLifecycleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.trustedadvisor#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.trustedadvisor#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -1163,7 +1163,7 @@ export const de_CreateGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1171,53 +1171,6 @@ export const de_CreateGatewayRouteCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.gatewayRoute = de_GatewayRouteData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateGatewayRouteCommandError
- */
-const de_CreateGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1228,7 +1181,7 @@ export const de_CreateMeshCommand = async (
   context: __SerdeContext
 ): Promise<CreateMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMeshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1236,53 +1189,6 @@ export const de_CreateMeshCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.mesh = de_MeshData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateMeshCommandError
- */
-const de_CreateMeshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMeshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1293,7 +1199,7 @@ export const de_CreateRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1301,53 +1207,6 @@ export const de_CreateRouteCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.route = de_RouteData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateRouteCommandError
- */
-const de_CreateRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1358,7 +1217,7 @@ export const de_CreateVirtualGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVirtualGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1366,53 +1225,6 @@ export const de_CreateVirtualGatewayCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualGateway = de_VirtualGatewayData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateVirtualGatewayCommandError
- */
-const de_CreateVirtualGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVirtualGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1423,7 +1235,7 @@ export const de_CreateVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVirtualNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1431,53 +1243,6 @@ export const de_CreateVirtualNodeCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualNode = de_VirtualNodeData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateVirtualNodeCommandError
- */
-const de_CreateVirtualNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVirtualNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1488,7 +1253,7 @@ export const de_CreateVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVirtualRouterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1496,53 +1261,6 @@ export const de_CreateVirtualRouterCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualRouter = de_VirtualRouterData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateVirtualRouterCommandError
- */
-const de_CreateVirtualRouterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVirtualRouterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1553,7 +1271,7 @@ export const de_CreateVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVirtualServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1561,53 +1279,6 @@ export const de_CreateVirtualServiceCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualService = de_VirtualServiceData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateVirtualServiceCommandError
- */
-const de_CreateVirtualServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVirtualServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1618,7 +1289,7 @@ export const de_DeleteGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1626,50 +1297,6 @@ export const de_DeleteGatewayRouteCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.gatewayRoute = de_GatewayRouteData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGatewayRouteCommandError
- */
-const de_DeleteGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1680,7 +1307,7 @@ export const de_DeleteMeshCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteMeshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1688,50 +1315,6 @@ export const de_DeleteMeshCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.mesh = de_MeshData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMeshCommandError
- */
-const de_DeleteMeshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMeshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1742,7 +1325,7 @@ export const de_DeleteRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1750,50 +1333,6 @@ export const de_DeleteRouteCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.route = de_RouteData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRouteCommandError
- */
-const de_DeleteRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1804,7 +1343,7 @@ export const de_DeleteVirtualGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVirtualGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1812,50 +1351,6 @@ export const de_DeleteVirtualGatewayCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualGateway = de_VirtualGatewayData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVirtualGatewayCommandError
- */
-const de_DeleteVirtualGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVirtualGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1866,7 +1361,7 @@ export const de_DeleteVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVirtualNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1874,50 +1369,6 @@ export const de_DeleteVirtualNodeCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualNode = de_VirtualNodeData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVirtualNodeCommandError
- */
-const de_DeleteVirtualNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVirtualNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1928,7 +1379,7 @@ export const de_DeleteVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVirtualRouterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1936,50 +1387,6 @@ export const de_DeleteVirtualRouterCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualRouter = de_VirtualRouterData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVirtualRouterCommandError
- */
-const de_DeleteVirtualRouterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVirtualRouterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1990,7 +1397,7 @@ export const de_DeleteVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVirtualServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1998,50 +1405,6 @@ export const de_DeleteVirtualServiceCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.virtualService = de_VirtualServiceData(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVirtualServiceCommandError
- */
-const de_DeleteVirtualServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVirtualServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appmesh#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2052,7 +1415,7 @@ export const de_DescribeGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2063,47 +1426,6 @@ export const de_DescribeGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGatewayRouteCommandError
- */
-const de_DescribeGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeMeshCommand
  */
 export const de_DescribeMeshCommand = async (
@@ -2111,7 +1433,7 @@ export const de_DescribeMeshCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeMeshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2122,47 +1444,6 @@ export const de_DescribeMeshCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeMeshCommandError
- */
-const de_DescribeMeshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMeshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRouteCommand
  */
 export const de_DescribeRouteCommand = async (
@@ -2170,7 +1451,7 @@ export const de_DescribeRouteCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2181,47 +1462,6 @@ export const de_DescribeRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRouteCommandError
- */
-const de_DescribeRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVirtualGatewayCommand
  */
 export const de_DescribeVirtualGatewayCommand = async (
@@ -2229,7 +1469,7 @@ export const de_DescribeVirtualGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVirtualGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2240,47 +1480,6 @@ export const de_DescribeVirtualGatewayCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVirtualGatewayCommandError
- */
-const de_DescribeVirtualGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVirtualGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVirtualNodeCommand
  */
 export const de_DescribeVirtualNodeCommand = async (
@@ -2288,7 +1487,7 @@ export const de_DescribeVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVirtualNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2299,47 +1498,6 @@ export const de_DescribeVirtualNodeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVirtualNodeCommandError
- */
-const de_DescribeVirtualNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVirtualNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVirtualRouterCommand
  */
 export const de_DescribeVirtualRouterCommand = async (
@@ -2347,7 +1505,7 @@ export const de_DescribeVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVirtualRouterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2358,47 +1516,6 @@ export const de_DescribeVirtualRouterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVirtualRouterCommandError
- */
-const de_DescribeVirtualRouterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVirtualRouterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVirtualServiceCommand
  */
 export const de_DescribeVirtualServiceCommand = async (
@@ -2406,7 +1523,7 @@ export const de_DescribeVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVirtualServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2417,47 +1534,6 @@ export const de_DescribeVirtualServiceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVirtualServiceCommandError
- */
-const de_DescribeVirtualServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVirtualServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGatewayRoutesCommand
  */
 export const de_ListGatewayRoutesCommand = async (
@@ -2465,7 +1541,7 @@ export const de_ListGatewayRoutesCommand = async (
   context: __SerdeContext
 ): Promise<ListGatewayRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGatewayRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2480,47 +1556,6 @@ export const de_ListGatewayRoutesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGatewayRoutesCommandError
- */
-const de_ListGatewayRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewayRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMeshesCommand
  */
 export const de_ListMeshesCommand = async (
@@ -2528,7 +1563,7 @@ export const de_ListMeshesCommand = async (
   context: __SerdeContext
 ): Promise<ListMeshesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMeshesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2543,47 +1578,6 @@ export const de_ListMeshesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMeshesCommandError
- */
-const de_ListMeshesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMeshesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRoutesCommand
  */
 export const de_ListRoutesCommand = async (
@@ -2591,7 +1585,7 @@ export const de_ListRoutesCommand = async (
   context: __SerdeContext
 ): Promise<ListRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2606,47 +1600,6 @@ export const de_ListRoutesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRoutesCommandError
- */
-const de_ListRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2654,7 +1607,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2669,47 +1622,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVirtualGatewaysCommand
  */
 export const de_ListVirtualGatewaysCommand = async (
@@ -2717,7 +1629,7 @@ export const de_ListVirtualGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualGatewaysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVirtualGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2732,47 +1644,6 @@ export const de_ListVirtualGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVirtualGatewaysCommandError
- */
-const de_ListVirtualGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVirtualNodesCommand
  */
 export const de_ListVirtualNodesCommand = async (
@@ -2780,7 +1651,7 @@ export const de_ListVirtualNodesCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVirtualNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2795,47 +1666,6 @@ export const de_ListVirtualNodesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVirtualNodesCommandError
- */
-const de_ListVirtualNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVirtualRoutersCommand
  */
 export const de_ListVirtualRoutersCommand = async (
@@ -2843,7 +1673,7 @@ export const de_ListVirtualRoutersCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualRoutersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVirtualRoutersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2858,47 +1688,6 @@ export const de_ListVirtualRoutersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVirtualRoutersCommandError
- */
-const de_ListVirtualRoutersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualRoutersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVirtualServicesCommand
  */
 export const de_ListVirtualServicesCommand = async (
@@ -2906,7 +1695,7 @@ export const de_ListVirtualServicesCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualServicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVirtualServicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2921,47 +1710,6 @@ export const de_ListVirtualServicesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVirtualServicesCommandError
- */
-const de_ListVirtualServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2969,57 +1717,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.appmesh#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3030,54 +1734,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3088,7 +1751,7 @@ export const de_UpdateGatewayRouteCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewayRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGatewayRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3099,53 +1762,6 @@ export const de_UpdateGatewayRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGatewayRouteCommandError
- */
-const de_UpdateGatewayRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateMeshCommand
  */
 export const de_UpdateMeshCommand = async (
@@ -3153,7 +1769,7 @@ export const de_UpdateMeshCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMeshCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMeshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3164,50 +1780,6 @@ export const de_UpdateMeshCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateMeshCommandError
- */
-const de_UpdateMeshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMeshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRouteCommand
  */
 export const de_UpdateRouteCommand = async (
@@ -3215,7 +1787,7 @@ export const de_UpdateRouteCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3226,53 +1798,6 @@ export const de_UpdateRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRouteCommandError
- */
-const de_UpdateRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVirtualGatewayCommand
  */
 export const de_UpdateVirtualGatewayCommand = async (
@@ -3280,7 +1805,7 @@ export const de_UpdateVirtualGatewayCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVirtualGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3291,53 +1816,6 @@ export const de_UpdateVirtualGatewayCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVirtualGatewayCommandError
- */
-const de_UpdateVirtualGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVirtualGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVirtualNodeCommand
  */
 export const de_UpdateVirtualNodeCommand = async (
@@ -3345,7 +1823,7 @@ export const de_UpdateVirtualNodeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVirtualNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3356,53 +1834,6 @@ export const de_UpdateVirtualNodeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVirtualNodeCommandError
- */
-const de_UpdateVirtualNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVirtualNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVirtualRouterCommand
  */
 export const de_UpdateVirtualRouterCommand = async (
@@ -3410,7 +1841,7 @@ export const de_UpdateVirtualRouterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualRouterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVirtualRouterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3421,53 +1852,6 @@ export const de_UpdateVirtualRouterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVirtualRouterCommandError
- */
-const de_UpdateVirtualRouterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVirtualRouterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appmesh#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appmesh#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.appmesh#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.appmesh#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appmesh#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appmesh#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.appmesh#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.appmesh#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVirtualServiceCommand
  */
 export const de_UpdateVirtualServiceCommand = async (
@@ -3475,7 +1859,7 @@ export const de_UpdateVirtualServiceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVirtualServiceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVirtualServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3486,12 +1870,9 @@ export const de_UpdateVirtualServiceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVirtualServiceCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateVirtualServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVirtualServiceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3522,6 +1903,12 @@ const de_UpdateVirtualServiceCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.appmesh#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.appmesh#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.appmesh#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

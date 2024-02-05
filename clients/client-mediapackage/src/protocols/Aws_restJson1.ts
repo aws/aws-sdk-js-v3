@@ -507,7 +507,7 @@ export const de_ConfigureLogsCommand = async (
   context: __SerdeContext
 ): Promise<ConfigureLogsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ConfigureLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -525,47 +525,6 @@ export const de_ConfigureLogsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ConfigureLogsCommandError
- */
-const de_ConfigureLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfigureLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -576,7 +535,7 @@ export const de_CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -594,47 +553,6 @@ export const de_CreateChannelCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateChannelCommandError
- */
-const de_CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -645,7 +563,7 @@ export const de_CreateHarvestJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateHarvestJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateHarvestJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -667,47 +585,6 @@ export const de_CreateHarvestJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateHarvestJobCommandError
- */
-const de_CreateHarvestJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHarvestJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateOriginEndpointCommand
  */
 export const de_CreateOriginEndpointCommand = async (
@@ -715,7 +592,7 @@ export const de_CreateOriginEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateOriginEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateOriginEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -745,47 +622,6 @@ export const de_CreateOriginEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateOriginEndpointCommandError
- */
-const de_CreateOriginEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOriginEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteChannelCommand
  */
 export const de_DeleteChannelCommand = async (
@@ -793,54 +629,13 @@ export const de_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelCommandError
- */
-const de_DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -851,54 +646,13 @@ export const de_DeleteOriginEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOriginEndpointCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteOriginEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteOriginEndpointCommandError
- */
-const de_DeleteOriginEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOriginEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -909,7 +663,7 @@ export const de_DescribeChannelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -930,47 +684,6 @@ export const de_DescribeChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelCommandError
- */
-const de_DescribeChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeHarvestJobCommand
  */
 export const de_DescribeHarvestJobCommand = async (
@@ -978,7 +691,7 @@ export const de_DescribeHarvestJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHarvestJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeHarvestJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1000,47 +713,6 @@ export const de_DescribeHarvestJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeHarvestJobCommandError
- */
-const de_DescribeHarvestJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHarvestJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeOriginEndpointCommand
  */
 export const de_DescribeOriginEndpointCommand = async (
@@ -1048,7 +720,7 @@ export const de_DescribeOriginEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOriginEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOriginEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1078,47 +750,6 @@ export const de_DescribeOriginEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeOriginEndpointCommandError
- */
-const de_DescribeOriginEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOriginEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -1126,7 +757,7 @@ export const de_ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1141,47 +772,6 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsCommandError
- */
-const de_ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListHarvestJobsCommand
  */
 export const de_ListHarvestJobsCommand = async (
@@ -1189,7 +779,7 @@ export const de_ListHarvestJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListHarvestJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListHarvestJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1204,47 +794,6 @@ export const de_ListHarvestJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListHarvestJobsCommandError
- */
-const de_ListHarvestJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHarvestJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOriginEndpointsCommand
  */
 export const de_ListOriginEndpointsCommand = async (
@@ -1252,7 +801,7 @@ export const de_ListOriginEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListOriginEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOriginEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1267,47 +816,6 @@ export const de_ListOriginEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOriginEndpointsCommandError
- */
-const de_ListOriginEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOriginEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1315,7 +823,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1326,26 +834,6 @@ export const de_ListTagsForResourceCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -1356,7 +844,7 @@ export const de_RotateChannelCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<RotateChannelCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RotateChannelCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1374,47 +862,6 @@ export const de_RotateChannelCredentialsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RotateChannelCredentialsCommandError
- */
-const de_RotateChannelCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RotateChannelCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1425,7 +872,7 @@ export const de_RotateIngestEndpointCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<RotateIngestEndpointCredentialsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RotateIngestEndpointCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1443,47 +890,6 @@ export const de_RotateIngestEndpointCredentialsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RotateIngestEndpointCredentialsCommandError
- */
-const de_RotateIngestEndpointCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RotateIngestEndpointCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1494,33 +900,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -1531,33 +917,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -1568,7 +934,7 @@ export const de_UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1589,47 +955,6 @@ export const de_UpdateChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateChannelCommandError
- */
-const de_UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.mediapackage#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.mediapackage#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mediapackage#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mediapackage#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateOriginEndpointCommand
  */
 export const de_UpdateOriginEndpointCommand = async (
@@ -1637,7 +962,7 @@ export const de_UpdateOriginEndpointCommand = async (
   context: __SerdeContext
 ): Promise<UpdateOriginEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateOriginEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1667,12 +992,9 @@ export const de_UpdateOriginEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateOriginEndpointCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateOriginEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOriginEndpointCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

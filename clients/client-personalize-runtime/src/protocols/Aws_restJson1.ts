@@ -130,7 +130,7 @@ export const de_GetActionRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetActionRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetActionRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -145,35 +145,6 @@ export const de_GetActionRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetActionRecommendationsCommandError
- */
-const de_GetActionRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetActionRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalizeruntime#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalizeruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPersonalizedRankingCommand
  */
 export const de_GetPersonalizedRankingCommand = async (
@@ -181,7 +152,7 @@ export const de_GetPersonalizedRankingCommand = async (
   context: __SerdeContext
 ): Promise<GetPersonalizedRankingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPersonalizedRankingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -196,35 +167,6 @@ export const de_GetPersonalizedRankingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPersonalizedRankingCommandError
- */
-const de_GetPersonalizedRankingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPersonalizedRankingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalizeruntime#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalizeruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecommendationsCommand
  */
 export const de_GetRecommendationsCommand = async (
@@ -232,7 +174,7 @@ export const de_GetRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -247,12 +189,9 @@ export const de_GetRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecommendationsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_GetRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

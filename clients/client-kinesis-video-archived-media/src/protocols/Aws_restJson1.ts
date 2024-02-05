@@ -235,7 +235,7 @@ export const de_GetClipCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetClipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetClipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -248,12 +248,115 @@ export const de_GetClipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetClipCommandError
+ * deserializeAws_restJson1GetDASHStreamingSessionURLCommand
  */
-const de_GetClipCommandError = async (
+export const de_GetDASHStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetClipCommandOutput> => {
+): Promise<GetDASHStreamingSessionURLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DASHStreamingSessionURL: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetHLSStreamingSessionURLCommand
+ */
+export const de_GetHLSStreamingSessionURLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHLSStreamingSessionURLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    HLSStreamingSessionURL: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetImagesCommand
+ */
+export const de_GetImagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Images: (_) => de_Images(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMediaForFragmentListCommand
+ */
+export const de_GetMediaForFragmentListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __SdkStreamSerdeContext
+): Promise<GetMediaForFragmentListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_CT]: [, output.headers[_ct]],
+  });
+  const data: any = output.body;
+  context.sdkStreamMixin(data);
+  contents.Payload = data;
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFragmentsCommand
+ */
+export const de_ListFragmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFragmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Fragments: (_) => de_FragmentList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -287,314 +390,6 @@ const de_GetClipCommandError = async (
     case "UnsupportedStreamMediaTypeException":
     case "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException":
       throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetDASHStreamingSessionURLCommand
- */
-export const de_GetDASHStreamingSessionURLCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDASHStreamingSessionURLCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDASHStreamingSessionURLCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    DASHStreamingSessionURL: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDASHStreamingSessionURLCommandError
- */
-const de_GetDASHStreamingSessionURLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDASHStreamingSessionURLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidCodecPrivateDataException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException":
-      throw await de_InvalidCodecPrivateDataExceptionRes(parsedOutput, context);
-    case "MissingCodecPrivateDataException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException":
-      throw await de_MissingCodecPrivateDataExceptionRes(parsedOutput, context);
-    case "NoDataRetentionException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
-      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedStreamMediaTypeException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException":
-      throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetHLSStreamingSessionURLCommand
- */
-export const de_GetHLSStreamingSessionURLCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHLSStreamingSessionURLCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHLSStreamingSessionURLCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    HLSStreamingSessionURL: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetHLSStreamingSessionURLCommandError
- */
-const de_GetHLSStreamingSessionURLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHLSStreamingSessionURLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidCodecPrivateDataException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidCodecPrivateDataException":
-      throw await de_InvalidCodecPrivateDataExceptionRes(parsedOutput, context);
-    case "MissingCodecPrivateDataException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#MissingCodecPrivateDataException":
-      throw await de_MissingCodecPrivateDataExceptionRes(parsedOutput, context);
-    case "NoDataRetentionException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
-      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedStreamMediaTypeException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#UnsupportedStreamMediaTypeException":
-      throw await de_UnsupportedStreamMediaTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetImagesCommand
- */
-export const de_GetImagesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImagesCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Images: (_) => de_Images(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetImagesCommandError
- */
-const de_GetImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NoDataRetentionException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
-      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetMediaForFragmentListCommand
- */
-export const de_GetMediaForFragmentListCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext & __SdkStreamSerdeContext
-): Promise<GetMediaForFragmentListCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMediaForFragmentListCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-    [_CT]: [, output.headers[_ct]],
-  });
-  const data: any = output.body;
-  context.sdkStreamMixin(data);
-  contents.Payload = data;
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetMediaForFragmentListCommandError
- */
-const de_GetMediaForFragmentListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaForFragmentListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListFragmentsCommand
- */
-export const de_ListFragmentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFragmentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFragmentsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Fragments: (_) => de_FragmentList(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListFragmentsCommandError
- */
-const de_ListFragmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFragmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideoarchivedmedia#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -1537,7 +1537,7 @@ export const de_AssociateApiCommand = async (
   context: __SerdeContext
 ): Promise<AssociateApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1551,41 +1551,6 @@ export const de_AssociateApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateApiCommandError
- */
-const de_AssociateApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssociateMergedGraphqlApiCommand
  */
 export const de_AssociateMergedGraphqlApiCommand = async (
@@ -1593,7 +1558,7 @@ export const de_AssociateMergedGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<AssociateMergedGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateMergedGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1604,47 +1569,6 @@ export const de_AssociateMergedGraphqlApiCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateMergedGraphqlApiCommandError
- */
-const de_AssociateMergedGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateMergedGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1655,7 +1579,7 @@ export const de_AssociateSourceGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSourceGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateSourceGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1669,47 +1593,6 @@ export const de_AssociateSourceGraphqlApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateSourceGraphqlApiCommandError
- */
-const de_AssociateSourceGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSourceGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateApiCacheCommand
  */
 export const de_CreateApiCacheCommand = async (
@@ -1717,7 +1600,7 @@ export const de_CreateApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateApiCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1731,44 +1614,6 @@ export const de_CreateApiCacheCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApiCacheCommandError
- */
-const de_CreateApiCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApiCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateApiKeyCommand
  */
 export const de_CreateApiKeyCommand = async (
@@ -1776,7 +1621,7 @@ export const de_CreateApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1790,50 +1635,6 @@ export const de_CreateApiKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApiKeyCommandError
- */
-const de_CreateApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApiKeyLimitExceededException":
-    case "com.amazonaws.appsync#ApiKeyLimitExceededException":
-      throw await de_ApiKeyLimitExceededExceptionRes(parsedOutput, context);
-    case "ApiKeyValidityOutOfBoundsException":
-    case "com.amazonaws.appsync#ApiKeyValidityOutOfBoundsException":
-      throw await de_ApiKeyValidityOutOfBoundsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDataSourceCommand
  */
 export const de_CreateDataSourceCommand = async (
@@ -1841,7 +1642,7 @@ export const de_CreateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1855,44 +1656,6 @@ export const de_CreateDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDataSourceCommandError
- */
-const de_CreateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDomainNameCommand
  */
 export const de_CreateDomainNameCommand = async (
@@ -1900,7 +1663,7 @@ export const de_CreateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1914,38 +1677,6 @@ export const de_CreateDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDomainNameCommandError
- */
-const de_CreateDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFunctionCommand
  */
 export const de_CreateFunctionCommand = async (
@@ -1953,7 +1684,7 @@ export const de_CreateFunctionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1967,41 +1698,6 @@ export const de_CreateFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFunctionCommandError
- */
-const de_CreateFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGraphqlApiCommand
  */
 export const de_CreateGraphqlApiCommand = async (
@@ -2009,7 +1705,7 @@ export const de_CreateGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<CreateGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2023,47 +1719,6 @@ export const de_CreateGraphqlApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGraphqlApiCommandError
- */
-const de_CreateGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApiLimitExceededException":
-    case "com.amazonaws.appsync#ApiLimitExceededException":
-      throw await de_ApiLimitExceededExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateResolverCommand
  */
 export const de_CreateResolverCommand = async (
@@ -2071,7 +1726,7 @@ export const de_CreateResolverCommand = async (
   context: __SerdeContext
 ): Promise<CreateResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2085,44 +1740,6 @@ export const de_CreateResolverCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateResolverCommandError
- */
-const de_CreateResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTypeCommand
  */
 export const de_CreateTypeCommand = async (
@@ -2130,7 +1747,7 @@ export const de_CreateTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2144,44 +1761,6 @@ export const de_CreateTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTypeCommandError
- */
-const de_CreateTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteApiCacheCommand
  */
 export const de_DeleteApiCacheCommand = async (
@@ -2189,51 +1768,13 @@ export const de_DeleteApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApiCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApiCacheCommandError
- */
-const de_DeleteApiCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2244,48 +1785,13 @@ export const de_DeleteApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApiKeyCommandError
- */
-const de_DeleteApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2296,51 +1802,13 @@ export const de_DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDataSourceCommandError
- */
-const de_DeleteDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2351,51 +1819,13 @@ export const de_DeleteDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDomainNameCommandError
- */
-const de_DeleteDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2406,48 +1836,13 @@ export const de_DeleteFunctionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionCommandError
- */
-const de_DeleteFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2458,54 +1853,13 @@ export const de_DeleteGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGraphqlApiCommandError
- */
-const de_DeleteGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2516,51 +1870,13 @@ export const de_DeleteResolverCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteResolverCommandError
- */
-const de_DeleteResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2571,51 +1887,13 @@ export const de_DeleteTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTypeCommandError
- */
-const de_DeleteTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2626,51 +1904,13 @@ export const de_DisassociateApiCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateApiCommandError
- */
-const de_DisassociateApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2681,7 +1921,7 @@ export const de_DisassociateMergedGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateMergedGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateMergedGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2692,44 +1932,6 @@ export const de_DisassociateMergedGraphqlApiCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateMergedGraphqlApiCommandError
- */
-const de_DisassociateMergedGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateMergedGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2740,7 +1942,7 @@ export const de_DisassociateSourceGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateSourceGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateSourceGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2754,44 +1956,6 @@ export const de_DisassociateSourceGraphqlApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DisassociateSourceGraphqlApiCommandError
- */
-const de_DisassociateSourceGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateSourceGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1EvaluateCodeCommand
  */
 export const de_EvaluateCodeCommand = async (
@@ -2799,7 +1963,7 @@ export const de_EvaluateCodeCommand = async (
   context: __SerdeContext
 ): Promise<EvaluateCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EvaluateCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2812,38 +1976,6 @@ export const de_EvaluateCodeCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1EvaluateCodeCommandError
- */
-const de_EvaluateCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EvaluateCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2854,7 +1986,7 @@ export const de_EvaluateMappingTemplateCommand = async (
   context: __SerdeContext
 ): Promise<EvaluateMappingTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EvaluateMappingTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2870,38 +2002,6 @@ export const de_EvaluateMappingTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1EvaluateMappingTemplateCommandError
- */
-const de_EvaluateMappingTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EvaluateMappingTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1FlushApiCacheCommand
  */
 export const de_FlushApiCacheCommand = async (
@@ -2909,51 +2009,13 @@ export const de_FlushApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<FlushApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_FlushApiCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1FlushApiCacheCommandError
- */
-const de_FlushApiCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlushApiCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2964,7 +2026,7 @@ export const de_GetApiAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetApiAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2978,41 +2040,6 @@ export const de_GetApiAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiAssociationCommandError
- */
-const de_GetApiAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApiCacheCommand
  */
 export const de_GetApiCacheCommand = async (
@@ -3020,7 +2047,7 @@ export const de_GetApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<GetApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3034,44 +2061,6 @@ export const de_GetApiCacheCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiCacheCommandError
- */
-const de_GetApiCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataSourceCommand
  */
 export const de_GetDataSourceCommand = async (
@@ -3079,7 +2068,7 @@ export const de_GetDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<GetDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3093,44 +2082,6 @@ export const de_GetDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataSourceCommandError
- */
-const de_GetDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataSourceIntrospectionCommand
  */
 export const de_GetDataSourceIntrospectionCommand = async (
@@ -3138,7 +2089,7 @@ export const de_GetDataSourceIntrospectionCommand = async (
   context: __SerdeContext
 ): Promise<GetDataSourceIntrospectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataSourceIntrospectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3155,38 +2106,6 @@ export const de_GetDataSourceIntrospectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataSourceIntrospectionCommandError
- */
-const de_GetDataSourceIntrospectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataSourceIntrospectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainNameCommand
  */
 export const de_GetDomainNameCommand = async (
@@ -3194,7 +2113,7 @@ export const de_GetDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3208,41 +2127,6 @@ export const de_GetDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainNameCommandError
- */
-const de_GetDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionCommand
  */
 export const de_GetFunctionCommand = async (
@@ -3250,7 +2134,7 @@ export const de_GetFunctionCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3264,38 +2148,6 @@ export const de_GetFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionCommandError
- */
-const de_GetFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGraphqlApiCommand
  */
 export const de_GetGraphqlApiCommand = async (
@@ -3303,7 +2155,7 @@ export const de_GetGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<GetGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3317,44 +2169,6 @@ export const de_GetGraphqlApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGraphqlApiCommandError
- */
-const de_GetGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntrospectionSchemaCommand
  */
 export const de_GetIntrospectionSchemaCommand = async (
@@ -3362,7 +2176,7 @@ export const de_GetIntrospectionSchemaCommand = async (
   context: __SerdeContext
 ): Promise<GetIntrospectionSchemaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntrospectionSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3373,41 +2187,6 @@ export const de_GetIntrospectionSchemaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntrospectionSchemaCommandError
- */
-const de_GetIntrospectionSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntrospectionSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GraphQLSchemaException":
-    case "com.amazonaws.appsync#GraphQLSchemaException":
-      throw await de_GraphQLSchemaExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResolverCommand
  */
 export const de_GetResolverCommand = async (
@@ -3415,7 +2194,7 @@ export const de_GetResolverCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3429,38 +2208,6 @@ export const de_GetResolverCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResolverCommandError
- */
-const de_GetResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSchemaCreationStatusCommand
  */
 export const de_GetSchemaCreationStatusCommand = async (
@@ -3468,7 +2215,7 @@ export const de_GetSchemaCreationStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetSchemaCreationStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSchemaCreationStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3483,41 +2230,6 @@ export const de_GetSchemaCreationStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSchemaCreationStatusCommandError
- */
-const de_GetSchemaCreationStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSchemaCreationStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSourceApiAssociationCommand
  */
 export const de_GetSourceApiAssociationCommand = async (
@@ -3525,7 +2237,7 @@ export const de_GetSourceApiAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetSourceApiAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSourceApiAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3539,41 +2251,6 @@ export const de_GetSourceApiAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSourceApiAssociationCommandError
- */
-const de_GetSourceApiAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSourceApiAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTypeCommand
  */
 export const de_GetTypeCommand = async (
@@ -3581,7 +2258,7 @@ export const de_GetTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3595,44 +2272,6 @@ export const de_GetTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTypeCommandError
- */
-const de_GetTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApiKeysCommand
  */
 export const de_ListApiKeysCommand = async (
@@ -3640,7 +2279,7 @@ export const de_ListApiKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListApiKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApiKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3655,41 +2294,6 @@ export const de_ListApiKeysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApiKeysCommandError
- */
-const de_ListApiKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApiKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataSourcesCommand
  */
 export const de_ListDataSourcesCommand = async (
@@ -3697,7 +2301,7 @@ export const de_ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3712,41 +2316,6 @@ export const de_ListDataSourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataSourcesCommandError
- */
-const de_ListDataSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainNamesCommand
  */
 export const de_ListDomainNamesCommand = async (
@@ -3754,7 +2323,7 @@ export const de_ListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3769,38 +2338,6 @@ export const de_ListDomainNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainNamesCommandError
- */
-const de_ListDomainNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFunctionsCommand
  */
 export const de_ListFunctionsCommand = async (
@@ -3808,7 +2345,7 @@ export const de_ListFunctionsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3823,41 +2360,6 @@ export const de_ListFunctionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionsCommandError
- */
-const de_ListFunctionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGraphqlApisCommand
  */
 export const de_ListGraphqlApisCommand = async (
@@ -3865,7 +2367,7 @@ export const de_ListGraphqlApisCommand = async (
   context: __SerdeContext
 ): Promise<ListGraphqlApisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGraphqlApisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3880,38 +2382,6 @@ export const de_ListGraphqlApisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGraphqlApisCommandError
- */
-const de_ListGraphqlApisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGraphqlApisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListResolversCommand
  */
 export const de_ListResolversCommand = async (
@@ -3919,7 +2389,7 @@ export const de_ListResolversCommand = async (
   context: __SerdeContext
 ): Promise<ListResolversCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResolversCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3931,41 +2401,6 @@ export const de_ListResolversCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListResolversCommandError
- */
-const de_ListResolversCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolversCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3976,7 +2411,7 @@ export const de_ListResolversByFunctionCommand = async (
   context: __SerdeContext
 ): Promise<ListResolversByFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResolversByFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3991,41 +2426,6 @@ export const de_ListResolversByFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResolversByFunctionCommandError
- */
-const de_ListResolversByFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolversByFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSourceApiAssociationsCommand
  */
 export const de_ListSourceApiAssociationsCommand = async (
@@ -4033,7 +2433,7 @@ export const de_ListSourceApiAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSourceApiAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSourceApiAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4048,41 +2448,6 @@ export const de_ListSourceApiAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSourceApiAssociationsCommandError
- */
-const de_ListSourceApiAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSourceApiAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4090,7 +2455,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4104,47 +2469,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTypesCommand
  */
 export const de_ListTypesCommand = async (
@@ -4152,7 +2476,7 @@ export const de_ListTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4164,44 +2488,6 @@ export const de_ListTypesCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTypesCommandError
- */
-const de_ListTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4212,7 +2498,7 @@ export const de_ListTypesByAssociationCommand = async (
   context: __SerdeContext
 ): Promise<ListTypesByAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTypesByAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4227,44 +2513,6 @@ export const de_ListTypesByAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTypesByAssociationCommandError
- */
-const de_ListTypesByAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypesByAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartDataSourceIntrospectionCommand
  */
 export const de_StartDataSourceIntrospectionCommand = async (
@@ -4272,7 +2520,7 @@ export const de_StartDataSourceIntrospectionCommand = async (
   context: __SerdeContext
 ): Promise<StartDataSourceIntrospectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDataSourceIntrospectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4288,41 +2536,6 @@ export const de_StartDataSourceIntrospectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartDataSourceIntrospectionCommandError
- */
-const de_StartDataSourceIntrospectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDataSourceIntrospectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartSchemaCreationCommand
  */
 export const de_StartSchemaCreationCommand = async (
@@ -4330,7 +2543,7 @@ export const de_StartSchemaCreationCommand = async (
   context: __SerdeContext
 ): Promise<StartSchemaCreationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartSchemaCreationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4344,44 +2557,6 @@ export const de_StartSchemaCreationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartSchemaCreationCommandError
- */
-const de_StartSchemaCreationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSchemaCreationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartSchemaMergeCommand
  */
 export const de_StartSchemaMergeCommand = async (
@@ -4389,7 +2564,7 @@ export const de_StartSchemaMergeCommand = async (
   context: __SerdeContext
 ): Promise<StartSchemaMergeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartSchemaMergeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4403,44 +2578,6 @@ export const de_StartSchemaMergeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartSchemaMergeCommandError
- */
-const de_StartSchemaMergeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSchemaMergeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4448,54 +2585,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4506,54 +2602,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4564,7 +2619,7 @@ export const de_UpdateApiCacheCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApiCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4578,44 +2633,6 @@ export const de_UpdateApiCacheCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApiCacheCommandError
- */
-const de_UpdateApiCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApiKeyCommand
  */
 export const de_UpdateApiKeyCommand = async (
@@ -4623,7 +2640,7 @@ export const de_UpdateApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4637,47 +2654,6 @@ export const de_UpdateApiKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApiKeyCommandError
- */
-const de_UpdateApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApiKeyValidityOutOfBoundsException":
-    case "com.amazonaws.appsync#ApiKeyValidityOutOfBoundsException":
-      throw await de_ApiKeyValidityOutOfBoundsExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appsync#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataSourceCommand
  */
 export const de_UpdateDataSourceCommand = async (
@@ -4685,7 +2661,7 @@ export const de_UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4699,44 +2675,6 @@ export const de_UpdateDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDataSourceCommandError
- */
-const de_UpdateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDomainNameCommand
  */
 export const de_UpdateDomainNameCommand = async (
@@ -4744,7 +2682,7 @@ export const de_UpdateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4758,44 +2696,6 @@ export const de_UpdateDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDomainNameCommandError
- */
-const de_UpdateDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFunctionCommand
  */
 export const de_UpdateFunctionCommand = async (
@@ -4803,7 +2703,7 @@ export const de_UpdateFunctionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFunctionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4817,41 +2717,6 @@ export const de_UpdateFunctionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFunctionCommandError
- */
-const de_UpdateFunctionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFunctionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateGraphqlApiCommand
  */
 export const de_UpdateGraphqlApiCommand = async (
@@ -4859,7 +2724,7 @@ export const de_UpdateGraphqlApiCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGraphqlApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGraphqlApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4873,47 +2738,6 @@ export const de_UpdateGraphqlApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGraphqlApiCommandError
- */
-const de_UpdateGraphqlApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGraphqlApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appsync#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateResolverCommand
  */
 export const de_UpdateResolverCommand = async (
@@ -4921,7 +2745,7 @@ export const de_UpdateResolverCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResolverCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4935,44 +2759,6 @@ export const de_UpdateResolverCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateResolverCommandError
- */
-const de_UpdateResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSourceApiAssociationCommand
  */
 export const de_UpdateSourceApiAssociationCommand = async (
@@ -4980,7 +2766,7 @@ export const de_UpdateSourceApiAssociationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSourceApiAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSourceApiAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4994,44 +2780,6 @@ export const de_UpdateSourceApiAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSourceApiAssociationCommandError
- */
-const de_UpdateSourceApiAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSourceApiAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.appsync#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.appsync#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.appsync#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.appsync#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTypeCommand
  */
 export const de_UpdateTypeCommand = async (
@@ -5039,7 +2787,7 @@ export const de_UpdateTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5053,33 +2801,48 @@ export const de_UpdateTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTypeCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTypeCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appsync#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.appsync#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appsync#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.appsync#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.appsync#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.appsync#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.appsync#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.appsync#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ApiKeyLimitExceededException":
+    case "com.amazonaws.appsync#ApiKeyLimitExceededException":
+      throw await de_ApiKeyLimitExceededExceptionRes(parsedOutput, context);
+    case "ApiKeyValidityOutOfBoundsException":
+    case "com.amazonaws.appsync#ApiKeyValidityOutOfBoundsException":
+      throw await de_ApiKeyValidityOutOfBoundsExceptionRes(parsedOutput, context);
+    case "ApiLimitExceededException":
+    case "com.amazonaws.appsync#ApiLimitExceededException":
+      throw await de_ApiLimitExceededExceptionRes(parsedOutput, context);
+    case "GraphQLSchemaException":
+    case "com.amazonaws.appsync#GraphQLSchemaException":
+      throw await de_GraphQLSchemaExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

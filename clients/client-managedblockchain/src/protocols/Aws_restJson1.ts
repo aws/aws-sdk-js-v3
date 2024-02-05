@@ -674,7 +674,7 @@ export const de_CreateAccessorCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAccessorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -690,50 +690,6 @@ export const de_CreateAccessorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAccessorCommandError
- */
-const de_CreateAccessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMemberCommand
  */
 export const de_CreateMemberCommand = async (
@@ -741,7 +697,7 @@ export const de_CreateMemberCommand = async (
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMemberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -755,56 +711,6 @@ export const de_CreateMemberCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMemberCommandError
- */
-const de_CreateMemberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMemberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateNetworkCommand
  */
 export const de_CreateNetworkCommand = async (
@@ -812,7 +718,7 @@ export const de_CreateNetworkCommand = async (
   context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateNetworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -827,50 +733,6 @@ export const de_CreateNetworkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateNetworkCommandError
- */
-const de_CreateNetworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNetworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateNodeCommand
  */
 export const de_CreateNodeCommand = async (
@@ -878,7 +740,7 @@ export const de_CreateNodeCommand = async (
   context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -892,56 +754,6 @@ export const de_CreateNodeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateNodeCommandError
- */
-const de_CreateNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateProposalCommand
  */
 export const de_CreateProposalCommand = async (
@@ -949,7 +761,7 @@ export const de_CreateProposalCommand = async (
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateProposalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -963,50 +775,6 @@ export const de_CreateProposalCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateProposalCommandError
- */
-const de_CreateProposalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProposalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAccessorCommand
  */
 export const de_DeleteAccessorCommand = async (
@@ -1014,51 +782,13 @@ export const de_DeleteAccessorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAccessorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAccessorCommandError
- */
-const de_DeleteAccessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1069,54 +799,13 @@ export const de_DeleteMemberCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteMemberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMemberCommandError
- */
-const de_DeleteMemberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMemberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1127,54 +816,13 @@ export const de_DeleteNodeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteNodeCommandError
- */
-const de_DeleteNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1185,7 +833,7 @@ export const de_GetAccessorCommand = async (
   context: __SerdeContext
 ): Promise<GetAccessorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccessorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1199,44 +847,6 @@ export const de_GetAccessorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccessorCommandError
- */
-const de_GetAccessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMemberCommand
  */
 export const de_GetMemberCommand = async (
@@ -1244,7 +854,7 @@ export const de_GetMemberCommand = async (
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMemberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1258,44 +868,6 @@ export const de_GetMemberCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMemberCommandError
- */
-const de_GetMemberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMemberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetNetworkCommand
  */
 export const de_GetNetworkCommand = async (
@@ -1303,7 +875,7 @@ export const de_GetNetworkCommand = async (
   context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetNetworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1317,44 +889,6 @@ export const de_GetNetworkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetNetworkCommandError
- */
-const de_GetNetworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNetworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetNodeCommand
  */
 export const de_GetNodeCommand = async (
@@ -1362,7 +896,7 @@ export const de_GetNodeCommand = async (
   context: __SerdeContext
 ): Promise<GetNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1376,44 +910,6 @@ export const de_GetNodeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetNodeCommandError
- */
-const de_GetNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetProposalCommand
  */
 export const de_GetProposalCommand = async (
@@ -1421,7 +917,7 @@ export const de_GetProposalCommand = async (
   context: __SerdeContext
 ): Promise<GetProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetProposalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1435,44 +931,6 @@ export const de_GetProposalCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetProposalCommandError
- */
-const de_GetProposalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProposalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccessorsCommand
  */
 export const de_ListAccessorsCommand = async (
@@ -1480,7 +938,7 @@ export const de_ListAccessorsCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccessorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1495,41 +953,6 @@ export const de_ListAccessorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccessorsCommandError
- */
-const de_ListAccessorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInvitationsCommand
  */
 export const de_ListInvitationsCommand = async (
@@ -1537,7 +960,7 @@ export const de_ListInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInvitationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1552,47 +975,6 @@ export const de_ListInvitationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInvitationsCommandError
- */
-const de_ListInvitationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInvitationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMembersCommand
  */
 export const de_ListMembersCommand = async (
@@ -1600,7 +982,7 @@ export const de_ListMembersCommand = async (
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1615,41 +997,6 @@ export const de_ListMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMembersCommandError
- */
-const de_ListMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListNetworksCommand
  */
 export const de_ListNetworksCommand = async (
@@ -1657,7 +1004,7 @@ export const de_ListNetworksCommand = async (
   context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListNetworksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1672,41 +1019,6 @@ export const de_ListNetworksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListNetworksCommandError
- */
-const de_ListNetworksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNetworksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListNodesCommand
  */
 export const de_ListNodesCommand = async (
@@ -1714,7 +1026,7 @@ export const de_ListNodesCommand = async (
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1729,41 +1041,6 @@ export const de_ListNodesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListNodesCommandError
- */
-const de_ListNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProposalsCommand
  */
 export const de_ListProposalsCommand = async (
@@ -1771,7 +1048,7 @@ export const de_ListProposalsCommand = async (
   context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProposalsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1786,44 +1063,6 @@ export const de_ListProposalsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProposalsCommandError
- */
-const de_ListProposalsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProposalsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProposalVotesCommand
  */
 export const de_ListProposalVotesCommand = async (
@@ -1831,7 +1070,7 @@ export const de_ListProposalVotesCommand = async (
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProposalVotesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1846,41 +1085,6 @@ export const de_ListProposalVotesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProposalVotesCommandError
- */
-const de_ListProposalVotesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProposalVotesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1888,7 +1092,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1902,41 +1106,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RejectInvitationCommand
  */
 export const de_RejectInvitationCommand = async (
@@ -1944,54 +1113,13 @@ export const de_RejectInvitationCommand = async (
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RejectInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RejectInvitationCommandError
- */
-const de_RejectInvitationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectInvitationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalActionException":
-    case "com.amazonaws.managedblockchain#IllegalActionException":
-      throw await de_IllegalActionExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2002,51 +1130,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.managedblockchain#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2057,48 +1147,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2109,51 +1164,13 @@ export const de_UpdateMemberCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMemberCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMemberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateMemberCommandError
- */
-const de_UpdateMemberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMemberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2164,51 +1181,13 @@ export const de_UpdateNodeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateNodeCommandError
- */
-const de_UpdateNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.managedblockchain#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.managedblockchain#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.managedblockchain#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.managedblockchain#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2219,7 +1198,7 @@ export const de_VoteOnProposalCommand = async (
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VoteOnProposalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2229,12 +1208,9 @@ export const de_VoteOnProposalCommand = async (
 };
 
 /**
- * deserializeAws_restJson1VoteOnProposalCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_VoteOnProposalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VoteOnProposalCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2244,21 +1220,33 @@ const de_VoteOnProposalCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.managedblockchain#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalActionException":
-    case "com.amazonaws.managedblockchain#IllegalActionException":
-      throw await de_IllegalActionExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.managedblockchain#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.managedblockchain#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.managedblockchain#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.managedblockchain#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.managedblockchain#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.managedblockchain#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchain#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotReadyException":
+    case "com.amazonaws.managedblockchain#ResourceNotReadyException":
+      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
+    case "IllegalActionException":
+    case "com.amazonaws.managedblockchain#IllegalActionException":
+      throw await de_IllegalActionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

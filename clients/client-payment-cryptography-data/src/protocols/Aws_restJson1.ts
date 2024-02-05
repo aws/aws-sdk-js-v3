@@ -387,7 +387,7 @@ export const de_DecryptDataCommand = async (
   context: __SerdeContext
 ): Promise<DecryptDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DecryptDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -403,44 +403,6 @@ export const de_DecryptDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DecryptDataCommandError
- */
-const de_DecryptDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DecryptDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1EncryptDataCommand
  */
 export const de_EncryptDataCommand = async (
@@ -448,7 +410,7 @@ export const de_EncryptDataCommand = async (
   context: __SerdeContext
 ): Promise<EncryptDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EncryptDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -464,44 +426,6 @@ export const de_EncryptDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1EncryptDataCommandError
- */
-const de_EncryptDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EncryptDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateCardValidationDataCommand
  */
 export const de_GenerateCardValidationDataCommand = async (
@@ -509,7 +433,7 @@ export const de_GenerateCardValidationDataCommand = async (
   context: __SerdeContext
 ): Promise<GenerateCardValidationDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GenerateCardValidationDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -525,44 +449,6 @@ export const de_GenerateCardValidationDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateCardValidationDataCommandError
- */
-const de_GenerateCardValidationDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateCardValidationDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateMacCommand
  */
 export const de_GenerateMacCommand = async (
@@ -570,7 +456,7 @@ export const de_GenerateMacCommand = async (
   context: __SerdeContext
 ): Promise<GenerateMacCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GenerateMacCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -586,44 +472,6 @@ export const de_GenerateMacCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateMacCommandError
- */
-const de_GenerateMacCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateMacCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GeneratePinDataCommand
  */
 export const de_GeneratePinDataCommand = async (
@@ -631,7 +479,7 @@ export const de_GeneratePinDataCommand = async (
   context: __SerdeContext
 ): Promise<GeneratePinDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GeneratePinDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -650,44 +498,6 @@ export const de_GeneratePinDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GeneratePinDataCommandError
- */
-const de_GeneratePinDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GeneratePinDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ReEncryptDataCommand
  */
 export const de_ReEncryptDataCommand = async (
@@ -695,7 +505,7 @@ export const de_ReEncryptDataCommand = async (
   context: __SerdeContext
 ): Promise<ReEncryptDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ReEncryptDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -711,44 +521,6 @@ export const de_ReEncryptDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ReEncryptDataCommandError
- */
-const de_ReEncryptDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReEncryptDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TranslatePinDataCommand
  */
 export const de_TranslatePinDataCommand = async (
@@ -756,7 +528,7 @@ export const de_TranslatePinDataCommand = async (
   context: __SerdeContext
 ): Promise<TranslatePinDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TranslatePinDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -772,44 +544,6 @@ export const de_TranslatePinDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TranslatePinDataCommandError
- */
-const de_TranslatePinDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TranslatePinDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1VerifyAuthRequestCryptogramCommand
  */
 export const de_VerifyAuthRequestCryptogramCommand = async (
@@ -817,7 +551,7 @@ export const de_VerifyAuthRequestCryptogramCommand = async (
   context: __SerdeContext
 ): Promise<VerifyAuthRequestCryptogramCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VerifyAuthRequestCryptogramCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -833,47 +567,6 @@ export const de_VerifyAuthRequestCryptogramCommand = async (
 };
 
 /**
- * deserializeAws_restJson1VerifyAuthRequestCryptogramCommandError
- */
-const de_VerifyAuthRequestCryptogramCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyAuthRequestCryptogramCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "VerificationFailedException":
-    case "com.amazonaws.paymentcryptographydata#VerificationFailedException":
-      throw await de_VerificationFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1VerifyCardValidationDataCommand
  */
 export const de_VerifyCardValidationDataCommand = async (
@@ -881,7 +574,7 @@ export const de_VerifyCardValidationDataCommand = async (
   context: __SerdeContext
 ): Promise<VerifyCardValidationDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VerifyCardValidationDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -893,47 +586,6 @@ export const de_VerifyCardValidationDataCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1VerifyCardValidationDataCommandError
- */
-const de_VerifyCardValidationDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyCardValidationDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "VerificationFailedException":
-    case "com.amazonaws.paymentcryptographydata#VerificationFailedException":
-      throw await de_VerificationFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -944,7 +596,7 @@ export const de_VerifyMacCommand = async (
   context: __SerdeContext
 ): Promise<VerifyMacCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VerifyMacCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -959,47 +611,6 @@ export const de_VerifyMacCommand = async (
 };
 
 /**
- * deserializeAws_restJson1VerifyMacCommandError
- */
-const de_VerifyMacCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyMacCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.paymentcryptographydata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.paymentcryptographydata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.paymentcryptographydata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.paymentcryptographydata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.paymentcryptographydata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "VerificationFailedException":
-    case "com.amazonaws.paymentcryptographydata#VerificationFailedException":
-      throw await de_VerificationFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1VerifyPinDataCommand
  */
 export const de_VerifyPinDataCommand = async (
@@ -1007,7 +618,7 @@ export const de_VerifyPinDataCommand = async (
   context: __SerdeContext
 ): Promise<VerifyPinDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VerifyPinDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1024,12 +635,9 @@ export const de_VerifyPinDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1VerifyPinDataCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_VerifyPinDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyPinDataCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

@@ -705,7 +705,7 @@ export const de_CreateComponentCommand = async (
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -716,41 +716,6 @@ export const de_CreateComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateComponentCommandError
- */
-const de_CreateComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFormCommand
  */
 export const de_CreateFormCommand = async (
@@ -758,7 +723,7 @@ export const de_CreateFormCommand = async (
   context: __SerdeContext
 ): Promise<CreateFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFormCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -769,41 +734,6 @@ export const de_CreateFormCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFormCommandError
- */
-const de_CreateFormCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFormCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateThemeCommand
  */
 export const de_CreateThemeCommand = async (
@@ -811,7 +741,7 @@ export const de_CreateThemeCommand = async (
   context: __SerdeContext
 ): Promise<CreateThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -822,41 +752,6 @@ export const de_CreateThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateThemeCommandError
- */
-const de_CreateThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteComponentCommand
  */
 export const de_DeleteComponentCommand = async (
@@ -864,45 +759,13 @@ export const de_DeleteComponentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteComponentCommandError
- */
-const de_DeleteComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -913,45 +776,13 @@ export const de_DeleteFormCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFormCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFormCommandError
- */
-const de_DeleteFormCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFormCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -962,45 +793,13 @@ export const de_DeleteThemeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteThemeCommandError
- */
-const de_DeleteThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1011,7 +810,7 @@ export const de_ExchangeCodeForTokenCommand = async (
   context: __SerdeContext
 ): Promise<ExchangeCodeForTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExchangeCodeForTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1027,32 +826,6 @@ export const de_ExchangeCodeForTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExchangeCodeForTokenCommandError
- */
-const de_ExchangeCodeForTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExchangeCodeForTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExportComponentsCommand
  */
 export const de_ExportComponentsCommand = async (
@@ -1060,7 +833,7 @@ export const de_ExportComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ExportComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1075,35 +848,6 @@ export const de_ExportComponentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportComponentsCommandError
- */
-const de_ExportComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExportFormsCommand
  */
 export const de_ExportFormsCommand = async (
@@ -1111,7 +855,7 @@ export const de_ExportFormsCommand = async (
   context: __SerdeContext
 ): Promise<ExportFormsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportFormsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1126,35 +870,6 @@ export const de_ExportFormsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportFormsCommandError
- */
-const de_ExportFormsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportFormsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExportThemesCommand
  */
 export const de_ExportThemesCommand = async (
@@ -1162,7 +877,7 @@ export const de_ExportThemesCommand = async (
   context: __SerdeContext
 ): Promise<ExportThemesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportThemesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1177,35 +892,6 @@ export const de_ExportThemesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportThemesCommandError
- */
-const de_ExportThemesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportThemesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCodegenJobCommand
  */
 export const de_GetCodegenJobCommand = async (
@@ -1213,7 +899,7 @@ export const de_GetCodegenJobCommand = async (
   context: __SerdeContext
 ): Promise<GetCodegenJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCodegenJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1224,41 +910,6 @@ export const de_GetCodegenJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCodegenJobCommandError
- */
-const de_GetCodegenJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCodegenJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.amplifyuibuilder#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetComponentCommand
  */
 export const de_GetComponentCommand = async (
@@ -1266,7 +917,7 @@ export const de_GetComponentCommand = async (
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1277,38 +928,6 @@ export const de_GetComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetComponentCommandError
- */
-const de_GetComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFormCommand
  */
 export const de_GetFormCommand = async (
@@ -1316,7 +935,7 @@ export const de_GetFormCommand = async (
   context: __SerdeContext
 ): Promise<GetFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFormCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1327,38 +946,6 @@ export const de_GetFormCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFormCommandError
- */
-const de_GetFormCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFormCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMetadataCommand
  */
 export const de_GetMetadataCommand = async (
@@ -1366,7 +953,7 @@ export const de_GetMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1380,35 +967,6 @@ export const de_GetMetadataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMetadataCommandError
- */
-const de_GetMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplifyuibuilder#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetThemeCommand
  */
 export const de_GetThemeCommand = async (
@@ -1416,7 +974,7 @@ export const de_GetThemeCommand = async (
   context: __SerdeContext
 ): Promise<GetThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1427,38 +985,6 @@ export const de_GetThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetThemeCommandError
- */
-const de_GetThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetThemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCodegenJobsCommand
  */
 export const de_ListCodegenJobsCommand = async (
@@ -1466,7 +992,7 @@ export const de_ListCodegenJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListCodegenJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCodegenJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1481,38 +1007,6 @@ export const de_ListCodegenJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCodegenJobsCommandError
- */
-const de_ListCodegenJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCodegenJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.amplifyuibuilder#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListComponentsCommand
  */
 export const de_ListComponentsCommand = async (
@@ -1520,7 +1014,7 @@ export const de_ListComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1532,35 +1026,6 @@ export const de_ListComponentsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListComponentsCommandError
- */
-const de_ListComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1571,7 +1036,7 @@ export const de_ListFormsCommand = async (
   context: __SerdeContext
 ): Promise<ListFormsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFormsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1583,35 +1048,6 @@ export const de_ListFormsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListFormsCommandError
- */
-const de_ListFormsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFormsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1622,7 +1058,7 @@ export const de_ListThemesCommand = async (
   context: __SerdeContext
 ): Promise<ListThemesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListThemesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1637,35 +1073,6 @@ export const de_ListThemesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListThemesCommandError
- */
-const de_ListThemesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListThemesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutMetadataFlagCommand
  */
 export const de_PutMetadataFlagCommand = async (
@@ -1673,42 +1080,13 @@ export const de_PutMetadataFlagCommand = async (
   context: __SerdeContext
 ): Promise<PutMetadataFlagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutMetadataFlagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutMetadataFlagCommandError
- */
-const de_PutMetadataFlagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetadataFlagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplifyuibuilder#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1719,7 +1097,7 @@ export const de_RefreshTokenCommand = async (
   context: __SerdeContext
 ): Promise<RefreshTokenCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RefreshTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1734,32 +1112,6 @@ export const de_RefreshTokenCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RefreshTokenCommandError
- */
-const de_RefreshTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartCodegenJobCommand
  */
 export const de_StartCodegenJobCommand = async (
@@ -1767,7 +1119,7 @@ export const de_StartCodegenJobCommand = async (
   context: __SerdeContext
 ): Promise<StartCodegenJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartCodegenJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1778,38 +1130,6 @@ export const de_StartCodegenJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartCodegenJobCommandError
- */
-const de_StartCodegenJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCodegenJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.amplifyuibuilder#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateComponentCommand
  */
 export const de_UpdateComponentCommand = async (
@@ -1817,7 +1137,7 @@ export const de_UpdateComponentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1828,38 +1148,6 @@ export const de_UpdateComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateComponentCommandError
- */
-const de_UpdateComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFormCommand
  */
 export const de_UpdateFormCommand = async (
@@ -1867,7 +1155,7 @@ export const de_UpdateFormCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFormCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFormCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1878,38 +1166,6 @@ export const de_UpdateFormCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFormCommandError
- */
-const de_UpdateFormCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFormCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.amplifyuibuilder#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.amplifyuibuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateThemeCommand
  */
 export const de_UpdateThemeCommand = async (
@@ -1917,7 +1173,7 @@ export const de_UpdateThemeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateThemeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateThemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1928,12 +1184,9 @@ export const de_UpdateThemeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateThemeCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateThemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThemeCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1949,6 +1202,18 @@ const de_UpdateThemeCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.amplifyuibuilder#ResourceConflictException":
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.amplifyuibuilder#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amplifyuibuilder#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.amplifyuibuilder#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.amplifyuibuilder#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

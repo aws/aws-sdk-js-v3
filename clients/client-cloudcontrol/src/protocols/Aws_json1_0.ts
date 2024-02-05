@@ -191,7 +191,7 @@ export const de_CancelResourceRequestCommand = async (
   context: __SerdeContext
 ): Promise<CancelResourceRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelResourceRequestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -204,35 +204,6 @@ export const de_CancelResourceRequestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CancelResourceRequestCommandError
- */
-const de_CancelResourceRequestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelResourceRequestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cloudcontrol#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "RequestTokenNotFoundException":
-    case "com.amazonaws.cloudcontrol#RequestTokenNotFoundException":
-      throw await de_RequestTokenNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateResourceCommand
  */
 export const de_CreateResourceCommand = async (
@@ -240,7 +211,7 @@ export const de_CreateResourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -253,86 +224,6 @@ export const de_CreateResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateResourceCommandError
- */
-const de_CreateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ClientTokenConflictException":
-    case "com.amazonaws.cloudcontrol#ClientTokenConflictException":
-      throw await de_ClientTokenConflictExceptionRes(parsedOutput, context);
-    case "ConcurrentOperationException":
-    case "com.amazonaws.cloudcontrol#ConcurrentOperationException":
-      throw await de_ConcurrentOperationExceptionRes(parsedOutput, context);
-    case "GeneralServiceException":
-    case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      throw await de_GeneralServiceExceptionRes(parsedOutput, context);
-    case "HandlerFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      throw await de_HandlerFailureExceptionRes(parsedOutput, context);
-    case "HandlerInternalFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      throw await de_HandlerInternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidCredentialsException":
-    case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NetworkFailureException":
-    case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      throw await de_NetworkFailureExceptionRes(parsedOutput, context);
-    case "NotStabilizedException":
-    case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      throw await de_NotStabilizedExceptionRes(parsedOutput, context);
-    case "NotUpdatableException":
-    case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      throw await de_NotUpdatableExceptionRes(parsedOutput, context);
-    case "PrivateTypeException":
-    case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      throw await de_PrivateTypeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceInternalErrorException":
-    case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      throw await de_ServiceInternalErrorExceptionRes(parsedOutput, context);
-    case "ServiceLimitExceededException":
-    case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudcontrol#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedActionException":
-    case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteResourceCommand
  */
 export const de_DeleteResourceCommand = async (
@@ -340,7 +231,7 @@ export const de_DeleteResourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -353,86 +244,6 @@ export const de_DeleteResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteResourceCommandError
- */
-const de_DeleteResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ClientTokenConflictException":
-    case "com.amazonaws.cloudcontrol#ClientTokenConflictException":
-      throw await de_ClientTokenConflictExceptionRes(parsedOutput, context);
-    case "ConcurrentOperationException":
-    case "com.amazonaws.cloudcontrol#ConcurrentOperationException":
-      throw await de_ConcurrentOperationExceptionRes(parsedOutput, context);
-    case "GeneralServiceException":
-    case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      throw await de_GeneralServiceExceptionRes(parsedOutput, context);
-    case "HandlerFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      throw await de_HandlerFailureExceptionRes(parsedOutput, context);
-    case "HandlerInternalFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      throw await de_HandlerInternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidCredentialsException":
-    case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NetworkFailureException":
-    case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      throw await de_NetworkFailureExceptionRes(parsedOutput, context);
-    case "NotStabilizedException":
-    case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      throw await de_NotStabilizedExceptionRes(parsedOutput, context);
-    case "NotUpdatableException":
-    case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      throw await de_NotUpdatableExceptionRes(parsedOutput, context);
-    case "PrivateTypeException":
-    case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      throw await de_PrivateTypeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceInternalErrorException":
-    case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      throw await de_ServiceInternalErrorExceptionRes(parsedOutput, context);
-    case "ServiceLimitExceededException":
-    case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudcontrol#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedActionException":
-    case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetResourceCommand
  */
 export const de_GetResourceCommand = async (
@@ -440,7 +251,7 @@ export const de_GetResourceCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -453,80 +264,6 @@ export const de_GetResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetResourceCommandError
- */
-const de_GetResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "GeneralServiceException":
-    case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      throw await de_GeneralServiceExceptionRes(parsedOutput, context);
-    case "HandlerFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      throw await de_HandlerFailureExceptionRes(parsedOutput, context);
-    case "HandlerInternalFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      throw await de_HandlerInternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidCredentialsException":
-    case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NetworkFailureException":
-    case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      throw await de_NetworkFailureExceptionRes(parsedOutput, context);
-    case "NotStabilizedException":
-    case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      throw await de_NotStabilizedExceptionRes(parsedOutput, context);
-    case "NotUpdatableException":
-    case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      throw await de_NotUpdatableExceptionRes(parsedOutput, context);
-    case "PrivateTypeException":
-    case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      throw await de_PrivateTypeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceInternalErrorException":
-    case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      throw await de_ServiceInternalErrorExceptionRes(parsedOutput, context);
-    case "ServiceLimitExceededException":
-    case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudcontrol#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedActionException":
-    case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetResourceRequestStatusCommand
  */
 export const de_GetResourceRequestStatusCommand = async (
@@ -534,7 +271,7 @@ export const de_GetResourceRequestStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceRequestStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceRequestStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -547,32 +284,6 @@ export const de_GetResourceRequestStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetResourceRequestStatusCommandError
- */
-const de_GetResourceRequestStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceRequestStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RequestTokenNotFoundException":
-    case "com.amazonaws.cloudcontrol#RequestTokenNotFoundException":
-      throw await de_RequestTokenNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListResourceRequestsCommand
  */
 export const de_ListResourceRequestsCommand = async (
@@ -580,7 +291,7 @@ export const de_ListResourceRequestsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -593,26 +304,6 @@ export const de_ListResourceRequestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListResourceRequestsCommandError
- */
-const de_ListResourceRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_0ListResourcesCommand
  */
 export const de_ListResourcesCommand = async (
@@ -620,7 +311,7 @@ export const de_ListResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -633,80 +324,6 @@ export const de_ListResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListResourcesCommandError
- */
-const de_ListResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "GeneralServiceException":
-    case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      throw await de_GeneralServiceExceptionRes(parsedOutput, context);
-    case "HandlerFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      throw await de_HandlerFailureExceptionRes(parsedOutput, context);
-    case "HandlerInternalFailureException":
-    case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      throw await de_HandlerInternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidCredentialsException":
-    case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "NetworkFailureException":
-    case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      throw await de_NetworkFailureExceptionRes(parsedOutput, context);
-    case "NotStabilizedException":
-    case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      throw await de_NotStabilizedExceptionRes(parsedOutput, context);
-    case "NotUpdatableException":
-    case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      throw await de_NotUpdatableExceptionRes(parsedOutput, context);
-    case "PrivateTypeException":
-    case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      throw await de_PrivateTypeExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceInternalErrorException":
-    case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      throw await de_ServiceInternalErrorExceptionRes(parsedOutput, context);
-    case "ServiceLimitExceededException":
-    case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      throw await de_ServiceLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudcontrol#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedActionException":
-    case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      throw await de_UnsupportedActionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateResourceCommand
  */
 export const de_UpdateResourceCommand = async (
@@ -714,7 +331,7 @@ export const de_UpdateResourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -727,18 +344,21 @@ export const de_UpdateResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateResourceCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudcontrol#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "RequestTokenNotFoundException":
+    case "com.amazonaws.cloudcontrol#RequestTokenNotFoundException":
+      throw await de_RequestTokenNotFoundExceptionRes(parsedOutput, context);
     case "AlreadyExistsException":
     case "com.amazonaws.cloudcontrol#AlreadyExistsException":
       throw await de_AlreadyExistsExceptionRes(parsedOutput, context);

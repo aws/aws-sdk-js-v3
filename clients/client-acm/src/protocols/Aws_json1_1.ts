@@ -308,57 +308,13 @@ export const de_AddTagsToCertificateCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddTagsToCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AddTagsToCertificateCommandError
- */
-const de_AddTagsToCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.acm#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.acm#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagPolicyException":
-    case "com.amazonaws.acm#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.acm#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.acm#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -369,54 +325,13 @@ export const de_DeleteCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCertificateCommandError
- */
-const de_DeleteCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.acm#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.acm#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.acm#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.acm#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -427,7 +342,7 @@ export const de_DescribeCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -440,35 +355,6 @@ export const de_DescribeCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCertificateCommandError
- */
-const de_DescribeCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExportCertificateCommand
  */
 export const de_ExportCertificateCommand = async (
@@ -476,7 +362,7 @@ export const de_ExportCertificateCommand = async (
   context: __SerdeContext
 ): Promise<ExportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -489,38 +375,6 @@ export const de_ExportCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExportCertificateCommandError
- */
-const de_ExportCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "RequestInProgressException":
-    case "com.amazonaws.acm#RequestInProgressException":
-      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAccountConfigurationCommand
  */
 export const de_GetAccountConfigurationCommand = async (
@@ -528,7 +382,7 @@ export const de_GetAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -541,35 +395,6 @@ export const de_GetAccountConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAccountConfigurationCommandError
- */
-const de_GetAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.acm#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.acm#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCertificateCommand
  */
 export const de_GetCertificateCommand = async (
@@ -577,7 +402,7 @@ export const de_GetCertificateCommand = async (
   context: __SerdeContext
 ): Promise<GetCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -590,38 +415,6 @@ export const de_GetCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCertificateCommandError
- */
-const de_GetCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "RequestInProgressException":
-    case "com.amazonaws.acm#RequestInProgressException":
-      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportCertificateCommand
  */
 export const de_ImportCertificateCommand = async (
@@ -629,7 +422,7 @@ export const de_ImportCertificateCommand = async (
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -642,50 +435,6 @@ export const de_ImportCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportCertificateCommandError
- */
-const de_ImportCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.acm#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.acm#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.acm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagPolicyException":
-    case "com.amazonaws.acm#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.acm#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCertificatesCommand
  */
 export const de_ListCertificatesCommand = async (
@@ -693,7 +442,7 @@ export const de_ListCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -706,35 +455,6 @@ export const de_ListCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCertificatesCommandError
- */
-const de_ListCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgsException":
-    case "com.amazonaws.acm#InvalidArgsException":
-      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.acm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForCertificateCommand
  */
 export const de_ListTagsForCertificateCommand = async (
@@ -742,7 +462,7 @@ export const de_ListTagsForCertificateCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -755,35 +475,6 @@ export const de_ListTagsForCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForCertificateCommandError
- */
-const de_ListTagsForCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAccountConfigurationCommand
  */
 export const de_PutAccountConfigurationCommand = async (
@@ -791,48 +482,13 @@ export const de_PutAccountConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutAccountConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAccountConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutAccountConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutAccountConfigurationCommandError
- */
-const de_PutAccountConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAccountConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.acm#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.acm#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.acm#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.acm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -843,54 +499,13 @@ export const de_RemoveTagsFromCertificateCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsFromCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsFromCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveTagsFromCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromCertificateCommandError
- */
-const de_RemoveTagsFromCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.acm#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.acm#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagPolicyException":
-    case "com.amazonaws.acm#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.acm#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -901,42 +516,13 @@ export const de_RenewCertificateCommand = async (
   context: __SerdeContext
 ): Promise<RenewCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RenewCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RenewCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1RenewCertificateCommandError
- */
-const de_RenewCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RenewCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -947,7 +533,7 @@ export const de_RequestCertificateCommand = async (
   context: __SerdeContext
 ): Promise<RequestCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -960,50 +546,6 @@ export const de_RequestCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RequestCertificateCommandError
- */
-const de_RequestCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidDomainValidationOptionsException":
-    case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
-      throw await de_InvalidDomainValidationOptionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.acm#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.acm#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.acm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TagPolicyException":
-    case "com.amazonaws.acm#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.acm#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResendValidationEmailCommand
  */
 export const de_ResendValidationEmailCommand = async (
@@ -1011,48 +553,13 @@ export const de_ResendValidationEmailCommand = async (
   context: __SerdeContext
 ): Promise<ResendValidationEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResendValidationEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResendValidationEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1ResendValidationEmailCommandError
- */
-const de_ResendValidationEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResendValidationEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.acm#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidDomainValidationOptionsException":
-    case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
-      throw await de_InvalidDomainValidationOptionsExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.acm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.acm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1063,7 +570,7 @@ export const de_UpdateCertificateOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCertificateOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCertificateOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateCertificateOptionsCommandOutput = {
@@ -1073,12 +580,9 @@ export const de_UpdateCertificateOptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCertificateOptionsCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateCertificateOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCertificateOptionsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1088,15 +592,51 @@ const de_UpdateCertificateOptionsCommandError = async (
     case "InvalidArnException":
     case "com.amazonaws.acm#InvalidArnException":
       throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.acm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.acm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.acm#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidTagException":
+    case "com.amazonaws.acm#InvalidTagException":
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.acm#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TagPolicyException":
+    case "com.amazonaws.acm#TagPolicyException":
+      throw await de_TagPolicyExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.acm#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.acm#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.acm#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.acm#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.acm#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "RequestInProgressException":
+    case "com.amazonaws.acm#RequestInProgressException":
+      throw await de_RequestInProgressExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.acm#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidArgsException":
+    case "com.amazonaws.acm#InvalidArgsException":
+      throw await de_InvalidArgsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.acm#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidDomainValidationOptionsException":
+    case "com.amazonaws.acm#InvalidDomainValidationOptionsException":
+      throw await de_InvalidDomainValidationOptionsExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.acm#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

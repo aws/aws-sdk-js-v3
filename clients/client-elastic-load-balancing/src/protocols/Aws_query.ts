@@ -734,7 +734,7 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -747,38 +747,6 @@ export const de_AddTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryAddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateTagKeys":
-    case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand
  */
 export const de_ApplySecurityGroupsToLoadBalancerCommand = async (
@@ -786,7 +754,7 @@ export const de_ApplySecurityGroupsToLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ApplySecurityGroupsToLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -799,38 +767,6 @@ export const de_ApplySecurityGroupsToLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError
- */
-const de_ApplySecurityGroupsToLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplySecurityGroupsToLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidSecurityGroup":
-    case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
-      throw await de_InvalidSecurityGroupExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAttachLoadBalancerToSubnetsCommand
  */
 export const de_AttachLoadBalancerToSubnetsCommand = async (
@@ -838,7 +774,7 @@ export const de_AttachLoadBalancerToSubnetsCommand = async (
   context: __SerdeContext
 ): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachLoadBalancerToSubnetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -851,41 +787,6 @@ export const de_AttachLoadBalancerToSubnetsCommand = async (
 };
 
 /**
- * deserializeAws_queryAttachLoadBalancerToSubnetsCommandError
- */
-const de_AttachLoadBalancerToSubnetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachLoadBalancerToSubnetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
-      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "SubnetNotFound":
-    case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
-      throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryConfigureHealthCheckCommand
  */
 export const de_ConfigureHealthCheckCommand = async (
@@ -893,7 +794,7 @@ export const de_ConfigureHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<ConfigureHealthCheckCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfigureHealthCheckCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -906,32 +807,6 @@ export const de_ConfigureHealthCheckCommand = async (
 };
 
 /**
- * deserializeAws_queryConfigureHealthCheckCommandError
- */
-const de_ConfigureHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfigureHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateAppCookieStickinessPolicyCommand
  */
 export const de_CreateAppCookieStickinessPolicyCommand = async (
@@ -939,7 +814,7 @@ export const de_CreateAppCookieStickinessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppCookieStickinessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -952,41 +827,6 @@ export const de_CreateAppCookieStickinessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateAppCookieStickinessPolicyCommandError
- */
-const de_CreateAppCookieStickinessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppCookieStickinessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicatePolicyName":
-    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyPolicies":
-    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateLBCookieStickinessPolicyCommand
  */
 export const de_CreateLBCookieStickinessPolicyCommand = async (
@@ -994,7 +834,7 @@ export const de_CreateLBCookieStickinessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLBCookieStickinessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1007,41 +847,6 @@ export const de_CreateLBCookieStickinessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateLBCookieStickinessPolicyCommandError
- */
-const de_CreateLBCookieStickinessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLBCookieStickinessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicatePolicyName":
-    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyPolicies":
-    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateLoadBalancerCommand
  */
 export const de_CreateLoadBalancerCommand = async (
@@ -1049,7 +854,7 @@ export const de_CreateLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1062,65 +867,6 @@ export const de_CreateLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateLoadBalancerCommandError
- */
-const de_CreateLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateNotFound":
-    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
-    case "DuplicateLoadBalancerName":
-    case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
-      throw await de_DuplicateAccessPointNameExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeys":
-    case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidScheme":
-    case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
-      throw await de_InvalidSchemeExceptionRes(parsedOutput, context);
-    case "InvalidSecurityGroup":
-    case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
-      throw await de_InvalidSecurityGroupExceptionRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
-      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
-    case "OperationNotPermitted":
-    case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "SubnetNotFound":
-    case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
-      throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyLoadBalancers":
-    case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
-      throw await de_TooManyAccessPointsExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateLoadBalancerListenersCommand
  */
 export const de_CreateLoadBalancerListenersCommand = async (
@@ -1128,7 +874,7 @@ export const de_CreateLoadBalancerListenersCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoadBalancerListenersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLoadBalancerListenersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1141,44 +887,6 @@ export const de_CreateLoadBalancerListenersCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateLoadBalancerListenersCommandError
- */
-const de_CreateLoadBalancerListenersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerListenersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateNotFound":
-    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
-    case "DuplicateListener":
-    case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
-      throw await de_DuplicateListenerExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateLoadBalancerPolicyCommand
  */
 export const de_CreateLoadBalancerPolicyCommand = async (
@@ -1186,7 +894,7 @@ export const de_CreateLoadBalancerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoadBalancerPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLoadBalancerPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1199,44 +907,6 @@ export const de_CreateLoadBalancerPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateLoadBalancerPolicyCommandError
- */
-const de_CreateLoadBalancerPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicatePolicyName":
-    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "PolicyTypeNotFound":
-    case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
-      throw await de_PolicyTypeNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyPolicies":
-    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteLoadBalancerCommand
  */
 export const de_DeleteLoadBalancerCommand = async (
@@ -1244,7 +914,7 @@ export const de_DeleteLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1257,26 +927,6 @@ export const de_DeleteLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteLoadBalancerCommandError
- */
-const de_DeleteLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDeleteLoadBalancerListenersCommand
  */
 export const de_DeleteLoadBalancerListenersCommand = async (
@@ -1284,7 +934,7 @@ export const de_DeleteLoadBalancerListenersCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerListenersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoadBalancerListenersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1297,32 +947,6 @@ export const de_DeleteLoadBalancerListenersCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteLoadBalancerListenersCommandError
- */
-const de_DeleteLoadBalancerListenersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerListenersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteLoadBalancerPolicyCommand
  */
 export const de_DeleteLoadBalancerPolicyCommand = async (
@@ -1330,7 +954,7 @@ export const de_DeleteLoadBalancerPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoadBalancerPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1343,35 +967,6 @@ export const de_DeleteLoadBalancerPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteLoadBalancerPolicyCommandError
- */
-const de_DeleteLoadBalancerPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand
  */
 export const de_DeregisterInstancesFromLoadBalancerCommand = async (
@@ -1379,7 +974,7 @@ export const de_DeregisterInstancesFromLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterInstancesFromLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1392,35 +987,6 @@ export const de_DeregisterInstancesFromLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError
- */
-const de_DeregisterInstancesFromLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterInstancesFromLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInstance":
-    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAccountLimitsCommand
  */
 export const de_DescribeAccountLimitsCommand = async (
@@ -1428,7 +994,7 @@ export const de_DescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1441,26 +1007,6 @@ export const de_DescribeAccountLimitsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAccountLimitsCommandError
- */
-const de_DescribeAccountLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeInstanceHealthCommand
  */
 export const de_DescribeInstanceHealthCommand = async (
@@ -1468,7 +1014,7 @@ export const de_DescribeInstanceHealthCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceHealthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceHealthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1481,35 +1027,6 @@ export const de_DescribeInstanceHealthCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeInstanceHealthCommandError
- */
-const de_DescribeInstanceHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInstance":
-    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLoadBalancerAttributesCommand
  */
 export const de_DescribeLoadBalancerAttributesCommand = async (
@@ -1517,7 +1034,7 @@ export const de_DescribeLoadBalancerAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancerAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1530,35 +1047,6 @@ export const de_DescribeLoadBalancerAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLoadBalancerAttributesCommandError
- */
-const de_DescribeLoadBalancerAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerAttributeNotFound":
-    case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
-      throw await de_LoadBalancerAttributeNotFoundExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLoadBalancerPoliciesCommand
  */
 export const de_DescribeLoadBalancerPoliciesCommand = async (
@@ -1566,7 +1054,7 @@ export const de_DescribeLoadBalancerPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancerPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1579,35 +1067,6 @@ export const de_DescribeLoadBalancerPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLoadBalancerPoliciesCommandError
- */
-const de_DescribeLoadBalancerPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancerPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "PolicyNotFound":
-    case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand
  */
 export const de_DescribeLoadBalancerPolicyTypesCommand = async (
@@ -1615,7 +1074,7 @@ export const de_DescribeLoadBalancerPolicyTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancerPolicyTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1628,32 +1087,6 @@ export const de_DescribeLoadBalancerPolicyTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError
- */
-const de_DescribeLoadBalancerPolicyTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancerPolicyTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PolicyTypeNotFound":
-    case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
-      throw await de_PolicyTypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLoadBalancersCommand
  */
 export const de_DescribeLoadBalancersCommand = async (
@@ -1661,7 +1094,7 @@ export const de_DescribeLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1674,35 +1107,6 @@ export const de_DescribeLoadBalancersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLoadBalancersCommandError
- */
-const de_DescribeLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyThrottle":
-    case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
-      throw await de_DependencyThrottleExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeTagsCommand
  */
 export const de_DescribeTagsCommand = async (
@@ -1710,7 +1114,7 @@ export const de_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1723,32 +1127,6 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDetachLoadBalancerFromSubnetsCommand
  */
 export const de_DetachLoadBalancerFromSubnetsCommand = async (
@@ -1756,7 +1134,7 @@ export const de_DetachLoadBalancerFromSubnetsCommand = async (
   context: __SerdeContext
 ): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachLoadBalancerFromSubnetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1769,35 +1147,6 @@ export const de_DetachLoadBalancerFromSubnetsCommand = async (
 };
 
 /**
- * deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError
- */
-const de_DetachLoadBalancerFromSubnetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachLoadBalancerFromSubnetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand
  */
 export const de_DisableAvailabilityZonesForLoadBalancerCommand = async (
@@ -1805,7 +1154,7 @@ export const de_DisableAvailabilityZonesForLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableAvailabilityZonesForLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1818,35 +1167,6 @@ export const de_DisableAvailabilityZonesForLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError
- */
-const de_DisableAvailabilityZonesForLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAvailabilityZonesForLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand
  */
 export const de_EnableAvailabilityZonesForLoadBalancerCommand = async (
@@ -1854,7 +1174,7 @@ export const de_EnableAvailabilityZonesForLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableAvailabilityZonesForLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1867,32 +1187,6 @@ export const de_EnableAvailabilityZonesForLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError
- */
-const de_EnableAvailabilityZonesForLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAvailabilityZonesForLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyLoadBalancerAttributesCommand
  */
 export const de_ModifyLoadBalancerAttributesCommand = async (
@@ -1900,7 +1194,7 @@ export const de_ModifyLoadBalancerAttributesCommand = async (
   context: __SerdeContext
 ): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyLoadBalancerAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1913,38 +1207,6 @@ export const de_ModifyLoadBalancerAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyLoadBalancerAttributesCommandError
- */
-const de_ModifyLoadBalancerAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerAttributeNotFound":
-    case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
-      throw await de_LoadBalancerAttributeNotFoundExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRegisterInstancesWithLoadBalancerCommand
  */
 export const de_RegisterInstancesWithLoadBalancerCommand = async (
@@ -1952,7 +1214,7 @@ export const de_RegisterInstancesWithLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterInstancesWithLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1965,35 +1227,6 @@ export const de_RegisterInstancesWithLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError
- */
-const de_RegisterInstancesWithLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterInstancesWithLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInstance":
-    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRemoveTagsCommand
  */
 export const de_RemoveTagsCommand = async (
@@ -2001,7 +1234,7 @@ export const de_RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2014,32 +1247,6 @@ export const de_RemoveTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryRemoveTagsCommandError
- */
-const de_RemoveTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand
  */
 export const de_SetLoadBalancerListenerSSLCertificateCommand = async (
@@ -2047,7 +1254,7 @@ export const de_SetLoadBalancerListenerSSLCertificateCommand = async (
   context: __SerdeContext
 ): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetLoadBalancerListenerSSLCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2060,44 +1267,6 @@ export const de_SetLoadBalancerListenerSSLCertificateCommand = async (
 };
 
 /**
- * deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError
- */
-const de_SetLoadBalancerListenerSSLCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetLoadBalancerListenerSSLCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateNotFound":
-    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand
  */
 export const de_SetLoadBalancerPoliciesForBackendServerCommand = async (
@@ -2105,7 +1274,7 @@ export const de_SetLoadBalancerPoliciesForBackendServerCommand = async (
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetLoadBalancerPoliciesForBackendServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2121,38 +1290,6 @@ export const de_SetLoadBalancerPoliciesForBackendServerCommand = async (
 };
 
 /**
- * deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError
- */
-const de_SetLoadBalancerPoliciesForBackendServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetLoadBalancerPoliciesForBackendServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
-    case "PolicyNotFound":
-    case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand
  */
 export const de_SetLoadBalancerPoliciesOfListenerCommand = async (
@@ -2160,7 +1297,7 @@ export const de_SetLoadBalancerPoliciesOfListenerCommand = async (
   context: __SerdeContext
 ): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetLoadBalancerPoliciesOfListenerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2173,30 +1310,81 @@ export const de_SetLoadBalancerPoliciesOfListenerCommand = async (
 };
 
 /**
- * deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_SetLoadBalancerPoliciesOfListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetLoadBalancerPoliciesOfListenerCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateTagKeys":
+    case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
+      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
     case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
       throw await de_AccessPointNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTags":
+    case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRequest":
+    case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
+      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
+    case "InvalidSecurityGroup":
+    case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
+      throw await de_InvalidSecurityGroupExceptionRes(parsedOutput, context);
+    case "InvalidSubnet":
+    case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
+      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
+    case "SubnetNotFound":
+    case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
+      throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicatePolicyName":
+    case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
+      throw await de_DuplicatePolicyNameExceptionRes(parsedOutput, context);
+    case "TooManyPolicies":
+    case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
+      throw await de_TooManyPoliciesExceptionRes(parsedOutput, context);
+    case "CertificateNotFound":
+    case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
+      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateLoadBalancerName":
+    case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
+      throw await de_DuplicateAccessPointNameExceptionRes(parsedOutput, context);
+    case "InvalidScheme":
+    case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
+      throw await de_InvalidSchemeExceptionRes(parsedOutput, context);
+    case "OperationNotPermitted":
+    case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "TooManyLoadBalancers":
+    case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
+      throw await de_TooManyAccessPointsExceptionRes(parsedOutput, context);
+    case "UnsupportedProtocol":
+    case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
+      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
+    case "DuplicateListener":
+    case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
+      throw await de_DuplicateListenerExceptionRes(parsedOutput, context);
+    case "PolicyTypeNotFound":
+    case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
+      throw await de_PolicyTypeNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidInstance":
+    case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
+      throw await de_InvalidEndPointExceptionRes(parsedOutput, context);
+    case "LoadBalancerAttributeNotFound":
+    case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
+      throw await de_LoadBalancerAttributeNotFoundExceptionRes(parsedOutput, context);
     case "PolicyNotFound":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
+    case "DependencyThrottle":
+    case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
+      throw await de_DependencyThrottleExceptionRes(parsedOutput, context);
+    case "ListenerNotFound":
+    case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
+      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

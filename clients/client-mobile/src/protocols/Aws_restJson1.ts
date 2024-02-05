@@ -225,7 +225,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -239,50 +239,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.mobile#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mobile#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -290,7 +246,7 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -305,44 +261,6 @@ export const de_DeleteProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mobile#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBundleCommand
  */
 export const de_DescribeBundleCommand = async (
@@ -350,7 +268,7 @@ export const de_DescribeBundleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBundleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBundleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -364,47 +282,6 @@ export const de_DescribeBundleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBundleCommandError
- */
-const de_DescribeBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mobile#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeProjectCommand
  */
 export const de_DescribeProjectCommand = async (
@@ -412,7 +289,7 @@ export const de_DescribeProjectCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -426,47 +303,6 @@ export const de_DescribeProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeProjectCommandError
- */
-const de_DescribeProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mobile#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExportBundleCommand
  */
 export const de_ExportBundleCommand = async (
@@ -474,7 +310,7 @@ export const de_ExportBundleCommand = async (
   context: __SerdeContext
 ): Promise<ExportBundleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportBundleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -488,47 +324,6 @@ export const de_ExportBundleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportBundleCommandError
- */
-const de_ExportBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mobile#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExportProjectCommand
  */
 export const de_ExportProjectCommand = async (
@@ -536,7 +331,7 @@ export const de_ExportProjectCommand = async (
   context: __SerdeContext
 ): Promise<ExportProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -552,47 +347,6 @@ export const de_ExportProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportProjectCommandError
- */
-const de_ExportProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.mobile#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBundlesCommand
  */
 export const de_ListBundlesCommand = async (
@@ -600,7 +354,7 @@ export const de_ListBundlesCommand = async (
   context: __SerdeContext
 ): Promise<ListBundlesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBundlesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -615,44 +369,6 @@ export const de_ListBundlesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBundlesCommandError
- */
-const de_ListBundlesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBundlesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -660,7 +376,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -675,44 +391,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.mobile#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.mobile#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.mobile#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.mobile#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.mobile#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateProjectCommand
  */
 export const de_UpdateProjectCommand = async (
@@ -720,7 +398,7 @@ export const de_UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -734,21 +412,15 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateProjectCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccountActionRequiredException":
-    case "com.amazonaws.mobile#AccountActionRequiredException":
-      throw await de_AccountActionRequiredExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.mobile#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
@@ -770,6 +442,9 @@ const de_UpdateProjectCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.mobile#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "AccountActionRequiredException":
+    case "com.amazonaws.mobile#AccountActionRequiredException":
+      throw await de_AccountActionRequiredExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

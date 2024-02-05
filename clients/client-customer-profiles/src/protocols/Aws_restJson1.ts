@@ -1416,7 +1416,7 @@ export const de_AddProfileKeyCommand = async (
   context: __SerdeContext
 ): Promise<AddProfileKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AddProfileKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1431,44 +1431,6 @@ export const de_AddProfileKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddProfileKeyCommandError
- */
-const de_AddProfileKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddProfileKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCalculatedAttributeDefinitionCommand
  */
 export const de_CreateCalculatedAttributeDefinitionCommand = async (
@@ -1476,7 +1438,7 @@ export const de_CreateCalculatedAttributeDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCalculatedAttributeDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateCalculatedAttributeDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1498,44 +1460,6 @@ export const de_CreateCalculatedAttributeDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCalculatedAttributeDefinitionCommandError
- */
-const de_CreateCalculatedAttributeDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCalculatedAttributeDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDomainCommand
  */
 export const de_CreateDomainCommand = async (
@@ -1543,7 +1467,7 @@ export const de_CreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1565,44 +1489,6 @@ export const de_CreateDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDomainCommandError
- */
-const de_CreateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEventStreamCommand
  */
 export const de_CreateEventStreamCommand = async (
@@ -1610,7 +1496,7 @@ export const de_CreateEventStreamCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEventStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1625,44 +1511,6 @@ export const de_CreateEventStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEventStreamCommandError
- */
-const de_CreateEventStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIntegrationWorkflowCommand
  */
 export const de_CreateIntegrationWorkflowCommand = async (
@@ -1670,7 +1518,7 @@ export const de_CreateIntegrationWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<CreateIntegrationWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateIntegrationWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1685,44 +1533,6 @@ export const de_CreateIntegrationWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIntegrationWorkflowCommandError
- */
-const de_CreateIntegrationWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIntegrationWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateProfileCommand
  */
 export const de_CreateProfileCommand = async (
@@ -1730,7 +1540,7 @@ export const de_CreateProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1744,44 +1554,6 @@ export const de_CreateProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateProfileCommandError
- */
-const de_CreateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteCalculatedAttributeDefinitionCommand
  */
 export const de_DeleteCalculatedAttributeDefinitionCommand = async (
@@ -1789,51 +1561,13 @@ export const de_DeleteCalculatedAttributeDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCalculatedAttributeDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteCalculatedAttributeDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCalculatedAttributeDefinitionCommandError
- */
-const de_DeleteCalculatedAttributeDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCalculatedAttributeDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1844,7 +1578,7 @@ export const de_DeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1855,44 +1589,6 @@ export const de_DeleteDomainCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDomainCommandError
- */
-const de_DeleteDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1903,51 +1599,13 @@ export const de_DeleteEventStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEventStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEventStreamCommandError
- */
-const de_DeleteEventStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1958,7 +1616,7 @@ export const de_DeleteIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1969,44 +1627,6 @@ export const de_DeleteIntegrationCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIntegrationCommandError
- */
-const de_DeleteIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2017,7 +1637,7 @@ export const de_DeleteProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2028,44 +1648,6 @@ export const de_DeleteProfileCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteProfileCommandError
- */
-const de_DeleteProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2076,7 +1658,7 @@ export const de_DeleteProfileKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfileKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProfileKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2087,44 +1669,6 @@ export const de_DeleteProfileKeyCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteProfileKeyCommandError
- */
-const de_DeleteProfileKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProfileKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2135,7 +1679,7 @@ export const de_DeleteProfileObjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfileObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProfileObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2146,44 +1690,6 @@ export const de_DeleteProfileObjectCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteProfileObjectCommandError
- */
-const de_DeleteProfileObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProfileObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2194,7 +1700,7 @@ export const de_DeleteProfileObjectTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProfileObjectTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteProfileObjectTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2208,44 +1714,6 @@ export const de_DeleteProfileObjectTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteProfileObjectTypeCommandError
- */
-const de_DeleteProfileObjectTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProfileObjectTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteWorkflowCommand
  */
 export const de_DeleteWorkflowCommand = async (
@@ -2253,51 +1721,13 @@ export const de_DeleteWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteWorkflowCommandError
- */
-const de_DeleteWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2308,7 +1738,7 @@ export const de_DetectProfileObjectTypeCommand = async (
   context: __SerdeContext
 ): Promise<DetectProfileObjectTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DetectProfileObjectTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2322,44 +1752,6 @@ export const de_DetectProfileObjectTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DetectProfileObjectTypeCommandError
- */
-const de_DetectProfileObjectTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectProfileObjectTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAutoMergingPreviewCommand
  */
 export const de_GetAutoMergingPreviewCommand = async (
@@ -2367,7 +1759,7 @@ export const de_GetAutoMergingPreviewCommand = async (
   context: __SerdeContext
 ): Promise<GetAutoMergingPreviewCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAutoMergingPreviewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2384,44 +1776,6 @@ export const de_GetAutoMergingPreviewCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAutoMergingPreviewCommandError
- */
-const de_GetAutoMergingPreviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAutoMergingPreviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCalculatedAttributeDefinitionCommand
  */
 export const de_GetCalculatedAttributeDefinitionCommand = async (
@@ -2429,7 +1783,7 @@ export const de_GetCalculatedAttributeDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetCalculatedAttributeDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCalculatedAttributeDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2451,44 +1805,6 @@ export const de_GetCalculatedAttributeDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCalculatedAttributeDefinitionCommandError
- */
-const de_GetCalculatedAttributeDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalculatedAttributeDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCalculatedAttributeForProfileCommand
  */
 export const de_GetCalculatedAttributeForProfileCommand = async (
@@ -2496,7 +1812,7 @@ export const de_GetCalculatedAttributeForProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetCalculatedAttributeForProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCalculatedAttributeForProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2513,44 +1829,6 @@ export const de_GetCalculatedAttributeForProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCalculatedAttributeForProfileCommandError
- */
-const de_GetCalculatedAttributeForProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalculatedAttributeForProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainCommand
  */
 export const de_GetDomainCommand = async (
@@ -2558,7 +1836,7 @@ export const de_GetDomainCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2581,44 +1859,6 @@ export const de_GetDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainCommandError
- */
-const de_GetDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEventStreamCommand
  */
 export const de_GetEventStreamCommand = async (
@@ -2626,7 +1866,7 @@ export const de_GetEventStreamCommand = async (
   context: __SerdeContext
 ): Promise<GetEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEventStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2646,44 +1886,6 @@ export const de_GetEventStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEventStreamCommandError
- */
-const de_GetEventStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIdentityResolutionJobCommand
  */
 export const de_GetIdentityResolutionJobCommand = async (
@@ -2691,7 +1893,7 @@ export const de_GetIdentityResolutionJobCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityResolutionJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIdentityResolutionJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2715,44 +1917,6 @@ export const de_GetIdentityResolutionJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIdentityResolutionJobCommandError
- */
-const de_GetIdentityResolutionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityResolutionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationCommand
  */
 export const de_GetIntegrationCommand = async (
@@ -2760,7 +1924,7 @@ export const de_GetIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2782,44 +1946,6 @@ export const de_GetIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationCommandError
- */
-const de_GetIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMatchesCommand
  */
 export const de_GetMatchesCommand = async (
@@ -2827,7 +1953,7 @@ export const de_GetMatchesCommand = async (
   context: __SerdeContext
 ): Promise<GetMatchesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMatchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2844,44 +1970,6 @@ export const de_GetMatchesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMatchesCommandError
- */
-const de_GetMatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetProfileObjectTypeCommand
  */
 export const de_GetProfileObjectTypeCommand = async (
@@ -2889,7 +1977,7 @@ export const de_GetProfileObjectTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetProfileObjectTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetProfileObjectTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2914,44 +2002,6 @@ export const de_GetProfileObjectTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetProfileObjectTypeCommandError
- */
-const de_GetProfileObjectTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProfileObjectTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetProfileObjectTypeTemplateCommand
  */
 export const de_GetProfileObjectTypeTemplateCommand = async (
@@ -2959,7 +2009,7 @@ export const de_GetProfileObjectTypeTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetProfileObjectTypeTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetProfileObjectTypeTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2979,44 +2029,6 @@ export const de_GetProfileObjectTypeTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetProfileObjectTypeTemplateCommandError
- */
-const de_GetProfileObjectTypeTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProfileObjectTypeTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSimilarProfilesCommand
  */
 export const de_GetSimilarProfilesCommand = async (
@@ -3024,7 +2036,7 @@ export const de_GetSimilarProfilesCommand = async (
   context: __SerdeContext
 ): Promise<GetSimilarProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSimilarProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3043,44 +2055,6 @@ export const de_GetSimilarProfilesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSimilarProfilesCommandError
- */
-const de_GetSimilarProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSimilarProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowCommand
  */
 export const de_GetWorkflowCommand = async (
@@ -3088,7 +2062,7 @@ export const de_GetWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3109,44 +2083,6 @@ export const de_GetWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowCommandError
- */
-const de_GetWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowStepsCommand
  */
 export const de_GetWorkflowStepsCommand = async (
@@ -3154,7 +2090,7 @@ export const de_GetWorkflowStepsCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowStepsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3171,44 +2107,6 @@ export const de_GetWorkflowStepsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowStepsCommandError
- */
-const de_GetWorkflowStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccountIntegrationsCommand
  */
 export const de_ListAccountIntegrationsCommand = async (
@@ -3216,7 +2114,7 @@ export const de_ListAccountIntegrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListAccountIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccountIntegrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3231,44 +2129,6 @@ export const de_ListAccountIntegrationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccountIntegrationsCommandError
- */
-const de_ListAccountIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCalculatedAttributeDefinitionsCommand
  */
 export const de_ListCalculatedAttributeDefinitionsCommand = async (
@@ -3276,7 +2136,7 @@ export const de_ListCalculatedAttributeDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCalculatedAttributeDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCalculatedAttributeDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3291,44 +2151,6 @@ export const de_ListCalculatedAttributeDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCalculatedAttributeDefinitionsCommandError
- */
-const de_ListCalculatedAttributeDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCalculatedAttributeDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCalculatedAttributesForProfileCommand
  */
 export const de_ListCalculatedAttributesForProfileCommand = async (
@@ -3336,7 +2158,7 @@ export const de_ListCalculatedAttributesForProfileCommand = async (
   context: __SerdeContext
 ): Promise<ListCalculatedAttributesForProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCalculatedAttributesForProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3351,44 +2173,6 @@ export const de_ListCalculatedAttributesForProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCalculatedAttributesForProfileCommandError
- */
-const de_ListCalculatedAttributesForProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCalculatedAttributesForProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainsCommand
  */
 export const de_ListDomainsCommand = async (
@@ -3396,7 +2180,7 @@ export const de_ListDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3411,44 +2195,6 @@ export const de_ListDomainsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainsCommandError
- */
-const de_ListDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEventStreamsCommand
  */
 export const de_ListEventStreamsCommand = async (
@@ -3456,7 +2202,7 @@ export const de_ListEventStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventStreamsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEventStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3471,44 +2217,6 @@ export const de_ListEventStreamsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEventStreamsCommandError
- */
-const de_ListEventStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIdentityResolutionJobsCommand
  */
 export const de_ListIdentityResolutionJobsCommand = async (
@@ -3516,7 +2224,7 @@ export const de_ListIdentityResolutionJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentityResolutionJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIdentityResolutionJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3531,44 +2239,6 @@ export const de_ListIdentityResolutionJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIdentityResolutionJobsCommandError
- */
-const de_ListIdentityResolutionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityResolutionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIntegrationsCommand
  */
 export const de_ListIntegrationsCommand = async (
@@ -3576,7 +2246,7 @@ export const de_ListIntegrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIntegrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3591,44 +2261,6 @@ export const de_ListIntegrationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIntegrationsCommandError
- */
-const de_ListIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProfileObjectsCommand
  */
 export const de_ListProfileObjectsCommand = async (
@@ -3636,7 +2268,7 @@ export const de_ListProfileObjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProfileObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProfileObjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3651,44 +2283,6 @@ export const de_ListProfileObjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProfileObjectsCommandError
- */
-const de_ListProfileObjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProfileObjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProfileObjectTypesCommand
  */
 export const de_ListProfileObjectTypesCommand = async (
@@ -3696,7 +2290,7 @@ export const de_ListProfileObjectTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListProfileObjectTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProfileObjectTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3711,44 +2305,6 @@ export const de_ListProfileObjectTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProfileObjectTypesCommandError
- */
-const de_ListProfileObjectTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProfileObjectTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProfileObjectTypeTemplatesCommand
  */
 export const de_ListProfileObjectTypeTemplatesCommand = async (
@@ -3756,7 +2312,7 @@ export const de_ListProfileObjectTypeTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListProfileObjectTypeTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProfileObjectTypeTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3771,44 +2327,6 @@ export const de_ListProfileObjectTypeTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProfileObjectTypeTemplatesCommandError
- */
-const de_ListProfileObjectTypeTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProfileObjectTypeTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRuleBasedMatchesCommand
  */
 export const de_ListRuleBasedMatchesCommand = async (
@@ -3816,7 +2334,7 @@ export const de_ListRuleBasedMatchesCommand = async (
   context: __SerdeContext
 ): Promise<ListRuleBasedMatchesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRuleBasedMatchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3831,44 +2349,6 @@ export const de_ListRuleBasedMatchesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRuleBasedMatchesCommandError
- */
-const de_ListRuleBasedMatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRuleBasedMatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3876,7 +2356,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3890,38 +2370,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowsCommand
  */
 export const de_ListWorkflowsCommand = async (
@@ -3929,7 +2377,7 @@ export const de_ListWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3944,44 +2392,6 @@ export const de_ListWorkflowsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowsCommandError
- */
-const de_ListWorkflowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1MergeProfilesCommand
  */
 export const de_MergeProfilesCommand = async (
@@ -3989,7 +2399,7 @@ export const de_MergeProfilesCommand = async (
   context: __SerdeContext
 ): Promise<MergeProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_MergeProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4003,41 +2413,6 @@ export const de_MergeProfilesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1MergeProfilesCommandError
- */
-const de_MergeProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MergeProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutIntegrationCommand
  */
 export const de_PutIntegrationCommand = async (
@@ -4045,7 +2420,7 @@ export const de_PutIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<PutIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4067,44 +2442,6 @@ export const de_PutIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutIntegrationCommandError
- */
-const de_PutIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutProfileObjectCommand
  */
 export const de_PutProfileObjectCommand = async (
@@ -4112,7 +2449,7 @@ export const de_PutProfileObjectCommand = async (
   context: __SerdeContext
 ): Promise<PutProfileObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutProfileObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4126,44 +2463,6 @@ export const de_PutProfileObjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutProfileObjectCommandError
- */
-const de_PutProfileObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutProfileObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutProfileObjectTypeCommand
  */
 export const de_PutProfileObjectTypeCommand = async (
@@ -4171,7 +2470,7 @@ export const de_PutProfileObjectTypeCommand = async (
   context: __SerdeContext
 ): Promise<PutProfileObjectTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutProfileObjectTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4196,44 +2495,6 @@ export const de_PutProfileObjectTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutProfileObjectTypeCommandError
- */
-const de_PutProfileObjectTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutProfileObjectTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchProfilesCommand
  */
 export const de_SearchProfilesCommand = async (
@@ -4241,7 +2502,7 @@ export const de_SearchProfilesCommand = async (
   context: __SerdeContext
 ): Promise<SearchProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4256,44 +2517,6 @@ export const de_SearchProfilesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchProfilesCommandError
- */
-const de_SearchProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4301,45 +2524,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4350,45 +2541,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4399,7 +2558,7 @@ export const de_UpdateCalculatedAttributeDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCalculatedAttributeDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateCalculatedAttributeDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4421,44 +2580,6 @@ export const de_UpdateCalculatedAttributeDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateCalculatedAttributeDefinitionCommandError
- */
-const de_UpdateCalculatedAttributeDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCalculatedAttributeDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDomainCommand
  */
 export const de_UpdateDomainCommand = async (
@@ -4466,7 +2587,7 @@ export const de_UpdateDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4488,44 +2609,6 @@ export const de_UpdateDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDomainCommandError
- */
-const de_UpdateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.customerprofiles#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.customerprofiles#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.customerprofiles#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.customerprofiles#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.customerprofiles#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateProfileCommand
  */
 export const de_UpdateProfileCommand = async (
@@ -4533,7 +2616,7 @@ export const de_UpdateProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4547,12 +2630,9 @@ export const de_UpdateProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateProfileCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProfileCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

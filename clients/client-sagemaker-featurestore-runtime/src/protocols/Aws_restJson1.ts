@@ -136,7 +136,7 @@ export const de_BatchGetRecordCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -152,41 +152,6 @@ export const de_BatchGetRecordCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetRecordCommandError
- */
-const de_BatchGetRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessForbidden":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await de_AccessForbiddenRes(parsedOutput, context);
-    case "InternalFailure":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await de_InternalFailureRes(parsedOutput, context);
-    case "ServiceUnavailable":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await de_ServiceUnavailableRes(parsedOutput, context);
-    case "ValidationError":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await de_ValidationErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteRecordCommand
  */
 export const de_DeleteRecordCommand = async (
@@ -194,48 +159,13 @@ export const de_DeleteRecordCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRecordCommandError
- */
-const de_DeleteRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessForbidden":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await de_AccessForbiddenRes(parsedOutput, context);
-    case "InternalFailure":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await de_InternalFailureRes(parsedOutput, context);
-    case "ServiceUnavailable":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await de_ServiceUnavailableRes(parsedOutput, context);
-    case "ValidationError":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await de_ValidationErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -246,7 +176,7 @@ export const de_GetRecordCommand = async (
   context: __SerdeContext
 ): Promise<GetRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -261,44 +191,6 @@ export const de_GetRecordCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecordCommandError
- */
-const de_GetRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessForbidden":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      throw await de_AccessForbiddenRes(parsedOutput, context);
-    case "InternalFailure":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      throw await de_InternalFailureRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    case "ServiceUnavailable":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      throw await de_ServiceUnavailableRes(parsedOutput, context);
-    case "ValidationError":
-    case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      throw await de_ValidationErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutRecordCommand
  */
 export const de_PutRecordCommand = async (
@@ -306,7 +198,7 @@ export const de_PutRecordCommand = async (
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -316,12 +208,9 @@ export const de_PutRecordCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutRecordCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_PutRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRecordCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -340,6 +229,9 @@ const de_PutRecordCommandError = async (
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
       throw await de_ValidationErrorRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemakerfeaturestoreruntime#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

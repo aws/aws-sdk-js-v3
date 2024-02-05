@@ -1273,7 +1273,7 @@ export const de_AssociateOriginationIdentityCommand = async (
   context: __SerdeContext
 ): Promise<AssociateOriginationIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateOriginationIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1286,50 +1286,6 @@ export const de_AssociateOriginationIdentityCommand = async (
 };
 
 /**
- * deserializeAws_json1_0AssociateOriginationIdentityCommandError
- */
-const de_AssociateOriginationIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateOriginationIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateConfigurationSetCommand
  */
 export const de_CreateConfigurationSetCommand = async (
@@ -1337,7 +1293,7 @@ export const de_CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1350,47 +1306,6 @@ export const de_CreateConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateConfigurationSetCommandError
- */
-const de_CreateConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateEventDestinationCommand
  */
 export const de_CreateEventDestinationCommand = async (
@@ -1398,7 +1313,7 @@ export const de_CreateEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1411,50 +1326,6 @@ export const de_CreateEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateEventDestinationCommandError
- */
-const de_CreateEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateOptOutListCommand
  */
 export const de_CreateOptOutListCommand = async (
@@ -1462,7 +1333,7 @@ export const de_CreateOptOutListCommand = async (
   context: __SerdeContext
 ): Promise<CreateOptOutListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOptOutListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1475,47 +1346,6 @@ export const de_CreateOptOutListCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateOptOutListCommandError
- */
-const de_CreateOptOutListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOptOutListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreatePoolCommand
  */
 export const de_CreatePoolCommand = async (
@@ -1523,7 +1353,7 @@ export const de_CreatePoolCommand = async (
   context: __SerdeContext
 ): Promise<CreatePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1536,50 +1366,6 @@ export const de_CreatePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreatePoolCommandError
- */
-const de_CreatePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateRegistrationCommand
  */
 export const de_CreateRegistrationCommand = async (
@@ -1587,7 +1373,7 @@ export const de_CreateRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<CreateRegistrationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1600,47 +1386,6 @@ export const de_CreateRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateRegistrationCommandError
- */
-const de_CreateRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateRegistrationAssociationCommand
  */
 export const de_CreateRegistrationAssociationCommand = async (
@@ -1648,7 +1393,7 @@ export const de_CreateRegistrationAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateRegistrationAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRegistrationAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1661,50 +1406,6 @@ export const de_CreateRegistrationAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateRegistrationAssociationCommandError
- */
-const de_CreateRegistrationAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRegistrationAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateRegistrationAttachmentCommand
  */
 export const de_CreateRegistrationAttachmentCommand = async (
@@ -1712,7 +1413,7 @@ export const de_CreateRegistrationAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateRegistrationAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRegistrationAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1725,47 +1426,6 @@ export const de_CreateRegistrationAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateRegistrationAttachmentCommandError
- */
-const de_CreateRegistrationAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRegistrationAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateRegistrationVersionCommand
  */
 export const de_CreateRegistrationVersionCommand = async (
@@ -1773,7 +1433,7 @@ export const de_CreateRegistrationVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateRegistrationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRegistrationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1786,50 +1446,6 @@ export const de_CreateRegistrationVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateRegistrationVersionCommandError
- */
-const de_CreateRegistrationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRegistrationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateVerifiedDestinationNumberCommand
  */
 export const de_CreateVerifiedDestinationNumberCommand = async (
@@ -1837,7 +1453,7 @@ export const de_CreateVerifiedDestinationNumberCommand = async (
   context: __SerdeContext
 ): Promise<CreateVerifiedDestinationNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVerifiedDestinationNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1850,47 +1466,6 @@ export const de_CreateVerifiedDestinationNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateVerifiedDestinationNumberCommandError
- */
-const de_CreateVerifiedDestinationNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVerifiedDestinationNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -1898,7 +1473,7 @@ export const de_DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1911,44 +1486,6 @@ export const de_DeleteConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteConfigurationSetCommandError
- */
-const de_DeleteConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteDefaultMessageTypeCommand
  */
 export const de_DeleteDefaultMessageTypeCommand = async (
@@ -1956,7 +1493,7 @@ export const de_DeleteDefaultMessageTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDefaultMessageTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDefaultMessageTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1969,44 +1506,6 @@ export const de_DeleteDefaultMessageTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteDefaultMessageTypeCommandError
- */
-const de_DeleteDefaultMessageTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDefaultMessageTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteDefaultSenderIdCommand
  */
 export const de_DeleteDefaultSenderIdCommand = async (
@@ -2014,7 +1513,7 @@ export const de_DeleteDefaultSenderIdCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDefaultSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDefaultSenderIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2027,44 +1526,6 @@ export const de_DeleteDefaultSenderIdCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteDefaultSenderIdCommandError
- */
-const de_DeleteDefaultSenderIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDefaultSenderIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteEventDestinationCommand
  */
 export const de_DeleteEventDestinationCommand = async (
@@ -2072,7 +1533,7 @@ export const de_DeleteEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2085,44 +1546,6 @@ export const de_DeleteEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteEventDestinationCommandError
- */
-const de_DeleteEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteKeywordCommand
  */
 export const de_DeleteKeywordCommand = async (
@@ -2130,7 +1553,7 @@ export const de_DeleteKeywordCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKeywordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteKeywordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2143,47 +1566,6 @@ export const de_DeleteKeywordCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteKeywordCommandError
- */
-const de_DeleteKeywordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKeywordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteOptedOutNumberCommand
  */
 export const de_DeleteOptedOutNumberCommand = async (
@@ -2191,7 +1573,7 @@ export const de_DeleteOptedOutNumberCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOptedOutNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOptedOutNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2204,47 +1586,6 @@ export const de_DeleteOptedOutNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteOptedOutNumberCommandError
- */
-const de_DeleteOptedOutNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOptedOutNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteOptOutListCommand
  */
 export const de_DeleteOptOutListCommand = async (
@@ -2252,7 +1593,7 @@ export const de_DeleteOptOutListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOptOutListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOptOutListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2265,47 +1606,6 @@ export const de_DeleteOptOutListCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteOptOutListCommandError
- */
-const de_DeleteOptOutListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOptOutListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeletePoolCommand
  */
 export const de_DeletePoolCommand = async (
@@ -2313,7 +1613,7 @@ export const de_DeletePoolCommand = async (
   context: __SerdeContext
 ): Promise<DeletePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2326,47 +1626,6 @@ export const de_DeletePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeletePoolCommandError
- */
-const de_DeletePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteRegistrationCommand
  */
 export const de_DeleteRegistrationCommand = async (
@@ -2374,7 +1633,7 @@ export const de_DeleteRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegistrationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2387,47 +1646,6 @@ export const de_DeleteRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteRegistrationCommandError
- */
-const de_DeleteRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteRegistrationAttachmentCommand
  */
 export const de_DeleteRegistrationAttachmentCommand = async (
@@ -2435,7 +1653,7 @@ export const de_DeleteRegistrationAttachmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegistrationAttachmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRegistrationAttachmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2448,47 +1666,6 @@ export const de_DeleteRegistrationAttachmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteRegistrationAttachmentCommandError
- */
-const de_DeleteRegistrationAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRegistrationAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteRegistrationFieldValueCommand
  */
 export const de_DeleteRegistrationFieldValueCommand = async (
@@ -2496,7 +1673,7 @@ export const de_DeleteRegistrationFieldValueCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRegistrationFieldValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRegistrationFieldValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2509,47 +1686,6 @@ export const de_DeleteRegistrationFieldValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteRegistrationFieldValueCommandError
- */
-const de_DeleteRegistrationFieldValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRegistrationFieldValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommand
  */
 export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
@@ -2557,7 +1693,7 @@ export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTextMessageSpendLimitOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2570,41 +1706,6 @@ export const de_DeleteTextMessageSpendLimitOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteTextMessageSpendLimitOverrideCommandError
- */
-const de_DeleteTextMessageSpendLimitOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteVerifiedDestinationNumberCommand
  */
 export const de_DeleteVerifiedDestinationNumberCommand = async (
@@ -2612,7 +1713,7 @@ export const de_DeleteVerifiedDestinationNumberCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVerifiedDestinationNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVerifiedDestinationNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2625,47 +1726,6 @@ export const de_DeleteVerifiedDestinationNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteVerifiedDestinationNumberCommandError
- */
-const de_DeleteVerifiedDestinationNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVerifiedDestinationNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommand
  */
 export const de_DeleteVoiceMessageSpendLimitOverrideCommand = async (
@@ -2673,7 +1733,7 @@ export const de_DeleteVoiceMessageSpendLimitOverrideCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVoiceMessageSpendLimitOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2686,41 +1746,6 @@ export const de_DeleteVoiceMessageSpendLimitOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteVoiceMessageSpendLimitOverrideCommandError
- */
-const de_DeleteVoiceMessageSpendLimitOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeAccountAttributesCommand
  */
 export const de_DescribeAccountAttributesCommand = async (
@@ -2728,7 +1753,7 @@ export const de_DescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2741,41 +1766,6 @@ export const de_DescribeAccountAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeAccountLimitsCommand
  */
 export const de_DescribeAccountLimitsCommand = async (
@@ -2783,7 +1773,7 @@ export const de_DescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2796,41 +1786,6 @@ export const de_DescribeAccountLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeAccountLimitsCommandError
- */
-const de_DescribeAccountLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeConfigurationSetsCommand
  */
 export const de_DescribeConfigurationSetsCommand = async (
@@ -2838,7 +1793,7 @@ export const de_DescribeConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2851,44 +1806,6 @@ export const de_DescribeConfigurationSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeConfigurationSetsCommandError
- */
-const de_DescribeConfigurationSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeKeywordsCommand
  */
 export const de_DescribeKeywordsCommand = async (
@@ -2896,7 +1813,7 @@ export const de_DescribeKeywordsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeKeywordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeKeywordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2909,44 +1826,6 @@ export const de_DescribeKeywordsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeKeywordsCommandError
- */
-const de_DescribeKeywordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeKeywordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeOptedOutNumbersCommand
  */
 export const de_DescribeOptedOutNumbersCommand = async (
@@ -2954,7 +1833,7 @@ export const de_DescribeOptedOutNumbersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOptedOutNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOptedOutNumbersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2967,44 +1846,6 @@ export const de_DescribeOptedOutNumbersCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeOptedOutNumbersCommandError
- */
-const de_DescribeOptedOutNumbersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOptedOutNumbersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeOptOutListsCommand
  */
 export const de_DescribeOptOutListsCommand = async (
@@ -3012,7 +1853,7 @@ export const de_DescribeOptOutListsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOptOutListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOptOutListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3025,44 +1866,6 @@ export const de_DescribeOptOutListsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeOptOutListsCommandError
- */
-const de_DescribeOptOutListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOptOutListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribePhoneNumbersCommand
  */
 export const de_DescribePhoneNumbersCommand = async (
@@ -3070,7 +1873,7 @@ export const de_DescribePhoneNumbersCommand = async (
   context: __SerdeContext
 ): Promise<DescribePhoneNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePhoneNumbersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3083,44 +1886,6 @@ export const de_DescribePhoneNumbersCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribePhoneNumbersCommandError
- */
-const de_DescribePhoneNumbersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePhoneNumbersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribePoolsCommand
  */
 export const de_DescribePoolsCommand = async (
@@ -3128,7 +1893,7 @@ export const de_DescribePoolsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3141,44 +1906,6 @@ export const de_DescribePoolsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribePoolsCommandError
- */
-const de_DescribePoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationAttachmentsCommand
  */
 export const de_DescribeRegistrationAttachmentsCommand = async (
@@ -3186,7 +1913,7 @@ export const de_DescribeRegistrationAttachmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationAttachmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationAttachmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3199,44 +1926,6 @@ export const de_DescribeRegistrationAttachmentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationAttachmentsCommandError
- */
-const de_DescribeRegistrationAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationFieldDefinitionsCommand
  */
 export const de_DescribeRegistrationFieldDefinitionsCommand = async (
@@ -3244,7 +1933,7 @@ export const de_DescribeRegistrationFieldDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationFieldDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationFieldDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3257,41 +1946,6 @@ export const de_DescribeRegistrationFieldDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationFieldDefinitionsCommandError
- */
-const de_DescribeRegistrationFieldDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationFieldDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationFieldValuesCommand
  */
 export const de_DescribeRegistrationFieldValuesCommand = async (
@@ -3299,7 +1953,7 @@ export const de_DescribeRegistrationFieldValuesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationFieldValuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationFieldValuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3312,44 +1966,6 @@ export const de_DescribeRegistrationFieldValuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationFieldValuesCommandError
- */
-const de_DescribeRegistrationFieldValuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationFieldValuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationsCommand
  */
 export const de_DescribeRegistrationsCommand = async (
@@ -3357,7 +1973,7 @@ export const de_DescribeRegistrationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3370,44 +1986,6 @@ export const de_DescribeRegistrationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationsCommandError
- */
-const de_DescribeRegistrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationSectionDefinitionsCommand
  */
 export const de_DescribeRegistrationSectionDefinitionsCommand = async (
@@ -3415,7 +1993,7 @@ export const de_DescribeRegistrationSectionDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationSectionDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationSectionDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3428,41 +2006,6 @@ export const de_DescribeRegistrationSectionDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationSectionDefinitionsCommandError
- */
-const de_DescribeRegistrationSectionDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationSectionDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationTypeDefinitionsCommand
  */
 export const de_DescribeRegistrationTypeDefinitionsCommand = async (
@@ -3470,7 +2013,7 @@ export const de_DescribeRegistrationTypeDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationTypeDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationTypeDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3483,41 +2026,6 @@ export const de_DescribeRegistrationTypeDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationTypeDefinitionsCommandError
- */
-const de_DescribeRegistrationTypeDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationTypeDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRegistrationVersionsCommand
  */
 export const de_DescribeRegistrationVersionsCommand = async (
@@ -3525,7 +2033,7 @@ export const de_DescribeRegistrationVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistrationVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistrationVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3538,44 +2046,6 @@ export const de_DescribeRegistrationVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRegistrationVersionsCommandError
- */
-const de_DescribeRegistrationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistrationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeSenderIdsCommand
  */
 export const de_DescribeSenderIdsCommand = async (
@@ -3583,7 +2053,7 @@ export const de_DescribeSenderIdsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSenderIdsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSenderIdsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3596,44 +2066,6 @@ export const de_DescribeSenderIdsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeSenderIdsCommandError
- */
-const de_DescribeSenderIdsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSenderIdsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeSpendLimitsCommand
  */
 export const de_DescribeSpendLimitsCommand = async (
@@ -3641,7 +2073,7 @@ export const de_DescribeSpendLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSpendLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSpendLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3654,41 +2086,6 @@ export const de_DescribeSpendLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeSpendLimitsCommandError
- */
-const de_DescribeSpendLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSpendLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeVerifiedDestinationNumbersCommand
  */
 export const de_DescribeVerifiedDestinationNumbersCommand = async (
@@ -3696,7 +2093,7 @@ export const de_DescribeVerifiedDestinationNumbersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVerifiedDestinationNumbersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVerifiedDestinationNumbersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3709,44 +2106,6 @@ export const de_DescribeVerifiedDestinationNumbersCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeVerifiedDestinationNumbersCommandError
- */
-const de_DescribeVerifiedDestinationNumbersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVerifiedDestinationNumbersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DisassociateOriginationIdentityCommand
  */
 export const de_DisassociateOriginationIdentityCommand = async (
@@ -3754,7 +2113,7 @@ export const de_DisassociateOriginationIdentityCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateOriginationIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateOriginationIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3767,47 +2126,6 @@ export const de_DisassociateOriginationIdentityCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DisassociateOriginationIdentityCommandError
- */
-const de_DisassociateOriginationIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateOriginationIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DiscardRegistrationVersionCommand
  */
 export const de_DiscardRegistrationVersionCommand = async (
@@ -3815,7 +2133,7 @@ export const de_DiscardRegistrationVersionCommand = async (
   context: __SerdeContext
 ): Promise<DiscardRegistrationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DiscardRegistrationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3828,47 +2146,6 @@ export const de_DiscardRegistrationVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DiscardRegistrationVersionCommandError
- */
-const de_DiscardRegistrationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscardRegistrationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const de_ListPoolOriginationIdentitiesCommand = async (
@@ -3876,7 +2153,7 @@ export const de_ListPoolOriginationIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<ListPoolOriginationIdentitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPoolOriginationIdentitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3889,44 +2166,6 @@ export const de_ListPoolOriginationIdentitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListPoolOriginationIdentitiesCommandError
- */
-const de_ListPoolOriginationIdentitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoolOriginationIdentitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListRegistrationAssociationsCommand
  */
 export const de_ListRegistrationAssociationsCommand = async (
@@ -3934,7 +2173,7 @@ export const de_ListRegistrationAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRegistrationAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRegistrationAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3947,44 +2186,6 @@ export const de_ListRegistrationAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListRegistrationAssociationsCommandError
- */
-const de_ListRegistrationAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRegistrationAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3992,7 +2193,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4005,44 +2206,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutKeywordCommand
  */
 export const de_PutKeywordCommand = async (
@@ -4050,7 +2213,7 @@ export const de_PutKeywordCommand = async (
   context: __SerdeContext
 ): Promise<PutKeywordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutKeywordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4063,50 +2226,6 @@ export const de_PutKeywordCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutKeywordCommandError
- */
-const de_PutKeywordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutKeywordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutOptedOutNumberCommand
  */
 export const de_PutOptedOutNumberCommand = async (
@@ -4114,7 +2233,7 @@ export const de_PutOptedOutNumberCommand = async (
   context: __SerdeContext
 ): Promise<PutOptedOutNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutOptedOutNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4127,44 +2246,6 @@ export const de_PutOptedOutNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutOptedOutNumberCommandError
- */
-const de_PutOptedOutNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutOptedOutNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutRegistrationFieldValueCommand
  */
 export const de_PutRegistrationFieldValueCommand = async (
@@ -4172,7 +2253,7 @@ export const de_PutRegistrationFieldValueCommand = async (
   context: __SerdeContext
 ): Promise<PutRegistrationFieldValueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRegistrationFieldValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4185,47 +2266,6 @@ export const de_PutRegistrationFieldValueCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutRegistrationFieldValueCommandError
- */
-const de_PutRegistrationFieldValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRegistrationFieldValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ReleasePhoneNumberCommand
  */
 export const de_ReleasePhoneNumberCommand = async (
@@ -4233,7 +2273,7 @@ export const de_ReleasePhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<ReleasePhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReleasePhoneNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4246,47 +2286,6 @@ export const de_ReleasePhoneNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ReleasePhoneNumberCommandError
- */
-const de_ReleasePhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleasePhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ReleaseSenderIdCommand
  */
 export const de_ReleaseSenderIdCommand = async (
@@ -4294,7 +2293,7 @@ export const de_ReleaseSenderIdCommand = async (
   context: __SerdeContext
 ): Promise<ReleaseSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReleaseSenderIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4307,47 +2306,6 @@ export const de_ReleaseSenderIdCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ReleaseSenderIdCommandError
- */
-const de_ReleaseSenderIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseSenderIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RequestPhoneNumberCommand
  */
 export const de_RequestPhoneNumberCommand = async (
@@ -4355,7 +2313,7 @@ export const de_RequestPhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<RequestPhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestPhoneNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4368,50 +2326,6 @@ export const de_RequestPhoneNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0RequestPhoneNumberCommandError
- */
-const de_RequestPhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestPhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RequestSenderIdCommand
  */
 export const de_RequestSenderIdCommand = async (
@@ -4419,7 +2333,7 @@ export const de_RequestSenderIdCommand = async (
   context: __SerdeContext
 ): Promise<RequestSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestSenderIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4432,47 +2346,6 @@ export const de_RequestSenderIdCommand = async (
 };
 
 /**
- * deserializeAws_json1_0RequestSenderIdCommandError
- */
-const de_RequestSenderIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestSenderIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SendDestinationNumberVerificationCodeCommand
  */
 export const de_SendDestinationNumberVerificationCodeCommand = async (
@@ -4480,7 +2353,7 @@ export const de_SendDestinationNumberVerificationCodeCommand = async (
   context: __SerdeContext
 ): Promise<SendDestinationNumberVerificationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendDestinationNumberVerificationCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4493,50 +2366,6 @@ export const de_SendDestinationNumberVerificationCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SendDestinationNumberVerificationCodeCommandError
- */
-const de_SendDestinationNumberVerificationCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendDestinationNumberVerificationCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SendTextMessageCommand
  */
 export const de_SendTextMessageCommand = async (
@@ -4544,7 +2373,7 @@ export const de_SendTextMessageCommand = async (
   context: __SerdeContext
 ): Promise<SendTextMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendTextMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4557,50 +2386,6 @@ export const de_SendTextMessageCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SendTextMessageCommandError
- */
-const de_SendTextMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTextMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SendVoiceMessageCommand
  */
 export const de_SendVoiceMessageCommand = async (
@@ -4608,7 +2393,7 @@ export const de_SendVoiceMessageCommand = async (
   context: __SerdeContext
 ): Promise<SendVoiceMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendVoiceMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4621,50 +2406,6 @@ export const de_SendVoiceMessageCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SendVoiceMessageCommandError
- */
-const de_SendVoiceMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendVoiceMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SetDefaultMessageTypeCommand
  */
 export const de_SetDefaultMessageTypeCommand = async (
@@ -4672,7 +2413,7 @@ export const de_SetDefaultMessageTypeCommand = async (
   context: __SerdeContext
 ): Promise<SetDefaultMessageTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetDefaultMessageTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4685,44 +2426,6 @@ export const de_SetDefaultMessageTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SetDefaultMessageTypeCommandError
- */
-const de_SetDefaultMessageTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDefaultMessageTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SetDefaultSenderIdCommand
  */
 export const de_SetDefaultSenderIdCommand = async (
@@ -4730,7 +2433,7 @@ export const de_SetDefaultSenderIdCommand = async (
   context: __SerdeContext
 ): Promise<SetDefaultSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetDefaultSenderIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4743,44 +2446,6 @@ export const de_SetDefaultSenderIdCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SetDefaultSenderIdCommandError
- */
-const de_SetDefaultSenderIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDefaultSenderIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommand
  */
 export const de_SetTextMessageSpendLimitOverrideCommand = async (
@@ -4788,7 +2453,7 @@ export const de_SetTextMessageSpendLimitOverrideCommand = async (
   context: __SerdeContext
 ): Promise<SetTextMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetTextMessageSpendLimitOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4801,41 +2466,6 @@ export const de_SetTextMessageSpendLimitOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SetTextMessageSpendLimitOverrideCommandError
- */
-const de_SetTextMessageSpendLimitOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTextMessageSpendLimitOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommand
  */
 export const de_SetVoiceMessageSpendLimitOverrideCommand = async (
@@ -4843,7 +2473,7 @@ export const de_SetVoiceMessageSpendLimitOverrideCommand = async (
   context: __SerdeContext
 ): Promise<SetVoiceMessageSpendLimitOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetVoiceMessageSpendLimitOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4856,41 +2486,6 @@ export const de_SetVoiceMessageSpendLimitOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SetVoiceMessageSpendLimitOverrideCommandError
- */
-const de_SetVoiceMessageSpendLimitOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetVoiceMessageSpendLimitOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SubmitRegistrationVersionCommand
  */
 export const de_SubmitRegistrationVersionCommand = async (
@@ -4898,7 +2493,7 @@ export const de_SubmitRegistrationVersionCommand = async (
   context: __SerdeContext
 ): Promise<SubmitRegistrationVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SubmitRegistrationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4911,47 +2506,6 @@ export const de_SubmitRegistrationVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SubmitRegistrationVersionCommandError
- */
-const de_SubmitRegistrationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitRegistrationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4959,7 +2513,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4972,47 +2526,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -5020,7 +2533,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5033,44 +2546,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateEventDestinationCommand
  */
 export const de_UpdateEventDestinationCommand = async (
@@ -5078,7 +2553,7 @@ export const de_UpdateEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5091,47 +2566,6 @@ export const de_UpdateEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateEventDestinationCommandError
- */
-const de_UpdateEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdatePhoneNumberCommand
  */
 export const de_UpdatePhoneNumberCommand = async (
@@ -5139,7 +2573,7 @@ export const de_UpdatePhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePhoneNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePhoneNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5152,47 +2586,6 @@ export const de_UpdatePhoneNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdatePhoneNumberCommandError
- */
-const de_UpdatePhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdatePoolCommand
  */
 export const de_UpdatePoolCommand = async (
@@ -5200,7 +2593,7 @@ export const de_UpdatePoolCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5213,47 +2606,6 @@ export const de_UpdatePoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdatePoolCommandError
- */
-const de_UpdatePoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpointsmsvoicev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateSenderIdCommand
  */
 export const de_UpdateSenderIdCommand = async (
@@ -5261,7 +2613,7 @@ export const de_UpdateSenderIdCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSenderIdCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSenderIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5274,44 +2626,6 @@ export const de_UpdateSenderIdCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateSenderIdCommandError
- */
-const de_UpdateSenderIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSenderIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pinpointsmsvoicev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.pinpointsmsvoicev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.pinpointsmsvoicev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0VerifyDestinationNumberCommand
  */
 export const de_VerifyDestinationNumberCommand = async (
@@ -5319,7 +2633,7 @@ export const de_VerifyDestinationNumberCommand = async (
   context: __SerdeContext
 ): Promise<VerifyDestinationNumberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyDestinationNumberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5332,12 +2646,9 @@ export const de_VerifyDestinationNumberCommand = async (
 };
 
 /**
- * deserializeAws_json1_0VerifyDestinationNumberCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_VerifyDestinationNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyDestinationNumberCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5356,6 +2667,9 @@ const de_VerifyDestinationNumberCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.pinpointsmsvoicev2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.pinpointsmsvoicev2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.pinpointsmsvoicev2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);

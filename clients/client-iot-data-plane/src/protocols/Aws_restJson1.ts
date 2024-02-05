@@ -209,7 +209,7 @@ export const de_DeleteThingShadowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteThingShadowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -220,53 +220,6 @@ export const de_DeleteThingShadowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteThingShadowCommandError
- */
-const de_DeleteThingShadowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteThingShadowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentEncodingException":
-    case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
-      throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRetainedMessageCommand
  */
 export const de_GetRetainedMessageCommand = async (
@@ -274,7 +227,7 @@ export const de_GetRetainedMessageCommand = async (
   context: __SerdeContext
 ): Promise<GetRetainedMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRetainedMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -292,50 +245,6 @@ export const de_GetRetainedMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRetainedMessageCommandError
- */
-const de_GetRetainedMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRetainedMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetThingShadowCommand
  */
 export const de_GetThingShadowCommand = async (
@@ -343,7 +252,7 @@ export const de_GetThingShadowCommand = async (
   context: __SerdeContext
 ): Promise<GetThingShadowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetThingShadowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -354,53 +263,6 @@ export const de_GetThingShadowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetThingShadowCommandError
- */
-const de_GetThingShadowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetThingShadowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotdataplane#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedDocumentEncodingException":
-    case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
-      throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListNamedShadowsForThingCommand
  */
 export const de_ListNamedShadowsForThingCommand = async (
@@ -408,7 +270,7 @@ export const de_ListNamedShadowsForThingCommand = async (
   context: __SerdeContext
 ): Promise<ListNamedShadowsForThingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListNamedShadowsForThingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -424,12 +286,66 @@ export const de_ListNamedShadowsForThingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListNamedShadowsForThingCommandError
+ * deserializeAws_restJson1ListRetainedMessagesCommand
  */
-const de_ListNamedShadowsForThingCommandError = async (
+export const de_ListRetainedMessagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListNamedShadowsForThingCommandOutput> => {
+): Promise<ListRetainedMessagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    retainedTopics: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PublishCommand
+ */
+export const de_PublishCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateThingShadowCommand
+ */
+export const de_UpdateThingShadowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateThingShadowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBody(output.body, context);
+  contents.payload = data;
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -457,192 +373,15 @@ const de_ListNamedShadowsForThingCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListRetainedMessagesCommand
- */
-export const de_ListRetainedMessagesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRetainedMessagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRetainedMessagesCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    nextToken: __expectString,
-    retainedTopics: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListRetainedMessagesCommandError
- */
-const de_ListRetainedMessagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRetainedMessagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1PublishCommand
- */
-export const de_PublishCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PublishCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1PublishCommandError
- */
-const de_PublishCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateThingShadowCommand
- */
-export const de_UpdateThingShadowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThingShadowCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateThingShadowCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: any = await collectBody(output.body, context);
-  contents.payload = data;
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateThingShadowCommandError
- */
-const de_UpdateThingShadowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThingShadowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.iotdataplane#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotdataplane#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotdataplane#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.iotdataplane#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "RequestEntityTooLargeException":
-    case "com.amazonaws.iotdataplane#RequestEntityTooLargeException":
-      throw await de_RequestEntityTooLargeExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotdataplane#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotdataplane#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotdataplane#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     case "UnsupportedDocumentEncodingException":
     case "com.amazonaws.iotdataplane#UnsupportedDocumentEncodingException":
       throw await de_UnsupportedDocumentEncodingExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotdataplane#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "RequestEntityTooLargeException":
+    case "com.amazonaws.iotdataplane#RequestEntityTooLargeException":
+      throw await de_RequestEntityTooLargeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

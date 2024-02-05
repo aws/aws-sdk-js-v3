@@ -392,7 +392,7 @@ export const de_AssociateServiceQuotaTemplateCommand = async (
   context: __SerdeContext
 ): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateServiceQuotaTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -405,12 +405,369 @@ export const de_AssociateServiceQuotaTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError
+ * deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
  */
-const de_AssociateServiceQuotaTemplateCommandError = async (
+export const de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateServiceQuotaTemplateCommandOutput> => {
+): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand
+ */
+export const de_DisassociateServiceQuotaTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateServiceQuotaTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand
+ */
+export const de_GetAssociationForServiceQuotaTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetAssociationForServiceQuotaTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand
+ */
+export const de_GetAWSDefaultServiceQuotaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAWSDefaultServiceQuotaResponse(data, context);
+  const response: GetAWSDefaultServiceQuotaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand
+ */
+export const de_GetRequestedServiceQuotaChangeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetRequestedServiceQuotaChangeResponse(data, context);
+  const response: GetRequestedServiceQuotaChangeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetServiceQuotaCommand
+ */
+export const de_GetServiceQuotaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceQuotaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetServiceQuotaResponse(data, context);
+  const response: GetServiceQuotaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand
+ */
+export const de_GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
+  const response: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand
+ */
+export const de_ListAWSDefaultServiceQuotasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAWSDefaultServiceQuotasResponse(data, context);
+  const response: ListAWSDefaultServiceQuotasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand
+ */
+export const de_ListRequestedServiceQuotaChangeHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRequestedServiceQuotaChangeHistoryResponse(data, context);
+  const response: ListRequestedServiceQuotaChangeHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand
+ */
+export const de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRequestedServiceQuotaChangeHistoryByQuotaResponse(data, context);
+  const response: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand
+ */
+export const de_ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListServiceQuotaIncreaseRequestsInTemplateResponse(data, context);
+  const response: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServiceQuotasCommand
+ */
+export const de_ListServiceQuotasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceQuotasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListServiceQuotasResponse(data, context);
+  const response: ListServiceQuotasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServicesCommand
+ */
+export const de_ListServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListServicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand
+ */
+export const de_PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutServiceQuotaIncreaseRequestIntoTemplateResponse(data, context);
+  const response: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RequestServiceQuotaIncreaseCommand
+ */
+export const de_RequestServiceQuotaIncreaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RequestServiceQuotaIncreaseResponse(data, context);
+  const response: RequestServiceQuotaIncreaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -441,1146 +798,33 @@ const de_AssociateServiceQuotaTemplateCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.servicequotas#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
- */
-export const de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteServiceQuotaIncreaseRequestFromTemplateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommandError
- */
-const de_DeleteServiceQuotaIncreaseRequestFromTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSServiceAccessNotEnabledException":
-    case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
-      throw await de_AWSServiceAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TemplatesNotAvailableInRegionException":
-    case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
-      throw await de_TemplatesNotAvailableInRegionExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand
- */
-export const de_DisassociateServiceQuotaTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateServiceQuotaTemplateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateServiceQuotaTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError
- */
-const de_DisassociateServiceQuotaTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateServiceQuotaTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSServiceAccessNotEnabledException":
-    case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
-      throw await de_AWSServiceAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "ServiceQuotaTemplateNotInUseException":
     case "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException":
       throw await de_ServiceQuotaTemplateNotInUseExceptionRes(parsedOutput, context);
-    case "TemplatesNotAvailableInRegionException":
-    case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
-      throw await de_TemplatesNotAvailableInRegionExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand
- */
-export const de_GetAssociationForServiceQuotaTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetAssociationForServiceQuotaTemplateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetAssociationForServiceQuotaTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError
- */
-const de_GetAssociationForServiceQuotaTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssociationForServiceQuotaTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSServiceAccessNotEnabledException":
-    case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
-      throw await de_AWSServiceAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaTemplateNotInUseException":
-    case "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException":
-      throw await de_ServiceQuotaTemplateNotInUseExceptionRes(parsedOutput, context);
-    case "TemplatesNotAvailableInRegionException":
-    case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
-      throw await de_TemplatesNotAvailableInRegionExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand
- */
-export const de_GetAWSDefaultServiceQuotaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetAWSDefaultServiceQuotaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetAWSDefaultServiceQuotaResponse(data, context);
-  const response: GetAWSDefaultServiceQuotaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError
- */
-const de_GetAWSDefaultServiceQuotaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAWSDefaultServiceQuotaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand
- */
-export const de_GetRequestedServiceQuotaChangeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetRequestedServiceQuotaChangeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetRequestedServiceQuotaChangeResponse(data, context);
-  const response: GetRequestedServiceQuotaChangeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError
- */
-const de_GetRequestedServiceQuotaChangeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRequestedServiceQuotaChangeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetServiceQuotaCommand
- */
-export const de_GetServiceQuotaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceQuotaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetServiceQuotaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetServiceQuotaResponse(data, context);
-  const response: GetServiceQuotaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetServiceQuotaCommandError
- */
-const de_GetServiceQuotaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceQuotaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommand
- */
-export const de_GetServiceQuotaIncreaseRequestFromTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetServiceQuotaIncreaseRequestFromTemplateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetServiceQuotaIncreaseRequestFromTemplateResponse(data, context);
-  const response: GetServiceQuotaIncreaseRequestFromTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandError
- */
-const de_GetServiceQuotaIncreaseRequestFromTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceQuotaIncreaseRequestFromTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSServiceAccessNotEnabledException":
-    case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
-      throw await de_AWSServiceAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TemplatesNotAvailableInRegionException":
-    case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
-      throw await de_TemplatesNotAvailableInRegionExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand
- */
-export const de_ListAWSDefaultServiceQuotasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAWSDefaultServiceQuotasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAWSDefaultServiceQuotasResponse(data, context);
-  const response: ListAWSDefaultServiceQuotasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError
- */
-const de_ListAWSDefaultServiceQuotasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAWSDefaultServiceQuotasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "InvalidPaginationTokenException":
     case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
       throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand
- */
-export const de_ListRequestedServiceQuotaChangeHistoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRequestedServiceQuotaChangeHistoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListRequestedServiceQuotaChangeHistoryResponse(data, context);
-  const response: ListRequestedServiceQuotaChangeHistoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError
- */
-const de_ListRequestedServiceQuotaChangeHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand
- */
-export const de_ListRequestedServiceQuotaChangeHistoryByQuotaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRequestedServiceQuotaChangeHistoryByQuotaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListRequestedServiceQuotaChangeHistoryByQuotaResponse(data, context);
-  const response: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommandError
- */
-const de_ListRequestedServiceQuotaChangeHistoryByQuotaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommand
- */
-export const de_ListServiceQuotaIncreaseRequestsInTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServiceQuotaIncreaseRequestsInTemplateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListServiceQuotaIncreaseRequestsInTemplateResponse(data, context);
-  const response: ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandError
- */
-const de_ListServiceQuotaIncreaseRequestsInTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSServiceAccessNotEnabledException":
-    case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
-      throw await de_AWSServiceAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TemplatesNotAvailableInRegionException":
-    case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
-      throw await de_TemplatesNotAvailableInRegionExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListServiceQuotasCommand
- */
-export const de_ListServiceQuotasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceQuotasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServiceQuotasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListServiceQuotasResponse(data, context);
-  const response: ListServiceQuotasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListServiceQuotasCommandError
- */
-const de_ListServiceQuotasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceQuotasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListServicesCommand
- */
-export const de_ListServicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListServicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListServicesCommandError
- */
-const de_ListServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.servicequotas#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommand
- */
-export const de_PutServiceQuotaIncreaseRequestIntoTemplateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutServiceQuotaIncreaseRequestIntoTemplateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PutServiceQuotaIncreaseRequestIntoTemplateResponse(data, context);
-  const response: PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandError
- */
-const de_PutServiceQuotaIncreaseRequestIntoTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSServiceAccessNotEnabledException":
-    case "com.amazonaws.servicequotas#AWSServiceAccessNotEnabledException":
-      throw await de_AWSServiceAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.servicequotas#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
     case "QuotaExceededException":
     case "com.amazonaws.servicequotas#QuotaExceededException":
       throw await de_QuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TemplatesNotAvailableInRegionException":
-    case "com.amazonaws.servicequotas#TemplatesNotAvailableInRegionException":
-      throw await de_TemplatesNotAvailableInRegionExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RequestServiceQuotaIncreaseCommand
- */
-export const de_RequestServiceQuotaIncreaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RequestServiceQuotaIncreaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RequestServiceQuotaIncreaseResponse(data, context);
-  const response: RequestServiceQuotaIncreaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError
- */
-const de_RequestServiceQuotaIncreaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestServiceQuotaIncreaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyAccessDeniedException":
-    case "com.amazonaws.servicequotas#DependencyAccessDeniedException":
-      throw await de_DependencyAccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
     case "InvalidResourceStateException":
     case "com.amazonaws.servicequotas#InvalidResourceStateException":
       throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "QuotaExceededException":
-    case "com.amazonaws.servicequotas#QuotaExceededException":
-      throw await de_QuotaExceededExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.servicequotas#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "TagPolicyViolationException":
     case "com.amazonaws.servicequotas#TagPolicyViolationException":
       throw await de_TagPolicyViolationExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicequotas#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.servicequotas#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.servicequotas#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "NoSuchResourceException":
-    case "com.amazonaws.servicequotas#NoSuchResourceException":
-      throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.servicequotas#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.servicequotas#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

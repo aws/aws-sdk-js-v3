@@ -1661,7 +1661,7 @@ export const de_CloneReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<CloneReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CloneReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1674,38 +1674,6 @@ export const de_CloneReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_queryCloneReceiptRuleSetCommandError
- */
-const de_CloneReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CloneReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.ses#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateConfigurationSetCommand
  */
 export const de_CreateConfigurationSetCommand = async (
@@ -1713,7 +1681,7 @@ export const de_CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1726,38 +1694,6 @@ export const de_CreateConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateConfigurationSetCommandError
- */
-const de_CreateConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetAlreadyExists":
-    case "com.amazonaws.ses#ConfigurationSetAlreadyExistsException":
-      throw await de_ConfigurationSetAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationSet":
-    case "com.amazonaws.ses#InvalidConfigurationSetException":
-      throw await de_InvalidConfigurationSetExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateConfigurationSetEventDestinationCommand
  */
 export const de_CreateConfigurationSetEventDestinationCommand = async (
@@ -1765,7 +1701,7 @@ export const de_CreateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1781,47 +1717,6 @@ export const de_CreateConfigurationSetEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateConfigurationSetEventDestinationCommandError
- */
-const de_CreateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "EventDestinationAlreadyExists":
-    case "com.amazonaws.ses#EventDestinationAlreadyExistsException":
-      throw await de_EventDestinationAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidCloudWatchDestination":
-    case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
-      throw await de_InvalidCloudWatchDestinationExceptionRes(parsedOutput, context);
-    case "InvalidFirehoseDestination":
-    case "com.amazonaws.ses#InvalidFirehoseDestinationException":
-      throw await de_InvalidFirehoseDestinationExceptionRes(parsedOutput, context);
-    case "InvalidSNSDestination":
-    case "com.amazonaws.ses#InvalidSNSDestinationException":
-      throw await de_InvalidSNSDestinationExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand
  */
 export const de_CreateConfigurationSetTrackingOptionsCommand = async (
@@ -1829,7 +1724,7 @@ export const de_CreateConfigurationSetTrackingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConfigurationSetTrackingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1845,38 +1740,6 @@ export const de_CreateConfigurationSetTrackingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError
- */
-const de_CreateConfigurationSetTrackingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationSetTrackingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidTrackingOptions":
-    case "com.amazonaws.ses#InvalidTrackingOptionsException":
-      throw await de_InvalidTrackingOptionsExceptionRes(parsedOutput, context);
-    case "TrackingOptionsAlreadyExistsException":
-    case "com.amazonaws.ses#TrackingOptionsAlreadyExistsException":
-      throw await de_TrackingOptionsAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateCustomVerificationEmailTemplateCommand
  */
 export const de_CreateCustomVerificationEmailTemplateCommand = async (
@@ -1884,48 +1747,13 @@ export const de_CreateCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError
- */
-const de_CreateCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomVerificationEmailInvalidContent":
-    case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
-      throw await de_CustomVerificationEmailInvalidContentExceptionRes(parsedOutput, context);
-    case "CustomVerificationEmailTemplateAlreadyExists":
-    case "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException":
-      throw await de_CustomVerificationEmailTemplateAlreadyExistsExceptionRes(parsedOutput, context);
-    case "FromEmailAddressNotVerified":
-    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
-      throw await de_FromEmailAddressNotVerifiedExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1936,7 +1764,7 @@ export const de_CreateReceiptFilterCommand = async (
   context: __SerdeContext
 ): Promise<CreateReceiptFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReceiptFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1949,35 +1777,6 @@ export const de_CreateReceiptFilterCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateReceiptFilterCommandError
- */
-const de_CreateReceiptFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReceiptFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.ses#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateReceiptRuleCommand
  */
 export const de_CreateReceiptRuleCommand = async (
@@ -1985,7 +1784,7 @@ export const de_CreateReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateReceiptRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReceiptRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1998,50 +1797,6 @@ export const de_CreateReceiptRuleCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateReceiptRuleCommandError
- */
-const de_CreateReceiptRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReceiptRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.ses#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidLambdaFunction":
-    case "com.amazonaws.ses#InvalidLambdaFunctionException":
-      throw await de_InvalidLambdaFunctionExceptionRes(parsedOutput, context);
-    case "InvalidS3Configuration":
-    case "com.amazonaws.ses#InvalidS3ConfigurationException":
-      throw await de_InvalidS3ConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidSnsTopic":
-    case "com.amazonaws.ses#InvalidSnsTopicException":
-      throw await de_InvalidSnsTopicExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RuleDoesNotExist":
-    case "com.amazonaws.ses#RuleDoesNotExistException":
-      throw await de_RuleDoesNotExistExceptionRes(parsedOutput, context);
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateReceiptRuleSetCommand
  */
 export const de_CreateReceiptRuleSetCommand = async (
@@ -2049,7 +1804,7 @@ export const de_CreateReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2062,35 +1817,6 @@ export const de_CreateReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateReceiptRuleSetCommandError
- */
-const de_CreateReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.ses#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateTemplateCommand
  */
 export const de_CreateTemplateCommand = async (
@@ -2098,7 +1824,7 @@ export const de_CreateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2111,38 +1837,6 @@ export const de_CreateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateTemplateCommandError
- */
-const de_CreateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.ses#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidTemplate":
-    case "com.amazonaws.ses#InvalidTemplateException":
-      throw await de_InvalidTemplateExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteConfigurationSetCommand
  */
 export const de_DeleteConfigurationSetCommand = async (
@@ -2150,7 +1844,7 @@ export const de_DeleteConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2163,32 +1857,6 @@ export const de_DeleteConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteConfigurationSetCommandError
- */
-const de_DeleteConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteConfigurationSetEventDestinationCommand
  */
 export const de_DeleteConfigurationSetEventDestinationCommand = async (
@@ -2196,7 +1864,7 @@ export const de_DeleteConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2212,35 +1880,6 @@ export const de_DeleteConfigurationSetEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError
- */
-const de_DeleteConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "EventDestinationDoesNotExist":
-    case "com.amazonaws.ses#EventDestinationDoesNotExistException":
-      throw await de_EventDestinationDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand
  */
 export const de_DeleteConfigurationSetTrackingOptionsCommand = async (
@@ -2248,7 +1887,7 @@ export const de_DeleteConfigurationSetTrackingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationSetTrackingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2264,35 +1903,6 @@ export const de_DeleteConfigurationSetTrackingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError
- */
-const de_DeleteConfigurationSetTrackingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationSetTrackingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "TrackingOptionsDoesNotExistException":
-    case "com.amazonaws.ses#TrackingOptionsDoesNotExistException":
-      throw await de_TrackingOptionsDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteCustomVerificationEmailTemplateCommand
  */
 export const de_DeleteCustomVerificationEmailTemplateCommand = async (
@@ -2300,33 +1910,13 @@ export const de_DeleteCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandError
- */
-const de_DeleteCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2337,7 +1927,7 @@ export const de_DeleteIdentityCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2350,26 +1940,6 @@ export const de_DeleteIdentityCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteIdentityCommandError
- */
-const de_DeleteIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDeleteIdentityPolicyCommand
  */
 export const de_DeleteIdentityPolicyCommand = async (
@@ -2377,7 +1947,7 @@ export const de_DeleteIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIdentityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIdentityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2390,26 +1960,6 @@ export const de_DeleteIdentityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteIdentityPolicyCommandError
- */
-const de_DeleteIdentityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIdentityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDeleteReceiptFilterCommand
  */
 export const de_DeleteReceiptFilterCommand = async (
@@ -2417,7 +1967,7 @@ export const de_DeleteReceiptFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReceiptFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReceiptFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2430,26 +1980,6 @@ export const de_DeleteReceiptFilterCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteReceiptFilterCommandError
- */
-const de_DeleteReceiptFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReceiptFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDeleteReceiptRuleCommand
  */
 export const de_DeleteReceiptRuleCommand = async (
@@ -2457,7 +1987,7 @@ export const de_DeleteReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReceiptRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReceiptRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2470,32 +2000,6 @@ export const de_DeleteReceiptRuleCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteReceiptRuleCommandError
- */
-const de_DeleteReceiptRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReceiptRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteReceiptRuleSetCommand
  */
 export const de_DeleteReceiptRuleSetCommand = async (
@@ -2503,7 +2007,7 @@ export const de_DeleteReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2516,32 +2020,6 @@ export const de_DeleteReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteReceiptRuleSetCommandError
- */
-const de_DeleteReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CannotDelete":
-    case "com.amazonaws.ses#CannotDeleteException":
-      throw await de_CannotDeleteExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteTemplateCommand
  */
 export const de_DeleteTemplateCommand = async (
@@ -2549,7 +2027,7 @@ export const de_DeleteTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2562,26 +2040,6 @@ export const de_DeleteTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteTemplateCommandError
- */
-const de_DeleteTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDeleteVerifiedEmailAddressCommand
  */
 export const de_DeleteVerifiedEmailAddressCommand = async (
@@ -2589,33 +2047,13 @@ export const de_DeleteVerifiedEmailAddressCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVerifiedEmailAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVerifiedEmailAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVerifiedEmailAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteVerifiedEmailAddressCommandError
- */
-const de_DeleteVerifiedEmailAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVerifiedEmailAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2626,7 +2064,7 @@ export const de_DescribeActiveReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActiveReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeActiveReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2639,26 +2077,6 @@ export const de_DescribeActiveReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeActiveReceiptRuleSetCommandError
- */
-const de_DescribeActiveReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActiveReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeConfigurationSetCommand
  */
 export const de_DescribeConfigurationSetCommand = async (
@@ -2666,7 +2084,7 @@ export const de_DescribeConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2679,32 +2097,6 @@ export const de_DescribeConfigurationSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeConfigurationSetCommandError
- */
-const de_DescribeConfigurationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeReceiptRuleCommand
  */
 export const de_DescribeReceiptRuleCommand = async (
@@ -2712,7 +2104,7 @@ export const de_DescribeReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReceiptRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReceiptRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2725,35 +2117,6 @@ export const de_DescribeReceiptRuleCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeReceiptRuleCommandError
- */
-const de_DescribeReceiptRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReceiptRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RuleDoesNotExist":
-    case "com.amazonaws.ses#RuleDoesNotExistException":
-      throw await de_RuleDoesNotExistExceptionRes(parsedOutput, context);
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeReceiptRuleSetCommand
  */
 export const de_DescribeReceiptRuleSetCommand = async (
@@ -2761,7 +2124,7 @@ export const de_DescribeReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2774,32 +2137,6 @@ export const de_DescribeReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeReceiptRuleSetCommandError
- */
-const de_DescribeReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetAccountSendingEnabledCommand
  */
 export const de_GetAccountSendingEnabledCommand = async (
@@ -2807,7 +2144,7 @@ export const de_GetAccountSendingEnabledCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSendingEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountSendingEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2820,26 +2157,6 @@ export const de_GetAccountSendingEnabledCommand = async (
 };
 
 /**
- * deserializeAws_queryGetAccountSendingEnabledCommandError
- */
-const de_GetAccountSendingEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountSendingEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetCustomVerificationEmailTemplateCommand
  */
 export const de_GetCustomVerificationEmailTemplateCommand = async (
@@ -2847,7 +2164,7 @@ export const de_GetCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2860,32 +2177,6 @@ export const de_GetCustomVerificationEmailTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryGetCustomVerificationEmailTemplateCommandError
- */
-const de_GetCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomVerificationEmailTemplateDoesNotExist":
-    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
-      throw await de_CustomVerificationEmailTemplateDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetIdentityDkimAttributesCommand
  */
 export const de_GetIdentityDkimAttributesCommand = async (
@@ -2893,7 +2184,7 @@ export const de_GetIdentityDkimAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityDkimAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIdentityDkimAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2906,26 +2197,6 @@ export const de_GetIdentityDkimAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryGetIdentityDkimAttributesCommandError
- */
-const de_GetIdentityDkimAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityDkimAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetIdentityMailFromDomainAttributesCommand
  */
 export const de_GetIdentityMailFromDomainAttributesCommand = async (
@@ -2933,7 +2204,7 @@ export const de_GetIdentityMailFromDomainAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityMailFromDomainAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIdentityMailFromDomainAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2946,26 +2217,6 @@ export const de_GetIdentityMailFromDomainAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryGetIdentityMailFromDomainAttributesCommandError
- */
-const de_GetIdentityMailFromDomainAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityMailFromDomainAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetIdentityNotificationAttributesCommand
  */
 export const de_GetIdentityNotificationAttributesCommand = async (
@@ -2973,7 +2224,7 @@ export const de_GetIdentityNotificationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityNotificationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIdentityNotificationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2986,26 +2237,6 @@ export const de_GetIdentityNotificationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryGetIdentityNotificationAttributesCommandError
- */
-const de_GetIdentityNotificationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityNotificationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetIdentityPoliciesCommand
  */
 export const de_GetIdentityPoliciesCommand = async (
@@ -3013,7 +2244,7 @@ export const de_GetIdentityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIdentityPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3026,26 +2257,6 @@ export const de_GetIdentityPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryGetIdentityPoliciesCommandError
- */
-const de_GetIdentityPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetIdentityVerificationAttributesCommand
  */
 export const de_GetIdentityVerificationAttributesCommand = async (
@@ -3053,7 +2264,7 @@ export const de_GetIdentityVerificationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityVerificationAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIdentityVerificationAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3066,26 +2277,6 @@ export const de_GetIdentityVerificationAttributesCommand = async (
 };
 
 /**
- * deserializeAws_queryGetIdentityVerificationAttributesCommandError
- */
-const de_GetIdentityVerificationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityVerificationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetSendQuotaCommand
  */
 export const de_GetSendQuotaCommand = async (
@@ -3093,7 +2284,7 @@ export const de_GetSendQuotaCommand = async (
   context: __SerdeContext
 ): Promise<GetSendQuotaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSendQuotaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3106,26 +2297,6 @@ export const de_GetSendQuotaCommand = async (
 };
 
 /**
- * deserializeAws_queryGetSendQuotaCommandError
- */
-const de_GetSendQuotaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSendQuotaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetSendStatisticsCommand
  */
 export const de_GetSendStatisticsCommand = async (
@@ -3133,7 +2304,7 @@ export const de_GetSendStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetSendStatisticsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSendStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3146,26 +2317,6 @@ export const de_GetSendStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_queryGetSendStatisticsCommandError
- */
-const de_GetSendStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSendStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetTemplateCommand
  */
 export const de_GetTemplateCommand = async (
@@ -3173,7 +2324,7 @@ export const de_GetTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3186,32 +2337,6 @@ export const de_GetTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryGetTemplateCommandError
- */
-const de_GetTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TemplateDoesNotExist":
-    case "com.amazonaws.ses#TemplateDoesNotExistException":
-      throw await de_TemplateDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListConfigurationSetsCommand
  */
 export const de_ListConfigurationSetsCommand = async (
@@ -3219,7 +2344,7 @@ export const de_ListConfigurationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConfigurationSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3232,26 +2357,6 @@ export const de_ListConfigurationSetsCommand = async (
 };
 
 /**
- * deserializeAws_queryListConfigurationSetsCommandError
- */
-const de_ListConfigurationSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListCustomVerificationEmailTemplatesCommand
  */
 export const de_ListCustomVerificationEmailTemplatesCommand = async (
@@ -3259,7 +2364,7 @@ export const de_ListCustomVerificationEmailTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCustomVerificationEmailTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3272,26 +2377,6 @@ export const de_ListCustomVerificationEmailTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_queryListCustomVerificationEmailTemplatesCommandError
- */
-const de_ListCustomVerificationEmailTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomVerificationEmailTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListIdentitiesCommand
  */
 export const de_ListIdentitiesCommand = async (
@@ -3299,7 +2384,7 @@ export const de_ListIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListIdentitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3312,26 +2397,6 @@ export const de_ListIdentitiesCommand = async (
 };
 
 /**
- * deserializeAws_queryListIdentitiesCommandError
- */
-const de_ListIdentitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListIdentityPoliciesCommand
  */
 export const de_ListIdentityPoliciesCommand = async (
@@ -3339,7 +2404,7 @@ export const de_ListIdentityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentityPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListIdentityPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3352,26 +2417,6 @@ export const de_ListIdentityPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListIdentityPoliciesCommandError
- */
-const de_ListIdentityPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListReceiptFiltersCommand
  */
 export const de_ListReceiptFiltersCommand = async (
@@ -3379,7 +2424,7 @@ export const de_ListReceiptFiltersCommand = async (
   context: __SerdeContext
 ): Promise<ListReceiptFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReceiptFiltersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3392,26 +2437,6 @@ export const de_ListReceiptFiltersCommand = async (
 };
 
 /**
- * deserializeAws_queryListReceiptFiltersCommandError
- */
-const de_ListReceiptFiltersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReceiptFiltersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListReceiptRuleSetsCommand
  */
 export const de_ListReceiptRuleSetsCommand = async (
@@ -3419,7 +2444,7 @@ export const de_ListReceiptRuleSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListReceiptRuleSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListReceiptRuleSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3432,26 +2457,6 @@ export const de_ListReceiptRuleSetsCommand = async (
 };
 
 /**
- * deserializeAws_queryListReceiptRuleSetsCommandError
- */
-const de_ListReceiptRuleSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReceiptRuleSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListTemplatesCommand
  */
 export const de_ListTemplatesCommand = async (
@@ -3459,7 +2464,7 @@ export const de_ListTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3472,26 +2477,6 @@ export const de_ListTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_queryListTemplatesCommandError
- */
-const de_ListTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListVerifiedEmailAddressesCommand
  */
 export const de_ListVerifiedEmailAddressesCommand = async (
@@ -3499,7 +2484,7 @@ export const de_ListVerifiedEmailAddressesCommand = async (
   context: __SerdeContext
 ): Promise<ListVerifiedEmailAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVerifiedEmailAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3512,26 +2497,6 @@ export const de_ListVerifiedEmailAddressesCommand = async (
 };
 
 /**
- * deserializeAws_queryListVerifiedEmailAddressesCommandError
- */
-const de_ListVerifiedEmailAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVerifiedEmailAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand
  */
 export const de_PutConfigurationSetDeliveryOptionsCommand = async (
@@ -3539,7 +2504,7 @@ export const de_PutConfigurationSetDeliveryOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutConfigurationSetDeliveryOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3552,35 +2517,6 @@ export const de_PutConfigurationSetDeliveryOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError
- */
-const de_PutConfigurationSetDeliveryOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationSetDeliveryOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidDeliveryOptions":
-    case "com.amazonaws.ses#InvalidDeliveryOptionsException":
-      throw await de_InvalidDeliveryOptionsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutIdentityPolicyCommand
  */
 export const de_PutIdentityPolicyCommand = async (
@@ -3588,7 +2524,7 @@ export const de_PutIdentityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutIdentityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutIdentityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3601,32 +2537,6 @@ export const de_PutIdentityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryPutIdentityPolicyCommandError
- */
-const de_PutIdentityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutIdentityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPolicy":
-    case "com.amazonaws.ses#InvalidPolicyException":
-      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryReorderReceiptRuleSetCommand
  */
 export const de_ReorderReceiptRuleSetCommand = async (
@@ -3634,7 +2544,7 @@ export const de_ReorderReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<ReorderReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReorderReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3647,35 +2557,6 @@ export const de_ReorderReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_queryReorderReceiptRuleSetCommandError
- */
-const de_ReorderReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReorderReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RuleDoesNotExist":
-    case "com.amazonaws.ses#RuleDoesNotExistException":
-      throw await de_RuleDoesNotExistExceptionRes(parsedOutput, context);
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySendBounceCommand
  */
 export const de_SendBounceCommand = async (
@@ -3683,7 +2564,7 @@ export const de_SendBounceCommand = async (
   context: __SerdeContext
 ): Promise<SendBounceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendBounceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3696,32 +2577,6 @@ export const de_SendBounceCommand = async (
 };
 
 /**
- * deserializeAws_querySendBounceCommandError
- */
-const de_SendBounceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendBounceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "MessageRejected":
-    case "com.amazonaws.ses#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySendBulkTemplatedEmailCommand
  */
 export const de_SendBulkTemplatedEmailCommand = async (
@@ -3729,7 +2584,7 @@ export const de_SendBulkTemplatedEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendBulkTemplatedEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendBulkTemplatedEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3742,47 +2597,6 @@ export const de_SendBulkTemplatedEmailCommand = async (
 };
 
 /**
- * deserializeAws_querySendBulkTemplatedEmailCommandError
- */
-const de_SendBulkTemplatedEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendBulkTemplatedEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSendingPausedException":
-    case "com.amazonaws.ses#AccountSendingPausedException":
-      throw await de_AccountSendingPausedExceptionRes(parsedOutput, context);
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "ConfigurationSetSendingPausedException":
-    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
-      throw await de_ConfigurationSetSendingPausedExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.ses#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "TemplateDoesNotExist":
-    case "com.amazonaws.ses#TemplateDoesNotExistException":
-      throw await de_TemplateDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySendCustomVerificationEmailCommand
  */
 export const de_SendCustomVerificationEmailCommand = async (
@@ -3790,7 +2604,7 @@ export const de_SendCustomVerificationEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendCustomVerificationEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendCustomVerificationEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3803,44 +2617,6 @@ export const de_SendCustomVerificationEmailCommand = async (
 };
 
 /**
- * deserializeAws_querySendCustomVerificationEmailCommandError
- */
-const de_SendCustomVerificationEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendCustomVerificationEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "CustomVerificationEmailTemplateDoesNotExist":
-    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
-      throw await de_CustomVerificationEmailTemplateDoesNotExistExceptionRes(parsedOutput, context);
-    case "FromEmailAddressNotVerified":
-    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
-      throw await de_FromEmailAddressNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.ses#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "ProductionAccessNotGranted":
-    case "com.amazonaws.ses#ProductionAccessNotGrantedException":
-      throw await de_ProductionAccessNotGrantedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySendEmailCommand
  */
 export const de_SendEmailCommand = async (
@@ -3848,7 +2624,7 @@ export const de_SendEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3861,44 +2637,6 @@ export const de_SendEmailCommand = async (
 };
 
 /**
- * deserializeAws_querySendEmailCommandError
- */
-const de_SendEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSendingPausedException":
-    case "com.amazonaws.ses#AccountSendingPausedException":
-      throw await de_AccountSendingPausedExceptionRes(parsedOutput, context);
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "ConfigurationSetSendingPausedException":
-    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
-      throw await de_ConfigurationSetSendingPausedExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.ses#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySendRawEmailCommand
  */
 export const de_SendRawEmailCommand = async (
@@ -3906,7 +2644,7 @@ export const de_SendRawEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendRawEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendRawEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3919,44 +2657,6 @@ export const de_SendRawEmailCommand = async (
 };
 
 /**
- * deserializeAws_querySendRawEmailCommandError
- */
-const de_SendRawEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendRawEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSendingPausedException":
-    case "com.amazonaws.ses#AccountSendingPausedException":
-      throw await de_AccountSendingPausedExceptionRes(parsedOutput, context);
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "ConfigurationSetSendingPausedException":
-    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
-      throw await de_ConfigurationSetSendingPausedExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.ses#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySendTemplatedEmailCommand
  */
 export const de_SendTemplatedEmailCommand = async (
@@ -3964,7 +2664,7 @@ export const de_SendTemplatedEmailCommand = async (
   context: __SerdeContext
 ): Promise<SendTemplatedEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendTemplatedEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3977,47 +2677,6 @@ export const de_SendTemplatedEmailCommand = async (
 };
 
 /**
- * deserializeAws_querySendTemplatedEmailCommandError
- */
-const de_SendTemplatedEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendTemplatedEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountSendingPausedException":
-    case "com.amazonaws.ses#AccountSendingPausedException":
-      throw await de_AccountSendingPausedExceptionRes(parsedOutput, context);
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "ConfigurationSetSendingPausedException":
-    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
-      throw await de_ConfigurationSetSendingPausedExceptionRes(parsedOutput, context);
-    case "MailFromDomainNotVerifiedException":
-    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
-      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
-    case "MessageRejected":
-    case "com.amazonaws.ses#MessageRejected":
-      throw await de_MessageRejectedRes(parsedOutput, context);
-    case "TemplateDoesNotExist":
-    case "com.amazonaws.ses#TemplateDoesNotExistException":
-      throw await de_TemplateDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetActiveReceiptRuleSetCommand
  */
 export const de_SetActiveReceiptRuleSetCommand = async (
@@ -4025,7 +2684,7 @@ export const de_SetActiveReceiptRuleSetCommand = async (
   context: __SerdeContext
 ): Promise<SetActiveReceiptRuleSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetActiveReceiptRuleSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4038,32 +2697,6 @@ export const de_SetActiveReceiptRuleSetCommand = async (
 };
 
 /**
- * deserializeAws_querySetActiveReceiptRuleSetCommandError
- */
-const de_SetActiveReceiptRuleSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetActiveReceiptRuleSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetIdentityDkimEnabledCommand
  */
 export const de_SetIdentityDkimEnabledCommand = async (
@@ -4071,7 +2704,7 @@ export const de_SetIdentityDkimEnabledCommand = async (
   context: __SerdeContext
 ): Promise<SetIdentityDkimEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetIdentityDkimEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4084,26 +2717,6 @@ export const de_SetIdentityDkimEnabledCommand = async (
 };
 
 /**
- * deserializeAws_querySetIdentityDkimEnabledCommandError
- */
-const de_SetIdentityDkimEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityDkimEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand
  */
 export const de_SetIdentityFeedbackForwardingEnabledCommand = async (
@@ -4111,7 +2724,7 @@ export const de_SetIdentityFeedbackForwardingEnabledCommand = async (
   context: __SerdeContext
 ): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetIdentityFeedbackForwardingEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4124,26 +2737,6 @@ export const de_SetIdentityFeedbackForwardingEnabledCommand = async (
 };
 
 /**
- * deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandError
- */
-const de_SetIdentityFeedbackForwardingEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityFeedbackForwardingEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand
  */
 export const de_SetIdentityHeadersInNotificationsEnabledCommand = async (
@@ -4151,7 +2744,7 @@ export const de_SetIdentityHeadersInNotificationsEnabledCommand = async (
   context: __SerdeContext
 ): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetIdentityHeadersInNotificationsEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4167,26 +2760,6 @@ export const de_SetIdentityHeadersInNotificationsEnabledCommand = async (
 };
 
 /**
- * deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommandError
- */
-const de_SetIdentityHeadersInNotificationsEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityHeadersInNotificationsEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_querySetIdentityMailFromDomainCommand
  */
 export const de_SetIdentityMailFromDomainCommand = async (
@@ -4194,7 +2767,7 @@ export const de_SetIdentityMailFromDomainCommand = async (
   context: __SerdeContext
 ): Promise<SetIdentityMailFromDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetIdentityMailFromDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4207,26 +2780,6 @@ export const de_SetIdentityMailFromDomainCommand = async (
 };
 
 /**
- * deserializeAws_querySetIdentityMailFromDomainCommandError
- */
-const de_SetIdentityMailFromDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityMailFromDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_querySetIdentityNotificationTopicCommand
  */
 export const de_SetIdentityNotificationTopicCommand = async (
@@ -4234,7 +2787,7 @@ export const de_SetIdentityNotificationTopicCommand = async (
   context: __SerdeContext
 ): Promise<SetIdentityNotificationTopicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetIdentityNotificationTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4247,26 +2800,6 @@ export const de_SetIdentityNotificationTopicCommand = async (
 };
 
 /**
- * deserializeAws_querySetIdentityNotificationTopicCommandError
- */
-const de_SetIdentityNotificationTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityNotificationTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_querySetReceiptRulePositionCommand
  */
 export const de_SetReceiptRulePositionCommand = async (
@@ -4274,7 +2807,7 @@ export const de_SetReceiptRulePositionCommand = async (
   context: __SerdeContext
 ): Promise<SetReceiptRulePositionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetReceiptRulePositionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4287,35 +2820,6 @@ export const de_SetReceiptRulePositionCommand = async (
 };
 
 /**
- * deserializeAws_querySetReceiptRulePositionCommandError
- */
-const de_SetReceiptRulePositionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetReceiptRulePositionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RuleDoesNotExist":
-    case "com.amazonaws.ses#RuleDoesNotExistException":
-      throw await de_RuleDoesNotExistExceptionRes(parsedOutput, context);
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryTestRenderTemplateCommand
  */
 export const de_TestRenderTemplateCommand = async (
@@ -4323,7 +2827,7 @@ export const de_TestRenderTemplateCommand = async (
   context: __SerdeContext
 ): Promise<TestRenderTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestRenderTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4336,38 +2840,6 @@ export const de_TestRenderTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryTestRenderTemplateCommandError
- */
-const de_TestRenderTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestRenderTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRenderingParameter":
-    case "com.amazonaws.ses#InvalidRenderingParameterException":
-      throw await de_InvalidRenderingParameterExceptionRes(parsedOutput, context);
-    case "MissingRenderingAttribute":
-    case "com.amazonaws.ses#MissingRenderingAttributeException":
-      throw await de_MissingRenderingAttributeExceptionRes(parsedOutput, context);
-    case "TemplateDoesNotExist":
-    case "com.amazonaws.ses#TemplateDoesNotExistException":
-      throw await de_TemplateDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateAccountSendingEnabledCommand
  */
 export const de_UpdateAccountSendingEnabledCommand = async (
@@ -4375,33 +2847,13 @@ export const de_UpdateAccountSendingEnabledCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountSendingEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAccountSendingEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAccountSendingEnabledCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateAccountSendingEnabledCommandError
- */
-const de_UpdateAccountSendingEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountSendingEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -4412,7 +2864,7 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConfigurationSetEventDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4428,44 +2880,6 @@ export const de_UpdateConfigurationSetEventDestinationCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError
- */
-const de_UpdateConfigurationSetEventDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetEventDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "EventDestinationDoesNotExist":
-    case "com.amazonaws.ses#EventDestinationDoesNotExistException":
-      throw await de_EventDestinationDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidCloudWatchDestination":
-    case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
-      throw await de_InvalidCloudWatchDestinationExceptionRes(parsedOutput, context);
-    case "InvalidFirehoseDestination":
-    case "com.amazonaws.ses#InvalidFirehoseDestinationException":
-      throw await de_InvalidFirehoseDestinationExceptionRes(parsedOutput, context);
-    case "InvalidSNSDestination":
-    case "com.amazonaws.ses#InvalidSNSDestinationException":
-      throw await de_InvalidSNSDestinationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand
  */
 export const de_UpdateConfigurationSetReputationMetricsEnabledCommand = async (
@@ -4473,39 +2887,13 @@ export const de_UpdateConfigurationSetReputationMetricsEnabledCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConfigurationSetReputationMetricsEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateConfigurationSetReputationMetricsEnabledCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandError
- */
-const de_UpdateConfigurationSetReputationMetricsEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetReputationMetricsEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4516,39 +2904,13 @@ export const de_UpdateConfigurationSetSendingEnabledCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConfigurationSetSendingEnabledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateConfigurationSetSendingEnabledCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError
- */
-const de_UpdateConfigurationSetSendingEnabledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetSendingEnabledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4559,7 +2921,7 @@ export const de_UpdateConfigurationSetTrackingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConfigurationSetTrackingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4575,38 +2937,6 @@ export const de_UpdateConfigurationSetTrackingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError
- */
-const de_UpdateConfigurationSetTrackingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationSetTrackingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConfigurationSetDoesNotExist":
-    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
-      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidTrackingOptions":
-    case "com.amazonaws.ses#InvalidTrackingOptionsException":
-      throw await de_InvalidTrackingOptionsExceptionRes(parsedOutput, context);
-    case "TrackingOptionsDoesNotExistException":
-    case "com.amazonaws.ses#TrackingOptionsDoesNotExistException":
-      throw await de_TrackingOptionsDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateCustomVerificationEmailTemplateCommand
  */
 export const de_UpdateCustomVerificationEmailTemplateCommand = async (
@@ -4614,45 +2944,13 @@ export const de_UpdateCustomVerificationEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCustomVerificationEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError
- */
-const de_UpdateCustomVerificationEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomVerificationEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomVerificationEmailInvalidContent":
-    case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
-      throw await de_CustomVerificationEmailInvalidContentExceptionRes(parsedOutput, context);
-    case "CustomVerificationEmailTemplateDoesNotExist":
-    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
-      throw await de_CustomVerificationEmailTemplateDoesNotExistExceptionRes(parsedOutput, context);
-    case "FromEmailAddressNotVerified":
-    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
-      throw await de_FromEmailAddressNotVerifiedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4663,7 +2961,7 @@ export const de_UpdateReceiptRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReceiptRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateReceiptRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4676,47 +2974,6 @@ export const de_UpdateReceiptRuleCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateReceiptRuleCommandError
- */
-const de_UpdateReceiptRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReceiptRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLambdaFunction":
-    case "com.amazonaws.ses#InvalidLambdaFunctionException":
-      throw await de_InvalidLambdaFunctionExceptionRes(parsedOutput, context);
-    case "InvalidS3Configuration":
-    case "com.amazonaws.ses#InvalidS3ConfigurationException":
-      throw await de_InvalidS3ConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidSnsTopic":
-    case "com.amazonaws.ses#InvalidSnsTopicException":
-      throw await de_InvalidSnsTopicExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.ses#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RuleDoesNotExist":
-    case "com.amazonaws.ses#RuleDoesNotExistException":
-      throw await de_RuleDoesNotExistExceptionRes(parsedOutput, context);
-    case "RuleSetDoesNotExist":
-    case "com.amazonaws.ses#RuleSetDoesNotExistException":
-      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateTemplateCommand
  */
 export const de_UpdateTemplateCommand = async (
@@ -4724,7 +2981,7 @@ export const de_UpdateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4737,35 +2994,6 @@ export const de_UpdateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateTemplateCommandError
- */
-const de_UpdateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTemplate":
-    case "com.amazonaws.ses#InvalidTemplateException":
-      throw await de_InvalidTemplateExceptionRes(parsedOutput, context);
-    case "TemplateDoesNotExist":
-    case "com.amazonaws.ses#TemplateDoesNotExistException":
-      throw await de_TemplateDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryVerifyDomainDkimCommand
  */
 export const de_VerifyDomainDkimCommand = async (
@@ -4773,7 +3001,7 @@ export const de_VerifyDomainDkimCommand = async (
   context: __SerdeContext
 ): Promise<VerifyDomainDkimCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyDomainDkimCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4786,26 +3014,6 @@ export const de_VerifyDomainDkimCommand = async (
 };
 
 /**
- * deserializeAws_queryVerifyDomainDkimCommandError
- */
-const de_VerifyDomainDkimCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyDomainDkimCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryVerifyDomainIdentityCommand
  */
 export const de_VerifyDomainIdentityCommand = async (
@@ -4813,7 +3021,7 @@ export const de_VerifyDomainIdentityCommand = async (
   context: __SerdeContext
 ): Promise<VerifyDomainIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyDomainIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4826,26 +3034,6 @@ export const de_VerifyDomainIdentityCommand = async (
 };
 
 /**
- * deserializeAws_queryVerifyDomainIdentityCommandError
- */
-const de_VerifyDomainIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyDomainIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryVerifyEmailAddressCommand
  */
 export const de_VerifyEmailAddressCommand = async (
@@ -4853,33 +3041,13 @@ export const de_VerifyEmailAddressCommand = async (
   context: __SerdeContext
 ): Promise<VerifyEmailAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyEmailAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: VerifyEmailAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryVerifyEmailAddressCommandError
- */
-const de_VerifyEmailAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyEmailAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -4890,7 +3058,7 @@ export const de_VerifyEmailIdentityCommand = async (
   context: __SerdeContext
 ): Promise<VerifyEmailIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyEmailIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4903,23 +3071,125 @@ export const de_VerifyEmailIdentityCommand = async (
 };
 
 /**
- * deserializeAws_queryVerifyEmailIdentityCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_VerifyEmailIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyEmailIdentityCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "AlreadyExists":
+    case "com.amazonaws.ses#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "LimitExceeded":
+    case "com.amazonaws.ses#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "RuleSetDoesNotExist":
+    case "com.amazonaws.ses#RuleSetDoesNotExistException":
+      throw await de_RuleSetDoesNotExistExceptionRes(parsedOutput, context);
+    case "ConfigurationSetAlreadyExists":
+    case "com.amazonaws.ses#ConfigurationSetAlreadyExistsException":
+      throw await de_ConfigurationSetAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationSet":
+    case "com.amazonaws.ses#InvalidConfigurationSetException":
+      throw await de_InvalidConfigurationSetExceptionRes(parsedOutput, context);
+    case "ConfigurationSetDoesNotExist":
+    case "com.amazonaws.ses#ConfigurationSetDoesNotExistException":
+      throw await de_ConfigurationSetDoesNotExistExceptionRes(parsedOutput, context);
+    case "EventDestinationAlreadyExists":
+    case "com.amazonaws.ses#EventDestinationAlreadyExistsException":
+      throw await de_EventDestinationAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidCloudWatchDestination":
+    case "com.amazonaws.ses#InvalidCloudWatchDestinationException":
+      throw await de_InvalidCloudWatchDestinationExceptionRes(parsedOutput, context);
+    case "InvalidFirehoseDestination":
+    case "com.amazonaws.ses#InvalidFirehoseDestinationException":
+      throw await de_InvalidFirehoseDestinationExceptionRes(parsedOutput, context);
+    case "InvalidSNSDestination":
+    case "com.amazonaws.ses#InvalidSNSDestinationException":
+      throw await de_InvalidSNSDestinationExceptionRes(parsedOutput, context);
+    case "InvalidTrackingOptions":
+    case "com.amazonaws.ses#InvalidTrackingOptionsException":
+      throw await de_InvalidTrackingOptionsExceptionRes(parsedOutput, context);
+    case "TrackingOptionsAlreadyExistsException":
+    case "com.amazonaws.ses#TrackingOptionsAlreadyExistsException":
+      throw await de_TrackingOptionsAlreadyExistsExceptionRes(parsedOutput, context);
+    case "CustomVerificationEmailInvalidContent":
+    case "com.amazonaws.ses#CustomVerificationEmailInvalidContentException":
+      throw await de_CustomVerificationEmailInvalidContentExceptionRes(parsedOutput, context);
+    case "CustomVerificationEmailTemplateAlreadyExists":
+    case "com.amazonaws.ses#CustomVerificationEmailTemplateAlreadyExistsException":
+      throw await de_CustomVerificationEmailTemplateAlreadyExistsExceptionRes(parsedOutput, context);
+    case "FromEmailAddressNotVerified":
+    case "com.amazonaws.ses#FromEmailAddressNotVerifiedException":
+      throw await de_FromEmailAddressNotVerifiedExceptionRes(parsedOutput, context);
+    case "InvalidLambdaFunction":
+    case "com.amazonaws.ses#InvalidLambdaFunctionException":
+      throw await de_InvalidLambdaFunctionExceptionRes(parsedOutput, context);
+    case "InvalidS3Configuration":
+    case "com.amazonaws.ses#InvalidS3ConfigurationException":
+      throw await de_InvalidS3ConfigurationExceptionRes(parsedOutput, context);
+    case "InvalidSnsTopic":
+    case "com.amazonaws.ses#InvalidSnsTopicException":
+      throw await de_InvalidSnsTopicExceptionRes(parsedOutput, context);
+    case "RuleDoesNotExist":
+    case "com.amazonaws.ses#RuleDoesNotExistException":
+      throw await de_RuleDoesNotExistExceptionRes(parsedOutput, context);
+    case "InvalidTemplate":
+    case "com.amazonaws.ses#InvalidTemplateException":
+      throw await de_InvalidTemplateExceptionRes(parsedOutput, context);
+    case "EventDestinationDoesNotExist":
+    case "com.amazonaws.ses#EventDestinationDoesNotExistException":
+      throw await de_EventDestinationDoesNotExistExceptionRes(parsedOutput, context);
+    case "TrackingOptionsDoesNotExistException":
+    case "com.amazonaws.ses#TrackingOptionsDoesNotExistException":
+      throw await de_TrackingOptionsDoesNotExistExceptionRes(parsedOutput, context);
+    case "CannotDelete":
+    case "com.amazonaws.ses#CannotDeleteException":
+      throw await de_CannotDeleteExceptionRes(parsedOutput, context);
+    case "CustomVerificationEmailTemplateDoesNotExist":
+    case "com.amazonaws.ses#CustomVerificationEmailTemplateDoesNotExistException":
+      throw await de_CustomVerificationEmailTemplateDoesNotExistExceptionRes(parsedOutput, context);
+    case "TemplateDoesNotExist":
+    case "com.amazonaws.ses#TemplateDoesNotExistException":
+      throw await de_TemplateDoesNotExistExceptionRes(parsedOutput, context);
+    case "InvalidDeliveryOptions":
+    case "com.amazonaws.ses#InvalidDeliveryOptionsException":
+      throw await de_InvalidDeliveryOptionsExceptionRes(parsedOutput, context);
+    case "InvalidPolicy":
+    case "com.amazonaws.ses#InvalidPolicyException":
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
+    case "MessageRejected":
+    case "com.amazonaws.ses#MessageRejected":
+      throw await de_MessageRejectedRes(parsedOutput, context);
+    case "AccountSendingPausedException":
+    case "com.amazonaws.ses#AccountSendingPausedException":
+      throw await de_AccountSendingPausedExceptionRes(parsedOutput, context);
+    case "ConfigurationSetSendingPausedException":
+    case "com.amazonaws.ses#ConfigurationSetSendingPausedException":
+      throw await de_ConfigurationSetSendingPausedExceptionRes(parsedOutput, context);
+    case "MailFromDomainNotVerifiedException":
+    case "com.amazonaws.ses#MailFromDomainNotVerifiedException":
+      throw await de_MailFromDomainNotVerifiedExceptionRes(parsedOutput, context);
+    case "ProductionAccessNotGranted":
+    case "com.amazonaws.ses#ProductionAccessNotGrantedException":
+      throw await de_ProductionAccessNotGrantedExceptionRes(parsedOutput, context);
+    case "InvalidRenderingParameter":
+    case "com.amazonaws.ses#InvalidRenderingParameterException":
+      throw await de_InvalidRenderingParameterExceptionRes(parsedOutput, context);
+    case "MissingRenderingAttribute":
+    case "com.amazonaws.ses#MissingRenderingAttributeException":
+      throw await de_MissingRenderingAttributeExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
 };
 
 /**

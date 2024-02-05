@@ -513,7 +513,7 @@ export const de_CancelClusterCommand = async (
   context: __SerdeContext
 ): Promise<CancelClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -526,38 +526,6 @@ export const de_CancelClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelClusterCommandError
- */
-const de_CancelClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "KMSRequestFailedException":
-    case "com.amazonaws.snowball#KMSRequestFailedException":
-      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelJobCommand
  */
 export const de_CancelJobCommand = async (
@@ -565,7 +533,7 @@ export const de_CancelJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -578,38 +546,6 @@ export const de_CancelJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelJobCommandError
- */
-const de_CancelJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "KMSRequestFailedException":
-    case "com.amazonaws.snowball#KMSRequestFailedException":
-      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAddressCommand
  */
 export const de_CreateAddressCommand = async (
@@ -617,7 +553,7 @@ export const de_CreateAddressCommand = async (
   context: __SerdeContext
 ): Promise<CreateAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -630,35 +566,6 @@ export const de_CreateAddressCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAddressCommandError
- */
-const de_CreateAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddressException":
-    case "com.amazonaws.snowball#InvalidAddressException":
-      throw await de_InvalidAddressExceptionRes(parsedOutput, context);
-    case "UnsupportedAddressException":
-    case "com.amazonaws.snowball#UnsupportedAddressException":
-      throw await de_UnsupportedAddressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateClusterCommand
  */
 export const de_CreateClusterCommand = async (
@@ -666,7 +573,7 @@ export const de_CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -679,41 +586,6 @@ export const de_CreateClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "Ec2RequestFailedException":
-    case "com.amazonaws.snowball#Ec2RequestFailedException":
-      throw await de_Ec2RequestFailedExceptionRes(parsedOutput, context);
-    case "InvalidInputCombinationException":
-    case "com.amazonaws.snowball#InvalidInputCombinationException":
-      throw await de_InvalidInputCombinationExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "KMSRequestFailedException":
-    case "com.amazonaws.snowball#KMSRequestFailedException":
-      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateJobCommand
  */
 export const de_CreateJobCommand = async (
@@ -721,7 +593,7 @@ export const de_CreateJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -734,44 +606,6 @@ export const de_CreateJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateJobCommandError
- */
-const de_CreateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterLimitExceededException":
-    case "com.amazonaws.snowball#ClusterLimitExceededException":
-      throw await de_ClusterLimitExceededExceptionRes(parsedOutput, context);
-    case "Ec2RequestFailedException":
-    case "com.amazonaws.snowball#Ec2RequestFailedException":
-      throw await de_Ec2RequestFailedExceptionRes(parsedOutput, context);
-    case "InvalidInputCombinationException":
-    case "com.amazonaws.snowball#InvalidInputCombinationException":
-      throw await de_InvalidInputCombinationExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "KMSRequestFailedException":
-    case "com.amazonaws.snowball#KMSRequestFailedException":
-      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLongTermPricingCommand
  */
 export const de_CreateLongTermPricingCommand = async (
@@ -779,7 +613,7 @@ export const de_CreateLongTermPricingCommand = async (
   context: __SerdeContext
 ): Promise<CreateLongTermPricingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLongTermPricingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -792,32 +626,6 @@ export const de_CreateLongTermPricingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLongTermPricingCommandError
- */
-const de_CreateLongTermPricingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLongTermPricingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReturnShippingLabelCommand
  */
 export const de_CreateReturnShippingLabelCommand = async (
@@ -825,7 +633,7 @@ export const de_CreateReturnShippingLabelCommand = async (
   context: __SerdeContext
 ): Promise<CreateReturnShippingLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReturnShippingLabelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -838,44 +646,6 @@ export const de_CreateReturnShippingLabelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReturnShippingLabelCommandError
- */
-const de_CreateReturnShippingLabelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReturnShippingLabelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.snowball#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidInputCombinationException":
-    case "com.amazonaws.snowball#InvalidInputCombinationException":
-      throw await de_InvalidInputCombinationExceptionRes(parsedOutput, context);
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "ReturnShippingLabelAlreadyExistsException":
-    case "com.amazonaws.snowball#ReturnShippingLabelAlreadyExistsException":
-      throw await de_ReturnShippingLabelAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAddressCommand
  */
 export const de_DescribeAddressCommand = async (
@@ -883,7 +653,7 @@ export const de_DescribeAddressCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -896,32 +666,6 @@ export const de_DescribeAddressCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAddressCommandError
- */
-const de_DescribeAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAddressesCommand
  */
 export const de_DescribeAddressesCommand = async (
@@ -929,7 +673,7 @@ export const de_DescribeAddressesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -942,35 +686,6 @@ export const de_DescribeAddressesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAddressesCommandError
- */
-const de_DescribeAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClusterCommand
  */
 export const de_DescribeClusterCommand = async (
@@ -978,7 +693,7 @@ export const de_DescribeClusterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -991,32 +706,6 @@ export const de_DescribeClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClusterCommandError
- */
-const de_DescribeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeJobCommand
  */
 export const de_DescribeJobCommand = async (
@@ -1024,7 +713,7 @@ export const de_DescribeJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1037,32 +726,6 @@ export const de_DescribeJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeJobCommandError
- */
-const de_DescribeJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReturnShippingLabelCommand
  */
 export const de_DescribeReturnShippingLabelCommand = async (
@@ -1070,7 +733,7 @@ export const de_DescribeReturnShippingLabelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReturnShippingLabelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReturnShippingLabelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1083,38 +746,6 @@ export const de_DescribeReturnShippingLabelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReturnShippingLabelCommandError
- */
-const de_DescribeReturnShippingLabelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReturnShippingLabelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.snowball#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobManifestCommand
  */
 export const de_GetJobManifestCommand = async (
@@ -1122,7 +753,7 @@ export const de_GetJobManifestCommand = async (
   context: __SerdeContext
 ): Promise<GetJobManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1135,35 +766,6 @@ export const de_GetJobManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobManifestCommandError
- */
-const de_GetJobManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobUnlockCodeCommand
  */
 export const de_GetJobUnlockCodeCommand = async (
@@ -1171,7 +773,7 @@ export const de_GetJobUnlockCodeCommand = async (
   context: __SerdeContext
 ): Promise<GetJobUnlockCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobUnlockCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1184,35 +786,6 @@ export const de_GetJobUnlockCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobUnlockCodeCommandError
- */
-const de_GetJobUnlockCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobUnlockCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSnowballUsageCommand
  */
 export const de_GetSnowballUsageCommand = async (
@@ -1220,7 +793,7 @@ export const de_GetSnowballUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetSnowballUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSnowballUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1233,26 +806,6 @@ export const de_GetSnowballUsageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSnowballUsageCommandError
- */
-const de_GetSnowballUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSnowballUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetSoftwareUpdatesCommand
  */
 export const de_GetSoftwareUpdatesCommand = async (
@@ -1260,7 +813,7 @@ export const de_GetSoftwareUpdatesCommand = async (
   context: __SerdeContext
 ): Promise<GetSoftwareUpdatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSoftwareUpdatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1273,35 +826,6 @@ export const de_GetSoftwareUpdatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSoftwareUpdatesCommandError
- */
-const de_GetSoftwareUpdatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSoftwareUpdatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListClusterJobsCommand
  */
 export const de_ListClusterJobsCommand = async (
@@ -1309,7 +833,7 @@ export const de_ListClusterJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListClusterJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListClusterJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1322,35 +846,6 @@ export const de_ListClusterJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListClusterJobsCommandError
- */
-const de_ListClusterJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClusterJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListClustersCommand
  */
 export const de_ListClustersCommand = async (
@@ -1358,7 +853,7 @@ export const de_ListClustersCommand = async (
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListClustersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1371,32 +866,6 @@ export const de_ListClustersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListClustersCommandError
- */
-const de_ListClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCompatibleImagesCommand
  */
 export const de_ListCompatibleImagesCommand = async (
@@ -1404,7 +873,7 @@ export const de_ListCompatibleImagesCommand = async (
   context: __SerdeContext
 ): Promise<ListCompatibleImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCompatibleImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1417,35 +886,6 @@ export const de_ListCompatibleImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCompatibleImagesCommandError
- */
-const de_ListCompatibleImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCompatibleImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "Ec2RequestFailedException":
-    case "com.amazonaws.snowball#Ec2RequestFailedException":
-      throw await de_Ec2RequestFailedExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -1453,7 +893,7 @@ export const de_ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1466,32 +906,6 @@ export const de_ListJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListJobsCommandError
- */
-const de_ListJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLongTermPricingCommand
  */
 export const de_ListLongTermPricingCommand = async (
@@ -1499,7 +913,7 @@ export const de_ListLongTermPricingCommand = async (
   context: __SerdeContext
 ): Promise<ListLongTermPricingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLongTermPricingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1512,35 +926,6 @@ export const de_ListLongTermPricingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLongTermPricingCommandError
- */
-const de_ListLongTermPricingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLongTermPricingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPickupLocationsCommand
  */
 export const de_ListPickupLocationsCommand = async (
@@ -1548,7 +933,7 @@ export const de_ListPickupLocationsCommand = async (
   context: __SerdeContext
 ): Promise<ListPickupLocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPickupLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1561,32 +946,6 @@ export const de_ListPickupLocationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPickupLocationsCommandError
- */
-const de_ListPickupLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPickupLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListServiceVersionsCommand
  */
 export const de_ListServiceVersionsCommand = async (
@@ -1594,7 +953,7 @@ export const de_ListServiceVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListServiceVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServiceVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1607,35 +966,6 @@ export const de_ListServiceVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListServiceVersionsCommandError
- */
-const de_ListServiceVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.snowball#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateClusterCommand
  */
 export const de_UpdateClusterCommand = async (
@@ -1643,7 +973,7 @@ export const de_UpdateClusterCommand = async (
   context: __SerdeContext
 ): Promise<UpdateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1656,44 +986,6 @@ export const de_UpdateClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateClusterCommandError
- */
-const de_UpdateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "Ec2RequestFailedException":
-    case "com.amazonaws.snowball#Ec2RequestFailedException":
-      throw await de_Ec2RequestFailedExceptionRes(parsedOutput, context);
-    case "InvalidInputCombinationException":
-    case "com.amazonaws.snowball#InvalidInputCombinationException":
-      throw await de_InvalidInputCombinationExceptionRes(parsedOutput, context);
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "KMSRequestFailedException":
-    case "com.amazonaws.snowball#KMSRequestFailedException":
-      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateJobCommand
  */
 export const de_UpdateJobCommand = async (
@@ -1701,7 +993,7 @@ export const de_UpdateJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1714,47 +1006,6 @@ export const de_UpdateJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateJobCommandError
- */
-const de_UpdateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterLimitExceededException":
-    case "com.amazonaws.snowball#ClusterLimitExceededException":
-      throw await de_ClusterLimitExceededExceptionRes(parsedOutput, context);
-    case "Ec2RequestFailedException":
-    case "com.amazonaws.snowball#Ec2RequestFailedException":
-      throw await de_Ec2RequestFailedExceptionRes(parsedOutput, context);
-    case "InvalidInputCombinationException":
-    case "com.amazonaws.snowball#InvalidInputCombinationException":
-      throw await de_InvalidInputCombinationExceptionRes(parsedOutput, context);
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    case "KMSRequestFailedException":
-    case "com.amazonaws.snowball#KMSRequestFailedException":
-      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateJobShipmentStateCommand
  */
 export const de_UpdateJobShipmentStateCommand = async (
@@ -1762,7 +1013,7 @@ export const de_UpdateJobShipmentStateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobShipmentStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateJobShipmentStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1775,35 +1026,6 @@ export const de_UpdateJobShipmentStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateJobShipmentStateCommandError
- */
-const de_UpdateJobShipmentStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJobShipmentStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.snowball#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "InvalidResourceException":
-    case "com.amazonaws.snowball#InvalidResourceException":
-      throw await de_InvalidResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLongTermPricingCommand
  */
 export const de_UpdateLongTermPricingCommand = async (
@@ -1811,7 +1033,7 @@ export const de_UpdateLongTermPricingCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLongTermPricingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLongTermPricingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1824,21 +1046,48 @@ export const de_UpdateLongTermPricingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLongTermPricingCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateLongTermPricingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLongTermPricingCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
       throw await de_InvalidResourceExceptionRes(parsedOutput, context);
+    case "KMSRequestFailedException":
+    case "com.amazonaws.snowball#KMSRequestFailedException":
+      throw await de_KMSRequestFailedExceptionRes(parsedOutput, context);
+    case "InvalidAddressException":
+    case "com.amazonaws.snowball#InvalidAddressException":
+      throw await de_InvalidAddressExceptionRes(parsedOutput, context);
+    case "UnsupportedAddressException":
+    case "com.amazonaws.snowball#UnsupportedAddressException":
+      throw await de_UnsupportedAddressExceptionRes(parsedOutput, context);
+    case "Ec2RequestFailedException":
+    case "com.amazonaws.snowball#Ec2RequestFailedException":
+      throw await de_Ec2RequestFailedExceptionRes(parsedOutput, context);
+    case "InvalidInputCombinationException":
+    case "com.amazonaws.snowball#InvalidInputCombinationException":
+      throw await de_InvalidInputCombinationExceptionRes(parsedOutput, context);
+    case "ClusterLimitExceededException":
+    case "com.amazonaws.snowball#ClusterLimitExceededException":
+      throw await de_ClusterLimitExceededExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.snowball#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ReturnShippingLabelAlreadyExistsException":
+    case "com.amazonaws.snowball#ReturnShippingLabelAlreadyExistsException":
+      throw await de_ReturnShippingLabelAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.snowball#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

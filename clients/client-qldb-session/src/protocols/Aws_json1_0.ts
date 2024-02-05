@@ -61,7 +61,7 @@ export const de_SendCommandCommand = async (
   context: __SerdeContext
 ): Promise<SendCommandCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendCommandCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -74,12 +74,9 @@ export const de_SendCommandCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SendCommandCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_SendCommandCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendCommandCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

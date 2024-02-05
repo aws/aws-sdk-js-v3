@@ -2872,7 +2872,7 @@ export const de_CreateApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiKeyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2895,47 +2895,6 @@ export const de_CreateApiKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApiKeyCommandError
- */
-const de_CreateApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAuthorizerCommand
  */
 export const de_CreateAuthorizerCommand = async (
@@ -2943,7 +2902,7 @@ export const de_CreateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2966,47 +2925,6 @@ export const de_CreateAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAuthorizerCommandError
- */
-const de_CreateAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBasePathMappingCommand
  */
 export const de_CreateBasePathMappingCommand = async (
@@ -3014,7 +2932,7 @@ export const de_CreateBasePathMappingCommand = async (
   context: __SerdeContext
 ): Promise<CreateBasePathMappingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateBasePathMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3030,47 +2948,6 @@ export const de_CreateBasePathMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBasePathMappingCommandError
- */
-const de_CreateBasePathMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBasePathMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDeploymentCommand
  */
 export const de_CreateDeploymentCommand = async (
@@ -3078,7 +2955,7 @@ export const de_CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3095,50 +2972,6 @@ export const de_CreateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeploymentCommandError
- */
-const de_CreateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.apigateway#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDocumentationPartCommand
  */
 export const de_CreateDocumentationPartCommand = async (
@@ -3146,7 +2979,7 @@ export const de_CreateDocumentationPartCommand = async (
   context: __SerdeContext
 ): Promise<CreateDocumentationPartCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDocumentationPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3162,47 +2995,6 @@ export const de_CreateDocumentationPartCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDocumentationPartCommandError
- */
-const de_CreateDocumentationPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDocumentationPartCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDocumentationVersionCommand
  */
 export const de_CreateDocumentationVersionCommand = async (
@@ -3210,7 +3002,7 @@ export const de_CreateDocumentationVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDocumentationVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDocumentationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3226,47 +3018,6 @@ export const de_CreateDocumentationVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDocumentationVersionCommandError
- */
-const de_CreateDocumentationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDocumentationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDomainNameCommand
  */
 export const de_CreateDomainNameCommand = async (
@@ -3274,7 +3025,7 @@ export const de_CreateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3304,44 +3055,6 @@ export const de_CreateDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDomainNameCommandError
- */
-const de_CreateDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateModelCommand
  */
 export const de_CreateModelCommand = async (
@@ -3349,7 +3062,7 @@ export const de_CreateModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3367,47 +3080,6 @@ export const de_CreateModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateModelCommandError
- */
-const de_CreateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRequestValidatorCommand
  */
 export const de_CreateRequestValidatorCommand = async (
@@ -3415,7 +3087,7 @@ export const de_CreateRequestValidatorCommand = async (
   context: __SerdeContext
 ): Promise<CreateRequestValidatorCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRequestValidatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3432,47 +3104,6 @@ export const de_CreateRequestValidatorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRequestValidatorCommandError
- */
-const de_CreateRequestValidatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRequestValidatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateResourceCommand
  */
 export const de_CreateResourceCommand = async (
@@ -3480,7 +3111,7 @@ export const de_CreateResourceCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3498,47 +3129,6 @@ export const de_CreateResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateResourceCommandError
- */
-const de_CreateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRestApiCommand
  */
 export const de_CreateRestApiCommand = async (
@@ -3546,7 +3136,7 @@ export const de_CreateRestApiCommand = async (
   context: __SerdeContext
 ): Promise<CreateRestApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRestApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3573,44 +3163,6 @@ export const de_CreateRestApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRestApiCommandError
- */
-const de_CreateRestApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRestApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateStageCommand
  */
 export const de_CreateStageCommand = async (
@@ -3618,7 +3170,7 @@ export const de_CreateStageCommand = async (
   context: __SerdeContext
 ): Promise<CreateStageCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3648,47 +3200,6 @@ export const de_CreateStageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateStageCommandError
- */
-const de_CreateStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateUsagePlanCommand
  */
 export const de_CreateUsagePlanCommand = async (
@@ -3696,7 +3207,7 @@ export const de_CreateUsagePlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateUsagePlanCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateUsagePlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3717,47 +3228,6 @@ export const de_CreateUsagePlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateUsagePlanCommandError
- */
-const de_CreateUsagePlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUsagePlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateUsagePlanKeyCommand
  */
 export const de_CreateUsagePlanKeyCommand = async (
@@ -3765,7 +3235,7 @@ export const de_CreateUsagePlanKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateUsagePlanKeyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateUsagePlanKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3782,47 +3252,6 @@ export const de_CreateUsagePlanKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateUsagePlanKeyCommandError
- */
-const de_CreateUsagePlanKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUsagePlanKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateVpcLinkCommand
  */
 export const de_CreateVpcLinkCommand = async (
@@ -3830,7 +3259,7 @@ export const de_CreateVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcLinkCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3850,44 +3279,6 @@ export const de_CreateVpcLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateVpcLinkCommandError
- */
-const de_CreateVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteApiKeyCommand
  */
 export const de_DeleteApiKeyCommand = async (
@@ -3895,51 +3286,13 @@ export const de_DeleteApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiKeyCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApiKeyCommandError
- */
-const de_DeleteApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3950,51 +3303,13 @@ export const de_DeleteAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAuthorizerCommandError
- */
-const de_DeleteAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4005,51 +3320,13 @@ export const de_DeleteBasePathMappingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBasePathMappingCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteBasePathMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBasePathMappingCommandError
- */
-const de_DeleteBasePathMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBasePathMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4060,51 +3337,13 @@ export const de_DeleteClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClientCertificateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteClientCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteClientCertificateCommandError
- */
-const de_DeleteClientCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClientCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4115,54 +3354,13 @@ export const de_DeleteDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDeploymentCommandError
- */
-const de_DeleteDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4173,51 +3371,13 @@ export const de_DeleteDocumentationPartCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDocumentationPartCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteDocumentationPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDocumentationPartCommandError
- */
-const de_DeleteDocumentationPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentationPartCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4228,51 +3388,13 @@ export const de_DeleteDocumentationVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDocumentationVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteDocumentationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDocumentationVersionCommandError
- */
-const de_DeleteDocumentationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4283,51 +3405,13 @@ export const de_DeleteDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDomainNameCommandError
- */
-const de_DeleteDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4338,51 +3422,13 @@ export const de_DeleteGatewayResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGatewayResponseCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteGatewayResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGatewayResponseCommandError
- */
-const de_DeleteGatewayResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4393,51 +3439,13 @@ export const de_DeleteIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIntegrationCommandError
- */
-const de_DeleteIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4448,51 +3456,13 @@ export const de_DeleteIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIntegrationResponseCommandError
- */
-const de_DeleteIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4503,48 +3473,13 @@ export const de_DeleteMethodCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMethodCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMethodCommandError
- */
-const de_DeleteMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4555,51 +3490,13 @@ export const de_DeleteMethodResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMethodResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMethodResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMethodResponseCommandError
- */
-const de_DeleteMethodResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMethodResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4610,51 +3507,13 @@ export const de_DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteModelCommandError
- */
-const de_DeleteModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4665,51 +3524,13 @@ export const de_DeleteRequestValidatorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRequestValidatorCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteRequestValidatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRequestValidatorCommandError
- */
-const de_DeleteRequestValidatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRequestValidatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4720,51 +3541,13 @@ export const de_DeleteResourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteResourceCommandError
- */
-const de_DeleteResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4775,51 +3558,13 @@ export const de_DeleteRestApiCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRestApiCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteRestApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRestApiCommandError
- */
-const de_DeleteRestApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRestApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4830,54 +3575,13 @@ export const de_DeleteStageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStageCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteStageCommandError
- */
-const de_DeleteStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4888,51 +3592,13 @@ export const de_DeleteUsagePlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUsagePlanCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteUsagePlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteUsagePlanCommandError
- */
-const de_DeleteUsagePlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUsagePlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4943,51 +3609,13 @@ export const de_DeleteUsagePlanKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUsagePlanKeyCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteUsagePlanKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteUsagePlanKeyCommandError
- */
-const de_DeleteUsagePlanKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUsagePlanKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4998,51 +3626,13 @@ export const de_DeleteVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcLinkCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVpcLinkCommandError
- */
-const de_DeleteVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5053,54 +3643,13 @@ export const de_FlushStageAuthorizersCacheCommand = async (
   context: __SerdeContext
 ): Promise<FlushStageAuthorizersCacheCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_FlushStageAuthorizersCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1FlushStageAuthorizersCacheCommandError
- */
-const de_FlushStageAuthorizersCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlushStageAuthorizersCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5111,54 +3660,13 @@ export const de_FlushStageCacheCommand = async (
   context: __SerdeContext
 ): Promise<FlushStageCacheCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_FlushStageCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1FlushStageCacheCommandError
- */
-const de_FlushStageCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlushStageCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5169,7 +3677,7 @@ export const de_GenerateClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<GenerateClientCertificateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_GenerateClientCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5188,44 +3696,6 @@ export const de_GenerateClientCertificateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateClientCertificateCommandError
- */
-const de_GenerateClientCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateClientCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAccountCommand
  */
 export const de_GetAccountCommand = async (
@@ -5233,7 +3703,7 @@ export const de_GetAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5250,41 +3720,6 @@ export const de_GetAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccountCommandError
- */
-const de_GetAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApiKeyCommand
  */
 export const de_GetApiKeyCommand = async (
@@ -5292,7 +3727,7 @@ export const de_GetApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetApiKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5315,41 +3750,6 @@ export const de_GetApiKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiKeyCommandError
- */
-const de_GetApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApiKeysCommand
  */
 export const de_GetApiKeysCommand = async (
@@ -5357,7 +3757,7 @@ export const de_GetApiKeysCommand = async (
   context: __SerdeContext
 ): Promise<GetApiKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5373,41 +3773,6 @@ export const de_GetApiKeysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiKeysCommandError
- */
-const de_GetApiKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAuthorizerCommand
  */
 export const de_GetAuthorizerCommand = async (
@@ -5415,7 +3780,7 @@ export const de_GetAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5438,41 +3803,6 @@ export const de_GetAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAuthorizerCommandError
- */
-const de_GetAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAuthorizersCommand
  */
 export const de_GetAuthorizersCommand = async (
@@ -5480,7 +3810,7 @@ export const de_GetAuthorizersCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAuthorizersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5495,41 +3825,6 @@ export const de_GetAuthorizersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAuthorizersCommandError
- */
-const de_GetAuthorizersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAuthorizersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBasePathMappingCommand
  */
 export const de_GetBasePathMappingCommand = async (
@@ -5537,7 +3832,7 @@ export const de_GetBasePathMappingCommand = async (
   context: __SerdeContext
 ): Promise<GetBasePathMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBasePathMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5553,41 +3848,6 @@ export const de_GetBasePathMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBasePathMappingCommandError
- */
-const de_GetBasePathMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBasePathMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBasePathMappingsCommand
  */
 export const de_GetBasePathMappingsCommand = async (
@@ -5595,7 +3855,7 @@ export const de_GetBasePathMappingsCommand = async (
   context: __SerdeContext
 ): Promise<GetBasePathMappingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBasePathMappingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5610,41 +3870,6 @@ export const de_GetBasePathMappingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBasePathMappingsCommandError
- */
-const de_GetBasePathMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBasePathMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetClientCertificateCommand
  */
 export const de_GetClientCertificateCommand = async (
@@ -5652,7 +3877,7 @@ export const de_GetClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<GetClientCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetClientCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5671,41 +3896,6 @@ export const de_GetClientCertificateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetClientCertificateCommandError
- */
-const de_GetClientCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClientCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetClientCertificatesCommand
  */
 export const de_GetClientCertificatesCommand = async (
@@ -5713,7 +3903,7 @@ export const de_GetClientCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<GetClientCertificatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetClientCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5728,41 +3918,6 @@ export const de_GetClientCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetClientCertificatesCommandError
- */
-const de_GetClientCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClientCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeploymentCommand
  */
 export const de_GetDeploymentCommand = async (
@@ -5770,7 +3925,7 @@ export const de_GetDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5787,44 +3942,6 @@ export const de_GetDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeploymentCommandError
- */
-const de_GetDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.apigateway#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeploymentsCommand
  */
 export const de_GetDeploymentsCommand = async (
@@ -5832,7 +3949,7 @@ export const de_GetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5847,44 +3964,6 @@ export const de_GetDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeploymentsCommandError
- */
-const de_GetDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.apigateway#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentationPartCommand
  */
 export const de_GetDocumentationPartCommand = async (
@@ -5892,7 +3971,7 @@ export const de_GetDocumentationPartCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentationPartCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentationPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5908,41 +3987,6 @@ export const de_GetDocumentationPartCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentationPartCommandError
- */
-const de_GetDocumentationPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentationPartCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentationPartsCommand
  */
 export const de_GetDocumentationPartsCommand = async (
@@ -5950,7 +3994,7 @@ export const de_GetDocumentationPartsCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentationPartsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentationPartsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5965,41 +4009,6 @@ export const de_GetDocumentationPartsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentationPartsCommandError
- */
-const de_GetDocumentationPartsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentationPartsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentationVersionCommand
  */
 export const de_GetDocumentationVersionCommand = async (
@@ -6007,7 +4016,7 @@ export const de_GetDocumentationVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6023,38 +4032,6 @@ export const de_GetDocumentationVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentationVersionCommandError
- */
-const de_GetDocumentationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentationVersionsCommand
  */
 export const de_GetDocumentationVersionsCommand = async (
@@ -6062,7 +4039,7 @@ export const de_GetDocumentationVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentationVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentationVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6077,41 +4054,6 @@ export const de_GetDocumentationVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentationVersionsCommandError
- */
-const de_GetDocumentationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainNameCommand
  */
 export const de_GetDomainNameCommand = async (
@@ -6119,7 +4061,7 @@ export const de_GetDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6149,41 +4091,6 @@ export const de_GetDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainNameCommandError
- */
-const de_GetDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainNamesCommand
  */
 export const de_GetDomainNamesCommand = async (
@@ -6191,7 +4098,7 @@ export const de_GetDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6206,41 +4113,6 @@ export const de_GetDomainNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainNamesCommandError
- */
-const de_GetDomainNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetExportCommand
  */
 export const de_GetExportCommand = async (
@@ -6248,7 +4120,7 @@ export const de_GetExportCommand = async (
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6261,47 +4133,6 @@ export const de_GetExportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetExportCommandError
- */
-const de_GetExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGatewayResponseCommand
  */
 export const de_GetGatewayResponseCommand = async (
@@ -6309,7 +4140,7 @@ export const de_GetGatewayResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetGatewayResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGatewayResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6327,41 +4158,6 @@ export const de_GetGatewayResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGatewayResponseCommandError
- */
-const de_GetGatewayResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGatewayResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGatewayResponsesCommand
  */
 export const de_GetGatewayResponsesCommand = async (
@@ -6369,7 +4165,7 @@ export const de_GetGatewayResponsesCommand = async (
   context: __SerdeContext
 ): Promise<GetGatewayResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGatewayResponsesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6384,41 +4180,6 @@ export const de_GetGatewayResponsesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGatewayResponsesCommandError
- */
-const de_GetGatewayResponsesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGatewayResponsesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationCommand
  */
 export const de_GetIntegrationCommand = async (
@@ -6426,7 +4187,7 @@ export const de_GetIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6454,41 +4215,6 @@ export const de_GetIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationCommandError
- */
-const de_GetIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationResponseCommand
  */
 export const de_GetIntegrationResponseCommand = async (
@@ -6496,7 +4222,7 @@ export const de_GetIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6514,41 +4240,6 @@ export const de_GetIntegrationResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationResponseCommandError
- */
-const de_GetIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMethodCommand
  */
 export const de_GetMethodCommand = async (
@@ -6556,7 +4247,7 @@ export const de_GetMethodCommand = async (
   context: __SerdeContext
 ): Promise<GetMethodCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6580,38 +4271,6 @@ export const de_GetMethodCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMethodCommandError
- */
-const de_GetMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMethodResponseCommand
  */
 export const de_GetMethodResponseCommand = async (
@@ -6619,7 +4278,7 @@ export const de_GetMethodResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetMethodResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMethodResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6635,38 +4294,6 @@ export const de_GetMethodResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMethodResponseCommandError
- */
-const de_GetMethodResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMethodResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetModelCommand
  */
 export const de_GetModelCommand = async (
@@ -6674,7 +4301,7 @@ export const de_GetModelCommand = async (
   context: __SerdeContext
 ): Promise<GetModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6692,41 +4319,6 @@ export const de_GetModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetModelCommandError
- */
-const de_GetModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetModelsCommand
  */
 export const de_GetModelsCommand = async (
@@ -6734,7 +4326,7 @@ export const de_GetModelsCommand = async (
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6749,41 +4341,6 @@ export const de_GetModelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetModelsCommandError
- */
-const de_GetModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetModelTemplateCommand
  */
 export const de_GetModelTemplateCommand = async (
@@ -6791,7 +4348,7 @@ export const de_GetModelTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetModelTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6805,41 +4362,6 @@ export const de_GetModelTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetModelTemplateCommandError
- */
-const de_GetModelTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRequestValidatorCommand
  */
 export const de_GetRequestValidatorCommand = async (
@@ -6847,7 +4369,7 @@ export const de_GetRequestValidatorCommand = async (
   context: __SerdeContext
 ): Promise<GetRequestValidatorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRequestValidatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6864,41 +4386,6 @@ export const de_GetRequestValidatorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRequestValidatorCommandError
- */
-const de_GetRequestValidatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRequestValidatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRequestValidatorsCommand
  */
 export const de_GetRequestValidatorsCommand = async (
@@ -6906,7 +4393,7 @@ export const de_GetRequestValidatorsCommand = async (
   context: __SerdeContext
 ): Promise<GetRequestValidatorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRequestValidatorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6921,41 +4408,6 @@ export const de_GetRequestValidatorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRequestValidatorsCommandError
- */
-const de_GetRequestValidatorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRequestValidatorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceCommand
  */
 export const de_GetResourceCommand = async (
@@ -6963,7 +4415,7 @@ export const de_GetResourceCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6981,38 +4433,6 @@ export const de_GetResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceCommandError
- */
-const de_GetResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourcesCommand
  */
 export const de_GetResourcesCommand = async (
@@ -7020,7 +4440,7 @@ export const de_GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7035,41 +4455,6 @@ export const de_GetResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourcesCommandError
- */
-const de_GetResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRestApiCommand
  */
 export const de_GetRestApiCommand = async (
@@ -7077,7 +4462,7 @@ export const de_GetRestApiCommand = async (
   context: __SerdeContext
 ): Promise<GetRestApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRestApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7104,41 +4489,6 @@ export const de_GetRestApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRestApiCommandError
- */
-const de_GetRestApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRestApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRestApisCommand
  */
 export const de_GetRestApisCommand = async (
@@ -7146,7 +4496,7 @@ export const de_GetRestApisCommand = async (
   context: __SerdeContext
 ): Promise<GetRestApisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRestApisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7161,41 +4511,6 @@ export const de_GetRestApisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRestApisCommandError
- */
-const de_GetRestApisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRestApisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSdkCommand
  */
 export const de_GetSdkCommand = async (
@@ -7203,7 +4518,7 @@ export const de_GetSdkCommand = async (
   context: __SerdeContext
 ): Promise<GetSdkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSdkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7216,44 +4531,6 @@ export const de_GetSdkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSdkCommandError
- */
-const de_GetSdkCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetSdkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSdkTypeCommand
  */
 export const de_GetSdkTypeCommand = async (
@@ -7261,7 +4538,7 @@ export const de_GetSdkTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetSdkTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSdkTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7278,41 +4555,6 @@ export const de_GetSdkTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSdkTypeCommandError
- */
-const de_GetSdkTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSdkTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSdkTypesCommand
  */
 export const de_GetSdkTypesCommand = async (
@@ -7320,7 +4562,7 @@ export const de_GetSdkTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetSdkTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSdkTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7334,41 +4576,6 @@ export const de_GetSdkTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSdkTypesCommandError
- */
-const de_GetSdkTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSdkTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStageCommand
  */
 export const de_GetStageCommand = async (
@@ -7376,7 +4583,7 @@ export const de_GetStageCommand = async (
   context: __SerdeContext
 ): Promise<GetStageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7406,47 +4613,6 @@ export const de_GetStageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStageCommandError
- */
-const de_GetStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStagesCommand
  */
 export const de_GetStagesCommand = async (
@@ -7454,7 +4620,7 @@ export const de_GetStagesCommand = async (
   context: __SerdeContext
 ): Promise<GetStagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7468,47 +4634,6 @@ export const de_GetStagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStagesCommandError
- */
-const de_GetStagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTagsCommand
  */
 export const de_GetTagsCommand = async (
@@ -7516,7 +4641,7 @@ export const de_GetTagsCommand = async (
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7530,41 +4655,6 @@ export const de_GetTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTagsCommandError
- */
-const de_GetTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUsageCommand
  */
 export const de_GetUsageCommand = async (
@@ -7572,7 +4662,7 @@ export const de_GetUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7590,41 +4680,6 @@ export const de_GetUsageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUsageCommandError
- */
-const de_GetUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUsagePlanCommand
  */
 export const de_GetUsagePlanCommand = async (
@@ -7632,7 +4687,7 @@ export const de_GetUsagePlanCommand = async (
   context: __SerdeContext
 ): Promise<GetUsagePlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUsagePlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7653,41 +4708,6 @@ export const de_GetUsagePlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUsagePlanCommandError
- */
-const de_GetUsagePlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsagePlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUsagePlanKeyCommand
  */
 export const de_GetUsagePlanKeyCommand = async (
@@ -7695,7 +4715,7 @@ export const de_GetUsagePlanKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetUsagePlanKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUsagePlanKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7712,41 +4732,6 @@ export const de_GetUsagePlanKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUsagePlanKeyCommandError
- */
-const de_GetUsagePlanKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsagePlanKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUsagePlanKeysCommand
  */
 export const de_GetUsagePlanKeysCommand = async (
@@ -7754,7 +4739,7 @@ export const de_GetUsagePlanKeysCommand = async (
   context: __SerdeContext
 ): Promise<GetUsagePlanKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUsagePlanKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7769,41 +4754,6 @@ export const de_GetUsagePlanKeysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUsagePlanKeysCommandError
- */
-const de_GetUsagePlanKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsagePlanKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUsagePlansCommand
  */
 export const de_GetUsagePlansCommand = async (
@@ -7811,7 +4761,7 @@ export const de_GetUsagePlansCommand = async (
   context: __SerdeContext
 ): Promise<GetUsagePlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUsagePlansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7826,41 +4776,6 @@ export const de_GetUsagePlansCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUsagePlansCommandError
- */
-const de_GetUsagePlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsagePlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVpcLinkCommand
  */
 export const de_GetVpcLinkCommand = async (
@@ -7868,7 +4783,7 @@ export const de_GetVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<GetVpcLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7888,41 +4803,6 @@ export const de_GetVpcLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVpcLinkCommandError
- */
-const de_GetVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpcLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVpcLinksCommand
  */
 export const de_GetVpcLinksCommand = async (
@@ -7930,7 +4810,7 @@ export const de_GetVpcLinksCommand = async (
   context: __SerdeContext
 ): Promise<GetVpcLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVpcLinksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7945,41 +4825,6 @@ export const de_GetVpcLinksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVpcLinksCommandError
- */
-const de_GetVpcLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpcLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportApiKeysCommand
  */
 export const de_ImportApiKeysCommand = async (
@@ -7987,7 +4832,7 @@ export const de_ImportApiKeysCommand = async (
   context: __SerdeContext
 ): Promise<ImportApiKeysCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_ImportApiKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7999,47 +4844,6 @@ export const de_ImportApiKeysCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ImportApiKeysCommandError
- */
-const de_ImportApiKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportApiKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8050,7 +4854,7 @@ export const de_ImportDocumentationPartsCommand = async (
   context: __SerdeContext
 ): Promise<ImportDocumentationPartsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ImportDocumentationPartsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8065,47 +4869,6 @@ export const de_ImportDocumentationPartsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportDocumentationPartsCommandError
- */
-const de_ImportDocumentationPartsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportDocumentationPartsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportRestApiCommand
  */
 export const de_ImportRestApiCommand = async (
@@ -8113,7 +4876,7 @@ export const de_ImportRestApiCommand = async (
   context: __SerdeContext
 ): Promise<ImportRestApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_ImportRestApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8140,47 +4903,6 @@ export const de_ImportRestApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportRestApiCommandError
- */
-const de_ImportRestApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportRestApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutGatewayResponseCommand
  */
 export const de_PutGatewayResponseCommand = async (
@@ -8188,7 +4910,7 @@ export const de_PutGatewayResponseCommand = async (
   context: __SerdeContext
 ): Promise<PutGatewayResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PutGatewayResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8206,47 +4928,6 @@ export const de_PutGatewayResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutGatewayResponseCommandError
- */
-const de_PutGatewayResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutGatewayResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutIntegrationCommand
  */
 export const de_PutIntegrationCommand = async (
@@ -8254,7 +4935,7 @@ export const de_PutIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<PutIntegrationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PutIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8282,47 +4963,6 @@ export const de_PutIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutIntegrationCommandError
- */
-const de_PutIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutIntegrationResponseCommand
  */
 export const de_PutIntegrationResponseCommand = async (
@@ -8330,7 +4970,7 @@ export const de_PutIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<PutIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PutIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8348,47 +4988,6 @@ export const de_PutIntegrationResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutIntegrationResponseCommandError
- */
-const de_PutIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutMethodCommand
  */
 export const de_PutMethodCommand = async (
@@ -8396,7 +4995,7 @@ export const de_PutMethodCommand = async (
   context: __SerdeContext
 ): Promise<PutMethodCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PutMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8420,47 +5019,6 @@ export const de_PutMethodCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutMethodCommandError
- */
-const de_PutMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutMethodResponseCommand
  */
 export const de_PutMethodResponseCommand = async (
@@ -8468,7 +5026,7 @@ export const de_PutMethodResponseCommand = async (
   context: __SerdeContext
 ): Promise<PutMethodResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PutMethodResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8484,47 +5042,6 @@ export const de_PutMethodResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutMethodResponseCommandError
- */
-const de_PutMethodResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMethodResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutRestApiCommand
  */
 export const de_PutRestApiCommand = async (
@@ -8532,7 +5049,7 @@ export const de_PutRestApiCommand = async (
   context: __SerdeContext
 ): Promise<PutRestApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutRestApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8559,47 +5076,6 @@ export const de_PutRestApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutRestApiCommandError
- */
-const de_PutRestApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRestApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -8607,54 +5083,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8665,7 +5100,7 @@ export const de_TestInvokeAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<TestInvokeAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TestInvokeAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8685,41 +5120,6 @@ export const de_TestInvokeAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TestInvokeAuthorizerCommandError
- */
-const de_TestInvokeAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestInvokeAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TestInvokeMethodCommand
  */
 export const de_TestInvokeMethodCommand = async (
@@ -8727,7 +5127,7 @@ export const de_TestInvokeMethodCommand = async (
   context: __SerdeContext
 ): Promise<TestInvokeMethodCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TestInvokeMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8746,41 +5146,6 @@ export const de_TestInvokeMethodCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TestInvokeMethodCommandError
- */
-const de_TestInvokeMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestInvokeMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -8788,54 +5153,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8846,7 +5170,7 @@ export const de_UpdateAccountCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8863,47 +5187,6 @@ export const de_UpdateAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAccountCommandError
- */
-const de_UpdateAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApiKeyCommand
  */
 export const de_UpdateApiKeyCommand = async (
@@ -8911,7 +5194,7 @@ export const de_UpdateApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApiKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8934,47 +5217,6 @@ export const de_UpdateApiKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApiKeyCommandError
- */
-const de_UpdateApiKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAuthorizerCommand
  */
 export const de_UpdateAuthorizerCommand = async (
@@ -8982,7 +5224,7 @@ export const de_UpdateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9005,47 +5247,6 @@ export const de_UpdateAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAuthorizerCommandError
- */
-const de_UpdateAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBasePathMappingCommand
  */
 export const de_UpdateBasePathMappingCommand = async (
@@ -9053,7 +5254,7 @@ export const de_UpdateBasePathMappingCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBasePathMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBasePathMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9069,47 +5270,6 @@ export const de_UpdateBasePathMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBasePathMappingCommandError
- */
-const de_UpdateBasePathMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBasePathMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateClientCertificateCommand
  */
 export const de_UpdateClientCertificateCommand = async (
@@ -9117,7 +5277,7 @@ export const de_UpdateClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateClientCertificateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateClientCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9136,47 +5296,6 @@ export const de_UpdateClientCertificateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateClientCertificateCommandError
- */
-const de_UpdateClientCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClientCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDeploymentCommand
  */
 export const de_UpdateDeploymentCommand = async (
@@ -9184,7 +5303,7 @@ export const de_UpdateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9201,50 +5320,6 @@ export const de_UpdateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDeploymentCommandError
- */
-const de_UpdateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.apigateway#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDocumentationPartCommand
  */
 export const de_UpdateDocumentationPartCommand = async (
@@ -9252,7 +5327,7 @@ export const de_UpdateDocumentationPartCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDocumentationPartCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDocumentationPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9268,47 +5343,6 @@ export const de_UpdateDocumentationPartCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDocumentationPartCommandError
- */
-const de_UpdateDocumentationPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentationPartCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDocumentationVersionCommand
  */
 export const de_UpdateDocumentationVersionCommand = async (
@@ -9316,7 +5350,7 @@ export const de_UpdateDocumentationVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDocumentationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDocumentationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9332,47 +5366,6 @@ export const de_UpdateDocumentationVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDocumentationVersionCommandError
- */
-const de_UpdateDocumentationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDomainNameCommand
  */
 export const de_UpdateDomainNameCommand = async (
@@ -9380,7 +5373,7 @@ export const de_UpdateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9410,47 +5403,6 @@ export const de_UpdateDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDomainNameCommandError
- */
-const de_UpdateDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateGatewayResponseCommand
  */
 export const de_UpdateGatewayResponseCommand = async (
@@ -9458,7 +5410,7 @@ export const de_UpdateGatewayResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewayResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGatewayResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9476,47 +5428,6 @@ export const de_UpdateGatewayResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGatewayResponseCommandError
- */
-const de_UpdateGatewayResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIntegrationCommand
  */
 export const de_UpdateIntegrationCommand = async (
@@ -9524,7 +5435,7 @@ export const de_UpdateIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9552,47 +5463,6 @@ export const de_UpdateIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIntegrationCommandError
- */
-const de_UpdateIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIntegrationResponseCommand
  */
 export const de_UpdateIntegrationResponseCommand = async (
@@ -9600,7 +5470,7 @@ export const de_UpdateIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9618,47 +5488,6 @@ export const de_UpdateIntegrationResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIntegrationResponseCommandError
- */
-const de_UpdateIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateMethodCommand
  */
 export const de_UpdateMethodCommand = async (
@@ -9666,7 +5495,7 @@ export const de_UpdateMethodCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMethodCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9690,44 +5519,6 @@ export const de_UpdateMethodCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateMethodCommandError
- */
-const de_UpdateMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateMethodResponseCommand
  */
 export const de_UpdateMethodResponseCommand = async (
@@ -9735,7 +5526,7 @@ export const de_UpdateMethodResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMethodResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_UpdateMethodResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9751,47 +5542,6 @@ export const de_UpdateMethodResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateMethodResponseCommandError
- */
-const de_UpdateMethodResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMethodResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateModelCommand
  */
 export const de_UpdateModelCommand = async (
@@ -9799,7 +5549,7 @@ export const de_UpdateModelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9817,47 +5567,6 @@ export const de_UpdateModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateModelCommandError
- */
-const de_UpdateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRequestValidatorCommand
  */
 export const de_UpdateRequestValidatorCommand = async (
@@ -9865,7 +5574,7 @@ export const de_UpdateRequestValidatorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRequestValidatorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRequestValidatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9882,47 +5591,6 @@ export const de_UpdateRequestValidatorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRequestValidatorCommandError
- */
-const de_UpdateRequestValidatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRequestValidatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateResourceCommand
  */
 export const de_UpdateResourceCommand = async (
@@ -9930,7 +5598,7 @@ export const de_UpdateResourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9948,44 +5616,6 @@ export const de_UpdateResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateResourceCommandError
- */
-const de_UpdateResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRestApiCommand
  */
 export const de_UpdateRestApiCommand = async (
@@ -9993,7 +5623,7 @@ export const de_UpdateRestApiCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRestApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRestApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10020,47 +5650,6 @@ export const de_UpdateRestApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRestApiCommandError
- */
-const de_UpdateRestApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRestApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateStageCommand
  */
 export const de_UpdateStageCommand = async (
@@ -10068,7 +5657,7 @@ export const de_UpdateStageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10098,47 +5687,6 @@ export const de_UpdateStageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateStageCommandError
- */
-const de_UpdateStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateUsageCommand
  */
 export const de_UpdateUsageCommand = async (
@@ -10146,7 +5694,7 @@ export const de_UpdateUsageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10164,47 +5712,6 @@ export const de_UpdateUsageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateUsageCommandError
- */
-const de_UpdateUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateUsagePlanCommand
  */
 export const de_UpdateUsagePlanCommand = async (
@@ -10212,7 +5719,7 @@ export const de_UpdateUsagePlanCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUsagePlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateUsagePlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10233,47 +5740,6 @@ export const de_UpdateUsagePlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateUsagePlanCommandError
- */
-const de_UpdateUsagePlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUsagePlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigateway#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigateway#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigateway#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigateway#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.apigateway#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVpcLinkCommand
  */
 export const de_UpdateVpcLinkCommand = async (
@@ -10281,7 +5747,7 @@ export const de_UpdateVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVpcLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10301,12 +5767,9 @@ export const de_UpdateVpcLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVpcLinkCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVpcLinkCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -10331,6 +5794,9 @@ const de_UpdateVpcLinkCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.apigateway#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.apigateway#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

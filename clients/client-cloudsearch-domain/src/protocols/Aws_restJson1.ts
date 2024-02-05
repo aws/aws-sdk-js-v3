@@ -110,7 +110,7 @@ export const de_SearchCommand = async (
   context: __SerdeContext
 ): Promise<SearchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -127,29 +127,6 @@ export const de_SearchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchCommandError
- */
-const de_SearchCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SearchException":
-    case "com.amazonaws.cloudsearchdomain#SearchException":
-      throw await de_SearchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SuggestCommand
  */
 export const de_SuggestCommand = async (
@@ -157,7 +134,7 @@ export const de_SuggestCommand = async (
   context: __SerdeContext
 ): Promise<SuggestCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SuggestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -172,32 +149,6 @@ export const de_SuggestCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SuggestCommandError
- */
-const de_SuggestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SuggestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SearchException":
-    case "com.amazonaws.cloudsearchdomain#SearchException":
-      throw await de_SearchExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UploadDocumentsCommand
  */
 export const de_UploadDocumentsCommand = async (
@@ -205,7 +156,7 @@ export const de_UploadDocumentsCommand = async (
   context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UploadDocumentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -222,18 +173,18 @@ export const de_UploadDocumentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UploadDocumentsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UploadDocumentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadDocumentsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "SearchException":
+    case "com.amazonaws.cloudsearchdomain#SearchException":
+      throw await de_SearchExceptionRes(parsedOutput, context);
     case "DocumentServiceException":
     case "com.amazonaws.cloudsearchdomain#DocumentServiceException":
       throw await de_DocumentServiceExceptionRes(parsedOutput, context);

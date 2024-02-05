@@ -1603,7 +1603,7 @@ export const de_BatchDeleteWorldsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteWorldsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDeleteWorldsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1617,38 +1617,6 @@ export const de_BatchDeleteWorldsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchDeleteWorldsCommandError
- */
-const de_BatchDeleteWorldsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteWorldsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchDescribeSimulationJobCommand
  */
 export const de_BatchDescribeSimulationJobCommand = async (
@@ -1656,7 +1624,7 @@ export const de_BatchDescribeSimulationJobCommand = async (
   context: __SerdeContext
 ): Promise<BatchDescribeSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDescribeSimulationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1671,41 +1639,6 @@ export const de_BatchDescribeSimulationJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchDescribeSimulationJobCommandError
- */
-const de_BatchDescribeSimulationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDescribeSimulationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelDeploymentJobCommand
  */
 export const de_CancelDeploymentJobCommand = async (
@@ -1713,48 +1646,13 @@ export const de_CancelDeploymentJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelDeploymentJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelDeploymentJobCommandError
- */
-const de_CancelDeploymentJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelDeploymentJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1765,48 +1663,13 @@ export const de_CancelSimulationJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelSimulationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelSimulationJobCommandError
- */
-const de_CancelSimulationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelSimulationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1817,48 +1680,13 @@ export const de_CancelSimulationJobBatchCommand = async (
   context: __SerdeContext
 ): Promise<CancelSimulationJobBatchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelSimulationJobBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelSimulationJobBatchCommandError
- */
-const de_CancelSimulationJobBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelSimulationJobBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1869,48 +1697,13 @@ export const de_CancelWorldExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelWorldExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelWorldExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelWorldExportJobCommandError
- */
-const de_CancelWorldExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelWorldExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1921,48 +1714,13 @@ export const de_CancelWorldGenerationJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelWorldGenerationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelWorldGenerationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelWorldGenerationJobCommandError
- */
-const de_CancelWorldGenerationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelWorldGenerationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1973,7 +1731,7 @@ export const de_CreateDeploymentJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeploymentJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1995,50 +1753,6 @@ export const de_CreateDeploymentJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeploymentJobCommandError
- */
-const de_CreateDeploymentJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentDeploymentException":
-    case "com.amazonaws.robomaker#ConcurrentDeploymentException":
-      throw await de_ConcurrentDeploymentExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFleetCommand
  */
 export const de_CreateFleetCommand = async (
@@ -2046,7 +1760,7 @@ export const de_CreateFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2063,41 +1777,6 @@ export const de_CreateFleetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFleetCommandError
- */
-const de_CreateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRobotCommand
  */
 export const de_CreateRobotCommand = async (
@@ -2105,7 +1784,7 @@ export const de_CreateRobotCommand = async (
   context: __SerdeContext
 ): Promise<CreateRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRobotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2124,44 +1803,6 @@ export const de_CreateRobotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRobotCommandError
- */
-const de_CreateRobotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRobotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRobotApplicationCommand
  */
 export const de_CreateRobotApplicationCommand = async (
@@ -2169,7 +1810,7 @@ export const de_CreateRobotApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRobotApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2188,47 +1829,6 @@ export const de_CreateRobotApplicationCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateRobotApplicationCommandError
- */
-const de_CreateRobotApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRobotApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2239,7 +1839,7 @@ export const de_CreateRobotApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateRobotApplicationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRobotApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2260,44 +1860,6 @@ export const de_CreateRobotApplicationVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRobotApplicationVersionCommandError
- */
-const de_CreateRobotApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRobotApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSimulationApplicationCommand
  */
 export const de_CreateSimulationApplicationCommand = async (
@@ -2305,7 +1867,7 @@ export const de_CreateSimulationApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSimulationApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2329,47 +1891,6 @@ export const de_CreateSimulationApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSimulationApplicationCommandError
- */
-const de_CreateSimulationApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSimulationApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSimulationApplicationVersionCommand
  */
 export const de_CreateSimulationApplicationVersionCommand = async (
@@ -2377,7 +1898,7 @@ export const de_CreateSimulationApplicationVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSimulationApplicationVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSimulationApplicationVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2400,44 +1921,6 @@ export const de_CreateSimulationApplicationVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSimulationApplicationVersionCommandError
- */
-const de_CreateSimulationApplicationVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSimulationApplicationVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSimulationJobCommand
  */
 export const de_CreateSimulationJobCommand = async (
@@ -2445,7 +1928,7 @@ export const de_CreateSimulationJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSimulationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2476,50 +1959,6 @@ export const de_CreateSimulationJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSimulationJobCommandError
- */
-const de_CreateSimulationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSimulationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.robomaker#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateWorldExportJobCommand
  */
 export const de_CreateWorldExportJobCommand = async (
@@ -2527,7 +1966,7 @@ export const de_CreateWorldExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorldExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateWorldExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2548,47 +1987,6 @@ export const de_CreateWorldExportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateWorldExportJobCommandError
- */
-const de_CreateWorldExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorldExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.robomaker#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateWorldGenerationJobCommand
  */
 export const de_CreateWorldGenerationJobCommand = async (
@@ -2596,7 +1994,7 @@ export const de_CreateWorldGenerationJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorldGenerationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateWorldGenerationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2618,50 +2016,6 @@ export const de_CreateWorldGenerationJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateWorldGenerationJobCommandError
- */
-const de_CreateWorldGenerationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorldGenerationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.robomaker#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateWorldTemplateCommand
  */
 export const de_CreateWorldTemplateCommand = async (
@@ -2669,7 +2023,7 @@ export const de_CreateWorldTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorldTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateWorldTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2687,47 +2041,6 @@ export const de_CreateWorldTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateWorldTemplateCommandError
- */
-const de_CreateWorldTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorldTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteFleetCommand
  */
 export const de_DeleteFleetCommand = async (
@@ -2735,45 +2048,13 @@ export const de_DeleteFleetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFleetCommandError
- */
-const de_DeleteFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2784,45 +2065,13 @@ export const de_DeleteRobotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRobotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRobotCommandError
- */
-const de_DeleteRobotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRobotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2833,45 +2082,13 @@ export const de_DeleteRobotApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRobotApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRobotApplicationCommandError
- */
-const de_DeleteRobotApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRobotApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2882,45 +2099,13 @@ export const de_DeleteSimulationApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSimulationApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSimulationApplicationCommandError
- */
-const de_DeleteSimulationApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSimulationApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2931,48 +2116,13 @@ export const de_DeleteWorldTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorldTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteWorldTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteWorldTemplateCommandError
- */
-const de_DeleteWorldTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorldTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2983,7 +2133,7 @@ export const de_DeregisterRobotCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeregisterRobotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2998,41 +2148,6 @@ export const de_DeregisterRobotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeregisterRobotCommandError
- */
-const de_DeregisterRobotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterRobotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDeploymentJobCommand
  */
 export const de_DescribeDeploymentJobCommand = async (
@@ -3040,7 +2155,7 @@ export const de_DescribeDeploymentJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDeploymentJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3063,41 +2178,6 @@ export const de_DescribeDeploymentJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDeploymentJobCommandError
- */
-const de_DescribeDeploymentJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeploymentJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFleetCommand
  */
 export const de_DescribeFleetCommand = async (
@@ -3105,7 +2185,7 @@ export const de_DescribeFleetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3126,41 +2206,6 @@ export const de_DescribeFleetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFleetCommandError
- */
-const de_DescribeFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRobotCommand
  */
 export const de_DescribeRobotCommand = async (
@@ -3168,7 +2213,7 @@ export const de_DescribeRobotCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRobotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3191,41 +2236,6 @@ export const de_DescribeRobotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRobotCommandError
- */
-const de_DescribeRobotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRobotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRobotApplicationCommand
  */
 export const de_DescribeRobotApplicationCommand = async (
@@ -3233,7 +2243,7 @@ export const de_DescribeRobotApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRobotApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3256,41 +2266,6 @@ export const de_DescribeRobotApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRobotApplicationCommandError
- */
-const de_DescribeRobotApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRobotApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeSimulationApplicationCommand
  */
 export const de_DescribeSimulationApplicationCommand = async (
@@ -3298,7 +2273,7 @@ export const de_DescribeSimulationApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSimulationApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3323,41 +2298,6 @@ export const de_DescribeSimulationApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeSimulationApplicationCommandError
- */
-const de_DescribeSimulationApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSimulationApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeSimulationJobCommand
  */
 export const de_DescribeSimulationJobCommand = async (
@@ -3365,7 +2305,7 @@ export const de_DescribeSimulationJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSimulationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3399,41 +2339,6 @@ export const de_DescribeSimulationJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeSimulationJobCommandError
- */
-const de_DescribeSimulationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSimulationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeSimulationJobBatchCommand
  */
 export const de_DescribeSimulationJobBatchCommand = async (
@@ -3441,7 +2346,7 @@ export const de_DescribeSimulationJobBatchCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSimulationJobBatchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSimulationJobBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3466,38 +2371,6 @@ export const de_DescribeSimulationJobBatchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeSimulationJobBatchCommandError
- */
-const de_DescribeSimulationJobBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSimulationJobBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeWorldCommand
  */
 export const de_DescribeWorldCommand = async (
@@ -3505,7 +2378,7 @@ export const de_DescribeWorldCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorldCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeWorldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3524,41 +2397,6 @@ export const de_DescribeWorldCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeWorldCommandError
- */
-const de_DescribeWorldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeWorldExportJobCommand
  */
 export const de_DescribeWorldExportJobCommand = async (
@@ -3566,7 +2404,7 @@ export const de_DescribeWorldExportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorldExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeWorldExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3589,41 +2427,6 @@ export const de_DescribeWorldExportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeWorldExportJobCommandError
- */
-const de_DescribeWorldExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorldExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeWorldGenerationJobCommand
  */
 export const de_DescribeWorldGenerationJobCommand = async (
@@ -3631,7 +2434,7 @@ export const de_DescribeWorldGenerationJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorldGenerationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeWorldGenerationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3655,41 +2458,6 @@ export const de_DescribeWorldGenerationJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeWorldGenerationJobCommandError
- */
-const de_DescribeWorldGenerationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorldGenerationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeWorldTemplateCommand
  */
 export const de_DescribeWorldTemplateCommand = async (
@@ -3697,7 +2465,7 @@ export const de_DescribeWorldTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorldTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeWorldTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3717,41 +2485,6 @@ export const de_DescribeWorldTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeWorldTemplateCommandError
- */
-const de_DescribeWorldTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorldTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorldTemplateBodyCommand
  */
 export const de_GetWorldTemplateBodyCommand = async (
@@ -3759,7 +2492,7 @@ export const de_GetWorldTemplateBodyCommand = async (
   context: __SerdeContext
 ): Promise<GetWorldTemplateBodyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorldTemplateBodyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3773,41 +2506,6 @@ export const de_GetWorldTemplateBodyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorldTemplateBodyCommandError
- */
-const de_GetWorldTemplateBodyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorldTemplateBodyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDeploymentJobsCommand
  */
 export const de_ListDeploymentJobsCommand = async (
@@ -3815,7 +2513,7 @@ export const de_ListDeploymentJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeploymentJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeploymentJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3830,41 +2528,6 @@ export const de_ListDeploymentJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDeploymentJobsCommandError
- */
-const de_ListDeploymentJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFleetsCommand
  */
 export const de_ListFleetsCommand = async (
@@ -3872,7 +2535,7 @@ export const de_ListFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3887,41 +2550,6 @@ export const de_ListFleetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFleetsCommandError
- */
-const de_ListFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRobotApplicationsCommand
  */
 export const de_ListRobotApplicationsCommand = async (
@@ -3929,7 +2557,7 @@ export const de_ListRobotApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRobotApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRobotApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3944,38 +2572,6 @@ export const de_ListRobotApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRobotApplicationsCommandError
- */
-const de_ListRobotApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRobotApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRobotsCommand
  */
 export const de_ListRobotsCommand = async (
@@ -3983,7 +2579,7 @@ export const de_ListRobotsCommand = async (
   context: __SerdeContext
 ): Promise<ListRobotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRobotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3998,41 +2594,6 @@ export const de_ListRobotsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRobotsCommandError
- */
-const de_ListRobotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRobotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSimulationApplicationsCommand
  */
 export const de_ListSimulationApplicationsCommand = async (
@@ -4040,7 +2601,7 @@ export const de_ListSimulationApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSimulationApplicationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSimulationApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4055,38 +2616,6 @@ export const de_ListSimulationApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSimulationApplicationsCommandError
- */
-const de_ListSimulationApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSimulationApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSimulationJobBatchesCommand
  */
 export const de_ListSimulationJobBatchesCommand = async (
@@ -4094,7 +2623,7 @@ export const de_ListSimulationJobBatchesCommand = async (
   context: __SerdeContext
 ): Promise<ListSimulationJobBatchesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSimulationJobBatchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4109,35 +2638,6 @@ export const de_ListSimulationJobBatchesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSimulationJobBatchesCommandError
- */
-const de_ListSimulationJobBatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSimulationJobBatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSimulationJobsCommand
  */
 export const de_ListSimulationJobsCommand = async (
@@ -4145,7 +2645,7 @@ export const de_ListSimulationJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListSimulationJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSimulationJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4160,38 +2660,6 @@ export const de_ListSimulationJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSimulationJobsCommandError
- */
-const de_ListSimulationJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSimulationJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4199,7 +2667,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4213,41 +2681,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorldExportJobsCommand
  */
 export const de_ListWorldExportJobsCommand = async (
@@ -4255,7 +2688,7 @@ export const de_ListWorldExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorldExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorldExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4270,38 +2703,6 @@ export const de_ListWorldExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorldExportJobsCommandError
- */
-const de_ListWorldExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorldExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorldGenerationJobsCommand
  */
 export const de_ListWorldGenerationJobsCommand = async (
@@ -4309,7 +2710,7 @@ export const de_ListWorldGenerationJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorldGenerationJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorldGenerationJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4324,38 +2725,6 @@ export const de_ListWorldGenerationJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorldGenerationJobsCommandError
- */
-const de_ListWorldGenerationJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorldGenerationJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorldsCommand
  */
 export const de_ListWorldsCommand = async (
@@ -4363,7 +2732,7 @@ export const de_ListWorldsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorldsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorldsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4378,38 +2747,6 @@ export const de_ListWorldsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorldsCommandError
- */
-const de_ListWorldsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorldsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorldTemplatesCommand
  */
 export const de_ListWorldTemplatesCommand = async (
@@ -4417,7 +2754,7 @@ export const de_ListWorldTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListWorldTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorldTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4432,38 +2769,6 @@ export const de_ListWorldTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorldTemplatesCommandError
- */
-const de_ListWorldTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorldTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterRobotCommand
  */
 export const de_RegisterRobotCommand = async (
@@ -4471,7 +2776,7 @@ export const de_RegisterRobotCommand = async (
   context: __SerdeContext
 ): Promise<RegisterRobotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterRobotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4486,44 +2791,6 @@ export const de_RegisterRobotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterRobotCommandError
- */
-const de_RegisterRobotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterRobotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RestartSimulationJobCommand
  */
 export const de_RestartSimulationJobCommand = async (
@@ -4531,51 +2798,13 @@ export const de_RestartSimulationJobCommand = async (
   context: __SerdeContext
 ): Promise<RestartSimulationJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RestartSimulationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RestartSimulationJobCommandError
- */
-const de_RestartSimulationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestartSimulationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4586,7 +2815,7 @@ export const de_StartSimulationJobBatchCommand = async (
   context: __SerdeContext
 ): Promise<StartSimulationJobBatchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartSimulationJobBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4610,44 +2839,6 @@ export const de_StartSimulationJobBatchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartSimulationJobBatchCommandError
- */
-const de_StartSimulationJobBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSimulationJobBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SyncDeploymentJobCommand
  */
 export const de_SyncDeploymentJobCommand = async (
@@ -4655,7 +2846,7 @@ export const de_SyncDeploymentJobCommand = async (
   context: __SerdeContext
 ): Promise<SyncDeploymentJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SyncDeploymentJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4676,50 +2867,6 @@ export const de_SyncDeploymentJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SyncDeploymentJobCommandError
- */
-const de_SyncDeploymentJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SyncDeploymentJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentDeploymentException":
-    case "com.amazonaws.robomaker#ConcurrentDeploymentException":
-      throw await de_ConcurrentDeploymentExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4727,48 +2874,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4779,48 +2891,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4831,7 +2908,7 @@ export const de_UpdateRobotApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRobotApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRobotApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4852,44 +2929,6 @@ export const de_UpdateRobotApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRobotApplicationCommandError
- */
-const de_UpdateRobotApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRobotApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSimulationApplicationCommand
  */
 export const de_UpdateSimulationApplicationCommand = async (
@@ -4897,7 +2936,7 @@ export const de_UpdateSimulationApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSimulationApplicationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSimulationApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4920,44 +2959,6 @@ export const de_UpdateSimulationApplicationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSimulationApplicationCommandError
- */
-const de_UpdateSimulationApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSimulationApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.robomaker#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.robomaker#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.robomaker#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.robomaker#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateWorldTemplateCommand
  */
 export const de_UpdateWorldTemplateCommand = async (
@@ -4965,7 +2966,7 @@ export const de_UpdateWorldTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWorldTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateWorldTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4982,12 +2983,9 @@ export const de_UpdateWorldTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateWorldTemplateCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateWorldTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorldTemplateCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5000,12 +2998,27 @@ const de_UpdateWorldTemplateCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.robomaker#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.robomaker#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.robomaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.robomaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ConcurrentDeploymentException":
+    case "com.amazonaws.robomaker#ConcurrentDeploymentException":
+      throw await de_ConcurrentDeploymentExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.robomaker#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.robomaker#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.robomaker#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

@@ -61,7 +61,7 @@ export const de_GetMediaCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetMediaCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMediaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -74,12 +74,9 @@ export const de_GetMediaCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMediaCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_GetMediaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

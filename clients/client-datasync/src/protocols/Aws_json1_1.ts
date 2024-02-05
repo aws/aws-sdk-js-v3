@@ -1172,7 +1172,7 @@ export const de_AddStorageSystemCommand = async (
   context: __SerdeContext
 ): Promise<AddStorageSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddStorageSystemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1185,35 +1185,6 @@ export const de_AddStorageSystemCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddStorageSystemCommandError
- */
-const de_AddStorageSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddStorageSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelTaskExecutionCommand
  */
 export const de_CancelTaskExecutionCommand = async (
@@ -1221,7 +1192,7 @@ export const de_CancelTaskExecutionCommand = async (
   context: __SerdeContext
 ): Promise<CancelTaskExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelTaskExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1234,35 +1205,6 @@ export const de_CancelTaskExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelTaskExecutionCommandError
- */
-const de_CancelTaskExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelTaskExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAgentCommand
  */
 export const de_CreateAgentCommand = async (
@@ -1270,7 +1212,7 @@ export const de_CreateAgentCommand = async (
   context: __SerdeContext
 ): Promise<CreateAgentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1283,35 +1225,6 @@ export const de_CreateAgentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAgentCommandError
- */
-const de_CreateAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationAzureBlobCommand
  */
 export const de_CreateLocationAzureBlobCommand = async (
@@ -1319,7 +1232,7 @@ export const de_CreateLocationAzureBlobCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationAzureBlobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationAzureBlobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1332,35 +1245,6 @@ export const de_CreateLocationAzureBlobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationAzureBlobCommandError
- */
-const de_CreateLocationAzureBlobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationAzureBlobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationEfsCommand
  */
 export const de_CreateLocationEfsCommand = async (
@@ -1368,7 +1252,7 @@ export const de_CreateLocationEfsCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationEfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationEfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1381,35 +1265,6 @@ export const de_CreateLocationEfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationEfsCommandError
- */
-const de_CreateLocationEfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationEfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationFsxLustreCommand
  */
 export const de_CreateLocationFsxLustreCommand = async (
@@ -1417,7 +1272,7 @@ export const de_CreateLocationFsxLustreCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationFsxLustreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationFsxLustreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1430,35 +1285,6 @@ export const de_CreateLocationFsxLustreCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationFsxLustreCommandError
- */
-const de_CreateLocationFsxLustreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationFsxLustreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationFsxOntapCommand
  */
 export const de_CreateLocationFsxOntapCommand = async (
@@ -1466,7 +1292,7 @@ export const de_CreateLocationFsxOntapCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationFsxOntapCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationFsxOntapCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1479,35 +1305,6 @@ export const de_CreateLocationFsxOntapCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationFsxOntapCommandError
- */
-const de_CreateLocationFsxOntapCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationFsxOntapCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationFsxOpenZfsCommand
  */
 export const de_CreateLocationFsxOpenZfsCommand = async (
@@ -1515,7 +1312,7 @@ export const de_CreateLocationFsxOpenZfsCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationFsxOpenZfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationFsxOpenZfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1528,35 +1325,6 @@ export const de_CreateLocationFsxOpenZfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationFsxOpenZfsCommandError
- */
-const de_CreateLocationFsxOpenZfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationFsxOpenZfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationFsxWindowsCommand
  */
 export const de_CreateLocationFsxWindowsCommand = async (
@@ -1564,7 +1332,7 @@ export const de_CreateLocationFsxWindowsCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationFsxWindowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationFsxWindowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1577,35 +1345,6 @@ export const de_CreateLocationFsxWindowsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationFsxWindowsCommandError
- */
-const de_CreateLocationFsxWindowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationFsxWindowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationHdfsCommand
  */
 export const de_CreateLocationHdfsCommand = async (
@@ -1613,7 +1352,7 @@ export const de_CreateLocationHdfsCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationHdfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationHdfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1626,35 +1365,6 @@ export const de_CreateLocationHdfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationHdfsCommandError
- */
-const de_CreateLocationHdfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationHdfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationNfsCommand
  */
 export const de_CreateLocationNfsCommand = async (
@@ -1662,7 +1372,7 @@ export const de_CreateLocationNfsCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationNfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationNfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1675,35 +1385,6 @@ export const de_CreateLocationNfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationNfsCommandError
- */
-const de_CreateLocationNfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationNfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationObjectStorageCommand
  */
 export const de_CreateLocationObjectStorageCommand = async (
@@ -1711,7 +1392,7 @@ export const de_CreateLocationObjectStorageCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationObjectStorageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationObjectStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1724,35 +1405,6 @@ export const de_CreateLocationObjectStorageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationObjectStorageCommandError
- */
-const de_CreateLocationObjectStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationObjectStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationS3Command
  */
 export const de_CreateLocationS3Command = async (
@@ -1760,7 +1412,7 @@ export const de_CreateLocationS3Command = async (
   context: __SerdeContext
 ): Promise<CreateLocationS3CommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationS3CommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1773,35 +1425,6 @@ export const de_CreateLocationS3Command = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationS3CommandError
- */
-const de_CreateLocationS3CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationS3CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLocationSmbCommand
  */
 export const de_CreateLocationSmbCommand = async (
@@ -1809,7 +1432,7 @@ export const de_CreateLocationSmbCommand = async (
   context: __SerdeContext
 ): Promise<CreateLocationSmbCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLocationSmbCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1822,35 +1445,6 @@ export const de_CreateLocationSmbCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLocationSmbCommandError
- */
-const de_CreateLocationSmbCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLocationSmbCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTaskCommand
  */
 export const de_CreateTaskCommand = async (
@@ -1858,7 +1452,7 @@ export const de_CreateTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1871,35 +1465,6 @@ export const de_CreateTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTaskCommandError
- */
-const de_CreateTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAgentCommand
  */
 export const de_DeleteAgentCommand = async (
@@ -1907,7 +1472,7 @@ export const de_DeleteAgentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAgentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1920,35 +1485,6 @@ export const de_DeleteAgentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAgentCommandError
- */
-const de_DeleteAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLocationCommand
  */
 export const de_DeleteLocationCommand = async (
@@ -1956,7 +1492,7 @@ export const de_DeleteLocationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLocationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1969,35 +1505,6 @@ export const de_DeleteLocationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLocationCommandError
- */
-const de_DeleteLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTaskCommand
  */
 export const de_DeleteTaskCommand = async (
@@ -2005,7 +1512,7 @@ export const de_DeleteTaskCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2018,35 +1525,6 @@ export const de_DeleteTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTaskCommandError
- */
-const de_DeleteTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAgentCommand
  */
 export const de_DescribeAgentCommand = async (
@@ -2054,7 +1532,7 @@ export const de_DescribeAgentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAgentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2067,35 +1545,6 @@ export const de_DescribeAgentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAgentCommandError
- */
-const de_DescribeAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDiscoveryJobCommand
  */
 export const de_DescribeDiscoveryJobCommand = async (
@@ -2103,7 +1552,7 @@ export const de_DescribeDiscoveryJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDiscoveryJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDiscoveryJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2116,35 +1565,6 @@ export const de_DescribeDiscoveryJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDiscoveryJobCommandError
- */
-const de_DescribeDiscoveryJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDiscoveryJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationAzureBlobCommand
  */
 export const de_DescribeLocationAzureBlobCommand = async (
@@ -2152,7 +1572,7 @@ export const de_DescribeLocationAzureBlobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationAzureBlobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationAzureBlobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2165,35 +1585,6 @@ export const de_DescribeLocationAzureBlobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationAzureBlobCommandError
- */
-const de_DescribeLocationAzureBlobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationAzureBlobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationEfsCommand
  */
 export const de_DescribeLocationEfsCommand = async (
@@ -2201,7 +1592,7 @@ export const de_DescribeLocationEfsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationEfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationEfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2214,35 +1605,6 @@ export const de_DescribeLocationEfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationEfsCommandError
- */
-const de_DescribeLocationEfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationEfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationFsxLustreCommand
  */
 export const de_DescribeLocationFsxLustreCommand = async (
@@ -2250,7 +1612,7 @@ export const de_DescribeLocationFsxLustreCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationFsxLustreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationFsxLustreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2263,35 +1625,6 @@ export const de_DescribeLocationFsxLustreCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationFsxLustreCommandError
- */
-const de_DescribeLocationFsxLustreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationFsxLustreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationFsxOntapCommand
  */
 export const de_DescribeLocationFsxOntapCommand = async (
@@ -2299,7 +1632,7 @@ export const de_DescribeLocationFsxOntapCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationFsxOntapCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationFsxOntapCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2312,35 +1645,6 @@ export const de_DescribeLocationFsxOntapCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationFsxOntapCommandError
- */
-const de_DescribeLocationFsxOntapCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationFsxOntapCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationFsxOpenZfsCommand
  */
 export const de_DescribeLocationFsxOpenZfsCommand = async (
@@ -2348,7 +1652,7 @@ export const de_DescribeLocationFsxOpenZfsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationFsxOpenZfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationFsxOpenZfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2361,35 +1665,6 @@ export const de_DescribeLocationFsxOpenZfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationFsxOpenZfsCommandError
- */
-const de_DescribeLocationFsxOpenZfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationFsxOpenZfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationFsxWindowsCommand
  */
 export const de_DescribeLocationFsxWindowsCommand = async (
@@ -2397,7 +1672,7 @@ export const de_DescribeLocationFsxWindowsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationFsxWindowsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationFsxWindowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2410,35 +1685,6 @@ export const de_DescribeLocationFsxWindowsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationFsxWindowsCommandError
- */
-const de_DescribeLocationFsxWindowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationFsxWindowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationHdfsCommand
  */
 export const de_DescribeLocationHdfsCommand = async (
@@ -2446,7 +1692,7 @@ export const de_DescribeLocationHdfsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationHdfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationHdfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2459,35 +1705,6 @@ export const de_DescribeLocationHdfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationHdfsCommandError
- */
-const de_DescribeLocationHdfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationHdfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationNfsCommand
  */
 export const de_DescribeLocationNfsCommand = async (
@@ -2495,7 +1712,7 @@ export const de_DescribeLocationNfsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationNfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationNfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2508,35 +1725,6 @@ export const de_DescribeLocationNfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationNfsCommandError
- */
-const de_DescribeLocationNfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationNfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationObjectStorageCommand
  */
 export const de_DescribeLocationObjectStorageCommand = async (
@@ -2544,7 +1732,7 @@ export const de_DescribeLocationObjectStorageCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationObjectStorageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationObjectStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2557,35 +1745,6 @@ export const de_DescribeLocationObjectStorageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationObjectStorageCommandError
- */
-const de_DescribeLocationObjectStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationObjectStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationS3Command
  */
 export const de_DescribeLocationS3Command = async (
@@ -2593,7 +1752,7 @@ export const de_DescribeLocationS3Command = async (
   context: __SerdeContext
 ): Promise<DescribeLocationS3CommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationS3CommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2606,35 +1765,6 @@ export const de_DescribeLocationS3Command = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationS3CommandError
- */
-const de_DescribeLocationS3CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationS3CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationSmbCommand
  */
 export const de_DescribeLocationSmbCommand = async (
@@ -2642,7 +1772,7 @@ export const de_DescribeLocationSmbCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationSmbCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationSmbCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2655,35 +1785,6 @@ export const de_DescribeLocationSmbCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationSmbCommandError
- */
-const de_DescribeLocationSmbCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationSmbCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStorageSystemCommand
  */
 export const de_DescribeStorageSystemCommand = async (
@@ -2691,7 +1792,7 @@ export const de_DescribeStorageSystemCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStorageSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStorageSystemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2704,35 +1805,6 @@ export const de_DescribeStorageSystemCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStorageSystemCommandError
- */
-const de_DescribeStorageSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStorageSystemResourceMetricsCommand
  */
 export const de_DescribeStorageSystemResourceMetricsCommand = async (
@@ -2740,7 +1812,7 @@ export const de_DescribeStorageSystemResourceMetricsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStorageSystemResourceMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStorageSystemResourceMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2753,35 +1825,6 @@ export const de_DescribeStorageSystemResourceMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStorageSystemResourceMetricsCommandError
- */
-const de_DescribeStorageSystemResourceMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageSystemResourceMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStorageSystemResourcesCommand
  */
 export const de_DescribeStorageSystemResourcesCommand = async (
@@ -2789,7 +1832,7 @@ export const de_DescribeStorageSystemResourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStorageSystemResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStorageSystemResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2802,35 +1845,6 @@ export const de_DescribeStorageSystemResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStorageSystemResourcesCommandError
- */
-const de_DescribeStorageSystemResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageSystemResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTaskCommand
  */
 export const de_DescribeTaskCommand = async (
@@ -2838,7 +1852,7 @@ export const de_DescribeTaskCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2851,35 +1865,6 @@ export const de_DescribeTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTaskCommandError
- */
-const de_DescribeTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTaskExecutionCommand
  */
 export const de_DescribeTaskExecutionCommand = async (
@@ -2887,7 +1872,7 @@ export const de_DescribeTaskExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTaskExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTaskExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2900,35 +1885,6 @@ export const de_DescribeTaskExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTaskExecutionCommandError
- */
-const de_DescribeTaskExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTaskExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GenerateRecommendationsCommand
  */
 export const de_GenerateRecommendationsCommand = async (
@@ -2936,7 +1892,7 @@ export const de_GenerateRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GenerateRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2949,35 +1905,6 @@ export const de_GenerateRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GenerateRecommendationsCommandError
- */
-const de_GenerateRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAgentsCommand
  */
 export const de_ListAgentsCommand = async (
@@ -2985,7 +1912,7 @@ export const de_ListAgentsCommand = async (
   context: __SerdeContext
 ): Promise<ListAgentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAgentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2998,35 +1925,6 @@ export const de_ListAgentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAgentsCommandError
- */
-const de_ListAgentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAgentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDiscoveryJobsCommand
  */
 export const de_ListDiscoveryJobsCommand = async (
@@ -3034,7 +1932,7 @@ export const de_ListDiscoveryJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListDiscoveryJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDiscoveryJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3047,35 +1945,6 @@ export const de_ListDiscoveryJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDiscoveryJobsCommandError
- */
-const de_ListDiscoveryJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDiscoveryJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLocationsCommand
  */
 export const de_ListLocationsCommand = async (
@@ -3083,7 +1952,7 @@ export const de_ListLocationsCommand = async (
   context: __SerdeContext
 ): Promise<ListLocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3096,35 +1965,6 @@ export const de_ListLocationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLocationsCommandError
- */
-const de_ListLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStorageSystemsCommand
  */
 export const de_ListStorageSystemsCommand = async (
@@ -3132,7 +1972,7 @@ export const de_ListStorageSystemsCommand = async (
   context: __SerdeContext
 ): Promise<ListStorageSystemsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStorageSystemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3145,35 +1985,6 @@ export const de_ListStorageSystemsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStorageSystemsCommandError
- */
-const de_ListStorageSystemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStorageSystemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3181,7 +1992,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3194,35 +2005,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTaskExecutionsCommand
  */
 export const de_ListTaskExecutionsCommand = async (
@@ -3230,7 +2012,7 @@ export const de_ListTaskExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTaskExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTaskExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3243,35 +2025,6 @@ export const de_ListTaskExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTaskExecutionsCommandError
- */
-const de_ListTaskExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTaskExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTasksCommand
  */
 export const de_ListTasksCommand = async (
@@ -3279,7 +2032,7 @@ export const de_ListTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3292,35 +2045,6 @@ export const de_ListTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTasksCommandError
- */
-const de_ListTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveStorageSystemCommand
  */
 export const de_RemoveStorageSystemCommand = async (
@@ -3328,7 +2052,7 @@ export const de_RemoveStorageSystemCommand = async (
   context: __SerdeContext
 ): Promise<RemoveStorageSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveStorageSystemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3341,35 +2065,6 @@ export const de_RemoveStorageSystemCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveStorageSystemCommandError
- */
-const de_RemoveStorageSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveStorageSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartDiscoveryJobCommand
  */
 export const de_StartDiscoveryJobCommand = async (
@@ -3377,7 +2072,7 @@ export const de_StartDiscoveryJobCommand = async (
   context: __SerdeContext
 ): Promise<StartDiscoveryJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartDiscoveryJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3390,35 +2085,6 @@ export const de_StartDiscoveryJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartDiscoveryJobCommandError
- */
-const de_StartDiscoveryJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDiscoveryJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartTaskExecutionCommand
  */
 export const de_StartTaskExecutionCommand = async (
@@ -3426,7 +2092,7 @@ export const de_StartTaskExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartTaskExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartTaskExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3439,35 +2105,6 @@ export const de_StartTaskExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartTaskExecutionCommandError
- */
-const de_StartTaskExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTaskExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopDiscoveryJobCommand
  */
 export const de_StopDiscoveryJobCommand = async (
@@ -3475,7 +2112,7 @@ export const de_StopDiscoveryJobCommand = async (
   context: __SerdeContext
 ): Promise<StopDiscoveryJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopDiscoveryJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3488,35 +2125,6 @@ export const de_StopDiscoveryJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopDiscoveryJobCommandError
- */
-const de_StopDiscoveryJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDiscoveryJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3524,7 +2132,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3537,35 +2145,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -3573,7 +2152,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3586,35 +2165,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAgentCommand
  */
 export const de_UpdateAgentCommand = async (
@@ -3622,7 +2172,7 @@ export const de_UpdateAgentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAgentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3635,35 +2185,6 @@ export const de_UpdateAgentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAgentCommandError
- */
-const de_UpdateAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDiscoveryJobCommand
  */
 export const de_UpdateDiscoveryJobCommand = async (
@@ -3671,7 +2192,7 @@ export const de_UpdateDiscoveryJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDiscoveryJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDiscoveryJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3684,35 +2205,6 @@ export const de_UpdateDiscoveryJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDiscoveryJobCommandError
- */
-const de_UpdateDiscoveryJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDiscoveryJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLocationAzureBlobCommand
  */
 export const de_UpdateLocationAzureBlobCommand = async (
@@ -3720,7 +2212,7 @@ export const de_UpdateLocationAzureBlobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLocationAzureBlobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLocationAzureBlobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3733,35 +2225,6 @@ export const de_UpdateLocationAzureBlobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLocationAzureBlobCommandError
- */
-const de_UpdateLocationAzureBlobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLocationAzureBlobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLocationHdfsCommand
  */
 export const de_UpdateLocationHdfsCommand = async (
@@ -3769,7 +2232,7 @@ export const de_UpdateLocationHdfsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLocationHdfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLocationHdfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3782,35 +2245,6 @@ export const de_UpdateLocationHdfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLocationHdfsCommandError
- */
-const de_UpdateLocationHdfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLocationHdfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLocationNfsCommand
  */
 export const de_UpdateLocationNfsCommand = async (
@@ -3818,7 +2252,7 @@ export const de_UpdateLocationNfsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLocationNfsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLocationNfsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3831,35 +2265,6 @@ export const de_UpdateLocationNfsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLocationNfsCommandError
- */
-const de_UpdateLocationNfsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLocationNfsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLocationObjectStorageCommand
  */
 export const de_UpdateLocationObjectStorageCommand = async (
@@ -3867,7 +2272,7 @@ export const de_UpdateLocationObjectStorageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLocationObjectStorageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLocationObjectStorageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3880,35 +2285,6 @@ export const de_UpdateLocationObjectStorageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLocationObjectStorageCommandError
- */
-const de_UpdateLocationObjectStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLocationObjectStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLocationSmbCommand
  */
 export const de_UpdateLocationSmbCommand = async (
@@ -3916,7 +2292,7 @@ export const de_UpdateLocationSmbCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLocationSmbCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLocationSmbCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3929,35 +2305,6 @@ export const de_UpdateLocationSmbCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLocationSmbCommandError
- */
-const de_UpdateLocationSmbCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLocationSmbCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateStorageSystemCommand
  */
 export const de_UpdateStorageSystemCommand = async (
@@ -3965,7 +2312,7 @@ export const de_UpdateStorageSystemCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStorageSystemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateStorageSystemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3978,35 +2325,6 @@ export const de_UpdateStorageSystemCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateStorageSystemCommandError
- */
-const de_UpdateStorageSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStorageSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTaskCommand
  */
 export const de_UpdateTaskCommand = async (
@@ -4014,7 +2332,7 @@ export const de_UpdateTaskCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4027,35 +2345,6 @@ export const de_UpdateTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTaskCommandError
- */
-const de_UpdateTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.datasync#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datasync#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTaskExecutionCommand
  */
 export const de_UpdateTaskExecutionCommand = async (
@@ -4063,7 +2352,7 @@ export const de_UpdateTaskExecutionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTaskExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTaskExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4076,12 +2365,9 @@ export const de_UpdateTaskExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTaskExecutionCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateTaskExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTaskExecutionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

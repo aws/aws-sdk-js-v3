@@ -374,7 +374,7 @@ export const de_CreateBatchLoadTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateBatchLoadTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBatchLoadTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -387,53 +387,6 @@ export const de_CreateBatchLoadTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateBatchLoadTaskCommandError
- */
-const de_CreateBatchLoadTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchLoadTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.timestreamwrite#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateDatabaseCommand
  */
 export const de_CreateDatabaseCommand = async (
@@ -441,7 +394,7 @@ export const de_CreateDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -454,50 +407,6 @@ export const de_CreateDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateDatabaseCommandError
- */
-const de_CreateDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.timestreamwrite#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateTableCommand
  */
 export const de_CreateTableCommand = async (
@@ -505,7 +414,7 @@ export const de_CreateTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -518,12 +427,323 @@ export const de_CreateTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateTableCommandError
+ * deserializeAws_json1_0DeleteDatabaseCommand
  */
-const de_CreateTableCommandError = async (
+export const de_DeleteDatabaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateTableCommandOutput> => {
+): Promise<DeleteDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteTableCommand
+ */
+export const de_DeleteTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeBatchLoadTaskCommand
+ */
+export const de_DescribeBatchLoadTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchLoadTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBatchLoadTaskResponse(data, context);
+  const response: DescribeBatchLoadTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeDatabaseCommand
+ */
+export const de_DescribeDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDatabaseResponse(data, context);
+  const response: DescribeDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeEndpointsCommand
+ */
+export const de_DescribeEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeTableCommand
+ */
+export const de_DescribeTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTableResponse(data, context);
+  const response: DescribeTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListBatchLoadTasksCommand
+ */
+export const de_ListBatchLoadTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBatchLoadTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListBatchLoadTasksResponse(data, context);
+  const response: ListBatchLoadTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListDatabasesCommand
+ */
+export const de_ListDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDatabasesResponse(data, context);
+  const response: ListDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListTablesCommand
+ */
+export const de_ListTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTablesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTablesResponse(data, context);
+  const response: ListTablesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ResumeBatchLoadTaskCommand
+ */
+export const de_ResumeBatchLoadTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeBatchLoadTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ResumeBatchLoadTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateDatabaseCommand
+ */
+export const de_UpdateDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateDatabaseResponse(data, context);
+  const response: UpdateDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateTableCommand
+ */
+export const de_UpdateTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateTableResponse(data, context);
+  const response: UpdateTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0WriteRecordsCommand
+ */
+export const de_WriteRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<WriteRecordsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: WriteRecordsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_0CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -554,952 +774,9 @@ const de_CreateTableCommandError = async (
     case "ValidationException":
     case "com.amazonaws.timestreamwrite#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteDatabaseCommand
- */
-export const de_DeleteDatabaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatabaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDatabaseCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDatabaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteDatabaseCommandError
- */
-const de_DeleteDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteTableCommand
- */
-export const de_DeleteTableCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTableCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTableCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteTableCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteTableCommandError
- */
-const de_DeleteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeBatchLoadTaskCommand
- */
-export const de_DescribeBatchLoadTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchLoadTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBatchLoadTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBatchLoadTaskResponse(data, context);
-  const response: DescribeBatchLoadTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeBatchLoadTaskCommandError
- */
-const de_DescribeBatchLoadTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchLoadTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeDatabaseCommand
- */
-export const de_DescribeDatabaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatabaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDatabaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDatabaseResponse(data, context);
-  const response: DescribeDatabaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeDatabaseCommandError
- */
-const de_DescribeDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeEndpointsCommand
- */
-export const de_DescribeEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeEndpointsCommandError
- */
-const de_DescribeEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeTableCommand
- */
-export const de_DescribeTableCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTableCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTableResponse(data, context);
-  const response: DescribeTableCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeTableCommandError
- */
-const de_DescribeTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListBatchLoadTasksCommand
- */
-export const de_ListBatchLoadTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBatchLoadTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListBatchLoadTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListBatchLoadTasksResponse(data, context);
-  const response: ListBatchLoadTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListBatchLoadTasksCommandError
- */
-const de_ListBatchLoadTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBatchLoadTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListDatabasesCommand
- */
-export const de_ListDatabasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatabasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatabasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDatabasesResponse(data, context);
-  const response: ListDatabasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListDatabasesCommandError
- */
-const de_ListDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListTablesCommand
- */
-export const de_ListTablesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTablesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTablesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListTablesResponse(data, context);
-  const response: ListTablesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListTablesCommandError
- */
-const de_ListTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ResumeBatchLoadTaskCommand
- */
-export const de_ResumeBatchLoadTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeBatchLoadTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResumeBatchLoadTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ResumeBatchLoadTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ResumeBatchLoadTaskCommandError
- */
-const de_ResumeBatchLoadTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeBatchLoadTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateDatabaseCommand
- */
-export const de_UpdateDatabaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatabaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDatabaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateDatabaseResponse(data, context);
-  const response: UpdateDatabaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateDatabaseCommandError
- */
-const de_UpdateDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.timestreamwrite#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateTableCommand
- */
-export const de_UpdateTableCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTableCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateTableResponse(data, context);
-  const response: UpdateTableCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateTableCommandError
- */
-const de_UpdateTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0WriteRecordsCommand
- */
-export const de_WriteRecordsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<WriteRecordsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_WriteRecordsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: WriteRecordsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0WriteRecordsCommandError
- */
-const de_WriteRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<WriteRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.timestreamwrite#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.timestreamwrite#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.timestreamwrite#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
     case "RejectedRecordsException":
     case "com.amazonaws.timestreamwrite#RejectedRecordsException":
       throw await de_RejectedRecordsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.timestreamwrite#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.timestreamwrite#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.timestreamwrite#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

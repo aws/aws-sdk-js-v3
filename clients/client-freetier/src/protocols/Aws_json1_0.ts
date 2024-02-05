@@ -51,7 +51,7 @@ export const de_GetFreeTierUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetFreeTierUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFreeTierUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -64,12 +64,9 @@ export const de_GetFreeTierUsageCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetFreeTierUsageCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_GetFreeTierUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFreeTierUsageCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

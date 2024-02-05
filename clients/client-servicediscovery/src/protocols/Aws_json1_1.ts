@@ -533,7 +533,7 @@ export const de_CreateHttpNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<CreateHttpNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHttpNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -546,44 +546,6 @@ export const de_CreateHttpNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHttpNamespaceCommandError
- */
-const de_CreateHttpNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHttpNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceAlreadyExists":
-    case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      throw await de_NamespaceAlreadyExistsRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePrivateDnsNamespaceCommand
  */
 export const de_CreatePrivateDnsNamespaceCommand = async (
@@ -591,7 +553,7 @@ export const de_CreatePrivateDnsNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<CreatePrivateDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePrivateDnsNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -604,44 +566,6 @@ export const de_CreatePrivateDnsNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError
- */
-const de_CreatePrivateDnsNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePrivateDnsNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceAlreadyExists":
-    case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      throw await de_NamespaceAlreadyExistsRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePublicDnsNamespaceCommand
  */
 export const de_CreatePublicDnsNamespaceCommand = async (
@@ -649,7 +573,7 @@ export const de_CreatePublicDnsNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<CreatePublicDnsNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePublicDnsNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -662,12 +586,486 @@ export const de_CreatePublicDnsNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePublicDnsNamespaceCommandError
+ * deserializeAws_json1_1CreateServiceCommand
  */
-const de_CreatePublicDnsNamespaceCommandError = async (
+export const de_CreateServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePublicDnsNamespaceCommandOutput> => {
+): Promise<CreateServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateServiceResponse(data, context);
+  const response: CreateServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteNamespaceCommand
+ */
+export const de_DeleteNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteServiceCommand
+ */
+export const de_DeleteServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterInstanceCommand
+ */
+export const de_DeregisterInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeregisterInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DiscoverInstancesCommand
+ */
+export const de_DiscoverInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscoverInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DiscoverInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DiscoverInstancesRevisionCommand
+ */
+export const de_DiscoverInstancesRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscoverInstancesRevisionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DiscoverInstancesRevisionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetInstanceCommand
+ */
+export const de_GetInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetInstancesHealthStatusCommand
+ */
+export const de_GetInstancesHealthStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstancesHealthStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetInstancesHealthStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetNamespaceCommand
+ */
+export const de_GetNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetNamespaceResponse(data, context);
+  const response: GetNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOperationCommand
+ */
+export const de_GetOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetOperationResponse(data, context);
+  const response: GetOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetServiceCommand
+ */
+export const de_GetServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetServiceResponse(data, context);
+  const response: GetServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListInstancesCommand
+ */
+export const de_ListInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListNamespacesCommand
+ */
+export const de_ListNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNamespacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListNamespacesResponse(data, context);
+  const response: ListNamespacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOperationsCommand
+ */
+export const de_ListOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOperationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListOperationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServicesCommand
+ */
+export const de_ListServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListServicesResponse(data, context);
+  const response: ListServicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterInstanceCommand
+ */
+export const de_RegisterInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RegisterInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateHttpNamespaceCommand
+ */
+export const de_UpdateHttpNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateHttpNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateHttpNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand
+ */
+export const de_UpdateInstanceCustomHealthStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateInstanceCustomHealthStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand
+ */
+export const de_UpdatePrivateDnsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdatePrivateDnsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdatePublicDnsNamespaceCommand
+ */
+export const de_UpdatePublicDnsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdatePublicDnsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateServiceCommand
+ */
+export const de_UpdateServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -689,1254 +1087,33 @@ const de_CreatePublicDnsNamespaceCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateServiceCommand
- */
-export const de_CreateServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateServiceResponse(data, context);
-  const response: CreateServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateServiceCommandError
- */
-const de_CreateServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
       throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
     case "ServiceAlreadyExists":
     case "com.amazonaws.servicediscovery#ServiceAlreadyExists":
       throw await de_ServiceAlreadyExistsRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteNamespaceCommand
- */
-export const de_DeleteNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteNamespaceCommandError
- */
-const de_DeleteNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteServiceCommand
- */
-export const de_DeleteServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteServiceCommandError
- */
-const de_DeleteServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
       throw await de_ResourceInUseRes(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
       throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterInstanceCommand
- */
-export const de_DeregisterInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeregisterInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterInstanceCommandError
- */
-const de_DeregisterInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
       throw await de_InstanceNotFoundRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DiscoverInstancesCommand
- */
-export const de_DiscoverInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DiscoverInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DiscoverInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DiscoverInstancesCommandError
- */
-const de_DiscoverInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.servicediscovery#RequestLimitExceeded":
       throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DiscoverInstancesRevisionCommand
- */
-export const de_DiscoverInstancesRevisionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverInstancesRevisionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DiscoverInstancesRevisionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DiscoverInstancesRevisionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DiscoverInstancesRevisionCommandError
- */
-const de_DiscoverInstancesRevisionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DiscoverInstancesRevisionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetInstanceCommand
- */
-export const de_GetInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetInstanceCommandError
- */
-const de_GetInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstanceNotFound":
-    case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await de_InstanceNotFoundRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetInstancesHealthStatusCommand
- */
-export const de_GetInstancesHealthStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstancesHealthStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetInstancesHealthStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetInstancesHealthStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetInstancesHealthStatusCommandError
- */
-const de_GetInstancesHealthStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstancesHealthStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstanceNotFound":
-    case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await de_InstanceNotFoundRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetNamespaceCommand
- */
-export const de_GetNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetNamespaceResponse(data, context);
-  const response: GetNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetNamespaceCommandError
- */
-const de_GetNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetOperationCommand
- */
-export const de_GetOperationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetOperationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetOperationResponse(data, context);
-  const response: GetOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetOperationCommandError
- */
-const de_GetOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
     case "OperationNotFound":
     case "com.amazonaws.servicediscovery#OperationNotFound":
       throw await de_OperationNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetServiceCommand
- */
-export const de_GetServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetServiceResponse(data, context);
-  const response: GetServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetServiceCommandError
- */
-const de_GetServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListInstancesCommand
- */
-export const de_ListInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListInstancesCommandError
- */
-const de_ListInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListNamespacesCommand
- */
-export const de_ListNamespacesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNamespacesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListNamespacesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListNamespacesResponse(data, context);
-  const response: ListNamespacesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListNamespacesCommandError
- */
-const de_ListNamespacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNamespacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListOperationsCommand
- */
-export const de_ListOperationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOperationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOperationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListOperationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListOperationsCommandError
- */
-const de_ListOperationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOperationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListServicesCommand
- */
-export const de_ListServicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListServicesResponse(data, context);
-  const response: ListServicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListServicesCommandError
- */
-const de_ListServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterInstanceCommand
- */
-export const de_RegisterInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RegisterInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterInstanceCommandError
- */
-const de_RegisterInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "ResourceLimitExceeded":
-    case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      throw await de_ResourceLimitExceededRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.servicediscovery#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateHttpNamespaceCommand
- */
-export const de_UpdateHttpNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHttpNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateHttpNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateHttpNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateHttpNamespaceCommandError
- */
-const de_UpdateHttpNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHttpNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand
- */
-export const de_UpdateInstanceCustomHealthStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateInstanceCustomHealthStatusCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UpdateInstanceCustomHealthStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError
- */
-const de_UpdateInstanceCustomHealthStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInstanceCustomHealthStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CustomHealthNotFound":
     case "com.amazonaws.servicediscovery#CustomHealthNotFound":
       throw await de_CustomHealthNotFoundRes(parsedOutput, context);
-    case "InstanceNotFound":
-    case "com.amazonaws.servicediscovery#InstanceNotFound":
-      throw await de_InstanceNotFoundRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand
- */
-export const de_UpdatePrivateDnsNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePrivateDnsNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdatePrivateDnsNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError
- */
-const de_UpdatePrivateDnsNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePrivateDnsNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdatePublicDnsNamespaceCommand
- */
-export const de_UpdatePublicDnsNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePublicDnsNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdatePublicDnsNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError
- */
-const de_UpdatePublicDnsNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePublicDnsNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NamespaceNotFound":
-    case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      throw await de_NamespaceNotFoundRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.servicediscovery#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceCommand
- */
-export const de_UpdateServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceCommandError
- */
-const de_UpdateServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.servicediscovery#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.servicediscovery#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "ServiceNotFound":
-    case "com.amazonaws.servicediscovery#ServiceNotFound":
-      throw await de_ServiceNotFoundRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

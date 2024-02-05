@@ -1523,42 +1523,13 @@ export const de_AttachInstancesCommand = async (
   context: __SerdeContext
 ): Promise<AttachInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAttachInstancesCommandError
- */
-const de_AttachInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1569,7 +1540,7 @@ export const de_AttachLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<AttachLoadBalancersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachLoadBalancersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1582,35 +1553,6 @@ export const de_AttachLoadBalancersCommand = async (
 };
 
 /**
- * deserializeAws_queryAttachLoadBalancersCommandError
- */
-const de_AttachLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAttachLoadBalancerTargetGroupsCommand
  */
 export const de_AttachLoadBalancerTargetGroupsCommand = async (
@@ -1618,7 +1560,7 @@ export const de_AttachLoadBalancerTargetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachLoadBalancerTargetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1631,35 +1573,6 @@ export const de_AttachLoadBalancerTargetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError
- */
-const de_AttachLoadBalancerTargetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachLoadBalancerTargetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAttachTrafficSourcesCommand
  */
 export const de_AttachTrafficSourcesCommand = async (
@@ -1667,7 +1580,7 @@ export const de_AttachTrafficSourcesCommand = async (
   context: __SerdeContext
 ): Promise<AttachTrafficSourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachTrafficSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1680,35 +1593,6 @@ export const de_AttachTrafficSourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryAttachTrafficSourcesCommandError
- */
-const de_AttachTrafficSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachTrafficSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryBatchDeleteScheduledActionCommand
  */
 export const de_BatchDeleteScheduledActionCommand = async (
@@ -1716,7 +1600,7 @@ export const de_BatchDeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteScheduledActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1729,32 +1613,6 @@ export const de_BatchDeleteScheduledActionCommand = async (
 };
 
 /**
- * deserializeAws_queryBatchDeleteScheduledActionCommandError
- */
-const de_BatchDeleteScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryBatchPutScheduledUpdateGroupActionCommand
  */
 export const de_BatchPutScheduledUpdateGroupActionCommand = async (
@@ -1762,7 +1620,7 @@ export const de_BatchPutScheduledUpdateGroupActionCommand = async (
   context: __SerdeContext
 ): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchPutScheduledUpdateGroupActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1775,38 +1633,6 @@ export const de_BatchPutScheduledUpdateGroupActionCommand = async (
 };
 
 /**
- * deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError
- */
-const de_BatchPutScheduledUpdateGroupActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchPutScheduledUpdateGroupActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.autoscaling#AlreadyExistsFault":
-      throw await de_AlreadyExistsFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCancelInstanceRefreshCommand
  */
 export const de_CancelInstanceRefreshCommand = async (
@@ -1814,7 +1640,7 @@ export const de_CancelInstanceRefreshCommand = async (
   context: __SerdeContext
 ): Promise<CancelInstanceRefreshCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelInstanceRefreshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1827,38 +1653,6 @@ export const de_CancelInstanceRefreshCommand = async (
 };
 
 /**
- * deserializeAws_queryCancelInstanceRefreshCommandError
- */
-const de_CancelInstanceRefreshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelInstanceRefreshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActiveInstanceRefreshNotFound":
-    case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
-      throw await de_ActiveInstanceRefreshNotFoundFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCompleteLifecycleActionCommand
  */
 export const de_CompleteLifecycleActionCommand = async (
@@ -1866,7 +1660,7 @@ export const de_CompleteLifecycleActionCommand = async (
   context: __SerdeContext
 ): Promise<CompleteLifecycleActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CompleteLifecycleActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1879,32 +1673,6 @@ export const de_CompleteLifecycleActionCommand = async (
 };
 
 /**
- * deserializeAws_queryCompleteLifecycleActionCommandError
- */
-const de_CompleteLifecycleActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteLifecycleActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateAutoScalingGroupCommand
  */
 export const de_CreateAutoScalingGroupCommand = async (
@@ -1912,48 +1680,13 @@ export const de_CreateAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAutoScalingGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateAutoScalingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryCreateAutoScalingGroupCommandError
- */
-const de_CreateAutoScalingGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAutoScalingGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.autoscaling#AlreadyExistsFault":
-      throw await de_AlreadyExistsFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1964,45 +1697,13 @@ export const de_CreateLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryCreateLaunchConfigurationCommandError
- */
-const de_CreateLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.autoscaling#AlreadyExistsFault":
-      throw await de_AlreadyExistsFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2013,48 +1714,13 @@ export const de_CreateOrUpdateTagsCommand = async (
   context: __SerdeContext
 ): Promise<CreateOrUpdateTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOrUpdateTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateOrUpdateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryCreateOrUpdateTagsCommandError
- */
-const de_CreateOrUpdateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrUpdateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.autoscaling#AlreadyExistsFault":
-      throw await de_AlreadyExistsFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2065,45 +1731,13 @@ export const de_DeleteAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAutoScalingGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAutoScalingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteAutoScalingGroupCommandError
- */
-const de_DeleteAutoScalingGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAutoScalingGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    case "ScalingActivityInProgress":
-    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
-      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2114,42 +1748,13 @@ export const de_DeleteLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLaunchConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteLaunchConfigurationCommandError
- */
-const de_DeleteLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2160,7 +1765,7 @@ export const de_DeleteLifecycleHookCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLifecycleHookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLifecycleHookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2173,32 +1778,6 @@ export const de_DeleteLifecycleHookCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteLifecycleHookCommandError
- */
-const de_DeleteLifecycleHookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLifecycleHookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteNotificationConfigurationCommand
  */
 export const de_DeleteNotificationConfigurationCommand = async (
@@ -2206,39 +1785,13 @@ export const de_DeleteNotificationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotificationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNotificationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteNotificationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteNotificationConfigurationCommandError
- */
-const de_DeleteNotificationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotificationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2249,42 +1802,13 @@ export const de_DeletePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeletePolicyCommandError
- */
-const de_DeletePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2295,39 +1819,13 @@ export const de_DeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteScheduledActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteScheduledActionCommandError
- */
-const de_DeleteScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2338,42 +1836,13 @@ export const de_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2384,7 +1853,7 @@ export const de_DeleteWarmPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWarmPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWarmPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2397,41 +1866,6 @@ export const de_DeleteWarmPoolCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteWarmPoolCommandError
- */
-const de_DeleteWarmPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWarmPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    case "ScalingActivityInProgress":
-    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
-      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAccountLimitsCommand
  */
 export const de_DescribeAccountLimitsCommand = async (
@@ -2439,7 +1873,7 @@ export const de_DescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2452,32 +1886,6 @@ export const de_DescribeAccountLimitsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAccountLimitsCommandError
- */
-const de_DescribeAccountLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAdjustmentTypesCommand
  */
 export const de_DescribeAdjustmentTypesCommand = async (
@@ -2485,7 +1893,7 @@ export const de_DescribeAdjustmentTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAdjustmentTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAdjustmentTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2498,32 +1906,6 @@ export const de_DescribeAdjustmentTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAdjustmentTypesCommandError
- */
-const de_DescribeAdjustmentTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAdjustmentTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAutoScalingGroupsCommand
  */
 export const de_DescribeAutoScalingGroupsCommand = async (
@@ -2531,7 +1913,7 @@ export const de_DescribeAutoScalingGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAutoScalingGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAutoScalingGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2544,35 +1926,6 @@ export const de_DescribeAutoScalingGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAutoScalingGroupsCommandError
- */
-const de_DescribeAutoScalingGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoScalingGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAutoScalingInstancesCommand
  */
 export const de_DescribeAutoScalingInstancesCommand = async (
@@ -2580,7 +1933,7 @@ export const de_DescribeAutoScalingInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAutoScalingInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAutoScalingInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2593,35 +1946,6 @@ export const de_DescribeAutoScalingInstancesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAutoScalingInstancesCommandError
- */
-const de_DescribeAutoScalingInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoScalingInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAutoScalingNotificationTypesCommand
  */
 export const de_DescribeAutoScalingNotificationTypesCommand = async (
@@ -2629,7 +1953,7 @@ export const de_DescribeAutoScalingNotificationTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAutoScalingNotificationTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAutoScalingNotificationTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2642,32 +1966,6 @@ export const de_DescribeAutoScalingNotificationTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError
- */
-const de_DescribeAutoScalingNotificationTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoScalingNotificationTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeInstanceRefreshesCommand
  */
 export const de_DescribeInstanceRefreshesCommand = async (
@@ -2675,7 +1973,7 @@ export const de_DescribeInstanceRefreshesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceRefreshesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceRefreshesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2688,35 +1986,6 @@ export const de_DescribeInstanceRefreshesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeInstanceRefreshesCommandError
- */
-const de_DescribeInstanceRefreshesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceRefreshesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLaunchConfigurationsCommand
  */
 export const de_DescribeLaunchConfigurationsCommand = async (
@@ -2724,7 +1993,7 @@ export const de_DescribeLaunchConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLaunchConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLaunchConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2737,35 +2006,6 @@ export const de_DescribeLaunchConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLaunchConfigurationsCommandError
- */
-const de_DescribeLaunchConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLaunchConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLifecycleHooksCommand
  */
 export const de_DescribeLifecycleHooksCommand = async (
@@ -2773,7 +2013,7 @@ export const de_DescribeLifecycleHooksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLifecycleHooksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLifecycleHooksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2786,32 +2026,6 @@ export const de_DescribeLifecycleHooksCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLifecycleHooksCommandError
- */
-const de_DescribeLifecycleHooksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLifecycleHooksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLifecycleHookTypesCommand
  */
 export const de_DescribeLifecycleHookTypesCommand = async (
@@ -2819,7 +2033,7 @@ export const de_DescribeLifecycleHookTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLifecycleHookTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLifecycleHookTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2832,32 +2046,6 @@ export const de_DescribeLifecycleHookTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLifecycleHookTypesCommandError
- */
-const de_DescribeLifecycleHookTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLifecycleHookTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLoadBalancersCommand
  */
 export const de_DescribeLoadBalancersCommand = async (
@@ -2865,7 +2053,7 @@ export const de_DescribeLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2878,35 +2066,6 @@ export const de_DescribeLoadBalancersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLoadBalancersCommandError
- */
-const de_DescribeLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand
  */
 export const de_DescribeLoadBalancerTargetGroupsCommand = async (
@@ -2914,7 +2073,7 @@ export const de_DescribeLoadBalancerTargetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancerTargetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2927,35 +2086,6 @@ export const de_DescribeLoadBalancerTargetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError
- */
-const de_DescribeLoadBalancerTargetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancerTargetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeMetricCollectionTypesCommand
  */
 export const de_DescribeMetricCollectionTypesCommand = async (
@@ -2963,7 +2093,7 @@ export const de_DescribeMetricCollectionTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetricCollectionTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetricCollectionTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2976,32 +2106,6 @@ export const de_DescribeMetricCollectionTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeMetricCollectionTypesCommandError
- */
-const de_DescribeMetricCollectionTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetricCollectionTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeNotificationConfigurationsCommand
  */
 export const de_DescribeNotificationConfigurationsCommand = async (
@@ -3009,7 +2113,7 @@ export const de_DescribeNotificationConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotificationConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNotificationConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3022,35 +2126,6 @@ export const de_DescribeNotificationConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeNotificationConfigurationsCommandError
- */
-const de_DescribeNotificationConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotificationConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribePoliciesCommand
  */
 export const de_DescribePoliciesCommand = async (
@@ -3058,7 +2133,7 @@ export const de_DescribePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3071,38 +2146,6 @@ export const de_DescribePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribePoliciesCommandError
- */
-const de_DescribePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeScalingActivitiesCommand
  */
 export const de_DescribeScalingActivitiesCommand = async (
@@ -3110,7 +2153,7 @@ export const de_DescribeScalingActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingActivitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScalingActivitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3123,35 +2166,6 @@ export const de_DescribeScalingActivitiesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeScalingActivitiesCommandError
- */
-const de_DescribeScalingActivitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingActivitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeScalingProcessTypesCommand
  */
 export const de_DescribeScalingProcessTypesCommand = async (
@@ -3159,7 +2173,7 @@ export const de_DescribeScalingProcessTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingProcessTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScalingProcessTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3172,32 +2186,6 @@ export const de_DescribeScalingProcessTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeScalingProcessTypesCommandError
- */
-const de_DescribeScalingProcessTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingProcessTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeScheduledActionsCommand
  */
 export const de_DescribeScheduledActionsCommand = async (
@@ -3205,7 +2193,7 @@ export const de_DescribeScheduledActionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScheduledActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScheduledActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3218,35 +2206,6 @@ export const de_DescribeScheduledActionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeScheduledActionsCommandError
- */
-const de_DescribeScheduledActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduledActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeTagsCommand
  */
 export const de_DescribeTagsCommand = async (
@@ -3254,7 +2213,7 @@ export const de_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3267,35 +2226,6 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeTerminationPolicyTypesCommand
  */
 export const de_DescribeTerminationPolicyTypesCommand = async (
@@ -3303,7 +2233,7 @@ export const de_DescribeTerminationPolicyTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTerminationPolicyTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTerminationPolicyTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3316,32 +2246,6 @@ export const de_DescribeTerminationPolicyTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeTerminationPolicyTypesCommandError
- */
-const de_DescribeTerminationPolicyTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTerminationPolicyTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeTrafficSourcesCommand
  */
 export const de_DescribeTrafficSourcesCommand = async (
@@ -3349,7 +2253,7 @@ export const de_DescribeTrafficSourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrafficSourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrafficSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3362,35 +2266,6 @@ export const de_DescribeTrafficSourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeTrafficSourcesCommandError
- */
-const de_DescribeTrafficSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrafficSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeWarmPoolCommand
  */
 export const de_DescribeWarmPoolCommand = async (
@@ -3398,7 +2273,7 @@ export const de_DescribeWarmPoolCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWarmPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWarmPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3411,38 +2286,6 @@ export const de_DescribeWarmPoolCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeWarmPoolCommandError
- */
-const de_DescribeWarmPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWarmPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.autoscaling#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDetachInstancesCommand
  */
 export const de_DetachInstancesCommand = async (
@@ -3450,7 +2293,7 @@ export const de_DetachInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DetachInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3463,32 +2306,6 @@ export const de_DetachInstancesCommand = async (
 };
 
 /**
- * deserializeAws_queryDetachInstancesCommandError
- */
-const de_DetachInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDetachLoadBalancersCommand
  */
 export const de_DetachLoadBalancersCommand = async (
@@ -3496,7 +2313,7 @@ export const de_DetachLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<DetachLoadBalancersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachLoadBalancersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3509,32 +2326,6 @@ export const de_DetachLoadBalancersCommand = async (
 };
 
 /**
- * deserializeAws_queryDetachLoadBalancersCommandError
- */
-const de_DetachLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDetachLoadBalancerTargetGroupsCommand
  */
 export const de_DetachLoadBalancerTargetGroupsCommand = async (
@@ -3542,7 +2333,7 @@ export const de_DetachLoadBalancerTargetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachLoadBalancerTargetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3555,32 +2346,6 @@ export const de_DetachLoadBalancerTargetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError
- */
-const de_DetachLoadBalancerTargetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachLoadBalancerTargetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDetachTrafficSourcesCommand
  */
 export const de_DetachTrafficSourcesCommand = async (
@@ -3588,7 +2353,7 @@ export const de_DetachTrafficSourcesCommand = async (
   context: __SerdeContext
 ): Promise<DetachTrafficSourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachTrafficSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3601,32 +2366,6 @@ export const de_DetachTrafficSourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryDetachTrafficSourcesCommandError
- */
-const de_DetachTrafficSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachTrafficSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDisableMetricsCollectionCommand
  */
 export const de_DisableMetricsCollectionCommand = async (
@@ -3634,39 +2373,13 @@ export const de_DisableMetricsCollectionCommand = async (
   context: __SerdeContext
 ): Promise<DisableMetricsCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableMetricsCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableMetricsCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDisableMetricsCollectionCommandError
- */
-const de_DisableMetricsCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableMetricsCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3677,39 +2390,13 @@ export const de_EnableMetricsCollectionCommand = async (
   context: __SerdeContext
 ): Promise<EnableMetricsCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableMetricsCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableMetricsCollectionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryEnableMetricsCollectionCommandError
- */
-const de_EnableMetricsCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableMetricsCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3720,7 +2407,7 @@ export const de_EnterStandbyCommand = async (
   context: __SerdeContext
 ): Promise<EnterStandbyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnterStandbyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3733,32 +2420,6 @@ export const de_EnterStandbyCommand = async (
 };
 
 /**
- * deserializeAws_queryEnterStandbyCommandError
- */
-const de_EnterStandbyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnterStandbyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryExecutePolicyCommand
  */
 export const de_ExecutePolicyCommand = async (
@@ -3766,42 +2427,13 @@ export const de_ExecutePolicyCommand = async (
   context: __SerdeContext
 ): Promise<ExecutePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecutePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ExecutePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryExecutePolicyCommandError
- */
-const de_ExecutePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecutePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ScalingActivityInProgress":
-    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
-      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3812,7 +2444,7 @@ export const de_ExitStandbyCommand = async (
   context: __SerdeContext
 ): Promise<ExitStandbyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExitStandbyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3825,32 +2457,6 @@ export const de_ExitStandbyCommand = async (
 };
 
 /**
- * deserializeAws_queryExitStandbyCommandError
- */
-const de_ExitStandbyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExitStandbyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetPredictiveScalingForecastCommand
  */
 export const de_GetPredictiveScalingForecastCommand = async (
@@ -3858,7 +2464,7 @@ export const de_GetPredictiveScalingForecastCommand = async (
   context: __SerdeContext
 ): Promise<GetPredictiveScalingForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPredictiveScalingForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3871,32 +2477,6 @@ export const de_GetPredictiveScalingForecastCommand = async (
 };
 
 /**
- * deserializeAws_queryGetPredictiveScalingForecastCommandError
- */
-const de_GetPredictiveScalingForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPredictiveScalingForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutLifecycleHookCommand
  */
 export const de_PutLifecycleHookCommand = async (
@@ -3904,7 +2484,7 @@ export const de_PutLifecycleHookCommand = async (
   context: __SerdeContext
 ): Promise<PutLifecycleHookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutLifecycleHookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3917,35 +2497,6 @@ export const de_PutLifecycleHookCommand = async (
 };
 
 /**
- * deserializeAws_queryPutLifecycleHookCommandError
- */
-const de_PutLifecycleHookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLifecycleHookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutNotificationConfigurationCommand
  */
 export const de_PutNotificationConfigurationCommand = async (
@@ -3953,45 +2504,13 @@ export const de_PutNotificationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutNotificationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutNotificationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutNotificationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutNotificationConfigurationCommandError
- */
-const de_PutNotificationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutNotificationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4002,7 +2521,7 @@ export const de_PutScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutScalingPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutScalingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4015,38 +2534,6 @@ export const de_PutScalingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryPutScalingPolicyCommandError
- */
-const de_PutScalingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutScalingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleFailure":
-    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
-      throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutScheduledUpdateGroupActionCommand
  */
 export const de_PutScheduledUpdateGroupActionCommand = async (
@@ -4054,45 +2541,13 @@ export const de_PutScheduledUpdateGroupActionCommand = async (
   context: __SerdeContext
 ): Promise<PutScheduledUpdateGroupActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutScheduledUpdateGroupActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutScheduledUpdateGroupActionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutScheduledUpdateGroupActionCommandError
- */
-const de_PutScheduledUpdateGroupActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutScheduledUpdateGroupActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExists":
-    case "com.amazonaws.autoscaling#AlreadyExistsFault":
-      throw await de_AlreadyExistsFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4103,7 +2558,7 @@ export const de_PutWarmPoolCommand = async (
   context: __SerdeContext
 ): Promise<PutWarmPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutWarmPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4116,35 +2571,6 @@ export const de_PutWarmPoolCommand = async (
 };
 
 /**
- * deserializeAws_queryPutWarmPoolCommandError
- */
-const de_PutWarmPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWarmPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRecordLifecycleActionHeartbeatCommand
  */
 export const de_RecordLifecycleActionHeartbeatCommand = async (
@@ -4152,7 +2578,7 @@ export const de_RecordLifecycleActionHeartbeatCommand = async (
   context: __SerdeContext
 ): Promise<RecordLifecycleActionHeartbeatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RecordLifecycleActionHeartbeatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4165,32 +2591,6 @@ export const de_RecordLifecycleActionHeartbeatCommand = async (
 };
 
 /**
- * deserializeAws_queryRecordLifecycleActionHeartbeatCommandError
- */
-const de_RecordLifecycleActionHeartbeatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecordLifecycleActionHeartbeatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryResumeProcessesCommand
  */
 export const de_ResumeProcessesCommand = async (
@@ -4198,42 +2598,13 @@ export const de_ResumeProcessesCommand = async (
   context: __SerdeContext
 ): Promise<ResumeProcessesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResumeProcessesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResumeProcessesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryResumeProcessesCommandError
- */
-const de_ResumeProcessesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeProcessesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4244,7 +2615,7 @@ export const de_RollbackInstanceRefreshCommand = async (
   context: __SerdeContext
 ): Promise<RollbackInstanceRefreshCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RollbackInstanceRefreshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4257,41 +2628,6 @@ export const de_RollbackInstanceRefreshCommand = async (
 };
 
 /**
- * deserializeAws_queryRollbackInstanceRefreshCommandError
- */
-const de_RollbackInstanceRefreshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RollbackInstanceRefreshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActiveInstanceRefreshNotFound":
-    case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
-      throw await de_ActiveInstanceRefreshNotFoundFaultRes(parsedOutput, context);
-    case "IrreversibleInstanceRefresh":
-    case "com.amazonaws.autoscaling#IrreversibleInstanceRefreshFault":
-      throw await de_IrreversibleInstanceRefreshFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetDesiredCapacityCommand
  */
 export const de_SetDesiredCapacityCommand = async (
@@ -4299,42 +2635,13 @@ export const de_SetDesiredCapacityCommand = async (
   context: __SerdeContext
 ): Promise<SetDesiredCapacityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetDesiredCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetDesiredCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySetDesiredCapacityCommandError
- */
-const de_SetDesiredCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDesiredCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ScalingActivityInProgress":
-    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
-      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4345,39 +2652,13 @@ export const de_SetInstanceHealthCommand = async (
   context: __SerdeContext
 ): Promise<SetInstanceHealthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetInstanceHealthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetInstanceHealthCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySetInstanceHealthCommandError
- */
-const de_SetInstanceHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetInstanceHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4388,7 +2669,7 @@ export const de_SetInstanceProtectionCommand = async (
   context: __SerdeContext
 ): Promise<SetInstanceProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetInstanceProtectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4401,35 +2682,6 @@ export const de_SetInstanceProtectionCommand = async (
 };
 
 /**
- * deserializeAws_querySetInstanceProtectionCommandError
- */
-const de_SetInstanceProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetInstanceProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryStartInstanceRefreshCommand
  */
 export const de_StartInstanceRefreshCommand = async (
@@ -4437,7 +2689,7 @@ export const de_StartInstanceRefreshCommand = async (
   context: __SerdeContext
 ): Promise<StartInstanceRefreshCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartInstanceRefreshCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4450,38 +2702,6 @@ export const de_StartInstanceRefreshCommand = async (
 };
 
 /**
- * deserializeAws_queryStartInstanceRefreshCommandError
- */
-const de_StartInstanceRefreshCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartInstanceRefreshCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstanceRefreshInProgress":
-    case "com.amazonaws.autoscaling#InstanceRefreshInProgressFault":
-      throw await de_InstanceRefreshInProgressFaultRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.autoscaling#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySuspendProcessesCommand
  */
 export const de_SuspendProcessesCommand = async (
@@ -4489,42 +2709,13 @@ export const de_SuspendProcessesCommand = async (
   context: __SerdeContext
 ): Promise<SuspendProcessesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SuspendProcessesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SuspendProcessesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySuspendProcessesCommandError
- */
-const de_SuspendProcessesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SuspendProcessesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.autoscaling#ResourceInUseFault":
-      throw await de_ResourceInUseFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4535,7 +2726,7 @@ export const de_TerminateInstanceInAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateInstanceInAutoScalingGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4548,35 +2739,6 @@ export const de_TerminateInstanceInAutoScalingGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError
- */
-const de_TerminateInstanceInAutoScalingGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateInstanceInAutoScalingGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceContention":
-    case "com.amazonaws.autoscaling#ResourceContentionFault":
-      throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ScalingActivityInProgress":
-    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
-      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateAutoScalingGroupCommand
  */
 export const de_UpdateAutoScalingGroupCommand = async (
@@ -4584,7 +2746,7 @@ export const de_UpdateAutoScalingGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAutoScalingGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAutoScalingGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAutoScalingGroupCommandOutput = {
@@ -4594,12 +2756,9 @@ export const de_UpdateAutoScalingGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateAutoScalingGroupCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_UpdateAutoScalingGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAutoScalingGroupCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4609,12 +2768,33 @@ const de_UpdateAutoScalingGroupCommandError = async (
     case "ResourceContention":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       throw await de_ResourceContentionFaultRes(parsedOutput, context);
-    case "ScalingActivityInProgress":
-    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
-      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
     case "ServiceLinkedRoleFailure":
     case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
       throw await de_ServiceLinkedRoleFailureRes(parsedOutput, context);
+    case "AlreadyExists":
+    case "com.amazonaws.autoscaling#AlreadyExistsFault":
+      throw await de_AlreadyExistsFaultRes(parsedOutput, context);
+    case "LimitExceeded":
+    case "com.amazonaws.autoscaling#LimitExceededFault":
+      throw await de_LimitExceededFaultRes(parsedOutput, context);
+    case "ActiveInstanceRefreshNotFound":
+    case "com.amazonaws.autoscaling#ActiveInstanceRefreshNotFoundFault":
+      throw await de_ActiveInstanceRefreshNotFoundFaultRes(parsedOutput, context);
+    case "ResourceInUse":
+    case "com.amazonaws.autoscaling#ResourceInUseFault":
+      throw await de_ResourceInUseFaultRes(parsedOutput, context);
+    case "ScalingActivityInProgress":
+    case "com.amazonaws.autoscaling#ScalingActivityInProgressFault":
+      throw await de_ScalingActivityInProgressFaultRes(parsedOutput, context);
+    case "InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
+      throw await de_InvalidNextTokenRes(parsedOutput, context);
+    case "IrreversibleInstanceRefresh":
+    case "com.amazonaws.autoscaling#IrreversibleInstanceRefreshFault":
+      throw await de_IrreversibleInstanceRefreshFaultRes(parsedOutput, context);
+    case "InstanceRefreshInProgress":
+    case "com.amazonaws.autoscaling#InstanceRefreshInProgressFault":
+      throw await de_InstanceRefreshInProgressFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

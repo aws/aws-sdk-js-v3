@@ -3849,7 +3849,7 @@ export const de_AddRoleToDBClusterCommand = async (
   context: __SerdeContext
 ): Promise<AddRoleToDBClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddRoleToDBClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddRoleToDBClusterCommandOutput = {
@@ -3859,12 +3859,3191 @@ export const de_AddRoleToDBClusterCommand = async (
 };
 
 /**
- * deserializeAws_queryAddRoleToDBClusterCommandError
+ * deserializeAws_queryAddRoleToDBInstanceCommand
  */
-const de_AddRoleToDBClusterCommandError = async (
+export const de_AddRoleToDBInstanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddRoleToDBClusterCommandOutput> => {
+): Promise<AddRoleToDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: AddRoleToDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAddSourceIdentifierToSubscriptionCommand
+ */
+export const de_AddSourceIdentifierToSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AddSourceIdentifierToSubscriptionResult(data.AddSourceIdentifierToSubscriptionResult, context);
+  const response: AddSourceIdentifierToSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAddTagsToResourceCommand
+ */
+export const de_AddTagsToResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddTagsToResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: AddTagsToResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryApplyPendingMaintenanceActionCommand
+ */
+export const de_ApplyPendingMaintenanceActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ApplyPendingMaintenanceActionResult(data.ApplyPendingMaintenanceActionResult, context);
+  const response: ApplyPendingMaintenanceActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand
+ */
+export const de_AuthorizeDBSecurityGroupIngressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AuthorizeDBSecurityGroupIngressResult(data.AuthorizeDBSecurityGroupIngressResult, context);
+  const response: AuthorizeDBSecurityGroupIngressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryBacktrackDBClusterCommand
+ */
+export const de_BacktrackDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BacktrackDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterBacktrack(data.BacktrackDBClusterResult, context);
+  const response: BacktrackDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCancelExportTaskCommand
+ */
+export const de_CancelExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelExportTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ExportTask(data.CancelExportTaskResult, context);
+  const response: CancelExportTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBClusterParameterGroupCommand
+ */
+export const de_CopyDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBClusterParameterGroupResult(data.CopyDBClusterParameterGroupResult, context);
+  const response: CopyDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBClusterSnapshotCommand
+ */
+export const de_CopyDBClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBClusterSnapshotResult(data.CopyDBClusterSnapshotResult, context);
+  const response: CopyDBClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBParameterGroupCommand
+ */
+export const de_CopyDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBParameterGroupResult(data.CopyDBParameterGroupResult, context);
+  const response: CopyDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBSnapshotCommand
+ */
+export const de_CopyDBSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBSnapshotResult(data.CopyDBSnapshotResult, context);
+  const response: CopyDBSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyOptionGroupCommand
+ */
+export const de_CopyOptionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyOptionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyOptionGroupResult(data.CopyOptionGroupResult, context);
+  const response: CopyOptionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateBlueGreenDeploymentCommand
+ */
+export const de_CreateBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateBlueGreenDeploymentResponse(data.CreateBlueGreenDeploymentResult, context);
+  const response: CreateBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateCustomDBEngineVersionCommand
+ */
+export const de_CreateCustomDBEngineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomDBEngineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBEngineVersion(data.CreateCustomDBEngineVersionResult, context);
+  const response: CreateCustomDBEngineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterCommand
+ */
+export const de_CreateDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterResult(data.CreateDBClusterResult, context);
+  const response: CreateDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterEndpointCommand
+ */
+export const de_CreateDBClusterEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterEndpoint(data.CreateDBClusterEndpointResult, context);
+  const response: CreateDBClusterEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterParameterGroupCommand
+ */
+export const de_CreateDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterParameterGroupResult(data.CreateDBClusterParameterGroupResult, context);
+  const response: CreateDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterSnapshotCommand
+ */
+export const de_CreateDBClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterSnapshotResult(data.CreateDBClusterSnapshotResult, context);
+  const response: CreateDBClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBInstanceCommand
+ */
+export const de_CreateDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBInstanceResult(data.CreateDBInstanceResult, context);
+  const response: CreateDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBInstanceReadReplicaCommand
+ */
+export const de_CreateDBInstanceReadReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBInstanceReadReplicaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBInstanceReadReplicaResult(data.CreateDBInstanceReadReplicaResult, context);
+  const response: CreateDBInstanceReadReplicaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBParameterGroupCommand
+ */
+export const de_CreateDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBParameterGroupResult(data.CreateDBParameterGroupResult, context);
+  const response: CreateDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBProxyCommand
+ */
+export const de_CreateDBProxyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBProxyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBProxyResponse(data.CreateDBProxyResult, context);
+  const response: CreateDBProxyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBProxyEndpointCommand
+ */
+export const de_CreateDBProxyEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBProxyEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBProxyEndpointResponse(data.CreateDBProxyEndpointResult, context);
+  const response: CreateDBProxyEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBSecurityGroupCommand
+ */
+export const de_CreateDBSecurityGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBSecurityGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBSecurityGroupResult(data.CreateDBSecurityGroupResult, context);
+  const response: CreateDBSecurityGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBShardGroupCommand
+ */
+export const de_CreateDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.CreateDBShardGroupResult, context);
+  const response: CreateDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBSnapshotCommand
+ */
+export const de_CreateDBSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBSnapshotResult(data.CreateDBSnapshotResult, context);
+  const response: CreateDBSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBSubnetGroupCommand
+ */
+export const de_CreateDBSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBSubnetGroupResult(data.CreateDBSubnetGroupResult, context);
+  const response: CreateDBSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateEventSubscriptionCommand
+ */
+export const de_CreateEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
+  const response: CreateEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateGlobalClusterCommand
+ */
+export const de_CreateGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateGlobalClusterResult(data.CreateGlobalClusterResult, context);
+  const response: CreateGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateIntegrationCommand
+ */
+export const de_CreateIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.CreateIntegrationResult, context);
+  const response: CreateIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateOptionGroupCommand
+ */
+export const de_CreateOptionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOptionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateOptionGroupResult(data.CreateOptionGroupResult, context);
+  const response: CreateOptionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTenantDatabaseCommand
+ */
+export const de_CreateTenantDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTenantDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTenantDatabaseResult(data.CreateTenantDatabaseResult, context);
+  const response: CreateTenantDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteBlueGreenDeploymentCommand
+ */
+export const de_DeleteBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteBlueGreenDeploymentResponse(data.DeleteBlueGreenDeploymentResult, context);
+  const response: DeleteBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteCustomDBEngineVersionCommand
+ */
+export const de_DeleteCustomDBEngineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomDBEngineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBEngineVersion(data.DeleteCustomDBEngineVersionResult, context);
+  const response: DeleteCustomDBEngineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterCommand
+ */
+export const de_DeleteDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterResult(data.DeleteDBClusterResult, context);
+  const response: DeleteDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterAutomatedBackupCommand
+ */
+export const de_DeleteDBClusterAutomatedBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterAutomatedBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterAutomatedBackupResult(data.DeleteDBClusterAutomatedBackupResult, context);
+  const response: DeleteDBClusterAutomatedBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterEndpointCommand
+ */
+export const de_DeleteDBClusterEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterEndpoint(data.DeleteDBClusterEndpointResult, context);
+  const response: DeleteDBClusterEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterParameterGroupCommand
+ */
+export const de_DeleteDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterSnapshotCommand
+ */
+export const de_DeleteDBClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterSnapshotResult(data.DeleteDBClusterSnapshotResult, context);
+  const response: DeleteDBClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBInstanceCommand
+ */
+export const de_DeleteDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBInstanceResult(data.DeleteDBInstanceResult, context);
+  const response: DeleteDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand
+ */
+export const de_DeleteDBInstanceAutomatedBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBInstanceAutomatedBackupResult(data.DeleteDBInstanceAutomatedBackupResult, context);
+  const response: DeleteDBInstanceAutomatedBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBParameterGroupCommand
+ */
+export const de_DeleteDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBProxyCommand
+ */
+export const de_DeleteDBProxyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBProxyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBProxyResponse(data.DeleteDBProxyResult, context);
+  const response: DeleteDBProxyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBProxyEndpointCommand
+ */
+export const de_DeleteDBProxyEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBProxyEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBProxyEndpointResponse(data.DeleteDBProxyEndpointResult, context);
+  const response: DeleteDBProxyEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBSecurityGroupCommand
+ */
+export const de_DeleteDBSecurityGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBSecurityGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBSecurityGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBShardGroupCommand
+ */
+export const de_DeleteDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.DeleteDBShardGroupResult, context);
+  const response: DeleteDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBSnapshotCommand
+ */
+export const de_DeleteDBSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBSnapshotResult(data.DeleteDBSnapshotResult, context);
+  const response: DeleteDBSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBSubnetGroupCommand
+ */
+export const de_DeleteDBSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteEventSubscriptionCommand
+ */
+export const de_DeleteEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteEventSubscriptionResult(data.DeleteEventSubscriptionResult, context);
+  const response: DeleteEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteGlobalClusterCommand
+ */
+export const de_DeleteGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteGlobalClusterResult(data.DeleteGlobalClusterResult, context);
+  const response: DeleteGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteIntegrationCommand
+ */
+export const de_DeleteIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.DeleteIntegrationResult, context);
+  const response: DeleteIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteOptionGroupCommand
+ */
+export const de_DeleteOptionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOptionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteOptionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTenantDatabaseCommand
+ */
+export const de_DeleteTenantDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTenantDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTenantDatabaseResult(data.DeleteTenantDatabaseResult, context);
+  const response: DeleteTenantDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeregisterDBProxyTargetsCommand
+ */
+export const de_DeregisterDBProxyTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterDBProxyTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterDBProxyTargetsResponse(data.DeregisterDBProxyTargetsResult, context);
+  const response: DeregisterDBProxyTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeAccountAttributesCommand
+ */
+export const de_DescribeAccountAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AccountAttributesMessage(data.DescribeAccountAttributesResult, context);
+  const response: DescribeAccountAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeBlueGreenDeploymentsCommand
+ */
+export const de_DescribeBlueGreenDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBlueGreenDeploymentsResponse(data.DescribeBlueGreenDeploymentsResult, context);
+  const response: DescribeBlueGreenDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeCertificatesCommand
+ */
+export const de_DescribeCertificatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCertificatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CertificateMessage(data.DescribeCertificatesResult, context);
+  const response: DescribeCertificatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterAutomatedBackupsCommand
+ */
+export const de_DescribeDBClusterAutomatedBackupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterAutomatedBackupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterAutomatedBackupMessage(data.DescribeDBClusterAutomatedBackupsResult, context);
+  const response: DescribeDBClusterAutomatedBackupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterBacktracksCommand
+ */
+export const de_DescribeDBClusterBacktracksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterBacktracksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterBacktrackMessage(data.DescribeDBClusterBacktracksResult, context);
+  const response: DescribeDBClusterBacktracksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterEndpointsCommand
+ */
+export const de_DescribeDBClusterEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterEndpointMessage(data.DescribeDBClusterEndpointsResult, context);
+  const response: DescribeDBClusterEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterParameterGroupsCommand
+ */
+export const de_DescribeDBClusterParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupsMessage(data.DescribeDBClusterParameterGroupsResult, context);
+  const response: DescribeDBClusterParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterParametersCommand
+ */
+export const de_DescribeDBClusterParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupDetails(data.DescribeDBClusterParametersResult, context);
+  const response: DescribeDBClusterParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClustersCommand
+ */
+export const de_DescribeDBClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterMessage(data.DescribeDBClustersResult, context);
+  const response: DescribeDBClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand
+ */
+export const de_DescribeDBClusterSnapshotAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBClusterSnapshotAttributesResult(data.DescribeDBClusterSnapshotAttributesResult, context);
+  const response: DescribeDBClusterSnapshotAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterSnapshotsCommand
+ */
+export const de_DescribeDBClusterSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterSnapshotMessage(data.DescribeDBClusterSnapshotsResult, context);
+  const response: DescribeDBClusterSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBEngineVersionsCommand
+ */
+export const de_DescribeDBEngineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBEngineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBEngineVersionMessage(data.DescribeDBEngineVersionsResult, context);
+  const response: DescribeDBEngineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand
+ */
+export const de_DescribeDBInstanceAutomatedBackupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBInstanceAutomatedBackupMessage(data.DescribeDBInstanceAutomatedBackupsResult, context);
+  const response: DescribeDBInstanceAutomatedBackupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBInstancesCommand
+ */
+export const de_DescribeDBInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBInstanceMessage(data.DescribeDBInstancesResult, context);
+  const response: DescribeDBInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBLogFilesCommand
+ */
+export const de_DescribeDBLogFilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBLogFilesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBLogFilesResponse(data.DescribeDBLogFilesResult, context);
+  const response: DescribeDBLogFilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBParameterGroupsCommand
+ */
+export const de_DescribeDBParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupsMessage(data.DescribeDBParameterGroupsResult, context);
+  const response: DescribeDBParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBParametersCommand
+ */
+export const de_DescribeDBParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupDetails(data.DescribeDBParametersResult, context);
+  const response: DescribeDBParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBProxiesCommand
+ */
+export const de_DescribeDBProxiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBProxiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBProxiesResponse(data.DescribeDBProxiesResult, context);
+  const response: DescribeDBProxiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBProxyEndpointsCommand
+ */
+export const de_DescribeDBProxyEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBProxyEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBProxyEndpointsResponse(data.DescribeDBProxyEndpointsResult, context);
+  const response: DescribeDBProxyEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBProxyTargetGroupsCommand
+ */
+export const de_DescribeDBProxyTargetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBProxyTargetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBProxyTargetGroupsResponse(data.DescribeDBProxyTargetGroupsResult, context);
+  const response: DescribeDBProxyTargetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBProxyTargetsCommand
+ */
+export const de_DescribeDBProxyTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBProxyTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBProxyTargetsResponse(data.DescribeDBProxyTargetsResult, context);
+  const response: DescribeDBProxyTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBRecommendationsCommand
+ */
+export const de_DescribeDBRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBRecommendationsMessage(data.DescribeDBRecommendationsResult, context);
+  const response: DescribeDBRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSecurityGroupsCommand
+ */
+export const de_DescribeDBSecurityGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSecurityGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBSecurityGroupMessage(data.DescribeDBSecurityGroupsResult, context);
+  const response: DescribeDBSecurityGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBShardGroupsCommand
+ */
+export const de_DescribeDBShardGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBShardGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBShardGroupsResponse(data.DescribeDBShardGroupsResult, context);
+  const response: DescribeDBShardGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSnapshotAttributesCommand
+ */
+export const de_DescribeDBSnapshotAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSnapshotAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBSnapshotAttributesResult(data.DescribeDBSnapshotAttributesResult, context);
+  const response: DescribeDBSnapshotAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSnapshotsCommand
+ */
+export const de_DescribeDBSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBSnapshotMessage(data.DescribeDBSnapshotsResult, context);
+  const response: DescribeDBSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSnapshotTenantDatabasesCommand
+ */
+export const de_DescribeDBSnapshotTenantDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBSnapshotTenantDatabasesMessage(data.DescribeDBSnapshotTenantDatabasesResult, context);
+  const response: DescribeDBSnapshotTenantDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSubnetGroupsCommand
+ */
+export const de_DescribeDBSubnetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSubnetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBSubnetGroupMessage(data.DescribeDBSubnetGroupsResult, context);
+  const response: DescribeDBSubnetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEngineDefaultClusterParametersCommand
+ */
+export const de_DescribeEngineDefaultClusterParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEngineDefaultClusterParametersResult(
+    data.DescribeEngineDefaultClusterParametersResult,
+    context
+  );
+  const response: DescribeEngineDefaultClusterParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEngineDefaultParametersCommand
+ */
+export const de_DescribeEngineDefaultParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineDefaultParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEngineDefaultParametersResult(data.DescribeEngineDefaultParametersResult, context);
+  const response: DescribeEngineDefaultParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventCategoriesCommand
+ */
+export const de_DescribeEventCategoriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventCategoriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventCategoriesMessage(data.DescribeEventCategoriesResult, context);
+  const response: DescribeEventCategoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventsMessage(data.DescribeEventsResult, context);
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventSubscriptionsCommand
+ */
+export const de_DescribeEventSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSubscriptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
+  const response: DescribeEventSubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeExportTasksCommand
+ */
+export const de_DescribeExportTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeExportTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ExportTasksMessage(data.DescribeExportTasksResult, context);
+  const response: DescribeExportTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeGlobalClustersCommand
+ */
+export const de_DescribeGlobalClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GlobalClustersMessage(data.DescribeGlobalClustersResult, context);
+  const response: DescribeGlobalClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeIntegrationsCommand
+ */
+export const de_DescribeIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIntegrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeIntegrationsResponse(data.DescribeIntegrationsResult, context);
+  const response: DescribeIntegrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeOptionGroupOptionsCommand
+ */
+export const de_DescribeOptionGroupOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOptionGroupOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OptionGroupOptionsMessage(data.DescribeOptionGroupOptionsResult, context);
+  const response: DescribeOptionGroupOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeOptionGroupsCommand
+ */
+export const de_DescribeOptionGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOptionGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OptionGroups(data.DescribeOptionGroupsResult, context);
+  const response: DescribeOptionGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand
+ */
+export const de_DescribeOrderableDBInstanceOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OrderableDBInstanceOptionsMessage(data.DescribeOrderableDBInstanceOptionsResult, context);
+  const response: DescribeOrderableDBInstanceOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribePendingMaintenanceActionsCommand
+ */
+export const de_DescribePendingMaintenanceActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PendingMaintenanceActionsMessage(data.DescribePendingMaintenanceActionsResult, context);
+  const response: DescribePendingMaintenanceActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeReservedDBInstancesCommand
+ */
+export const de_DescribeReservedDBInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedDBInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ReservedDBInstanceMessage(data.DescribeReservedDBInstancesResult, context);
+  const response: DescribeReservedDBInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand
+ */
+export const de_DescribeReservedDBInstancesOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ReservedDBInstancesOfferingMessage(data.DescribeReservedDBInstancesOfferingsResult, context);
+  const response: DescribeReservedDBInstancesOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeSourceRegionsCommand
+ */
+export const de_DescribeSourceRegionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSourceRegionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SourceRegionMessage(data.DescribeSourceRegionsResult, context);
+  const response: DescribeSourceRegionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTenantDatabasesCommand
+ */
+export const de_DescribeTenantDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTenantDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TenantDatabasesMessage(data.DescribeTenantDatabasesResult, context);
+  const response: DescribeTenantDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeValidDBInstanceModificationsCommand
+ */
+export const de_DescribeValidDBInstanceModificationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeValidDBInstanceModificationsResult(data.DescribeValidDBInstanceModificationsResult, context);
+  const response: DescribeValidDBInstanceModificationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDisableHttpEndpointCommand
+ */
+export const de_DisableHttpEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableHttpEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableHttpEndpointResponse(data.DisableHttpEndpointResult, context);
+  const response: DisableHttpEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDownloadDBLogFilePortionCommand
+ */
+export const de_DownloadDBLogFilePortionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DownloadDBLogFilePortionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DownloadDBLogFilePortionDetails(data.DownloadDBLogFilePortionResult, context);
+  const response: DownloadDBLogFilePortionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryEnableHttpEndpointCommand
+ */
+export const de_EnableHttpEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableHttpEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableHttpEndpointResponse(data.EnableHttpEndpointResult, context);
+  const response: EnableHttpEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverDBClusterCommand
+ */
+export const de_FailoverDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverDBClusterResult(data.FailoverDBClusterResult, context);
+  const response: FailoverDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverGlobalClusterCommand
+ */
+export const de_FailoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
+  const response: FailoverGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TagListMessage(data.ListTagsForResourceResult, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyActivityStreamCommand
+ */
+export const de_ModifyActivityStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyActivityStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyActivityStreamResponse(data.ModifyActivityStreamResult, context);
+  const response: ModifyActivityStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyCertificatesCommand
+ */
+export const de_ModifyCertificatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCertificatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyCertificatesResult(data.ModifyCertificatesResult, context);
+  const response: ModifyCertificatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyCurrentDBClusterCapacityCommand
+ */
+export const de_ModifyCurrentDBClusterCapacityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCurrentDBClusterCapacityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterCapacityInfo(data.ModifyCurrentDBClusterCapacityResult, context);
+  const response: ModifyCurrentDBClusterCapacityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyCustomDBEngineVersionCommand
+ */
+export const de_ModifyCustomDBEngineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCustomDBEngineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBEngineVersion(data.ModifyCustomDBEngineVersionResult, context);
+  const response: ModifyCustomDBEngineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterCommand
+ */
+export const de_ModifyDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBClusterResult(data.ModifyDBClusterResult, context);
+  const response: ModifyDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterEndpointCommand
+ */
+export const de_ModifyDBClusterEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterEndpoint(data.ModifyDBClusterEndpointResult, context);
+  const response: ModifyDBClusterEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterParameterGroupCommand
+ */
+export const de_ModifyDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupNameMessage(data.ModifyDBClusterParameterGroupResult, context);
+  const response: ModifyDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterSnapshotAttributeCommand
+ */
+export const de_ModifyDBClusterSnapshotAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBClusterSnapshotAttributeResult(data.ModifyDBClusterSnapshotAttributeResult, context);
+  const response: ModifyDBClusterSnapshotAttributeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBInstanceCommand
+ */
+export const de_ModifyDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBInstanceResult(data.ModifyDBInstanceResult, context);
+  const response: ModifyDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBParameterGroupCommand
+ */
+export const de_ModifyDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupNameMessage(data.ModifyDBParameterGroupResult, context);
+  const response: ModifyDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBProxyCommand
+ */
+export const de_ModifyDBProxyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBProxyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBProxyResponse(data.ModifyDBProxyResult, context);
+  const response: ModifyDBProxyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBProxyEndpointCommand
+ */
+export const de_ModifyDBProxyEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBProxyEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBProxyEndpointResponse(data.ModifyDBProxyEndpointResult, context);
+  const response: ModifyDBProxyEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBProxyTargetGroupCommand
+ */
+export const de_ModifyDBProxyTargetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBProxyTargetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBProxyTargetGroupResponse(data.ModifyDBProxyTargetGroupResult, context);
+  const response: ModifyDBProxyTargetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBRecommendationCommand
+ */
+export const de_ModifyDBRecommendationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBRecommendationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBRecommendationMessage(data.ModifyDBRecommendationResult, context);
+  const response: ModifyDBRecommendationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBShardGroupCommand
+ */
+export const de_ModifyDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.ModifyDBShardGroupResult, context);
+  const response: ModifyDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBSnapshotCommand
+ */
+export const de_ModifyDBSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBSnapshotResult(data.ModifyDBSnapshotResult, context);
+  const response: ModifyDBSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBSnapshotAttributeCommand
+ */
+export const de_ModifyDBSnapshotAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBSnapshotAttributeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBSnapshotAttributeResult(data.ModifyDBSnapshotAttributeResult, context);
+  const response: ModifyDBSnapshotAttributeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBSubnetGroupCommand
+ */
+export const de_ModifyDBSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBSubnetGroupResult(data.ModifyDBSubnetGroupResult, context);
+  const response: ModifyDBSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyEventSubscriptionCommand
+ */
+export const de_ModifyEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
+  const response: ModifyEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyGlobalClusterCommand
+ */
+export const de_ModifyGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
+  const response: ModifyGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyOptionGroupCommand
+ */
+export const de_ModifyOptionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyOptionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyOptionGroupResult(data.ModifyOptionGroupResult, context);
+  const response: ModifyOptionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyTenantDatabaseCommand
+ */
+export const de_ModifyTenantDatabaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTenantDatabaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyTenantDatabaseResult(data.ModifyTenantDatabaseResult, context);
+  const response: ModifyTenantDatabaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPromoteReadReplicaCommand
+ */
+export const de_PromoteReadReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromoteReadReplicaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PromoteReadReplicaResult(data.PromoteReadReplicaResult, context);
+  const response: PromoteReadReplicaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPromoteReadReplicaDBClusterCommand
+ */
+export const de_PromoteReadReplicaDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PromoteReadReplicaDBClusterResult(data.PromoteReadReplicaDBClusterResult, context);
+  const response: PromoteReadReplicaDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand
+ */
+export const de_PurchaseReservedDBInstancesOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PurchaseReservedDBInstancesOfferingResult(data.PurchaseReservedDBInstancesOfferingResult, context);
+  const response: PurchaseReservedDBInstancesOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRebootDBClusterCommand
+ */
+export const de_RebootDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RebootDBClusterResult(data.RebootDBClusterResult, context);
+  const response: RebootDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRebootDBInstanceCommand
+ */
+export const de_RebootDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RebootDBInstanceResult(data.RebootDBInstanceResult, context);
+  const response: RebootDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRebootDBShardGroupCommand
+ */
+export const de_RebootDBShardGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBShardGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBShardGroup(data.RebootDBShardGroupResult, context);
+  const response: RebootDBShardGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRegisterDBProxyTargetsCommand
+ */
+export const de_RegisterDBProxyTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterDBProxyTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterDBProxyTargetsResponse(data.RegisterDBProxyTargetsResult, context);
+  const response: RegisterDBProxyTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveFromGlobalClusterCommand
+ */
+export const de_RemoveFromGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFromGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveFromGlobalClusterResult(data.RemoveFromGlobalClusterResult, context);
+  const response: RemoveFromGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveRoleFromDBClusterCommand
+ */
+export const de_RemoveRoleFromDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRoleFromDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveRoleFromDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveRoleFromDBInstanceCommand
+ */
+export const de_RemoveRoleFromDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRoleFromDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveRoleFromDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
+ */
+export const de_RemoveSourceIdentifierFromSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveSourceIdentifierFromSubscriptionResult(
+    data.RemoveSourceIdentifierFromSubscriptionResult,
+    context
+  );
+  const response: RemoveSourceIdentifierFromSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveTagsFromResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResetDBClusterParameterGroupCommand
+ */
+export const de_ResetDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupNameMessage(data.ResetDBClusterParameterGroupResult, context);
+  const response: ResetDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResetDBParameterGroupCommand
+ */
+export const de_ResetDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupNameMessage(data.ResetDBParameterGroupResult, context);
+  const response: ResetDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBClusterFromS3Command
+ */
+export const de_RestoreDBClusterFromS3Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBClusterFromS3CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBClusterFromS3Result(data.RestoreDBClusterFromS3Result, context);
+  const response: RestoreDBClusterFromS3CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBClusterFromSnapshotCommand
+ */
+export const de_RestoreDBClusterFromSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBClusterFromSnapshotResult(data.RestoreDBClusterFromSnapshotResult, context);
+  const response: RestoreDBClusterFromSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBClusterToPointInTimeCommand
+ */
+export const de_RestoreDBClusterToPointInTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBClusterToPointInTimeResult(data.RestoreDBClusterToPointInTimeResult, context);
+  const response: RestoreDBClusterToPointInTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand
+ */
+export const de_RestoreDBInstanceFromDBSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBInstanceFromDBSnapshotResult(data.RestoreDBInstanceFromDBSnapshotResult, context);
+  const response: RestoreDBInstanceFromDBSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBInstanceFromS3Command
+ */
+export const de_RestoreDBInstanceFromS3Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBInstanceFromS3CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBInstanceFromS3Result(data.RestoreDBInstanceFromS3Result, context);
+  const response: RestoreDBInstanceFromS3CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBInstanceToPointInTimeCommand
+ */
+export const de_RestoreDBInstanceToPointInTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBInstanceToPointInTimeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBInstanceToPointInTimeResult(data.RestoreDBInstanceToPointInTimeResult, context);
+  const response: RestoreDBInstanceToPointInTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRevokeDBSecurityGroupIngressCommand
+ */
+export const de_RevokeDBSecurityGroupIngressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeDBSecurityGroupIngressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RevokeDBSecurityGroupIngressResult(data.RevokeDBSecurityGroupIngressResult, context);
+  const response: RevokeDBSecurityGroupIngressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartActivityStreamCommand
+ */
+export const de_StartActivityStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartActivityStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartActivityStreamResponse(data.StartActivityStreamResult, context);
+  const response: StartActivityStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartDBClusterCommand
+ */
+export const de_StartDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartDBClusterResult(data.StartDBClusterResult, context);
+  const response: StartDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartDBInstanceCommand
+ */
+export const de_StartDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartDBInstanceResult(data.StartDBInstanceResult, context);
+  const response: StartDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand
+ */
+export const de_StartDBInstanceAutomatedBackupsReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartDBInstanceAutomatedBackupsReplicationResult(
+    data.StartDBInstanceAutomatedBackupsReplicationResult,
+    context
+  );
+  const response: StartDBInstanceAutomatedBackupsReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartExportTaskCommand
+ */
+export const de_StartExportTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExportTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ExportTask(data.StartExportTaskResult, context);
+  const response: StartExportTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStopActivityStreamCommand
+ */
+export const de_StopActivityStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopActivityStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopActivityStreamResponse(data.StopActivityStreamResult, context);
+  const response: StopActivityStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStopDBClusterCommand
+ */
+export const de_StopDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopDBClusterResult(data.StopDBClusterResult, context);
+  const response: StopDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStopDBInstanceCommand
+ */
+export const de_StopDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopDBInstanceResult(data.StopDBInstanceResult, context);
+  const response: StopDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand
+ */
+export const de_StopDBInstanceAutomatedBackupsReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopDBInstanceAutomatedBackupsReplicationResult(
+    data.StopDBInstanceAutomatedBackupsReplicationResult,
+    context
+  );
+  const response: StopDBInstanceAutomatedBackupsReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySwitchoverBlueGreenDeploymentCommand
+ */
+export const de_SwitchoverBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SwitchoverBlueGreenDeploymentResponse(data.SwitchoverBlueGreenDeploymentResult, context);
+  const response: SwitchoverBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const de_SwitchoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SwitchoverGlobalClusterResult(data.SwitchoverGlobalClusterResult, context);
+  const response: SwitchoverGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySwitchoverReadReplicaCommand
+ */
+export const de_SwitchoverReadReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverReadReplicaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SwitchoverReadReplicaResult(data.SwitchoverReadReplicaResult, context);
+  const response: SwitchoverReadReplicaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3883,46 +7062,6 @@ const de_AddRoleToDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddRoleToDBInstanceCommand
- */
-export const de_AddRoleToDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddRoleToDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddRoleToDBInstanceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: AddRoleToDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddRoleToDBInstanceCommandError
- */
-const de_AddRoleToDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddRoleToDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBInstanceNotFound":
     case "com.amazonaws.rds#DBInstanceNotFoundFault":
       throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
@@ -3935,104 +7074,15 @@ const de_AddRoleToDBInstanceCommandError = async (
     case "InvalidDBInstanceState":
     case "com.amazonaws.rds#InvalidDBInstanceStateFault":
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddSourceIdentifierToSubscriptionCommand
- */
-export const de_AddSourceIdentifierToSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddSourceIdentifierToSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AddSourceIdentifierToSubscriptionResult(data.AddSourceIdentifierToSubscriptionResult, context);
-  const response: AddSourceIdentifierToSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
- */
-const de_AddSourceIdentifierToSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "SourceNotFound":
     case "com.amazonaws.rds#SourceNotFoundFault":
       throw await de_SourceNotFoundFaultRes(parsedOutput, context);
     case "SubscriptionNotFound":
     case "com.amazonaws.rds#SubscriptionNotFoundFault":
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddTagsToResourceCommand
- */
-export const de_AddTagsToResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: AddTagsToResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BlueGreenDeploymentNotFoundFault":
     case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
       throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBProxyNotFoundFault":
     case "com.amazonaws.rds#DBProxyNotFoundFault":
       throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
@@ -4051,101 +7101,9 @@ const de_AddTagsToResourceCommandError = async (
     case "TenantDatabaseNotFound":
     case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
       throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryApplyPendingMaintenanceActionCommand
- */
-export const de_ApplyPendingMaintenanceActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ApplyPendingMaintenanceActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ApplyPendingMaintenanceActionResult(data.ApplyPendingMaintenanceActionResult, context);
-  const response: ApplyPendingMaintenanceActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryApplyPendingMaintenanceActionCommandError
- */
-const de_ApplyPendingMaintenanceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.rds#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand
- */
-export const de_AuthorizeDBSecurityGroupIngressCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AuthorizeDBSecurityGroupIngressCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AuthorizeDBSecurityGroupIngressResult(data.AuthorizeDBSecurityGroupIngressResult, context);
-  const response: AuthorizeDBSecurityGroupIngressCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAuthorizeDBSecurityGroupIngressCommandError
- */
-const de_AuthorizeDBSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeDBSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthorizationAlreadyExists":
     case "com.amazonaws.rds#AuthorizationAlreadyExistsFault":
       throw await de_AuthorizationAlreadyExistsFaultRes(parsedOutput, context);
@@ -4158,147 +7116,12 @@ const de_AuthorizeDBSecurityGroupIngressCommandError = async (
     case "InvalidDBSecurityGroupState":
     case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
       throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryBacktrackDBClusterCommand
- */
-export const de_BacktrackDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BacktrackDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BacktrackDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterBacktrack(data.BacktrackDBClusterResult, context);
-  const response: BacktrackDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryBacktrackDBClusterCommandError
- */
-const de_BacktrackDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BacktrackDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCancelExportTaskCommand
- */
-export const de_CancelExportTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelExportTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CancelExportTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ExportTask(data.CancelExportTaskResult, context);
-  const response: CancelExportTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCancelExportTaskCommandError
- */
-const de_CancelExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ExportTaskNotFound":
     case "com.amazonaws.rds#ExportTaskNotFoundFault":
       throw await de_ExportTaskNotFoundFaultRes(parsedOutput, context);
     case "InvalidExportTaskStateFault":
     case "com.amazonaws.rds#InvalidExportTaskStateFault":
       throw await de_InvalidExportTaskStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBClusterParameterGroupCommand
- */
-export const de_CopyDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBClusterParameterGroupResult(data.CopyDBClusterParameterGroupResult, context);
-  const response: CopyDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBClusterParameterGroupCommandError
- */
-const de_CopyDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
       throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
@@ -4308,49 +7131,6 @@ const de_CopyDBClusterParameterGroupCommandError = async (
     case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
       throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBClusterSnapshotCommand
- */
-export const de_CopyDBClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBClusterSnapshotResult(data.CopyDBClusterSnapshotResult, context);
-  const response: CopyDBClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBClusterSnapshotCommandError
- */
-const de_CopyDBClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault":
       throw await de_DBClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
@@ -4360,171 +7140,21 @@ const de_CopyDBClusterSnapshotCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     case "SnapshotQuotaExceeded":
     case "com.amazonaws.rds#SnapshotQuotaExceededFault":
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBParameterGroupCommand
- */
-export const de_CopyDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBParameterGroupResult(data.CopyDBParameterGroupResult, context);
-  const response: CopyDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBParameterGroupCommandError
- */
-const de_CopyDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupAlreadyExists":
-    case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupQuotaExceeded":
-    case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBSnapshotCommand
- */
-export const de_CopyDBSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBSnapshotResult(data.CopyDBSnapshotResult, context);
-  const response: CopyDBSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBSnapshotCommandError
- */
-const de_CopyDBSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CustomAvailabilityZoneNotFound":
     case "com.amazonaws.rds#CustomAvailabilityZoneNotFoundFault":
       throw await de_CustomAvailabilityZoneNotFoundFaultRes(parsedOutput, context);
     case "DBSnapshotAlreadyExists":
     case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
       throw await de_DBSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyOptionGroupCommand
- */
-export const de_CopyOptionGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyOptionGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyOptionGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyOptionGroupResult(data.CopyOptionGroupResult, context);
-  const response: CopyOptionGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyOptionGroupCommandError
- */
-const de_CopyOptionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyOptionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "OptionGroupAlreadyExistsFault":
     case "com.amazonaws.rds#OptionGroupAlreadyExistsFault":
       throw await de_OptionGroupAlreadyExistsFaultRes(parsedOutput, context);
@@ -4534,125 +7164,24 @@ const de_CopyOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await de_OptionGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateBlueGreenDeploymentCommand
- */
-export const de_CreateBlueGreenDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBlueGreenDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateBlueGreenDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateBlueGreenDeploymentResponse(data.CreateBlueGreenDeploymentResult, context);
-  const response: CreateBlueGreenDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateBlueGreenDeploymentCommandError
- */
-const de_CreateBlueGreenDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBlueGreenDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BlueGreenDeploymentAlreadyExistsFault":
     case "com.amazonaws.rds#BlueGreenDeploymentAlreadyExistsFault":
       throw await de_BlueGreenDeploymentAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
       throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterQuotaExceededFault":
       throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "InstanceQuotaExceeded":
     case "com.amazonaws.rds#InstanceQuotaExceededFault":
       throw await de_InstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     case "SourceClusterNotSupportedFault":
     case "com.amazonaws.rds#SourceClusterNotSupportedFault":
       throw await de_SourceClusterNotSupportedFaultRes(parsedOutput, context);
     case "SourceDatabaseNotSupportedFault":
     case "com.amazonaws.rds#SourceDatabaseNotSupportedFault":
       throw await de_SourceDatabaseNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateCustomDBEngineVersionCommand
- */
-export const de_CreateCustomDBEngineVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomDBEngineVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCustomDBEngineVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBEngineVersion(data.CreateCustomDBEngineVersionResult, context);
-  const response: CreateCustomDBEngineVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateCustomDBEngineVersionCommandError
- */
-const de_CreateCustomDBEngineVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomDBEngineVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CreateCustomDBEngineVersionFault":
     case "com.amazonaws.rds#CreateCustomDBEngineVersionFault":
       throw await de_CreateCustomDBEngineVersionFaultRes(parsedOutput, context);
@@ -4665,67 +7194,9 @@ const de_CreateCustomDBEngineVersionCommandError = async (
     case "Ec2ImagePropertiesNotSupportedFault":
     case "com.amazonaws.rds#Ec2ImagePropertiesNotSupportedFault":
       throw await de_Ec2ImagePropertiesNotSupportedFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterCommand
- */
-export const de_CreateDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterResult(data.CreateDBClusterResult, context);
-  const response: CreateDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterCommandError
- */
-const de_CreateDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
       throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterQuotaExceededFault":
-    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
       throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
@@ -4744,12 +7215,6 @@ const de_CreateDBClusterCommandError = async (
     case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
       throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     case "InvalidDBSubnetGroupFault":
     case "com.amazonaws.rds#InvalidDBSubnetGroupFault":
       throw await de_InvalidDBSubnetGroupFaultRes(parsedOutput, context);
@@ -4765,226 +7230,15 @@ const de_CreateDBClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     case "StorageQuotaExceeded":
     case "com.amazonaws.rds#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterEndpointCommand
- */
-export const de_CreateDBClusterEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterEndpoint(data.CreateDBClusterEndpointResult, context);
-  const response: CreateDBClusterEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterEndpointCommandError
- */
-const de_CreateDBClusterEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterEndpointAlreadyExistsFault":
     case "com.amazonaws.rds#DBClusterEndpointAlreadyExistsFault":
       throw await de_DBClusterEndpointAlreadyExistsFaultRes(parsedOutput, context);
     case "DBClusterEndpointQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterEndpointQuotaExceededFault":
       throw await de_DBClusterEndpointQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterParameterGroupCommand
- */
-export const de_CreateDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterParameterGroupResult(data.CreateDBClusterParameterGroupResult, context);
-  const response: CreateDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterParameterGroupCommandError
- */
-const de_CreateDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupAlreadyExists":
-    case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupQuotaExceeded":
-    case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterSnapshotCommand
- */
-export const de_CreateDBClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterSnapshotResult(data.CreateDBClusterSnapshotResult, context);
-  const response: CreateDBClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterSnapshotCommandError
- */
-const de_CreateDBClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotAlreadyExistsFault":
-    case "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault":
-      throw await de_DBClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBInstanceCommand
- */
-export const de_CreateDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBInstanceResult(data.CreateDBInstanceResult, context);
-  const response: CreateDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBInstanceCommandError
- */
-const de_CreateDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthorizationNotFound":
     case "com.amazonaws.rds#AuthorizationNotFoundFault":
       throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
@@ -4994,377 +7248,39 @@ const de_CreateDBInstanceCommandError = async (
     case "CertificateNotFound":
     case "com.amazonaws.rds#CertificateNotFoundFault":
       throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InstanceQuotaExceeded":
-    case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      throw await de_InstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     case "NetworkTypeNotSupported":
     case "com.amazonaws.rds#NetworkTypeNotSupported":
       throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
       throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     case "StorageTypeNotSupported":
     case "com.amazonaws.rds#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
     case "TenantDatabaseQuotaExceeded":
     case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
       throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBInstanceReadReplicaCommand
- */
-export const de_CreateDBInstanceReadReplicaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBInstanceReadReplicaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBInstanceReadReplicaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBInstanceReadReplicaResult(data.CreateDBInstanceReadReplicaResult, context);
-  const response: CreateDBInstanceReadReplicaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBInstanceReadReplicaCommandError
- */
-const de_CreateDBInstanceReadReplicaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBInstanceReadReplicaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
     case "DBSubnetGroupNotAllowedFault":
     case "com.amazonaws.rds#DBSubnetGroupNotAllowedFault":
       throw await de_DBSubnetGroupNotAllowedFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InstanceQuotaExceeded":
-    case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      throw await de_InstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidDBSubnetGroupFault":
-    case "com.amazonaws.rds#InvalidDBSubnetGroupFault":
-      throw await de_InvalidDBSubnetGroupFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "NetworkTypeNotSupported":
-    case "com.amazonaws.rds#NetworkTypeNotSupported":
-      throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "ProvisionedIopsNotAvailableInAZFault":
-    case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    case "TenantDatabaseQuotaExceeded":
-    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
-      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBParameterGroupCommand
- */
-export const de_CreateDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBParameterGroupResult(data.CreateDBParameterGroupResult, context);
-  const response: CreateDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBParameterGroupCommandError
- */
-const de_CreateDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupAlreadyExists":
-    case "com.amazonaws.rds#DBParameterGroupAlreadyExistsFault":
-      throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupQuotaExceeded":
-    case "com.amazonaws.rds#DBParameterGroupQuotaExceededFault":
-      throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBProxyCommand
- */
-export const de_CreateDBProxyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBProxyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBProxyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBProxyResponse(data.CreateDBProxyResult, context);
-  const response: CreateDBProxyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBProxyCommandError
- */
-const de_CreateDBProxyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBProxyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBProxyAlreadyExistsFault":
     case "com.amazonaws.rds#DBProxyAlreadyExistsFault":
       throw await de_DBProxyAlreadyExistsFaultRes(parsedOutput, context);
     case "DBProxyQuotaExceededFault":
     case "com.amazonaws.rds#DBProxyQuotaExceededFault":
       throw await de_DBProxyQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBProxyEndpointCommand
- */
-export const de_CreateDBProxyEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBProxyEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBProxyEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBProxyEndpointResponse(data.CreateDBProxyEndpointResult, context);
-  const response: CreateDBProxyEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBProxyEndpointCommandError
- */
-const de_CreateDBProxyEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBProxyEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBProxyEndpointAlreadyExistsFault":
     case "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault":
       throw await de_DBProxyEndpointAlreadyExistsFaultRes(parsedOutput, context);
     case "DBProxyEndpointQuotaExceededFault":
     case "com.amazonaws.rds#DBProxyEndpointQuotaExceededFault":
       throw await de_DBProxyEndpointQuotaExceededFaultRes(parsedOutput, context);
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBProxyStateFault":
     case "com.amazonaws.rds#InvalidDBProxyStateFault":
       throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBSecurityGroupCommand
- */
-export const de_CreateDBSecurityGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBSecurityGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBSecurityGroupResult(data.CreateDBSecurityGroupResult, context);
-  const response: CreateDBSecurityGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBSecurityGroupCommandError
- */
-const de_CreateDBSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBSecurityGroupAlreadyExists":
     case "com.amazonaws.rds#DBSecurityGroupAlreadyExistsFault":
       throw await de_DBSecurityGroupAlreadyExistsFaultRes(parsedOutput, context);
@@ -5374,226 +7290,27 @@ const de_CreateDBSecurityGroupCommandError = async (
     case "QuotaExceeded.DBSecurityGroup":
     case "com.amazonaws.rds#DBSecurityGroupQuotaExceededFault":
       throw await de_DBSecurityGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBShardGroupCommand
- */
-export const de_CreateDBShardGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBShardGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBShardGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBShardGroup(data.CreateDBShardGroupResult, context);
-  const response: CreateDBShardGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBShardGroupCommandError
- */
-const de_CreateDBShardGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBShardGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBShardGroupAlreadyExists":
     case "com.amazonaws.rds#DBShardGroupAlreadyExistsFault":
       throw await de_DBShardGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     case "InvalidMaxAcu":
     case "com.amazonaws.rds#InvalidMaxAcuFault":
       throw await de_InvalidMaxAcuFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
     case "MaxDBShardGroupLimitReached":
     case "com.amazonaws.rds#MaxDBShardGroupLimitReached":
       throw await de_MaxDBShardGroupLimitReachedRes(parsedOutput, context);
     case "UnsupportedDBEngineVersion":
     case "com.amazonaws.rds#UnsupportedDBEngineVersionFault":
       throw await de_UnsupportedDBEngineVersionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBSnapshotCommand
- */
-export const de_CreateDBSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBSnapshotResult(data.CreateDBSnapshotResult, context);
-  const response: CreateDBSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBSnapshotCommandError
- */
-const de_CreateDBSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotAlreadyExists":
-    case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      throw await de_DBSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBSubnetGroupCommand
- */
-export const de_CreateDBSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBSubnetGroupResult(data.CreateDBSubnetGroupResult, context);
-  const response: CreateDBSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBSubnetGroupCommandError
- */
-const de_CreateDBSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBSubnetGroupAlreadyExists":
     case "com.amazonaws.rds#DBSubnetGroupAlreadyExistsFault":
       throw await de_DBSubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
     case "DBSubnetGroupQuotaExceeded":
     case "com.amazonaws.rds#DBSubnetGroupQuotaExceededFault":
       throw await de_DBSubnetGroupQuotaExceededFaultRes(parsedOutput, context);
     case "DBSubnetQuotaExceededFault":
     case "com.amazonaws.rds#DBSubnetQuotaExceededFault":
       throw await de_DBSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateEventSubscriptionCommand
- */
-export const de_CreateEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
-  const response: CreateEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateEventSubscriptionCommandError
- */
-const de_CreateEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
       throw await de_EventSubscriptionQuotaExceededFaultRes(parsedOutput, context);
@@ -5606,119 +7323,18 @@ const de_CreateEventSubscriptionCommandError = async (
     case "SNSTopicArnNotFound":
     case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
       throw await de_SNSTopicArnNotFoundFaultRes(parsedOutput, context);
-    case "SourceNotFound":
-    case "com.amazonaws.rds#SourceNotFoundFault":
-      throw await de_SourceNotFoundFaultRes(parsedOutput, context);
     case "SubscriptionAlreadyExist":
     case "com.amazonaws.rds#SubscriptionAlreadyExistFault":
       throw await de_SubscriptionAlreadyExistFaultRes(parsedOutput, context);
     case "SubscriptionCategoryNotFound":
     case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
       throw await de_SubscriptionCategoryNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateGlobalClusterCommand
- */
-export const de_CreateGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateGlobalClusterResult(data.CreateGlobalClusterResult, context);
-  const response: CreateGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateGlobalClusterCommandError
- */
-const de_CreateGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "GlobalClusterAlreadyExistsFault":
     case "com.amazonaws.rds#GlobalClusterAlreadyExistsFault":
       throw await de_GlobalClusterAlreadyExistsFaultRes(parsedOutput, context);
     case "GlobalClusterQuotaExceededFault":
     case "com.amazonaws.rds#GlobalClusterQuotaExceededFault":
       throw await de_GlobalClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateIntegrationCommand
- */
-export const de_CreateIntegrationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIntegrationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateIntegrationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_Integration(data.CreateIntegrationResult, context);
-  const response: CreateIntegrationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateIntegrationCommandError
- */
-const de_CreateIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "IntegrationAlreadyExistsFault":
     case "com.amazonaws.rds#IntegrationAlreadyExistsFault":
       throw await de_IntegrationAlreadyExistsFaultRes(parsedOutput, context);
@@ -5728,6525 +7344,132 @@ const de_CreateIntegrationCommandError = async (
     case "IntegrationQuotaExceededFault":
     case "com.amazonaws.rds#IntegrationQuotaExceededFault":
       throw await de_IntegrationQuotaExceededFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateOptionGroupCommand
- */
-export const de_CreateOptionGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOptionGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateOptionGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateOptionGroupResult(data.CreateOptionGroupResult, context);
-  const response: CreateOptionGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateOptionGroupCommandError
- */
-const de_CreateOptionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOptionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OptionGroupAlreadyExistsFault":
-    case "com.amazonaws.rds#OptionGroupAlreadyExistsFault":
-      throw await de_OptionGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "OptionGroupQuotaExceededFault":
-    case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
-      throw await de_OptionGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateTenantDatabaseCommand
- */
-export const de_CreateTenantDatabaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTenantDatabaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTenantDatabaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateTenantDatabaseResult(data.CreateTenantDatabaseResult, context);
-  const response: CreateTenantDatabaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateTenantDatabaseCommandError
- */
-const de_CreateTenantDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTenantDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     case "TenantDatabaseAlreadyExists":
     case "com.amazonaws.rds#TenantDatabaseAlreadyExistsFault":
       throw await de_TenantDatabaseAlreadyExistsFaultRes(parsedOutput, context);
-    case "TenantDatabaseQuotaExceeded":
-    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
-      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteBlueGreenDeploymentCommand
- */
-export const de_DeleteBlueGreenDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteBlueGreenDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteBlueGreenDeploymentResponse(data.DeleteBlueGreenDeploymentResult, context);
-  const response: DeleteBlueGreenDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteBlueGreenDeploymentCommandError
- */
-const de_DeleteBlueGreenDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BlueGreenDeploymentNotFoundFault":
-    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
-      throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
     case "InvalidBlueGreenDeploymentStateFault":
     case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
       throw await de_InvalidBlueGreenDeploymentStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteCustomDBEngineVersionCommand
- */
-export const de_DeleteCustomDBEngineVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomDBEngineVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCustomDBEngineVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBEngineVersion(data.DeleteCustomDBEngineVersionResult, context);
-  const response: DeleteCustomDBEngineVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteCustomDBEngineVersionCommandError
- */
-const de_DeleteCustomDBEngineVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomDBEngineVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CustomDBEngineVersionNotFoundFault":
     case "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault":
       throw await de_CustomDBEngineVersionNotFoundFaultRes(parsedOutput, context);
     case "InvalidCustomDBEngineVersionStateFault":
     case "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault":
       throw await de_InvalidCustomDBEngineVersionStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterCommand
- */
-export const de_DeleteDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBClusterResult(data.DeleteDBClusterResult, context);
-  const response: DeleteDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterCommandError
- */
-const de_DeleteDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterAutomatedBackupQuotaExceededFault":
     case "com.amazonaws.rds#DBClusterAutomatedBackupQuotaExceededFault":
       throw await de_DBClusterAutomatedBackupQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotAlreadyExistsFault":
-    case "com.amazonaws.rds#DBClusterSnapshotAlreadyExistsFault":
-      throw await de_DBClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterAutomatedBackupCommand
- */
-export const de_DeleteDBClusterAutomatedBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterAutomatedBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterAutomatedBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBClusterAutomatedBackupResult(data.DeleteDBClusterAutomatedBackupResult, context);
-  const response: DeleteDBClusterAutomatedBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterAutomatedBackupCommandError
- */
-const de_DeleteDBClusterAutomatedBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterAutomatedBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterAutomatedBackupNotFoundFault":
     case "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault":
       throw await de_DBClusterAutomatedBackupNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBClusterAutomatedBackupStateFault":
     case "com.amazonaws.rds#InvalidDBClusterAutomatedBackupStateFault":
       throw await de_InvalidDBClusterAutomatedBackupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterEndpointCommand
- */
-export const de_DeleteDBClusterEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterEndpoint(data.DeleteDBClusterEndpointResult, context);
-  const response: DeleteDBClusterEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterEndpointCommandError
- */
-const de_DeleteDBClusterEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "com.amazonaws.rds#DBClusterEndpointNotFoundFault":
       throw await de_DBClusterEndpointNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBClusterEndpointStateFault":
     case "com.amazonaws.rds#InvalidDBClusterEndpointStateFault":
       throw await de_InvalidDBClusterEndpointStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterParameterGroupCommand
- */
-export const de_DeleteDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterParameterGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterParameterGroupCommandError
- */
-const de_DeleteDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBParameterGroupState":
     case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterSnapshotCommand
- */
-export const de_DeleteDBClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBClusterSnapshotResult(data.DeleteDBClusterSnapshotResult, context);
-  const response: DeleteDBClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterSnapshotCommandError
- */
-const de_DeleteDBClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBInstanceCommand
- */
-export const de_DeleteDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBInstanceResult(data.DeleteDBInstanceResult, context);
-  const response: DeleteDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBInstanceCommandError
- */
-const de_DeleteDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBInstanceAutomatedBackupQuotaExceeded":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
       throw await de_DBInstanceAutomatedBackupQuotaExceededFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotAlreadyExists":
-    case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      throw await de_DBSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand
- */
-export const de_DeleteDBInstanceAutomatedBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBInstanceAutomatedBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBInstanceAutomatedBackupResult(data.DeleteDBInstanceAutomatedBackupResult, context);
-  const response: DeleteDBInstanceAutomatedBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBInstanceAutomatedBackupCommandError
- */
-const de_DeleteDBInstanceAutomatedBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBInstanceAutomatedBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBInstanceAutomatedBackupNotFound":
     case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
       throw await de_DBInstanceAutomatedBackupNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBInstanceAutomatedBackupState":
     case "com.amazonaws.rds#InvalidDBInstanceAutomatedBackupStateFault":
       throw await de_InvalidDBInstanceAutomatedBackupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBParameterGroupCommand
- */
-export const de_DeleteDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBParameterGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBParameterGroupCommandError
- */
-const de_DeleteDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBProxyCommand
- */
-export const de_DeleteDBProxyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBProxyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBProxyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBProxyResponse(data.DeleteDBProxyResult, context);
-  const response: DeleteDBProxyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBProxyCommandError
- */
-const de_DeleteDBProxyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBProxyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBProxyEndpointCommand
- */
-export const de_DeleteDBProxyEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBProxyEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBProxyEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBProxyEndpointResponse(data.DeleteDBProxyEndpointResult, context);
-  const response: DeleteDBProxyEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBProxyEndpointCommandError
- */
-const de_DeleteDBProxyEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBProxyEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBProxyEndpointNotFoundFault":
     case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
       throw await de_DBProxyEndpointNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBProxyEndpointStateFault":
     case "com.amazonaws.rds#InvalidDBProxyEndpointStateFault":
       throw await de_InvalidDBProxyEndpointStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBSecurityGroupCommand
- */
-export const de_DeleteDBSecurityGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBSecurityGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBSecurityGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBSecurityGroupCommandError
- */
-const de_DeleteDBSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBSecurityGroupState":
-    case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBShardGroupCommand
- */
-export const de_DeleteDBShardGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBShardGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBShardGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBShardGroup(data.DeleteDBShardGroupResult, context);
-  const response: DeleteDBShardGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBShardGroupCommandError
- */
-const de_DeleteDBShardGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBShardGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBShardGroupNotFound":
     case "com.amazonaws.rds#DBShardGroupNotFoundFault":
       throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     case "InvalidDBShardGroupState":
     case "com.amazonaws.rds#InvalidDBShardGroupStateFault":
       throw await de_InvalidDBShardGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBSnapshotCommand
- */
-export const de_DeleteDBSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBSnapshotResult(data.DeleteDBSnapshotResult, context);
-  const response: DeleteDBSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBSnapshotCommandError
- */
-const de_DeleteDBSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBSnapshotState":
-    case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBSubnetGroupCommand
- */
-export const de_DeleteDBSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBSubnetGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBSubnetGroupCommandError
- */
-const de_DeleteDBSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBSubnetGroupStateFault":
-    case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      throw await de_InvalidDBSubnetGroupStateFaultRes(parsedOutput, context);
     case "InvalidDBSubnetStateFault":
     case "com.amazonaws.rds#InvalidDBSubnetStateFault":
       throw await de_InvalidDBSubnetStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteEventSubscriptionCommand
- */
-export const de_DeleteEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteEventSubscriptionResult(data.DeleteEventSubscriptionResult, context);
-  const response: DeleteEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteEventSubscriptionCommandError
- */
-const de_DeleteEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidEventSubscriptionState":
     case "com.amazonaws.rds#InvalidEventSubscriptionStateFault":
       throw await de_InvalidEventSubscriptionStateFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteGlobalClusterCommand
- */
-export const de_DeleteGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteGlobalClusterResult(data.DeleteGlobalClusterResult, context);
-  const response: DeleteGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteGlobalClusterCommandError
- */
-const de_DeleteGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteIntegrationCommand
- */
-export const de_DeleteIntegrationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteIntegrationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_Integration(data.DeleteIntegrationResult, context);
-  const response: DeleteIntegrationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteIntegrationCommandError
- */
-const de_DeleteIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IntegrationConflictOperationFault":
-    case "com.amazonaws.rds#IntegrationConflictOperationFault":
-      throw await de_IntegrationConflictOperationFaultRes(parsedOutput, context);
-    case "IntegrationNotFoundFault":
-    case "com.amazonaws.rds#IntegrationNotFoundFault":
-      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
     case "InvalidIntegrationStateFault":
     case "com.amazonaws.rds#InvalidIntegrationStateFault":
       throw await de_InvalidIntegrationStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteOptionGroupCommand
- */
-export const de_DeleteOptionGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOptionGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteOptionGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteOptionGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteOptionGroupCommandError
- */
-const de_DeleteOptionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOptionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidOptionGroupStateFault":
     case "com.amazonaws.rds#InvalidOptionGroupStateFault":
       throw await de_InvalidOptionGroupStateFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteTenantDatabaseCommand
- */
-export const de_DeleteTenantDatabaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTenantDatabaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTenantDatabaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteTenantDatabaseResult(data.DeleteTenantDatabaseResult, context);
-  const response: DeleteTenantDatabaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteTenantDatabaseCommandError
- */
-const de_DeleteTenantDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTenantDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "TenantDatabaseNotFound":
-    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
-      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeregisterDBProxyTargetsCommand
- */
-export const de_DeregisterDBProxyTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterDBProxyTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterDBProxyTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeregisterDBProxyTargetsResponse(data.DeregisterDBProxyTargetsResult, context);
-  const response: DeregisterDBProxyTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeregisterDBProxyTargetsCommandError
- */
-const de_DeregisterDBProxyTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterDBProxyTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
     case "DBProxyTargetNotFoundFault":
     case "com.amazonaws.rds#DBProxyTargetNotFoundFault":
       throw await de_DBProxyTargetNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeAccountAttributesCommand
- */
-export const de_DescribeAccountAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AccountAttributesMessage(data.DescribeAccountAttributesResult, context);
-  const response: DescribeAccountAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeBlueGreenDeploymentsCommand
- */
-export const de_DescribeBlueGreenDeploymentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBlueGreenDeploymentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBlueGreenDeploymentsResponse(data.DescribeBlueGreenDeploymentsResult, context);
-  const response: DescribeBlueGreenDeploymentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeBlueGreenDeploymentsCommandError
- */
-const de_DescribeBlueGreenDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BlueGreenDeploymentNotFoundFault":
-    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
-      throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeCertificatesCommand
- */
-export const de_DescribeCertificatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCertificatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCertificatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CertificateMessage(data.DescribeCertificatesResult, context);
-  const response: DescribeCertificatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeCertificatesCommandError
- */
-const de_DescribeCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateNotFound":
-    case "com.amazonaws.rds#CertificateNotFoundFault":
-      throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterAutomatedBackupsCommand
- */
-export const de_DescribeDBClusterAutomatedBackupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterAutomatedBackupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterAutomatedBackupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterAutomatedBackupMessage(data.DescribeDBClusterAutomatedBackupsResult, context);
-  const response: DescribeDBClusterAutomatedBackupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterAutomatedBackupsCommandError
- */
-const de_DescribeDBClusterAutomatedBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterAutomatedBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAutomatedBackupNotFoundFault":
-    case "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault":
-      throw await de_DBClusterAutomatedBackupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterBacktracksCommand
- */
-export const de_DescribeDBClusterBacktracksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterBacktracksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterBacktracksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterBacktrackMessage(data.DescribeDBClusterBacktracksResult, context);
-  const response: DescribeDBClusterBacktracksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterBacktracksCommandError
- */
-const de_DescribeDBClusterBacktracksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterBacktracksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterBacktrackNotFoundFault":
     case "com.amazonaws.rds#DBClusterBacktrackNotFoundFault":
       throw await de_DBClusterBacktrackNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterEndpointsCommand
- */
-export const de_DescribeDBClusterEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterEndpointMessage(data.DescribeDBClusterEndpointsResult, context);
-  const response: DescribeDBClusterEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterEndpointsCommandError
- */
-const de_DescribeDBClusterEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParameterGroupsCommand
- */
-export const de_DescribeDBClusterParameterGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterParameterGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupsMessage(data.DescribeDBClusterParameterGroupsResult, context);
-  const response: DescribeDBClusterParameterGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParameterGroupsCommandError
- */
-const de_DescribeDBClusterParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParametersCommand
- */
-export const de_DescribeDBClusterParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupDetails(data.DescribeDBClusterParametersResult, context);
-  const response: DescribeDBClusterParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParametersCommandError
- */
-const de_DescribeDBClusterParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClustersCommand
- */
-export const de_DescribeDBClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterMessage(data.DescribeDBClustersResult, context);
-  const response: DescribeDBClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClustersCommandError
- */
-const de_DescribeDBClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand
- */
-export const de_DescribeDBClusterSnapshotAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterSnapshotAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBClusterSnapshotAttributesResult(data.DescribeDBClusterSnapshotAttributesResult, context);
-  const response: DescribeDBClusterSnapshotAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError
- */
-const de_DescribeDBClusterSnapshotAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotsCommand
- */
-export const de_DescribeDBClusterSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterSnapshotMessage(data.DescribeDBClusterSnapshotsResult, context);
-  const response: DescribeDBClusterSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotsCommandError
- */
-const de_DescribeDBClusterSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBEngineVersionsCommand
- */
-export const de_DescribeDBEngineVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBEngineVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBEngineVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBEngineVersionMessage(data.DescribeDBEngineVersionsResult, context);
-  const response: DescribeDBEngineVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBEngineVersionsCommandError
- */
-const de_DescribeDBEngineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBEngineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand
- */
-export const de_DescribeDBInstanceAutomatedBackupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBInstanceAutomatedBackupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBInstanceAutomatedBackupMessage(data.DescribeDBInstanceAutomatedBackupsResult, context);
-  const response: DescribeDBInstanceAutomatedBackupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommandError
- */
-const de_DescribeDBInstanceAutomatedBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceAutomatedBackupNotFound":
-    case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
-      throw await de_DBInstanceAutomatedBackupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBInstancesCommand
- */
-export const de_DescribeDBInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBInstanceMessage(data.DescribeDBInstancesResult, context);
-  const response: DescribeDBInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBInstancesCommandError
- */
-const de_DescribeDBInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBLogFilesCommand
- */
-export const de_DescribeDBLogFilesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBLogFilesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBLogFilesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBLogFilesResponse(data.DescribeDBLogFilesResult, context);
-  const response: DescribeDBLogFilesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBLogFilesCommandError
- */
-const de_DescribeDBLogFilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBLogFilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBParameterGroupsCommand
- */
-export const de_DescribeDBParameterGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBParameterGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupsMessage(data.DescribeDBParameterGroupsResult, context);
-  const response: DescribeDBParameterGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBParameterGroupsCommandError
- */
-const de_DescribeDBParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBParametersCommand
- */
-export const de_DescribeDBParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupDetails(data.DescribeDBParametersResult, context);
-  const response: DescribeDBParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBParametersCommandError
- */
-const de_DescribeDBParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBProxiesCommand
- */
-export const de_DescribeDBProxiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBProxiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBProxiesResponse(data.DescribeDBProxiesResult, context);
-  const response: DescribeDBProxiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBProxiesCommandError
- */
-const de_DescribeDBProxiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBProxyEndpointsCommand
- */
-export const de_DescribeDBProxyEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxyEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBProxyEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBProxyEndpointsResponse(data.DescribeDBProxyEndpointsResult, context);
-  const response: DescribeDBProxyEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBProxyEndpointsCommandError
- */
-const de_DescribeDBProxyEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxyEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyEndpointNotFoundFault":
-    case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
-      throw await de_DBProxyEndpointNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBProxyTargetGroupsCommand
- */
-export const de_DescribeDBProxyTargetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxyTargetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBProxyTargetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBProxyTargetGroupsResponse(data.DescribeDBProxyTargetGroupsResult, context);
-  const response: DescribeDBProxyTargetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBProxyTargetGroupsCommandError
- */
-const de_DescribeDBProxyTargetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxyTargetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBProxyTargetsCommand
- */
-export const de_DescribeDBProxyTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxyTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBProxyTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBProxyTargetsResponse(data.DescribeDBProxyTargetsResult, context);
-  const response: DescribeDBProxyTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBProxyTargetsCommandError
- */
-const de_DescribeDBProxyTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBProxyTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetNotFoundFault":
-      throw await de_DBProxyTargetNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBRecommendationsCommand
- */
-export const de_DescribeDBRecommendationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBRecommendationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBRecommendationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBRecommendationsMessage(data.DescribeDBRecommendationsResult, context);
-  const response: DescribeDBRecommendationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBRecommendationsCommandError
- */
-const de_DescribeDBRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeDBSecurityGroupsCommand
- */
-export const de_DescribeDBSecurityGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSecurityGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBSecurityGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBSecurityGroupMessage(data.DescribeDBSecurityGroupsResult, context);
-  const response: DescribeDBSecurityGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBSecurityGroupsCommandError
- */
-const de_DescribeDBSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBShardGroupsCommand
- */
-export const de_DescribeDBShardGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBShardGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBShardGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBShardGroupsResponse(data.DescribeDBShardGroupsResult, context);
-  const response: DescribeDBShardGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBShardGroupsCommandError
- */
-const de_DescribeDBShardGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBShardGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBShardGroupNotFound":
-    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
-      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBSnapshotAttributesCommand
- */
-export const de_DescribeDBSnapshotAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSnapshotAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBSnapshotAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBSnapshotAttributesResult(data.DescribeDBSnapshotAttributesResult, context);
-  const response: DescribeDBSnapshotAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBSnapshotAttributesCommandError
- */
-const de_DescribeDBSnapshotAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSnapshotAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBSnapshotsCommand
- */
-export const de_DescribeDBSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBSnapshotMessage(data.DescribeDBSnapshotsResult, context);
-  const response: DescribeDBSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBSnapshotsCommandError
- */
-const de_DescribeDBSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBSnapshotTenantDatabasesCommand
- */
-export const de_DescribeDBSnapshotTenantDatabasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBSnapshotTenantDatabasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBSnapshotTenantDatabasesMessage(data.DescribeDBSnapshotTenantDatabasesResult, context);
-  const response: DescribeDBSnapshotTenantDatabasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBSnapshotTenantDatabasesCommandError
- */
-const de_DescribeDBSnapshotTenantDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBSubnetGroupsCommand
- */
-export const de_DescribeDBSubnetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSubnetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBSubnetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBSubnetGroupMessage(data.DescribeDBSubnetGroupsResult, context);
-  const response: DescribeDBSubnetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBSubnetGroupsCommandError
- */
-const de_DescribeDBSubnetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSubnetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultClusterParametersCommand
- */
-export const de_DescribeEngineDefaultClusterParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEngineDefaultClusterParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEngineDefaultClusterParametersResult(
-    data.DescribeEngineDefaultClusterParametersResult,
-    context
-  );
-  const response: DescribeEngineDefaultClusterParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultClusterParametersCommandError
- */
-const de_DescribeEngineDefaultClusterParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultParametersCommand
- */
-export const de_DescribeEngineDefaultParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEngineDefaultParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEngineDefaultParametersResult(data.DescribeEngineDefaultParametersResult, context);
-  const response: DescribeEngineDefaultParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultParametersCommandError
- */
-const de_DescribeEngineDefaultParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventCategoriesCommand
- */
-export const de_DescribeEventCategoriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventCategoriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventCategoriesMessage(data.DescribeEventCategoriesResult, context);
-  const response: DescribeEventCategoriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventCategoriesCommandError
- */
-const de_DescribeEventCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventsCommand
- */
-export const de_DescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventsMessage(data.DescribeEventsResult, context);
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventSubscriptionsCommand
- */
-export const de_DescribeEventSubscriptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventSubscriptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
-  const response: DescribeEventSubscriptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventSubscriptionsCommandError
- */
-const de_DescribeEventSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SubscriptionNotFound":
-    case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeExportTasksCommand
- */
-export const de_DescribeExportTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeExportTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ExportTasksMessage(data.DescribeExportTasksResult, context);
-  const response: DescribeExportTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeExportTasksCommandError
- */
-const de_DescribeExportTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExportTaskNotFound":
-    case "com.amazonaws.rds#ExportTaskNotFoundFault":
-      throw await de_ExportTaskNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeGlobalClustersCommand
- */
-export const de_DescribeGlobalClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeGlobalClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GlobalClustersMessage(data.DescribeGlobalClustersResult, context);
-  const response: DescribeGlobalClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeGlobalClustersCommandError
- */
-const de_DescribeGlobalClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeIntegrationsCommand
- */
-export const de_DescribeIntegrationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIntegrationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeIntegrationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeIntegrationsResponse(data.DescribeIntegrationsResult, context);
-  const response: DescribeIntegrationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeIntegrationsCommandError
- */
-const de_DescribeIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IntegrationNotFoundFault":
-    case "com.amazonaws.rds#IntegrationNotFoundFault":
-      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeOptionGroupOptionsCommand
- */
-export const de_DescribeOptionGroupOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOptionGroupOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOptionGroupOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_OptionGroupOptionsMessage(data.DescribeOptionGroupOptionsResult, context);
-  const response: DescribeOptionGroupOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeOptionGroupOptionsCommandError
- */
-const de_DescribeOptionGroupOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOptionGroupOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeOptionGroupsCommand
- */
-export const de_DescribeOptionGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOptionGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOptionGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_OptionGroups(data.DescribeOptionGroupsResult, context);
-  const response: DescribeOptionGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeOptionGroupsCommandError
- */
-const de_DescribeOptionGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOptionGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand
- */
-export const de_DescribeOrderableDBInstanceOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOrderableDBInstanceOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_OrderableDBInstanceOptionsMessage(data.DescribeOrderableDBInstanceOptionsResult, context);
-  const response: DescribeOrderableDBInstanceOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandError
- */
-const de_DescribeOrderableDBInstanceOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribePendingMaintenanceActionsCommand
- */
-export const de_DescribePendingMaintenanceActionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePendingMaintenanceActionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PendingMaintenanceActionsMessage(data.DescribePendingMaintenanceActionsResult, context);
-  const response: DescribePendingMaintenanceActionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribePendingMaintenanceActionsCommandError
- */
-const de_DescribePendingMaintenanceActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.rds#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeReservedDBInstancesCommand
- */
-export const de_DescribeReservedDBInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedDBInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedDBInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ReservedDBInstanceMessage(data.DescribeReservedDBInstancesResult, context);
-  const response: DescribeReservedDBInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeReservedDBInstancesCommandError
- */
-const de_DescribeReservedDBInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedDBInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ReservedDBInstanceNotFound":
     case "com.amazonaws.rds#ReservedDBInstanceNotFoundFault":
       throw await de_ReservedDBInstanceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeReservedDBInstancesOfferingsCommand
- */
-export const de_DescribeReservedDBInstancesOfferingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedDBInstancesOfferingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ReservedDBInstancesOfferingMessage(data.DescribeReservedDBInstancesOfferingsResult, context);
-  const response: DescribeReservedDBInstancesOfferingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeReservedDBInstancesOfferingsCommandError
- */
-const de_DescribeReservedDBInstancesOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedDBInstancesOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ReservedDBInstancesOfferingNotFound":
     case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
       throw await de_ReservedDBInstancesOfferingNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeSourceRegionsCommand
- */
-export const de_DescribeSourceRegionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSourceRegionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSourceRegionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SourceRegionMessage(data.DescribeSourceRegionsResult, context);
-  const response: DescribeSourceRegionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeSourceRegionsCommandError
- */
-const de_DescribeSourceRegionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSourceRegionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeTenantDatabasesCommand
- */
-export const de_DescribeTenantDatabasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTenantDatabasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTenantDatabasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TenantDatabasesMessage(data.DescribeTenantDatabasesResult, context);
-  const response: DescribeTenantDatabasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTenantDatabasesCommandError
- */
-const de_DescribeTenantDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTenantDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeValidDBInstanceModificationsCommand
- */
-export const de_DescribeValidDBInstanceModificationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeValidDBInstanceModificationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeValidDBInstanceModificationsResult(data.DescribeValidDBInstanceModificationsResult, context);
-  const response: DescribeValidDBInstanceModificationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeValidDBInstanceModificationsCommandError
- */
-const de_DescribeValidDBInstanceModificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDisableHttpEndpointCommand
- */
-export const de_DisableHttpEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableHttpEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisableHttpEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DisableHttpEndpointResponse(data.DisableHttpEndpointResult, context);
-  const response: DisableHttpEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDisableHttpEndpointCommandError
- */
-const de_DisableHttpEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableHttpEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidResourceStateFault":
     case "com.amazonaws.rds#InvalidResourceStateFault":
       throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.rds#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDownloadDBLogFilePortionCommand
- */
-export const de_DownloadDBLogFilePortionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DownloadDBLogFilePortionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DownloadDBLogFilePortionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DownloadDBLogFilePortionDetails(data.DownloadDBLogFilePortionResult, context);
-  const response: DownloadDBLogFilePortionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDownloadDBLogFilePortionCommandError
- */
-const de_DownloadDBLogFilePortionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DownloadDBLogFilePortionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBLogFileNotFoundFault":
     case "com.amazonaws.rds#DBLogFileNotFoundFault":
       throw await de_DBLogFileNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryEnableHttpEndpointCommand
- */
-export const de_EnableHttpEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableHttpEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableHttpEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EnableHttpEndpointResponse(data.EnableHttpEndpointResult, context);
-  const response: EnableHttpEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryEnableHttpEndpointCommandError
- */
-const de_EnableHttpEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableHttpEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.rds#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.rds#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryFailoverDBClusterCommand
- */
-export const de_FailoverDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_FailoverDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_FailoverDBClusterResult(data.FailoverDBClusterResult, context);
-  const response: FailoverDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryFailoverDBClusterCommandError
- */
-const de_FailoverDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryFailoverGlobalClusterCommand
- */
-export const de_FailoverGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_FailoverGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_FailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
-  const response: FailoverGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryFailoverGlobalClusterCommandError
- */
-const de_FailoverGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TagListMessage(data.ListTagsForResourceResult, context);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BlueGreenDeploymentNotFoundFault":
-    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
-      throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotTenantDatabaseNotFoundFault":
-    case "com.amazonaws.rds#DBSnapshotTenantDatabaseNotFoundFault":
-      throw await de_DBSnapshotTenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    case "IntegrationNotFoundFault":
-    case "com.amazonaws.rds#IntegrationNotFoundFault":
-      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
-    case "TenantDatabaseNotFound":
-    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
-      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyActivityStreamCommand
- */
-export const de_ModifyActivityStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyActivityStreamCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyActivityStreamCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyActivityStreamResponse(data.ModifyActivityStreamResult, context);
-  const response: ModifyActivityStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyActivityStreamCommandError
- */
-const de_ModifyActivityStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyActivityStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.rds#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyCertificatesCommand
- */
-export const de_ModifyCertificatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCertificatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyCertificatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyCertificatesResult(data.ModifyCertificatesResult, context);
-  const response: ModifyCertificatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyCertificatesCommandError
- */
-const de_ModifyCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateNotFound":
-    case "com.amazonaws.rds#CertificateNotFoundFault":
-      throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyCurrentDBClusterCapacityCommand
- */
-export const de_ModifyCurrentDBClusterCapacityCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCurrentDBClusterCapacityCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyCurrentDBClusterCapacityCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterCapacityInfo(data.ModifyCurrentDBClusterCapacityResult, context);
-  const response: ModifyCurrentDBClusterCapacityCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyCurrentDBClusterCapacityCommandError
- */
-const de_ModifyCurrentDBClusterCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCurrentDBClusterCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBClusterCapacityFault":
     case "com.amazonaws.rds#InvalidDBClusterCapacityFault":
       throw await de_InvalidDBClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyCustomDBEngineVersionCommand
- */
-export const de_ModifyCustomDBEngineVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCustomDBEngineVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyCustomDBEngineVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBEngineVersion(data.ModifyCustomDBEngineVersionResult, context);
-  const response: ModifyCustomDBEngineVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyCustomDBEngineVersionCommandError
- */
-const de_ModifyCustomDBEngineVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCustomDBEngineVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomDBEngineVersionNotFoundFault":
-    case "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault":
-      throw await de_CustomDBEngineVersionNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCustomDBEngineVersionStateFault":
-    case "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault":
-      throw await de_InvalidCustomDBEngineVersionStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterCommand
- */
-export const de_ModifyDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBClusterResult(data.ModifyDBClusterResult, context);
-  const response: ModifyDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterCommandError
- */
-const de_ModifyDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidDBSecurityGroupState":
-    case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidDBSubnetGroupStateFault":
-    case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      throw await de_InvalidDBSubnetGroupStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     case "StorageTypeNotAvailableFault":
     case "com.amazonaws.rds#StorageTypeNotAvailableFault":
       throw await de_StorageTypeNotAvailableFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterEndpointCommand
- */
-export const de_ModifyDBClusterEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterEndpoint(data.ModifyDBClusterEndpointResult, context);
-  const response: ModifyDBClusterEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterEndpointCommandError
- */
-const de_ModifyDBClusterEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterEndpointNotFoundFault":
-    case "com.amazonaws.rds#DBClusterEndpointNotFoundFault":
-      throw await de_DBClusterEndpointNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterEndpointStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterEndpointStateFault":
-      throw await de_InvalidDBClusterEndpointStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterParameterGroupCommand
- */
-export const de_ModifyDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupNameMessage(data.ModifyDBClusterParameterGroupResult, context);
-  const response: ModifyDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterParameterGroupCommandError
- */
-const de_ModifyDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterSnapshotAttributeCommand
- */
-export const de_ModifyDBClusterSnapshotAttributeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterSnapshotAttributeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBClusterSnapshotAttributeResult(data.ModifyDBClusterSnapshotAttributeResult, context);
-  const response: ModifyDBClusterSnapshotAttributeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError
- */
-const de_ModifyDBClusterSnapshotAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
     case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
       throw await de_SharedSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBInstanceCommand
- */
-export const de_ModifyDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBInstanceResult(data.ModifyDBInstanceResult, context);
-  const response: ModifyDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBInstanceCommandError
- */
-const de_ModifyDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "BackupPolicyNotFoundFault":
-    case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      throw await de_BackupPolicyNotFoundFaultRes(parsedOutput, context);
-    case "CertificateNotFound":
-    case "com.amazonaws.rds#CertificateNotFoundFault":
-      throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "DBUpgradeDependencyFailure":
     case "com.amazonaws.rds#DBUpgradeDependencyFailureFault":
       throw await de_DBUpgradeDependencyFailureFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidDBSecurityGroupState":
-    case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "NetworkTypeNotSupported":
-    case "com.amazonaws.rds#NetworkTypeNotSupported":
-      throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "ProvisionedIopsNotAvailableInAZFault":
-    case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    case "TenantDatabaseQuotaExceeded":
-    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
-      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBParameterGroupCommand
- */
-export const de_ModifyDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupNameMessage(data.ModifyDBParameterGroupResult, context);
-  const response: ModifyDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBParameterGroupCommandError
- */
-const de_ModifyDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBProxyCommand
- */
-export const de_ModifyDBProxyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBProxyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBProxyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBProxyResponse(data.ModifyDBProxyResult, context);
-  const response: ModifyDBProxyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBProxyCommandError
- */
-const de_ModifyDBProxyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBProxyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyAlreadyExistsFault":
-    case "com.amazonaws.rds#DBProxyAlreadyExistsFault":
-      throw await de_DBProxyAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBProxyEndpointCommand
- */
-export const de_ModifyDBProxyEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBProxyEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBProxyEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBProxyEndpointResponse(data.ModifyDBProxyEndpointResult, context);
-  const response: ModifyDBProxyEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBProxyEndpointCommandError
- */
-const de_ModifyDBProxyEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBProxyEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyEndpointAlreadyExistsFault":
-    case "com.amazonaws.rds#DBProxyEndpointAlreadyExistsFault":
-      throw await de_DBProxyEndpointAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBProxyEndpointNotFoundFault":
-    case "com.amazonaws.rds#DBProxyEndpointNotFoundFault":
-      throw await de_DBProxyEndpointNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyEndpointStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyEndpointStateFault":
-      throw await de_InvalidDBProxyEndpointStateFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBProxyTargetGroupCommand
- */
-export const de_ModifyDBProxyTargetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBProxyTargetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBProxyTargetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBProxyTargetGroupResponse(data.ModifyDBProxyTargetGroupResult, context);
-  const response: ModifyDBProxyTargetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBProxyTargetGroupCommandError
- */
-const de_ModifyDBProxyTargetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBProxyTargetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBRecommendationCommand
- */
-export const de_ModifyDBRecommendationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBRecommendationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBRecommendationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBRecommendationMessage(data.ModifyDBRecommendationResult, context);
-  const response: ModifyDBRecommendationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBRecommendationCommandError
- */
-const de_ModifyDBRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryModifyDBShardGroupCommand
- */
-export const de_ModifyDBShardGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBShardGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBShardGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBShardGroup(data.ModifyDBShardGroupResult, context);
-  const response: ModifyDBShardGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBShardGroupCommandError
- */
-const de_ModifyDBShardGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBShardGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBShardGroupAlreadyExists":
-    case "com.amazonaws.rds#DBShardGroupAlreadyExistsFault":
-      throw await de_DBShardGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBShardGroupNotFound":
-    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
-      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidMaxAcu":
-    case "com.amazonaws.rds#InvalidMaxAcuFault":
-      throw await de_InvalidMaxAcuFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBSnapshotCommand
- */
-export const de_ModifyDBSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBSnapshotResult(data.ModifyDBSnapshotResult, context);
-  const response: ModifyDBSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBSnapshotCommandError
- */
-const de_ModifyDBSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBSnapshotAttributeCommand
- */
-export const de_ModifyDBSnapshotAttributeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSnapshotAttributeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBSnapshotAttributeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBSnapshotAttributeResult(data.ModifyDBSnapshotAttributeResult, context);
-  const response: ModifyDBSnapshotAttributeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBSnapshotAttributeCommandError
- */
-const de_ModifyDBSnapshotAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSnapshotAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBSnapshotState":
-    case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
-    case "SharedSnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SharedSnapshotQuotaExceededFault":
-      throw await de_SharedSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBSubnetGroupCommand
- */
-export const de_ModifyDBSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBSubnetGroupResult(data.ModifyDBSubnetGroupResult, context);
-  const response: ModifyDBSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBSubnetGroupCommandError
- */
-const de_ModifyDBSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetQuotaExceededFault":
-    case "com.amazonaws.rds#DBSubnetQuotaExceededFault":
-      throw await de_DBSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "SubnetAlreadyInUse":
     case "com.amazonaws.rds#SubnetAlreadyInUse":
       throw await de_SubnetAlreadyInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyEventSubscriptionCommand
- */
-export const de_ModifyEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
-  const response: ModifyEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyEventSubscriptionCommandError
- */
-const de_ModifyEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventSubscriptionQuotaExceeded":
-    case "com.amazonaws.rds#EventSubscriptionQuotaExceededFault":
-      throw await de_EventSubscriptionQuotaExceededFaultRes(parsedOutput, context);
-    case "SNSInvalidTopic":
-    case "com.amazonaws.rds#SNSInvalidTopicFault":
-      throw await de_SNSInvalidTopicFaultRes(parsedOutput, context);
-    case "SNSNoAuthorization":
-    case "com.amazonaws.rds#SNSNoAuthorizationFault":
-      throw await de_SNSNoAuthorizationFaultRes(parsedOutput, context);
-    case "SNSTopicArnNotFound":
-    case "com.amazonaws.rds#SNSTopicArnNotFoundFault":
-      throw await de_SNSTopicArnNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionCategoryNotFound":
-    case "com.amazonaws.rds#SubscriptionCategoryNotFoundFault":
-      throw await de_SubscriptionCategoryNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyGlobalClusterCommand
- */
-export const de_ModifyGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
-  const response: ModifyGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyGlobalClusterCommandError
- */
-const de_ModifyGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyOptionGroupCommand
- */
-export const de_ModifyOptionGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyOptionGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyOptionGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyOptionGroupResult(data.ModifyOptionGroupResult, context);
-  const response: ModifyOptionGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyOptionGroupCommandError
- */
-const de_ModifyOptionGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyOptionGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOptionGroupStateFault":
-    case "com.amazonaws.rds#InvalidOptionGroupStateFault":
-      throw await de_InvalidOptionGroupStateFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyTenantDatabaseCommand
- */
-export const de_ModifyTenantDatabaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTenantDatabaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyTenantDatabaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyTenantDatabaseResult(data.ModifyTenantDatabaseResult, context);
-  const response: ModifyTenantDatabaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyTenantDatabaseCommandError
- */
-const de_ModifyTenantDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTenantDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "TenantDatabaseAlreadyExists":
-    case "com.amazonaws.rds#TenantDatabaseAlreadyExistsFault":
-      throw await de_TenantDatabaseAlreadyExistsFaultRes(parsedOutput, context);
-    case "TenantDatabaseNotFound":
-    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
-      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPromoteReadReplicaCommand
- */
-export const de_PromoteReadReplicaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteReadReplicaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PromoteReadReplicaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PromoteReadReplicaResult(data.PromoteReadReplicaResult, context);
-  const response: PromoteReadReplicaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPromoteReadReplicaCommandError
- */
-const de_PromoteReadReplicaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteReadReplicaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPromoteReadReplicaDBClusterCommand
- */
-export const de_PromoteReadReplicaDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PromoteReadReplicaDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PromoteReadReplicaDBClusterResult(data.PromoteReadReplicaDBClusterResult, context);
-  const response: PromoteReadReplicaDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPromoteReadReplicaDBClusterCommandError
- */
-const de_PromoteReadReplicaDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand
- */
-export const de_PurchaseReservedDBInstancesOfferingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PurchaseReservedDBInstancesOfferingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PurchaseReservedDBInstancesOfferingResult(data.PurchaseReservedDBInstancesOfferingResult, context);
-  const response: PurchaseReservedDBInstancesOfferingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPurchaseReservedDBInstancesOfferingCommandError
- */
-const de_PurchaseReservedDBInstancesOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedDBInstancesOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ReservedDBInstanceAlreadyExists":
     case "com.amazonaws.rds#ReservedDBInstanceAlreadyExistsFault":
       throw await de_ReservedDBInstanceAlreadyExistsFaultRes(parsedOutput, context);
     case "ReservedDBInstanceQuotaExceeded":
     case "com.amazonaws.rds#ReservedDBInstanceQuotaExceededFault":
       throw await de_ReservedDBInstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "ReservedDBInstancesOfferingNotFound":
-    case "com.amazonaws.rds#ReservedDBInstancesOfferingNotFoundFault":
-      throw await de_ReservedDBInstancesOfferingNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRebootDBClusterCommand
- */
-export const de_RebootDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RebootDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RebootDBClusterResult(data.RebootDBClusterResult, context);
-  const response: RebootDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRebootDBClusterCommandError
- */
-const de_RebootDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRebootDBInstanceCommand
- */
-export const de_RebootDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RebootDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RebootDBInstanceResult(data.RebootDBInstanceResult, context);
-  const response: RebootDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRebootDBInstanceCommandError
- */
-const de_RebootDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRebootDBShardGroupCommand
- */
-export const de_RebootDBShardGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBShardGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RebootDBShardGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBShardGroup(data.RebootDBShardGroupResult, context);
-  const response: RebootDBShardGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRebootDBShardGroupCommandError
- */
-const de_RebootDBShardGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBShardGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBShardGroupNotFound":
-    case "com.amazonaws.rds#DBShardGroupNotFoundFault":
-      throw await de_DBShardGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBShardGroupState":
-    case "com.amazonaws.rds#InvalidDBShardGroupStateFault":
-      throw await de_InvalidDBShardGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRegisterDBProxyTargetsCommand
- */
-export const de_RegisterDBProxyTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDBProxyTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterDBProxyTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RegisterDBProxyTargetsResponse(data.RegisterDBProxyTargetsResult, context);
-  const response: RegisterDBProxyTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRegisterDBProxyTargetsCommandError
- */
-const de_RegisterDBProxyTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDBProxyTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
     case "DBProxyTargetAlreadyRegisteredFault":
     case "com.amazonaws.rds#DBProxyTargetAlreadyRegisteredFault":
       throw await de_DBProxyTargetAlreadyRegisteredFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
     case "InsufficientAvailableIPsInSubnetFault":
     case "com.amazonaws.rds#InsufficientAvailableIPsInSubnetFault":
       throw await de_InsufficientAvailableIPsInSubnetFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidDBProxyStateFault":
-    case "com.amazonaws.rds#InvalidDBProxyStateFault":
-      throw await de_InvalidDBProxyStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveFromGlobalClusterCommand
- */
-export const de_RemoveFromGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveFromGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveFromGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveFromGlobalClusterResult(data.RemoveFromGlobalClusterResult, context);
-  const response: RemoveFromGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveFromGlobalClusterCommandError
- */
-const de_RemoveFromGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveFromGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromDBClusterCommand
- */
-export const de_RemoveRoleFromDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveRoleFromDBClusterCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveRoleFromDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromDBClusterCommandError
- */
-const de_RemoveRoleFromDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBClusterRoleNotFound":
     case "com.amazonaws.rds#DBClusterRoleNotFoundFault":
       throw await de_DBClusterRoleNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromDBInstanceCommand
- */
-export const de_RemoveRoleFromDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveRoleFromDBInstanceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveRoleFromDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromDBInstanceCommandError
- */
-const de_RemoveRoleFromDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBInstanceRoleNotFound":
     case "com.amazonaws.rds#DBInstanceRoleNotFoundFault":
       throw await de_DBInstanceRoleNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
- */
-export const de_RemoveSourceIdentifierFromSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveSourceIdentifierFromSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveSourceIdentifierFromSubscriptionResult(
-    data.RemoveSourceIdentifierFromSubscriptionResult,
-    context
-  );
-  const response: RemoveSourceIdentifierFromSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError
- */
-const de_RemoveSourceIdentifierFromSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SourceNotFound":
-    case "com.amazonaws.rds#SourceNotFoundFault":
-      throw await de_SourceNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.rds#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveTagsFromResourceCommand
- */
-export const de_RemoveTagsFromResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveTagsFromResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveTagsFromResourceCommandError
- */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BlueGreenDeploymentNotFoundFault":
-    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
-      throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyNotFoundFault":
-    case "com.amazonaws.rds#DBProxyNotFoundFault":
-      throw await de_DBProxyNotFoundFaultRes(parsedOutput, context);
-    case "DBProxyTargetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBProxyTargetGroupNotFoundFault":
-      throw await de_DBProxyTargetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotTenantDatabaseNotFoundFault":
-    case "com.amazonaws.rds#DBSnapshotTenantDatabaseNotFoundFault":
-      throw await de_DBSnapshotTenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    case "IntegrationNotFoundFault":
-    case "com.amazonaws.rds#IntegrationNotFoundFault":
-      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
-    case "TenantDatabaseNotFound":
-    case "com.amazonaws.rds#TenantDatabaseNotFoundFault":
-      throw await de_TenantDatabaseNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResetDBClusterParameterGroupCommand
- */
-export const de_ResetDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupNameMessage(data.ResetDBClusterParameterGroupResult, context);
-  const response: ResetDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResetDBClusterParameterGroupCommandError
- */
-const de_ResetDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResetDBParameterGroupCommand
- */
-export const de_ResetDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupNameMessage(data.ResetDBParameterGroupResult, context);
-  const response: ResetDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResetDBParameterGroupCommandError
- */
-const de_ResetDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.rds#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterFromS3Command
- */
-export const de_RestoreDBClusterFromS3Command = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterFromS3CommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBClusterFromS3CommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBClusterFromS3Result(data.RestoreDBClusterFromS3Result, context);
-  const response: RestoreDBClusterFromS3CommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterFromS3CommandError
- */
-const de_RestoreDBClusterFromS3CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterFromS3CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterQuotaExceededFault":
-    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientStorageClusterCapacity":
-    case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBSubnetGroupStateFault":
-    case "com.amazonaws.rds#InvalidDBSubnetGroupStateFault":
-      throw await de_InvalidDBSubnetGroupStateFaultRes(parsedOutput, context);
     case "InvalidS3BucketFault":
     case "com.amazonaws.rds#InvalidS3BucketFault":
       throw await de_InvalidS3BucketFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterFromSnapshotCommand
- */
-export const de_RestoreDBClusterFromSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBClusterFromSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBClusterFromSnapshotResult(data.RestoreDBClusterFromSnapshotResult, context);
-  const response: RestoreDBClusterFromSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterFromSnapshotCommandError
- */
-const de_RestoreDBClusterFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterQuotaExceededFault":
-    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
       throw await de_InsufficientDBClusterCapacityFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InsufficientStorageClusterCapacity":
-    case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidDBSnapshotState":
-    case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
     case "InvalidRestoreFault":
     case "com.amazonaws.rds#InvalidRestoreFault":
       throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterToPointInTimeCommand
- */
-export const de_RestoreDBClusterToPointInTimeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBClusterToPointInTimeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBClusterToPointInTimeResult(data.RestoreDBClusterToPointInTimeResult, context);
-  const response: RestoreDBClusterToPointInTimeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterToPointInTimeCommandError
- */
-const de_RestoreDBClusterToPointInTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.rds#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterAutomatedBackupNotFoundFault":
-    case "com.amazonaws.rds#DBClusterAutomatedBackupNotFoundFault":
-      throw await de_DBClusterAutomatedBackupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterQuotaExceededFault":
-    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
-      throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientDBClusterCapacityFault":
-    case "com.amazonaws.rds#InsufficientDBClusterCapacityFault":
-      throw await de_InsufficientDBClusterCapacityFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InsufficientStorageClusterCapacity":
-    case "com.amazonaws.rds#InsufficientStorageClusterCapacityFault":
-      throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBSnapshotState":
-    case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidRestoreFault":
-    case "com.amazonaws.rds#InvalidRestoreFault":
-      throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand
- */
-export const de_RestoreDBInstanceFromDBSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBInstanceFromDBSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBInstanceFromDBSnapshotResult(data.RestoreDBInstanceFromDBSnapshotResult, context);
-  const response: RestoreDBInstanceFromDBSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError
- */
-const de_RestoreDBInstanceFromDBSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBInstanceFromDBSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "BackupPolicyNotFoundFault":
-    case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      throw await de_BackupPolicyNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InstanceQuotaExceeded":
-    case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      throw await de_InstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBSnapshotState":
-    case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
-      throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidRestoreFault":
-    case "com.amazonaws.rds#InvalidRestoreFault":
-      throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "NetworkTypeNotSupported":
-    case "com.amazonaws.rds#NetworkTypeNotSupported":
-      throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "ProvisionedIopsNotAvailableInAZFault":
-    case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    case "TenantDatabaseQuotaExceeded":
-    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
-      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBInstanceFromS3Command
- */
-export const de_RestoreDBInstanceFromS3Command = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBInstanceFromS3CommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBInstanceFromS3CommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBInstanceFromS3Result(data.RestoreDBInstanceFromS3Result, context);
-  const response: RestoreDBInstanceFromS3CommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBInstanceFromS3CommandError
- */
-const de_RestoreDBInstanceFromS3CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBInstanceFromS3CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "BackupPolicyNotFoundFault":
-    case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      throw await de_BackupPolicyNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InstanceQuotaExceeded":
-    case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      throw await de_InstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidS3BucketFault":
-    case "com.amazonaws.rds#InvalidS3BucketFault":
-      throw await de_InvalidS3BucketFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "NetworkTypeNotSupported":
-    case "com.amazonaws.rds#NetworkTypeNotSupported":
-      throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "ProvisionedIopsNotAvailableInAZFault":
-    case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBInstanceToPointInTimeCommand
- */
-export const de_RestoreDBInstanceToPointInTimeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBInstanceToPointInTimeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBInstanceToPointInTimeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBInstanceToPointInTimeResult(data.RestoreDBInstanceToPointInTimeResult, context);
-  const response: RestoreDBInstanceToPointInTimeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBInstanceToPointInTimeCommandError
- */
-const de_RestoreDBInstanceToPointInTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBInstanceToPointInTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "BackupPolicyNotFoundFault":
-    case "com.amazonaws.rds#BackupPolicyNotFoundFault":
-      throw await de_BackupPolicyNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBInstanceAutomatedBackupNotFound":
-    case "com.amazonaws.rds#DBInstanceAutomatedBackupNotFoundFault":
-      throw await de_DBInstanceAutomatedBackupNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.rds#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InstanceQuotaExceeded":
-    case "com.amazonaws.rds#InstanceQuotaExceededFault":
-      throw await de_InstanceQuotaExceededFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidRestoreFault":
-    case "com.amazonaws.rds#InvalidRestoreFault":
-      throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "NetworkTypeNotSupported":
-    case "com.amazonaws.rds#NetworkTypeNotSupported":
-      throw await de_NetworkTypeNotSupportedRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.rds#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     case "PointInTimeRestoreNotEnabled":
     case "com.amazonaws.rds#PointInTimeRestoreNotEnabledFault":
       throw await de_PointInTimeRestoreNotEnabledFaultRes(parsedOutput, context);
-    case "ProvisionedIopsNotAvailableInAZFault":
-    case "com.amazonaws.rds#ProvisionedIopsNotAvailableInAZFault":
-      throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.rds#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    case "TenantDatabaseQuotaExceeded":
-    case "com.amazonaws.rds#TenantDatabaseQuotaExceededFault":
-      throw await de_TenantDatabaseQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRevokeDBSecurityGroupIngressCommand
- */
-export const de_RevokeDBSecurityGroupIngressCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeDBSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RevokeDBSecurityGroupIngressCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RevokeDBSecurityGroupIngressResult(data.RevokeDBSecurityGroupIngressResult, context);
-  const response: RevokeDBSecurityGroupIngressCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRevokeDBSecurityGroupIngressCommandError
- */
-const de_RevokeDBSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeDBSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.rds#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBSecurityGroupState":
-    case "com.amazonaws.rds#InvalidDBSecurityGroupStateFault":
-      throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartActivityStreamCommand
- */
-export const de_StartActivityStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartActivityStreamCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartActivityStreamCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartActivityStreamResponse(data.StartActivityStreamResult, context);
-  const response: StartActivityStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartActivityStreamCommandError
- */
-const de_StartActivityStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartActivityStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.rds#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartDBClusterCommand
- */
-export const de_StartDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartDBClusterResult(data.StartDBClusterResult, context);
-  const response: StartDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartDBClusterCommandError
- */
-const de_StartDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartDBInstanceCommand
- */
-export const de_StartDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartDBInstanceResult(data.StartDBInstanceResult, context);
-  const response: StartDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartDBInstanceCommandError
- */
-const de_StartDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.rds#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.rds#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.rds#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.rds#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.rds#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.rds#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand
- */
-export const de_StartDBInstanceAutomatedBackupsReplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDBInstanceAutomatedBackupsReplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartDBInstanceAutomatedBackupsReplicationResult(
-    data.StartDBInstanceAutomatedBackupsReplicationResult,
-    context
-  );
-  const response: StartDBInstanceAutomatedBackupsReplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommandError
- */
-const de_StartDBInstanceAutomatedBackupsReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBInstanceAutomatedBackupsReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceAutomatedBackupQuotaExceeded":
-    case "com.amazonaws.rds#DBInstanceAutomatedBackupQuotaExceededFault":
-      throw await de_DBInstanceAutomatedBackupQuotaExceededFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.rds#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartExportTaskCommand
- */
-export const de_StartExportTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExportTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartExportTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ExportTask(data.StartExportTaskResult, context);
-  const response: StartExportTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartExportTaskCommandError
- */
-const de_StartExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.rds#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
     case "ExportTaskAlreadyExists":
     case "com.amazonaws.rds#ExportTaskAlreadyExistsFault":
       throw await de_ExportTaskAlreadyExistsFaultRes(parsedOutput, context);
@@ -12262,385 +7485,6 @@ const de_StartExportTaskCommandError = async (
     case "InvalidExportSourceState":
     case "com.amazonaws.rds#InvalidExportSourceStateFault":
       throw await de_InvalidExportSourceStateFaultRes(parsedOutput, context);
-    case "InvalidS3BucketFault":
-    case "com.amazonaws.rds#InvalidS3BucketFault":
-      throw await de_InvalidS3BucketFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStopActivityStreamCommand
- */
-export const de_StopActivityStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopActivityStreamCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopActivityStreamCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopActivityStreamResponse(data.StopActivityStreamResult, context);
-  const response: StopActivityStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStopActivityStreamCommandError
- */
-const de_StopActivityStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopActivityStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.rds#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStopDBClusterCommand
- */
-export const de_StopDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopDBClusterResult(data.StopDBClusterResult, context);
-  const response: StopDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStopDBClusterCommandError
- */
-const de_StopDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStopDBInstanceCommand
- */
-export const de_StopDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopDBInstanceResult(data.StopDBInstanceResult, context);
-  const response: StopDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStopDBInstanceCommandError
- */
-const de_StopDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotAlreadyExists":
-    case "com.amazonaws.rds#DBSnapshotAlreadyExistsFault":
-      throw await de_DBSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.rds#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand
- */
-export const de_StopDBInstanceAutomatedBackupsReplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDBInstanceAutomatedBackupsReplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopDBInstanceAutomatedBackupsReplicationResult(
-    data.StopDBInstanceAutomatedBackupsReplicationResult,
-    context
-  );
-  const response: StopDBInstanceAutomatedBackupsReplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError
- */
-const de_StopDBInstanceAutomatedBackupsReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySwitchoverBlueGreenDeploymentCommand
- */
-export const de_SwitchoverBlueGreenDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SwitchoverBlueGreenDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SwitchoverBlueGreenDeploymentResponse(data.SwitchoverBlueGreenDeploymentResult, context);
-  const response: SwitchoverBlueGreenDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySwitchoverBlueGreenDeploymentCommandError
- */
-const de_SwitchoverBlueGreenDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BlueGreenDeploymentNotFoundFault":
-    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
-      throw await de_BlueGreenDeploymentNotFoundFaultRes(parsedOutput, context);
-    case "InvalidBlueGreenDeploymentStateFault":
-    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
-      throw await de_InvalidBlueGreenDeploymentStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySwitchoverGlobalClusterCommand
- */
-export const de_SwitchoverGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwitchoverGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SwitchoverGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SwitchoverGlobalClusterResult(data.SwitchoverGlobalClusterResult, context);
-  const response: SwitchoverGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySwitchoverGlobalClusterCommandError
- */
-const de_SwitchoverGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwitchoverGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.rds#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.rds#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.rds#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.rds#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySwitchoverReadReplicaCommand
- */
-export const de_SwitchoverReadReplicaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwitchoverReadReplicaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SwitchoverReadReplicaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SwitchoverReadReplicaResult(data.SwitchoverReadReplicaResult, context);
-  const response: SwitchoverReadReplicaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySwitchoverReadReplicaCommandError
- */
-const de_SwitchoverReadReplicaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SwitchoverReadReplicaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.rds#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

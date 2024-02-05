@@ -699,7 +699,7 @@ export const de_AcceptPageCommand = async (
   context: __SerdeContext
 ): Promise<AcceptPageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptPageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -712,44 +712,6 @@ export const de_AcceptPageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptPageCommandError
- */
-const de_AcceptPageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptPageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ActivateContactChannelCommand
  */
 export const de_ActivateContactChannelCommand = async (
@@ -757,7 +719,7 @@ export const de_ActivateContactChannelCommand = async (
   context: __SerdeContext
 ): Promise<ActivateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ActivateContactChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -770,44 +732,6 @@ export const de_ActivateContactChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ActivateContactChannelCommandError
- */
-const de_ActivateContactChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateContactChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContactCommand
  */
 export const de_CreateContactCommand = async (
@@ -815,7 +739,7 @@ export const de_CreateContactCommand = async (
   context: __SerdeContext
 ): Promise<CreateContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -828,50 +752,6 @@ export const de_CreateContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContactCommandError
- */
-const de_CreateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContactChannelCommand
  */
 export const de_CreateContactChannelCommand = async (
@@ -879,7 +759,7 @@ export const de_CreateContactChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContactChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -892,47 +772,6 @@ export const de_CreateContactChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContactChannelCommandError
- */
-const de_CreateContactChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContactChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRotationCommand
  */
 export const de_CreateRotationCommand = async (
@@ -940,7 +779,7 @@ export const de_CreateRotationCommand = async (
   context: __SerdeContext
 ): Promise<CreateRotationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRotationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -953,47 +792,6 @@ export const de_CreateRotationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRotationCommandError
- */
-const de_CreateRotationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRotationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRotationOverrideCommand
  */
 export const de_CreateRotationOverrideCommand = async (
@@ -1001,7 +799,7 @@ export const de_CreateRotationOverrideCommand = async (
   context: __SerdeContext
 ): Promise<CreateRotationOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRotationOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1014,47 +812,6 @@ export const de_CreateRotationOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRotationOverrideCommandError
- */
-const de_CreateRotationOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRotationOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeactivateContactChannelCommand
  */
 export const de_DeactivateContactChannelCommand = async (
@@ -1062,7 +819,7 @@ export const de_DeactivateContactChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeactivateContactChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1075,44 +832,6 @@ export const de_DeactivateContactChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeactivateContactChannelCommandError
- */
-const de_DeactivateContactChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivateContactChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteContactCommand
  */
 export const de_DeleteContactCommand = async (
@@ -1120,7 +839,7 @@ export const de_DeleteContactCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1133,47 +852,6 @@ export const de_DeleteContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContactCommandError
- */
-const de_DeleteContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteContactChannelCommand
  */
 export const de_DeleteContactChannelCommand = async (
@@ -1181,7 +859,7 @@ export const de_DeleteContactChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContactChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1194,44 +872,6 @@ export const de_DeleteContactChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContactChannelCommandError
- */
-const de_DeleteContactChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContactChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRotationCommand
  */
 export const de_DeleteRotationCommand = async (
@@ -1239,7 +879,7 @@ export const de_DeleteRotationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRotationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRotationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1252,47 +892,6 @@ export const de_DeleteRotationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRotationCommandError
- */
-const de_DeleteRotationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRotationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRotationOverrideCommand
  */
 export const de_DeleteRotationOverrideCommand = async (
@@ -1300,7 +899,7 @@ export const de_DeleteRotationOverrideCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRotationOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRotationOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1313,44 +912,6 @@ export const de_DeleteRotationOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRotationOverrideCommandError
- */
-const de_DeleteRotationOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRotationOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEngagementCommand
  */
 export const de_DescribeEngagementCommand = async (
@@ -1358,7 +919,7 @@ export const de_DescribeEngagementCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEngagementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1371,47 +932,6 @@ export const de_DescribeEngagementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEngagementCommandError
- */
-const de_DescribeEngagementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngagementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePageCommand
  */
 export const de_DescribePageCommand = async (
@@ -1419,7 +939,7 @@ export const de_DescribePageCommand = async (
   context: __SerdeContext
 ): Promise<DescribePageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1432,47 +952,6 @@ export const de_DescribePageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePageCommandError
- */
-const de_DescribePageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContactCommand
  */
 export const de_GetContactCommand = async (
@@ -1480,7 +959,7 @@ export const de_GetContactCommand = async (
   context: __SerdeContext
 ): Promise<GetContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1493,47 +972,6 @@ export const de_GetContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContactCommandError
- */
-const de_GetContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContactChannelCommand
  */
 export const de_GetContactChannelCommand = async (
@@ -1541,7 +979,7 @@ export const de_GetContactChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContactChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1554,47 +992,6 @@ export const de_GetContactChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContactChannelCommandError
- */
-const de_GetContactChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContactPolicyCommand
  */
 export const de_GetContactPolicyCommand = async (
@@ -1602,7 +999,7 @@ export const de_GetContactPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetContactPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContactPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1615,44 +1012,6 @@ export const de_GetContactPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContactPolicyCommandError
- */
-const de_GetContactPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRotationCommand
  */
 export const de_GetRotationCommand = async (
@@ -1660,7 +1019,7 @@ export const de_GetRotationCommand = async (
   context: __SerdeContext
 ): Promise<GetRotationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRotationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1673,44 +1032,6 @@ export const de_GetRotationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRotationCommandError
- */
-const de_GetRotationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRotationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRotationOverrideCommand
  */
 export const de_GetRotationOverrideCommand = async (
@@ -1718,7 +1039,7 @@ export const de_GetRotationOverrideCommand = async (
   context: __SerdeContext
 ): Promise<GetRotationOverrideCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRotationOverrideCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1731,44 +1052,6 @@ export const de_GetRotationOverrideCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRotationOverrideCommandError
- */
-const de_GetRotationOverrideCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRotationOverrideCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListContactChannelsCommand
  */
 export const de_ListContactChannelsCommand = async (
@@ -1776,7 +1059,7 @@ export const de_ListContactChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListContactChannelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListContactChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1789,47 +1072,6 @@ export const de_ListContactChannelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListContactChannelsCommandError
- */
-const de_ListContactChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContactChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListContactsCommand
  */
 export const de_ListContactsCommand = async (
@@ -1837,7 +1079,7 @@ export const de_ListContactsCommand = async (
   context: __SerdeContext
 ): Promise<ListContactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListContactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1850,41 +1092,6 @@ export const de_ListContactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListContactsCommandError
- */
-const de_ListContactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEngagementsCommand
  */
 export const de_ListEngagementsCommand = async (
@@ -1892,7 +1099,7 @@ export const de_ListEngagementsCommand = async (
   context: __SerdeContext
 ): Promise<ListEngagementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEngagementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1905,41 +1112,6 @@ export const de_ListEngagementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEngagementsCommandError
- */
-const de_ListEngagementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEngagementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPageReceiptsCommand
  */
 export const de_ListPageReceiptsCommand = async (
@@ -1947,7 +1119,7 @@ export const de_ListPageReceiptsCommand = async (
   context: __SerdeContext
 ): Promise<ListPageReceiptsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPageReceiptsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1960,44 +1132,6 @@ export const de_ListPageReceiptsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPageReceiptsCommandError
- */
-const de_ListPageReceiptsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPageReceiptsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPageResolutionsCommand
  */
 export const de_ListPageResolutionsCommand = async (
@@ -2005,7 +1139,7 @@ export const de_ListPageResolutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPageResolutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPageResolutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2018,44 +1152,6 @@ export const de_ListPageResolutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPageResolutionsCommandError
- */
-const de_ListPageResolutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPageResolutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPagesByContactCommand
  */
 export const de_ListPagesByContactCommand = async (
@@ -2063,7 +1159,7 @@ export const de_ListPagesByContactCommand = async (
   context: __SerdeContext
 ): Promise<ListPagesByContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPagesByContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2076,44 +1172,6 @@ export const de_ListPagesByContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPagesByContactCommandError
- */
-const de_ListPagesByContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPagesByContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPagesByEngagementCommand
  */
 export const de_ListPagesByEngagementCommand = async (
@@ -2121,7 +1179,7 @@ export const de_ListPagesByEngagementCommand = async (
   context: __SerdeContext
 ): Promise<ListPagesByEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPagesByEngagementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2134,44 +1192,6 @@ export const de_ListPagesByEngagementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPagesByEngagementCommandError
- */
-const de_ListPagesByEngagementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPagesByEngagementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPreviewRotationShiftsCommand
  */
 export const de_ListPreviewRotationShiftsCommand = async (
@@ -2179,7 +1199,7 @@ export const de_ListPreviewRotationShiftsCommand = async (
   context: __SerdeContext
 ): Promise<ListPreviewRotationShiftsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPreviewRotationShiftsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2192,41 +1212,6 @@ export const de_ListPreviewRotationShiftsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPreviewRotationShiftsCommandError
- */
-const de_ListPreviewRotationShiftsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPreviewRotationShiftsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRotationOverridesCommand
  */
 export const de_ListRotationOverridesCommand = async (
@@ -2234,7 +1219,7 @@ export const de_ListRotationOverridesCommand = async (
   context: __SerdeContext
 ): Promise<ListRotationOverridesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRotationOverridesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2247,44 +1232,6 @@ export const de_ListRotationOverridesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRotationOverridesCommandError
- */
-const de_ListRotationOverridesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRotationOverridesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRotationsCommand
  */
 export const de_ListRotationsCommand = async (
@@ -2292,7 +1239,7 @@ export const de_ListRotationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRotationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRotationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2305,44 +1252,6 @@ export const de_ListRotationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRotationsCommandError
- */
-const de_ListRotationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRotationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRotationShiftsCommand
  */
 export const de_ListRotationShiftsCommand = async (
@@ -2350,7 +1259,7 @@ export const de_ListRotationShiftsCommand = async (
   context: __SerdeContext
 ): Promise<ListRotationShiftsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRotationShiftsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2363,47 +1272,6 @@ export const de_ListRotationShiftsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRotationShiftsCommandError
- */
-const de_ListRotationShiftsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRotationShiftsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2411,7 +1279,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2424,44 +1292,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutContactPolicyCommand
  */
 export const de_PutContactPolicyCommand = async (
@@ -2469,7 +1299,7 @@ export const de_PutContactPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutContactPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutContactPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2482,47 +1312,6 @@ export const de_PutContactPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutContactPolicyCommandError
- */
-const de_PutContactPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutContactPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendActivationCodeCommand
  */
 export const de_SendActivationCodeCommand = async (
@@ -2530,7 +1319,7 @@ export const de_SendActivationCodeCommand = async (
   context: __SerdeContext
 ): Promise<SendActivationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendActivationCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2543,50 +1332,6 @@ export const de_SendActivationCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendActivationCodeCommandError
- */
-const de_SendActivationCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendActivationCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartEngagementCommand
  */
 export const de_StartEngagementCommand = async (
@@ -2594,7 +1339,7 @@ export const de_StartEngagementCommand = async (
   context: __SerdeContext
 ): Promise<StartEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartEngagementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2607,47 +1352,6 @@ export const de_StartEngagementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartEngagementCommandError
- */
-const de_StartEngagementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEngagementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopEngagementCommand
  */
 export const de_StopEngagementCommand = async (
@@ -2655,7 +1359,7 @@ export const de_StopEngagementCommand = async (
   context: __SerdeContext
 ): Promise<StopEngagementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopEngagementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2668,44 +1372,6 @@ export const de_StopEngagementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopEngagementCommandError
- */
-const de_StopEngagementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEngagementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2713,7 +1379,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2726,47 +1392,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2774,7 +1399,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2787,44 +1412,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateContactCommand
  */
 export const de_UpdateContactCommand = async (
@@ -2832,7 +1419,7 @@ export const de_UpdateContactCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2845,50 +1432,6 @@ export const de_UpdateContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateContactCommandError
- */
-const de_UpdateContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateContactChannelCommand
  */
 export const de_UpdateContactChannelCommand = async (
@@ -2896,7 +1439,7 @@ export const de_UpdateContactChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContactChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContactChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2909,50 +1452,6 @@ export const de_UpdateContactChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateContactChannelCommandError
- */
-const de_UpdateContactChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContactChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ssmcontacts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DataEncryptionException":
-    case "com.amazonaws.ssmcontacts#DataEncryptionException":
-      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ssmcontacts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ssmcontacts#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ssmcontacts#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ssmcontacts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRotationCommand
  */
 export const de_UpdateRotationCommand = async (
@@ -2960,7 +1459,7 @@ export const de_UpdateRotationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRotationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRotationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2973,12 +1472,9 @@ export const de_UpdateRotationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRotationCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateRotationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRotationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2988,9 +1484,6 @@ const de_UpdateRotationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ssmcontacts#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ssmcontacts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssmcontacts#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -3003,6 +1496,15 @@ const de_UpdateRotationCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ssmcontacts#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssmcontacts#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "DataEncryptionException":
+    case "com.amazonaws.ssmcontacts#DataEncryptionException":
+      throw await de_DataEncryptionExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssmcontacts#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

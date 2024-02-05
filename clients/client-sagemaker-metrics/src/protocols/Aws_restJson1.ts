@@ -52,7 +52,7 @@ export const de_BatchPutMetricsCommand = async (
   context: __SerdeContext
 ): Promise<BatchPutMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchPutMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -66,12 +66,9 @@ export const de_BatchPutMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchPutMetricsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_BatchPutMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchPutMetricsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

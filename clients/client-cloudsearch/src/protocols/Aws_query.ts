@@ -631,7 +631,7 @@ export const de_BuildSuggestersCommand = async (
   context: __SerdeContext
 ): Promise<BuildSuggestersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BuildSuggestersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -644,41 +644,6 @@ export const de_BuildSuggestersCommand = async (
 };
 
 /**
- * deserializeAws_queryBuildSuggestersCommandError
- */
-const de_BuildSuggestersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BuildSuggestersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateDomainCommand
  */
 export const de_CreateDomainCommand = async (
@@ -686,7 +651,7 @@ export const de_CreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -699,44 +664,6 @@ export const de_CreateDomainCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateDomainCommandError
- */
-const de_CreateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExists":
-    case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDefineAnalysisSchemeCommand
  */
 export const de_DefineAnalysisSchemeCommand = async (
@@ -744,7 +671,7 @@ export const de_DefineAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<DefineAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DefineAnalysisSchemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -757,47 +684,6 @@ export const de_DefineAnalysisSchemeCommand = async (
 };
 
 /**
- * deserializeAws_queryDefineAnalysisSchemeCommandError
- */
-const de_DefineAnalysisSchemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DefineAnalysisSchemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDefineExpressionCommand
  */
 export const de_DefineExpressionCommand = async (
@@ -805,7 +691,7 @@ export const de_DefineExpressionCommand = async (
   context: __SerdeContext
 ): Promise<DefineExpressionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DefineExpressionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -818,47 +704,6 @@ export const de_DefineExpressionCommand = async (
 };
 
 /**
- * deserializeAws_queryDefineExpressionCommandError
- */
-const de_DefineExpressionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DefineExpressionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDefineIndexFieldCommand
  */
 export const de_DefineIndexFieldCommand = async (
@@ -866,7 +711,7 @@ export const de_DefineIndexFieldCommand = async (
   context: __SerdeContext
 ): Promise<DefineIndexFieldCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DefineIndexFieldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -879,47 +724,6 @@ export const de_DefineIndexFieldCommand = async (
 };
 
 /**
- * deserializeAws_queryDefineIndexFieldCommandError
- */
-const de_DefineIndexFieldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DefineIndexFieldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDefineSuggesterCommand
  */
 export const de_DefineSuggesterCommand = async (
@@ -927,7 +731,7 @@ export const de_DefineSuggesterCommand = async (
   context: __SerdeContext
 ): Promise<DefineSuggesterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DefineSuggesterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -940,47 +744,6 @@ export const de_DefineSuggesterCommand = async (
 };
 
 /**
- * deserializeAws_queryDefineSuggesterCommandError
- */
-const de_DefineSuggesterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DefineSuggesterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteAnalysisSchemeCommand
  */
 export const de_DeleteAnalysisSchemeCommand = async (
@@ -988,7 +751,7 @@ export const de_DeleteAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnalysisSchemeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAnalysisSchemeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1001,44 +764,6 @@ export const de_DeleteAnalysisSchemeCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteAnalysisSchemeCommandError
- */
-const de_DeleteAnalysisSchemeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAnalysisSchemeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteDomainCommand
  */
 export const de_DeleteDomainCommand = async (
@@ -1046,7 +771,7 @@ export const de_DeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1059,35 +784,6 @@ export const de_DeleteDomainCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteDomainCommandError
- */
-const de_DeleteDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteExpressionCommand
  */
 export const de_DeleteExpressionCommand = async (
@@ -1095,7 +791,7 @@ export const de_DeleteExpressionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteExpressionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteExpressionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1108,44 +804,6 @@ export const de_DeleteExpressionCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteExpressionCommandError
- */
-const de_DeleteExpressionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExpressionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteIndexFieldCommand
  */
 export const de_DeleteIndexFieldCommand = async (
@@ -1153,7 +811,7 @@ export const de_DeleteIndexFieldCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIndexFieldCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIndexFieldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1166,44 +824,6 @@ export const de_DeleteIndexFieldCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteIndexFieldCommandError
- */
-const de_DeleteIndexFieldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIndexFieldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteSuggesterCommand
  */
 export const de_DeleteSuggesterCommand = async (
@@ -1211,7 +831,7 @@ export const de_DeleteSuggesterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSuggesterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSuggesterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1224,44 +844,6 @@ export const de_DeleteSuggesterCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteSuggesterCommandError
- */
-const de_DeleteSuggesterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSuggesterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAnalysisSchemesCommand
  */
 export const de_DescribeAnalysisSchemesCommand = async (
@@ -1269,7 +851,7 @@ export const de_DescribeAnalysisSchemesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAnalysisSchemesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAnalysisSchemesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1282,38 +864,6 @@ export const de_DescribeAnalysisSchemesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAnalysisSchemesCommandError
- */
-const de_DescribeAnalysisSchemesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnalysisSchemesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAvailabilityOptionsCommand
  */
 export const de_DescribeAvailabilityOptionsCommand = async (
@@ -1321,7 +871,7 @@ export const de_DescribeAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAvailabilityOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1334,47 +884,6 @@ export const de_DescribeAvailabilityOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAvailabilityOptionsCommandError
- */
-const de_DescribeAvailabilityOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAvailabilityOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledAction":
-    case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeDomainEndpointOptionsCommand
  */
 export const de_DescribeDomainEndpointOptionsCommand = async (
@@ -1382,7 +891,7 @@ export const de_DescribeDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDomainEndpointOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1395,44 +904,6 @@ export const de_DescribeDomainEndpointOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeDomainEndpointOptionsCommandError
- */
-const de_DescribeDomainEndpointOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainEndpointOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledAction":
-    case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeDomainsCommand
  */
 export const de_DescribeDomainsCommand = async (
@@ -1440,7 +911,7 @@ export const de_DescribeDomainsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1453,35 +924,6 @@ export const de_DescribeDomainsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeDomainsCommandError
- */
-const de_DescribeDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeExpressionsCommand
  */
 export const de_DescribeExpressionsCommand = async (
@@ -1489,7 +931,7 @@ export const de_DescribeExpressionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExpressionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExpressionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1502,38 +944,6 @@ export const de_DescribeExpressionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeExpressionsCommandError
- */
-const de_DescribeExpressionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExpressionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeIndexFieldsCommand
  */
 export const de_DescribeIndexFieldsCommand = async (
@@ -1541,7 +951,7 @@ export const de_DescribeIndexFieldsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIndexFieldsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIndexFieldsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1554,38 +964,6 @@ export const de_DescribeIndexFieldsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeIndexFieldsCommandError
- */
-const de_DescribeIndexFieldsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIndexFieldsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeScalingParametersCommand
  */
 export const de_DescribeScalingParametersCommand = async (
@@ -1593,7 +971,7 @@ export const de_DescribeScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeScalingParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeScalingParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1606,38 +984,6 @@ export const de_DescribeScalingParametersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeScalingParametersCommandError
- */
-const de_DescribeScalingParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeServiceAccessPoliciesCommand
  */
 export const de_DescribeServiceAccessPoliciesCommand = async (
@@ -1645,7 +991,7 @@ export const de_DescribeServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServiceAccessPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1658,38 +1004,6 @@ export const de_DescribeServiceAccessPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeServiceAccessPoliciesCommandError
- */
-const de_DescribeServiceAccessPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceAccessPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeSuggestersCommand
  */
 export const de_DescribeSuggestersCommand = async (
@@ -1697,7 +1011,7 @@ export const de_DescribeSuggestersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSuggestersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSuggestersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1710,38 +1024,6 @@ export const de_DescribeSuggestersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeSuggestersCommandError
- */
-const de_DescribeSuggestersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSuggestersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryIndexDocumentsCommand
  */
 export const de_IndexDocumentsCommand = async (
@@ -1749,7 +1031,7 @@ export const de_IndexDocumentsCommand = async (
   context: __SerdeContext
 ): Promise<IndexDocumentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_IndexDocumentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1762,41 +1044,6 @@ export const de_IndexDocumentsCommand = async (
 };
 
 /**
- * deserializeAws_queryIndexDocumentsCommandError
- */
-const de_IndexDocumentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IndexDocumentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListDomainNamesCommand
  */
 export const de_ListDomainNamesCommand = async (
@@ -1804,7 +1051,7 @@ export const de_ListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDomainNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1817,32 +1064,6 @@ export const de_ListDomainNamesCommand = async (
 };
 
 /**
- * deserializeAws_queryListDomainNamesCommandError
- */
-const de_ListDomainNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateAvailabilityOptionsCommand
  */
 export const de_UpdateAvailabilityOptionsCommand = async (
@@ -1850,7 +1071,7 @@ export const de_UpdateAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAvailabilityOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAvailabilityOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1863,50 +1084,6 @@ export const de_UpdateAvailabilityOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateAvailabilityOptionsCommandError
- */
-const de_UpdateAvailabilityOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAvailabilityOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledAction":
-    case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateDomainEndpointOptionsCommand
  */
 export const de_UpdateDomainEndpointOptionsCommand = async (
@@ -1914,7 +1091,7 @@ export const de_UpdateDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDomainEndpointOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1927,50 +1104,6 @@ export const de_UpdateDomainEndpointOptionsCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateDomainEndpointOptionsCommandError
- */
-const de_UpdateDomainEndpointOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainEndpointOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledAction":
-    case "com.amazonaws.cloudsearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateScalingParametersCommand
  */
 export const de_UpdateScalingParametersCommand = async (
@@ -1978,7 +1111,7 @@ export const de_UpdateScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<UpdateScalingParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateScalingParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1991,47 +1124,6 @@ export const de_UpdateScalingParametersCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateScalingParametersCommandError
- */
-const de_UpdateScalingParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScalingParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.cloudsearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.cloudsearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudsearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.cloudsearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateServiceAccessPoliciesCommand
  */
 export const de_UpdateServiceAccessPoliciesCommand = async (
@@ -2039,7 +1131,7 @@ export const de_UpdateServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateServiceAccessPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2052,12 +1144,9 @@ export const de_UpdateServiceAccessPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateServiceAccessPoliciesCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_UpdateServiceAccessPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceAccessPoliciesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2070,18 +1159,24 @@ const de_UpdateServiceAccessPoliciesCommandError = async (
     case "InternalException":
     case "com.amazonaws.cloudsearch#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidType":
-    case "com.amazonaws.cloudsearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.cloudsearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cloudsearch#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "LimitExceeded":
+    case "com.amazonaws.cloudsearch#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExists":
+    case "com.amazonaws.cloudsearch#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidType":
+    case "com.amazonaws.cloudsearch#InvalidTypeException":
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
+    case "DisabledAction":
+    case "com.amazonaws.cloudsearch#DisabledOperationException":
+      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

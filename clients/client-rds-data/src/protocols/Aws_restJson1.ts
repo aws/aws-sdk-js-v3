@@ -233,7 +233,7 @@ export const de_BatchExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchExecuteStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -247,68 +247,6 @@ export const de_BatchExecuteStatementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchExecuteStatementCommandError
- */
-const de_BatchExecuteStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchExecuteStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.rdsdata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DatabaseErrorException":
-    case "com.amazonaws.rdsdata#DatabaseErrorException":
-      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
-    case "DatabaseNotFoundException":
-    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
-      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
-    case "DatabaseUnavailableException":
-    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
-      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "HttpEndpointNotEnabledException":
-    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
-      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "InvalidSecretException":
-    case "com.amazonaws.rdsdata#InvalidSecretException":
-      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
-    case "SecretsErrorException":
-    case "com.amazonaws.rdsdata#SecretsErrorException":
-      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableError":
-    case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    case "StatementTimeoutException":
-    case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionNotFoundException":
-    case "com.amazonaws.rdsdata#TransactionNotFoundException":
-      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BeginTransactionCommand
  */
 export const de_BeginTransactionCommand = async (
@@ -316,7 +254,7 @@ export const de_BeginTransactionCommand = async (
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BeginTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -330,68 +268,6 @@ export const de_BeginTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BeginTransactionCommandError
- */
-const de_BeginTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BeginTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.rdsdata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DatabaseErrorException":
-    case "com.amazonaws.rdsdata#DatabaseErrorException":
-      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
-    case "DatabaseNotFoundException":
-    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
-      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
-    case "DatabaseUnavailableException":
-    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
-      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "HttpEndpointNotEnabledException":
-    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
-      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "InvalidSecretException":
-    case "com.amazonaws.rdsdata#InvalidSecretException":
-      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
-    case "SecretsErrorException":
-    case "com.amazonaws.rdsdata#SecretsErrorException":
-      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableError":
-    case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    case "StatementTimeoutException":
-    case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionNotFoundException":
-    case "com.amazonaws.rdsdata#TransactionNotFoundException":
-      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CommitTransactionCommand
  */
 export const de_CommitTransactionCommand = async (
@@ -399,7 +275,7 @@ export const de_CommitTransactionCommand = async (
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CommitTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -413,71 +289,6 @@ export const de_CommitTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CommitTransactionCommandError
- */
-const de_CommitTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CommitTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.rdsdata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DatabaseErrorException":
-    case "com.amazonaws.rdsdata#DatabaseErrorException":
-      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
-    case "DatabaseNotFoundException":
-    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
-      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
-    case "DatabaseUnavailableException":
-    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
-      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "HttpEndpointNotEnabledException":
-    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
-      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "InvalidSecretException":
-    case "com.amazonaws.rdsdata#InvalidSecretException":
-      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.rdsdata#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "SecretsErrorException":
-    case "com.amazonaws.rdsdata#SecretsErrorException":
-      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableError":
-    case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    case "StatementTimeoutException":
-    case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionNotFoundException":
-    case "com.amazonaws.rdsdata#TransactionNotFoundException":
-      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteSqlCommand
  */
 export const de_ExecuteSqlCommand = async (
@@ -485,7 +296,7 @@ export const de_ExecuteSqlCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteSqlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -499,44 +310,6 @@ export const de_ExecuteSqlCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteSqlCommandError
- */
-const de_ExecuteSqlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteSqlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.rdsdata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableError":
-    case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteStatementCommand
  */
 export const de_ExecuteStatementCommand = async (
@@ -544,7 +317,7 @@ export const de_ExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -562,71 +335,6 @@ export const de_ExecuteStatementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteStatementCommandError
- */
-const de_ExecuteStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rdsdata#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.rdsdata#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DatabaseErrorException":
-    case "com.amazonaws.rdsdata#DatabaseErrorException":
-      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
-    case "DatabaseNotFoundException":
-    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
-      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
-    case "DatabaseUnavailableException":
-    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
-      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.rdsdata#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "HttpEndpointNotEnabledException":
-    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
-      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.rdsdata#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "InvalidSecretException":
-    case "com.amazonaws.rdsdata#InvalidSecretException":
-      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
-    case "SecretsErrorException":
-    case "com.amazonaws.rdsdata#SecretsErrorException":
-      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableError":
-    case "com.amazonaws.rdsdata#ServiceUnavailableError":
-      throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
-    case "StatementTimeoutException":
-    case "com.amazonaws.rdsdata#StatementTimeoutException":
-      throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
-    case "TransactionNotFoundException":
-    case "com.amazonaws.rdsdata#TransactionNotFoundException":
-      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedResultException":
-    case "com.amazonaws.rdsdata#UnsupportedResultException":
-      throw await de_UnsupportedResultExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RollbackTransactionCommand
  */
 export const de_RollbackTransactionCommand = async (
@@ -634,7 +342,7 @@ export const de_RollbackTransactionCommand = async (
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RollbackTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -648,12 +356,9 @@ export const de_RollbackTransactionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RollbackTransactionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_RollbackTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RollbackTransactionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -687,9 +392,6 @@ const de_RollbackTransactionCommandError = async (
     case "InvalidSecretException":
     case "com.amazonaws.rdsdata#InvalidSecretException":
       throw await de_InvalidSecretExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.rdsdata#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "SecretsErrorException":
     case "com.amazonaws.rdsdata#SecretsErrorException":
       throw await de_SecretsErrorExceptionRes(parsedOutput, context);
@@ -702,6 +404,12 @@ const de_RollbackTransactionCommandError = async (
     case "TransactionNotFoundException":
     case "com.amazonaws.rdsdata#TransactionNotFoundException":
       throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.rdsdata#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedResultException":
+    case "com.amazonaws.rdsdata#UnsupportedResultException":
+      throw await de_UnsupportedResultExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

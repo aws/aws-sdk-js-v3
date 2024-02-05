@@ -2877,57 +2877,13 @@ export const de_AssociateAssetsCommand = async (
   context: __SerdeContext
 ): Promise<AssociateAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateAssetsCommandError
- */
-const de_AssociateAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2938,51 +2894,13 @@ export const de_AssociateTimeSeriesToAssetPropertyCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateTimeSeriesToAssetPropertyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommandError
- */
-const de_AssociateTimeSeriesToAssetPropertyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTimeSeriesToAssetPropertyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2993,7 +2911,7 @@ export const de_BatchAssociateProjectAssetsCommand = async (
   context: __SerdeContext
 ): Promise<BatchAssociateProjectAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchAssociateProjectAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3004,44 +2922,6 @@ export const de_BatchAssociateProjectAssetsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchAssociateProjectAssetsCommandError
- */
-const de_BatchAssociateProjectAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchAssociateProjectAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3052,7 +2932,7 @@ export const de_BatchDisassociateProjectAssetsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDisassociateProjectAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDisassociateProjectAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3066,41 +2946,6 @@ export const de_BatchDisassociateProjectAssetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchDisassociateProjectAssetsCommandError
- */
-const de_BatchDisassociateProjectAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDisassociateProjectAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommand
  */
 export const de_BatchGetAssetPropertyAggregatesCommand = async (
@@ -3108,7 +2953,7 @@ export const de_BatchGetAssetPropertyAggregatesCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetAssetPropertyAggregatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetAssetPropertyAggregatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3125,41 +2970,6 @@ export const de_BatchGetAssetPropertyAggregatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetAssetPropertyAggregatesCommandError
- */
-const de_BatchGetAssetPropertyAggregatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetAssetPropertyAggregatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetAssetPropertyValueCommand
  */
 export const de_BatchGetAssetPropertyValueCommand = async (
@@ -3167,7 +2977,7 @@ export const de_BatchGetAssetPropertyValueCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetAssetPropertyValueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetAssetPropertyValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3184,41 +2994,6 @@ export const de_BatchGetAssetPropertyValueCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetAssetPropertyValueCommandError
- */
-const de_BatchGetAssetPropertyValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetAssetPropertyValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand
  */
 export const de_BatchGetAssetPropertyValueHistoryCommand = async (
@@ -3226,7 +3001,7 @@ export const de_BatchGetAssetPropertyValueHistoryCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetAssetPropertyValueHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3243,41 +3018,6 @@ export const de_BatchGetAssetPropertyValueHistoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommandError
- */
-const de_BatchGetAssetPropertyValueHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetAssetPropertyValueHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchPutAssetPropertyValueCommand
  */
 export const de_BatchPutAssetPropertyValueCommand = async (
@@ -3285,7 +3025,7 @@ export const de_BatchPutAssetPropertyValueCommand = async (
   context: __SerdeContext
 ): Promise<BatchPutAssetPropertyValueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchPutAssetPropertyValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3299,50 +3039,6 @@ export const de_BatchPutAssetPropertyValueCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchPutAssetPropertyValueCommandError
- */
-const de_BatchPutAssetPropertyValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchPutAssetPropertyValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAccessPolicyCommand
  */
 export const de_CreateAccessPolicyCommand = async (
@@ -3350,7 +3046,7 @@ export const de_CreateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessPolicyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3365,44 +3061,6 @@ export const de_CreateAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAccessPolicyCommandError
- */
-const de_CreateAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAssetCommand
  */
 export const de_CreateAssetCommand = async (
@@ -3410,7 +3068,7 @@ export const de_CreateAssetCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssetCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateAssetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3426,50 +3084,6 @@ export const de_CreateAssetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAssetCommandError
- */
-const de_CreateAssetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAssetModelCommand
  */
 export const de_CreateAssetModelCommand = async (
@@ -3477,7 +3091,7 @@ export const de_CreateAssetModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssetModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateAssetModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3493,50 +3107,6 @@ export const de_CreateAssetModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAssetModelCommandError
- */
-const de_CreateAssetModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssetModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAssetModelCompositeModelCommand
  */
 export const de_CreateAssetModelCompositeModelCommand = async (
@@ -3544,7 +3114,7 @@ export const de_CreateAssetModelCompositeModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssetModelCompositeModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateAssetModelCompositeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3560,50 +3130,6 @@ export const de_CreateAssetModelCompositeModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAssetModelCompositeModelCommandError
- */
-const de_CreateAssetModelCompositeModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssetModelCompositeModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBulkImportJobCommand
  */
 export const de_CreateBulkImportJobCommand = async (
@@ -3611,7 +3137,7 @@ export const de_CreateBulkImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateBulkImportJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateBulkImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3627,50 +3153,6 @@ export const de_CreateBulkImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBulkImportJobCommandError
- */
-const de_CreateBulkImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBulkImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDashboardCommand
  */
 export const de_CreateDashboardCommand = async (
@@ -3678,7 +3160,7 @@ export const de_CreateDashboardCommand = async (
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3693,44 +3175,6 @@ export const de_CreateDashboardCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDashboardCommandError
- */
-const de_CreateDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGatewayCommand
  */
 export const de_CreateGatewayCommand = async (
@@ -3738,7 +3182,7 @@ export const de_CreateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateGatewayCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3753,44 +3197,6 @@ export const de_CreateGatewayCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGatewayCommandError
- */
-const de_CreateGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePortalCommand
  */
 export const de_CreatePortalCommand = async (
@@ -3798,7 +3204,7 @@ export const de_CreatePortalCommand = async (
   context: __SerdeContext
 ): Promise<CreatePortalCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreatePortalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3816,44 +3222,6 @@ export const de_CreatePortalCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePortalCommandError
- */
-const de_CreatePortalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePortalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateProjectCommand
  */
 export const de_CreateProjectCommand = async (
@@ -3861,7 +3229,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3876,44 +3244,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAccessPolicyCommand
  */
 export const de_DeleteAccessPolicyCommand = async (
@@ -3921,48 +3251,13 @@ export const de_DeleteAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAccessPolicyCommandError
- */
-const de_DeleteAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3973,7 +3268,7 @@ export const de_DeleteAssetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssetCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAssetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3987,44 +3282,6 @@ export const de_DeleteAssetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAssetCommandError
- */
-const de_DeleteAssetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAssetModelCommand
  */
 export const de_DeleteAssetModelCommand = async (
@@ -4032,7 +3289,7 @@ export const de_DeleteAssetModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssetModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAssetModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4043,44 +3300,6 @@ export const de_DeleteAssetModelCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAssetModelCommandError
- */
-const de_DeleteAssetModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssetModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4091,7 +3310,7 @@ export const de_DeleteAssetModelCompositeModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssetModelCompositeModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteAssetModelCompositeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4105,44 +3324,6 @@ export const de_DeleteAssetModelCompositeModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAssetModelCompositeModelCommandError
- */
-const de_DeleteAssetModelCompositeModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssetModelCompositeModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDashboardCommand
  */
 export const de_DeleteDashboardCommand = async (
@@ -4150,48 +3331,13 @@ export const de_DeleteDashboardCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDashboardCommandError
- */
-const de_DeleteDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4202,48 +3348,13 @@ export const de_DeleteGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGatewayCommandError
- */
-const de_DeleteGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4254,7 +3365,7 @@ export const de_DeletePortalCommand = async (
   context: __SerdeContext
 ): Promise<DeletePortalCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeletePortalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4268,44 +3379,6 @@ export const de_DeletePortalCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeletePortalCommandError
- */
-const de_DeletePortalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePortalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -4313,48 +3386,13 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4365,51 +3403,13 @@ export const de_DeleteTimeSeriesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTimeSeriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTimeSeriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTimeSeriesCommandError
- */
-const de_DeleteTimeSeriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTimeSeriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4420,7 +3420,7 @@ export const de_DescribeAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4440,41 +3440,6 @@ export const de_DescribeAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAccessPolicyCommandError
- */
-const de_DescribeAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeActionCommand
  */
 export const de_DescribeActionCommand = async (
@@ -4482,7 +3447,7 @@ export const de_DescribeActionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4500,41 +3465,6 @@ export const de_DescribeActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeActionCommandError
- */
-const de_DescribeActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetCommand
  */
 export const de_DescribeAssetCommand = async (
@@ -4542,7 +3472,7 @@ export const de_DescribeAssetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4568,41 +3498,6 @@ export const de_DescribeAssetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetCommandError
- */
-const de_DescribeAssetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetCompositeModelCommand
  */
 export const de_DescribeAssetCompositeModelCommand = async (
@@ -4610,7 +3505,7 @@ export const de_DescribeAssetCompositeModelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetCompositeModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetCompositeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4633,41 +3528,6 @@ export const de_DescribeAssetCompositeModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetCompositeModelCommandError
- */
-const de_DescribeAssetCompositeModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetCompositeModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetModelCommand
  */
 export const de_DescribeAssetModelCommand = async (
@@ -4675,7 +3535,7 @@ export const de_DescribeAssetModelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4701,41 +3561,6 @@ export const de_DescribeAssetModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetModelCommandError
- */
-const de_DescribeAssetModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetModelCompositeModelCommand
  */
 export const de_DescribeAssetModelCompositeModelCommand = async (
@@ -4743,7 +3568,7 @@ export const de_DescribeAssetModelCompositeModelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetModelCompositeModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetModelCompositeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4767,41 +3592,6 @@ export const de_DescribeAssetModelCompositeModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetModelCompositeModelCommandError
- */
-const de_DescribeAssetModelCompositeModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetModelCompositeModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAssetPropertyCommand
  */
 export const de_DescribeAssetPropertyCommand = async (
@@ -4809,7 +3599,7 @@ export const de_DescribeAssetPropertyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssetPropertyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAssetPropertyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4828,41 +3618,6 @@ export const de_DescribeAssetPropertyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAssetPropertyCommandError
- */
-const de_DescribeAssetPropertyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssetPropertyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBulkImportJobCommand
  */
 export const de_DescribeBulkImportJobCommand = async (
@@ -4870,7 +3625,7 @@ export const de_DescribeBulkImportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBulkImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBulkImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4894,41 +3649,6 @@ export const de_DescribeBulkImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBulkImportJobCommandError
- */
-const de_DescribeBulkImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBulkImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDashboardCommand
  */
 export const de_DescribeDashboardCommand = async (
@@ -4936,7 +3656,7 @@ export const de_DescribeDashboardCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4957,41 +3677,6 @@ export const de_DescribeDashboardCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDashboardCommandError
- */
-const de_DescribeDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand
  */
 export const de_DescribeDefaultEncryptionConfigurationCommand = async (
@@ -4999,7 +3684,7 @@ export const de_DescribeDefaultEncryptionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDefaultEncryptionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5015,38 +3700,6 @@ export const de_DescribeDefaultEncryptionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommandError
- */
-const de_DescribeDefaultEncryptionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDefaultEncryptionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeGatewayCommand
  */
 export const de_DescribeGatewayCommand = async (
@@ -5054,7 +3707,7 @@ export const de_DescribeGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGatewayCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5074,41 +3727,6 @@ export const de_DescribeGatewayCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGatewayCommandError
- */
-const de_DescribeGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
  */
 export const de_DescribeGatewayCapabilityConfigurationCommand = async (
@@ -5116,7 +3734,7 @@ export const de_DescribeGatewayCapabilityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGatewayCapabilityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5133,41 +3751,6 @@ export const de_DescribeGatewayCapabilityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommandError
- */
-const de_DescribeGatewayCapabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeLoggingOptionsCommand
  */
 export const de_DescribeLoggingOptionsCommand = async (
@@ -5175,7 +3758,7 @@ export const de_DescribeLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeLoggingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5189,41 +3772,6 @@ export const de_DescribeLoggingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeLoggingOptionsCommandError
- */
-const de_DescribeLoggingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoggingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribePortalCommand
  */
 export const de_DescribePortalCommand = async (
@@ -5231,7 +3779,7 @@ export const de_DescribePortalCommand = async (
   context: __SerdeContext
 ): Promise<DescribePortalCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribePortalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5259,41 +3807,6 @@ export const de_DescribePortalCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribePortalCommandError
- */
-const de_DescribePortalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePortalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeProjectCommand
  */
 export const de_DescribeProjectCommand = async (
@@ -5301,7 +3814,7 @@ export const de_DescribeProjectCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5321,41 +3834,6 @@ export const de_DescribeProjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeProjectCommandError
- */
-const de_DescribeProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeStorageConfigurationCommand
  */
 export const de_DescribeStorageConfigurationCommand = async (
@@ -5363,7 +3841,7 @@ export const de_DescribeStorageConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStorageConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeStorageConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5384,47 +3862,6 @@ export const de_DescribeStorageConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeStorageConfigurationCommandError
- */
-const de_DescribeStorageConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTimeSeriesCommand
  */
 export const de_DescribeTimeSeriesCommand = async (
@@ -5432,7 +3869,7 @@ export const de_DescribeTimeSeriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTimeSeriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTimeSeriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5454,41 +3891,6 @@ export const de_DescribeTimeSeriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTimeSeriesCommandError
- */
-const de_DescribeTimeSeriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTimeSeriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateAssetsCommand
  */
 export const de_DisassociateAssetsCommand = async (
@@ -5496,51 +3898,13 @@ export const de_DisassociateAssetsCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateAssetsCommandError
- */
-const de_DisassociateAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5551,51 +3915,13 @@ export const de_DisassociateTimeSeriesFromAssetPropertyCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateTimeSeriesFromAssetPropertyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommandError
- */
-const de_DisassociateTimeSeriesFromAssetPropertyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTimeSeriesFromAssetPropertyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5606,7 +3932,7 @@ export const de_ExecuteActionCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteActionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_ExecuteActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5620,47 +3946,6 @@ export const de_ExecuteActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteActionCommandError
- */
-const de_ExecuteActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ExecuteQueryCommand
  */
 export const de_ExecuteQueryCommand = async (
@@ -5668,7 +3953,7 @@ export const de_ExecuteQueryCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExecuteQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5684,50 +3969,6 @@ export const de_ExecuteQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExecuteQueryCommandError
- */
-const de_ExecuteQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotsitewise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "QueryTimeoutException":
-    case "com.amazonaws.iotsitewise#QueryTimeoutException":
-      throw await de_QueryTimeoutExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotsitewise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssetPropertyAggregatesCommand
  */
 export const de_GetAssetPropertyAggregatesCommand = async (
@@ -5735,7 +3976,7 @@ export const de_GetAssetPropertyAggregatesCommand = async (
   context: __SerdeContext
 ): Promise<GetAssetPropertyAggregatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssetPropertyAggregatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5750,44 +3991,6 @@ export const de_GetAssetPropertyAggregatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssetPropertyAggregatesCommandError
- */
-const de_GetAssetPropertyAggregatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssetPropertyAggregatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssetPropertyValueCommand
  */
 export const de_GetAssetPropertyValueCommand = async (
@@ -5795,7 +3998,7 @@ export const de_GetAssetPropertyValueCommand = async (
   context: __SerdeContext
 ): Promise<GetAssetPropertyValueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssetPropertyValueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5809,44 +4012,6 @@ export const de_GetAssetPropertyValueCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssetPropertyValueCommandError
- */
-const de_GetAssetPropertyValueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssetPropertyValueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssetPropertyValueHistoryCommand
  */
 export const de_GetAssetPropertyValueHistoryCommand = async (
@@ -5854,7 +4019,7 @@ export const de_GetAssetPropertyValueHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetAssetPropertyValueHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssetPropertyValueHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5869,44 +4034,6 @@ export const de_GetAssetPropertyValueHistoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssetPropertyValueHistoryCommandError
- */
-const de_GetAssetPropertyValueHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssetPropertyValueHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand
  */
 export const de_GetInterpolatedAssetPropertyValuesCommand = async (
@@ -5914,7 +4041,7 @@ export const de_GetInterpolatedAssetPropertyValuesCommand = async (
   context: __SerdeContext
 ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInterpolatedAssetPropertyValuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5929,44 +4056,6 @@ export const de_GetInterpolatedAssetPropertyValuesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInterpolatedAssetPropertyValuesCommandError
- */
-const de_GetInterpolatedAssetPropertyValuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccessPoliciesCommand
  */
 export const de_ListAccessPoliciesCommand = async (
@@ -5974,7 +4063,7 @@ export const de_ListAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccessPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5989,38 +4078,6 @@ export const de_ListAccessPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccessPoliciesCommandError
- */
-const de_ListAccessPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListActionsCommand
  */
 export const de_ListActionsCommand = async (
@@ -6028,7 +4085,7 @@ export const de_ListActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListActionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6043,41 +4100,6 @@ export const de_ListActionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListActionsCommandError
- */
-const de_ListActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetModelCompositeModelsCommand
  */
 export const de_ListAssetModelCompositeModelsCommand = async (
@@ -6085,7 +4107,7 @@ export const de_ListAssetModelCompositeModelsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetModelCompositeModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetModelCompositeModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6100,41 +4122,6 @@ export const de_ListAssetModelCompositeModelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetModelCompositeModelsCommandError
- */
-const de_ListAssetModelCompositeModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetModelCompositeModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetModelPropertiesCommand
  */
 export const de_ListAssetModelPropertiesCommand = async (
@@ -6142,7 +4129,7 @@ export const de_ListAssetModelPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetModelPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetModelPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6157,41 +4144,6 @@ export const de_ListAssetModelPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetModelPropertiesCommandError
- */
-const de_ListAssetModelPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetModelPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetModelsCommand
  */
 export const de_ListAssetModelsCommand = async (
@@ -6199,7 +4151,7 @@ export const de_ListAssetModelsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6214,38 +4166,6 @@ export const de_ListAssetModelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetModelsCommandError
- */
-const de_ListAssetModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetPropertiesCommand
  */
 export const de_ListAssetPropertiesCommand = async (
@@ -6253,7 +4173,7 @@ export const de_ListAssetPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6268,41 +4188,6 @@ export const de_ListAssetPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetPropertiesCommandError
- */
-const de_ListAssetPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetRelationshipsCommand
  */
 export const de_ListAssetRelationshipsCommand = async (
@@ -6310,7 +4195,7 @@ export const de_ListAssetRelationshipsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetRelationshipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetRelationshipsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6325,41 +4210,6 @@ export const de_ListAssetRelationshipsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetRelationshipsCommandError
- */
-const de_ListAssetRelationshipsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetRelationshipsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetsCommand
  */
 export const de_ListAssetsCommand = async (
@@ -6367,7 +4217,7 @@ export const de_ListAssetsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6382,41 +4232,6 @@ export const de_ListAssetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetsCommandError
- */
-const de_ListAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssociatedAssetsCommand
  */
 export const de_ListAssociatedAssetsCommand = async (
@@ -6424,7 +4239,7 @@ export const de_ListAssociatedAssetsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociatedAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssociatedAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6439,41 +4254,6 @@ export const de_ListAssociatedAssetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssociatedAssetsCommandError
- */
-const de_ListAssociatedAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociatedAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBulkImportJobsCommand
  */
 export const de_ListBulkImportJobsCommand = async (
@@ -6481,7 +4261,7 @@ export const de_ListBulkImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListBulkImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBulkImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6496,41 +4276,6 @@ export const de_ListBulkImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBulkImportJobsCommandError
- */
-const de_ListBulkImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBulkImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCompositionRelationshipsCommand
  */
 export const de_ListCompositionRelationshipsCommand = async (
@@ -6538,7 +4283,7 @@ export const de_ListCompositionRelationshipsCommand = async (
   context: __SerdeContext
 ): Promise<ListCompositionRelationshipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCompositionRelationshipsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6553,41 +4298,6 @@ export const de_ListCompositionRelationshipsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCompositionRelationshipsCommandError
- */
-const de_ListCompositionRelationshipsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCompositionRelationshipsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDashboardsCommand
  */
 export const de_ListDashboardsCommand = async (
@@ -6595,7 +4305,7 @@ export const de_ListDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDashboardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6610,38 +4320,6 @@ export const de_ListDashboardsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDashboardsCommandError
- */
-const de_ListDashboardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDashboardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGatewaysCommand
  */
 export const de_ListGatewaysCommand = async (
@@ -6649,7 +4327,7 @@ export const de_ListGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6664,38 +4342,6 @@ export const de_ListGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGatewaysCommandError
- */
-const de_ListGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPortalsCommand
  */
 export const de_ListPortalsCommand = async (
@@ -6703,7 +4349,7 @@ export const de_ListPortalsCommand = async (
   context: __SerdeContext
 ): Promise<ListPortalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPortalsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6718,38 +4364,6 @@ export const de_ListPortalsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPortalsCommandError
- */
-const de_ListPortalsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPortalsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProjectAssetsCommand
  */
 export const de_ListProjectAssetsCommand = async (
@@ -6757,7 +4371,7 @@ export const de_ListProjectAssetsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProjectAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6772,38 +4386,6 @@ export const de_ListProjectAssetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProjectAssetsCommandError
- */
-const de_ListProjectAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProjectsCommand
  */
 export const de_ListProjectsCommand = async (
@@ -6811,7 +4393,7 @@ export const de_ListProjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6826,38 +4408,6 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -6865,7 +4415,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6879,50 +4429,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotsitewise#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTimeSeriesCommand
  */
 export const de_ListTimeSeriesCommand = async (
@@ -6930,7 +4436,7 @@ export const de_ListTimeSeriesCommand = async (
   context: __SerdeContext
 ): Promise<ListTimeSeriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTimeSeriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6945,41 +4451,6 @@ export const de_ListTimeSeriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTimeSeriesCommandError
- */
-const de_ListTimeSeriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTimeSeriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutDefaultEncryptionConfigurationCommand
  */
 export const de_PutDefaultEncryptionConfigurationCommand = async (
@@ -6987,7 +4458,7 @@ export const de_PutDefaultEncryptionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutDefaultEncryptionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutDefaultEncryptionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7003,44 +4474,6 @@ export const de_PutDefaultEncryptionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutDefaultEncryptionConfigurationCommandError
- */
-const de_PutDefaultEncryptionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDefaultEncryptionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutLoggingOptionsCommand
  */
 export const de_PutLoggingOptionsCommand = async (
@@ -7048,51 +4481,13 @@ export const de_PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutLoggingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutLoggingOptionsCommandError
- */
-const de_PutLoggingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLoggingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7103,7 +4498,7 @@ export const de_PutStorageConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutStorageConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutStorageConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7123,50 +4518,6 @@ export const de_PutStorageConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutStorageConfigurationCommandError
- */
-const de_PutStorageConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutStorageConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -7174,60 +4525,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.iotsitewise#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotsitewise#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7238,57 +4542,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.iotsitewise#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7299,48 +4559,13 @@ export const de_UpdateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateAccessPolicyCommandError
- */
-const de_UpdateAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7351,7 +4576,7 @@ export const de_UpdateAssetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAssetCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateAssetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7365,47 +4590,6 @@ export const de_UpdateAssetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAssetCommandError
- */
-const de_UpdateAssetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAssetModelCommand
  */
 export const de_UpdateAssetModelCommand = async (
@@ -7413,7 +4597,7 @@ export const de_UpdateAssetModelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAssetModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateAssetModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7427,50 +4611,6 @@ export const de_UpdateAssetModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAssetModelCommandError
- */
-const de_UpdateAssetModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssetModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.iotsitewise#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAssetModelCompositeModelCommand
  */
 export const de_UpdateAssetModelCompositeModelCommand = async (
@@ -7478,7 +4618,7 @@ export const de_UpdateAssetModelCompositeModelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAssetModelCompositeModelCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateAssetModelCompositeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7493,12 +4633,120 @@ export const de_UpdateAssetModelCompositeModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAssetModelCompositeModelCommandError
+ * deserializeAws_restJson1UpdateAssetPropertyCommand
  */
-const de_UpdateAssetModelCompositeModelCommandError = async (
+export const de_UpdateAssetPropertyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateAssetModelCompositeModelCommandOutput> => {
+): Promise<UpdateAssetPropertyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDashboardCommand
+ */
+export const de_UpdateDashboardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDashboardCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateGatewayCommand
+ */
+export const de_UpdateGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
+ */
+export const de_UpdateGatewayCapabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    capabilityNamespace: __expectString,
+    capabilitySyncStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePortalCommand
+ */
+export const de_UpdatePortalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePortalCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    portalStatus: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateProjectCommand
+ */
+export const de_UpdateProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -7526,342 +4774,24 @@ const de_UpdateAssetModelCompositeModelCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotsitewise#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateAssetPropertyCommand
- */
-export const de_UpdateAssetPropertyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssetPropertyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAssetPropertyCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateAssetPropertyCommandError
- */
-const de_UpdateAssetPropertyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssetPropertyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateDashboardCommand
- */
-export const de_UpdateDashboardCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDashboardCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDashboardCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDashboardCommandError
- */
-const de_UpdateDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateGatewayCommand
- */
-export const de_UpdateGatewayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGatewayCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateGatewayCommandError
- */
-const de_UpdateGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
- */
-export const de_UpdateGatewayCapabilityConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_UpdateGatewayCapabilityConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    capabilityNamespace: __expectString,
-    capabilitySyncStatus: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommandError
- */
-const de_UpdateGatewayCapabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotsitewise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdatePortalCommand
- */
-export const de_UpdatePortalCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdatePortalCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    portalStatus: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdatePortalCommandError
- */
-const de_UpdatePortalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePortalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.iotsitewise#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateProjectCommand
- */
-export const de_UpdateProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateProjectCommandError
- */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.iotsitewise#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.iotsitewise#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsitewise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotsitewise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.iotsitewise#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.iotsitewise#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "QueryTimeoutException":
+    case "com.amazonaws.iotsitewise#QueryTimeoutException":
+      throw await de_QueryTimeoutExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotsitewise#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.iotsitewise#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.iotsitewise#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

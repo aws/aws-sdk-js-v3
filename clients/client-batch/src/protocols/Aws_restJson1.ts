@@ -745,42 +745,13 @@ export const de_CancelJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelJobCommandError
- */
-const de_CancelJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -791,7 +762,7 @@ export const de_CreateComputeEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateComputeEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -806,35 +777,6 @@ export const de_CreateComputeEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateComputeEnvironmentCommandError
- */
-const de_CreateComputeEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateComputeEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateJobQueueCommand
  */
 export const de_CreateJobQueueCommand = async (
@@ -842,7 +784,7 @@ export const de_CreateJobQueueCommand = async (
   context: __SerdeContext
 ): Promise<CreateJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateJobQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -857,35 +799,6 @@ export const de_CreateJobQueueCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateJobQueueCommandError
- */
-const de_CreateJobQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateJobQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSchedulingPolicyCommand
  */
 export const de_CreateSchedulingPolicyCommand = async (
@@ -893,7 +806,7 @@ export const de_CreateSchedulingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateSchedulingPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSchedulingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -908,35 +821,6 @@ export const de_CreateSchedulingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSchedulingPolicyCommandError
- */
-const de_CreateSchedulingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSchedulingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteComputeEnvironmentCommand
  */
 export const de_DeleteComputeEnvironmentCommand = async (
@@ -944,42 +828,13 @@ export const de_DeleteComputeEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteComputeEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteComputeEnvironmentCommandError
- */
-const de_DeleteComputeEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteComputeEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -990,42 +845,13 @@ export const de_DeleteJobQueueCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteJobQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteJobQueueCommandError
- */
-const de_DeleteJobQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteJobQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1036,42 +862,13 @@ export const de_DeleteSchedulingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSchedulingPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSchedulingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSchedulingPolicyCommandError
- */
-const de_DeleteSchedulingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSchedulingPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1082,42 +879,13 @@ export const de_DeregisterJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterJobDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeregisterJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeregisterJobDefinitionCommandError
- */
-const de_DeregisterJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1128,7 +896,7 @@ export const de_DescribeComputeEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComputeEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeComputeEnvironmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1143,35 +911,6 @@ export const de_DescribeComputeEnvironmentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeComputeEnvironmentsCommandError
- */
-const de_DescribeComputeEnvironmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComputeEnvironmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeJobDefinitionsCommand
  */
 export const de_DescribeJobDefinitionsCommand = async (
@@ -1179,7 +918,7 @@ export const de_DescribeJobDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeJobDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1194,35 +933,6 @@ export const de_DescribeJobDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeJobDefinitionsCommandError
- */
-const de_DescribeJobDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeJobQueuesCommand
  */
 export const de_DescribeJobQueuesCommand = async (
@@ -1230,7 +940,7 @@ export const de_DescribeJobQueuesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobQueuesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeJobQueuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1245,35 +955,6 @@ export const de_DescribeJobQueuesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeJobQueuesCommandError
- */
-const de_DescribeJobQueuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobQueuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeJobsCommand
  */
 export const de_DescribeJobsCommand = async (
@@ -1281,7 +962,7 @@ export const de_DescribeJobsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1295,35 +976,6 @@ export const de_DescribeJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeJobsCommandError
- */
-const de_DescribeJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeSchedulingPoliciesCommand
  */
 export const de_DescribeSchedulingPoliciesCommand = async (
@@ -1331,7 +983,7 @@ export const de_DescribeSchedulingPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSchedulingPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSchedulingPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1345,35 +997,6 @@ export const de_DescribeSchedulingPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeSchedulingPoliciesCommandError
- */
-const de_DescribeSchedulingPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSchedulingPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -1381,7 +1004,7 @@ export const de_ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1396,35 +1019,6 @@ export const de_ListJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListJobsCommandError
- */
-const de_ListJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSchedulingPoliciesCommand
  */
 export const de_ListSchedulingPoliciesCommand = async (
@@ -1432,7 +1026,7 @@ export const de_ListSchedulingPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListSchedulingPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSchedulingPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1447,35 +1041,6 @@ export const de_ListSchedulingPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSchedulingPoliciesCommandError
- */
-const de_ListSchedulingPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchedulingPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1483,7 +1048,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1497,35 +1062,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterJobDefinitionCommand
  */
 export const de_RegisterJobDefinitionCommand = async (
@@ -1533,7 +1069,7 @@ export const de_RegisterJobDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<RegisterJobDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterJobDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1549,35 +1085,6 @@ export const de_RegisterJobDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterJobDefinitionCommandError
- */
-const de_RegisterJobDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterJobDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SubmitJobCommand
  */
 export const de_SubmitJobCommand = async (
@@ -1585,7 +1092,7 @@ export const de_SubmitJobCommand = async (
   context: __SerdeContext
 ): Promise<SubmitJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SubmitJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1601,35 +1108,6 @@ export const de_SubmitJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SubmitJobCommandError
- */
-const de_SubmitJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubmitJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1637,42 +1115,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1683,42 +1132,13 @@ export const de_TerminateJobCommand = async (
   context: __SerdeContext
 ): Promise<TerminateJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TerminateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TerminateJobCommandError
- */
-const de_TerminateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1729,42 +1149,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1775,7 +1166,7 @@ export const de_UpdateComputeEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateComputeEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateComputeEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1790,35 +1181,6 @@ export const de_UpdateComputeEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateComputeEnvironmentCommandError
- */
-const de_UpdateComputeEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateComputeEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateJobQueueCommand
  */
 export const de_UpdateJobQueueCommand = async (
@@ -1826,7 +1188,7 @@ export const de_UpdateJobQueueCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJobQueueCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateJobQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1841,35 +1203,6 @@ export const de_UpdateJobQueueCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateJobQueueCommandError
- */
-const de_UpdateJobQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJobQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.batch#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.batch#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSchedulingPolicyCommand
  */
 export const de_UpdateSchedulingPolicyCommand = async (
@@ -1877,7 +1210,7 @@ export const de_UpdateSchedulingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSchedulingPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSchedulingPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1887,12 +1220,9 @@ export const de_UpdateSchedulingPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSchedulingPolicyCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateSchedulingPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSchedulingPolicyCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

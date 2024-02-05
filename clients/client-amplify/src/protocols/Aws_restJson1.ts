@@ -944,7 +944,7 @@ export const de_CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -958,44 +958,6 @@ export const de_CreateAppCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAppCommandError
- */
-const de_CreateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBackendEnvironmentCommand
  */
 export const de_CreateBackendEnvironmentCommand = async (
@@ -1003,7 +965,7 @@ export const de_CreateBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackendEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackendEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1017,44 +979,6 @@ export const de_CreateBackendEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBackendEnvironmentCommandError
- */
-const de_CreateBackendEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackendEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBranchCommand
  */
 export const de_CreateBranchCommand = async (
@@ -1062,7 +986,7 @@ export const de_CreateBranchCommand = async (
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBranchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1076,47 +1000,6 @@ export const de_CreateBranchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBranchCommandError
- */
-const de_CreateBranchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBranchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDeploymentCommand
  */
 export const de_CreateDeploymentCommand = async (
@@ -1124,7 +1007,7 @@ export const de_CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1140,41 +1023,6 @@ export const de_CreateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeploymentCommandError
- */
-const de_CreateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDomainAssociationCommand
  */
 export const de_CreateDomainAssociationCommand = async (
@@ -1182,7 +1030,7 @@ export const de_CreateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1196,47 +1044,6 @@ export const de_CreateDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDomainAssociationCommandError
- */
-const de_CreateDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateWebhookCommand
  */
 export const de_CreateWebhookCommand = async (
@@ -1244,7 +1051,7 @@ export const de_CreateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1258,47 +1065,6 @@ export const de_CreateWebhookCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateWebhookCommandError
- */
-const de_CreateWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAppCommand
  */
 export const de_DeleteAppCommand = async (
@@ -1306,7 +1072,7 @@ export const de_DeleteAppCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1320,44 +1086,6 @@ export const de_DeleteAppCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAppCommandError
- */
-const de_DeleteAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBackendEnvironmentCommand
  */
 export const de_DeleteBackendEnvironmentCommand = async (
@@ -1365,7 +1093,7 @@ export const de_DeleteBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackendEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackendEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1379,44 +1107,6 @@ export const de_DeleteBackendEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBackendEnvironmentCommandError
- */
-const de_DeleteBackendEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackendEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBranchCommand
  */
 export const de_DeleteBranchCommand = async (
@@ -1424,7 +1114,7 @@ export const de_DeleteBranchCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBranchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1438,44 +1128,6 @@ export const de_DeleteBranchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBranchCommandError
- */
-const de_DeleteBranchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBranchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDomainAssociationCommand
  */
 export const de_DeleteDomainAssociationCommand = async (
@@ -1483,7 +1135,7 @@ export const de_DeleteDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1497,44 +1149,6 @@ export const de_DeleteDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDomainAssociationCommandError
- */
-const de_DeleteDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteJobCommand
  */
 export const de_DeleteJobCommand = async (
@@ -1542,7 +1156,7 @@ export const de_DeleteJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1556,44 +1170,6 @@ export const de_DeleteJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteJobCommandError
- */
-const de_DeleteJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteWebhookCommand
  */
 export const de_DeleteWebhookCommand = async (
@@ -1601,7 +1177,7 @@ export const de_DeleteWebhookCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1615,44 +1191,6 @@ export const de_DeleteWebhookCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteWebhookCommandError
- */
-const de_DeleteWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateAccessLogsCommand
  */
 export const de_GenerateAccessLogsCommand = async (
@@ -1660,7 +1198,7 @@ export const de_GenerateAccessLogsCommand = async (
   context: __SerdeContext
 ): Promise<GenerateAccessLogsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GenerateAccessLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1674,41 +1212,6 @@ export const de_GenerateAccessLogsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateAccessLogsCommandError
- */
-const de_GenerateAccessLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateAccessLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAppCommand
  */
 export const de_GetAppCommand = async (
@@ -1716,7 +1219,7 @@ export const de_GetAppCommand = async (
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1730,38 +1233,6 @@ export const de_GetAppCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAppCommandError
- */
-const de_GetAppCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetArtifactUrlCommand
  */
 export const de_GetArtifactUrlCommand = async (
@@ -1769,7 +1240,7 @@ export const de_GetArtifactUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetArtifactUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetArtifactUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1784,44 +1255,6 @@ export const de_GetArtifactUrlCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetArtifactUrlCommandError
- */
-const de_GetArtifactUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetArtifactUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackendEnvironmentCommand
  */
 export const de_GetBackendEnvironmentCommand = async (
@@ -1829,7 +1262,7 @@ export const de_GetBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<GetBackendEnvironmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackendEnvironmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1843,41 +1276,6 @@ export const de_GetBackendEnvironmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackendEnvironmentCommandError
- */
-const de_GetBackendEnvironmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackendEnvironmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBranchCommand
  */
 export const de_GetBranchCommand = async (
@@ -1885,7 +1283,7 @@ export const de_GetBranchCommand = async (
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBranchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1899,41 +1297,6 @@ export const de_GetBranchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBranchCommandError
- */
-const de_GetBranchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBranchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainAssociationCommand
  */
 export const de_GetDomainAssociationCommand = async (
@@ -1941,7 +1304,7 @@ export const de_GetDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1955,41 +1318,6 @@ export const de_GetDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainAssociationCommandError
- */
-const de_GetDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJobCommand
  */
 export const de_GetJobCommand = async (
@@ -1997,7 +1325,7 @@ export const de_GetJobCommand = async (
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2011,41 +1339,6 @@ export const de_GetJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJobCommandError
- */
-const de_GetJobCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWebhookCommand
  */
 export const de_GetWebhookCommand = async (
@@ -2053,7 +1346,7 @@ export const de_GetWebhookCommand = async (
   context: __SerdeContext
 ): Promise<GetWebhookCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2067,44 +1360,6 @@ export const de_GetWebhookCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWebhookCommandError
- */
-const de_GetWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAppsCommand
  */
 export const de_ListAppsCommand = async (
@@ -2112,7 +1367,7 @@ export const de_ListAppsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAppsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2127,38 +1382,6 @@ export const de_ListAppsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAppsCommandError
- */
-const de_ListAppsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListArtifactsCommand
  */
 export const de_ListArtifactsCommand = async (
@@ -2166,7 +1389,7 @@ export const de_ListArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListArtifactsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListArtifactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2181,41 +1404,6 @@ export const de_ListArtifactsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListArtifactsCommandError
- */
-const de_ListArtifactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListArtifactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackendEnvironmentsCommand
  */
 export const de_ListBackendEnvironmentsCommand = async (
@@ -2223,7 +1411,7 @@ export const de_ListBackendEnvironmentsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackendEnvironmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackendEnvironmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2238,38 +1426,6 @@ export const de_ListBackendEnvironmentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackendEnvironmentsCommandError
- */
-const de_ListBackendEnvironmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackendEnvironmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBranchesCommand
  */
 export const de_ListBranchesCommand = async (
@@ -2277,7 +1433,7 @@ export const de_ListBranchesCommand = async (
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBranchesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2292,38 +1448,6 @@ export const de_ListBranchesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBranchesCommandError
- */
-const de_ListBranchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBranchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainAssociationsCommand
  */
 export const de_ListDomainAssociationsCommand = async (
@@ -2331,7 +1455,7 @@ export const de_ListDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2346,38 +1470,6 @@ export const de_ListDomainAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainAssociationsCommandError
- */
-const de_ListDomainAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -2385,7 +1477,7 @@ export const de_ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2400,41 +1492,6 @@ export const de_ListJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListJobsCommandError
- */
-const de_ListJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2442,7 +1499,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2456,38 +1513,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplify#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWebhooksCommand
  */
 export const de_ListWebhooksCommand = async (
@@ -2495,7 +1520,7 @@ export const de_ListWebhooksCommand = async (
   context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWebhooksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2510,41 +1535,6 @@ export const de_ListWebhooksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWebhooksCommandError
- */
-const de_ListWebhooksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWebhooksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartDeploymentCommand
  */
 export const de_StartDeploymentCommand = async (
@@ -2552,7 +1542,7 @@ export const de_StartDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2563,44 +1553,6 @@ export const de_StartDeploymentCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartDeploymentCommandError
- */
-const de_StartDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2611,7 +1563,7 @@ export const de_StartJobCommand = async (
   context: __SerdeContext
 ): Promise<StartJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2622,44 +1574,6 @@ export const de_StartJobCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartJobCommandError
- */
-const de_StartJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2670,7 +1584,7 @@ export const de_StopJobCommand = async (
   context: __SerdeContext
 ): Promise<StopJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2684,44 +1598,6 @@ export const de_StopJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopJobCommandError
- */
-const de_StopJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.amplify#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2729,45 +1605,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplify#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2778,45 +1622,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.amplify#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2827,7 +1639,7 @@ export const de_UpdateAppCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2841,41 +1653,6 @@ export const de_UpdateAppCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAppCommandError
- */
-const de_UpdateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBranchCommand
  */
 export const de_UpdateBranchCommand = async (
@@ -2883,7 +1660,7 @@ export const de_UpdateBranchCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBranchCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBranchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2897,44 +1674,6 @@ export const de_UpdateBranchCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBranchCommandError
- */
-const de_UpdateBranchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBranchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDomainAssociationCommand
  */
 export const de_UpdateDomainAssociationCommand = async (
@@ -2942,7 +1681,7 @@ export const de_UpdateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2956,44 +1695,6 @@ export const de_UpdateDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDomainAssociationCommandError
- */
-const de_UpdateDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.amplify#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "DependentServiceFailureException":
-    case "com.amazonaws.amplify#DependentServiceFailureException":
-      throw await de_DependentServiceFailureExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.amplify#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.amplify#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateWebhookCommand
  */
 export const de_UpdateWebhookCommand = async (
@@ -3001,7 +1702,7 @@ export const de_UpdateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3015,12 +1716,9 @@ export const de_UpdateWebhookCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateWebhookCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWebhookCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3036,12 +1734,18 @@ const de_UpdateWebhookCommandError = async (
     case "InternalFailureException":
     case "com.amazonaws.amplify#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.amplify#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.amplify#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.amplify#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.amplify#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amplify#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

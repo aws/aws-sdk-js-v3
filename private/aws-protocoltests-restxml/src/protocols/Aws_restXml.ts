@@ -1762,33 +1762,13 @@ export const de_AllQueryStringTypesCommand = async (
   context: __SerdeContext
 ): Promise<AllQueryStringTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AllQueryStringTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlAllQueryStringTypesCommandError
- */
-const de_AllQueryStringTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllQueryStringTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1799,7 +1779,7 @@ export const de_BodyWithXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<BodyWithXmlNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BodyWithXmlNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1812,26 +1792,6 @@ export const de_BodyWithXmlNameCommand = async (
 };
 
 /**
- * deserializeAws_restXmlBodyWithXmlNameCommandError
- */
-const de_BodyWithXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BodyWithXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlConstantAndVariableQueryStringCommand
  */
 export const de_ConstantAndVariableQueryStringCommand = async (
@@ -1839,33 +1799,13 @@ export const de_ConstantAndVariableQueryStringCommand = async (
   context: __SerdeContext
 ): Promise<ConstantAndVariableQueryStringCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ConstantAndVariableQueryStringCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlConstantAndVariableQueryStringCommandError
- */
-const de_ConstantAndVariableQueryStringCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConstantAndVariableQueryStringCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1876,33 +1816,13 @@ export const de_ConstantQueryStringCommand = async (
   context: __SerdeContext
 ): Promise<ConstantQueryStringCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ConstantQueryStringCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlConstantQueryStringCommandError
- */
-const de_ConstantQueryStringCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConstantQueryStringCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1913,7 +1833,7 @@ export const de_DatetimeOffsetsCommand = async (
   context: __SerdeContext
 ): Promise<DatetimeOffsetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DatetimeOffsetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1926,26 +1846,6 @@ export const de_DatetimeOffsetsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlDatetimeOffsetsCommandError
- */
-const de_DatetimeOffsetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DatetimeOffsetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlEmptyInputAndEmptyOutputCommand
  */
 export const de_EmptyInputAndEmptyOutputCommand = async (
@@ -1953,33 +1853,13 @@ export const de_EmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EmptyInputAndEmptyOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlEmptyInputAndEmptyOutputCommandError
- */
-const de_EmptyInputAndEmptyOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1990,33 +1870,13 @@ export const de_EndpointOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointOperationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EndpointOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlEndpointOperationCommandError
- */
-const de_EndpointOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2027,33 +1887,13 @@ export const de_EndpointWithHostLabelHeaderOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelHeaderOperationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EndpointWithHostLabelHeaderOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlEndpointWithHostLabelHeaderOperationCommandError
- */
-const de_EndpointWithHostLabelHeaderOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointWithHostLabelHeaderOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2064,33 +1904,13 @@ export const de_EndpointWithHostLabelOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EndpointWithHostLabelOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlEndpointWithHostLabelOperationCommandError
- */
-const de_EndpointWithHostLabelOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointWithHostLabelOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2101,7 +1921,7 @@ export const de_FlattenedXmlMapCommand = async (
   context: __SerdeContext
 ): Promise<FlattenedXmlMapCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_FlattenedXmlMapCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2116,26 +1936,6 @@ export const de_FlattenedXmlMapCommand = async (
 };
 
 /**
- * deserializeAws_restXmlFlattenedXmlMapCommandError
- */
-const de_FlattenedXmlMapCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlattenedXmlMapCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommand
  */
 export const de_FlattenedXmlMapWithXmlNameCommand = async (
@@ -2143,7 +1943,7 @@ export const de_FlattenedXmlMapWithXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_FlattenedXmlMapWithXmlNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2158,26 +1958,6 @@ export const de_FlattenedXmlMapWithXmlNameCommand = async (
 };
 
 /**
- * deserializeAws_restXmlFlattenedXmlMapWithXmlNameCommandError
- */
-const de_FlattenedXmlMapWithXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommand
  */
 export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
@@ -2185,7 +1965,7 @@ export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_FlattenedXmlMapWithXmlNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2200,26 +1980,6 @@ export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommandError
- */
-const de_FlattenedXmlMapWithXmlNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlFractionalSecondsCommand
  */
 export const de_FractionalSecondsCommand = async (
@@ -2227,7 +1987,7 @@ export const de_FractionalSecondsCommand = async (
   context: __SerdeContext
 ): Promise<FractionalSecondsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_FractionalSecondsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2240,26 +2000,6 @@ export const de_FractionalSecondsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlFractionalSecondsCommandError
- */
-const de_FractionalSecondsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FractionalSecondsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlGreetingWithErrorsCommand
  */
 export const de_GreetingWithErrorsCommand = async (
@@ -2267,7 +2007,7 @@ export const de_GreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GreetingWithErrorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2278,35 +2018,6 @@ export const de_GreetingWithErrorsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGreetingWithErrorsCommandError
- */
-const de_GreetingWithErrorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GreetingWithErrorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ComplexError":
-    case "aws.protocoltests.restxml#ComplexError":
-      throw await de_ComplexErrorRes(parsedOutput, context);
-    case "InvalidGreeting":
-    case "aws.protocoltests.restxml#InvalidGreeting":
-      throw await de_InvalidGreetingRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlHttpEnumPayloadCommand
  */
 export const de_HttpEnumPayloadCommand = async (
@@ -2314,7 +2025,7 @@ export const de_HttpEnumPayloadCommand = async (
   context: __SerdeContext
 ): Promise<HttpEnumPayloadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpEnumPayloadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2325,26 +2036,6 @@ export const de_HttpEnumPayloadCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpEnumPayloadCommandError
- */
-const de_HttpEnumPayloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpEnumPayloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPayloadTraitsCommand
  */
 export const de_HttpPayloadTraitsCommand = async (
@@ -2352,7 +2043,7 @@ export const de_HttpPayloadTraitsCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadTraitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2361,26 +2052,6 @@ export const de_HttpPayloadTraitsCommand = async (
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
   return contents;
-};
-
-/**
- * deserializeAws_restXmlHttpPayloadTraitsCommandError
- */
-const de_HttpPayloadTraitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadTraitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2391,7 +2062,7 @@ export const de_HttpPayloadTraitsWithMediaTypeCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadTraitsWithMediaTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2403,26 +2074,6 @@ export const de_HttpPayloadTraitsWithMediaTypeCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommandError
- */
-const de_HttpPayloadTraitsWithMediaTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand
  */
 export const de_HttpPayloadWithMemberXmlNameCommand = async (
@@ -2430,7 +2081,7 @@ export const de_HttpPayloadWithMemberXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadWithMemberXmlNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadWithMemberXmlNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2438,26 +2089,6 @@ export const de_HttpPayloadWithMemberXmlNameCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.nested = de_PayloadWithXmlName(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommandError
- */
-const de_HttpPayloadWithMemberXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadWithMemberXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2468,7 +2099,7 @@ export const de_HttpPayloadWithStructureCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadWithStructureCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2479,26 +2110,6 @@ export const de_HttpPayloadWithStructureCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPayloadWithStructureCommandError
- */
-const de_HttpPayloadWithStructureCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadWithStructureCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPayloadWithUnionCommand
  */
 export const de_HttpPayloadWithUnionCommand = async (
@@ -2506,7 +2117,7 @@ export const de_HttpPayloadWithUnionCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadWithUnionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadWithUnionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2517,26 +2128,6 @@ export const de_HttpPayloadWithUnionCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPayloadWithUnionCommandError
- */
-const de_HttpPayloadWithUnionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadWithUnionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPayloadWithXmlNameCommand
  */
 export const de_HttpPayloadWithXmlNameCommand = async (
@@ -2544,7 +2135,7 @@ export const de_HttpPayloadWithXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadWithXmlNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadWithXmlNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2555,26 +2146,6 @@ export const de_HttpPayloadWithXmlNameCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPayloadWithXmlNameCommandError
- */
-const de_HttpPayloadWithXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadWithXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommand
  */
 export const de_HttpPayloadWithXmlNamespaceCommand = async (
@@ -2582,7 +2153,7 @@ export const de_HttpPayloadWithXmlNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadWithXmlNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadWithXmlNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2593,26 +2164,6 @@ export const de_HttpPayloadWithXmlNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPayloadWithXmlNamespaceCommandError
- */
-const de_HttpPayloadWithXmlNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadWithXmlNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommand
  */
 export const de_HttpPayloadWithXmlNamespaceAndPrefixCommand = async (
@@ -2620,7 +2171,7 @@ export const de_HttpPayloadWithXmlNamespaceAndPrefixCommand = async (
   context: __SerdeContext
 ): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPayloadWithXmlNamespaceAndPrefixCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2631,26 +2182,6 @@ export const de_HttpPayloadWithXmlNamespaceAndPrefixCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPayloadWithXmlNamespaceAndPrefixCommandError
- */
-const de_HttpPayloadWithXmlNamespaceAndPrefixCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPayloadWithXmlNamespaceAndPrefixCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpPrefixHeadersCommand
  */
 export const de_HttpPrefixHeadersCommand = async (
@@ -2658,7 +2189,7 @@ export const de_HttpPrefixHeadersCommand = async (
   context: __SerdeContext
 ): Promise<HttpPrefixHeadersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpPrefixHeadersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2678,26 +2209,6 @@ export const de_HttpPrefixHeadersCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpPrefixHeadersCommandError
- */
-const de_HttpPrefixHeadersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpPrefixHeadersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpRequestWithFloatLabelsCommand
  */
 export const de_HttpRequestWithFloatLabelsCommand = async (
@@ -2705,33 +2216,13 @@ export const de_HttpRequestWithFloatLabelsCommand = async (
   context: __SerdeContext
 ): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpRequestWithFloatLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlHttpRequestWithFloatLabelsCommandError
- */
-const de_HttpRequestWithFloatLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpRequestWithFloatLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2742,33 +2233,13 @@ export const de_HttpRequestWithGreedyLabelInPathCommand = async (
   context: __SerdeContext
 ): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpRequestWithGreedyLabelInPathCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlHttpRequestWithGreedyLabelInPathCommandError
- */
-const de_HttpRequestWithGreedyLabelInPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpRequestWithGreedyLabelInPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2779,33 +2250,13 @@ export const de_HttpRequestWithLabelsCommand = async (
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpRequestWithLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlHttpRequestWithLabelsCommandError
- */
-const de_HttpRequestWithLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpRequestWithLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2816,33 +2267,13 @@ export const de_HttpRequestWithLabelsAndTimestampFormatCommand = async (
   context: __SerdeContext
 ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpRequestWithLabelsAndTimestampFormatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommandError
- */
-const de_HttpRequestWithLabelsAndTimestampFormatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -2853,7 +2284,7 @@ export const de_HttpResponseCodeCommand = async (
   context: __SerdeContext
 ): Promise<HttpResponseCodeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpResponseCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2866,26 +2297,6 @@ export const de_HttpResponseCodeCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpResponseCodeCommandError
- */
-const de_HttpResponseCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpResponseCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlHttpStringPayloadCommand
  */
 export const de_HttpStringPayloadCommand = async (
@@ -2893,7 +2304,7 @@ export const de_HttpStringPayloadCommand = async (
   context: __SerdeContext
 ): Promise<HttpStringPayloadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_HttpStringPayloadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2904,26 +2315,6 @@ export const de_HttpStringPayloadCommand = async (
 };
 
 /**
- * deserializeAws_restXmlHttpStringPayloadCommandError
- */
-const de_HttpStringPayloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HttpStringPayloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlIgnoreQueryParamsInResponseCommand
  */
 export const de_IgnoreQueryParamsInResponseCommand = async (
@@ -2931,7 +2322,7 @@ export const de_IgnoreQueryParamsInResponseCommand = async (
   context: __SerdeContext
 ): Promise<IgnoreQueryParamsInResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_IgnoreQueryParamsInResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2944,26 +2335,6 @@ export const de_IgnoreQueryParamsInResponseCommand = async (
 };
 
 /**
- * deserializeAws_restXmlIgnoreQueryParamsInResponseCommandError
- */
-const de_IgnoreQueryParamsInResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IgnoreQueryParamsInResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlInputAndOutputWithHeadersCommand
  */
 export const de_InputAndOutputWithHeadersCommand = async (
@@ -2971,7 +2342,7 @@ export const de_InputAndOutputWithHeadersCommand = async (
   context: __SerdeContext
 ): Promise<InputAndOutputWithHeadersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InputAndOutputWithHeadersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3018,26 +2389,6 @@ export const de_InputAndOutputWithHeadersCommand = async (
 };
 
 /**
- * deserializeAws_restXmlInputAndOutputWithHeadersCommandError
- */
-const de_InputAndOutputWithHeadersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InputAndOutputWithHeadersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlNestedXmlMapsCommand
  */
 export const de_NestedXmlMapsCommand = async (
@@ -3045,7 +2396,7 @@ export const de_NestedXmlMapsCommand = async (
   context: __SerdeContext
 ): Promise<NestedXmlMapsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NestedXmlMapsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3065,26 +2416,6 @@ export const de_NestedXmlMapsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlNestedXmlMapsCommandError
- */
-const de_NestedXmlMapsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NestedXmlMapsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlNoInputAndNoOutputCommand
  */
 export const de_NoInputAndNoOutputCommand = async (
@@ -3092,33 +2423,13 @@ export const de_NoInputAndNoOutputCommand = async (
   context: __SerdeContext
 ): Promise<NoInputAndNoOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NoInputAndNoOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlNoInputAndNoOutputCommandError
- */
-const de_NoInputAndNoOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndNoOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3129,33 +2440,13 @@ export const de_NoInputAndOutputCommand = async (
   context: __SerdeContext
 ): Promise<NoInputAndOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NoInputAndOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlNoInputAndOutputCommandError
- */
-const de_NoInputAndOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3166,7 +2457,7 @@ export const de_NullAndEmptyHeadersClientCommand = async (
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersClientCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NullAndEmptyHeadersClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3179,26 +2470,6 @@ export const de_NullAndEmptyHeadersClientCommand = async (
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlNullAndEmptyHeadersClientCommandError
- */
-const de_NullAndEmptyHeadersClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NullAndEmptyHeadersClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3209,7 +2480,7 @@ export const de_NullAndEmptyHeadersServerCommand = async (
   context: __SerdeContext
 ): Promise<NullAndEmptyHeadersServerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NullAndEmptyHeadersServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3225,26 +2496,6 @@ export const de_NullAndEmptyHeadersServerCommand = async (
 };
 
 /**
- * deserializeAws_restXmlNullAndEmptyHeadersServerCommandError
- */
-const de_NullAndEmptyHeadersServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NullAndEmptyHeadersServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlOmitsNullSerializesEmptyStringCommand
  */
 export const de_OmitsNullSerializesEmptyStringCommand = async (
@@ -3252,33 +2503,13 @@ export const de_OmitsNullSerializesEmptyStringCommand = async (
   context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_OmitsNullSerializesEmptyStringCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlOmitsNullSerializesEmptyStringCommandError
- */
-const de_OmitsNullSerializesEmptyStringCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OmitsNullSerializesEmptyStringCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3289,33 +2520,13 @@ export const de_PutWithContentEncodingCommand = async (
   context: __SerdeContext
 ): Promise<PutWithContentEncodingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutWithContentEncodingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlPutWithContentEncodingCommandError
- */
-const de_PutWithContentEncodingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3326,33 +2537,13 @@ export const de_QueryIdempotencyTokenAutoFillCommand = async (
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_QueryIdempotencyTokenAutoFillCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommandError
- */
-const de_QueryIdempotencyTokenAutoFillCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3363,33 +2554,13 @@ export const de_QueryParamsAsStringListMapCommand = async (
   context: __SerdeContext
 ): Promise<QueryParamsAsStringListMapCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_QueryParamsAsStringListMapCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlQueryParamsAsStringListMapCommandError
- */
-const de_QueryParamsAsStringListMapCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryParamsAsStringListMapCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3400,33 +2571,13 @@ export const de_QueryPrecedenceCommand = async (
   context: __SerdeContext
 ): Promise<QueryPrecedenceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_QueryPrecedenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlQueryPrecedenceCommandError
- */
-const de_QueryPrecedenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryPrecedenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3437,7 +2588,7 @@ export const de_RecursiveShapesCommand = async (
   context: __SerdeContext
 ): Promise<RecursiveShapesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RecursiveShapesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3450,26 +2601,6 @@ export const de_RecursiveShapesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlRecursiveShapesCommandError
- */
-const de_RecursiveShapesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecursiveShapesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlSimpleScalarPropertiesCommand
  */
 export const de_SimpleScalarPropertiesCommand = async (
@@ -3477,7 +2608,7 @@ export const de_SimpleScalarPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<SimpleScalarPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SimpleScalarPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3515,26 +2646,6 @@ export const de_SimpleScalarPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlSimpleScalarPropertiesCommandError
- */
-const de_SimpleScalarPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlTimestampFormatHeadersCommand
  */
 export const de_TimestampFormatHeadersCommand = async (
@@ -3542,7 +2653,7 @@ export const de_TimestampFormatHeadersCommand = async (
   context: __SerdeContext
 ): Promise<TimestampFormatHeadersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TimestampFormatHeadersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3571,26 +2682,6 @@ export const de_TimestampFormatHeadersCommand = async (
 };
 
 /**
- * deserializeAws_restXmlTimestampFormatHeadersCommandError
- */
-const de_TimestampFormatHeadersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TimestampFormatHeadersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlAttributesCommand
  */
 export const de_XmlAttributesCommand = async (
@@ -3598,7 +2689,7 @@ export const de_XmlAttributesCommand = async (
   context: __SerdeContext
 ): Promise<XmlAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3614,26 +2705,6 @@ export const de_XmlAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlAttributesCommandError
- */
-const de_XmlAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlAttributesOnPayloadCommand
  */
 export const de_XmlAttributesOnPayloadCommand = async (
@@ -3641,7 +2712,7 @@ export const de_XmlAttributesOnPayloadCommand = async (
   context: __SerdeContext
 ): Promise<XmlAttributesOnPayloadCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlAttributesOnPayloadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3652,26 +2723,6 @@ export const de_XmlAttributesOnPayloadCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlAttributesOnPayloadCommandError
- */
-const de_XmlAttributesOnPayloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlAttributesOnPayloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlBlobsCommand
  */
 export const de_XmlBlobsCommand = async (
@@ -3679,7 +2730,7 @@ export const de_XmlBlobsCommand = async (
   context: __SerdeContext
 ): Promise<XmlBlobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlBlobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3689,26 +2740,6 @@ export const de_XmlBlobsCommand = async (
     contents[_d] = context.base64Decoder(data[_d]);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlXmlBlobsCommandError
- */
-const de_XmlBlobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -3719,7 +2750,7 @@ export const de_XmlEmptyBlobsCommand = async (
   context: __SerdeContext
 ): Promise<XmlEmptyBlobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlEmptyBlobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3732,26 +2763,6 @@ export const de_XmlEmptyBlobsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlEmptyBlobsCommandError
- */
-const de_XmlEmptyBlobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyBlobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlEmptyListsCommand
  */
 export const de_XmlEmptyListsCommand = async (
@@ -3759,7 +2770,7 @@ export const de_XmlEmptyListsCommand = async (
   context: __SerdeContext
 ): Promise<XmlEmptyListsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlEmptyListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3844,26 +2855,6 @@ export const de_XmlEmptyListsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlEmptyListsCommandError
- */
-const de_XmlEmptyListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlEmptyMapsCommand
  */
 export const de_XmlEmptyMapsCommand = async (
@@ -3871,7 +2862,7 @@ export const de_XmlEmptyMapsCommand = async (
   context: __SerdeContext
 ): Promise<XmlEmptyMapsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlEmptyMapsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3886,26 +2877,6 @@ export const de_XmlEmptyMapsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlEmptyMapsCommandError
- */
-const de_XmlEmptyMapsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyMapsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlEmptyStringsCommand
  */
 export const de_XmlEmptyStringsCommand = async (
@@ -3913,7 +2884,7 @@ export const de_XmlEmptyStringsCommand = async (
   context: __SerdeContext
 ): Promise<XmlEmptyStringsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlEmptyStringsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3926,26 +2897,6 @@ export const de_XmlEmptyStringsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlEmptyStringsCommandError
- */
-const de_XmlEmptyStringsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyStringsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlEnumsCommand
  */
 export const de_XmlEnumsCommand = async (
@@ -3953,7 +2904,7 @@ export const de_XmlEnumsCommand = async (
   context: __SerdeContext
 ): Promise<XmlEnumsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlEnumsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3987,26 +2938,6 @@ export const de_XmlEnumsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlEnumsCommandError
- */
-const de_XmlEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlIntEnumsCommand
  */
 export const de_XmlIntEnumsCommand = async (
@@ -4014,7 +2945,7 @@ export const de_XmlIntEnumsCommand = async (
   context: __SerdeContext
 ): Promise<XmlIntEnumsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlIntEnumsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4048,26 +2979,6 @@ export const de_XmlIntEnumsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlIntEnumsCommandError
- */
-const de_XmlIntEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlIntEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlListsCommand
  */
 export const de_XmlListsCommand = async (
@@ -4075,7 +2986,7 @@ export const de_XmlListsCommand = async (
   context: __SerdeContext
 ): Promise<XmlListsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4160,26 +3071,6 @@ export const de_XmlListsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlListsCommandError
- */
-const de_XmlListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlMapsCommand
  */
 export const de_XmlMapsCommand = async (
@@ -4187,7 +3078,7 @@ export const de_XmlMapsCommand = async (
   context: __SerdeContext
 ): Promise<XmlMapsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlMapsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4202,26 +3093,6 @@ export const de_XmlMapsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlMapsCommandError
- */
-const de_XmlMapsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlMapsXmlNameCommand
  */
 export const de_XmlMapsXmlNameCommand = async (
@@ -4229,7 +3100,7 @@ export const de_XmlMapsXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<XmlMapsXmlNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlMapsXmlNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4244,26 +3115,6 @@ export const de_XmlMapsXmlNameCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlMapsXmlNameCommandError
- */
-const de_XmlMapsXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapsXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlMapWithXmlNamespaceCommand
  */
 export const de_XmlMapWithXmlNamespaceCommand = async (
@@ -4271,7 +3122,7 @@ export const de_XmlMapWithXmlNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<XmlMapWithXmlNamespaceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlMapWithXmlNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4286,26 +3137,6 @@ export const de_XmlMapWithXmlNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlMapWithXmlNamespaceCommandError
- */
-const de_XmlMapWithXmlNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapWithXmlNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlNamespacesCommand
  */
 export const de_XmlNamespacesCommand = async (
@@ -4313,7 +3144,7 @@ export const de_XmlNamespacesCommand = async (
   context: __SerdeContext
 ): Promise<XmlNamespacesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlNamespacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4326,26 +3157,6 @@ export const de_XmlNamespacesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlNamespacesCommandError
- */
-const de_XmlNamespacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlTimestampsCommand
  */
 export const de_XmlTimestampsCommand = async (
@@ -4353,7 +3164,7 @@ export const de_XmlTimestampsCommand = async (
   context: __SerdeContext
 ): Promise<XmlTimestampsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlTimestampsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4384,26 +3195,6 @@ export const de_XmlTimestampsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlTimestampsCommandError
- */
-const de_XmlTimestampsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlXmlUnionsCommand
  */
 export const de_XmlUnionsCommand = async (
@@ -4411,7 +3202,7 @@ export const de_XmlUnionsCommand = async (
   context: __SerdeContext
 ): Promise<XmlUnionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_XmlUnionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4426,23 +3217,29 @@ export const de_XmlUnionsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlXmlUnionsCommandError
+ * deserialize_Aws_restXmlCommandError
  */
-const de_XmlUnionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlUnionsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "ComplexError":
+    case "aws.protocoltests.restxml#ComplexError":
+      throw await de_ComplexErrorRes(parsedOutput, context);
+    case "InvalidGreeting":
+    case "aws.protocoltests.restxml#InvalidGreeting":
+      throw await de_InvalidGreetingRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
 };
 
 const throwDefaultError = withBaseException(__BaseException);

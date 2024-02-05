@@ -132,7 +132,7 @@ export const de_InvokeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<InvokeEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -146,12 +146,53 @@ export const de_InvokeEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeEndpointCommandError
+ * deserializeAws_restJson1InvokeEndpointAsyncCommand
  */
-const de_InvokeEndpointCommandError = async (
+export const de_InvokeEndpointAsyncCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<InvokeEndpointCommandOutput> => {
+): Promise<InvokeEndpointAsyncCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_OL]: [, output.headers[_xaso]],
+    [_FL]: [, output.headers[_xasf]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InferenceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1InvokeEndpointWithResponseStreamCommand
+ */
+export const de_InvokeEndpointWithResponseStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<InvokeEndpointWithResponseStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_CT]: [, output.headers[_xasct]],
+    [_IPV]: [, output.headers[_xaipv]],
+    [_CA]: [, output.headers[_xasca]],
+  });
+  const data: any = output.body;
+  contents.Body = de_ResponseStream(data, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -176,123 +217,12 @@ const de_InvokeEndpointCommandError = async (
     case "ValidationError":
     case "com.amazonaws.sagemakerruntime#ValidationError":
       throw await de_ValidationErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1InvokeEndpointAsyncCommand
- */
-export const de_InvokeEndpointAsyncCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeEndpointAsyncCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_InvokeEndpointAsyncCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-    [_OL]: [, output.headers[_xaso]],
-    [_FL]: [, output.headers[_xasf]],
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    InferenceId: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1InvokeEndpointAsyncCommandError
- */
-const de_InvokeEndpointAsyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeEndpointAsyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailure":
-    case "com.amazonaws.sagemakerruntime#InternalFailure":
-      throw await de_InternalFailureRes(parsedOutput, context);
-    case "ServiceUnavailable":
-    case "com.amazonaws.sagemakerruntime#ServiceUnavailable":
-      throw await de_ServiceUnavailableRes(parsedOutput, context);
-    case "ValidationError":
-    case "com.amazonaws.sagemakerruntime#ValidationError":
-      throw await de_ValidationErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1InvokeEndpointWithResponseStreamCommand
- */
-export const de_InvokeEndpointWithResponseStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext & __EventStreamSerdeContext
-): Promise<InvokeEndpointWithResponseStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeEndpointWithResponseStreamCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-    [_CT]: [, output.headers[_xasct]],
-    [_IPV]: [, output.headers[_xaipv]],
-    [_CA]: [, output.headers[_xasca]],
-  });
-  const data: any = output.body;
-  contents.Body = de_ResponseStream(data, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1InvokeEndpointWithResponseStreamCommandError
- */
-const de_InvokeEndpointWithResponseStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeEndpointWithResponseStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailure":
-    case "com.amazonaws.sagemakerruntime#InternalFailure":
-      throw await de_InternalFailureRes(parsedOutput, context);
     case "InternalStreamFailure":
     case "com.amazonaws.sagemakerruntime#InternalStreamFailure":
       throw await de_InternalStreamFailureRes(parsedOutput, context);
-    case "ModelError":
-    case "com.amazonaws.sagemakerruntime#ModelError":
-      throw await de_ModelErrorRes(parsedOutput, context);
     case "ModelStreamError":
     case "com.amazonaws.sagemakerruntime#ModelStreamError":
       throw await de_ModelStreamErrorRes(parsedOutput, context);
-    case "ServiceUnavailable":
-    case "com.amazonaws.sagemakerruntime#ServiceUnavailable":
-      throw await de_ServiceUnavailableRes(parsedOutput, context);
-    case "ValidationError":
-    case "com.amazonaws.sagemakerruntime#ValidationError":
-      throw await de_ValidationErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

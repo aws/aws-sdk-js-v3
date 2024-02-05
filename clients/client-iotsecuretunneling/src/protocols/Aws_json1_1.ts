@@ -166,7 +166,7 @@ export const de_CloseTunnelCommand = async (
   context: __SerdeContext
 ): Promise<CloseTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CloseTunnelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -179,32 +179,6 @@ export const de_CloseTunnelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CloseTunnelCommandError
- */
-const de_CloseTunnelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CloseTunnelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTunnelCommand
  */
 export const de_DescribeTunnelCommand = async (
@@ -212,7 +186,7 @@ export const de_DescribeTunnelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTunnelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -225,32 +199,6 @@ export const de_DescribeTunnelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTunnelCommandError
- */
-const de_DescribeTunnelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTunnelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -258,7 +206,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -271,32 +219,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTunnelsCommand
  */
 export const de_ListTunnelsCommand = async (
@@ -304,7 +226,7 @@ export const de_ListTunnelsCommand = async (
   context: __SerdeContext
 ): Promise<ListTunnelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTunnelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -317,26 +239,6 @@ export const de_ListTunnelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTunnelsCommandError
- */
-const de_ListTunnelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTunnelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1OpenTunnelCommand
  */
 export const de_OpenTunnelCommand = async (
@@ -344,7 +246,7 @@ export const de_OpenTunnelCommand = async (
   context: __SerdeContext
 ): Promise<OpenTunnelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_OpenTunnelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -357,32 +259,6 @@ export const de_OpenTunnelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1OpenTunnelCommandError
- */
-const de_OpenTunnelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OpenTunnelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.iotsecuretunneling#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RotateTunnelAccessTokenCommand
  */
 export const de_RotateTunnelAccessTokenCommand = async (
@@ -390,7 +266,7 @@ export const de_RotateTunnelAccessTokenCommand = async (
   context: __SerdeContext
 ): Promise<RotateTunnelAccessTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RotateTunnelAccessTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -403,32 +279,6 @@ export const de_RotateTunnelAccessTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RotateTunnelAccessTokenCommandError
- */
-const de_RotateTunnelAccessTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RotateTunnelAccessTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -436,7 +286,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -449,32 +299,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -482,7 +306,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -495,12 +319,9 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -510,6 +331,9 @@ const de_UntagResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.iotsecuretunneling#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotsecuretunneling#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

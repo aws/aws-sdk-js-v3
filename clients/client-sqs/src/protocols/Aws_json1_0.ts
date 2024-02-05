@@ -428,55 +428,13 @@ export const de_AddPermissionCommand = async (
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0AddPermissionCommandError
- */
-const de_AddPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "OverLimit":
-    case "com.amazonaws.sqs#OverLimit":
-      throw await de_OverLimitRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -487,7 +445,7 @@ export const de_CancelMessageMoveTaskCommand = async (
   context: __SerdeContext
 ): Promise<CancelMessageMoveTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelMessageMoveTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -500,45 +458,6 @@ export const de_CancelMessageMoveTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CancelMessageMoveTaskCommandError
- */
-const de_CancelMessageMoveTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMessageMoveTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sqs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ChangeMessageVisibilityCommand
  */
 export const de_ChangeMessageVisibilityCommand = async (
@@ -546,58 +465,13 @@ export const de_ChangeMessageVisibilityCommand = async (
   context: __SerdeContext
 ): Promise<ChangeMessageVisibilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ChangeMessageVisibilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ChangeMessageVisibilityCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0ChangeMessageVisibilityCommandError
- */
-const de_ChangeMessageVisibilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangeMessageVisibilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "MessageNotInflight":
-    case "com.amazonaws.sqs#MessageNotInflight":
-      throw await de_MessageNotInflightRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "ReceiptHandleIsInvalid":
-    case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
-      throw await de_ReceiptHandleIsInvalidRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -608,7 +482,7 @@ export const de_ChangeMessageVisibilityBatchCommand = async (
   context: __SerdeContext
 ): Promise<ChangeMessageVisibilityBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ChangeMessageVisibilityBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -621,57 +495,6 @@ export const de_ChangeMessageVisibilityBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ChangeMessageVisibilityBatchCommandError
- */
-const de_ChangeMessageVisibilityBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangeMessageVisibilityBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchEntryIdsNotDistinct":
-    case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      throw await de_BatchEntryIdsNotDistinctRes(parsedOutput, context);
-    case "EmptyBatchRequest":
-    case "com.amazonaws.sqs#EmptyBatchRequest":
-      throw await de_EmptyBatchRequestRes(parsedOutput, context);
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidBatchEntryId":
-    case "com.amazonaws.sqs#InvalidBatchEntryId":
-      throw await de_InvalidBatchEntryIdRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "TooManyEntriesInBatchRequest":
-    case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      throw await de_TooManyEntriesInBatchRequestRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateQueueCommand
  */
 export const de_CreateQueueCommand = async (
@@ -679,7 +502,7 @@ export const de_CreateQueueCommand = async (
   context: __SerdeContext
 ): Promise<CreateQueueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -692,54 +515,6 @@ export const de_CreateQueueCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateQueueCommandError
- */
-const de_CreateQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidAttributeName":
-    case "com.amazonaws.sqs#InvalidAttributeName":
-      throw await de_InvalidAttributeNameRes(parsedOutput, context);
-    case "InvalidAttributeValue":
-    case "com.amazonaws.sqs#InvalidAttributeValue":
-      throw await de_InvalidAttributeValueRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDeletedRecently":
-    case "com.amazonaws.sqs#QueueDeletedRecently":
-      throw await de_QueueDeletedRecentlyRes(parsedOutput, context);
-    case "QueueNameExists":
-    case "com.amazonaws.sqs#QueueNameExists":
-      throw await de_QueueNameExistsRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteMessageCommand
  */
 export const de_DeleteMessageCommand = async (
@@ -747,58 +522,13 @@ export const de_DeleteMessageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteMessageCommandError
- */
-const de_DeleteMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidIdFormat":
-    case "com.amazonaws.sqs#InvalidIdFormat":
-      throw await de_InvalidIdFormatRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "ReceiptHandleIsInvalid":
-    case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
-      throw await de_ReceiptHandleIsInvalidRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -809,7 +539,7 @@ export const de_DeleteMessageBatchCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMessageBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMessageBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -822,57 +552,6 @@ export const de_DeleteMessageBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteMessageBatchCommandError
- */
-const de_DeleteMessageBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMessageBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchEntryIdsNotDistinct":
-    case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      throw await de_BatchEntryIdsNotDistinctRes(parsedOutput, context);
-    case "EmptyBatchRequest":
-    case "com.amazonaws.sqs#EmptyBatchRequest":
-      throw await de_EmptyBatchRequestRes(parsedOutput, context);
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidBatchEntryId":
-    case "com.amazonaws.sqs#InvalidBatchEntryId":
-      throw await de_InvalidBatchEntryIdRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "TooManyEntriesInBatchRequest":
-    case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      throw await de_TooManyEntriesInBatchRequestRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteQueueCommand
  */
 export const de_DeleteQueueCommand = async (
@@ -880,52 +559,13 @@ export const de_DeleteQueueCommand = async (
   context: __SerdeContext
 ): Promise<DeleteQueueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteQueueCommandError
- */
-const de_DeleteQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -936,7 +576,7 @@ export const de_GetQueueAttributesCommand = async (
   context: __SerdeContext
 ): Promise<GetQueueAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueueAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -949,48 +589,6 @@ export const de_GetQueueAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetQueueAttributesCommandError
- */
-const de_GetQueueAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueueAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidAttributeName":
-    case "com.amazonaws.sqs#InvalidAttributeName":
-      throw await de_InvalidAttributeNameRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetQueueUrlCommand
  */
 export const de_GetQueueUrlCommand = async (
@@ -998,7 +596,7 @@ export const de_GetQueueUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetQueueUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueueUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1011,45 +609,6 @@ export const de_GetQueueUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetQueueUrlCommandError
- */
-const de_GetQueueUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueueUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListDeadLetterSourceQueuesCommand
  */
 export const de_ListDeadLetterSourceQueuesCommand = async (
@@ -1057,7 +616,7 @@ export const de_ListDeadLetterSourceQueuesCommand = async (
   context: __SerdeContext
 ): Promise<ListDeadLetterSourceQueuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDeadLetterSourceQueuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1070,45 +629,6 @@ export const de_ListDeadLetterSourceQueuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListDeadLetterSourceQueuesCommandError
- */
-const de_ListDeadLetterSourceQueuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeadLetterSourceQueuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListMessageMoveTasksCommand
  */
 export const de_ListMessageMoveTasksCommand = async (
@@ -1116,7 +636,7 @@ export const de_ListMessageMoveTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListMessageMoveTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMessageMoveTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1129,45 +649,6 @@ export const de_ListMessageMoveTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListMessageMoveTasksCommandError
- */
-const de_ListMessageMoveTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMessageMoveTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.sqs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListQueuesCommand
  */
 export const de_ListQueuesCommand = async (
@@ -1175,7 +656,7 @@ export const de_ListQueuesCommand = async (
   context: __SerdeContext
 ): Promise<ListQueuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListQueuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1188,42 +669,6 @@ export const de_ListQueuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListQueuesCommandError
- */
-const de_ListQueuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQueuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListQueueTagsCommand
  */
 export const de_ListQueueTagsCommand = async (
@@ -1231,7 +676,7 @@ export const de_ListQueueTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListQueueTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListQueueTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1244,45 +689,6 @@ export const de_ListQueueTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListQueueTagsCommandError
- */
-const de_ListQueueTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQueueTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PurgeQueueCommand
  */
 export const de_PurgeQueueCommand = async (
@@ -1290,55 +696,13 @@ export const de_PurgeQueueCommand = async (
   context: __SerdeContext
 ): Promise<PurgeQueueCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurgeQueueCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PurgeQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0PurgeQueueCommandError
- */
-const de_PurgeQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurgeQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "PurgeQueueInProgress":
-    case "com.amazonaws.sqs#PurgeQueueInProgress":
-      throw await de_PurgeQueueInProgressRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1349,7 +713,7 @@ export const de_ReceiveMessageCommand = async (
   context: __SerdeContext
 ): Promise<ReceiveMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReceiveMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1362,69 +726,6 @@ export const de_ReceiveMessageCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ReceiveMessageCommandError
- */
-const de_ReceiveMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReceiveMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "KmsAccessDenied":
-    case "com.amazonaws.sqs#KmsAccessDenied":
-      throw await de_KmsAccessDeniedRes(parsedOutput, context);
-    case "KmsDisabled":
-    case "com.amazonaws.sqs#KmsDisabled":
-      throw await de_KmsDisabledRes(parsedOutput, context);
-    case "KmsInvalidKeyUsage":
-    case "com.amazonaws.sqs#KmsInvalidKeyUsage":
-      throw await de_KmsInvalidKeyUsageRes(parsedOutput, context);
-    case "KmsInvalidState":
-    case "com.amazonaws.sqs#KmsInvalidState":
-      throw await de_KmsInvalidStateRes(parsedOutput, context);
-    case "KmsNotFound":
-    case "com.amazonaws.sqs#KmsNotFound":
-      throw await de_KmsNotFoundRes(parsedOutput, context);
-    case "KmsOptInRequired":
-    case "com.amazonaws.sqs#KmsOptInRequired":
-      throw await de_KmsOptInRequiredRes(parsedOutput, context);
-    case "KmsThrottled":
-    case "com.amazonaws.sqs#KmsThrottled":
-      throw await de_KmsThrottledRes(parsedOutput, context);
-    case "OverLimit":
-    case "com.amazonaws.sqs#OverLimit":
-      throw await de_OverLimitRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RemovePermissionCommand
  */
 export const de_RemovePermissionCommand = async (
@@ -1432,52 +733,13 @@ export const de_RemovePermissionCommand = async (
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemovePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemovePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RemovePermissionCommandError
- */
-const de_RemovePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemovePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1488,7 +750,7 @@ export const de_SendMessageCommand = async (
   context: __SerdeContext
 ): Promise<SendMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1501,69 +763,6 @@ export const de_SendMessageCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SendMessageCommandError
- */
-const de_SendMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidMessageContents":
-    case "com.amazonaws.sqs#InvalidMessageContents":
-      throw await de_InvalidMessageContentsRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "KmsAccessDenied":
-    case "com.amazonaws.sqs#KmsAccessDenied":
-      throw await de_KmsAccessDeniedRes(parsedOutput, context);
-    case "KmsDisabled":
-    case "com.amazonaws.sqs#KmsDisabled":
-      throw await de_KmsDisabledRes(parsedOutput, context);
-    case "KmsInvalidKeyUsage":
-    case "com.amazonaws.sqs#KmsInvalidKeyUsage":
-      throw await de_KmsInvalidKeyUsageRes(parsedOutput, context);
-    case "KmsInvalidState":
-    case "com.amazonaws.sqs#KmsInvalidState":
-      throw await de_KmsInvalidStateRes(parsedOutput, context);
-    case "KmsNotFound":
-    case "com.amazonaws.sqs#KmsNotFound":
-      throw await de_KmsNotFoundRes(parsedOutput, context);
-    case "KmsOptInRequired":
-    case "com.amazonaws.sqs#KmsOptInRequired":
-      throw await de_KmsOptInRequiredRes(parsedOutput, context);
-    case "KmsThrottled":
-    case "com.amazonaws.sqs#KmsThrottled":
-      throw await de_KmsThrottledRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SendMessageBatchCommand
  */
 export const de_SendMessageBatchCommand = async (
@@ -1571,7 +770,7 @@ export const de_SendMessageBatchCommand = async (
   context: __SerdeContext
 ): Promise<SendMessageBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendMessageBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1584,81 +783,6 @@ export const de_SendMessageBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SendMessageBatchCommandError
- */
-const de_SendMessageBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendMessageBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchEntryIdsNotDistinct":
-    case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
-      throw await de_BatchEntryIdsNotDistinctRes(parsedOutput, context);
-    case "BatchRequestTooLong":
-    case "com.amazonaws.sqs#BatchRequestTooLong":
-      throw await de_BatchRequestTooLongRes(parsedOutput, context);
-    case "EmptyBatchRequest":
-    case "com.amazonaws.sqs#EmptyBatchRequest":
-      throw await de_EmptyBatchRequestRes(parsedOutput, context);
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidBatchEntryId":
-    case "com.amazonaws.sqs#InvalidBatchEntryId":
-      throw await de_InvalidBatchEntryIdRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "KmsAccessDenied":
-    case "com.amazonaws.sqs#KmsAccessDenied":
-      throw await de_KmsAccessDeniedRes(parsedOutput, context);
-    case "KmsDisabled":
-    case "com.amazonaws.sqs#KmsDisabled":
-      throw await de_KmsDisabledRes(parsedOutput, context);
-    case "KmsInvalidKeyUsage":
-    case "com.amazonaws.sqs#KmsInvalidKeyUsage":
-      throw await de_KmsInvalidKeyUsageRes(parsedOutput, context);
-    case "KmsInvalidState":
-    case "com.amazonaws.sqs#KmsInvalidState":
-      throw await de_KmsInvalidStateRes(parsedOutput, context);
-    case "KmsNotFound":
-    case "com.amazonaws.sqs#KmsNotFound":
-      throw await de_KmsNotFoundRes(parsedOutput, context);
-    case "KmsOptInRequired":
-    case "com.amazonaws.sqs#KmsOptInRequired":
-      throw await de_KmsOptInRequiredRes(parsedOutput, context);
-    case "KmsThrottled":
-    case "com.amazonaws.sqs#KmsThrottled":
-      throw await de_KmsThrottledRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "TooManyEntriesInBatchRequest":
-    case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
-      throw await de_TooManyEntriesInBatchRequestRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0SetQueueAttributesCommand
  */
 export const de_SetQueueAttributesCommand = async (
@@ -1666,7 +790,7 @@ export const de_SetQueueAttributesCommand = async (
   context: __SerdeContext
 ): Promise<SetQueueAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetQueueAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetQueueAttributesCommandOutput = {
@@ -1676,12 +800,63 @@ export const de_SetQueueAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0SetQueueAttributesCommandError
+ * deserializeAws_json1_0StartMessageMoveTaskCommand
  */
-const de_SetQueueAttributesCommandError = async (
+export const de_StartMessageMoveTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetQueueAttributesCommandOutput> => {
+): Promise<StartMessageMoveTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMessageMoveTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TagQueueCommand
+ */
+export const de_TagQueueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagQueueCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagQueueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagQueueCommand
+ */
+export const de_UntagQueueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagQueueCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagQueueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_0CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1692,12 +867,6 @@ const de_SetQueueAttributesCommandError = async (
     case "InvalidAddress":
     case "com.amazonaws.sqs#InvalidAddress":
       throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidAttributeName":
-    case "com.amazonaws.sqs#InvalidAttributeName":
-      throw await de_InvalidAttributeNameRes(parsedOutput, context);
-    case "InvalidAttributeValue":
-    case "com.amazonaws.sqs#InvalidAttributeValue":
-      throw await de_InvalidAttributeValueRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sqs#InvalidSecurity":
       throw await de_InvalidSecurityRes(parsedOutput, context);
@@ -1713,177 +882,72 @@ const de_SetQueueAttributesCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.sqs#UnsupportedOperation":
       throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0StartMessageMoveTaskCommand
- */
-export const de_StartMessageMoveTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMessageMoveTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMessageMoveTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMessageMoveTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0StartMessageMoveTaskCommandError
- */
-const de_StartMessageMoveTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMessageMoveTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sqs#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0TagQueueCommand
- */
-export const de_TagQueueCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagQueueCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagQueueCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: TagQueueCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0TagQueueCommandError
- */
-const de_TagQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UntagQueueCommand
- */
-export const de_UntagQueueCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagQueueCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagQueueCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UntagQueueCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UntagQueueCommandError
- */
-const de_UntagQueueCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagQueueCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  populateBodyWithQueryCompatibility(parsedOutput, output.headers);
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAddress":
-    case "com.amazonaws.sqs#InvalidAddress":
-      throw await de_InvalidAddressRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sqs#InvalidSecurity":
-      throw await de_InvalidSecurityRes(parsedOutput, context);
-    case "QueueDoesNotExist":
-    case "com.amazonaws.sqs#QueueDoesNotExist":
-      throw await de_QueueDoesNotExistRes(parsedOutput, context);
-    case "RequestThrottled":
-    case "com.amazonaws.sqs#RequestThrottled":
-      throw await de_RequestThrottledRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.sqs#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
+    case "MessageNotInflight":
+    case "com.amazonaws.sqs#MessageNotInflight":
+      throw await de_MessageNotInflightRes(parsedOutput, context);
+    case "ReceiptHandleIsInvalid":
+    case "com.amazonaws.sqs#ReceiptHandleIsInvalid":
+      throw await de_ReceiptHandleIsInvalidRes(parsedOutput, context);
+    case "BatchEntryIdsNotDistinct":
+    case "com.amazonaws.sqs#BatchEntryIdsNotDistinct":
+      throw await de_BatchEntryIdsNotDistinctRes(parsedOutput, context);
+    case "EmptyBatchRequest":
+    case "com.amazonaws.sqs#EmptyBatchRequest":
+      throw await de_EmptyBatchRequestRes(parsedOutput, context);
+    case "InvalidBatchEntryId":
+    case "com.amazonaws.sqs#InvalidBatchEntryId":
+      throw await de_InvalidBatchEntryIdRes(parsedOutput, context);
+    case "TooManyEntriesInBatchRequest":
+    case "com.amazonaws.sqs#TooManyEntriesInBatchRequest":
+      throw await de_TooManyEntriesInBatchRequestRes(parsedOutput, context);
+    case "InvalidAttributeName":
+    case "com.amazonaws.sqs#InvalidAttributeName":
+      throw await de_InvalidAttributeNameRes(parsedOutput, context);
+    case "InvalidAttributeValue":
+    case "com.amazonaws.sqs#InvalidAttributeValue":
+      throw await de_InvalidAttributeValueRes(parsedOutput, context);
+    case "QueueDeletedRecently":
+    case "com.amazonaws.sqs#QueueDeletedRecently":
+      throw await de_QueueDeletedRecentlyRes(parsedOutput, context);
+    case "QueueNameExists":
+    case "com.amazonaws.sqs#QueueNameExists":
+      throw await de_QueueNameExistsRes(parsedOutput, context);
+    case "InvalidIdFormat":
+    case "com.amazonaws.sqs#InvalidIdFormat":
+      throw await de_InvalidIdFormatRes(parsedOutput, context);
+    case "PurgeQueueInProgress":
+    case "com.amazonaws.sqs#PurgeQueueInProgress":
+      throw await de_PurgeQueueInProgressRes(parsedOutput, context);
+    case "KmsAccessDenied":
+    case "com.amazonaws.sqs#KmsAccessDenied":
+      throw await de_KmsAccessDeniedRes(parsedOutput, context);
+    case "KmsDisabled":
+    case "com.amazonaws.sqs#KmsDisabled":
+      throw await de_KmsDisabledRes(parsedOutput, context);
+    case "KmsInvalidKeyUsage":
+    case "com.amazonaws.sqs#KmsInvalidKeyUsage":
+      throw await de_KmsInvalidKeyUsageRes(parsedOutput, context);
+    case "KmsInvalidState":
+    case "com.amazonaws.sqs#KmsInvalidState":
+      throw await de_KmsInvalidStateRes(parsedOutput, context);
+    case "KmsNotFound":
+    case "com.amazonaws.sqs#KmsNotFound":
+      throw await de_KmsNotFoundRes(parsedOutput, context);
+    case "KmsOptInRequired":
+    case "com.amazonaws.sqs#KmsOptInRequired":
+      throw await de_KmsOptInRequiredRes(parsedOutput, context);
+    case "KmsThrottled":
+    case "com.amazonaws.sqs#KmsThrottled":
+      throw await de_KmsThrottledRes(parsedOutput, context);
+    case "InvalidMessageContents":
+    case "com.amazonaws.sqs#InvalidMessageContents":
+      throw await de_InvalidMessageContentsRes(parsedOutput, context);
+    case "BatchRequestTooLong":
+    case "com.amazonaws.sqs#BatchRequestTooLong":
+      throw await de_BatchRequestTooLongRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

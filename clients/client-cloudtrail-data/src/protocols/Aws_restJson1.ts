@@ -65,7 +65,7 @@ export const de_PutAuditEventsCommand = async (
   context: __SerdeContext
 ): Promise<PutAuditEventsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutAuditEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -80,12 +80,9 @@ export const de_PutAuditEventsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutAuditEventsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_PutAuditEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAuditEventsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

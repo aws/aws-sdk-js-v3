@@ -1876,7 +1876,7 @@ export const de_ActivateOrganizationsAccessCommand = async (
   context: __SerdeContext
 ): Promise<ActivateOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ActivateOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1889,35 +1889,6 @@ export const de_ActivateOrganizationsAccessCommand = async (
 };
 
 /**
- * deserializeAws_queryActivateOrganizationsAccessCommandError
- */
-const de_ActivateOrganizationsAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateOrganizationsAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryActivateTypeCommand
  */
 export const de_ActivateTypeCommand = async (
@@ -1925,7 +1896,7 @@ export const de_ActivateTypeCommand = async (
   context: __SerdeContext
 ): Promise<ActivateTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ActivateTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1938,35 +1909,6 @@ export const de_ActivateTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryActivateTypeCommandError
- */
-const de_ActivateTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryBatchDescribeTypeConfigurationsCommand
  */
 export const de_BatchDescribeTypeConfigurationsCommand = async (
@@ -1974,7 +1916,7 @@ export const de_BatchDescribeTypeConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDescribeTypeConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDescribeTypeConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1987,35 +1929,6 @@ export const de_BatchDescribeTypeConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_queryBatchDescribeTypeConfigurationsCommandError
- */
-const de_BatchDescribeTypeConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDescribeTypeConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeConfigurationNotFoundException":
-    case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
-      throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCancelUpdateStackCommand
  */
 export const de_CancelUpdateStackCommand = async (
@@ -2023,39 +1936,13 @@ export const de_CancelUpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<CancelUpdateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelUpdateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CancelUpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryCancelUpdateStackCommandError
- */
-const de_CancelUpdateStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelUpdateStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2066,7 +1953,7 @@ export const de_ContinueUpdateRollbackCommand = async (
   context: __SerdeContext
 ): Promise<ContinueUpdateRollbackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ContinueUpdateRollbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2079,32 +1966,6 @@ export const de_ContinueUpdateRollbackCommand = async (
 };
 
 /**
- * deserializeAws_queryContinueUpdateRollbackCommandError
- */
-const de_ContinueUpdateRollbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ContinueUpdateRollbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateChangeSetCommand
  */
 export const de_CreateChangeSetCommand = async (
@@ -2112,7 +1973,7 @@ export const de_CreateChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateChangeSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2125,38 +1986,6 @@ export const de_CreateChangeSetCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateChangeSetCommandError
- */
-const de_CreateChangeSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChangeSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateGeneratedTemplateCommand
  */
 export const de_CreateGeneratedTemplateCommand = async (
@@ -2164,7 +1993,7 @@ export const de_CreateGeneratedTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateGeneratedTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2177,38 +2006,6 @@ export const de_CreateGeneratedTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateGeneratedTemplateCommandError
- */
-const de_CreateGeneratedTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGeneratedTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentResourcesLimitExceeded":
-    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
-      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateStackCommand
  */
 export const de_CreateStackCommand = async (
@@ -2216,7 +2013,7 @@ export const de_CreateStackCommand = async (
   context: __SerdeContext
 ): Promise<CreateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2229,41 +2026,6 @@ export const de_CreateStackCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateStackCommandError
- */
-const de_CreateStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateStackInstancesCommand
  */
 export const de_CreateStackInstancesCommand = async (
@@ -2271,7 +2033,7 @@ export const de_CreateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<CreateStackInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2284,47 +2046,6 @@ export const de_CreateStackInstancesCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateStackInstancesCommandError
- */
-const de_CreateStackInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStackInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateStackSetCommand
  */
 export const de_CreateStackSetCommand = async (
@@ -2332,7 +2053,7 @@ export const de_CreateStackSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateStackSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2345,38 +2066,6 @@ export const de_CreateStackSetCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateStackSetCommandError
- */
-const de_CreateStackSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStackSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CreatedButModifiedException":
-    case "com.amazonaws.cloudformation#CreatedButModifiedException":
-      throw await de_CreatedButModifiedExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NameAlreadyExistsException":
-    case "com.amazonaws.cloudformation#NameAlreadyExistsException":
-      throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeactivateOrganizationsAccessCommand
  */
 export const de_DeactivateOrganizationsAccessCommand = async (
@@ -2384,7 +2073,7 @@ export const de_DeactivateOrganizationsAccessCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeactivateOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2397,35 +2086,6 @@ export const de_DeactivateOrganizationsAccessCommand = async (
 };
 
 /**
- * deserializeAws_queryDeactivateOrganizationsAccessCommandError
- */
-const de_DeactivateOrganizationsAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivateOrganizationsAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeactivateTypeCommand
  */
 export const de_DeactivateTypeCommand = async (
@@ -2433,7 +2093,7 @@ export const de_DeactivateTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeactivateTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2446,35 +2106,6 @@ export const de_DeactivateTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryDeactivateTypeCommandError
- */
-const de_DeactivateTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivateTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteChangeSetCommand
  */
 export const de_DeleteChangeSetCommand = async (
@@ -2482,7 +2113,7 @@ export const de_DeleteChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChangeSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2495,32 +2126,6 @@ export const de_DeleteChangeSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteChangeSetCommandError
- */
-const de_DeleteChangeSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChangeSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidChangeSetStatus":
-    case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-      throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteGeneratedTemplateCommand
  */
 export const de_DeleteGeneratedTemplateCommand = async (
@@ -2528,42 +2133,13 @@ export const de_DeleteGeneratedTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGeneratedTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGeneratedTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteGeneratedTemplateCommandError
- */
-const de_DeleteGeneratedTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGeneratedTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentResourcesLimitExceeded":
-    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
-      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2574,39 +2150,13 @@ export const de_DeleteStackCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteStackCommandError
- */
-const de_DeleteStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2617,7 +2167,7 @@ export const de_DeleteStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStackInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2630,44 +2180,6 @@ export const de_DeleteStackInstancesCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteStackInstancesCommandError
- */
-const de_DeleteStackInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStackInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteStackSetCommand
  */
 export const de_DeleteStackSetCommand = async (
@@ -2675,7 +2187,7 @@ export const de_DeleteStackSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStackSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2688,35 +2200,6 @@ export const de_DeleteStackSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteStackSetCommandError
- */
-const de_DeleteStackSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStackSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotEmptyException":
-    case "com.amazonaws.cloudformation#StackSetNotEmptyException":
-      throw await de_StackSetNotEmptyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeregisterTypeCommand
  */
 export const de_DeregisterTypeCommand = async (
@@ -2724,7 +2207,7 @@ export const de_DeregisterTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2737,35 +2220,6 @@ export const de_DeregisterTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryDeregisterTypeCommandError
- */
-const de_DeregisterTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAccountLimitsCommand
  */
 export const de_DescribeAccountLimitsCommand = async (
@@ -2773,7 +2227,7 @@ export const de_DescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2786,26 +2240,6 @@ export const de_DescribeAccountLimitsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAccountLimitsCommandError
- */
-const de_DescribeAccountLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeChangeSetCommand
  */
 export const de_DescribeChangeSetCommand = async (
@@ -2813,7 +2247,7 @@ export const de_DescribeChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2826,32 +2260,6 @@ export const de_DescribeChangeSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeChangeSetCommandError
- */
-const de_DescribeChangeSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChangeSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeChangeSetHooksCommand
  */
 export const de_DescribeChangeSetHooksCommand = async (
@@ -2859,7 +2267,7 @@ export const de_DescribeChangeSetHooksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChangeSetHooksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeChangeSetHooksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2872,32 +2280,6 @@ export const de_DescribeChangeSetHooksCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeChangeSetHooksCommandError
- */
-const de_DescribeChangeSetHooksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChangeSetHooksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeGeneratedTemplateCommand
  */
 export const de_DescribeGeneratedTemplateCommand = async (
@@ -2905,7 +2287,7 @@ export const de_DescribeGeneratedTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGeneratedTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2918,32 +2300,6 @@ export const de_DescribeGeneratedTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeGeneratedTemplateCommandError
- */
-const de_DescribeGeneratedTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGeneratedTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeOrganizationsAccessCommand
  */
 export const de_DescribeOrganizationsAccessCommand = async (
@@ -2951,7 +2307,7 @@ export const de_DescribeOrganizationsAccessCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2964,35 +2320,6 @@ export const de_DescribeOrganizationsAccessCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeOrganizationsAccessCommandError
- */
-const de_DescribeOrganizationsAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationsAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribePublisherCommand
  */
 export const de_DescribePublisherCommand = async (
@@ -3000,7 +2327,7 @@ export const de_DescribePublisherCommand = async (
   context: __SerdeContext
 ): Promise<DescribePublisherCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePublisherCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3013,32 +2340,6 @@ export const de_DescribePublisherCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribePublisherCommandError
- */
-const de_DescribePublisherCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePublisherCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeResourceScanCommand
  */
 export const de_DescribeResourceScanCommand = async (
@@ -3046,7 +2347,7 @@ export const de_DescribeResourceScanCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourceScanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeResourceScanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3059,32 +2360,6 @@ export const de_DescribeResourceScanCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeResourceScanCommandError
- */
-const de_DescribeResourceScanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceScanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanNotFound":
-    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeStackDriftDetectionStatusCommand
  */
 export const de_DescribeStackDriftDetectionStatusCommand = async (
@@ -3092,7 +2367,7 @@ export const de_DescribeStackDriftDetectionStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackDriftDetectionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackDriftDetectionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3105,26 +2380,6 @@ export const de_DescribeStackDriftDetectionStatusCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackDriftDetectionStatusCommandError
- */
-const de_DescribeStackDriftDetectionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackDriftDetectionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeStackEventsCommand
  */
 export const de_DescribeStackEventsCommand = async (
@@ -3132,7 +2387,7 @@ export const de_DescribeStackEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3145,26 +2400,6 @@ export const de_DescribeStackEventsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackEventsCommandError
- */
-const de_DescribeStackEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeStackInstanceCommand
  */
 export const de_DescribeStackInstanceCommand = async (
@@ -3172,7 +2407,7 @@ export const de_DescribeStackInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3185,35 +2420,6 @@ export const de_DescribeStackInstanceCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackInstanceCommandError
- */
-const de_DescribeStackInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeStackResourceCommand
  */
 export const de_DescribeStackResourceCommand = async (
@@ -3221,7 +2427,7 @@ export const de_DescribeStackResourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3234,26 +2440,6 @@ export const de_DescribeStackResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackResourceCommandError
- */
-const de_DescribeStackResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeStackResourceDriftsCommand
  */
 export const de_DescribeStackResourceDriftsCommand = async (
@@ -3261,7 +2447,7 @@ export const de_DescribeStackResourceDriftsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackResourceDriftsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackResourceDriftsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3274,26 +2460,6 @@ export const de_DescribeStackResourceDriftsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackResourceDriftsCommandError
- */
-const de_DescribeStackResourceDriftsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackResourceDriftsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeStackResourcesCommand
  */
 export const de_DescribeStackResourcesCommand = async (
@@ -3301,7 +2467,7 @@ export const de_DescribeStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3314,26 +2480,6 @@ export const de_DescribeStackResourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackResourcesCommandError
- */
-const de_DescribeStackResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeStacksCommand
  */
 export const de_DescribeStacksCommand = async (
@@ -3341,7 +2487,7 @@ export const de_DescribeStacksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3354,26 +2500,6 @@ export const de_DescribeStacksCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStacksCommandError
- */
-const de_DescribeStacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeStackSetCommand
  */
 export const de_DescribeStackSetCommand = async (
@@ -3381,7 +2507,7 @@ export const de_DescribeStackSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3394,32 +2520,6 @@ export const de_DescribeStackSetCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackSetCommandError
- */
-const de_DescribeStackSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeStackSetOperationCommand
  */
 export const de_DescribeStackSetOperationCommand = async (
@@ -3427,7 +2527,7 @@ export const de_DescribeStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStackSetOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStackSetOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3440,35 +2540,6 @@ export const de_DescribeStackSetOperationCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeStackSetOperationCommandError
- */
-const de_DescribeStackSetOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStackSetOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeTypeCommand
  */
 export const de_DescribeTypeCommand = async (
@@ -3476,7 +2547,7 @@ export const de_DescribeTypeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3489,35 +2560,6 @@ export const de_DescribeTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeTypeCommandError
- */
-const de_DescribeTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeTypeRegistrationCommand
  */
 export const de_DescribeTypeRegistrationCommand = async (
@@ -3525,7 +2567,7 @@ export const de_DescribeTypeRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTypeRegistrationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTypeRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3538,32 +2580,6 @@ export const de_DescribeTypeRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeTypeRegistrationCommandError
- */
-const de_DescribeTypeRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTypeRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDetectStackDriftCommand
  */
 export const de_DetectStackDriftCommand = async (
@@ -3571,7 +2587,7 @@ export const de_DetectStackDriftCommand = async (
   context: __SerdeContext
 ): Promise<DetectStackDriftCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectStackDriftCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3584,26 +2600,6 @@ export const de_DetectStackDriftCommand = async (
 };
 
 /**
- * deserializeAws_queryDetectStackDriftCommandError
- */
-const de_DetectStackDriftCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectStackDriftCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDetectStackResourceDriftCommand
  */
 export const de_DetectStackResourceDriftCommand = async (
@@ -3611,7 +2607,7 @@ export const de_DetectStackResourceDriftCommand = async (
   context: __SerdeContext
 ): Promise<DetectStackResourceDriftCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectStackResourceDriftCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3624,26 +2620,6 @@ export const de_DetectStackResourceDriftCommand = async (
 };
 
 /**
- * deserializeAws_queryDetectStackResourceDriftCommandError
- */
-const de_DetectStackResourceDriftCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectStackResourceDriftCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDetectStackSetDriftCommand
  */
 export const de_DetectStackSetDriftCommand = async (
@@ -3651,7 +2627,7 @@ export const de_DetectStackSetDriftCommand = async (
   context: __SerdeContext
 ): Promise<DetectStackSetDriftCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectStackSetDriftCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3664,38 +2640,6 @@ export const de_DetectStackSetDriftCommand = async (
 };
 
 /**
- * deserializeAws_queryDetectStackSetDriftCommandError
- */
-const de_DetectStackSetDriftCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectStackSetDriftCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryEstimateTemplateCostCommand
  */
 export const de_EstimateTemplateCostCommand = async (
@@ -3703,7 +2647,7 @@ export const de_EstimateTemplateCostCommand = async (
   context: __SerdeContext
 ): Promise<EstimateTemplateCostCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EstimateTemplateCostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3716,26 +2660,6 @@ export const de_EstimateTemplateCostCommand = async (
 };
 
 /**
- * deserializeAws_queryEstimateTemplateCostCommandError
- */
-const de_EstimateTemplateCostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EstimateTemplateCostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryExecuteChangeSetCommand
  */
 export const de_ExecuteChangeSetCommand = async (
@@ -3743,7 +2667,7 @@ export const de_ExecuteChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteChangeSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecuteChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3756,41 +2680,6 @@ export const de_ExecuteChangeSetCommand = async (
 };
 
 /**
- * deserializeAws_queryExecuteChangeSetCommandError
- */
-const de_ExecuteChangeSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteChangeSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "InvalidChangeSetStatus":
-    case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
-      throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetGeneratedTemplateCommand
  */
 export const de_GetGeneratedTemplateCommand = async (
@@ -3798,7 +2687,7 @@ export const de_GetGeneratedTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetGeneratedTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3811,32 +2700,6 @@ export const de_GetGeneratedTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryGetGeneratedTemplateCommandError
- */
-const de_GetGeneratedTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGeneratedTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetStackPolicyCommand
  */
 export const de_GetStackPolicyCommand = async (
@@ -3844,7 +2707,7 @@ export const de_GetStackPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetStackPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetStackPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3857,26 +2720,6 @@ export const de_GetStackPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetStackPolicyCommandError
- */
-const de_GetStackPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStackPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetTemplateCommand
  */
 export const de_GetTemplateCommand = async (
@@ -3884,7 +2727,7 @@ export const de_GetTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3897,32 +2740,6 @@ export const de_GetTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryGetTemplateCommandError
- */
-const de_GetTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChangeSetNotFound":
-    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
-      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetTemplateSummaryCommand
  */
 export const de_GetTemplateSummaryCommand = async (
@@ -3930,7 +2747,7 @@ export const de_GetTemplateSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetTemplateSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTemplateSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3943,32 +2760,6 @@ export const de_GetTemplateSummaryCommand = async (
 };
 
 /**
- * deserializeAws_queryGetTemplateSummaryCommandError
- */
-const de_GetTemplateSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTemplateSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryImportStacksToStackSetCommand
  */
 export const de_ImportStacksToStackSetCommand = async (
@@ -3976,7 +2767,7 @@ export const de_ImportStacksToStackSetCommand = async (
   context: __SerdeContext
 ): Promise<ImportStacksToStackSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportStacksToStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3989,50 +2780,6 @@ export const de_ImportStacksToStackSetCommand = async (
 };
 
 /**
- * deserializeAws_queryImportStacksToStackSetCommandError
- */
-const de_ImportStacksToStackSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportStacksToStackSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackNotFoundException":
-    case "com.amazonaws.cloudformation#StackNotFoundException":
-      throw await de_StackNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListChangeSetsCommand
  */
 export const de_ListChangeSetsCommand = async (
@@ -4040,7 +2787,7 @@ export const de_ListChangeSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListChangeSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListChangeSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4053,26 +2800,6 @@ export const de_ListChangeSetsCommand = async (
 };
 
 /**
- * deserializeAws_queryListChangeSetsCommandError
- */
-const de_ListChangeSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChangeSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListExportsCommand
  */
 export const de_ListExportsCommand = async (
@@ -4080,7 +2807,7 @@ export const de_ListExportsCommand = async (
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListExportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4093,26 +2820,6 @@ export const de_ListExportsCommand = async (
 };
 
 /**
- * deserializeAws_queryListExportsCommandError
- */
-const de_ListExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListGeneratedTemplatesCommand
  */
 export const de_ListGeneratedTemplatesCommand = async (
@@ -4120,7 +2827,7 @@ export const de_ListGeneratedTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListGeneratedTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGeneratedTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4133,26 +2840,6 @@ export const de_ListGeneratedTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_queryListGeneratedTemplatesCommandError
- */
-const de_ListGeneratedTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGeneratedTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -4160,7 +2847,7 @@ export const de_ListImportsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4173,26 +2860,6 @@ export const de_ListImportsCommand = async (
 };
 
 /**
- * deserializeAws_queryListImportsCommandError
- */
-const de_ListImportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListResourceScanRelatedResourcesCommand
  */
 export const de_ListResourceScanRelatedResourcesCommand = async (
@@ -4200,7 +2867,7 @@ export const de_ListResourceScanRelatedResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceScanRelatedResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceScanRelatedResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4213,35 +2880,6 @@ export const de_ListResourceScanRelatedResourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryListResourceScanRelatedResourcesCommandError
- */
-const de_ListResourceScanRelatedResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceScanRelatedResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanInProgress":
-    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
-      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
-    case "ResourceScanNotFound":
-    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListResourceScanResourcesCommand
  */
 export const de_ListResourceScanResourcesCommand = async (
@@ -4249,7 +2887,7 @@ export const de_ListResourceScanResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceScanResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceScanResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4262,35 +2900,6 @@ export const de_ListResourceScanResourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryListResourceScanResourcesCommandError
- */
-const de_ListResourceScanResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceScanResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanInProgress":
-    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
-      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
-    case "ResourceScanNotFound":
-    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
-      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListResourceScansCommand
  */
 export const de_ListResourceScansCommand = async (
@@ -4298,7 +2907,7 @@ export const de_ListResourceScansCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceScansCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceScansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4311,26 +2920,6 @@ export const de_ListResourceScansCommand = async (
 };
 
 /**
- * deserializeAws_queryListResourceScansCommandError
- */
-const de_ListResourceScansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceScansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListStackInstanceResourceDriftsCommand
  */
 export const de_ListStackInstanceResourceDriftsCommand = async (
@@ -4338,7 +2927,7 @@ export const de_ListStackInstanceResourceDriftsCommand = async (
   context: __SerdeContext
 ): Promise<ListStackInstanceResourceDriftsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackInstanceResourceDriftsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4351,38 +2940,6 @@ export const de_ListStackInstanceResourceDriftsCommand = async (
 };
 
 /**
- * deserializeAws_queryListStackInstanceResourceDriftsCommandError
- */
-const de_ListStackInstanceResourceDriftsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackInstanceResourceDriftsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListStackInstancesCommand
  */
 export const de_ListStackInstancesCommand = async (
@@ -4390,7 +2947,7 @@ export const de_ListStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListStackInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4403,32 +2960,6 @@ export const de_ListStackInstancesCommand = async (
 };
 
 /**
- * deserializeAws_queryListStackInstancesCommandError
- */
-const de_ListStackInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListStackResourcesCommand
  */
 export const de_ListStackResourcesCommand = async (
@@ -4436,7 +2967,7 @@ export const de_ListStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListStackResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4449,26 +2980,6 @@ export const de_ListStackResourcesCommand = async (
 };
 
 /**
- * deserializeAws_queryListStackResourcesCommandError
- */
-const de_ListStackResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListStacksCommand
  */
 export const de_ListStacksCommand = async (
@@ -4476,7 +2987,7 @@ export const de_ListStacksCommand = async (
   context: __SerdeContext
 ): Promise<ListStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4489,26 +3000,6 @@ export const de_ListStacksCommand = async (
 };
 
 /**
- * deserializeAws_queryListStacksCommandError
- */
-const de_ListStacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListStackSetOperationResultsCommand
  */
 export const de_ListStackSetOperationResultsCommand = async (
@@ -4516,7 +3007,7 @@ export const de_ListStackSetOperationResultsCommand = async (
   context: __SerdeContext
 ): Promise<ListStackSetOperationResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackSetOperationResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4529,35 +3020,6 @@ export const de_ListStackSetOperationResultsCommand = async (
 };
 
 /**
- * deserializeAws_queryListStackSetOperationResultsCommandError
- */
-const de_ListStackSetOperationResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackSetOperationResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListStackSetOperationsCommand
  */
 export const de_ListStackSetOperationsCommand = async (
@@ -4565,7 +3027,7 @@ export const de_ListStackSetOperationsCommand = async (
   context: __SerdeContext
 ): Promise<ListStackSetOperationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackSetOperationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4578,32 +3040,6 @@ export const de_ListStackSetOperationsCommand = async (
 };
 
 /**
- * deserializeAws_queryListStackSetOperationsCommandError
- */
-const de_ListStackSetOperationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackSetOperationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListStackSetsCommand
  */
 export const de_ListStackSetsCommand = async (
@@ -4611,7 +3047,7 @@ export const de_ListStackSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListStackSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4624,26 +3060,6 @@ export const de_ListStackSetsCommand = async (
 };
 
 /**
- * deserializeAws_queryListStackSetsCommandError
- */
-const de_ListStackSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListTypeRegistrationsCommand
  */
 export const de_ListTypeRegistrationsCommand = async (
@@ -4651,7 +3067,7 @@ export const de_ListTypeRegistrationsCommand = async (
   context: __SerdeContext
 ): Promise<ListTypeRegistrationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTypeRegistrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4664,32 +3080,6 @@ export const de_ListTypeRegistrationsCommand = async (
 };
 
 /**
- * deserializeAws_queryListTypeRegistrationsCommandError
- */
-const de_ListTypeRegistrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypeRegistrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListTypesCommand
  */
 export const de_ListTypesCommand = async (
@@ -4697,7 +3087,7 @@ export const de_ListTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4710,32 +3100,6 @@ export const de_ListTypesCommand = async (
 };
 
 /**
- * deserializeAws_queryListTypesCommandError
- */
-const de_ListTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListTypeVersionsCommand
  */
 export const de_ListTypeVersionsCommand = async (
@@ -4743,7 +3107,7 @@ export const de_ListTypeVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTypeVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTypeVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4756,32 +3120,6 @@ export const de_ListTypeVersionsCommand = async (
 };
 
 /**
- * deserializeAws_queryListTypeVersionsCommandError
- */
-const de_ListTypeVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTypeVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPublishTypeCommand
  */
 export const de_PublishTypeCommand = async (
@@ -4789,7 +3127,7 @@ export const de_PublishTypeCommand = async (
   context: __SerdeContext
 ): Promise<PublishTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PublishTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4802,35 +3140,6 @@ export const de_PublishTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryPublishTypeCommandError
- */
-const de_PublishTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRecordHandlerProgressCommand
  */
 export const de_RecordHandlerProgressCommand = async (
@@ -4838,7 +3147,7 @@ export const de_RecordHandlerProgressCommand = async (
   context: __SerdeContext
 ): Promise<RecordHandlerProgressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RecordHandlerProgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4851,35 +3160,6 @@ export const de_RecordHandlerProgressCommand = async (
 };
 
 /**
- * deserializeAws_queryRecordHandlerProgressCommandError
- */
-const de_RecordHandlerProgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecordHandlerProgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionalCheckFailed":
-    case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
-      throw await de_OperationStatusCheckFailedExceptionRes(parsedOutput, context);
-    case "InvalidStateTransition":
-    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRegisterPublisherCommand
  */
 export const de_RegisterPublisherCommand = async (
@@ -4887,7 +3167,7 @@ export const de_RegisterPublisherCommand = async (
   context: __SerdeContext
 ): Promise<RegisterPublisherCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterPublisherCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4900,32 +3180,6 @@ export const de_RegisterPublisherCommand = async (
 };
 
 /**
- * deserializeAws_queryRegisterPublisherCommandError
- */
-const de_RegisterPublisherCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterPublisherCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRegisterTypeCommand
  */
 export const de_RegisterTypeCommand = async (
@@ -4933,7 +3187,7 @@ export const de_RegisterTypeCommand = async (
   context: __SerdeContext
 ): Promise<RegisterTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4946,32 +3200,6 @@ export const de_RegisterTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryRegisterTypeCommandError
- */
-const de_RegisterTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRollbackStackCommand
  */
 export const de_RollbackStackCommand = async (
@@ -4979,7 +3207,7 @@ export const de_RollbackStackCommand = async (
   context: __SerdeContext
 ): Promise<RollbackStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RollbackStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4992,32 +3220,6 @@ export const de_RollbackStackCommand = async (
 };
 
 /**
- * deserializeAws_queryRollbackStackCommandError
- */
-const de_RollbackStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RollbackStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetStackPolicyCommand
  */
 export const de_SetStackPolicyCommand = async (
@@ -5025,33 +3227,13 @@ export const de_SetStackPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SetStackPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetStackPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetStackPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySetStackPolicyCommandError
- */
-const de_SetStackPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetStackPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -5062,7 +3244,7 @@ export const de_SetTypeConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<SetTypeConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetTypeConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5075,35 +3257,6 @@ export const de_SetTypeConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_querySetTypeConfigurationCommandError
- */
-const de_SetTypeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTypeConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetTypeDefaultVersionCommand
  */
 export const de_SetTypeDefaultVersionCommand = async (
@@ -5111,7 +3264,7 @@ export const de_SetTypeDefaultVersionCommand = async (
   context: __SerdeContext
 ): Promise<SetTypeDefaultVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetTypeDefaultVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5124,35 +3277,6 @@ export const de_SetTypeDefaultVersionCommand = async (
 };
 
 /**
- * deserializeAws_querySetTypeDefaultVersionCommandError
- */
-const de_SetTypeDefaultVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTypeDefaultVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySignalResourceCommand
  */
 export const de_SignalResourceCommand = async (
@@ -5160,33 +3284,13 @@ export const de_SignalResourceCommand = async (
   context: __SerdeContext
 ): Promise<SignalResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SignalResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SignalResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySignalResourceCommandError
- */
-const de_SignalResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SignalResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -5197,7 +3301,7 @@ export const de_StartResourceScanCommand = async (
   context: __SerdeContext
 ): Promise<StartResourceScanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartResourceScanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5210,35 +3314,6 @@ export const de_StartResourceScanCommand = async (
 };
 
 /**
- * deserializeAws_queryStartResourceScanCommandError
- */
-const de_StartResourceScanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartResourceScanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceScanInProgress":
-    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
-      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
-    case "ResourceScanLimitExceeded":
-    case "com.amazonaws.cloudformation#ResourceScanLimitExceededException":
-      throw await de_ResourceScanLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryStopStackSetOperationCommand
  */
 export const de_StopStackSetOperationCommand = async (
@@ -5246,7 +3321,7 @@ export const de_StopStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<StopStackSetOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopStackSetOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5259,38 +3334,6 @@ export const de_StopStackSetOperationCommand = async (
 };
 
 /**
- * deserializeAws_queryStopStackSetOperationCommandError
- */
-const de_StopStackSetOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopStackSetOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationNotFoundException":
-    case "com.amazonaws.cloudformation#OperationNotFoundException":
-      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryTestTypeCommand
  */
 export const de_TestTypeCommand = async (
@@ -5298,7 +3341,7 @@ export const de_TestTypeCommand = async (
   context: __SerdeContext
 ): Promise<TestTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5311,35 +3354,6 @@ export const de_TestTypeCommand = async (
 };
 
 /**
- * deserializeAws_queryTestTypeCommandError
- */
-const de_TestTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CFNRegistryException":
-    case "com.amazonaws.cloudformation#CFNRegistryException":
-      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
-    case "TypeNotFoundException":
-    case "com.amazonaws.cloudformation#TypeNotFoundException":
-      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateGeneratedTemplateCommand
  */
 export const de_UpdateGeneratedTemplateCommand = async (
@@ -5347,7 +3361,7 @@ export const de_UpdateGeneratedTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGeneratedTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGeneratedTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5360,38 +3374,6 @@ export const de_UpdateGeneratedTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateGeneratedTemplateCommandError
- */
-const de_UpdateGeneratedTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGeneratedTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.cloudformation#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "GeneratedTemplateNotFound":
-    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
-      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudformation#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateStackCommand
  */
 export const de_UpdateStackCommand = async (
@@ -5399,7 +3381,7 @@ export const de_UpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5412,35 +3394,6 @@ export const de_UpdateStackCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateStackCommandError
- */
-const de_UpdateStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientCapabilitiesException":
-    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
-      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
-    case "TokenAlreadyExistsException":
-    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
-      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateStackInstancesCommand
  */
 export const de_UpdateStackInstancesCommand = async (
@@ -5448,7 +3401,7 @@ export const de_UpdateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStackInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateStackInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5461,47 +3414,6 @@ export const de_UpdateStackInstancesCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateStackInstancesCommandError
- */
-const de_UpdateStackInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStackInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateStackSetCommand
  */
 export const de_UpdateStackSetCommand = async (
@@ -5509,7 +3421,7 @@ export const de_UpdateStackSetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStackSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateStackSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5522,47 +3434,6 @@ export const de_UpdateStackSetCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateStackSetCommandError
- */
-const de_UpdateStackSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStackSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationException":
-    case "com.amazonaws.cloudformation#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "OperationIdAlreadyExistsException":
-    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
-      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OperationInProgressException":
-    case "com.amazonaws.cloudformation#OperationInProgressException":
-      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
-    case "StackInstanceNotFoundException":
-    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
-      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
-    case "StackSetNotFoundException":
-    case "com.amazonaws.cloudformation#StackSetNotFoundException":
-      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
-    case "StaleRequestException":
-    case "com.amazonaws.cloudformation#StaleRequestException":
-      throw await de_StaleRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateTerminationProtectionCommand
  */
 export const de_UpdateTerminationProtectionCommand = async (
@@ -5570,7 +3441,7 @@ export const de_UpdateTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTerminationProtectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTerminationProtectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5583,26 +3454,6 @@ export const de_UpdateTerminationProtectionCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateTerminationProtectionCommandError
- */
-const de_UpdateTerminationProtectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTerminationProtectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryValidateTemplateCommand
  */
 export const de_ValidateTemplateCommand = async (
@@ -5610,7 +3461,7 @@ export const de_ValidateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<ValidateTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ValidateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5623,23 +3474,104 @@ export const de_ValidateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_queryValidateTemplateCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_ValidateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidateTemplateCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
+  switch (errorCode) {
+    case "InvalidOperationException":
+    case "com.amazonaws.cloudformation#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "OperationNotFoundException":
+    case "com.amazonaws.cloudformation#OperationNotFoundException":
+      throw await de_OperationNotFoundExceptionRes(parsedOutput, context);
+    case "CFNRegistryException":
+    case "com.amazonaws.cloudformation#CFNRegistryException":
+      throw await de_CFNRegistryExceptionRes(parsedOutput, context);
+    case "TypeNotFoundException":
+    case "com.amazonaws.cloudformation#TypeNotFoundException":
+      throw await de_TypeNotFoundExceptionRes(parsedOutput, context);
+    case "TypeConfigurationNotFoundException":
+    case "com.amazonaws.cloudformation#TypeConfigurationNotFoundException":
+      throw await de_TypeConfigurationNotFoundExceptionRes(parsedOutput, context);
+    case "TokenAlreadyExistsException":
+    case "com.amazonaws.cloudformation#TokenAlreadyExistsException":
+      throw await de_TokenAlreadyExistsExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.cloudformation#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InsufficientCapabilitiesException":
+    case "com.amazonaws.cloudformation#InsufficientCapabilitiesException":
+      throw await de_InsufficientCapabilitiesExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudformation#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ConcurrentResourcesLimitExceeded":
+    case "com.amazonaws.cloudformation#ConcurrentResourcesLimitExceededException":
+      throw await de_ConcurrentResourcesLimitExceededExceptionRes(parsedOutput, context);
+    case "OperationIdAlreadyExistsException":
+    case "com.amazonaws.cloudformation#OperationIdAlreadyExistsException":
+      throw await de_OperationIdAlreadyExistsExceptionRes(parsedOutput, context);
+    case "OperationInProgressException":
+    case "com.amazonaws.cloudformation#OperationInProgressException":
+      throw await de_OperationInProgressExceptionRes(parsedOutput, context);
+    case "StackSetNotFoundException":
+    case "com.amazonaws.cloudformation#StackSetNotFoundException":
+      throw await de_StackSetNotFoundExceptionRes(parsedOutput, context);
+    case "StaleRequestException":
+    case "com.amazonaws.cloudformation#StaleRequestException":
+      throw await de_StaleRequestExceptionRes(parsedOutput, context);
+    case "CreatedButModifiedException":
+    case "com.amazonaws.cloudformation#CreatedButModifiedException":
+      throw await de_CreatedButModifiedExceptionRes(parsedOutput, context);
+    case "NameAlreadyExistsException":
+    case "com.amazonaws.cloudformation#NameAlreadyExistsException":
+      throw await de_NameAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidChangeSetStatus":
+    case "com.amazonaws.cloudformation#InvalidChangeSetStatusException":
+      throw await de_InvalidChangeSetStatusExceptionRes(parsedOutput, context);
+    case "GeneratedTemplateNotFound":
+    case "com.amazonaws.cloudformation#GeneratedTemplateNotFoundException":
+      throw await de_GeneratedTemplateNotFoundExceptionRes(parsedOutput, context);
+    case "StackSetNotEmptyException":
+    case "com.amazonaws.cloudformation#StackSetNotEmptyException":
+      throw await de_StackSetNotEmptyExceptionRes(parsedOutput, context);
+    case "ChangeSetNotFound":
+    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
+      throw await de_ChangeSetNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceScanNotFound":
+    case "com.amazonaws.cloudformation#ResourceScanNotFoundException":
+      throw await de_ResourceScanNotFoundExceptionRes(parsedOutput, context);
+    case "StackInstanceNotFoundException":
+    case "com.amazonaws.cloudformation#StackInstanceNotFoundException":
+      throw await de_StackInstanceNotFoundExceptionRes(parsedOutput, context);
+    case "StackNotFoundException":
+    case "com.amazonaws.cloudformation#StackNotFoundException":
+      throw await de_StackNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceScanInProgress":
+    case "com.amazonaws.cloudformation#ResourceScanInProgressException":
+      throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
+    case "ConditionalCheckFailed":
+    case "com.amazonaws.cloudformation#OperationStatusCheckFailedException":
+      throw await de_OperationStatusCheckFailedExceptionRes(parsedOutput, context);
+    case "InvalidStateTransition":
+    case "com.amazonaws.cloudformation#InvalidStateTransitionException":
+      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
+    case "ResourceScanLimitExceeded":
+    case "com.amazonaws.cloudformation#ResourceScanLimitExceededException":
+      throw await de_ResourceScanLimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        errorCode,
+      });
+  }
 };
 
 /**

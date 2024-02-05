@@ -352,7 +352,7 @@ export const de_AssociateNodeCommand = async (
   context: __SerdeContext
 ): Promise<AssociateNodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -365,38 +365,6 @@ export const de_AssociateNodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateNodeCommandError
- */
-const de_AssociateNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBackupCommand
  */
 export const de_CreateBackupCommand = async (
@@ -404,7 +372,7 @@ export const de_CreateBackupCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -417,41 +385,6 @@ export const de_CreateBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBackupCommandError
- */
-const de_CreateBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opsworkscm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateServerCommand
  */
 export const de_CreateServerCommand = async (
@@ -459,7 +392,7 @@ export const de_CreateServerCommand = async (
   context: __SerdeContext
 ): Promise<CreateServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -472,41 +405,6 @@ export const de_CreateServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateServerCommandError
- */
-const de_CreateServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.opsworkscm#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.opsworkscm#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBackupCommand
  */
 export const de_DeleteBackupCommand = async (
@@ -514,7 +412,7 @@ export const de_DeleteBackupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -527,38 +425,6 @@ export const de_DeleteBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBackupCommandError
- */
-const de_DeleteBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteServerCommand
  */
 export const de_DeleteServerCommand = async (
@@ -566,7 +432,7 @@ export const de_DeleteServerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -579,38 +445,6 @@ export const de_DeleteServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteServerCommandError
- */
-const de_DeleteServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAccountAttributesCommand
  */
 export const de_DescribeAccountAttributesCommand = async (
@@ -618,7 +452,7 @@ export const de_DescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -631,26 +465,6 @@ export const de_DescribeAccountAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeBackupsCommand
  */
 export const de_DescribeBackupsCommand = async (
@@ -658,7 +472,7 @@ export const de_DescribeBackupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBackupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -671,38 +485,6 @@ export const de_DescribeBackupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBackupsCommandError
- */
-const de_DescribeBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.opsworkscm#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventsCommand
  */
 export const de_DescribeEventsCommand = async (
@@ -710,7 +492,7 @@ export const de_DescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -723,38 +505,6 @@ export const de_DescribeEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.opsworkscm#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeNodeAssociationStatusCommand
  */
 export const de_DescribeNodeAssociationStatusCommand = async (
@@ -762,7 +512,7 @@ export const de_DescribeNodeAssociationStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNodeAssociationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeNodeAssociationStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -775,35 +525,6 @@ export const de_DescribeNodeAssociationStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeNodeAssociationStatusCommandError
- */
-const de_DescribeNodeAssociationStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNodeAssociationStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeServersCommand
  */
 export const de_DescribeServersCommand = async (
@@ -811,7 +532,7 @@ export const de_DescribeServersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -824,38 +545,6 @@ export const de_DescribeServersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeServersCommandError
- */
-const de_DescribeServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.opsworkscm#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateNodeCommand
  */
 export const de_DisassociateNodeCommand = async (
@@ -863,7 +552,7 @@ export const de_DisassociateNodeCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateNodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateNodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -876,38 +565,6 @@ export const de_DisassociateNodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateNodeCommandError
- */
-const de_DisassociateNodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateNodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExportServerEngineAttributeCommand
  */
 export const de_ExportServerEngineAttributeCommand = async (
@@ -915,7 +572,7 @@ export const de_ExportServerEngineAttributeCommand = async (
   context: __SerdeContext
 ): Promise<ExportServerEngineAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportServerEngineAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -928,38 +585,6 @@ export const de_ExportServerEngineAttributeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExportServerEngineAttributeCommandError
- */
-const de_ExportServerEngineAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportServerEngineAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -967,7 +592,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -980,35 +605,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreServerCommand
  */
 export const de_RestoreServerCommand = async (
@@ -1016,7 +612,7 @@ export const de_RestoreServerCommand = async (
   context: __SerdeContext
 ): Promise<RestoreServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1029,38 +625,6 @@ export const de_RestoreServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreServerCommandError
- */
-const de_RestoreServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartMaintenanceCommand
  */
 export const de_StartMaintenanceCommand = async (
@@ -1068,7 +632,7 @@ export const de_StartMaintenanceCommand = async (
   context: __SerdeContext
 ): Promise<StartMaintenanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMaintenanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1081,38 +645,6 @@ export const de_StartMaintenanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartMaintenanceCommandError
- */
-const de_StartMaintenanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMaintenanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1120,7 +652,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1133,38 +665,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1172,7 +672,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1185,38 +685,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateServerCommand
  */
 export const de_UpdateServerCommand = async (
@@ -1224,7 +692,7 @@ export const de_UpdateServerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1237,38 +705,6 @@ export const de_UpdateServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateServerCommandError
- */
-const de_UpdateServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.opsworkscm#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opsworkscm#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opsworkscm#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateServerEngineAttributesCommand
  */
 export const de_UpdateServerEngineAttributesCommand = async (
@@ -1276,7 +712,7 @@ export const de_UpdateServerEngineAttributesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServerEngineAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateServerEngineAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1289,12 +725,9 @@ export const de_UpdateServerEngineAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateServerEngineAttributesCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateServerEngineAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServerEngineAttributesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1310,6 +743,15 @@ const de_UpdateServerEngineAttributesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.opsworkscm#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.opsworkscm#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.opsworkscm#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.opsworkscm#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

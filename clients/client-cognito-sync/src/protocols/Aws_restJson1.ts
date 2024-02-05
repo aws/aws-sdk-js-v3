@@ -430,7 +430,7 @@ export const de_BulkPublishCommand = async (
   context: __SerdeContext
 ): Promise<BulkPublishCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BulkPublishCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -444,12 +444,354 @@ export const de_BulkPublishCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BulkPublishCommandError
+ * deserializeAws_restJson1DeleteDatasetCommand
  */
-const de_BulkPublishCommandError = async (
+export const de_DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BulkPublishCommandOutput> => {
+): Promise<DeleteDatasetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Dataset: (_) => de_Dataset(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeDatasetCommand
+ */
+export const de_DescribeDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Dataset: (_) => de_Dataset(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeIdentityPoolUsageCommand
+ */
+export const de_DescribeIdentityPoolUsageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIdentityPoolUsageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IdentityPoolUsage: (_) => de_IdentityPoolUsage(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeIdentityUsageCommand
+ */
+export const de_DescribeIdentityUsageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIdentityUsageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IdentityUsage: (_) => de_IdentityUsage(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetBulkPublishDetailsCommand
+ */
+export const de_GetBulkPublishDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBulkPublishDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BulkPublishCompleteTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    BulkPublishStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    BulkPublishStatus: __expectString,
+    FailureMessage: __expectString,
+    IdentityPoolId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCognitoEventsCommand
+ */
+export const de_GetCognitoEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCognitoEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Events: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIdentityPoolConfigurationCommand
+ */
+export const de_GetIdentityPoolConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdentityPoolConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CognitoStreams: _json,
+    IdentityPoolId: __expectString,
+    PushSync: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDatasetsCommand
+ */
+export const de_ListDatasetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Count: __expectInt32,
+    Datasets: (_) => de_DatasetList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdentityPoolUsageCommand
+ */
+export const de_ListIdentityPoolUsageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdentityPoolUsageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Count: __expectInt32,
+    IdentityPoolUsages: (_) => de_IdentityPoolUsageList(_, context),
+    MaxResults: __expectInt32,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRecordsCommand
+ */
+export const de_ListRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Count: __expectInt32,
+    DatasetDeletedAfterRequestedSyncCount: __expectBoolean,
+    DatasetExists: __expectBoolean,
+    DatasetSyncCount: __expectLong,
+    LastModifiedBy: __expectString,
+    MergedDatasetNames: _json,
+    NextToken: __expectString,
+    Records: (_) => de_RecordList(_, context),
+    SyncSessionToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RegisterDeviceCommand
+ */
+export const de_RegisterDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeviceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SetCognitoEventsCommand
+ */
+export const de_SetCognitoEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetCognitoEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SetIdentityPoolConfigurationCommand
+ */
+export const de_SetIdentityPoolConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetIdentityPoolConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CognitoStreams: _json,
+    IdentityPoolId: __expectString,
+    PushSync: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SubscribeToDatasetCommand
+ */
+export const de_SubscribeToDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubscribeToDatasetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UnsubscribeFromDatasetCommand
+ */
+export const de_UnsubscribeFromDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnsubscribeFromDatasetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRecordsCommand
+ */
+export const de_UpdateRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRecordsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Records: (_) => de_RecordList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -474,974 +816,27 @@ const de_BulkPublishCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitosync#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DeleteDatasetCommand
- */
-export const de_DeleteDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDatasetCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Dataset: (_) => de_Dataset(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDatasetCommandError
- */
-const de_DeleteDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.cognitosync#ResourceConflictException":
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitosync#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeDatasetCommand
- */
-export const de_DescribeDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDatasetCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Dataset: (_) => de_Dataset(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeDatasetCommandError
- */
-const de_DescribeDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeIdentityPoolUsageCommand
- */
-export const de_DescribeIdentityPoolUsageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityPoolUsageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIdentityPoolUsageCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    IdentityPoolUsage: (_) => de_IdentityPoolUsage(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeIdentityPoolUsageCommandError
- */
-const de_DescribeIdentityPoolUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityPoolUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1DescribeIdentityUsageCommand
- */
-export const de_DescribeIdentityUsageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityUsageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIdentityUsageCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    IdentityUsage: (_) => de_IdentityUsage(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeIdentityUsageCommandError
- */
-const de_DescribeIdentityUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetBulkPublishDetailsCommand
- */
-export const de_GetBulkPublishDetailsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBulkPublishDetailsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBulkPublishDetailsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    BulkPublishCompleteTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    BulkPublishStartTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    BulkPublishStatus: __expectString,
-    FailureMessage: __expectString,
-    IdentityPoolId: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetBulkPublishDetailsCommandError
- */
-const de_GetBulkPublishDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBulkPublishDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetCognitoEventsCommand
- */
-export const de_GetCognitoEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCognitoEventsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCognitoEventsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Events: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetCognitoEventsCommandError
- */
-const de_GetCognitoEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCognitoEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1GetIdentityPoolConfigurationCommand
- */
-export const de_GetIdentityPoolConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityPoolConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIdentityPoolConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    CognitoStreams: _json,
-    IdentityPoolId: __expectString,
-    PushSync: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1GetIdentityPoolConfigurationCommandError
- */
-const de_GetIdentityPoolConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityPoolConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListDatasetsCommand
- */
-export const de_ListDatasetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDatasetsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Count: __expectInt32,
-    Datasets: (_) => de_DatasetList(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListDatasetsCommandError
- */
-const de_ListDatasetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListIdentityPoolUsageCommand
- */
-export const de_ListIdentityPoolUsageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityPoolUsageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIdentityPoolUsageCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Count: __expectInt32,
-    IdentityPoolUsages: (_) => de_IdentityPoolUsageList(_, context),
-    MaxResults: __expectInt32,
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListIdentityPoolUsageCommandError
- */
-const de_ListIdentityPoolUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityPoolUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListRecordsCommand
- */
-export const de_ListRecordsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecordsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecordsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Count: __expectInt32,
-    DatasetDeletedAfterRequestedSyncCount: __expectBoolean,
-    DatasetExists: __expectBoolean,
-    DatasetSyncCount: __expectLong,
-    LastModifiedBy: __expectString,
-    MergedDatasetNames: _json,
-    NextToken: __expectString,
-    Records: (_) => de_RecordList(_, context),
-    SyncSessionToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListRecordsCommandError
- */
-const de_ListRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1RegisterDeviceCommand
- */
-export const de_RegisterDeviceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterDeviceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    DeviceId: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1RegisterDeviceCommandError
- */
-const de_RegisterDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidConfigurationException":
     case "com.amazonaws.cognitosync#InvalidConfigurationException":
       throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SetCognitoEventsCommand
- */
-export const de_SetCognitoEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetCognitoEventsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SetCognitoEventsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SetCognitoEventsCommandError
- */
-const de_SetCognitoEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetCognitoEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SetIdentityPoolConfigurationCommand
- */
-export const de_SetIdentityPoolConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityPoolConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SetIdentityPoolConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    CognitoStreams: _json,
-    IdentityPoolId: __expectString,
-    PushSync: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SetIdentityPoolConfigurationCommandError
- */
-const de_SetIdentityPoolConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIdentityPoolConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognitosync#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SubscribeToDatasetCommand
- */
-export const de_SubscribeToDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubscribeToDatasetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SubscribeToDatasetCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SubscribeToDatasetCommandError
- */
-const de_SubscribeToDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubscribeToDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationException":
-    case "com.amazonaws.cognitosync#InvalidConfigurationException":
-      throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UnsubscribeFromDatasetCommand
- */
-export const de_UnsubscribeFromDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnsubscribeFromDatasetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UnsubscribeFromDatasetCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UnsubscribeFromDatasetCommandError
- */
-const de_UnsubscribeFromDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnsubscribeFromDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationException":
-    case "com.amazonaws.cognitosync#InvalidConfigurationException":
-      throw await de_InvalidConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateRecordsCommand
- */
-export const de_UpdateRecordsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRecordsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRecordsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Records: (_) => de_RecordList(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateRecordsCommandError
- */
-const de_UpdateRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitosync#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidLambdaFunctionOutputException":
     case "com.amazonaws.cognitosync#InvalidLambdaFunctionOutputException":
       throw await de_InvalidLambdaFunctionOutputExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitosync#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "LambdaThrottledException":
     case "com.amazonaws.cognitosync#LambdaThrottledException":
       throw await de_LambdaThrottledExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cognitosync#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitosync#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.cognitosync#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitosync#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitosync#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

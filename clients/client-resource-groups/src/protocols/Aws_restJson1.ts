@@ -477,7 +477,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -494,44 +494,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteGroupCommand
  */
 export const de_DeleteGroupCommand = async (
@@ -539,7 +501,7 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -553,47 +515,6 @@ export const de_DeleteGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAccountSettingsCommand
  */
 export const de_GetAccountSettingsCommand = async (
@@ -601,7 +522,7 @@ export const de_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -615,44 +536,6 @@ export const de_GetAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAccountSettingsCommandError
- */
-const de_GetAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupCommand
  */
 export const de_GetGroupCommand = async (
@@ -660,7 +543,7 @@ export const de_GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -674,47 +557,6 @@ export const de_GetGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupCommandError
- */
-const de_GetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupConfigurationCommand
  */
 export const de_GetGroupConfigurationCommand = async (
@@ -722,7 +564,7 @@ export const de_GetGroupConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -736,47 +578,6 @@ export const de_GetGroupConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupConfigurationCommandError
- */
-const de_GetGroupConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupQueryCommand
  */
 export const de_GetGroupQueryCommand = async (
@@ -784,7 +585,7 @@ export const de_GetGroupQueryCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -798,47 +599,6 @@ export const de_GetGroupQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupQueryCommandError
- */
-const de_GetGroupQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTagsCommand
  */
 export const de_GetTagsCommand = async (
@@ -846,7 +606,7 @@ export const de_GetTagsCommand = async (
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -861,47 +621,6 @@ export const de_GetTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTagsCommandError
- */
-const de_GetTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GroupResourcesCommand
  */
 export const de_GroupResourcesCommand = async (
@@ -909,7 +628,7 @@ export const de_GroupResourcesCommand = async (
   context: __SerdeContext
 ): Promise<GroupResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GroupResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -925,47 +644,6 @@ export const de_GroupResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GroupResourcesCommandError
- */
-const de_GroupResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GroupResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroupResourcesCommand
  */
 export const de_ListGroupResourcesCommand = async (
@@ -973,7 +651,7 @@ export const de_ListGroupResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -990,50 +668,6 @@ export const de_ListGroupResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroupResourcesCommandError
- */
-const de_ListGroupResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourcegroups#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroupsCommand
  */
 export const de_ListGroupsCommand = async (
@@ -1041,7 +675,7 @@ export const de_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1057,44 +691,6 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroupsCommandError
- */
-const de_ListGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutGroupConfigurationCommand
  */
 export const de_PutGroupConfigurationCommand = async (
@@ -1102,54 +698,13 @@ export const de_PutGroupConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutGroupConfigurationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_PutGroupConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutGroupConfigurationCommandError
- */
-const de_PutGroupConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutGroupConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1160,7 +715,7 @@ export const de_SearchResourcesCommand = async (
   context: __SerdeContext
 ): Promise<SearchResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1176,52 +731,11 @@ export const de_SearchResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchResourcesCommandError
- */
-const de_SearchResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.resourcegroups#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagCommand
  */
 export const de_TagCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1236,44 +750,6 @@ export const de_TagCommand = async (output: __HttpResponse, context: __SerdeCont
 };
 
 /**
- * deserializeAws_restJson1TagCommandError
- */
-const de_TagCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<TagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UngroupResourcesCommand
  */
 export const de_UngroupResourcesCommand = async (
@@ -1281,7 +757,7 @@ export const de_UngroupResourcesCommand = async (
   context: __SerdeContext
 ): Promise<UngroupResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UngroupResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1297,52 +773,11 @@ export const de_UngroupResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UngroupResourcesCommandError
- */
-const de_UngroupResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UngroupResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UntagCommand
  */
 export const de_UntagCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<UntagCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1357,44 +792,6 @@ export const de_UntagCommand = async (output: __HttpResponse, context: __SerdeCo
 };
 
 /**
- * deserializeAws_restJson1UntagCommandError
- */
-const de_UntagCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<UntagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAccountSettingsCommand
  */
 export const de_UpdateAccountSettingsCommand = async (
@@ -1402,7 +799,7 @@ export const de_UpdateAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1416,44 +813,6 @@ export const de_UpdateAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAccountSettingsCommandError
- */
-const de_UpdateAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateGroupCommand
  */
 export const de_UpdateGroupCommand = async (
@@ -1461,7 +820,7 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1475,47 +834,6 @@ export const de_UpdateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.resourcegroups#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.resourcegroups#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.resourcegroups#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.resourcegroups#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.resourcegroups#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateGroupQueryCommand
  */
 export const de_UpdateGroupQueryCommand = async (
@@ -1523,7 +841,7 @@ export const de_UpdateGroupQueryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupQueryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGroupQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1537,12 +855,9 @@ export const de_UpdateGroupQueryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGroupQueryCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateGroupQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupQueryCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1561,12 +876,15 @@ const de_UpdateGroupQueryCommandError = async (
     case "MethodNotAllowedException":
     case "com.amazonaws.resourcegroups#MethodNotAllowedException":
       throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.resourcegroups#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.resourcegroups#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.resourcegroups#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.resourcegroups#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

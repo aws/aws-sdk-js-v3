@@ -1653,7 +1653,7 @@ export const de_BatchDetectDominantLanguageCommand = async (
   context: __SerdeContext
 ): Promise<BatchDetectDominantLanguageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDetectDominantLanguageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1666,41 +1666,6 @@ export const de_BatchDetectDominantLanguageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDetectDominantLanguageCommandError
- */
-const de_BatchDetectDominantLanguageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDetectDominantLanguageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchSizeLimitExceededException":
-    case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      throw await de_BatchSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDetectEntitiesCommand
  */
 export const de_BatchDetectEntitiesCommand = async (
@@ -1708,7 +1673,7 @@ export const de_BatchDetectEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<BatchDetectEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDetectEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1721,44 +1686,6 @@ export const de_BatchDetectEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDetectEntitiesCommandError
- */
-const de_BatchDetectEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDetectEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchSizeLimitExceededException":
-    case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      throw await de_BatchSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDetectKeyPhrasesCommand
  */
 export const de_BatchDetectKeyPhrasesCommand = async (
@@ -1766,7 +1693,7 @@ export const de_BatchDetectKeyPhrasesCommand = async (
   context: __SerdeContext
 ): Promise<BatchDetectKeyPhrasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDetectKeyPhrasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1779,44 +1706,6 @@ export const de_BatchDetectKeyPhrasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDetectKeyPhrasesCommandError
- */
-const de_BatchDetectKeyPhrasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDetectKeyPhrasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchSizeLimitExceededException":
-    case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      throw await de_BatchSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDetectSentimentCommand
  */
 export const de_BatchDetectSentimentCommand = async (
@@ -1824,7 +1713,7 @@ export const de_BatchDetectSentimentCommand = async (
   context: __SerdeContext
 ): Promise<BatchDetectSentimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDetectSentimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1837,44 +1726,6 @@ export const de_BatchDetectSentimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDetectSentimentCommandError
- */
-const de_BatchDetectSentimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDetectSentimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchSizeLimitExceededException":
-    case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      throw await de_BatchSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDetectSyntaxCommand
  */
 export const de_BatchDetectSyntaxCommand = async (
@@ -1882,7 +1733,7 @@ export const de_BatchDetectSyntaxCommand = async (
   context: __SerdeContext
 ): Promise<BatchDetectSyntaxCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDetectSyntaxCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1895,44 +1746,6 @@ export const de_BatchDetectSyntaxCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDetectSyntaxCommandError
- */
-const de_BatchDetectSyntaxCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDetectSyntaxCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchSizeLimitExceededException":
-    case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      throw await de_BatchSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDetectTargetedSentimentCommand
  */
 export const de_BatchDetectTargetedSentimentCommand = async (
@@ -1940,7 +1753,7 @@ export const de_BatchDetectTargetedSentimentCommand = async (
   context: __SerdeContext
 ): Promise<BatchDetectTargetedSentimentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDetectTargetedSentimentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1953,12 +1766,1589 @@ export const de_BatchDetectTargetedSentimentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDetectTargetedSentimentCommandError
+ * deserializeAws_json1_1ClassifyDocumentCommand
  */
-const de_BatchDetectTargetedSentimentCommandError = async (
+export const de_ClassifyDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchDetectTargetedSentimentCommandOutput> => {
+): Promise<ClassifyDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClassifyDocumentResponse(data, context);
+  const response: ClassifyDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ContainsPiiEntitiesCommand
+ */
+export const de_ContainsPiiEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContainsPiiEntitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ContainsPiiEntitiesResponse(data, context);
+  const response: ContainsPiiEntitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDatasetCommand
+ */
+export const de_CreateDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDocumentClassifierCommand
+ */
+export const de_CreateDocumentClassifierCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDocumentClassifierCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDocumentClassifierCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateEndpointCommand
+ */
+export const de_CreateEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateEntityRecognizerCommand
+ */
+export const de_CreateEntityRecognizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEntityRecognizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateEntityRecognizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateFlywheelCommand
+ */
+export const de_CreateFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDocumentClassifierCommand
+ */
+export const de_DeleteDocumentClassifierCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDocumentClassifierCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDocumentClassifierCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteEndpointCommand
+ */
+export const de_DeleteEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteEntityRecognizerCommand
+ */
+export const de_DeleteEntityRecognizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEntityRecognizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteEntityRecognizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteFlywheelCommand
+ */
+export const de_DeleteFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDatasetCommand
+ */
+export const de_DescribeDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDatasetResponse(data, context);
+  const response: DescribeDatasetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDocumentClassificationJobCommand
+ */
+export const de_DescribeDocumentClassificationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDocumentClassificationJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDocumentClassificationJobResponse(data, context);
+  const response: DescribeDocumentClassificationJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDocumentClassifierCommand
+ */
+export const de_DescribeDocumentClassifierCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDocumentClassifierCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDocumentClassifierResponse(data, context);
+  const response: DescribeDocumentClassifierCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
+ */
+export const de_DescribeDominantLanguageDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDominantLanguageDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDominantLanguageDetectionJobResponse(data, context);
+  const response: DescribeDominantLanguageDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEndpointCommand
+ */
+export const de_DescribeEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEndpointResponse(data, context);
+  const response: DescribeEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEntitiesDetectionJobCommand
+ */
+export const de_DescribeEntitiesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntitiesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEntitiesDetectionJobResponse(data, context);
+  const response: DescribeEntitiesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEntityRecognizerCommand
+ */
+export const de_DescribeEntityRecognizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEntityRecognizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEntityRecognizerResponse(data, context);
+  const response: DescribeEntityRecognizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEventsDetectionJobCommand
+ */
+export const de_DescribeEventsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEventsDetectionJobResponse(data, context);
+  const response: DescribeEventsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFlywheelCommand
+ */
+export const de_DescribeFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeFlywheelResponse(data, context);
+  const response: DescribeFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFlywheelIterationCommand
+ */
+export const de_DescribeFlywheelIterationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFlywheelIterationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeFlywheelIterationResponse(data, context);
+  const response: DescribeFlywheelIterationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand
+ */
+export const de_DescribeKeyPhrasesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeKeyPhrasesDetectionJobResponse(data, context);
+  const response: DescribeKeyPhrasesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommand
+ */
+export const de_DescribePiiEntitiesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePiiEntitiesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribePiiEntitiesDetectionJobResponse(data, context);
+  const response: DescribePiiEntitiesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeResourcePolicyResponse(data, context);
+  const response: DescribeResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSentimentDetectionJobCommand
+ */
+export const de_DescribeSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSentimentDetectionJobResponse(data, context);
+  const response: DescribeSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommand
+ */
+export const de_DescribeTargetedSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTargetedSentimentDetectionJobResponse(data, context);
+  const response: DescribeTargetedSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTopicsDetectionJobCommand
+ */
+export const de_DescribeTopicsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTopicsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTopicsDetectionJobResponse(data, context);
+  const response: DescribeTopicsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectDominantLanguageCommand
+ */
+export const de_DetectDominantLanguageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectDominantLanguageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectDominantLanguageResponse(data, context);
+  const response: DetectDominantLanguageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectEntitiesCommand
+ */
+export const de_DetectEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectEntitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectEntitiesResponse(data, context);
+  const response: DetectEntitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectKeyPhrasesCommand
+ */
+export const de_DetectKeyPhrasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectKeyPhrasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectKeyPhrasesResponse(data, context);
+  const response: DetectKeyPhrasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectPiiEntitiesCommand
+ */
+export const de_DetectPiiEntitiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectPiiEntitiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectPiiEntitiesResponse(data, context);
+  const response: DetectPiiEntitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectSentimentCommand
+ */
+export const de_DetectSentimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectSentimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectSentimentResponse(data, context);
+  const response: DetectSentimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectSyntaxCommand
+ */
+export const de_DetectSyntaxCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectSyntaxCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectSyntaxResponse(data, context);
+  const response: DetectSyntaxCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectTargetedSentimentCommand
+ */
+export const de_DetectTargetedSentimentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectTargetedSentimentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectTargetedSentimentResponse(data, context);
+  const response: DetectTargetedSentimentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectToxicContentCommand
+ */
+export const de_DetectToxicContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectToxicContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectToxicContentResponse(data, context);
+  const response: DetectToxicContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ImportModelCommand
+ */
+export const de_ImportModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ImportModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetsCommand
+ */
+export const de_ListDatasetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDatasetsResponse(data, context);
+  const response: ListDatasetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDocumentClassificationJobsCommand
+ */
+export const de_ListDocumentClassificationJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentClassificationJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDocumentClassificationJobsResponse(data, context);
+  const response: ListDocumentClassificationJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDocumentClassifiersCommand
+ */
+export const de_ListDocumentClassifiersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentClassifiersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDocumentClassifiersResponse(data, context);
+  const response: ListDocumentClassifiersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDocumentClassifierSummariesCommand
+ */
+export const de_ListDocumentClassifierSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentClassifierSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDocumentClassifierSummariesResponse(data, context);
+  const response: ListDocumentClassifierSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand
+ */
+export const de_ListDominantLanguageDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDominantLanguageDetectionJobsResponse(data, context);
+  const response: ListDominantLanguageDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEndpointsCommand
+ */
+export const de_ListEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEndpointsResponse(data, context);
+  const response: ListEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEntitiesDetectionJobsCommand
+ */
+export const de_ListEntitiesDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntitiesDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEntitiesDetectionJobsResponse(data, context);
+  const response: ListEntitiesDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEntityRecognizersCommand
+ */
+export const de_ListEntityRecognizersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntityRecognizersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEntityRecognizersResponse(data, context);
+  const response: ListEntityRecognizersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEntityRecognizerSummariesCommand
+ */
+export const de_ListEntityRecognizerSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEntityRecognizerSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEntityRecognizerSummariesResponse(data, context);
+  const response: ListEntityRecognizerSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListEventsDetectionJobsCommand
+ */
+export const de_ListEventsDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventsDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEventsDetectionJobsResponse(data, context);
+  const response: ListEventsDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFlywheelIterationHistoryCommand
+ */
+export const de_ListFlywheelIterationHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlywheelIterationHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFlywheelIterationHistoryResponse(data, context);
+  const response: ListFlywheelIterationHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFlywheelsCommand
+ */
+export const de_ListFlywheelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlywheelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFlywheelsResponse(data, context);
+  const response: ListFlywheelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand
+ */
+export const de_ListKeyPhrasesDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKeyPhrasesDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListKeyPhrasesDetectionJobsResponse(data, context);
+  const response: ListKeyPhrasesDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand
+ */
+export const de_ListPiiEntitiesDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPiiEntitiesDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPiiEntitiesDetectionJobsResponse(data, context);
+  const response: ListPiiEntitiesDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListSentimentDetectionJobsCommand
+ */
+export const de_ListSentimentDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSentimentDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListSentimentDetectionJobsResponse(data, context);
+  const response: ListSentimentDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommand
+ */
+export const de_ListTargetedSentimentDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetedSentimentDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTargetedSentimentDetectionJobsResponse(data, context);
+  const response: ListTargetedSentimentDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTopicsDetectionJobsCommand
+ */
+export const de_ListTopicsDetectionJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicsDetectionJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTopicsDetectionJobsResponse(data, context);
+  const response: ListTopicsDetectionJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartDocumentClassificationJobCommand
+ */
+export const de_StartDocumentClassificationJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDocumentClassificationJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDocumentClassificationJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartDominantLanguageDetectionJobCommand
+ */
+export const de_StartDominantLanguageDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDominantLanguageDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDominantLanguageDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartEntitiesDetectionJobCommand
+ */
+export const de_StartEntitiesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEntitiesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartEntitiesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartEventsDetectionJobCommand
+ */
+export const de_StartEventsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEventsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartEventsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartFlywheelIterationCommand
+ */
+export const de_StartFlywheelIterationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFlywheelIterationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartFlywheelIterationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand
+ */
+export const de_StartKeyPhrasesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartKeyPhrasesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartKeyPhrasesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartPiiEntitiesDetectionJobCommand
+ */
+export const de_StartPiiEntitiesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartPiiEntitiesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartPiiEntitiesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartSentimentDetectionJobCommand
+ */
+export const de_StartSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartTargetedSentimentDetectionJobCommand
+ */
+export const de_StartTargetedSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTargetedSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartTargetedSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartTopicsDetectionJobCommand
+ */
+export const de_StartTopicsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTopicsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartTopicsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopDominantLanguageDetectionJobCommand
+ */
+export const de_StopDominantLanguageDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDominantLanguageDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopDominantLanguageDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopEntitiesDetectionJobCommand
+ */
+export const de_StopEntitiesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEntitiesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopEntitiesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopEventsDetectionJobCommand
+ */
+export const de_StopEventsDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEventsDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopEventsDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand
+ */
+export const de_StopKeyPhrasesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopKeyPhrasesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopKeyPhrasesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand
+ */
+export const de_StopPiiEntitiesDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopPiiEntitiesDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopPiiEntitiesDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopSentimentDetectionJobCommand
+ */
+export const de_StopSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand
+ */
+export const de_StopTargetedSentimentDetectionJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTargetedSentimentDetectionJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopTargetedSentimentDetectionJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopTrainingDocumentClassifierCommand
+ */
+export const de_StopTrainingDocumentClassifierCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTrainingDocumentClassifierCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopTrainingDocumentClassifierCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopTrainingEntityRecognizerCommand
+ */
+export const de_StopTrainingEntityRecognizerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopTrainingEntityRecognizerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopTrainingEntityRecognizerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEndpointCommand
+ */
+export const de_UpdateEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateFlywheelCommand
+ */
+export const de_UpdateFlywheelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFlywheelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateFlywheelResponse(data, context);
+  const response: UpdateFlywheelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1980,165 +3370,9 @@ const de_BatchDetectTargetedSentimentCommandError = async (
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
       throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ClassifyDocumentCommand
- */
-export const de_ClassifyDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ClassifyDocumentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ClassifyDocumentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClassifyDocumentResponse(data, context);
-  const response: ClassifyDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ClassifyDocumentCommandError
- */
-const de_ClassifyDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ClassifyDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
       throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ContainsPiiEntitiesCommand
- */
-export const de_ContainsPiiEntitiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ContainsPiiEntitiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ContainsPiiEntitiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ContainsPiiEntitiesResponse(data, context);
-  const response: ContainsPiiEntitiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ContainsPiiEntitiesCommandError
- */
-const de_ContainsPiiEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ContainsPiiEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDatasetCommand
- */
-export const de_CreateDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDatasetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDatasetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDatasetCommandError
- */
-const de_CreateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
@@ -2154,4327 +3388,21 @@ const de_CreateDatasetCommandError = async (
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDocumentClassifierCommand
- */
-export const de_CreateDocumentClassifierCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDocumentClassifierCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDocumentClassifierCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDocumentClassifierCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDocumentClassifierCommandError
- */
-const de_CreateDocumentClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDocumentClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
       throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateEndpointCommand
- */
-export const de_CreateEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateEndpointCommandError
- */
-const de_CreateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateEntityRecognizerCommand
- */
-export const de_CreateEntityRecognizerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEntityRecognizerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEntityRecognizerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateEntityRecognizerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateEntityRecognizerCommandError
- */
-const de_CreateEntityRecognizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEntityRecognizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateFlywheelCommand
- */
-export const de_CreateFlywheelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFlywheelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateFlywheelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateFlywheelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateFlywheelCommandError
- */
-const de_CreateFlywheelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFlywheelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDocumentClassifierCommand
- */
-export const de_DeleteDocumentClassifierCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentClassifierCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDocumentClassifierCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteDocumentClassifierCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDocumentClassifierCommandError
- */
-const de_DeleteDocumentClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointCommand
- */
-export const de_DeleteEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEndpointCommandError
- */
-const de_DeleteEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteEntityRecognizerCommand
- */
-export const de_DeleteEntityRecognizerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEntityRecognizerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEntityRecognizerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteEntityRecognizerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEntityRecognizerCommandError
- */
-const de_DeleteEntityRecognizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEntityRecognizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteFlywheelCommand
- */
-export const de_DeleteFlywheelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFlywheelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteFlywheelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteFlywheelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFlywheelCommandError
- */
-const de_DeleteFlywheelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFlywheelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommand
- */
-export const de_DeleteResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetCommand
- */
-export const de_DescribeDatasetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDatasetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDatasetResponse(data, context);
-  const response: DescribeDatasetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDatasetCommandError
- */
-const de_DescribeDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentClassificationJobCommand
- */
-export const de_DescribeDocumentClassificationJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentClassificationJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDocumentClassificationJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDocumentClassificationJobResponse(data, context);
-  const response: DescribeDocumentClassificationJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentClassificationJobCommandError
- */
-const de_DescribeDocumentClassificationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentClassificationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
       throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentClassifierCommand
- */
-export const de_DescribeDocumentClassifierCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentClassifierCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDocumentClassifierCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDocumentClassifierResponse(data, context);
-  const response: DescribeDocumentClassifierCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentClassifierCommandError
- */
-const de_DescribeDocumentClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
- */
-export const de_DescribeDominantLanguageDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDominantLanguageDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDominantLanguageDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDominantLanguageDetectionJobResponse(data, context);
-  const response: DescribeDominantLanguageDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommandError
- */
-const de_DescribeDominantLanguageDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDominantLanguageDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEndpointCommand
- */
-export const de_DescribeEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEndpointResponse(data, context);
-  const response: DescribeEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEndpointCommandError
- */
-const de_DescribeEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEntitiesDetectionJobCommand
- */
-export const de_DescribeEntitiesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntitiesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEntitiesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEntitiesDetectionJobResponse(data, context);
-  const response: DescribeEntitiesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError
- */
-const de_DescribeEntitiesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntitiesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEntityRecognizerCommand
- */
-export const de_DescribeEntityRecognizerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntityRecognizerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEntityRecognizerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEntityRecognizerResponse(data, context);
-  const response: DescribeEntityRecognizerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEntityRecognizerCommandError
- */
-const de_DescribeEntityRecognizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntityRecognizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEventsDetectionJobCommand
- */
-export const de_DescribeEventsDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventsDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEventsDetectionJobResponse(data, context);
-  const response: DescribeEventsDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEventsDetectionJobCommandError
- */
-const de_DescribeEventsDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeFlywheelCommand
- */
-export const de_DescribeFlywheelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlywheelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeFlywheelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeFlywheelResponse(data, context);
-  const response: DescribeFlywheelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeFlywheelCommandError
- */
-const de_DescribeFlywheelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlywheelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeFlywheelIterationCommand
- */
-export const de_DescribeFlywheelIterationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlywheelIterationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeFlywheelIterationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeFlywheelIterationResponse(data, context);
-  const response: DescribeFlywheelIterationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeFlywheelIterationCommandError
- */
-const de_DescribeFlywheelIterationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlywheelIterationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand
- */
-export const de_DescribeKeyPhrasesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeKeyPhrasesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeKeyPhrasesDetectionJobResponse(data, context);
-  const response: DescribeKeyPhrasesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError
- */
-const de_DescribeKeyPhrasesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeKeyPhrasesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommand
- */
-export const de_DescribePiiEntitiesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePiiEntitiesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePiiEntitiesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribePiiEntitiesDetectionJobResponse(data, context);
-  const response: DescribePiiEntitiesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommandError
- */
-const de_DescribePiiEntitiesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePiiEntitiesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeResourcePolicyCommand
- */
-export const de_DescribeResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeResourcePolicyResponse(data, context);
-  const response: DescribeResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeResourcePolicyCommandError
- */
-const de_DescribeResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSentimentDetectionJobCommand
- */
-export const de_DescribeSentimentDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSentimentDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSentimentDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeSentimentDetectionJobResponse(data, context);
-  const response: DescribeSentimentDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSentimentDetectionJobCommandError
- */
-const de_DescribeSentimentDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSentimentDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommand
- */
-export const de_DescribeTargetedSentimentDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTargetedSentimentDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTargetedSentimentDetectionJobResponse(data, context);
-  const response: DescribeTargetedSentimentDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTargetedSentimentDetectionJobCommandError
- */
-const de_DescribeTargetedSentimentDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetedSentimentDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTopicsDetectionJobCommand
- */
-export const de_DescribeTopicsDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTopicsDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTopicsDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTopicsDetectionJobResponse(data, context);
-  const response: DescribeTopicsDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTopicsDetectionJobCommandError
- */
-const de_DescribeTopicsDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTopicsDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectDominantLanguageCommand
- */
-export const de_DetectDominantLanguageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectDominantLanguageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectDominantLanguageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectDominantLanguageResponse(data, context);
-  const response: DetectDominantLanguageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectDominantLanguageCommandError
- */
-const de_DetectDominantLanguageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectDominantLanguageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectEntitiesCommand
- */
-export const de_DetectEntitiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectEntitiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectEntitiesResponse(data, context);
-  const response: DetectEntitiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectEntitiesCommandError
- */
-const de_DetectEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectKeyPhrasesCommand
- */
-export const de_DetectKeyPhrasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectKeyPhrasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectKeyPhrasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectKeyPhrasesResponse(data, context);
-  const response: DetectKeyPhrasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectKeyPhrasesCommandError
- */
-const de_DetectKeyPhrasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectKeyPhrasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectPiiEntitiesCommand
- */
-export const de_DetectPiiEntitiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectPiiEntitiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectPiiEntitiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectPiiEntitiesResponse(data, context);
-  const response: DetectPiiEntitiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectPiiEntitiesCommandError
- */
-const de_DetectPiiEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectPiiEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectSentimentCommand
- */
-export const de_DetectSentimentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectSentimentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectSentimentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectSentimentResponse(data, context);
-  const response: DetectSentimentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectSentimentCommandError
- */
-const de_DetectSentimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectSentimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectSyntaxCommand
- */
-export const de_DetectSyntaxCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectSyntaxCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectSyntaxCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectSyntaxResponse(data, context);
-  const response: DetectSyntaxCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectSyntaxCommandError
- */
-const de_DetectSyntaxCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectSyntaxCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectTargetedSentimentCommand
- */
-export const de_DetectTargetedSentimentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectTargetedSentimentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectTargetedSentimentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectTargetedSentimentResponse(data, context);
-  const response: DetectTargetedSentimentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectTargetedSentimentCommandError
- */
-const de_DetectTargetedSentimentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectTargetedSentimentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetectToxicContentCommand
- */
-export const de_DetectToxicContentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectToxicContentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetectToxicContentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DetectToxicContentResponse(data, context);
-  const response: DetectToxicContentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetectToxicContentCommandError
- */
-const de_DetectToxicContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectToxicContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TextSizeLimitExceededException":
-    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedLanguageException":
-    case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ImportModelCommand
- */
-export const de_ImportModelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportModelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ImportModelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ImportModelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ImportModelCommandError
- */
-const de_ImportModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatasetsCommand
- */
-export const de_ListDatasetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatasetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDatasetsResponse(data, context);
-  const response: ListDatasetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatasetsCommandError
- */
-const de_ListDatasetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
       throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDocumentClassificationJobsCommand
- */
-export const de_ListDocumentClassificationJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentClassificationJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDocumentClassificationJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDocumentClassificationJobsResponse(data, context);
-  const response: ListDocumentClassificationJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDocumentClassificationJobsCommandError
- */
-const de_ListDocumentClassificationJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentClassificationJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDocumentClassifiersCommand
- */
-export const de_ListDocumentClassifiersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentClassifiersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDocumentClassifiersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDocumentClassifiersResponse(data, context);
-  const response: ListDocumentClassifiersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDocumentClassifiersCommandError
- */
-const de_ListDocumentClassifiersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentClassifiersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDocumentClassifierSummariesCommand
- */
-export const de_ListDocumentClassifierSummariesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentClassifierSummariesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDocumentClassifierSummariesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDocumentClassifierSummariesResponse(data, context);
-  const response: ListDocumentClassifierSummariesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDocumentClassifierSummariesCommandError
- */
-const de_ListDocumentClassifierSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentClassifierSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand
- */
-export const de_ListDominantLanguageDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDominantLanguageDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDominantLanguageDetectionJobsResponse(data, context);
-  const response: ListDominantLanguageDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandError
- */
-const de_ListDominantLanguageDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEndpointsCommand
- */
-export const de_ListEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEndpointsResponse(data, context);
-  const response: ListEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEndpointsCommandError
- */
-const de_ListEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEntitiesDetectionJobsCommand
- */
-export const de_ListEntitiesDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitiesDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEntitiesDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEntitiesDetectionJobsResponse(data, context);
-  const response: ListEntitiesDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEntitiesDetectionJobsCommandError
- */
-const de_ListEntitiesDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitiesDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEntityRecognizersCommand
- */
-export const de_ListEntityRecognizersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntityRecognizersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEntityRecognizersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEntityRecognizersResponse(data, context);
-  const response: ListEntityRecognizersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEntityRecognizersCommandError
- */
-const de_ListEntityRecognizersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntityRecognizersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEntityRecognizerSummariesCommand
- */
-export const de_ListEntityRecognizerSummariesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntityRecognizerSummariesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEntityRecognizerSummariesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEntityRecognizerSummariesResponse(data, context);
-  const response: ListEntityRecognizerSummariesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEntityRecognizerSummariesCommandError
- */
-const de_ListEntityRecognizerSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntityRecognizerSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListEventsDetectionJobsCommand
- */
-export const de_ListEventsDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventsDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEventsDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEventsDetectionJobsResponse(data, context);
-  const response: ListEventsDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListEventsDetectionJobsCommandError
- */
-const de_ListEventsDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventsDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListFlywheelIterationHistoryCommand
- */
-export const de_ListFlywheelIterationHistoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlywheelIterationHistoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListFlywheelIterationHistoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListFlywheelIterationHistoryResponse(data, context);
-  const response: ListFlywheelIterationHistoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListFlywheelIterationHistoryCommandError
- */
-const de_ListFlywheelIterationHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlywheelIterationHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListFlywheelsCommand
- */
-export const de_ListFlywheelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlywheelsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListFlywheelsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListFlywheelsResponse(data, context);
-  const response: ListFlywheelsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListFlywheelsCommandError
- */
-const de_ListFlywheelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlywheelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand
- */
-export const de_ListKeyPhrasesDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListKeyPhrasesDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListKeyPhrasesDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListKeyPhrasesDetectionJobsResponse(data, context);
-  const response: ListKeyPhrasesDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError
- */
-const de_ListKeyPhrasesDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListKeyPhrasesDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand
- */
-export const de_ListPiiEntitiesDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPiiEntitiesDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPiiEntitiesDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListPiiEntitiesDetectionJobsResponse(data, context);
-  const response: ListPiiEntitiesDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommandError
- */
-const de_ListPiiEntitiesDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPiiEntitiesDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListSentimentDetectionJobsCommand
- */
-export const de_ListSentimentDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSentimentDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListSentimentDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListSentimentDetectionJobsResponse(data, context);
-  const response: ListSentimentDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListSentimentDetectionJobsCommandError
- */
-const de_ListSentimentDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSentimentDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommand
- */
-export const de_ListTargetedSentimentDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetedSentimentDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTargetedSentimentDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListTargetedSentimentDetectionJobsResponse(data, context);
-  const response: ListTargetedSentimentDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTargetedSentimentDetectionJobsCommandError
- */
-const de_ListTargetedSentimentDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetedSentimentDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTopicsDetectionJobsCommand
- */
-export const de_ListTopicsDetectionJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTopicsDetectionJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTopicsDetectionJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListTopicsDetectionJobsResponse(data, context);
-  const response: ListTopicsDetectionJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTopicsDetectionJobsCommandError
- */
-const de_ListTopicsDetectionJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTopicsDetectionJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidFilterException":
-    case "com.amazonaws.comprehend#InvalidFilterException":
-      throw await de_InvalidFilterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommand
- */
-export const de_PutResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartDocumentClassificationJobCommand
- */
-export const de_StartDocumentClassificationJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDocumentClassificationJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDocumentClassificationJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartDocumentClassificationJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartDocumentClassificationJobCommandError
- */
-const de_StartDocumentClassificationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDocumentClassificationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartDominantLanguageDetectionJobCommand
- */
-export const de_StartDominantLanguageDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDominantLanguageDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDominantLanguageDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartDominantLanguageDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError
- */
-const de_StartDominantLanguageDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDominantLanguageDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartEntitiesDetectionJobCommand
- */
-export const de_StartEntitiesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEntitiesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartEntitiesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartEntitiesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartEntitiesDetectionJobCommandError
- */
-const de_StartEntitiesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEntitiesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartEventsDetectionJobCommand
- */
-export const de_StartEventsDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEventsDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartEventsDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartEventsDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartEventsDetectionJobCommandError
- */
-const de_StartEventsDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEventsDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartFlywheelIterationCommand
- */
-export const de_StartFlywheelIterationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFlywheelIterationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartFlywheelIterationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartFlywheelIterationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartFlywheelIterationCommandError
- */
-const de_StartFlywheelIterationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFlywheelIterationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand
- */
-export const de_StartKeyPhrasesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartKeyPhrasesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartKeyPhrasesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartKeyPhrasesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError
- */
-const de_StartKeyPhrasesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartKeyPhrasesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartPiiEntitiesDetectionJobCommand
- */
-export const de_StartPiiEntitiesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPiiEntitiesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartPiiEntitiesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartPiiEntitiesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartPiiEntitiesDetectionJobCommandError
- */
-const de_StartPiiEntitiesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPiiEntitiesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartSentimentDetectionJobCommand
- */
-export const de_StartSentimentDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSentimentDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartSentimentDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartSentimentDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartSentimentDetectionJobCommandError
- */
-const de_StartSentimentDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSentimentDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartTargetedSentimentDetectionJobCommand
- */
-export const de_StartTargetedSentimentDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTargetedSentimentDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartTargetedSentimentDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartTargetedSentimentDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartTargetedSentimentDetectionJobCommandError
- */
-const de_StartTargetedSentimentDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTargetedSentimentDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartTopicsDetectionJobCommand
- */
-export const de_StartTopicsDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTopicsDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartTopicsDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartTopicsDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartTopicsDetectionJobCommandError
- */
-const de_StartTopicsDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTopicsDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopDominantLanguageDetectionJobCommand
- */
-export const de_StopDominantLanguageDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDominantLanguageDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDominantLanguageDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopDominantLanguageDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopDominantLanguageDetectionJobCommandError
- */
-const de_StopDominantLanguageDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDominantLanguageDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopEntitiesDetectionJobCommand
- */
-export const de_StopEntitiesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEntitiesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopEntitiesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopEntitiesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopEntitiesDetectionJobCommandError
- */
-const de_StopEntitiesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEntitiesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopEventsDetectionJobCommand
- */
-export const de_StopEventsDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEventsDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopEventsDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopEventsDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopEventsDetectionJobCommandError
- */
-const de_StopEventsDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEventsDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand
- */
-export const de_StopKeyPhrasesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopKeyPhrasesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopKeyPhrasesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopKeyPhrasesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError
- */
-const de_StopKeyPhrasesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopKeyPhrasesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand
- */
-export const de_StopPiiEntitiesDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopPiiEntitiesDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopPiiEntitiesDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopPiiEntitiesDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopPiiEntitiesDetectionJobCommandError
- */
-const de_StopPiiEntitiesDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopPiiEntitiesDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopSentimentDetectionJobCommand
- */
-export const de_StopSentimentDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSentimentDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopSentimentDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopSentimentDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopSentimentDetectionJobCommandError
- */
-const de_StopSentimentDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSentimentDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopTargetedSentimentDetectionJobCommand
- */
-export const de_StopTargetedSentimentDetectionJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTargetedSentimentDetectionJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopTargetedSentimentDetectionJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopTargetedSentimentDetectionJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopTargetedSentimentDetectionJobCommandError
- */
-const de_StopTargetedSentimentDetectionJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTargetedSentimentDetectionJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.comprehend#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopTrainingDocumentClassifierCommand
- */
-export const de_StopTrainingDocumentClassifierCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTrainingDocumentClassifierCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopTrainingDocumentClassifierCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopTrainingDocumentClassifierCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopTrainingDocumentClassifierCommandError
- */
-const de_StopTrainingDocumentClassifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTrainingDocumentClassifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopTrainingEntityRecognizerCommand
- */
-export const de_StopTrainingEntityRecognizerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTrainingEntityRecognizerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopTrainingEntityRecognizerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopTrainingEntityRecognizerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopTrainingEntityRecognizerCommandError
- */
-const de_StopTrainingEntityRecognizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopTrainingEntityRecognizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.comprehend#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.comprehend#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.comprehend#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyTagKeysException":
     case "com.amazonaws.comprehend#TooManyTagKeysException":
       throw await de_TooManyTagKeysExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointCommand
- */
-export const de_UpdateEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointCommandError
- */
-const de_UpdateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.comprehend#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.comprehend#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateFlywheelCommand
- */
-export const de_UpdateFlywheelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFlywheelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateFlywheelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateFlywheelResponse(data, context);
-  const response: UpdateFlywheelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateFlywheelCommandError
- */
-const de_UpdateFlywheelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFlywheelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.comprehend#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.comprehend#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "KmsKeyValidationException":
-    case "com.amazonaws.comprehend#KmsKeyValidationException":
-      throw await de_KmsKeyValidationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.comprehend#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.comprehend#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

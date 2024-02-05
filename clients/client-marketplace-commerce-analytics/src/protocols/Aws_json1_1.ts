@@ -60,7 +60,7 @@ export const de_GenerateDataSetCommand = async (
   context: __SerdeContext
 ): Promise<GenerateDataSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateDataSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -73,32 +73,6 @@ export const de_GenerateDataSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GenerateDataSetCommandError
- */
-const de_GenerateDataSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateDataSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "MarketplaceCommerceAnalyticsException":
-    case "com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException":
-      throw await de_MarketplaceCommerceAnalyticsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartSupportDataExportCommand
  */
 export const de_StartSupportDataExportCommand = async (
@@ -106,7 +80,7 @@ export const de_StartSupportDataExportCommand = async (
   context: __SerdeContext
 ): Promise<StartSupportDataExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartSupportDataExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -119,12 +93,9 @@ export const de_StartSupportDataExportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartSupportDataExportCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_StartSupportDataExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSupportDataExportCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

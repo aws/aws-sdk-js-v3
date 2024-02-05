@@ -1004,7 +1004,7 @@ export const de_AcceptHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<AcceptHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptHandshakeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1017,62 +1017,6 @@ export const de_AcceptHandshakeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptHandshakeCommandError
- */
-const de_AcceptHandshakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptHandshakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccessDeniedForDependencyException":
-    case "com.amazonaws.organizations#AccessDeniedForDependencyException":
-      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "HandshakeAlreadyInStateException":
-    case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      throw await de_HandshakeAlreadyInStateExceptionRes(parsedOutput, context);
-    case "HandshakeConstraintViolationException":
-    case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
-    case "HandshakeNotFoundException":
-    case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidHandshakeTransitionException":
-    case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      throw await de_InvalidHandshakeTransitionExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachPolicyCommand
  */
 export const de_AttachPolicyCommand = async (
@@ -1080,75 +1024,13 @@ export const de_AttachPolicyCommand = async (
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AttachPolicyCommandError
- */
-const de_AttachPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "DuplicatePolicyAttachmentException":
-    case "com.amazonaws.organizations#DuplicatePolicyAttachmentException":
-      throw await de_DuplicatePolicyAttachmentExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyChangesInProgressException":
-    case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    case "PolicyTypeNotEnabledException":
-    case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
-      throw await de_PolicyTypeNotEnabledExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1159,7 +1041,7 @@ export const de_CancelHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<CancelHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelHandshakeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1172,53 +1054,6 @@ export const de_CancelHandshakeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelHandshakeCommandError
- */
-const de_CancelHandshakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelHandshakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "HandshakeAlreadyInStateException":
-    case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
-      throw await de_HandshakeAlreadyInStateExceptionRes(parsedOutput, context);
-    case "HandshakeNotFoundException":
-    case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidHandshakeTransitionException":
-    case "com.amazonaws.organizations#InvalidHandshakeTransitionException":
-      throw await de_InvalidHandshakeTransitionExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CloseAccountCommand
  */
 export const de_CloseAccountCommand = async (
@@ -1226,69 +1061,13 @@ export const de_CloseAccountCommand = async (
   context: __SerdeContext
 ): Promise<CloseAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CloseAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CloseAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CloseAccountCommandError
- */
-const de_CloseAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CloseAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountAlreadyClosedException":
-    case "com.amazonaws.organizations#AccountAlreadyClosedException":
-      throw await de_AccountAlreadyClosedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.organizations#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1299,7 +1078,7 @@ export const de_CreateAccountCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1312,56 +1091,6 @@ export const de_CreateAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAccountCommandError
- */
-const de_CreateAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FinalizingOrganizationException":
-    case "com.amazonaws.organizations#FinalizingOrganizationException":
-      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGovCloudAccountCommand
  */
 export const de_CreateGovCloudAccountCommand = async (
@@ -1369,7 +1098,7 @@ export const de_CreateGovCloudAccountCommand = async (
   context: __SerdeContext
 ): Promise<CreateGovCloudAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGovCloudAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1382,56 +1111,6 @@ export const de_CreateGovCloudAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGovCloudAccountCommandError
- */
-const de_CreateGovCloudAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGovCloudAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "FinalizingOrganizationException":
-    case "com.amazonaws.organizations#FinalizingOrganizationException":
-      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateOrganizationCommand
  */
 export const de_CreateOrganizationCommand = async (
@@ -1439,7 +1118,7 @@ export const de_CreateOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<CreateOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1452,53 +1131,6 @@ export const de_CreateOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateOrganizationCommandError
- */
-const de_CreateOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccessDeniedForDependencyException":
-    case "com.amazonaws.organizations#AccessDeniedForDependencyException":
-      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
-    case "AlreadyInOrganizationException":
-    case "com.amazonaws.organizations#AlreadyInOrganizationException":
-      throw await de_AlreadyInOrganizationExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateOrganizationalUnitCommand
  */
 export const de_CreateOrganizationalUnitCommand = async (
@@ -1506,7 +1138,7 @@ export const de_CreateOrganizationalUnitCommand = async (
   context: __SerdeContext
 ): Promise<CreateOrganizationalUnitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOrganizationalUnitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1519,56 +1151,6 @@ export const de_CreateOrganizationalUnitCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateOrganizationalUnitCommandError
- */
-const de_CreateOrganizationalUnitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrganizationalUnitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "DuplicateOrganizationalUnitException":
-    case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
-      throw await de_DuplicateOrganizationalUnitExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ParentNotFoundException":
-    case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePolicyCommand
  */
 export const de_CreatePolicyCommand = async (
@@ -1576,7 +1158,7 @@ export const de_CreatePolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1589,62 +1171,6 @@ export const de_CreatePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePolicyCommandError
- */
-const de_CreatePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "DuplicatePolicyException":
-    case "com.amazonaws.organizations#DuplicatePolicyException":
-      throw await de_DuplicatePolicyExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.organizations#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PolicyTypeNotAvailableForOrganizationException":
-    case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
-      throw await de_PolicyTypeNotAvailableForOrganizationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeclineHandshakeCommand
  */
 export const de_DeclineHandshakeCommand = async (
@@ -1652,7 +1178,7 @@ export const de_DeclineHandshakeCommand = async (
   context: __SerdeContext
 ): Promise<DeclineHandshakeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeclineHandshakeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1665,27 +1191,891 @@ export const de_DeclineHandshakeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeclineHandshakeCommandError
+ * deserializeAws_json1_1DeleteOrganizationCommand
  */
-const de_DeclineHandshakeCommandError = async (
+export const de_DeleteOrganizationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DeclineHandshakeCommandOutput> => {
+): Promise<DeleteOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteOrganizationalUnitCommand
+ */
+export const de_DeleteOrganizationalUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOrganizationalUnitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteOrganizationalUnitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePolicyCommand
+ */
+export const de_DeletePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeletePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterDelegatedAdministratorCommand
+ */
+export const de_DeregisterDelegatedAdministratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeregisterDelegatedAdministratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAccountCommand
+ */
+export const de_DescribeAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAccountResponse(data, context);
+  const response: DescribeAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCreateAccountStatusCommand
+ */
+export const de_DescribeCreateAccountStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCreateAccountStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCreateAccountStatusResponse(data, context);
+  const response: DescribeCreateAccountStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEffectivePolicyCommand
+ */
+export const de_DescribeEffectivePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEffectivePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEffectivePolicyResponse(data, context);
+  const response: DescribeEffectivePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeHandshakeCommand
+ */
+export const de_DescribeHandshakeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHandshakeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeHandshakeResponse(data, context);
+  const response: DescribeHandshakeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeOrganizationCommand
+ */
+export const de_DescribeOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeOrganizationalUnitCommand
+ */
+export const de_DescribeOrganizationalUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrganizationalUnitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeOrganizationalUnitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePolicyCommand
+ */
+export const de_DescribePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeResourcePolicyCommand
+ */
+export const de_DescribeResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetachPolicyCommand
+ */
+export const de_DetachPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DetachPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisableAWSServiceAccessCommand
+ */
+export const de_DisableAWSServiceAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableAWSServiceAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DisableAWSServiceAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisablePolicyTypeCommand
+ */
+export const de_DisablePolicyTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisablePolicyTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisablePolicyTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableAllFeaturesCommand
+ */
+export const de_EnableAllFeaturesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableAllFeaturesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableAllFeaturesResponse(data, context);
+  const response: EnableAllFeaturesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableAWSServiceAccessCommand
+ */
+export const de_EnableAWSServiceAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableAWSServiceAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: EnableAWSServiceAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnablePolicyTypeCommand
+ */
+export const de_EnablePolicyTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnablePolicyTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnablePolicyTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1InviteAccountToOrganizationCommand
+ */
+export const de_InviteAccountToOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<InviteAccountToOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_InviteAccountToOrganizationResponse(data, context);
+  const response: InviteAccountToOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1LeaveOrganizationCommand
+ */
+export const de_LeaveOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<LeaveOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: LeaveOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAccountsCommand
+ */
+export const de_ListAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAccountsResponse(data, context);
+  const response: ListAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAccountsForParentCommand
+ */
+export const de_ListAccountsForParentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountsForParentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAccountsForParentResponse(data, context);
+  const response: ListAccountsForParentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
+ */
+export const de_ListAWSServiceAccessForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAWSServiceAccessForOrganizationResponse(data, context);
+  const response: ListAWSServiceAccessForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListChildrenCommand
+ */
+export const de_ListChildrenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChildrenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListChildrenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCreateAccountStatusCommand
+ */
+export const de_ListCreateAccountStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCreateAccountStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCreateAccountStatusResponse(data, context);
+  const response: ListCreateAccountStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDelegatedAdministratorsCommand
+ */
+export const de_ListDelegatedAdministratorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDelegatedAdministratorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDelegatedAdministratorsResponse(data, context);
+  const response: ListDelegatedAdministratorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDelegatedServicesForAccountCommand
+ */
+export const de_ListDelegatedServicesForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDelegatedServicesForAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDelegatedServicesForAccountResponse(data, context);
+  const response: ListDelegatedServicesForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListHandshakesForAccountCommand
+ */
+export const de_ListHandshakesForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHandshakesForAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListHandshakesForAccountResponse(data, context);
+  const response: ListHandshakesForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListHandshakesForOrganizationCommand
+ */
+export const de_ListHandshakesForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHandshakesForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListHandshakesForOrganizationResponse(data, context);
+  const response: ListHandshakesForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOrganizationalUnitsForParentCommand
+ */
+export const de_ListOrganizationalUnitsForParentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationalUnitsForParentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListOrganizationalUnitsForParentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListParentsCommand
+ */
+export const de_ListParentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListParentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListParentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPoliciesCommand
+ */
+export const de_ListPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListPoliciesForTargetCommand
+ */
+export const de_ListPoliciesForTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPoliciesForTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListPoliciesForTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListRootsCommand
+ */
+export const de_ListRootsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRootsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListRootsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTargetsForPolicyCommand
+ */
+export const de_ListTargetsForPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetsForPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTargetsForPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1MoveAccountCommand
+ */
+export const de_MoveAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: MoveAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterDelegatedAdministratorCommand
+ */
+export const de_RegisterDelegatedAdministratorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterDelegatedAdministratorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RegisterDelegatedAdministratorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveAccountFromOrganizationCommand
+ */
+export const de_RemoveAccountFromOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveAccountFromOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveAccountFromOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateOrganizationalUnitCommand
+ */
+export const de_UpdateOrganizationalUnitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOrganizationalUnitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateOrganizationalUnitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdatePolicyCommand
+ */
+export const de_UpdatePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdatePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AWSOrganizationsNotInUseException":
+    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
+      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.organizations#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AccessDeniedForDependencyException":
+    case "com.amazonaws.organizations#AccessDeniedForDependencyException":
+      throw await de_AccessDeniedForDependencyExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.organizations#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "HandshakeAlreadyInStateException":
     case "com.amazonaws.organizations#HandshakeAlreadyInStateException":
       throw await de_HandshakeAlreadyInStateExceptionRes(parsedOutput, context);
+    case "HandshakeConstraintViolationException":
+    case "com.amazonaws.organizations#HandshakeConstraintViolationException":
+      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
     case "HandshakeNotFoundException":
     case "com.amazonaws.organizations#HandshakeNotFoundException":
       throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
@@ -1701,2937 +2091,114 @@ const de_DeclineHandshakeCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.organizations#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteOrganizationCommand
- */
-export const de_DeleteOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteOrganizationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteOrganizationCommandError
- */
-const de_DeleteOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ConstraintViolationException":
+    case "com.amazonaws.organizations#ConstraintViolationException":
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
+    case "DuplicatePolicyAttachmentException":
+    case "com.amazonaws.organizations#DuplicatePolicyAttachmentException":
+      throw await de_DuplicatePolicyAttachmentExceptionRes(parsedOutput, context);
+    case "PolicyChangesInProgressException":
+    case "com.amazonaws.organizations#PolicyChangesInProgressException":
+      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
+    case "PolicyNotFoundException":
+    case "com.amazonaws.organizations#PolicyNotFoundException":
+      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
+    case "PolicyTypeNotEnabledException":
+    case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
+      throw await de_PolicyTypeNotEnabledExceptionRes(parsedOutput, context);
+    case "TargetNotFoundException":
+    case "com.amazonaws.organizations#TargetNotFoundException":
+      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedAPIEndpointException":
+    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
+      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
+    case "AccountAlreadyClosedException":
+    case "com.amazonaws.organizations#AccountAlreadyClosedException":
+      throw await de_AccountAlreadyClosedExceptionRes(parsedOutput, context);
+    case "AccountNotFoundException":
+    case "com.amazonaws.organizations#AccountNotFoundException":
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.organizations#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "FinalizingOrganizationException":
+    case "com.amazonaws.organizations#FinalizingOrganizationException":
+      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
+    case "AlreadyInOrganizationException":
+    case "com.amazonaws.organizations#AlreadyInOrganizationException":
+      throw await de_AlreadyInOrganizationExceptionRes(parsedOutput, context);
+    case "DuplicateOrganizationalUnitException":
+    case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
+      throw await de_DuplicateOrganizationalUnitExceptionRes(parsedOutput, context);
+    case "ParentNotFoundException":
+    case "com.amazonaws.organizations#ParentNotFoundException":
+      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicatePolicyException":
+    case "com.amazonaws.organizations#DuplicatePolicyException":
+      throw await de_DuplicatePolicyExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.organizations#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "PolicyTypeNotAvailableForOrganizationException":
+    case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
+      throw await de_PolicyTypeNotAvailableForOrganizationExceptionRes(parsedOutput, context);
     case "OrganizationNotEmptyException":
     case "com.amazonaws.organizations#OrganizationNotEmptyException":
       throw await de_OrganizationNotEmptyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteOrganizationalUnitCommand
- */
-export const de_DeleteOrganizationalUnitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteOrganizationalUnitCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteOrganizationalUnitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteOrganizationalUnitCommandError
- */
-const de_DeleteOrganizationalUnitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationalUnitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "OrganizationalUnitNotEmptyException":
     case "com.amazonaws.organizations#OrganizationalUnitNotEmptyException":
       throw await de_OrganizationalUnitNotEmptyExceptionRes(parsedOutput, context);
     case "OrganizationalUnitNotFoundException":
     case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
       throw await de_OrganizationalUnitNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeletePolicyCommand
- */
-export const de_DeletePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePolicyCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeletePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePolicyCommandError
- */
-const de_DeletePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "PolicyInUseException":
     case "com.amazonaws.organizations#PolicyInUseException":
       throw await de_PolicyInUseExceptionRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommand
- */
-export const de_DeleteResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "ResourcePolicyNotFoundException":
     case "com.amazonaws.organizations#ResourcePolicyNotFoundException":
       throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterDelegatedAdministratorCommand
- */
-export const de_DeregisterDelegatedAdministratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterDelegatedAdministratorCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeregisterDelegatedAdministratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError
- */
-const de_DeregisterDelegatedAdministratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterDelegatedAdministratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
     case "AccountNotRegisteredException":
     case "com.amazonaws.organizations#AccountNotRegisteredException":
       throw await de_AccountNotRegisteredExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAccountCommand
- */
-export const de_DescribeAccountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAccountCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAccountResponse(data, context);
-  const response: DescribeAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAccountCommandError
- */
-const de_DescribeAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCreateAccountStatusCommand
- */
-export const de_DescribeCreateAccountStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCreateAccountStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCreateAccountStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeCreateAccountStatusResponse(data, context);
-  const response: DescribeCreateAccountStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCreateAccountStatusCommandError
- */
-const de_DescribeCreateAccountStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCreateAccountStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "CreateAccountStatusNotFoundException":
     case "com.amazonaws.organizations#CreateAccountStatusNotFoundException":
       throw await de_CreateAccountStatusNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEffectivePolicyCommand
- */
-export const de_DescribeEffectivePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEffectivePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEffectivePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEffectivePolicyResponse(data, context);
-  const response: DescribeEffectivePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEffectivePolicyCommandError
- */
-const de_DescribeEffectivePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEffectivePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "EffectivePolicyNotFoundException":
     case "com.amazonaws.organizations#EffectivePolicyNotFoundException":
       throw await de_EffectivePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeHandshakeCommand
- */
-export const de_DescribeHandshakeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHandshakeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeHandshakeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeHandshakeResponse(data, context);
-  const response: DescribeHandshakeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeHandshakeCommandError
- */
-const de_DescribeHandshakeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHandshakeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "HandshakeNotFoundException":
-    case "com.amazonaws.organizations#HandshakeNotFoundException":
-      throw await de_HandshakeNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeOrganizationCommand
- */
-export const de_DescribeOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOrganizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeOrganizationCommandError
- */
-const de_DescribeOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeOrganizationalUnitCommand
- */
-export const de_DescribeOrganizationalUnitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOrganizationalUnitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeOrganizationalUnitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeOrganizationalUnitCommandError
- */
-const de_DescribeOrganizationalUnitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationalUnitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OrganizationalUnitNotFoundException":
-    case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      throw await de_OrganizationalUnitNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePolicyCommand
- */
-export const de_DescribePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePolicyCommandError
- */
-const de_DescribePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeResourcePolicyCommand
- */
-export const de_DescribeResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeResourcePolicyCommandError
- */
-const de_DescribeResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "ResourcePolicyNotFoundException":
-    case "com.amazonaws.organizations#ResourcePolicyNotFoundException":
-      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DetachPolicyCommand
- */
-export const de_DetachPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DetachPolicyCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DetachPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DetachPolicyCommandError
- */
-const de_DetachPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyChangesInProgressException":
-    case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyNotAttachedException":
     case "com.amazonaws.organizations#PolicyNotAttachedException":
       throw await de_PolicyNotAttachedExceptionRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisableAWSServiceAccessCommand
- */
-export const de_DisableAWSServiceAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAWSServiceAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisableAWSServiceAccessCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DisableAWSServiceAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisableAWSServiceAccessCommandError
- */
-const de_DisableAWSServiceAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAWSServiceAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisablePolicyTypeCommand
- */
-export const de_DisablePolicyTypeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisablePolicyTypeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisablePolicyTypeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisablePolicyTypeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisablePolicyTypeCommandError
- */
-const de_DisablePolicyTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisablePolicyTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyChangesInProgressException":
-    case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
-    case "PolicyTypeNotEnabledException":
-    case "com.amazonaws.organizations#PolicyTypeNotEnabledException":
-      throw await de_PolicyTypeNotEnabledExceptionRes(parsedOutput, context);
     case "RootNotFoundException":
     case "com.amazonaws.organizations#RootNotFoundException":
       throw await de_RootNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1EnableAllFeaturesCommand
- */
-export const de_EnableAllFeaturesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAllFeaturesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableAllFeaturesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EnableAllFeaturesResponse(data, context);
-  const response: EnableAllFeaturesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1EnableAllFeaturesCommandError
- */
-const de_EnableAllFeaturesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAllFeaturesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "HandshakeConstraintViolationException":
-    case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1EnableAWSServiceAccessCommand
- */
-export const de_EnableAWSServiceAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAWSServiceAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableAWSServiceAccessCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: EnableAWSServiceAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1EnableAWSServiceAccessCommandError
- */
-const de_EnableAWSServiceAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAWSServiceAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1EnablePolicyTypeCommand
- */
-export const de_EnablePolicyTypeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnablePolicyTypeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnablePolicyTypeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: EnablePolicyTypeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1EnablePolicyTypeCommandError
- */
-const de_EnablePolicyTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnablePolicyTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyChangesInProgressException":
-    case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
     case "PolicyTypeAlreadyEnabledException":
     case "com.amazonaws.organizations#PolicyTypeAlreadyEnabledException":
       throw await de_PolicyTypeAlreadyEnabledExceptionRes(parsedOutput, context);
-    case "PolicyTypeNotAvailableForOrganizationException":
-    case "com.amazonaws.organizations#PolicyTypeNotAvailableForOrganizationException":
-      throw await de_PolicyTypeNotAvailableForOrganizationExceptionRes(parsedOutput, context);
-    case "RootNotFoundException":
-    case "com.amazonaws.organizations#RootNotFoundException":
-      throw await de_RootNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1InviteAccountToOrganizationCommand
- */
-export const de_InviteAccountToOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InviteAccountToOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_InviteAccountToOrganizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_InviteAccountToOrganizationResponse(data, context);
-  const response: InviteAccountToOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1InviteAccountToOrganizationCommandError
- */
-const de_InviteAccountToOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InviteAccountToOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountOwnerNotVerifiedException":
     case "com.amazonaws.organizations#AccountOwnerNotVerifiedException":
       throw await de_AccountOwnerNotVerifiedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "DuplicateHandshakeException":
     case "com.amazonaws.organizations#DuplicateHandshakeException":
       throw await de_DuplicateHandshakeExceptionRes(parsedOutput, context);
-    case "FinalizingOrganizationException":
-    case "com.amazonaws.organizations#FinalizingOrganizationException":
-      throw await de_FinalizingOrganizationExceptionRes(parsedOutput, context);
-    case "HandshakeConstraintViolationException":
-    case "com.amazonaws.organizations#HandshakeConstraintViolationException":
-      throw await de_HandshakeConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1LeaveOrganizationCommand
- */
-export const de_LeaveOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LeaveOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_LeaveOrganizationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: LeaveOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1LeaveOrganizationCommandError
- */
-const de_LeaveOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LeaveOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "MasterCannotLeaveOrganizationException":
     case "com.amazonaws.organizations#MasterCannotLeaveOrganizationException":
       throw await de_MasterCannotLeaveOrganizationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAccountsCommand
- */
-export const de_ListAccountsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAccountsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAccountsResponse(data, context);
-  const response: ListAccountsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAccountsCommandError
- */
-const de_ListAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAccountsForParentCommand
- */
-export const de_ListAccountsForParentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountsForParentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAccountsForParentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAccountsForParentResponse(data, context);
-  const response: ListAccountsForParentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAccountsForParentCommandError
- */
-const de_ListAccountsForParentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountsForParentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ParentNotFoundException":
-    case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand
- */
-export const de_ListAWSServiceAccessForOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAWSServiceAccessForOrganizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAWSServiceAccessForOrganizationResponse(data, context);
-  const response: ListAWSServiceAccessForOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError
- */
-const de_ListAWSServiceAccessForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAWSServiceAccessForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListChildrenCommand
- */
-export const de_ListChildrenCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChildrenCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListChildrenCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListChildrenCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListChildrenCommandError
- */
-const de_ListChildrenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChildrenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ParentNotFoundException":
-    case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCreateAccountStatusCommand
- */
-export const de_ListCreateAccountStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCreateAccountStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCreateAccountStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListCreateAccountStatusResponse(data, context);
-  const response: ListCreateAccountStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCreateAccountStatusCommandError
- */
-const de_ListCreateAccountStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCreateAccountStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDelegatedAdministratorsCommand
- */
-export const de_ListDelegatedAdministratorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDelegatedAdministratorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDelegatedAdministratorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDelegatedAdministratorsResponse(data, context);
-  const response: ListDelegatedAdministratorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDelegatedAdministratorsCommandError
- */
-const de_ListDelegatedAdministratorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDelegatedAdministratorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDelegatedServicesForAccountCommand
- */
-export const de_ListDelegatedServicesForAccountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDelegatedServicesForAccountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDelegatedServicesForAccountCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDelegatedServicesForAccountResponse(data, context);
-  const response: ListDelegatedServicesForAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDelegatedServicesForAccountCommandError
- */
-const de_ListDelegatedServicesForAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDelegatedServicesForAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "AccountNotRegisteredException":
-    case "com.amazonaws.organizations#AccountNotRegisteredException":
-      throw await de_AccountNotRegisteredExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListHandshakesForAccountCommand
- */
-export const de_ListHandshakesForAccountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHandshakesForAccountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListHandshakesForAccountCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListHandshakesForAccountResponse(data, context);
-  const response: ListHandshakesForAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListHandshakesForAccountCommandError
- */
-const de_ListHandshakesForAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHandshakesForAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListHandshakesForOrganizationCommand
- */
-export const de_ListHandshakesForOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHandshakesForOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListHandshakesForOrganizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListHandshakesForOrganizationResponse(data, context);
-  const response: ListHandshakesForOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListHandshakesForOrganizationCommandError
- */
-const de_ListHandshakesForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHandshakesForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListOrganizationalUnitsForParentCommand
- */
-export const de_ListOrganizationalUnitsForParentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationalUnitsForParentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOrganizationalUnitsForParentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListOrganizationalUnitsForParentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError
- */
-const de_ListOrganizationalUnitsForParentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationalUnitsForParentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ParentNotFoundException":
-    case "com.amazonaws.organizations#ParentNotFoundException":
-      throw await de_ParentNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListParentsCommand
- */
-export const de_ListParentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListParentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListParentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListParentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListParentsCommandError
- */
-const de_ListParentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListParentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ChildNotFoundException":
     case "com.amazonaws.organizations#ChildNotFoundException":
       throw await de_ChildNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPoliciesCommand
- */
-export const de_ListPoliciesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPoliciesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListPoliciesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPoliciesCommandError
- */
-const de_ListPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListPoliciesForTargetCommand
- */
-export const de_ListPoliciesForTargetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesForTargetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPoliciesForTargetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListPoliciesForTargetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListPoliciesForTargetCommandError
- */
-const de_ListPoliciesForTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesForTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListRootsCommand
- */
-export const de_ListRootsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRootsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListRootsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListRootsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListRootsCommandError
- */
-const de_ListRootsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRootsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTargetsForPolicyCommand
- */
-export const de_ListTargetsForPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetsForPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTargetsForPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTargetsForPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTargetsForPolicyCommandError
- */
-const de_ListTargetsForPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTargetsForPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1MoveAccountCommand
- */
-export const de_MoveAccountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MoveAccountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_MoveAccountCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: MoveAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1MoveAccountCommandError
- */
-const de_MoveAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MoveAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "DestinationParentNotFoundException":
     case "com.amazonaws.organizations#DestinationParentNotFoundException":
       throw await de_DestinationParentNotFoundExceptionRes(parsedOutput, context);
     case "DuplicateAccountException":
     case "com.amazonaws.organizations#DuplicateAccountException":
       throw await de_DuplicateAccountExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
     case "SourceParentNotFoundException":
     case "com.amazonaws.organizations#SourceParentNotFoundException":
       throw await de_SourceParentNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommand
- */
-export const de_PutResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterDelegatedAdministratorCommand
- */
-export const de_RegisterDelegatedAdministratorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDelegatedAdministratorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterDelegatedAdministratorCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RegisterDelegatedAdministratorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterDelegatedAdministratorCommandError
- */
-const de_RegisterDelegatedAdministratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDelegatedAdministratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "AccountAlreadyRegisteredException":
     case "com.amazonaws.organizations#AccountAlreadyRegisteredException":
       throw await de_AccountAlreadyRegisteredExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveAccountFromOrganizationCommand
- */
-export const de_RemoveAccountFromOrganizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAccountFromOrganizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveAccountFromOrganizationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveAccountFromOrganizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveAccountFromOrganizationCommandError
- */
-const de_RemoveAccountFromOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAccountFromOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountNotFoundException":
-    case "com.amazonaws.organizations#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "MasterCannotLeaveOrganizationException":
-    case "com.amazonaws.organizations#MasterCannotLeaveOrganizationException":
-      throw await de_MasterCannotLeaveOrganizationExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TargetNotFoundException":
-    case "com.amazonaws.organizations#TargetNotFoundException":
-      throw await de_TargetNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateOrganizationalUnitCommand
- */
-export const de_UpdateOrganizationalUnitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOrganizationalUnitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateOrganizationalUnitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateOrganizationalUnitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateOrganizationalUnitCommandError
- */
-const de_UpdateOrganizationalUnitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOrganizationalUnitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DuplicateOrganizationalUnitException":
-    case "com.amazonaws.organizations#DuplicateOrganizationalUnitException":
-      throw await de_DuplicateOrganizationalUnitExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "OrganizationalUnitNotFoundException":
-    case "com.amazonaws.organizations#OrganizationalUnitNotFoundException":
-      throw await de_OrganizationalUnitNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdatePolicyCommand
- */
-export const de_UpdatePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdatePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdatePolicyCommandError
- */
-const de_UpdatePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AWSOrganizationsNotInUseException":
-    case "com.amazonaws.organizations#AWSOrganizationsNotInUseException":
-      throw await de_AWSOrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "AccessDeniedException":
-    case "com.amazonaws.organizations#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.organizations#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.organizations#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "DuplicatePolicyException":
-    case "com.amazonaws.organizations#DuplicatePolicyException":
-      throw await de_DuplicatePolicyExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.organizations#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.organizations#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PolicyChangesInProgressException":
-    case "com.amazonaws.organizations#PolicyChangesInProgressException":
-      throw await de_PolicyChangesInProgressExceptionRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.organizations#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.organizations#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.organizations#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedAPIEndpointException":
-    case "com.amazonaws.organizations#UnsupportedAPIEndpointException":
-      throw await de_UnsupportedAPIEndpointExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

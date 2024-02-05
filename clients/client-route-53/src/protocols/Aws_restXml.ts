@@ -1866,7 +1866,7 @@ export const de_ActivateKeySigningKeyCommand = async (
   context: __SerdeContext
 ): Promise<ActivateKeySigningKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ActivateKeySigningKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1876,47 +1876,6 @@ export const de_ActivateKeySigningKeyCommand = async (
     contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlActivateKeySigningKeyCommandError
- */
-const de_ActivateKeySigningKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateKeySigningKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      throw await de_InvalidKMSArnRes(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
-    case "InvalidSigningStatus":
-    case "com.amazonaws.route53#InvalidSigningStatus":
-      throw await de_InvalidSigningStatusRes(parsedOutput, context);
-    case "NoSuchKeySigningKey":
-    case "com.amazonaws.route53#NoSuchKeySigningKey":
-      throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1927,7 +1886,7 @@ export const de_AssociateVPCWithHostedZoneCommand = async (
   context: __SerdeContext
 ): Promise<AssociateVPCWithHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateVPCWithHostedZoneCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1940,53 +1899,6 @@ export const de_AssociateVPCWithHostedZoneCommand = async (
 };
 
 /**
- * deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError
- */
-const de_AssociateVPCWithHostedZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateVPCWithHostedZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingDomainExists":
-    case "com.amazonaws.route53#ConflictingDomainExists":
-      throw await de_ConflictingDomainExistsRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidVPCId":
-    case "com.amazonaws.route53#InvalidVPCId":
-      throw await de_InvalidVPCIdRes(parsedOutput, context);
-    case "LimitsExceeded":
-    case "com.amazonaws.route53#LimitsExceeded":
-      throw await de_LimitsExceededRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.route53#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    case "PublicZoneVPCAssociation":
-    case "com.amazonaws.route53#PublicZoneVPCAssociation":
-      throw await de_PublicZoneVPCAssociationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlChangeCidrCollectionCommand
  */
 export const de_ChangeCidrCollectionCommand = async (
@@ -1994,7 +1906,7 @@ export const de_ChangeCidrCollectionCommand = async (
   context: __SerdeContext
 ): Promise<ChangeCidrCollectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ChangeCidrCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2007,47 +1919,6 @@ export const de_ChangeCidrCollectionCommand = async (
 };
 
 /**
- * deserializeAws_restXmlChangeCidrCollectionCommandError
- */
-const de_ChangeCidrCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangeCidrCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CidrBlockInUseException":
-    case "com.amazonaws.route53#CidrBlockInUseException":
-      throw await de_CidrBlockInUseExceptionRes(parsedOutput, context);
-    case "CidrCollectionVersionMismatchException":
-    case "com.amazonaws.route53#CidrCollectionVersionMismatchException":
-      throw await de_CidrCollectionVersionMismatchExceptionRes(parsedOutput, context);
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "LimitsExceeded":
-    case "com.amazonaws.route53#LimitsExceeded":
-      throw await de_LimitsExceededRes(parsedOutput, context);
-    case "NoSuchCidrCollectionException":
-    case "com.amazonaws.route53#NoSuchCidrCollectionException":
-      throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlChangeResourceRecordSetsCommand
  */
 export const de_ChangeResourceRecordSetsCommand = async (
@@ -2055,7 +1926,7 @@ export const de_ChangeResourceRecordSetsCommand = async (
   context: __SerdeContext
 ): Promise<ChangeResourceRecordSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ChangeResourceRecordSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2068,44 +1939,6 @@ export const de_ChangeResourceRecordSetsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlChangeResourceRecordSetsCommandError
- */
-const de_ChangeResourceRecordSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangeResourceRecordSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidChangeBatch":
-    case "com.amazonaws.route53#InvalidChangeBatch":
-      throw await de_InvalidChangeBatchRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlChangeTagsForResourceCommand
  */
 export const de_ChangeTagsForResourceCommand = async (
@@ -2113,51 +1946,13 @@ export const de_ChangeTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ChangeTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ChangeTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlChangeTagsForResourceCommandError
- */
-const de_ChangeTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangeTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2168,7 +1963,7 @@ export const de_CreateCidrCollectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCidrCollectionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateCidrCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2182,41 +1977,6 @@ export const de_CreateCidrCollectionCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateCidrCollectionCommandError
- */
-const de_CreateCidrCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCidrCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CidrCollectionAlreadyExistsException":
-    case "com.amazonaws.route53#CidrCollectionAlreadyExistsException":
-      throw await de_CidrCollectionAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "LimitsExceeded":
-    case "com.amazonaws.route53#LimitsExceeded":
-      throw await de_LimitsExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateHealthCheckCommand
  */
 export const de_CreateHealthCheckCommand = async (
@@ -2224,7 +1984,7 @@ export const de_CreateHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<CreateHealthCheckCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateHealthCheckCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2238,38 +1998,6 @@ export const de_CreateHealthCheckCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateHealthCheckCommandError
- */
-const de_CreateHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HealthCheckAlreadyExists":
-    case "com.amazonaws.route53#HealthCheckAlreadyExists":
-      throw await de_HealthCheckAlreadyExistsRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "TooManyHealthChecks":
-    case "com.amazonaws.route53#TooManyHealthChecks":
-      throw await de_TooManyHealthChecksRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateHostedZoneCommand
  */
 export const de_CreateHostedZoneCommand = async (
@@ -2277,7 +2005,7 @@ export const de_CreateHostedZoneCommand = async (
   context: __SerdeContext
 ): Promise<CreateHostedZoneCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateHostedZoneCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2300,56 +2028,6 @@ export const de_CreateHostedZoneCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateHostedZoneCommandError
- */
-const de_CreateHostedZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHostedZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingDomainExists":
-    case "com.amazonaws.route53#ConflictingDomainExists":
-      throw await de_ConflictingDomainExistsRes(parsedOutput, context);
-    case "DelegationSetNotAvailable":
-    case "com.amazonaws.route53#DelegationSetNotAvailable":
-      throw await de_DelegationSetNotAvailableRes(parsedOutput, context);
-    case "DelegationSetNotReusable":
-    case "com.amazonaws.route53#DelegationSetNotReusable":
-      throw await de_DelegationSetNotReusableRes(parsedOutput, context);
-    case "HostedZoneAlreadyExists":
-    case "com.amazonaws.route53#HostedZoneAlreadyExists":
-      throw await de_HostedZoneAlreadyExistsRes(parsedOutput, context);
-    case "InvalidDomainName":
-    case "com.amazonaws.route53#InvalidDomainName":
-      throw await de_InvalidDomainNameRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidVPCId":
-    case "com.amazonaws.route53#InvalidVPCId":
-      throw await de_InvalidVPCIdRes(parsedOutput, context);
-    case "NoSuchDelegationSet":
-    case "com.amazonaws.route53#NoSuchDelegationSet":
-      throw await de_NoSuchDelegationSetRes(parsedOutput, context);
-    case "TooManyHostedZones":
-    case "com.amazonaws.route53#TooManyHostedZones":
-      throw await de_TooManyHostedZonesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateKeySigningKeyCommand
  */
 export const de_CreateKeySigningKeyCommand = async (
@@ -2357,7 +2035,7 @@ export const de_CreateKeySigningKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateKeySigningKeyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateKeySigningKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2374,59 +2052,6 @@ export const de_CreateKeySigningKeyCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateKeySigningKeyCommandError
- */
-const de_CreateKeySigningKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateKeySigningKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidArgument":
-    case "com.amazonaws.route53#InvalidArgument":
-      throw await de_InvalidArgumentRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      throw await de_InvalidKMSArnRes(parsedOutput, context);
-    case "InvalidKeySigningKeyName":
-    case "com.amazonaws.route53#InvalidKeySigningKeyName":
-      throw await de_InvalidKeySigningKeyNameRes(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
-    case "InvalidSigningStatus":
-    case "com.amazonaws.route53#InvalidSigningStatus":
-      throw await de_InvalidSigningStatusRes(parsedOutput, context);
-    case "KeySigningKeyAlreadyExists":
-    case "com.amazonaws.route53#KeySigningKeyAlreadyExists":
-      throw await de_KeySigningKeyAlreadyExistsRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "TooManyKeySigningKeys":
-    case "com.amazonaws.route53#TooManyKeySigningKeys":
-      throw await de_TooManyKeySigningKeysRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateQueryLoggingConfigCommand
  */
 export const de_CreateQueryLoggingConfigCommand = async (
@@ -2434,7 +2059,7 @@ export const de_CreateQueryLoggingConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateQueryLoggingConfigCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateQueryLoggingConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2448,47 +2073,6 @@ export const de_CreateQueryLoggingConfigCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateQueryLoggingConfigCommandError
- */
-const de_CreateQueryLoggingConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateQueryLoggingConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InsufficientCloudWatchLogsResourcePolicy":
-    case "com.amazonaws.route53#InsufficientCloudWatchLogsResourcePolicy":
-      throw await de_InsufficientCloudWatchLogsResourcePolicyRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchCloudWatchLogsLogGroup":
-    case "com.amazonaws.route53#NoSuchCloudWatchLogsLogGroup":
-      throw await de_NoSuchCloudWatchLogsLogGroupRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "QueryLoggingConfigAlreadyExists":
-    case "com.amazonaws.route53#QueryLoggingConfigAlreadyExists":
-      throw await de_QueryLoggingConfigAlreadyExistsRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateReusableDelegationSetCommand
  */
 export const de_CreateReusableDelegationSetCommand = async (
@@ -2496,7 +2080,7 @@ export const de_CreateReusableDelegationSetCommand = async (
   context: __SerdeContext
 ): Promise<CreateReusableDelegationSetCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateReusableDelegationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2510,50 +2094,6 @@ export const de_CreateReusableDelegationSetCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateReusableDelegationSetCommandError
- */
-const de_CreateReusableDelegationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReusableDelegationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DelegationSetAlreadyCreated":
-    case "com.amazonaws.route53#DelegationSetAlreadyCreated":
-      throw await de_DelegationSetAlreadyCreatedRes(parsedOutput, context);
-    case "DelegationSetAlreadyReusable":
-    case "com.amazonaws.route53#DelegationSetAlreadyReusable":
-      throw await de_DelegationSetAlreadyReusableRes(parsedOutput, context);
-    case "DelegationSetNotAvailable":
-    case "com.amazonaws.route53#DelegationSetNotAvailable":
-      throw await de_DelegationSetNotAvailableRes(parsedOutput, context);
-    case "HostedZoneNotFound":
-    case "com.amazonaws.route53#HostedZoneNotFound":
-      throw await de_HostedZoneNotFoundRes(parsedOutput, context);
-    case "InvalidArgument":
-    case "com.amazonaws.route53#InvalidArgument":
-      throw await de_InvalidArgumentRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "LimitsExceeded":
-    case "com.amazonaws.route53#LimitsExceeded":
-      throw await de_LimitsExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateTrafficPolicyCommand
  */
 export const de_CreateTrafficPolicyCommand = async (
@@ -2561,7 +2101,7 @@ export const de_CreateTrafficPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficPolicyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateTrafficPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2575,41 +2115,6 @@ export const de_CreateTrafficPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateTrafficPolicyCommandError
- */
-const de_CreateTrafficPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidTrafficPolicyDocument":
-    case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
-      throw await de_InvalidTrafficPolicyDocumentRes(parsedOutput, context);
-    case "TooManyTrafficPolicies":
-    case "com.amazonaws.route53#TooManyTrafficPolicies":
-      throw await de_TooManyTrafficPoliciesRes(parsedOutput, context);
-    case "TrafficPolicyAlreadyExists":
-    case "com.amazonaws.route53#TrafficPolicyAlreadyExists":
-      throw await de_TrafficPolicyAlreadyExistsRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateTrafficPolicyInstanceCommand
  */
 export const de_CreateTrafficPolicyInstanceCommand = async (
@@ -2617,7 +2122,7 @@ export const de_CreateTrafficPolicyInstanceCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateTrafficPolicyInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2631,44 +2136,6 @@ export const de_CreateTrafficPolicyInstanceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError
- */
-const de_CreateTrafficPolicyInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficPolicyInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    case "TooManyTrafficPolicyInstances":
-    case "com.amazonaws.route53#TooManyTrafficPolicyInstances":
-      throw await de_TooManyTrafficPolicyInstancesRes(parsedOutput, context);
-    case "TrafficPolicyInstanceAlreadyExists":
-    case "com.amazonaws.route53#TrafficPolicyInstanceAlreadyExists":
-      throw await de_TrafficPolicyInstanceAlreadyExistsRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateTrafficPolicyVersionCommand
  */
 export const de_CreateTrafficPolicyVersionCommand = async (
@@ -2676,7 +2143,7 @@ export const de_CreateTrafficPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrafficPolicyVersionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateTrafficPolicyVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2690,44 +2157,6 @@ export const de_CreateTrafficPolicyVersionCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateTrafficPolicyVersionCommandError
- */
-const de_CreateTrafficPolicyVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrafficPolicyVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidTrafficPolicyDocument":
-    case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
-      throw await de_InvalidTrafficPolicyDocumentRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    case "TooManyTrafficPolicyVersionsForCurrentPolicy":
-    case "com.amazonaws.route53#TooManyTrafficPolicyVersionsForCurrentPolicy":
-      throw await de_TooManyTrafficPolicyVersionsForCurrentPolicyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlCreateVPCAssociationAuthorizationCommand
  */
 export const de_CreateVPCAssociationAuthorizationCommand = async (
@@ -2735,7 +2164,7 @@ export const de_CreateVPCAssociationAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<CreateVPCAssociationAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVPCAssociationAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2751,44 +2180,6 @@ export const de_CreateVPCAssociationAuthorizationCommand = async (
 };
 
 /**
- * deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError
- */
-const de_CreateVPCAssociationAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVPCAssociationAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidVPCId":
-    case "com.amazonaws.route53#InvalidVPCId":
-      throw await de_InvalidVPCIdRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "TooManyVPCAssociationAuthorizations":
-    case "com.amazonaws.route53#TooManyVPCAssociationAuthorizations":
-      throw await de_TooManyVPCAssociationAuthorizationsRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlDeactivateKeySigningKeyCommand
  */
 export const de_DeactivateKeySigningKeyCommand = async (
@@ -2796,7 +2187,7 @@ export const de_DeactivateKeySigningKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateKeySigningKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeactivateKeySigningKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2806,50 +2197,6 @@ export const de_DeactivateKeySigningKeyCommand = async (
     contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeactivateKeySigningKeyCommandError
- */
-const de_DeactivateKeySigningKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivateKeySigningKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
-    case "InvalidSigningStatus":
-    case "com.amazonaws.route53#InvalidSigningStatus":
-      throw await de_InvalidSigningStatusRes(parsedOutput, context);
-    case "KeySigningKeyInParentDSRecord":
-    case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
-      throw await de_KeySigningKeyInParentDSRecordRes(parsedOutput, context);
-    case "KeySigningKeyInUse":
-    case "com.amazonaws.route53#KeySigningKeyInUse":
-      throw await de_KeySigningKeyInUseRes(parsedOutput, context);
-    case "NoSuchKeySigningKey":
-    case "com.amazonaws.route53#NoSuchKeySigningKey":
-      throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2860,48 +2207,13 @@ export const de_DeleteCidrCollectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCidrCollectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteCidrCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteCidrCollectionCommandError
- */
-const de_DeleteCidrCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCidrCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CidrCollectionInUseException":
-    case "com.amazonaws.route53#CidrCollectionInUseException":
-      throw await de_CidrCollectionInUseExceptionRes(parsedOutput, context);
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchCidrCollectionException":
-    case "com.amazonaws.route53#NoSuchCidrCollectionException":
-      throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2912,45 +2224,13 @@ export const de_DeleteHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHealthCheckCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteHealthCheckCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteHealthCheckCommandError
- */
-const de_DeleteHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HealthCheckInUse":
-    case "com.amazonaws.route53#HealthCheckInUse":
-      throw await de_HealthCheckInUseRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2961,7 +2241,7 @@ export const de_DeleteHostedZoneCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteHostedZoneCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2971,44 +2251,6 @@ export const de_DeleteHostedZoneCommand = async (
     contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteHostedZoneCommandError
- */
-const de_DeleteHostedZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHostedZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HostedZoneNotEmpty":
-    case "com.amazonaws.route53#HostedZoneNotEmpty":
-      throw await de_HostedZoneNotEmptyRes(parsedOutput, context);
-    case "InvalidDomainName":
-    case "com.amazonaws.route53#InvalidDomainName":
-      throw await de_InvalidDomainNameRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3019,7 +2261,7 @@ export const de_DeleteKeySigningKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKeySigningKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteKeySigningKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3029,47 +2271,6 @@ export const de_DeleteKeySigningKeyCommand = async (
     contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteKeySigningKeyCommandError
- */
-const de_DeleteKeySigningKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKeySigningKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      throw await de_InvalidKMSArnRes(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
-    case "InvalidSigningStatus":
-    case "com.amazonaws.route53#InvalidSigningStatus":
-      throw await de_InvalidSigningStatusRes(parsedOutput, context);
-    case "NoSuchKeySigningKey":
-    case "com.amazonaws.route53#NoSuchKeySigningKey":
-      throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3080,45 +2281,13 @@ export const de_DeleteQueryLoggingConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteQueryLoggingConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteQueryLoggingConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteQueryLoggingConfigCommandError
- */
-const de_DeleteQueryLoggingConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteQueryLoggingConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchQueryLoggingConfig":
-    case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
-      throw await de_NoSuchQueryLoggingConfigRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3129,48 +2298,13 @@ export const de_DeleteReusableDelegationSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReusableDelegationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteReusableDelegationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteReusableDelegationSetCommandError
- */
-const de_DeleteReusableDelegationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReusableDelegationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DelegationSetInUse":
-    case "com.amazonaws.route53#DelegationSetInUse":
-      throw await de_DelegationSetInUseRes(parsedOutput, context);
-    case "DelegationSetNotReusable":
-    case "com.amazonaws.route53#DelegationSetNotReusable":
-      throw await de_DelegationSetNotReusableRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchDelegationSet":
-    case "com.amazonaws.route53#NoSuchDelegationSet":
-      throw await de_NoSuchDelegationSetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3181,48 +2315,13 @@ export const de_DeleteTrafficPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrafficPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTrafficPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteTrafficPolicyCommandError
- */
-const de_DeleteTrafficPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrafficPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    case "TrafficPolicyInUse":
-    case "com.amazonaws.route53#TrafficPolicyInUse":
-      throw await de_TrafficPolicyInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3233,45 +2332,13 @@ export const de_DeleteTrafficPolicyInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteTrafficPolicyInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError
- */
-const de_DeleteTrafficPolicyInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrafficPolicyInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicyInstance":
-    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3282,51 +2349,13 @@ export const de_DeleteVPCAssociationAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVPCAssociationAuthorizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVPCAssociationAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError
- */
-const de_DeleteVPCAssociationAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVPCAssociationAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidVPCId":
-    case "com.amazonaws.route53#InvalidVPCId":
-      throw await de_InvalidVPCIdRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "VPCAssociationAuthorizationNotFound":
-    case "com.amazonaws.route53#VPCAssociationAuthorizationNotFound":
-      throw await de_VPCAssociationAuthorizationNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3337,7 +2366,7 @@ export const de_DisableHostedZoneDNSSECCommand = async (
   context: __SerdeContext
 ): Promise<DisableHostedZoneDNSSECCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisableHostedZoneDNSSECCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3347,53 +2376,6 @@ export const de_DisableHostedZoneDNSSECCommand = async (
     contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDisableHostedZoneDNSSECCommandError
- */
-const de_DisableHostedZoneDNSSECCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableHostedZoneDNSSECCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "DNSSECNotFound":
-    case "com.amazonaws.route53#DNSSECNotFound":
-      throw await de_DNSSECNotFoundRes(parsedOutput, context);
-    case "InvalidArgument":
-    case "com.amazonaws.route53#InvalidArgument":
-      throw await de_InvalidArgumentRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      throw await de_InvalidKMSArnRes(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
-    case "KeySigningKeyInParentDSRecord":
-    case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
-      throw await de_KeySigningKeyInParentDSRecordRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3404,7 +2386,7 @@ export const de_DisassociateVPCFromHostedZoneCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateVPCFromHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateVPCFromHostedZoneCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3414,44 +2396,6 @@ export const de_DisassociateVPCFromHostedZoneCommand = async (
     contents[_CI] = de_ChangeInfo(data[_CI], context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError
- */
-const de_DisassociateVPCFromHostedZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateVPCFromHostedZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidVPCId":
-    case "com.amazonaws.route53#InvalidVPCId":
-      throw await de_InvalidVPCIdRes(parsedOutput, context);
-    case "LastVPCAssociation":
-    case "com.amazonaws.route53#LastVPCAssociation":
-      throw await de_LastVPCAssociationRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "VPCAssociationNotFound":
-    case "com.amazonaws.route53#VPCAssociationNotFound":
-      throw await de_VPCAssociationNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3462,7 +2406,7 @@ export const de_EnableHostedZoneDNSSECCommand = async (
   context: __SerdeContext
 ): Promise<EnableHostedZoneDNSSECCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableHostedZoneDNSSECCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3475,56 +2419,6 @@ export const de_EnableHostedZoneDNSSECCommand = async (
 };
 
 /**
- * deserializeAws_restXmlEnableHostedZoneDNSSECCommandError
- */
-const de_EnableHostedZoneDNSSECCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableHostedZoneDNSSECCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "DNSSECNotFound":
-    case "com.amazonaws.route53#DNSSECNotFound":
-      throw await de_DNSSECNotFoundRes(parsedOutput, context);
-    case "HostedZonePartiallyDelegated":
-    case "com.amazonaws.route53#HostedZonePartiallyDelegated":
-      throw await de_HostedZonePartiallyDelegatedRes(parsedOutput, context);
-    case "InvalidArgument":
-    case "com.amazonaws.route53#InvalidArgument":
-      throw await de_InvalidArgumentRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidKMSArn":
-    case "com.amazonaws.route53#InvalidKMSArn":
-      throw await de_InvalidKMSArnRes(parsedOutput, context);
-    case "InvalidKeySigningKeyStatus":
-    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
-      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
-    case "KeySigningKeyWithActiveStatusNotFound":
-    case "com.amazonaws.route53#KeySigningKeyWithActiveStatusNotFound":
-      throw await de_KeySigningKeyWithActiveStatusNotFoundRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetAccountLimitCommand
  */
 export const de_GetAccountLimitCommand = async (
@@ -3532,7 +2426,7 @@ export const de_GetAccountLimitCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountLimitCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAccountLimitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3548,32 +2442,6 @@ export const de_GetAccountLimitCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetAccountLimitCommandError
- */
-const de_GetAccountLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetChangeCommand
  */
 export const de_GetChangeCommand = async (
@@ -3581,7 +2449,7 @@ export const de_GetChangeCommand = async (
   context: __SerdeContext
 ): Promise<GetChangeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChangeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3594,35 +2462,6 @@ export const de_GetChangeCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetChangeCommandError
- */
-const de_GetChangeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChangeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchChange":
-    case "com.amazonaws.route53#NoSuchChange":
-      throw await de_NoSuchChangeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetCheckerIpRangesCommand
  */
 export const de_GetCheckerIpRangesCommand = async (
@@ -3630,7 +2469,7 @@ export const de_GetCheckerIpRangesCommand = async (
   context: __SerdeContext
 ): Promise<GetCheckerIpRangesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCheckerIpRangesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3645,26 +2484,6 @@ export const de_GetCheckerIpRangesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetCheckerIpRangesCommandError
- */
-const de_GetCheckerIpRangesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCheckerIpRangesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlGetDNSSECCommand
  */
 export const de_GetDNSSECCommand = async (
@@ -3672,7 +2491,7 @@ export const de_GetDNSSECCommand = async (
   context: __SerdeContext
 ): Promise<GetDNSSECCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDNSSECCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3690,38 +2509,6 @@ export const de_GetDNSSECCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetDNSSECCommandError
- */
-const de_GetDNSSECCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDNSSECCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgument":
-    case "com.amazonaws.route53#InvalidArgument":
-      throw await de_InvalidArgumentRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetGeoLocationCommand
  */
 export const de_GetGeoLocationCommand = async (
@@ -3729,7 +2516,7 @@ export const de_GetGeoLocationCommand = async (
   context: __SerdeContext
 ): Promise<GetGeoLocationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGeoLocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3742,35 +2529,6 @@ export const de_GetGeoLocationCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetGeoLocationCommandError
- */
-const de_GetGeoLocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGeoLocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchGeoLocation":
-    case "com.amazonaws.route53#NoSuchGeoLocation":
-      throw await de_NoSuchGeoLocationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetHealthCheckCommand
  */
 export const de_GetHealthCheckCommand = async (
@@ -3778,7 +2536,7 @@ export const de_GetHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<GetHealthCheckCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHealthCheckCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3791,38 +2549,6 @@ export const de_GetHealthCheckCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetHealthCheckCommandError
- */
-const de_GetHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IncompatibleVersion":
-    case "com.amazonaws.route53#IncompatibleVersion":
-      throw await de_IncompatibleVersionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetHealthCheckCountCommand
  */
 export const de_GetHealthCheckCountCommand = async (
@@ -3830,7 +2556,7 @@ export const de_GetHealthCheckCountCommand = async (
   context: __SerdeContext
 ): Promise<GetHealthCheckCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHealthCheckCountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3843,26 +2569,6 @@ export const de_GetHealthCheckCountCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetHealthCheckCountCommandError
- */
-const de_GetHealthCheckCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHealthCheckCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlGetHealthCheckLastFailureReasonCommand
  */
 export const de_GetHealthCheckLastFailureReasonCommand = async (
@@ -3870,7 +2576,7 @@ export const de_GetHealthCheckLastFailureReasonCommand = async (
   context: __SerdeContext
 ): Promise<GetHealthCheckLastFailureReasonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHealthCheckLastFailureReasonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3882,35 +2588,6 @@ export const de_GetHealthCheckLastFailureReasonCommand = async (
     contents[_HCO] = de_HealthCheckObservations(__getArrayIfSingleItem(data[_HCO][_HCOe]), context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError
- */
-const de_GetHealthCheckLastFailureReasonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHealthCheckLastFailureReasonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3921,7 +2598,7 @@ export const de_GetHealthCheckStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetHealthCheckStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHealthCheckStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3936,35 +2613,6 @@ export const de_GetHealthCheckStatusCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetHealthCheckStatusCommandError
- */
-const de_GetHealthCheckStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHealthCheckStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetHostedZoneCommand
  */
 export const de_GetHostedZoneCommand = async (
@@ -3972,7 +2620,7 @@ export const de_GetHostedZoneCommand = async (
   context: __SerdeContext
 ): Promise<GetHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHostedZoneCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3993,35 +2641,6 @@ export const de_GetHostedZoneCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetHostedZoneCommandError
- */
-const de_GetHostedZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHostedZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetHostedZoneCountCommand
  */
 export const de_GetHostedZoneCountCommand = async (
@@ -4029,7 +2648,7 @@ export const de_GetHostedZoneCountCommand = async (
   context: __SerdeContext
 ): Promise<GetHostedZoneCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHostedZoneCountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4042,32 +2661,6 @@ export const de_GetHostedZoneCountCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetHostedZoneCountCommandError
- */
-const de_GetHostedZoneCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHostedZoneCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetHostedZoneLimitCommand
  */
 export const de_GetHostedZoneLimitCommand = async (
@@ -4075,7 +2668,7 @@ export const de_GetHostedZoneLimitCommand = async (
   context: __SerdeContext
 ): Promise<GetHostedZoneLimitCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetHostedZoneLimitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4091,38 +2684,6 @@ export const de_GetHostedZoneLimitCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetHostedZoneLimitCommandError
- */
-const de_GetHostedZoneLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHostedZoneLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HostedZoneNotPrivate":
-    case "com.amazonaws.route53#HostedZoneNotPrivate":
-      throw await de_HostedZoneNotPrivateRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetQueryLoggingConfigCommand
  */
 export const de_GetQueryLoggingConfigCommand = async (
@@ -4130,7 +2691,7 @@ export const de_GetQueryLoggingConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryLoggingConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetQueryLoggingConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4143,35 +2704,6 @@ export const de_GetQueryLoggingConfigCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetQueryLoggingConfigCommandError
- */
-const de_GetQueryLoggingConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryLoggingConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchQueryLoggingConfig":
-    case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
-      throw await de_NoSuchQueryLoggingConfigRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetReusableDelegationSetCommand
  */
 export const de_GetReusableDelegationSetCommand = async (
@@ -4179,7 +2711,7 @@ export const de_GetReusableDelegationSetCommand = async (
   context: __SerdeContext
 ): Promise<GetReusableDelegationSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetReusableDelegationSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4192,38 +2724,6 @@ export const de_GetReusableDelegationSetCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetReusableDelegationSetCommandError
- */
-const de_GetReusableDelegationSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReusableDelegationSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DelegationSetNotReusable":
-    case "com.amazonaws.route53#DelegationSetNotReusable":
-      throw await de_DelegationSetNotReusableRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchDelegationSet":
-    case "com.amazonaws.route53#NoSuchDelegationSet":
-      throw await de_NoSuchDelegationSetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetReusableDelegationSetLimitCommand
  */
 export const de_GetReusableDelegationSetLimitCommand = async (
@@ -4231,7 +2731,7 @@ export const de_GetReusableDelegationSetLimitCommand = async (
   context: __SerdeContext
 ): Promise<GetReusableDelegationSetLimitCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetReusableDelegationSetLimitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4247,35 +2747,6 @@ export const de_GetReusableDelegationSetLimitCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetReusableDelegationSetLimitCommandError
- */
-const de_GetReusableDelegationSetLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReusableDelegationSetLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchDelegationSet":
-    case "com.amazonaws.route53#NoSuchDelegationSet":
-      throw await de_NoSuchDelegationSetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetTrafficPolicyCommand
  */
 export const de_GetTrafficPolicyCommand = async (
@@ -4283,7 +2754,7 @@ export const de_GetTrafficPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetTrafficPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTrafficPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4296,35 +2767,6 @@ export const de_GetTrafficPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetTrafficPolicyCommandError
- */
-const de_GetTrafficPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrafficPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetTrafficPolicyInstanceCommand
  */
 export const de_GetTrafficPolicyInstanceCommand = async (
@@ -4332,7 +2774,7 @@ export const de_GetTrafficPolicyInstanceCommand = async (
   context: __SerdeContext
 ): Promise<GetTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTrafficPolicyInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4345,35 +2787,6 @@ export const de_GetTrafficPolicyInstanceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetTrafficPolicyInstanceCommandError
- */
-const de_GetTrafficPolicyInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrafficPolicyInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicyInstance":
-    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlGetTrafficPolicyInstanceCountCommand
  */
 export const de_GetTrafficPolicyInstanceCountCommand = async (
@@ -4381,7 +2794,7 @@ export const de_GetTrafficPolicyInstanceCountCommand = async (
   context: __SerdeContext
 ): Promise<GetTrafficPolicyInstanceCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTrafficPolicyInstanceCountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4394,26 +2807,6 @@ export const de_GetTrafficPolicyInstanceCountCommand = async (
 };
 
 /**
- * deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError
- */
-const de_GetTrafficPolicyInstanceCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrafficPolicyInstanceCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restXmlListCidrBlocksCommand
  */
 export const de_ListCidrBlocksCommand = async (
@@ -4421,7 +2814,7 @@ export const de_ListCidrBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListCidrBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCidrBlocksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4439,38 +2832,6 @@ export const de_ListCidrBlocksCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListCidrBlocksCommandError
- */
-const de_ListCidrBlocksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCidrBlocksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchCidrCollectionException":
-    case "com.amazonaws.route53#NoSuchCidrCollectionException":
-      throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
-    case "NoSuchCidrLocationException":
-    case "com.amazonaws.route53#NoSuchCidrLocationException":
-      throw await de_NoSuchCidrLocationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListCidrCollectionsCommand
  */
 export const de_ListCidrCollectionsCommand = async (
@@ -4478,7 +2839,7 @@ export const de_ListCidrCollectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCidrCollectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCidrCollectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4496,32 +2857,6 @@ export const de_ListCidrCollectionsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListCidrCollectionsCommandError
- */
-const de_ListCidrCollectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCidrCollectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListCidrLocationsCommand
  */
 export const de_ListCidrLocationsCommand = async (
@@ -4529,7 +2864,7 @@ export const de_ListCidrLocationsCommand = async (
   context: __SerdeContext
 ): Promise<ListCidrLocationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCidrLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4547,35 +2882,6 @@ export const de_ListCidrLocationsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListCidrLocationsCommandError
- */
-const de_ListCidrLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCidrLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchCidrCollectionException":
-    case "com.amazonaws.route53#NoSuchCidrCollectionException":
-      throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListGeoLocationsCommand
  */
 export const de_ListGeoLocationsCommand = async (
@@ -4583,7 +2889,7 @@ export const de_ListGeoLocationsCommand = async (
   context: __SerdeContext
 ): Promise<ListGeoLocationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGeoLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4613,32 +2919,6 @@ export const de_ListGeoLocationsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListGeoLocationsCommandError
- */
-const de_ListGeoLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGeoLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListHealthChecksCommand
  */
 export const de_ListHealthChecksCommand = async (
@@ -4646,7 +2926,7 @@ export const de_ListHealthChecksCommand = async (
   context: __SerdeContext
 ): Promise<ListHealthChecksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListHealthChecksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4673,35 +2953,6 @@ export const de_ListHealthChecksCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListHealthChecksCommandError
- */
-const de_ListHealthChecksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHealthChecksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IncompatibleVersion":
-    case "com.amazonaws.route53#IncompatibleVersion":
-      throw await de_IncompatibleVersionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListHostedZonesCommand
  */
 export const de_ListHostedZonesCommand = async (
@@ -4709,7 +2960,7 @@ export const de_ListHostedZonesCommand = async (
   context: __SerdeContext
 ): Promise<ListHostedZonesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListHostedZonesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4736,38 +2987,6 @@ export const de_ListHostedZonesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListHostedZonesCommandError
- */
-const de_ListHostedZonesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHostedZonesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DelegationSetNotReusable":
-    case "com.amazonaws.route53#DelegationSetNotReusable":
-      throw await de_DelegationSetNotReusableRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchDelegationSet":
-    case "com.amazonaws.route53#NoSuchDelegationSet":
-      throw await de_NoSuchDelegationSetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListHostedZonesByNameCommand
  */
 export const de_ListHostedZonesByNameCommand = async (
@@ -4775,7 +2994,7 @@ export const de_ListHostedZonesByNameCommand = async (
   context: __SerdeContext
 ): Promise<ListHostedZonesByNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListHostedZonesByNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4808,35 +3027,6 @@ export const de_ListHostedZonesByNameCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListHostedZonesByNameCommandError
- */
-const de_ListHostedZonesByNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHostedZonesByNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDomainName":
-    case "com.amazonaws.route53#InvalidDomainName":
-      throw await de_InvalidDomainNameRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListHostedZonesByVPCCommand
  */
 export const de_ListHostedZonesByVPCCommand = async (
@@ -4844,7 +3034,7 @@ export const de_ListHostedZonesByVPCCommand = async (
   context: __SerdeContext
 ): Promise<ListHostedZonesByVPCCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListHostedZonesByVPCCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4865,35 +3055,6 @@ export const de_ListHostedZonesByVPCCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListHostedZonesByVPCCommandError
- */
-const de_ListHostedZonesByVPCCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHostedZonesByVPCCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidPaginationToken":
-    case "com.amazonaws.route53#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListQueryLoggingConfigsCommand
  */
 export const de_ListQueryLoggingConfigsCommand = async (
@@ -4901,7 +3062,7 @@ export const de_ListQueryLoggingConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListQueryLoggingConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListQueryLoggingConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4919,38 +3080,6 @@ export const de_ListQueryLoggingConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListQueryLoggingConfigsCommandError
- */
-const de_ListQueryLoggingConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQueryLoggingConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidPaginationToken":
-    case "com.amazonaws.route53#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListResourceRecordSetsCommand
  */
 export const de_ListResourceRecordSetsCommand = async (
@@ -4958,7 +3087,7 @@ export const de_ListResourceRecordSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceRecordSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourceRecordSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4988,35 +3117,6 @@ export const de_ListResourceRecordSetsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListResourceRecordSetsCommandError
- */
-const de_ListResourceRecordSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceRecordSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListReusableDelegationSetsCommand
  */
 export const de_ListReusableDelegationSetsCommand = async (
@@ -5024,7 +3124,7 @@ export const de_ListReusableDelegationSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListReusableDelegationSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListReusableDelegationSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5051,32 +3151,6 @@ export const de_ListReusableDelegationSetsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListReusableDelegationSetsCommandError
- */
-const de_ListReusableDelegationSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReusableDelegationSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5084,7 +3158,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5097,44 +3171,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListTagsForResourcesCommand
  */
 export const de_ListTagsForResourcesCommand = async (
@@ -5142,7 +3178,7 @@ export const de_ListTagsForResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5157,44 +3193,6 @@ export const de_ListTagsForResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListTagsForResourcesCommandError
- */
-const de_ListTagsForResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListTrafficPoliciesCommand
  */
 export const de_ListTrafficPoliciesCommand = async (
@@ -5202,7 +3200,7 @@ export const de_ListTrafficPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListTrafficPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTrafficPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5226,32 +3224,6 @@ export const de_ListTrafficPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListTrafficPoliciesCommandError
- */
-const de_ListTrafficPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrafficPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListTrafficPolicyInstancesCommand
  */
 export const de_ListTrafficPolicyInstancesCommand = async (
@@ -5259,7 +3231,7 @@ export const de_ListTrafficPolicyInstancesCommand = async (
   context: __SerdeContext
 ): Promise<ListTrafficPolicyInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTrafficPolicyInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5286,35 +3258,6 @@ export const de_ListTrafficPolicyInstancesCommand = async (
     contents[_TPIra] = de_TrafficPolicyInstances(__getArrayIfSingleItem(data[_TPIra][_TPIr]), context);
   }
   return contents;
-};
-
-/**
- * deserializeAws_restXmlListTrafficPolicyInstancesCommandError
- */
-const de_ListTrafficPolicyInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicyInstance":
-    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5325,7 +3268,7 @@ export const de_ListTrafficPolicyInstancesByHostedZoneCommand = async (
   context: __SerdeContext
 ): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTrafficPolicyInstancesByHostedZoneCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5352,38 +3295,6 @@ export const de_ListTrafficPolicyInstancesByHostedZoneCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError
- */
-const de_ListTrafficPolicyInstancesByHostedZoneCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesByHostedZoneCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "NoSuchTrafficPolicyInstance":
-    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand
  */
 export const de_ListTrafficPolicyInstancesByPolicyCommand = async (
@@ -5391,7 +3302,7 @@ export const de_ListTrafficPolicyInstancesByPolicyCommand = async (
   context: __SerdeContext
 ): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTrafficPolicyInstancesByPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5421,38 +3332,6 @@ export const de_ListTrafficPolicyInstancesByPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError
- */
-const de_ListTrafficPolicyInstancesByPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrafficPolicyInstancesByPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    case "NoSuchTrafficPolicyInstance":
-    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListTrafficPolicyVersionsCommand
  */
 export const de_ListTrafficPolicyVersionsCommand = async (
@@ -5460,7 +3339,7 @@ export const de_ListTrafficPolicyVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTrafficPolicyVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTrafficPolicyVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5484,35 +3363,6 @@ export const de_ListTrafficPolicyVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListTrafficPolicyVersionsCommandError
- */
-const de_ListTrafficPolicyVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrafficPolicyVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlListVPCAssociationAuthorizationsCommand
  */
 export const de_ListVPCAssociationAuthorizationsCommand = async (
@@ -5520,7 +3370,7 @@ export const de_ListVPCAssociationAuthorizationsCommand = async (
   context: __SerdeContext
 ): Promise<ListVPCAssociationAuthorizationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVPCAssociationAuthorizationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5541,38 +3391,6 @@ export const de_ListVPCAssociationAuthorizationsCommand = async (
 };
 
 /**
- * deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError
- */
-const de_ListVPCAssociationAuthorizationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVPCAssociationAuthorizationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "InvalidPaginationToken":
-    case "com.amazonaws.route53#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlTestDNSAnswerCommand
  */
 export const de_TestDNSAnswerCommand = async (
@@ -5580,7 +3398,7 @@ export const de_TestDNSAnswerCommand = async (
   context: __SerdeContext
 ): Promise<TestDNSAnswerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TestDNSAnswerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5610,35 +3428,6 @@ export const de_TestDNSAnswerCommand = async (
 };
 
 /**
- * deserializeAws_restXmlTestDNSAnswerCommandError
- */
-const de_TestDNSAnswerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestDNSAnswerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlUpdateHealthCheckCommand
  */
 export const de_UpdateHealthCheckCommand = async (
@@ -5646,7 +3435,7 @@ export const de_UpdateHealthCheckCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHealthCheckCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateHealthCheckCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5659,38 +3448,6 @@ export const de_UpdateHealthCheckCommand = async (
 };
 
 /**
- * deserializeAws_restXmlUpdateHealthCheckCommandError
- */
-const de_UpdateHealthCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHealthCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HealthCheckVersionMismatch":
-    case "com.amazonaws.route53#HealthCheckVersionMismatch":
-      throw await de_HealthCheckVersionMismatchRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHealthCheck":
-    case "com.amazonaws.route53#NoSuchHealthCheck":
-      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlUpdateHostedZoneCommentCommand
  */
 export const de_UpdateHostedZoneCommentCommand = async (
@@ -5698,7 +3455,7 @@ export const de_UpdateHostedZoneCommentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHostedZoneCommentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateHostedZoneCommentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5711,38 +3468,6 @@ export const de_UpdateHostedZoneCommentCommand = async (
 };
 
 /**
- * deserializeAws_restXmlUpdateHostedZoneCommentCommandError
- */
-const de_UpdateHostedZoneCommentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHostedZoneCommentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchHostedZone":
-    case "com.amazonaws.route53#NoSuchHostedZone":
-      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
-    case "PriorRequestNotComplete":
-    case "com.amazonaws.route53#PriorRequestNotComplete":
-      throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlUpdateTrafficPolicyCommentCommand
  */
 export const de_UpdateTrafficPolicyCommentCommand = async (
@@ -5750,7 +3475,7 @@ export const de_UpdateTrafficPolicyCommentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTrafficPolicyCommentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTrafficPolicyCommentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5763,38 +3488,6 @@ export const de_UpdateTrafficPolicyCommentCommand = async (
 };
 
 /**
- * deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError
- */
-const de_UpdateTrafficPolicyCommentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrafficPolicyCommentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.route53#ConcurrentModification":
-      throw await de_ConcurrentModificationRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restXmlUpdateTrafficPolicyInstanceCommand
  */
 export const de_UpdateTrafficPolicyInstanceCommand = async (
@@ -5802,7 +3495,7 @@ export const de_UpdateTrafficPolicyInstanceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTrafficPolicyInstanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTrafficPolicyInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5815,33 +3508,222 @@ export const de_UpdateTrafficPolicyInstanceCommand = async (
 };
 
 /**
- * deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError
+ * deserialize_Aws_restXmlCommandError
  */
-const de_UpdateTrafficPolicyInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrafficPolicyInstanceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConflictingTypes":
-    case "com.amazonaws.route53#ConflictingTypes":
-      throw await de_ConflictingTypesRes(parsedOutput, context);
+    case "ConcurrentModification":
+    case "com.amazonaws.route53#ConcurrentModification":
+      throw await de_ConcurrentModificationRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53#InvalidInput":
       throw await de_InvalidInputRes(parsedOutput, context);
-    case "NoSuchTrafficPolicy":
-    case "com.amazonaws.route53#NoSuchTrafficPolicy":
-      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
-    case "NoSuchTrafficPolicyInstance":
-    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
-      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
+    case "InvalidKMSArn":
+    case "com.amazonaws.route53#InvalidKMSArn":
+      throw await de_InvalidKMSArnRes(parsedOutput, context);
+    case "InvalidKeySigningKeyStatus":
+    case "com.amazonaws.route53#InvalidKeySigningKeyStatus":
+      throw await de_InvalidKeySigningKeyStatusRes(parsedOutput, context);
+    case "InvalidSigningStatus":
+    case "com.amazonaws.route53#InvalidSigningStatus":
+      throw await de_InvalidSigningStatusRes(parsedOutput, context);
+    case "NoSuchKeySigningKey":
+    case "com.amazonaws.route53#NoSuchKeySigningKey":
+      throw await de_NoSuchKeySigningKeyRes(parsedOutput, context);
+    case "ConflictingDomainExists":
+    case "com.amazonaws.route53#ConflictingDomainExists":
+      throw await de_ConflictingDomainExistsRes(parsedOutput, context);
+    case "InvalidVPCId":
+    case "com.amazonaws.route53#InvalidVPCId":
+      throw await de_InvalidVPCIdRes(parsedOutput, context);
+    case "LimitsExceeded":
+    case "com.amazonaws.route53#LimitsExceeded":
+      throw await de_LimitsExceededRes(parsedOutput, context);
+    case "NoSuchHostedZone":
+    case "com.amazonaws.route53#NoSuchHostedZone":
+      throw await de_NoSuchHostedZoneRes(parsedOutput, context);
+    case "NotAuthorizedException":
+    case "com.amazonaws.route53#NotAuthorizedException":
+      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
     case "PriorRequestNotComplete":
     case "com.amazonaws.route53#PriorRequestNotComplete":
       throw await de_PriorRequestNotCompleteRes(parsedOutput, context);
+    case "PublicZoneVPCAssociation":
+    case "com.amazonaws.route53#PublicZoneVPCAssociation":
+      throw await de_PublicZoneVPCAssociationRes(parsedOutput, context);
+    case "CidrBlockInUseException":
+    case "com.amazonaws.route53#CidrBlockInUseException":
+      throw await de_CidrBlockInUseExceptionRes(parsedOutput, context);
+    case "CidrCollectionVersionMismatchException":
+    case "com.amazonaws.route53#CidrCollectionVersionMismatchException":
+      throw await de_CidrCollectionVersionMismatchExceptionRes(parsedOutput, context);
+    case "NoSuchCidrCollectionException":
+    case "com.amazonaws.route53#NoSuchCidrCollectionException":
+      throw await de_NoSuchCidrCollectionExceptionRes(parsedOutput, context);
+    case "InvalidChangeBatch":
+    case "com.amazonaws.route53#InvalidChangeBatch":
+      throw await de_InvalidChangeBatchRes(parsedOutput, context);
+    case "NoSuchHealthCheck":
+    case "com.amazonaws.route53#NoSuchHealthCheck":
+      throw await de_NoSuchHealthCheckRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "CidrCollectionAlreadyExistsException":
+    case "com.amazonaws.route53#CidrCollectionAlreadyExistsException":
+      throw await de_CidrCollectionAlreadyExistsExceptionRes(parsedOutput, context);
+    case "HealthCheckAlreadyExists":
+    case "com.amazonaws.route53#HealthCheckAlreadyExists":
+      throw await de_HealthCheckAlreadyExistsRes(parsedOutput, context);
+    case "TooManyHealthChecks":
+    case "com.amazonaws.route53#TooManyHealthChecks":
+      throw await de_TooManyHealthChecksRes(parsedOutput, context);
+    case "DelegationSetNotAvailable":
+    case "com.amazonaws.route53#DelegationSetNotAvailable":
+      throw await de_DelegationSetNotAvailableRes(parsedOutput, context);
+    case "DelegationSetNotReusable":
+    case "com.amazonaws.route53#DelegationSetNotReusable":
+      throw await de_DelegationSetNotReusableRes(parsedOutput, context);
+    case "HostedZoneAlreadyExists":
+    case "com.amazonaws.route53#HostedZoneAlreadyExists":
+      throw await de_HostedZoneAlreadyExistsRes(parsedOutput, context);
+    case "InvalidDomainName":
+    case "com.amazonaws.route53#InvalidDomainName":
+      throw await de_InvalidDomainNameRes(parsedOutput, context);
+    case "NoSuchDelegationSet":
+    case "com.amazonaws.route53#NoSuchDelegationSet":
+      throw await de_NoSuchDelegationSetRes(parsedOutput, context);
+    case "TooManyHostedZones":
+    case "com.amazonaws.route53#TooManyHostedZones":
+      throw await de_TooManyHostedZonesRes(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.route53#InvalidArgument":
+      throw await de_InvalidArgumentRes(parsedOutput, context);
+    case "InvalidKeySigningKeyName":
+    case "com.amazonaws.route53#InvalidKeySigningKeyName":
+      throw await de_InvalidKeySigningKeyNameRes(parsedOutput, context);
+    case "KeySigningKeyAlreadyExists":
+    case "com.amazonaws.route53#KeySigningKeyAlreadyExists":
+      throw await de_KeySigningKeyAlreadyExistsRes(parsedOutput, context);
+    case "TooManyKeySigningKeys":
+    case "com.amazonaws.route53#TooManyKeySigningKeys":
+      throw await de_TooManyKeySigningKeysRes(parsedOutput, context);
+    case "InsufficientCloudWatchLogsResourcePolicy":
+    case "com.amazonaws.route53#InsufficientCloudWatchLogsResourcePolicy":
+      throw await de_InsufficientCloudWatchLogsResourcePolicyRes(parsedOutput, context);
+    case "NoSuchCloudWatchLogsLogGroup":
+    case "com.amazonaws.route53#NoSuchCloudWatchLogsLogGroup":
+      throw await de_NoSuchCloudWatchLogsLogGroupRes(parsedOutput, context);
+    case "QueryLoggingConfigAlreadyExists":
+    case "com.amazonaws.route53#QueryLoggingConfigAlreadyExists":
+      throw await de_QueryLoggingConfigAlreadyExistsRes(parsedOutput, context);
+    case "DelegationSetAlreadyCreated":
+    case "com.amazonaws.route53#DelegationSetAlreadyCreated":
+      throw await de_DelegationSetAlreadyCreatedRes(parsedOutput, context);
+    case "DelegationSetAlreadyReusable":
+    case "com.amazonaws.route53#DelegationSetAlreadyReusable":
+      throw await de_DelegationSetAlreadyReusableRes(parsedOutput, context);
+    case "HostedZoneNotFound":
+    case "com.amazonaws.route53#HostedZoneNotFound":
+      throw await de_HostedZoneNotFoundRes(parsedOutput, context);
+    case "InvalidTrafficPolicyDocument":
+    case "com.amazonaws.route53#InvalidTrafficPolicyDocument":
+      throw await de_InvalidTrafficPolicyDocumentRes(parsedOutput, context);
+    case "TooManyTrafficPolicies":
+    case "com.amazonaws.route53#TooManyTrafficPolicies":
+      throw await de_TooManyTrafficPoliciesRes(parsedOutput, context);
+    case "TrafficPolicyAlreadyExists":
+    case "com.amazonaws.route53#TrafficPolicyAlreadyExists":
+      throw await de_TrafficPolicyAlreadyExistsRes(parsedOutput, context);
+    case "NoSuchTrafficPolicy":
+    case "com.amazonaws.route53#NoSuchTrafficPolicy":
+      throw await de_NoSuchTrafficPolicyRes(parsedOutput, context);
+    case "TooManyTrafficPolicyInstances":
+    case "com.amazonaws.route53#TooManyTrafficPolicyInstances":
+      throw await de_TooManyTrafficPolicyInstancesRes(parsedOutput, context);
+    case "TrafficPolicyInstanceAlreadyExists":
+    case "com.amazonaws.route53#TrafficPolicyInstanceAlreadyExists":
+      throw await de_TrafficPolicyInstanceAlreadyExistsRes(parsedOutput, context);
+    case "TooManyTrafficPolicyVersionsForCurrentPolicy":
+    case "com.amazonaws.route53#TooManyTrafficPolicyVersionsForCurrentPolicy":
+      throw await de_TooManyTrafficPolicyVersionsForCurrentPolicyRes(parsedOutput, context);
+    case "TooManyVPCAssociationAuthorizations":
+    case "com.amazonaws.route53#TooManyVPCAssociationAuthorizations":
+      throw await de_TooManyVPCAssociationAuthorizationsRes(parsedOutput, context);
+    case "KeySigningKeyInParentDSRecord":
+    case "com.amazonaws.route53#KeySigningKeyInParentDSRecord":
+      throw await de_KeySigningKeyInParentDSRecordRes(parsedOutput, context);
+    case "KeySigningKeyInUse":
+    case "com.amazonaws.route53#KeySigningKeyInUse":
+      throw await de_KeySigningKeyInUseRes(parsedOutput, context);
+    case "CidrCollectionInUseException":
+    case "com.amazonaws.route53#CidrCollectionInUseException":
+      throw await de_CidrCollectionInUseExceptionRes(parsedOutput, context);
+    case "HealthCheckInUse":
+    case "com.amazonaws.route53#HealthCheckInUse":
+      throw await de_HealthCheckInUseRes(parsedOutput, context);
+    case "HostedZoneNotEmpty":
+    case "com.amazonaws.route53#HostedZoneNotEmpty":
+      throw await de_HostedZoneNotEmptyRes(parsedOutput, context);
+    case "NoSuchQueryLoggingConfig":
+    case "com.amazonaws.route53#NoSuchQueryLoggingConfig":
+      throw await de_NoSuchQueryLoggingConfigRes(parsedOutput, context);
+    case "DelegationSetInUse":
+    case "com.amazonaws.route53#DelegationSetInUse":
+      throw await de_DelegationSetInUseRes(parsedOutput, context);
+    case "TrafficPolicyInUse":
+    case "com.amazonaws.route53#TrafficPolicyInUse":
+      throw await de_TrafficPolicyInUseRes(parsedOutput, context);
+    case "NoSuchTrafficPolicyInstance":
+    case "com.amazonaws.route53#NoSuchTrafficPolicyInstance":
+      throw await de_NoSuchTrafficPolicyInstanceRes(parsedOutput, context);
+    case "VPCAssociationAuthorizationNotFound":
+    case "com.amazonaws.route53#VPCAssociationAuthorizationNotFound":
+      throw await de_VPCAssociationAuthorizationNotFoundRes(parsedOutput, context);
+    case "DNSSECNotFound":
+    case "com.amazonaws.route53#DNSSECNotFound":
+      throw await de_DNSSECNotFoundRes(parsedOutput, context);
+    case "LastVPCAssociation":
+    case "com.amazonaws.route53#LastVPCAssociation":
+      throw await de_LastVPCAssociationRes(parsedOutput, context);
+    case "VPCAssociationNotFound":
+    case "com.amazonaws.route53#VPCAssociationNotFound":
+      throw await de_VPCAssociationNotFoundRes(parsedOutput, context);
+    case "HostedZonePartiallyDelegated":
+    case "com.amazonaws.route53#HostedZonePartiallyDelegated":
+      throw await de_HostedZonePartiallyDelegatedRes(parsedOutput, context);
+    case "KeySigningKeyWithActiveStatusNotFound":
+    case "com.amazonaws.route53#KeySigningKeyWithActiveStatusNotFound":
+      throw await de_KeySigningKeyWithActiveStatusNotFoundRes(parsedOutput, context);
+    case "NoSuchChange":
+    case "com.amazonaws.route53#NoSuchChange":
+      throw await de_NoSuchChangeRes(parsedOutput, context);
+    case "NoSuchGeoLocation":
+    case "com.amazonaws.route53#NoSuchGeoLocation":
+      throw await de_NoSuchGeoLocationRes(parsedOutput, context);
+    case "IncompatibleVersion":
+    case "com.amazonaws.route53#IncompatibleVersion":
+      throw await de_IncompatibleVersionRes(parsedOutput, context);
+    case "HostedZoneNotPrivate":
+    case "com.amazonaws.route53#HostedZoneNotPrivate":
+      throw await de_HostedZoneNotPrivateRes(parsedOutput, context);
+    case "NoSuchCidrLocationException":
+    case "com.amazonaws.route53#NoSuchCidrLocationException":
+      throw await de_NoSuchCidrLocationExceptionRes(parsedOutput, context);
+    case "InvalidPaginationToken":
+    case "com.amazonaws.route53#InvalidPaginationToken":
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
+    case "HealthCheckVersionMismatch":
+    case "com.amazonaws.route53#HealthCheckVersionMismatch":
+      throw await de_HealthCheckVersionMismatchRes(parsedOutput, context);
+    case "ConflictingTypes":
+    case "com.amazonaws.route53#ConflictingTypes":
+      throw await de_ConflictingTypesRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

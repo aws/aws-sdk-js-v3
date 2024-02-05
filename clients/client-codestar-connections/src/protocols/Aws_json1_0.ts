@@ -506,7 +506,7 @@ export const de_CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -519,38 +519,6 @@ export const de_CreateConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateConnectionCommandError
- */
-const de_CreateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateHostCommand
  */
 export const de_CreateHostCommand = async (
@@ -558,7 +526,7 @@ export const de_CreateHostCommand = async (
   context: __SerdeContext
 ): Promise<CreateHostCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -571,32 +539,6 @@ export const de_CreateHostCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateHostCommandError
- */
-const de_CreateHostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateRepositoryLinkCommand
  */
 export const de_CreateRepositoryLinkCommand = async (
@@ -604,7 +546,7 @@ export const de_CreateRepositoryLinkCommand = async (
   context: __SerdeContext
 ): Promise<CreateRepositoryLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRepositoryLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -617,50 +559,6 @@ export const de_CreateRepositoryLinkCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateRepositoryLinkCommandError
- */
-const de_CreateRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codestarconnections#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateSyncConfigurationCommand
  */
 export const de_CreateSyncConfigurationCommand = async (
@@ -668,7 +566,7 @@ export const de_CreateSyncConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSyncConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSyncConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -681,50 +579,6 @@ export const de_CreateSyncConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateSyncConfigurationCommandError
- */
-const de_CreateSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.codestarconnections#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteConnectionCommand
  */
 export const de_DeleteConnectionCommand = async (
@@ -732,7 +586,7 @@ export const de_DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -745,32 +599,6 @@ export const de_DeleteConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteHostCommand
  */
 export const de_DeleteHostCommand = async (
@@ -778,7 +606,7 @@ export const de_DeleteHostCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHostCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -791,35 +619,6 @@ export const de_DeleteHostCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteHostCommandError
- */
-const de_DeleteHostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteRepositoryLinkCommand
  */
 export const de_DeleteRepositoryLinkCommand = async (
@@ -827,7 +626,7 @@ export const de_DeleteRepositoryLinkCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRepositoryLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRepositoryLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -840,53 +639,6 @@ export const de_DeleteRepositoryLinkCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteRepositoryLinkCommandError
- */
-const de_DeleteRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SyncConfigurationStillExistsException":
-    case "com.amazonaws.codestarconnections#SyncConfigurationStillExistsException":
-      throw await de_SyncConfigurationStillExistsExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnsupportedProviderTypeException":
-    case "com.amazonaws.codestarconnections#UnsupportedProviderTypeException":
-      throw await de_UnsupportedProviderTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteSyncConfigurationCommand
  */
 export const de_DeleteSyncConfigurationCommand = async (
@@ -894,7 +646,7 @@ export const de_DeleteSyncConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSyncConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSyncConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -907,47 +659,6 @@ export const de_DeleteSyncConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteSyncConfigurationCommandError
- */
-const de_DeleteSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetConnectionCommand
  */
 export const de_GetConnectionCommand = async (
@@ -955,7 +666,7 @@ export const de_GetConnectionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -968,35 +679,6 @@ export const de_GetConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetConnectionCommandError
- */
-const de_GetConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetHostCommand
  */
 export const de_GetHostCommand = async (
@@ -1004,7 +686,7 @@ export const de_GetHostCommand = async (
   context: __SerdeContext
 ): Promise<GetHostCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetHostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1017,35 +699,6 @@ export const de_GetHostCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetHostCommandError
- */
-const de_GetHostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRepositoryLinkCommand
  */
 export const de_GetRepositoryLinkCommand = async (
@@ -1053,7 +706,7 @@ export const de_GetRepositoryLinkCommand = async (
   context: __SerdeContext
 ): Promise<GetRepositoryLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRepositoryLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1066,47 +719,6 @@ export const de_GetRepositoryLinkCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRepositoryLinkCommandError
- */
-const de_GetRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRepositorySyncStatusCommand
  */
 export const de_GetRepositorySyncStatusCommand = async (
@@ -1114,7 +726,7 @@ export const de_GetRepositorySyncStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetRepositorySyncStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRepositorySyncStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1127,44 +739,6 @@ export const de_GetRepositorySyncStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRepositorySyncStatusCommandError
- */
-const de_GetRepositorySyncStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositorySyncStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetResourceSyncStatusCommand
  */
 export const de_GetResourceSyncStatusCommand = async (
@@ -1172,7 +746,7 @@ export const de_GetResourceSyncStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceSyncStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceSyncStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1185,44 +759,6 @@ export const de_GetResourceSyncStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetResourceSyncStatusCommandError
- */
-const de_GetResourceSyncStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceSyncStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetSyncBlockerSummaryCommand
  */
 export const de_GetSyncBlockerSummaryCommand = async (
@@ -1230,7 +766,7 @@ export const de_GetSyncBlockerSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetSyncBlockerSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSyncBlockerSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1243,44 +779,6 @@ export const de_GetSyncBlockerSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetSyncBlockerSummaryCommandError
- */
-const de_GetSyncBlockerSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSyncBlockerSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetSyncConfigurationCommand
  */
 export const de_GetSyncConfigurationCommand = async (
@@ -1288,7 +786,7 @@ export const de_GetSyncConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetSyncConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSyncConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1301,44 +799,6 @@ export const de_GetSyncConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetSyncConfigurationCommandError
- */
-const de_GetSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSyncConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListConnectionsCommand
  */
 export const de_ListConnectionsCommand = async (
@@ -1346,7 +806,7 @@ export const de_ListConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1359,32 +819,6 @@ export const de_ListConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListConnectionsCommandError
- */
-const de_ListConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListHostsCommand
  */
 export const de_ListHostsCommand = async (
@@ -1392,7 +826,7 @@ export const de_ListHostsCommand = async (
   context: __SerdeContext
 ): Promise<ListHostsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHostsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1405,26 +839,6 @@ export const de_ListHostsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListHostsCommandError
- */
-const de_ListHostsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHostsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_0ListRepositoryLinksCommand
  */
 export const de_ListRepositoryLinksCommand = async (
@@ -1432,7 +846,7 @@ export const de_ListRepositoryLinksCommand = async (
   context: __SerdeContext
 ): Promise<ListRepositoryLinksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRepositoryLinksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1445,47 +859,6 @@ export const de_ListRepositoryLinksCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListRepositoryLinksCommandError
- */
-const de_ListRepositoryLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRepositoryLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestarconnections#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListRepositorySyncDefinitionsCommand
  */
 export const de_ListRepositorySyncDefinitionsCommand = async (
@@ -1493,7 +866,7 @@ export const de_ListRepositorySyncDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListRepositorySyncDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRepositorySyncDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1506,44 +879,6 @@ export const de_ListRepositorySyncDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListRepositorySyncDefinitionsCommandError
- */
-const de_ListRepositorySyncDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRepositorySyncDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListSyncConfigurationsCommand
  */
 export const de_ListSyncConfigurationsCommand = async (
@@ -1551,7 +886,7 @@ export const de_ListSyncConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSyncConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSyncConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1564,44 +899,6 @@ export const de_ListSyncConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListSyncConfigurationsCommandError
- */
-const de_ListSyncConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSyncConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1609,7 +906,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1622,32 +919,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1655,7 +926,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1668,35 +939,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.codestarconnections#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1704,7 +946,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1717,32 +959,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateHostCommand
  */
 export const de_UpdateHostCommand = async (
@@ -1750,7 +966,7 @@ export const de_UpdateHostCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHostCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateHostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1763,41 +979,6 @@ export const de_UpdateHostCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateHostCommandError
- */
-const de_UpdateHostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.codestarconnections#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.codestarconnections#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateRepositoryLinkCommand
  */
 export const de_UpdateRepositoryLinkCommand = async (
@@ -1805,7 +986,7 @@ export const de_UpdateRepositoryLinkCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRepositoryLinkCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRepositoryLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1818,50 +999,6 @@ export const de_UpdateRepositoryLinkCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateRepositoryLinkCommandError
- */
-const de_UpdateRepositoryLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRepositoryLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConditionalCheckFailedException":
-    case "com.amazonaws.codestarconnections#ConditionalCheckFailedException":
-      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UpdateOutOfSyncException":
-    case "com.amazonaws.codestarconnections#UpdateOutOfSyncException":
-      throw await de_UpdateOutOfSyncExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateSyncBlockerCommand
  */
 export const de_UpdateSyncBlockerCommand = async (
@@ -1869,7 +1006,7 @@ export const de_UpdateSyncBlockerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSyncBlockerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSyncBlockerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1882,50 +1019,6 @@ export const de_UpdateSyncBlockerCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateSyncBlockerCommandError
- */
-const de_UpdateSyncBlockerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSyncBlockerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.codestarconnections#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.codestarconnections#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codestarconnections#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryLatestCommitFailedException":
-    case "com.amazonaws.codestarconnections#RetryLatestCommitFailedException":
-      throw await de_RetryLatestCommitFailedExceptionRes(parsedOutput, context);
-    case "SyncBlockerDoesNotExistException":
-    case "com.amazonaws.codestarconnections#SyncBlockerDoesNotExistException":
-      throw await de_SyncBlockerDoesNotExistExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codestarconnections#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateSyncConfigurationCommand
  */
 export const de_UpdateSyncConfigurationCommand = async (
@@ -1933,7 +1026,7 @@ export const de_UpdateSyncConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSyncConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSyncConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1946,18 +1039,24 @@ export const de_UpdateSyncConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateSyncConfigurationCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateSyncConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSyncConfigurationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "LimitExceededException":
+    case "com.amazonaws.codestarconnections#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.codestarconnections#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.codestarconnections#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
@@ -1970,15 +1069,36 @@ const de_UpdateSyncConfigurationCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.codestarconnections#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codestarconnections#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.codestarconnections#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.codestarconnections#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "SyncConfigurationStillExistsException":
+    case "com.amazonaws.codestarconnections#SyncConfigurationStillExistsException":
+      throw await de_SyncConfigurationStillExistsExceptionRes(parsedOutput, context);
+    case "UnsupportedProviderTypeException":
+    case "com.amazonaws.codestarconnections#UnsupportedProviderTypeException":
+      throw await de_UnsupportedProviderTypeExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codestarconnections#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.codestarconnections#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "ConditionalCheckFailedException":
+    case "com.amazonaws.codestarconnections#ConditionalCheckFailedException":
+      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
     case "UpdateOutOfSyncException":
     case "com.amazonaws.codestarconnections#UpdateOutOfSyncException":
       throw await de_UpdateOutOfSyncExceptionRes(parsedOutput, context);
+    case "RetryLatestCommitFailedException":
+    case "com.amazonaws.codestarconnections#RetryLatestCommitFailedException":
+      throw await de_RetryLatestCommitFailedExceptionRes(parsedOutput, context);
+    case "SyncBlockerDoesNotExistException":
+    case "com.amazonaws.codestarconnections#SyncBlockerDoesNotExistException":
+      throw await de_SyncBlockerDoesNotExistExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

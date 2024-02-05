@@ -831,7 +831,7 @@ export const de_CancelFlowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<CancelFlowExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelFlowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -845,44 +845,6 @@ export const de_CancelFlowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelFlowExecutionsCommandError
- */
-const de_CancelFlowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelFlowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appflow#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appflow#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateConnectorProfileCommand
  */
 export const de_CreateConnectorProfileCommand = async (
@@ -890,7 +852,7 @@ export const de_CreateConnectorProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConnectorProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -904,44 +866,6 @@ export const de_CreateConnectorProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateConnectorProfileCommandError
- */
-const de_CreateConnectorProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectorProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.appflow#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFlowCommand
  */
 export const de_CreateFlowCommand = async (
@@ -949,7 +873,7 @@ export const de_CreateFlowCommand = async (
   context: __SerdeContext
 ): Promise<CreateFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -964,53 +888,6 @@ export const de_CreateFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFlowCommandError
- */
-const de_CreateFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appflow#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "ConnectorServerException":
-    case "com.amazonaws.appflow#ConnectorServerException":
-      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.appflow#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteConnectorProfileCommand
  */
 export const de_DeleteConnectorProfileCommand = async (
@@ -1018,45 +895,13 @@ export const de_DeleteConnectorProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectorProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConnectorProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConnectorProfileCommandError
- */
-const de_DeleteConnectorProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectorProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1067,45 +912,13 @@ export const de_DeleteFlowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFlowCommandError
- */
-const de_DeleteFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1116,7 +929,7 @@ export const de_DescribeConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1130,38 +943,6 @@ export const de_DescribeConnectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeConnectorCommandError
- */
-const de_DescribeConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeConnectorEntityCommand
  */
 export const de_DescribeConnectorEntityCommand = async (
@@ -1169,7 +950,7 @@ export const de_DescribeConnectorEntityCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectorEntityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeConnectorEntityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1183,44 +964,6 @@ export const de_DescribeConnectorEntityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeConnectorEntityCommandError
- */
-const de_DescribeConnectorEntityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectorEntityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "ConnectorServerException":
-    case "com.amazonaws.appflow#ConnectorServerException":
-      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeConnectorProfilesCommand
  */
 export const de_DescribeConnectorProfilesCommand = async (
@@ -1228,7 +971,7 @@ export const de_DescribeConnectorProfilesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectorProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeConnectorProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1243,35 +986,6 @@ export const de_DescribeConnectorProfilesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeConnectorProfilesCommandError
- */
-const de_DescribeConnectorProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectorProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeConnectorsCommand
  */
 export const de_DescribeConnectorsCommand = async (
@@ -1279,7 +993,7 @@ export const de_DescribeConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeConnectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1295,35 +1009,6 @@ export const de_DescribeConnectorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeConnectorsCommandError
- */
-const de_DescribeConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFlowCommand
  */
 export const de_DescribeFlowCommand = async (
@@ -1331,7 +1016,7 @@ export const de_DescribeFlowCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1363,35 +1048,6 @@ export const de_DescribeFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFlowCommandError
- */
-const de_DescribeFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFlowExecutionRecordsCommand
  */
 export const de_DescribeFlowExecutionRecordsCommand = async (
@@ -1399,7 +1055,7 @@ export const de_DescribeFlowExecutionRecordsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFlowExecutionRecordsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFlowExecutionRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1414,38 +1070,6 @@ export const de_DescribeFlowExecutionRecordsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFlowExecutionRecordsCommandError
- */
-const de_DescribeFlowExecutionRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFlowExecutionRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConnectorEntitiesCommand
  */
 export const de_ListConnectorEntitiesCommand = async (
@@ -1453,7 +1077,7 @@ export const de_ListConnectorEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorEntitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConnectorEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1468,44 +1092,6 @@ export const de_ListConnectorEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConnectorEntitiesCommandError
- */
-const de_ListConnectorEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "ConnectorServerException":
-    case "com.amazonaws.appflow#ConnectorServerException":
-      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConnectorsCommand
  */
 export const de_ListConnectorsCommand = async (
@@ -1513,7 +1099,7 @@ export const de_ListConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConnectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1528,35 +1114,6 @@ export const de_ListConnectorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConnectorsCommandError
- */
-const de_ListConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFlowsCommand
  */
 export const de_ListFlowsCommand = async (
@@ -1564,7 +1121,7 @@ export const de_ListFlowsCommand = async (
   context: __SerdeContext
 ): Promise<ListFlowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFlowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1579,35 +1136,6 @@ export const de_ListFlowsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFlowsCommandError
- */
-const de_ListFlowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFlowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1615,7 +1143,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1629,38 +1157,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterConnectorCommand
  */
 export const de_RegisterConnectorCommand = async (
@@ -1668,7 +1164,7 @@ export const de_RegisterConnectorCommand = async (
   context: __SerdeContext
 ): Promise<RegisterConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1682,56 +1178,6 @@ export const de_RegisterConnectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterConnectorCommandError
- */
-const de_RegisterConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appflow#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "ConnectorServerException":
-    case "com.amazonaws.appflow#ConnectorServerException":
-      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.appflow#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appflow#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ResetConnectorMetadataCacheCommand
  */
 export const de_ResetConnectorMetadataCacheCommand = async (
@@ -1739,48 +1185,13 @@ export const de_ResetConnectorMetadataCacheCommand = async (
   context: __SerdeContext
 ): Promise<ResetConnectorMetadataCacheCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ResetConnectorMetadataCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ResetConnectorMetadataCacheCommandError
- */
-const de_ResetConnectorMetadataCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetConnectorMetadataCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1791,7 +1202,7 @@ export const de_StartFlowCommand = async (
   context: __SerdeContext
 ): Promise<StartFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1807,41 +1218,6 @@ export const de_StartFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartFlowCommandError
- */
-const de_StartFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.appflow#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopFlowCommand
  */
 export const de_StopFlowCommand = async (
@@ -1849,7 +1225,7 @@ export const de_StopFlowCommand = async (
   context: __SerdeContext
 ): Promise<StopFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1864,41 +1240,6 @@ export const de_StopFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopFlowCommandError
- */
-const de_StopFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.appflow#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1906,45 +1247,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1955,45 +1264,13 @@ export const de_UnregisterConnectorCommand = async (
   context: __SerdeContext
 ): Promise<UnregisterConnectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UnregisterConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UnregisterConnectorCommandError
- */
-const de_UnregisterConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnregisterConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2004,45 +1281,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2053,7 +1298,7 @@ export const de_UpdateConnectorProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectorProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConnectorProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2067,44 +1312,6 @@ export const de_UpdateConnectorProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConnectorProfileCommandError
- */
-const de_UpdateConnectorProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectorProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateConnectorRegistrationCommand
  */
 export const de_UpdateConnectorRegistrationCommand = async (
@@ -2112,7 +1319,7 @@ export const de_UpdateConnectorRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectorRegistrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConnectorRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2126,56 +1333,6 @@ export const de_UpdateConnectorRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConnectorRegistrationCommandError
- */
-const de_UpdateConnectorRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectorRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.appflow#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "ConnectorServerException":
-    case "com.amazonaws.appflow#ConnectorServerException":
-      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.appflow#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.appflow#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.appflow#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.appflow#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFlowCommand
  */
 export const de_UpdateFlowCommand = async (
@@ -2183,7 +1340,7 @@ export const de_UpdateFlowCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2197,12 +1354,9 @@ export const de_UpdateFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFlowCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFlowCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2212,27 +1366,33 @@ const de_UpdateFlowCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.appflow#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.appflow#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ConnectorAuthenticationException":
-    case "com.amazonaws.appflow#ConnectorAuthenticationException":
-      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
-    case "ConnectorServerException":
-    case "com.amazonaws.appflow#ConnectorServerException":
-      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.appflow#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appflow#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.appflow#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.appflow#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.appflow#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.appflow#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ConnectorAuthenticationException":
+    case "com.amazonaws.appflow#ConnectorAuthenticationException":
+      throw await de_ConnectorAuthenticationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appflow#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ConnectorServerException":
+    case "com.amazonaws.appflow#ConnectorServerException":
+      throw await de_ConnectorServerExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.appflow#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

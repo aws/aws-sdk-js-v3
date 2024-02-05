@@ -466,7 +466,7 @@ export const de_AssociateGatewayToServerCommand = async (
   context: __SerdeContext
 ): Promise<AssociateGatewayToServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateGatewayToServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -479,41 +479,6 @@ export const de_AssociateGatewayToServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_0AssociateGatewayToServerCommandError
- */
-const de_AssociateGatewayToServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateGatewayToServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateGatewayCommand
  */
 export const de_CreateGatewayCommand = async (
@@ -521,7 +486,7 @@ export const de_CreateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -534,38 +499,6 @@ export const de_CreateGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateGatewayCommandError
- */
-const de_CreateGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteGatewayCommand
  */
 export const de_DeleteGatewayCommand = async (
@@ -573,7 +506,7 @@ export const de_DeleteGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -586,41 +519,6 @@ export const de_DeleteGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteGatewayCommandError
- */
-const de_DeleteGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteHypervisorCommand
  */
 export const de_DeleteHypervisorCommand = async (
@@ -628,7 +526,7 @@ export const de_DeleteHypervisorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHypervisorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHypervisorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -641,47 +539,6 @@ export const de_DeleteHypervisorCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteHypervisorCommandError
- */
-const de_DeleteHypervisorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHypervisorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupgateway#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DisassociateGatewayFromServerCommand
  */
 export const de_DisassociateGatewayFromServerCommand = async (
@@ -689,7 +546,7 @@ export const de_DisassociateGatewayFromServerCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateGatewayFromServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateGatewayFromServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -702,44 +559,6 @@ export const de_DisassociateGatewayFromServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DisassociateGatewayFromServerCommandError
- */
-const de_DisassociateGatewayFromServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateGatewayFromServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetBandwidthRateLimitScheduleCommand
  */
 export const de_GetBandwidthRateLimitScheduleCommand = async (
@@ -747,7 +566,7 @@ export const de_GetBandwidthRateLimitScheduleCommand = async (
   context: __SerdeContext
 ): Promise<GetBandwidthRateLimitScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBandwidthRateLimitScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -760,41 +579,6 @@ export const de_GetBandwidthRateLimitScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetBandwidthRateLimitScheduleCommandError
- */
-const de_GetBandwidthRateLimitScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBandwidthRateLimitScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetGatewayCommand
  */
 export const de_GetGatewayCommand = async (
@@ -802,7 +586,7 @@ export const de_GetGatewayCommand = async (
   context: __SerdeContext
 ): Promise<GetGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -815,41 +599,6 @@ export const de_GetGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetGatewayCommandError
- */
-const de_GetGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetHypervisorCommand
  */
 export const de_GetHypervisorCommand = async (
@@ -857,7 +606,7 @@ export const de_GetHypervisorCommand = async (
   context: __SerdeContext
 ): Promise<GetHypervisorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetHypervisorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -870,41 +619,6 @@ export const de_GetHypervisorCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetHypervisorCommandError
- */
-const de_GetHypervisorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHypervisorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetHypervisorPropertyMappingsCommand
  */
 export const de_GetHypervisorPropertyMappingsCommand = async (
@@ -912,7 +626,7 @@ export const de_GetHypervisorPropertyMappingsCommand = async (
   context: __SerdeContext
 ): Promise<GetHypervisorPropertyMappingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetHypervisorPropertyMappingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -925,41 +639,6 @@ export const de_GetHypervisorPropertyMappingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetHypervisorPropertyMappingsCommandError
- */
-const de_GetHypervisorPropertyMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHypervisorPropertyMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetVirtualMachineCommand
  */
 export const de_GetVirtualMachineCommand = async (
@@ -967,7 +646,7 @@ export const de_GetVirtualMachineCommand = async (
   context: __SerdeContext
 ): Promise<GetVirtualMachineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVirtualMachineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -980,41 +659,6 @@ export const de_GetVirtualMachineCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetVirtualMachineCommandError
- */
-const de_GetVirtualMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVirtualMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ImportHypervisorConfigurationCommand
  */
 export const de_ImportHypervisorConfigurationCommand = async (
@@ -1022,7 +666,7 @@ export const de_ImportHypervisorConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<ImportHypervisorConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportHypervisorConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1035,44 +679,6 @@ export const de_ImportHypervisorConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ImportHypervisorConfigurationCommandError
- */
-const de_ImportHypervisorConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportHypervisorConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupgateway#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListGatewaysCommand
  */
 export const de_ListGatewaysCommand = async (
@@ -1080,7 +686,7 @@ export const de_ListGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1093,38 +699,6 @@ export const de_ListGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListGatewaysCommandError
- */
-const de_ListGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListHypervisorsCommand
  */
 export const de_ListHypervisorsCommand = async (
@@ -1132,7 +706,7 @@ export const de_ListHypervisorsCommand = async (
   context: __SerdeContext
 ): Promise<ListHypervisorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHypervisorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1145,38 +719,6 @@ export const de_ListHypervisorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListHypervisorsCommandError
- */
-const de_ListHypervisorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHypervisorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1184,7 +726,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1197,41 +739,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListVirtualMachinesCommand
  */
 export const de_ListVirtualMachinesCommand = async (
@@ -1239,7 +746,7 @@ export const de_ListVirtualMachinesCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualMachinesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVirtualMachinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1252,38 +759,6 @@ export const de_ListVirtualMachinesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListVirtualMachinesCommandError
- */
-const de_ListVirtualMachinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualMachinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutBandwidthRateLimitScheduleCommand
  */
 export const de_PutBandwidthRateLimitScheduleCommand = async (
@@ -1291,7 +766,7 @@ export const de_PutBandwidthRateLimitScheduleCommand = async (
   context: __SerdeContext
 ): Promise<PutBandwidthRateLimitScheduleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutBandwidthRateLimitScheduleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1304,41 +779,6 @@ export const de_PutBandwidthRateLimitScheduleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutBandwidthRateLimitScheduleCommandError
- */
-const de_PutBandwidthRateLimitScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutBandwidthRateLimitScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutHypervisorPropertyMappingsCommand
  */
 export const de_PutHypervisorPropertyMappingsCommand = async (
@@ -1346,7 +786,7 @@ export const de_PutHypervisorPropertyMappingsCommand = async (
   context: __SerdeContext
 ): Promise<PutHypervisorPropertyMappingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutHypervisorPropertyMappingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1359,47 +799,6 @@ export const de_PutHypervisorPropertyMappingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutHypervisorPropertyMappingsCommandError
- */
-const de_PutHypervisorPropertyMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutHypervisorPropertyMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupgateway#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutMaintenanceStartTimeCommand
  */
 export const de_PutMaintenanceStartTimeCommand = async (
@@ -1407,7 +806,7 @@ export const de_PutMaintenanceStartTimeCommand = async (
   context: __SerdeContext
 ): Promise<PutMaintenanceStartTimeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMaintenanceStartTimeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1420,44 +819,6 @@ export const de_PutMaintenanceStartTimeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutMaintenanceStartTimeCommandError
- */
-const de_PutMaintenanceStartTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMaintenanceStartTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand
  */
 export const de_StartVirtualMachinesMetadataSyncCommand = async (
@@ -1465,7 +826,7 @@ export const de_StartVirtualMachinesMetadataSyncCommand = async (
   context: __SerdeContext
 ): Promise<StartVirtualMachinesMetadataSyncCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartVirtualMachinesMetadataSyncCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1478,44 +839,6 @@ export const de_StartVirtualMachinesMetadataSyncCommand = async (
 };
 
 /**
- * deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommandError
- */
-const de_StartVirtualMachinesMetadataSyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartVirtualMachinesMetadataSyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupgateway#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1523,7 +846,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1536,41 +859,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TestHypervisorConfigurationCommand
  */
 export const de_TestHypervisorConfigurationCommand = async (
@@ -1578,7 +866,7 @@ export const de_TestHypervisorConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<TestHypervisorConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestHypervisorConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1591,44 +879,6 @@ export const de_TestHypervisorConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TestHypervisorConfigurationCommandError
- */
-const de_TestHypervisorConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestHypervisorConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1636,7 +886,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1649,41 +899,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateGatewayInformationCommand
  */
 export const de_UpdateGatewayInformationCommand = async (
@@ -1691,7 +906,7 @@ export const de_UpdateGatewayInformationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewayInformationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGatewayInformationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1704,44 +919,6 @@ export const de_UpdateGatewayInformationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateGatewayInformationCommandError
- */
-const de_UpdateGatewayInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewayInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backupgateway#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateGatewaySoftwareNowCommand
  */
 export const de_UpdateGatewaySoftwareNowCommand = async (
@@ -1749,7 +926,7 @@ export const de_UpdateGatewaySoftwareNowCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGatewaySoftwareNowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1762,41 +939,6 @@ export const de_UpdateGatewaySoftwareNowCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateGatewaySoftwareNowCommandError
- */
-const de_UpdateGatewaySoftwareNowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGatewaySoftwareNowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.backupgateway#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupgateway#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.backupgateway#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateHypervisorCommand
  */
 export const de_UpdateHypervisorCommand = async (
@@ -1804,7 +946,7 @@ export const de_UpdateHypervisorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateHypervisorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateHypervisorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1817,36 +959,33 @@ export const de_UpdateHypervisorCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateHypervisorCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateHypervisorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateHypervisorCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupgateway#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.backupgateway#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.backupgateway#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupgateway#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.backupgateway#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.backupgateway#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backupgateway#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.backupgateway#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

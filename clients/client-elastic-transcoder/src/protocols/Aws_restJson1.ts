@@ -445,54 +445,13 @@ export const de_CancelJobCommand = async (
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CancelJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelJobCommandError
- */
-const de_CancelJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -503,7 +462,7 @@ export const de_CreateJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -517,47 +476,6 @@ export const de_CreateJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateJobCommandError
- */
-const de_CreateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.elastictranscoder#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePipelineCommand
  */
 export const de_CreatePipelineCommand = async (
@@ -565,7 +483,7 @@ export const de_CreatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -580,47 +498,6 @@ export const de_CreatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePipelineCommandError
- */
-const de_CreatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.elastictranscoder#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePresetCommand
  */
 export const de_CreatePresetCommand = async (
@@ -628,7 +505,7 @@ export const de_CreatePresetCommand = async (
   context: __SerdeContext
 ): Promise<CreatePresetCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreatePresetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -643,44 +520,6 @@ export const de_CreatePresetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePresetCommandError
- */
-const de_CreatePresetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePresetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.elastictranscoder#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeletePipelineCommand
  */
 export const de_DeletePipelineCommand = async (
@@ -688,54 +527,13 @@ export const de_DeletePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeletePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePipelineCommandError
- */
-const de_DeletePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -746,51 +544,13 @@ export const de_DeletePresetCommand = async (
   context: __SerdeContext
 ): Promise<DeletePresetCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeletePresetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePresetCommandError
- */
-const de_DeletePresetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePresetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -801,7 +561,7 @@ export const de_ListJobsByPipelineCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListJobsByPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -813,44 +573,6 @@ export const de_ListJobsByPipelineCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListJobsByPipelineCommandError
- */
-const de_ListJobsByPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsByPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -861,7 +583,7 @@ export const de_ListJobsByStatusCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListJobsByStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -876,44 +598,6 @@ export const de_ListJobsByStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListJobsByStatusCommandError
- */
-const de_ListJobsByStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsByStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPipelinesCommand
  */
 export const de_ListPipelinesCommand = async (
@@ -921,7 +605,7 @@ export const de_ListPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -936,41 +620,6 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPipelinesCommandError
- */
-const de_ListPipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPresetsCommand
  */
 export const de_ListPresetsCommand = async (
@@ -978,7 +627,7 @@ export const de_ListPresetsCommand = async (
   context: __SerdeContext
 ): Promise<ListPresetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPresetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -993,41 +642,6 @@ export const de_ListPresetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPresetsCommandError
- */
-const de_ListPresetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPresetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ReadJobCommand
  */
 export const de_ReadJobCommand = async (
@@ -1035,7 +649,7 @@ export const de_ReadJobCommand = async (
   context: __SerdeContext
 ): Promise<ReadJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ReadJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1049,44 +663,6 @@ export const de_ReadJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ReadJobCommandError
- */
-const de_ReadJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReadJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ReadPipelineCommand
  */
 export const de_ReadPipelineCommand = async (
@@ -1094,7 +670,7 @@ export const de_ReadPipelineCommand = async (
   context: __SerdeContext
 ): Promise<ReadPipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ReadPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1109,44 +685,6 @@ export const de_ReadPipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ReadPipelineCommandError
- */
-const de_ReadPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReadPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ReadPresetCommand
  */
 export const de_ReadPresetCommand = async (
@@ -1154,7 +692,7 @@ export const de_ReadPresetCommand = async (
   context: __SerdeContext
 ): Promise<ReadPresetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ReadPresetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1168,44 +706,6 @@ export const de_ReadPresetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ReadPresetCommandError
- */
-const de_ReadPresetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReadPresetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TestRoleCommand
  */
 export const de_TestRoleCommand = async (
@@ -1213,7 +713,7 @@ export const de_TestRoleCommand = async (
   context: __SerdeContext
 ): Promise<TestRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TestRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1228,44 +728,6 @@ export const de_TestRoleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1TestRoleCommandError
- */
-const de_TestRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePipelineCommand
  */
 export const de_UpdatePipelineCommand = async (
@@ -1273,7 +735,7 @@ export const de_UpdatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1288,47 +750,6 @@ export const de_UpdatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePipelineCommandError
- */
-const de_UpdatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePipelineNotificationsCommand
  */
 export const de_UpdatePipelineNotificationsCommand = async (
@@ -1336,7 +757,7 @@ export const de_UpdatePipelineNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePipelineNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1347,47 +768,6 @@ export const de_UpdatePipelineNotificationsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdatePipelineNotificationsCommandError
- */
-const de_UpdatePipelineNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.elastictranscoder#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IncompatibleVersionException":
-    case "com.amazonaws.elastictranscoder#IncompatibleVersionException":
-      throw await de_IncompatibleVersionExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.elastictranscoder#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.elastictranscoder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.elastictranscoder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.elastictranscoder#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1398,7 +778,7 @@ export const de_UpdatePipelineStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePipelineStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1412,12 +792,9 @@ export const de_UpdatePipelineStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePipelineStatusCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdatePipelineStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineStatusCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1442,6 +819,9 @@ const de_UpdatePipelineStatusCommandError = async (
     case "ValidationException":
     case "com.amazonaws.elastictranscoder#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.elastictranscoder#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

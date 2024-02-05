@@ -114,7 +114,7 @@ export const de_DescribeServicesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -127,44 +127,6 @@ export const de_DescribeServicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeServicesCommandError
- */
-const de_DescribeServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.pricing#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.pricing#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pricing#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAttributeValuesCommand
  */
 export const de_GetAttributeValuesCommand = async (
@@ -172,7 +134,7 @@ export const de_GetAttributeValuesCommand = async (
   context: __SerdeContext
 ): Promise<GetAttributeValuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAttributeValuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -185,44 +147,6 @@ export const de_GetAttributeValuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAttributeValuesCommandError
- */
-const de_GetAttributeValuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAttributeValuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.pricing#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.pricing#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pricing#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPriceListFileUrlCommand
  */
 export const de_GetPriceListFileUrlCommand = async (
@@ -230,7 +154,7 @@ export const de_GetPriceListFileUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetPriceListFileUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPriceListFileUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -243,41 +167,6 @@ export const de_GetPriceListFileUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPriceListFileUrlCommandError
- */
-const de_GetPriceListFileUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPriceListFileUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pricing#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.pricing#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.pricing#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pricing#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetProductsCommand
  */
 export const de_GetProductsCommand = async (
@@ -285,7 +174,7 @@ export const de_GetProductsCommand = async (
   context: __SerdeContext
 ): Promise<GetProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetProductsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -298,44 +187,6 @@ export const de_GetProductsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetProductsCommandError
- */
-const de_GetProductsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProductsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.pricing#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.pricing#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.pricing#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.pricing#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pricing#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPriceListsCommand
  */
 export const de_ListPriceListsCommand = async (
@@ -343,7 +194,7 @@ export const de_ListPriceListsCommand = async (
   context: __SerdeContext
 ): Promise<ListPriceListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPriceListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -356,21 +207,15 @@ export const de_ListPriceListsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPriceListsCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_ListPriceListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPriceListsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.pricing#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ExpiredNextTokenException":
     case "com.amazonaws.pricing#ExpiredNextTokenException":
       throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
@@ -386,6 +231,9 @@ const de_ListPriceListsCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.pricing#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
